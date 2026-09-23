@@ -1,7 +1,6 @@
-# Thread Trace Part 1: ROCprof Compute Viewer
+# thread-trace
 
 source: https://rocm.blogs.amd.com/software-tools-optimization/thread-trace/README.html
-published: 2026-09-15T00:00:00+00:00
 
 # Thread Trace Part 1: ROCprof Compute Viewer[#](https://rocm.blogs.amd.com#thread-trace-part-1-rocprof-compute-viewer)
 

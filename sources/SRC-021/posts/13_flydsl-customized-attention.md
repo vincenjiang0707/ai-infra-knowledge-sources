@@ -1,7 +1,6 @@
-# Implementing a High-Performance Custom Diffusion Attention Kernel with FlyDSL
+# flydsl-customized-attention
 
 source: https://rocm.blogs.amd.com/software-tools-optimization/flydsl-customized-attention/README.html
-published: 2026-09-17T00:00:00+00:00
 
 # Implementing a High-Performance Custom Diffusion Attention Kernel with FlyDSL[#](https://rocm.blogs.amd.com#implementing-a-high-performance-custom-diffusion-attention-kernel-with-flydsl)
 

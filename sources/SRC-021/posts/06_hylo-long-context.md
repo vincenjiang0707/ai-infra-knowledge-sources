@@ -1,7 +1,6 @@
-# Zebra-HyLo: Upcycling Transformers into Long-Context Hybrid LLMs on AMD Instinct™ GPUs
+# hylo-long-context
 
 source: https://rocm.blogs.amd.com/artificial-intelligence/hylo-long-context/README.html
-published: 2026-09-22T00:00:00+00:00
 
 # Zebra-HyLo: Upcycling Transformers into Long-Context Hybrid LLMs on AMD Instinct™ GPUs[#](https://rocm.blogs.amd.com#zebra-hylo-upcycling-transformers-into-long-context-hybrid-llms-on-amd-instinct-gpus)
 

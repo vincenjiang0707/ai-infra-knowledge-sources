@@ -1,7 +1,6 @@
-# Benchmarking Kimi-K3 Across vLLM, SGLang, and ATOM on MI350X
+# kimi-k3-mad
 
 source: https://rocm.blogs.amd.com/artificial-intelligence/kimi-k3-mad/README.html
-published: 2026-09-22T00:00:00+00:00
 
 # Benchmarking Kimi-K3 Across vLLM, SGLang, and ATOM on MI350X[#](https://rocm.blogs.amd.com#benchmarking-kimi-k3-across-vllm-sglang-and-atom-on-mi350x)
 

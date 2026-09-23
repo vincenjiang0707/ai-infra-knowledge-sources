@@ -9,18 +9,36 @@
  "started_at": "2026-09-23T04:09:07Z",
  "finished_at": "2026-09-23T04:09:07Z",
  "duration_seconds": 9.8,
- "attempts": 1,
+ "attempts": 4,
  "channels": {
   "site_c26a2db8": {
-   "type": "site",
+   "type": "blog",
    "url": "https://rocm.blogs.amd.com/",
-   "mode": "rss",
    "status": "ok",
-   "output": "feed_meta.json",
-   "entries": 10,
-   "posts_fetched": 10,
-   "posts_failed": 0,
-   "output_dir": "posts/"
+   "mode": "blog",
+   "posts": [
+    "01_mlperf-inf-v6.1.md",
+    "02_mi450-lds-optimization.md",
+    "03_rocm-x-blog.md",
+    "04_rocm-7.14-blog.md",
+    "05_att.md",
+    "06_hylo-long-context.md",
+    "07_kimi-k3-mad.md",
+    "08_hyperloom-optimization.md",
+    "09_glm52-mxfp4-mi355.md",
+    "10_mlperf-inf_v6.1-repro.md",
+    "11_dflash-on-MI355x.md",
+    "12_poro2-knowledge-graph.md",
+    "13_flydsl-customized-attention.md",
+    "14_thread-trace.md",
+    "15_hipkittens-gemm-ladder.md",
+    "16_iteratively-tuning-hipblaslt.md",
+    "17_rai-lemonade-agents.md",
+    "18_rocm-aup-learning.md",
+    "19_cdna5-helios.md",
+    "20_rocm-7.13-blog.md"
+   ],
+   "total_chars": 561991
   }
  },
  "cursor": {

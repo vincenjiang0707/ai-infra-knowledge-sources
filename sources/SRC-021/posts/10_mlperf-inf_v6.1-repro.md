@@ -1,7 +1,6 @@
-# Reproducing AMD MLPerf Inference v6.1 Submission Results
+# mlperf-inf_v6.1-repro
 
 source: https://rocm.blogs.amd.com/artificial-intelligence/mlperf-inf_v6.1-repro/README.html
-published: 2026-09-17T00:00:00+00:00
 
 # Reproducing AMD MLPerf Inference v6.1 Submission Results[#](https://rocm.blogs.amd.com#reproducing-amd-mlperf-inference-v6-1-submission-results)
 

@@ -1,7 +1,6 @@
-# Serving GLM-5.2-MXFP4 on AMD Instinct™ MI355X: When Prefill Context Parallelism Pays
+# glm52-mxfp4-mi355
 
 source: https://rocm.blogs.amd.com/artificial-intelligence/glm52-mxfp4-mi355/README.html
-published: 2026-09-21T00:00:00+00:00
 
 # Serving GLM-5.2-MXFP4 on AMD Instinct™ MI355X: When Prefill Context Parallelism Pays[#](https://rocm.blogs.amd.com#serving-glm-5-2-mxfp4-on-amd-instinct-mi355x-when-prefill-context-parallelism-pays)
 

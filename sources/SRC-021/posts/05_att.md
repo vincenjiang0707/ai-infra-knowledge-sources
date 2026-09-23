@@ -1,7 +1,6 @@
-# Performance Profiling on AMD GPUs - Part 6: Advanced Thread Trace (ATT) - The Microscope for Your Application
+# att
 
 source: https://rocm.blogs.amd.com/software-tools-optimization/profiling-guide/att/README.html
-published: 2026-09-22T00:00:00+00:00
 
 # Performance Profiling on AMD GPUs - Part 6: Advanced Thread Trace (ATT) - The Microscope for Your Application[#](https://rocm.blogs.amd.com#performance-profiling-on-amd-gpus-part-6-advanced-thread-trace-att-the-microscope-for-your-application)
 

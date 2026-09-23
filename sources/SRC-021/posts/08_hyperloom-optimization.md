@@ -1,7 +1,6 @@
-# Hyperloom: A Multi-Agent Harness for Autonomous Inference Optimization on AMD GPUs
+# hyperloom-optimization
 
 source: https://rocm.blogs.amd.com/software-tools-optimization/hyperloom-optimization/README.html
-published: 2026-09-21T00:00:00+00:00
 
 # Hyperloom: A Multi-Agent Harness for Autonomous Inference Optimization on AMD GPUs[#](https://rocm.blogs.amd.com#hyperloom-a-multi-agent-harness-for-autonomous-inference-optimization-on-amd-gpus)
 

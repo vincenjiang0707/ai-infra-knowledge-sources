@@ -1,7 +1,6 @@
-# Technical Dive into AMD MLPerf Inference v6.1 Submission
+# mlperf-inf-v6.1
 
 source: https://rocm.blogs.amd.com/artificial-intelligence/mlperf-inf-v6.1/README.html
-published: 2026-09-17T00:00:00+00:00
 
 # Technical Dive into AMD MLPerf Inference v6.1 Submission[#](https://rocm.blogs.amd.com#technical-dive-into-amd-mlperf-inference-v6-1-submission)
 
