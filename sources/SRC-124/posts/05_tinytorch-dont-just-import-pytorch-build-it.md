@@ -1,0 +1,155 @@
+# tinytorch-dont-just-import-pytorch-build-it
+
+source: https://pytorch.org/blog/tinytorch-dont-just-import-pytorch-build-it/
+
+### Featured projects
+
+*A framework you write yourself, tensors through transformers*
+
+## TL;DR
+
+Every mature systems project eventually needs a teaching version. TinyTorch is a free, open-source curriculum where you build a working ML framework from scratch, tensors through transformers, in pure Python, using PyTorch’s own API. Twenty modules. Runs on a laptop with 4 GB of RAM and no GPU. It is at [tinytorch.ai](https://tinytorch.ai).
+
+The rest of this post is why we think it needed to exist, and what six years of running it taught us that might be useful to anyone else doing open curriculum work.
+
+## Every Systems Field Eventually Builds Its Teaching Version
+
+Unix got too big to hold in your head, so Andrew Tanenbaum wrote MINIX. Small enough that a student could actually finish it. It went on to shape a generation of systems engineers and famously inspired Linux.
+
+Compilers went the same way. LLVM and GCC are decades of excellent engineering and close to unreadable as a first text, so courses teach the Tiger compiler instead. MIT rewrote xv6 from x86 to RISC-V for the same reason, stripping out historical complexity to expose clean abstractions. Before all of them, Nachos and Pintos and SICP.
+
+None of these were trying to replace the production system. They taught what production systems have to hide.
+
+PyTorch is at that point now, which is a compliment. There is genuinely good writing on its internals, most of it by the people who wrote them, and nearly all of it assumes you already think like a framework engineer. What has been missing is the rung below that. Something you build yourself, with grading infrastructure a university can actually adopt for credit, that a self-learner can get through without a GPU budget.
+
+## Why This Matters to PyTorch, Not Only to Students
+
+There is a version of this argument that only educators care about. This is not that version.
+
+Every framework runs on a small population of people who can reason about it from the inside. The ones who spot a memory leak in tensor caching, who know when gradient checkpointing is worth the recompute, who can look at a slow training run and name the bottleneck before they open a profiler.
+
+That population does not grow by itself. Right now most people get to PyTorch’s internals by accident, because something broke badly enough to force the trip. They learn the codebase under deadline pressure, from the outside in, in whatever order the bug happened to demand. Anyone who has onboarded a systems engineer knows the result, which is competence with holes in it.
+
+Building the thing yourself changes the arrival path, and it changes it permanently. Once you have implemented autograd you cannot unsee the computational graph. Once you have profiled your own memory allocation you cannot unknow the cost.
+
+**Figure 1**: The same linear layer, two ways. On the left, the framework call that works right up until it does not. On the right, the version you wrote and can open when something breaks. The difference is not syntax, it is whether the abstraction is a wall or a door.
+
+A student who has written `backward()`
+
+themselves, who allocated the momentum and variance buffers and watched Adam’s memory footprint triple, shows up to PyTorch’s real autograd with the mental model already loaded. They read the production code as a more sophisticated version of something they understand. That is a cheaper engineer to onboard.
+
+The part we did not anticipate is that companies want this too. Teams have used TinyTorch for new-hire onboarding as a two to three week intensive, as internal training spread across a quarter, and as targeted debugging workshops where somebody works through Module 06 on autograd or Module 12 on attention because that is the subsystem they keep losing to. You do not have to be enrolled anywhere.
+
+## What We Built
+
+Twenty modules in four tiers, driven by a CLI called `tito`
+
+, delivered as Jupyter notebooks with the hard parts cut out for you to fill in. You need Python and to be comfortable with NumPy. You do not need a GPU, a cloud account, or any prior ML systems background.
+
+**Figure 2**: The four tiers. Each one depends on the tier below it, so you cannot skip ahead to optimization without having built the training loop you are optimizing. Foundation fits a half-semester module, all twenty fit a four-credit course, and self-paced learners take anywhere from a few intense weeks to several unhurried months.
+
+Three design decisions do most of the pedagogical work.
+
+**Systems from day one.** Module 01 ships a `memory_footprint()`
+
+method before it ships matrix multiplication. You learn that one batch of 32 ImageNet images costs 19 MB by computing it, not by reading it somewhere. Later you find out Adam needs roughly 3× the optimizer memory of SGD, because you allocated those buffers yourself and then measured them.
+
+**Progressive disclosure.** The `Tensor`
+
+class stays clean through Module 05, with no gradient machinery cluttering up data layout and arithmetic. Then in Module 06 you implement `enable_autograd()`
+
+, which bolts `requires_grad`
+
+, `.grad`
+
+, and `.backward()`
+
+onto the class you already understand. Your old code keeps working.
+
+We went back and forth on this one. The tasteful way to do it is inheritance. What we shipped is runtime monkey-patching, which is going to offend somebody reading this. It won because it keeps one `Tensor`
+
+class across all twenty modules instead of two, and because the moment your tensors visibly grow new powers turns out to be the thing students remember. It also happens to mirror PyTorch 0.4, which merged `Variable`
+
+into `Tensor`
+
+for roughly the same reason.
+
+**Figure 3**: The gradient of matrix multiplication, as a learner meets it in Module 06. The docstring gives you the mathematical rule and the numbered approach breaks it into steps, but the implementation is yours. All twenty modules look like this.
+
+**Build to validate.** Six historical milestones prove your implementation works. Rosenblatt’s Perceptron in 1958, the XOR crisis in 1969, the backpropagation revival in 1986, the CNN breakthrough in 1998 where your network has to clear 75% on CIFAR-10, the transformer in 2017, and finally MLPerf-style benchmarking. The history is there for motivation. The task performance is there because it is a much harder thing to fake than a unit test. Your autograd is correct because your network learns.
+
+**Figure 4**: The milestone ladder. A milestone unlocks only when the modules beneath it produce a working implementation, so the timeline doubles as a progress tracker and a correctness proof. Students recreate 67 years of ML history running nothing but code they wrote.
+
+Throughout, TinyTorch mirrors PyTorch’s API deliberately. The API is the transfer mechanism and it carries both ways. Somebody who builds `loss.backward()`
+
+here can open PyTorch’s version afterward and recognize the shape of it. A PyTorch developer can read our attention module in an afternoon and see how the graph gets constructed.
+
+**Figure 5**: A TinyTorch training loop next to the equivalent PyTorch loop. The imports differ and almost nothing else does, which is the entire point. Nothing you learn here has to be unlearned later.
+
+Two things it is not. The resemblance stops at the API surface, so there is no dispatcher, no C++ or CUDA layer, no JIT, nothing distributed. And it is slow. Pure Python runs somewhere between 100 and 10,000 times slower than PyTorch, which we will come back to, because it turned out to matter.
+
+## Where It Came From
+
+TinyTorch did not start as a framework. It started as a course with a problem.
+
+CS 249r launched at Harvard in 2020, a graduate seminar on TinyML, and there was no textbook to assign. So the course notes became one. We put the book up as an open repository, students and educators started fixing examples and proposing chapters, and by 2024 it had outgrown its TinyML origins because people kept asking about training at scale. It split into two volumes.
+
+Somewhere in there it became obvious a textbook was not enough. Reading about autograd and implementing autograd produce different kinds of knowledge, and only one of them survives contact with a production bug. So the project grew limbs. TinyTorch is the build limb. Around it now sit Marimo labs for poking at trade-offs, MLSys·im for performance modeling, hardware kits for Arduino and Raspberry Pi, StaffML for interview prep, and an instructor hub with slides and syllabi.
+
+**Figure 6**: The TinyTorch community map, 682 members across 92 institutions since it launched in December 2025. The clustering is the interesting part. Uptake is heaviest where GPU access is hardest, which is what the accessibility floor was for.
+
+Then there is the part that is slightly embarrassing to write down.
+
+For five years this was a slow project. Steady, word of mouth, a few hundred stars a year, the kind of thing you keep doing because the students in front of you need it. In August 2025 the repository had about 2,000 stars.
+
+In October, somebody we had never met posted it on X.
+
+Two weeks later we were at 5,000. By December we had passed 10,000, and today it is above 27,000, with 95 or more contributors and courses running at 50 or more universities. We would like to tell you we engineered that. We did not. One person with reach decided the work was worth sharing, and five years of quiet accumulation went off in about eleven months.
+
+**Figure 7**: Stars on the Machine Learning Systems repository. The cliff is the part everyone looks at. The flat part is where the work happened.
+
+TinyTorch was built at Harvard as part of the [Machine Learning Systems](https://mlsysbook.ai) project, and Andrea now maintains it from ETH Zurich, where both of us are currently based. Handing a curriculum to a second institution is the first honest test of whether you wrote it for anyone beyond your own classroom.
+
+## What Transferred to Other Projects
+
+These guidelines ask for lessons other institutions can apply, which is the right thing to ask for. Four of them.
+
+**Match the production API exactly.** The highest-leverage decision we made was refusing to invent our own syntax. Every hour a learner spends translating between your teaching API and the real one is an hour that buys them nothing and costs you a fraction of them. Treat API compatibility as a hard requirement, not a nice-to-have.
+
+**Decide your hardware floor before your feature list.** TinyTorch runs on a dual-core 2 GHz CPU with 4 GB of RAM and no network during training, because we ship two tiny offline datasets (about 1,000 grayscale digits and 350 conversational question-answer pairs, under 50 MB together). That cost us GPU support. It bought us Chromebook classrooms, five-year-old laptops, and universities whose network policies would have blocked anything else. Work out who you are willing to exclude before you start, because that call gets expensive to revisit.
+
+The slowness we apologized for turned out to be the best accident in the project. When a student’s `Conv2d`
+
+takes 97 seconds on a batch that PyTorch clears in 10 milliseconds, the argument for vectorization stops being something they read and starts being something that happened to them.
+
+**Instructor infrastructure is the actual bottleneck.** Good content does not get adopted. Gradeable content gets adopted. We shipped NBGrader autograding with locked test cells and point allocations, an `INSTRUCTOR.md`
+
+covering setup and rubrics and the errors students actually hit, milestone validation scripts, and three integration models so a department can run twenty modules as a four-credit course, eight as a half-semester unit, or the optimization tier alone as an edge seminar. Budget as much for the instructor path as the learner path. The instructor is the one who has to defend the choice to a curriculum committee, and none of the teaching quality matters if they cannot.
+
+**Plan succession before you need it.** Academic open source dies when the PI changes focus. We are handling that in the open, with a maintenance commitment through 2027, a two-week pull request review target, and a governance transition across 2026 and 2027 that sets up an educator advisory board and writes down who takes over. Sustainability is not a working-harder problem. It is a making-yourself-replaceable problem, and it needs a date on it.
+
+## What We Still Do Not Know
+
+TinyTorch is in preview and aimed at classroom readiness for Fall 2026. The limits are worth more to you than a clean success story.
+
+We have not measured learning outcomes. The design leans on constructionism, cognitive apprenticeship, productive failure, threshold concepts, and five decades of evidence that build-it-yourself works in systems education. That is a strong prior. It is not a result. We do not have controlled data showing TinyTorch students debug production systems better than students who took a conventional course, and getting it needs instructors willing to run the thing and tell us what happened.
+
+The scope is also narrower than the ambition. Single-node, CPU-only, so it teaches memory and compute well and teaches nothing about GPU kernels, distributed training, or gradient synchronization. Parallel data loading and GPU memory management are the one competency area we mapped out and then deliberately left empty, because doing them properly breaks the 4 GB floor. Those are real holes and they need people, not a roadmap.
+
+## Where You Can Help
+
+If you would rather just try it, installation is one line and everything runs locally.
+
+Five openings, roughly in order of how much each would move things.
+
+**Review a module against real PyTorch semantics.**If you work on PyTorch internals, an hour checking whether our autograd or our optimizer state handling or our KV cache teaches the right mental model is worth an enormous amount. Whatever TinyTorch teaches becomes what a cohort of students believes about PyTorch, and teaching something subtly wrong is worse than not teaching it. Open an issue naming the module and what you would change, or send a pull request against the notebook. We would much rather hear it now than after a thousand people have learned it.**Pilot a tier and tell us what broke.**Fall 2026 syllabi are mostly locked by now, so realistically that is Spring 2027 or Fall 2027, and shadowing the material this fall is a good way to decide. Foundation fits an undergraduate systems module, all twenty fit a semester, the Optimization tier stands alone for a TinyML or edge seminar. We want the failure reports more than the success stories.**Write the modules we cannot.**Distributed training, GPU acceleration, parallel data loading. These need somebody who already teaches the material.**Localize it.**The datasets are small and offline by design, which makes translating the conversational one into another language a weekend project with real reach.**Adopt it and say so.**Putting your institution on the community map is what tells the next department this is a real option and not an experiment.
+
+Everything lives in the [Machine Learning Systems repository](https://github.com/harvard-edge/cs249r_book). Code is MIT, curriculum is CC BY-SA 4.0, so forking and adapting for your own institution is explicitly fine, and upstreaming what you fix is appreciated.
+
+All of it is free and it stays free. If the argument here landed and you want the cheapest way to act on it, star the repository. That number is not a scoreboard for us. It is what a department chair looks at when deciding whether an open curriculum is safe to build a course on, and what a funder looks at when deciding whether this kind of work deserves support. It costs you nothing and it helps more than anything else on this list.
+
+## Join the PyTorch Academic OSPO Working Group
+
+TinyTorch is one example of universities pushing the PyTorch ecosystem forward through open collaboration, and this post exists because of the PyTorch Academic OSPO Working Group, which has been helping us turn an enthusiastic pile of learners into something with actual governance. Several of the lessons above came out of those conversations rather than out of our own code.
+
+If you are interested in sharing academic projects, developing best practices, or connecting with people working where PyTorch meets academia, consider joining the [PyTorch Academic OSPO Working Group](https://github.com/pytorch-fdn/wg-ospo-and-academic-outreach). It welcomes researchers, educators, students, and open-source practitioners.
