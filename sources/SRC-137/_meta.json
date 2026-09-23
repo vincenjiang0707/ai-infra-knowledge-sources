@@ -9,15 +9,15 @@
  "started_at": "2026-09-23T04:21:31Z",
  "finished_at": "2026-09-23T04:21:31Z",
  "duration_seconds": 2.9,
- "attempts": 1,
+ "attempts": 2,
  "channels": {
   "site_a3a8c06f": {
-   "type": "site",
+   "type": "js",
    "url": "https://developer.volcengine.com/",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 402
+   "mode": "js",
+   "chars": 560
   }
  },
  "cursor": {},

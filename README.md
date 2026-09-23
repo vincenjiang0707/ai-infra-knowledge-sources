@@ -8,7 +8,7 @@
 | 项 | 值 |
 |---|---|
 | 抓取快照日期 | 2026-09-23 |
-| 来源数 | 170（success 164 / partial 1 / blocked 5，SRC-043 寒武纪 forum 504 仍 partial）|
+| 来源数 | 170（success 163 / partial 1 / error 1 / blocked 5，SRC-043 寒武纪 forum 504 partial、SRC-129 Fireworks blog trafilatura no_md error）|
 | 文件总数 | ~5060 |
 | 总体积 | ~210 MB |
 | 来源类型 | GitHub 80 · RSS/Blog 12 · HF 8 · 学术 5 · Sitemap/Docs 12 · 论坛/国产社区 9 · 其他 |
@@ -85,6 +85,7 @@
 | 版本 | 日期 | 说明 |
 |---|---|---|
 | v1.2 | 2026-09-23 | SRC-XXX 移入 sources/ 子目录，减少顶层目录噪声 |
+| v1.4 | 2026-09-23 | js 通道批量重抓 21 个 SPA shell 候选：LMSYS blog 117→34700、PyTorch docs 95→8980、Horace He 317→276 等显著提升；SRC-016 CUDA docs timeout 退回 site；SRC-129 Fireworks blog trafilatura no_md 标 error |
 | v1.3 | 2026-09-23 | js 通道上线：playwright headless chromium 抓 JS-rendered 站；修复 SCRAPE 路径 bug（SRC 目录迁移后 load_meta/save_meta/detail_fetcher/incremental_gh/summary_gen 仍走旧路径）；SRC-031 Nuxt.js SPA shell 重抓 898 → 26979 chars |
 | v1.1 | 2026-09-23 | registry enriched（status/duration/channel_types），README 重写：按抓取类型分组 + 快速检索，去掉 scrape 引用 |
 | v1.0 | 2026-09-23 | 首轮全量抓取快照：164 success / 1 partial / 5 blocked；增量逻辑落地 |
@@ -93,7 +94,7 @@
 
 - **抓 top-N + 90 天窗口**：活跃筛选是 `comments_count > 0` 且 `updated_at < 90d`，新开或长期未活动的条目不在首次抓取范围
 - **GitHub 排序按 `updated_at` desc**：与网页默认一致，被人工置顶但 updated_at 老的条目可能漏在 top-100 之外
-- **JS 渲染站**：js 通道可用（playwright headless chromium）。已验证修复 SRC-031 Nuxt.js SPA shell（898 → 26979 chars）；CDN 受限时可用 `SCRAPE_CHROME` 指向本地 chromium 二进制
+- **JS 渲染站**：js 通道可用（playwright headless chromium）。批量已处理 22 个：显著提升 5 个（LMSYS blog 117→34700、PyTorch docs 95→8980、Horace He 317→276 等）；3 个无变化（站点首页本就无正文，如 昇腾文档中心根）；1 个 trafilatura no_md（Fireworks blog 列表）；1 个 timeout 回退（CUDA docs）；CDN 受限时可用 `SCRAPE_CHROME` 指向本地 chromium 二进制
 - **sitemap.xml 缺失站点**：走 menu BFS fallback（深度3、每 SRC ≤200 页），可能漏深层子菜单
 - **多仓 SRC（如 SRC-004 vLLM + sglang docs）**：增量时合并刷新（每仓 ≤3 页）
 - **详情抓取中 PR reviews 与 comments 是两个端点**：缺一会漏 claude[bot] 类自动审查

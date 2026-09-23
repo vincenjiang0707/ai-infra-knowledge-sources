@@ -9,7 +9,7 @@
  "started_at": "2026-09-23T03:38:51Z",
  "finished_at": "2026-09-23T03:38:51Z",
  "duration_seconds": 81.5,
- "attempts": 1,
+ "attempts": 2,
  "channels": {
   "gh_6caed060": {
    "type": "github_repo",
@@ -68,12 +68,12 @@
    "chars": 154554
   },
   "site_b556231f": {
-   "type": "site",
+   "type": "js",
    "url": "https://docs.sglang.io/",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 1758
+   "mode": "js",
+   "chars": 2041
   }
  },
  "cursor": {

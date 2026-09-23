@@ -2,18 +2,30 @@
 
 source: https://www.baseten.co/blog/
 
-Popular models
+Blog
 
-DeepSeek V4.1 Flash
+# Inference engineering
 
-GLM-5.3 Fast
+- Model performance
+[Baseten leads Coval’s voice AI benchmark](https://www.baseten.co/blog/baseten-leads-covals-voice-ai-benchmark/)Baseten defines the quality-latency Pareto frontier for STT in Coval's benchmarks.
 
-GLM-5.3
+- News
+[Introducing Baseten Chains](https://www.baseten.co/blog/introducing-baseten-chains/)Learn about Baseten's new Chains framework for deploying complex ML inference workflows across compound AI systems using multiple models and components
 
-GLM-5.3-Flash
+- Community
+[Building performant embedding workflows with Chroma and Baseten](https://www.baseten.co/blog/building-performant-embedding-workflows-with-chroma-and-baseten/)Integrate Chroma’s open-source vector database with Baseten’s fast inference engine for efficient, real-time embedding inference in your AI-native apps.
 
-Kimi K3
+- AI models
+[GLM-5.3: Scaling with post-training, intuitively explained](https://www.baseten.co/blog/glm-53/)GLM-5.3's gains came entirely from post-training. An intuitive look at the environment design, RL algorithms, and infrastructure behind the leap.
 
-Whisper Large V3
+- Product
+[Introducing Baseten Hosted Tools](https://www.baseten.co/blog/introducing-baseten-hosted-tools/)Hosted tool execution on the inference backend augments model capabilities and lowers latency.
 
-Explore all
+
+Model performance
+
+Model performance
+
+Model performance
+
+AI engineering

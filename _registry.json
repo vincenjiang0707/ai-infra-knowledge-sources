@@ -95,7 +95,7 @@
     "url": "https://github.com/vllm-project/vllm/releases"
    },
    "site_b556231f": {
-    "type": "site",
+    "type": "js",
     "url": "https://docs.sglang.io/"
    }
   },
@@ -103,13 +103,13 @@
   "started_at": "2026-09-23T03:38:51Z",
   "finished_at": "2026-09-23T03:38:51Z",
   "duration_seconds": 81.5,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 5,
-  "channels_ok": 5,
+  "channels_ok": 2,
   "channel_types": [
    "github_repo",
-   "reference",
-   "site"
+   "js",
+   "reference"
   ],
   "notes": ""
  },
@@ -202,7 +202,7 @@
     "url": "https://github.com/sgl-project/sgl-learning-materials/releases"
    },
    "site_bdf1c9ca": {
-    "type": "site",
+    "type": "js",
     "url": "https://docs.vllm.ai/projects/ascend/en/latest/"
    }
   },
@@ -210,13 +210,13 @@
   "started_at": "2026-09-23T03:39:45Z",
   "finished_at": "2026-09-23T03:39:45Z",
   "duration_seconds": 53.5,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 5,
-  "channels_ok": 5,
+  "channels_ok": 2,
   "channel_types": [
    "github_repo",
-   "reference",
-   "site"
+   "js",
+   "reference"
   ],
   "notes": ""
  },
@@ -513,7 +513,7 @@
   "started_at": "2026-09-23T04:08:32Z",
   "finished_at": "2026-09-23T05:03:40Z",
   "duration_seconds": 14.9,
-  "attempts": 2,
+  "attempts": 3,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
@@ -590,7 +590,7 @@
   "scrape_type": "site",
   "channels": {
    "site_db868101": {
-    "type": "site",
+    "type": "js",
     "url": "https://rocm.docs.amd.com/en/latest/"
    }
   },
@@ -598,11 +598,11 @@
   "started_at": "2026-09-23T04:08:48Z",
   "finished_at": "2026-09-23T04:08:48Z",
   "duration_seconds": 6.8,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -789,7 +789,7 @@
   "scrape_type": "site",
   "channels": {
    "site_35ea41ec": {
-    "type": "site",
+    "type": "js",
     "url": "https://cloud.google.com/tpu/docs"
    }
   },
@@ -797,11 +797,11 @@
   "started_at": "2026-09-23T04:10:15Z",
   "finished_at": "2026-09-23T05:04:09Z",
   "duration_seconds": 15.3,
-  "attempts": 2,
+  "attempts": 3,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -920,7 +920,7 @@
   "scrape_type": "site",
   "channels": {
    "site_56543a5f": {
-    "type": "site",
+    "type": "js",
     "url": "https://www.hiascend.com/document"
    }
   },
@@ -928,11 +928,11 @@
   "started_at": "2026-09-23T04:10:19Z",
   "finished_at": "2026-09-23T04:10:19Z",
   "duration_seconds": 4.1,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -1473,7 +1473,7 @@
   "scrape_type": "site",
   "channels": {
    "site_28e2537a": {
-    "type": "site",
+    "type": "js",
     "url": "https://qwen.readthedocs.io/"
    }
   },
@@ -1481,11 +1481,11 @@
   "started_at": "2026-09-23T04:11:05Z",
   "finished_at": "2026-09-23T04:11:05Z",
   "duration_seconds": 4.6,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -2222,7 +2222,7 @@
     "url": "https://github.com/pytorch/pytorch/releases"
    },
    "site_5b324aa6": {
-    "type": "site",
+    "type": "js",
     "url": "https://docs.pytorch.org/docs/stable/"
    }
   },
@@ -2230,13 +2230,13 @@
   "started_at": "2026-09-23T03:50:13Z",
   "finished_at": "2026-09-23T03:50:13Z",
   "duration_seconds": 79.4,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 5,
-  "channels_ok": 5,
+  "channels_ok": 2,
   "channel_types": [
    "github_repo",
-   "reference",
-   "site"
+   "js",
+   "reference"
   ],
   "notes": ""
  },
@@ -3179,7 +3179,7 @@
   "scrape_type": "site",
   "channels": {
    "site_38219096": {
-    "type": "site",
+    "type": "js",
     "url": "https://docs.nvidia.com/nsight-systems/"
    }
   },
@@ -3187,11 +3187,11 @@
   "started_at": "2026-09-23T04:13:31Z",
   "finished_at": "2026-09-23T05:04:42Z",
   "duration_seconds": 15.6,
-  "attempts": 2,
+  "attempts": 3,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -3818,7 +3818,7 @@
   "scrape_type": "site",
   "channels": {
    "site_b8d743ec": {
-    "type": "site",
+    "type": "js",
     "url": "https://www.nvidia.com/en-us/on-demand/"
    }
   },
@@ -3826,11 +3826,11 @@
   "started_at": "2026-09-23T04:14:37Z",
   "finished_at": "2026-09-23T04:14:37Z",
   "duration_seconds": 4.3,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -3842,7 +3842,7 @@
   "scrape_type": "site",
   "channels": {
    "site_47b8f5ab": {
-    "type": "site",
+    "type": "js",
     "url": "https://lmsys.org/blog/"
    }
   },
@@ -3850,11 +3850,11 @@
   "started_at": "2026-09-23T04:14:45Z",
   "finished_at": "2026-09-23T04:14:45Z",
   "duration_seconds": 8.3,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -3914,7 +3914,7 @@
   "scrape_type": "site",
   "channels": {
    "site_b68cfc03": {
-    "type": "site",
+    "type": "js",
     "url": "https://www.baseten.co/blog/"
    }
   },
@@ -3922,11 +3922,11 @@
   "started_at": "2026-09-23T04:15:30Z",
   "finished_at": "2026-09-23T04:15:30Z",
   "duration_seconds": 12.0,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -3938,7 +3938,7 @@
   "scrape_type": "site",
   "channels": {
    "site_26fb952e": {
-    "type": "site",
+    "type": "js",
     "url": "https://www.baseten.co/inference-engineering/"
    }
   },
@@ -3946,11 +3946,11 @@
   "started_at": "2026-09-23T04:15:34Z",
   "finished_at": "2026-09-23T04:15:34Z",
   "duration_seconds": 4.0,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -3986,19 +3986,19 @@
   "scrape_type": "site",
   "channels": {
    "site_943ea1df": {
-    "type": "site",
+    "type": "js",
     "url": "https://fireworks.ai/blog"
    }
   },
-  "status": "success",
+  "status": "error",
   "started_at": "2026-09-23T04:16:57Z",
   "finished_at": "2026-09-23T04:16:57Z",
   "duration_seconds": 8.1,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -4034,7 +4034,7 @@
   "scrape_type": "site",
   "channels": {
    "site_1550f989": {
-    "type": "site",
+    "type": "js",
     "url": "https://www.anyscale.com/blog"
    }
   },
@@ -4042,11 +4042,11 @@
   "started_at": "2026-09-23T04:20:24Z",
   "finished_at": "2026-09-23T04:20:24Z",
   "duration_seconds": 16.7,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -4082,7 +4082,7 @@
   "scrape_type": "site",
   "channels": {
    "site_64d7727e": {
-    "type": "site",
+    "type": "js",
     "url": "https://cloud.google.com/blog/products/ai-machine-learning"
    }
   },
@@ -4090,11 +4090,11 @@
   "started_at": "2026-09-23T04:21:19Z",
   "finished_at": "2026-09-23T04:21:19Z",
   "duration_seconds": 27.7,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -4178,7 +4178,7 @@
   "scrape_type": "site",
   "channels": {
    "site_a3a8c06f": {
-    "type": "site",
+    "type": "js",
     "url": "https://developer.volcengine.com/"
    }
   },
@@ -4186,11 +4186,11 @@
   "started_at": "2026-09-23T04:21:31Z",
   "finished_at": "2026-09-23T04:21:31Z",
   "duration_seconds": 2.9,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -4202,7 +4202,7 @@
   "scrape_type": "site",
   "channels": {
    "site_c4a21fae": {
-    "type": "site",
+    "type": "js",
     "url": "https://horace.io/"
    }
   },
@@ -4210,11 +4210,11 @@
   "started_at": "2026-09-23T04:21:36Z",
   "finished_at": "2026-09-23T04:21:36Z",
   "duration_seconds": 4.9,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -4934,7 +4934,7 @@
   "scrape_type": "site",
   "channels": {
    "site_5ec161de": {
-    "type": "site",
+    "type": "js",
     "url": "https://gitcode.com/Ascend"
    }
   },
@@ -4942,11 +4942,11 @@
   "started_at": "2026-09-23T04:24:26Z",
   "finished_at": "2026-09-23T04:24:26Z",
   "duration_seconds": 8.0,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -5016,7 +5016,7 @@
   "scrape_type": "site",
   "channels": {
    "site_03fb8a38": {
-    "type": "site",
+    "type": "js",
     "url": "https://catalog.ngc.nvidia.com/"
    }
   },
@@ -5024,11 +5024,11 @@
   "started_at": "2026-09-23T04:24:40Z",
   "finished_at": "2026-09-23T04:24:40Z",
   "duration_seconds": 14.0,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  },
@@ -5040,7 +5040,7 @@
   "scrape_type": "site",
   "channels": {
    "site_9df6505d": {
-    "type": "site",
+    "type": "js",
     "url": "https://hub.docker.com/u/rocm"
    }
   },
@@ -5048,11 +5048,11 @@
   "started_at": "2026-09-23T04:24:50Z",
   "finished_at": "2026-09-23T04:24:50Z",
   "duration_seconds": 9.5,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
   "notes": ""
  }

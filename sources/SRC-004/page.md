@@ -27,15 +27,37 @@ Open-source with widespread adoption, powering 400k+ GPUs and integrated with ma
 
 ## Get Started
 
-SGLang is an inference framework meant for production level serving. It is designed to deliver low-latency and high-throughput inference across a wide range of setups, from a single GPU to large distributed clusters.## Install SGLang
+SGLang is an inference framework meant for production level serving. It is designed to deliver low-latency and high-throughput inference across a wide range of setups, from a single GPU to large distributed clusters.## News and latest blogs
 
-Install SGLang with pip, from source, or via Docker on your preferred hardware platform.
 
-## Quickstart
+Accelerating Long-Context and Agentic Inference with NVFP4 KV Cache
 
-Launch your first model server and send requests in minutes with OpenAI-compatible APIs.
+September 16, 2026
 
-## News and latest blogs
+
+SGLang and Miles Add Day-0 Support for DeepSeek-V4.1
+
+September 10, 2026
+
+
+Running DeepSeek-V4-Flash and Kimi-K3 on Consumer Hardware with SSD Expert Pack
+
+August 29, 2026
+
+
+Infer-forge: Harness, Loop, and Graph Engineering Around SGLang
+
+August 28, 2026
+
+
+MiniMax-H3 on 8×H200: 1.95× Lossless, Up to 6.24× at 0.76–0.91 SSIM
+
+August 27, 2026
+
+
+Qwen3.8-Flash-Next: Day-0 Support in SGLang
+
+August 26, 2026
 
 ## Learn more and join the community
 

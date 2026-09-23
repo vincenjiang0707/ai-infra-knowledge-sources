@@ -5,19 +5,19 @@
  "priority": "扩",
  "scrape_type": "site",
  "blocked_reason": null,
- "status": "success",
+ "status": "error",
  "started_at": "2026-09-23T04:16:57Z",
  "finished_at": "2026-09-23T04:16:57Z",
  "duration_seconds": 8.1,
- "attempts": 1,
+ "attempts": 2,
  "channels": {
   "site_943ea1df": {
-   "type": "site",
+   "type": "js",
    "url": "https://fireworks.ai/blog",
-   "mode": "page",
-   "status": "ok",
-   "output": "page.md",
-   "chars": 173
+   "status": "error",
+   "mode": "js",
+   "chars": 2550,
+   "reason": "no_md"
   }
  },
  "cursor": {},

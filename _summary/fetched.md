@@ -1,6 +1,6 @@
 # 抓取成功
 
-共 164 项
+共 163 项
 
 - SRC-001 vLLM ⽂档 — 推理引擎与部署配⽅
 - SRC-002 vLLM 配⽅ — 推理引擎与部署配⽅
@@ -127,7 +127,6 @@
 - SRC-126 Baseten — ⼀⼿⼯程博客与服务商经验
 - SRC-127 Baseten 推理⼯程 — ⼀⼿⼯程博客与服务商经验
 - SRC-128 Together AI — ⼀⼿⼯程博客与服务商经验
-- SRC-129 Fireworks AI — ⼀⼿⼯程博客与服务商经验
 - SRC-130 Modal — ⼀⼿⼯程博客与服务商经验
 - SRC-131 Anyscale — ⼀⼿⼯程博客与服务商经验
 - SRC-132 AWS Machine — ⼀⼿⼯程博客与服务商经验

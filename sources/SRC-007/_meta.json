@@ -9,7 +9,7 @@
  "started_at": "2026-09-23T03:39:45Z",
  "finished_at": "2026-09-23T03:39:45Z",
  "duration_seconds": 53.5,
- "attempts": 1,
+ "attempts": 2,
  "channels": {
   "gh_c4788345": {
    "type": "github_repo",
@@ -68,12 +68,12 @@
    "chars": 375
   },
   "site_bdf1c9ca": {
-   "type": "site",
+   "type": "js",
    "url": "https://docs.vllm.ai/projects/ascend/en/latest/",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 1178
+   "mode": "js",
+   "chars": 1179
   }
  },
  "cursor": {

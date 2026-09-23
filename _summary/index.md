@@ -1,19 +1,19 @@
 # 知识来源抓取总表
 
-- 日期: 2026-09-23T13:51:57Z
+- 日期: 2026-09-23T14:18:17Z
 - 来源总数: 170
-- 状态: {"success": 164, "blocked": 5, "partial": 1}
-- 产物: 5199 项 / 208.8 MB
+- 状态: {"success": 163, "blocked": 5, "partial": 1, "error": 1}
+- 产物: 5199 项 / 208.9 MB
 
 | SRC | 名称 | 类别 | 状态 | 说明 |
 |---|---|---|---|---|
 | SRC-001 | vLLM ⽂档 | 推理引擎与部署配⽅ | success | sitemap:ok(1991) |
 | SRC-002 | vLLM 配⽅ | 推理引擎与部署配⽅ | success | sitemap:ok(57) |
 | SRC-003 | vLLM 源码与讨 | 推理引擎与部署配⽅ | success | github_repo:ok |
-| SRC-004 | SGLang ⽂档 | 推理引擎与部署配⽅ | success | github_repo:ok; reference:ok; reference:ok; reference:ok; site:ok |
+| SRC-004 | SGLang ⽂档 | 推理引擎与部署配⽅ | success | github_repo:ok; reference:ok; reference:ok; reference:ok; js:ok |
 | SRC-005 | SGLang 源码与 | 推理引擎与部署配⽅ | success | github_repo:ok |
 | SRC-006 | SGLang 学习资 | 推理引擎与部署配⽅ | success | github_repo:ok; github_repo:ok; reference:ok; reference:ok; reference:ok |
-| SRC-007 | vLLM Ascend | 推理引擎与部署配⽅ | success | github_repo:ok; reference:ok; reference:ok; reference:ok; site:ok |
+| SRC-007 | vLLM Ascend | 推理引擎与部署配⽅ | success | github_repo:ok; reference:ok; reference:ok; reference:ok; js:ok |
 | SRC-008 | vLLM Ascend | 推理引擎与部署配⽅ | success | github_repo:ok |
 | SRC-009 | TensorRT LLM | 推理引擎与部署配⽅ | success | github_repo:ok; github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-010 | LMDeploy | 推理引擎与部署配⽅ | success | github_repo:ok; github_repo:ok; reference:ok; reference:ok; reference:ok; reference:ok; reference:ok; reference:ok |
@@ -22,21 +22,21 @@
 | SRC-013 | llm-d | 推理引擎与部署配⽅ | success | github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-014 | NVIDIA NIM ⽂ | 推理引擎与部署配⽅ | success | site:ok |
 | SRC-015 | CUDA 最佳实 | NVIDIA、AMD 与通⽤芯⽚ | success | site:ok |
-| SRC-016 | CUDA ⽂档⼊ | NVIDIA、AMD 与通⽤芯⽚ | success | site:ok |
+| SRC-016 | CUDA ⽂档⼊ | NVIDIA、AMD 与通⽤芯⽚ | success | site:error |
 | SRC-017 | NCCL | NVIDIA、AMD 与通⽤芯⽚ | success | github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-018 | NCCL 参数与 | NVIDIA、AMD 与通⽤芯⽚ | success | site:ok |
-| SRC-019 | ROCm ⽂档 | NVIDIA、AMD 与通⽤芯⽚ | success | site:ok |
+| SRC-019 | ROCm ⽂档 | NVIDIA、AMD 与通⽤芯⽚ | success | js:ok |
 | SRC-020 | ROCm vLLM | NVIDIA、AMD 与通⽤芯⽚ | success | site:ok |
 | SRC-021 | ROCm 博客 | NVIDIA、AMD 与通⽤芯⽚ | success | site:ok(10) |
 | SRC-022 | RCCL | NVIDIA、AMD 与通⽤芯⽚ | success | github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-023 | ROCm AITER | NVIDIA、AMD 与通⽤芯⽚ | success | github_repo:ok |
 | SRC-024 | Intel | NVIDIA、AMD 与通⽤芯⽚ | success | github_repo:ok; reference:ok; reference:ok; reference:ok; site:ok |
 | SRC-025 | Intel Gaudi ⽂ | NVIDIA、AMD 与通⽤芯⽚ | success | sitemap:ok(41) |
-| SRC-026 | Google TPU | NVIDIA、AMD 与通⽤芯⽚ | success | site:ok |
+| SRC-026 | Google TPU | NVIDIA、AMD 与通⽤芯⽚ | success | js:ok |
 | SRC-027 | MaxText | NVIDIA、AMD 与通⽤芯⽚ | success | github_repo:ok |
 | SRC-028 | JetStream | NVIDIA、AMD 与通⽤芯⽚ | success | github_repo:ok; github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-029 | AWS Neuron | NVIDIA、AMD 与通⽤芯⽚ | success | github_repo:ok; reference:ok; reference:ok; reference:ok; site:ok |
-| SRC-030 | 昇腾⽂档中⼼ | 昇腾与其他国产芯⽚ | success | site:ok |
+| SRC-030 | 昇腾⽂档中⼼ | 昇腾与其他国产芯⽚ | success | js:ok |
 | SRC-031 | MindIE 调优 | 昇腾与其他国产芯⽚ | success | js:ok |
 | SRC-032 | Ascend | 昇腾与其他国产芯⽚ | success | github_repo:ok |
 | SRC-033 | Ascend 样例 | 昇腾与其他国产芯⽚ | success | github_repo:ok; github_repo:ok; reference:ok; reference:ok; reference:ok |
@@ -55,7 +55,7 @@
 | SRC-046 | 燧原官⽹ | 昇腾与其他国产芯⽚ | success | github_repo:ok; reference:ok; reference:ok; reference:ok; site:ok |
 | SRC-047 | Qwen 官⽅组织 | 模型作者与模型平台 | success | github_org:ok |
 | SRC-048 | Qwen 模型⻚ | 模型作者与模型平台 | success | hf:ok(200) |
-| SRC-049 | Qwen ⽂档 | 模型作者与模型平台 | success | site:ok |
+| SRC-049 | Qwen ⽂档 | 模型作者与模型平台 | success | js:ok |
 | SRC-050 | GLM / Z.ai 官⽅ | 模型作者与模型平台 | success | github_org:ok |
 | SRC-051 | GLM 模型⻚ | 模型作者与模型平台 | success | hf:ok(154) |
 | SRC-052 | Kimi 官⽅组织 | 模型作者与模型平台 | success | github_org:ok |
@@ -80,7 +80,7 @@
 | SRC-071 | TileLang | Kernel、编译与⾃动优化 | success | github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-072 | TVM | Kernel、编译与⾃动优化 | success | github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-073 | PyTorch 源码 | Kernel、编译与⾃动优化 | success | github_repo:ok |
-| SRC-074 | PyTorch ⽂档 | Kernel、编译与⾃动优化 | success | github_repo:ok; reference:ok; reference:ok; reference:ok; site:ok |
+| SRC-074 | PyTorch ⽂档 | Kernel、编译与⾃动优化 | success | github_repo:ok; reference:ok; reference:ok; reference:ok; js:ok |
 | SRC-075 | KernelBench | Kernel、编译与⾃动优化 | success | github_repo:ok |
 | SRC-076 | PyTorch | Kernel、编译与⾃动优化 | success | github_repo:ok; github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-077 | GPU MODE | Kernel、编译与⾃动优化 | success | github_repo:ok; github_repo:ok; reference:ok; reference:ok; reference:ok |
@@ -107,7 +107,7 @@
 | SRC-098 | NCCL tests | KV、路由、分布式与基础设施 | success | github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-099 | Linux 性能⼯具 | KV、路由、分布式与基础设施 | success | site:ok |
 | SRC-100 | Kubernetes 资源管 | KV、路由、分布式与基础设施 | success | sitemap:ok(1) |
-| SRC-101 | Nsight Systems | Profiling、压测与公开结 | success | site:ok |
+| SRC-101 | Nsight Systems | Profiling、压测与公开结 | success | js:ok |
 | SRC-102 | Nsight Compute | Profiling、压测与公开结 | success | site:ok |
 | SRC-103 | ROCm rocprofiler- | Profiling、压测与公开结 | success | github_repo:ok |
 | SRC-104 | ROCm rocprofiler- | Profiling、压测与公开结 | success | github_repo:ok; github_repo:ok; reference:ok; reference:ok; reference:ok |
@@ -128,23 +128,23 @@
 | SRC-119 | OpenReview | 论⽂、会议与课程 | success | academic:ok |
 | SRC-120 | GPU MODE 讲 | 论⽂、会议与课程 | success | github_repo:ok |
 | SRC-121 | SGLang 公开会 | 论⽂、会议与课程 | success | github_repo:ok; reference:ok; reference:ok; reference:ok; site:ok |
-| SRC-122 | NVIDIA On- | 论⽂、会议与课程 | success | site:ok |
-| SRC-123 | LMSYS | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
+| SRC-122 | NVIDIA On- | 论⽂、会议与课程 | success | js:ok |
+| SRC-123 | LMSYS | ⼀⼿⼯程博客与服务商经验 | success | js:ok |
 | SRC-124 | PyTorch Blog | ⼀⼿⼯程博客与服务商经验 | success | site:ok(10) |
 | SRC-125 | NVIDIA | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
-| SRC-126 | Baseten | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
-| SRC-127 | Baseten 推理⼯程 | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
+| SRC-126 | Baseten | ⼀⼿⼯程博客与服务商经验 | success | js:ok |
+| SRC-127 | Baseten 推理⼯程 | ⼀⼿⼯程博客与服务商经验 | success | js:ok |
 | SRC-128 | Together AI | ⼀⼿⼯程博客与服务商经验 | success | site:ok(99) |
-| SRC-129 | Fireworks AI | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
+| SRC-129 | Fireworks AI | ⼀⼿⼯程博客与服务商经验 | error | js:error |
 | SRC-130 | Modal | ⼀⼿⼯程博客与服务商经验 | success | site:ok(133) |
-| SRC-131 | Anyscale | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
+| SRC-131 | Anyscale | ⼀⼿⼯程博客与服务商经验 | success | js:ok |
 | SRC-132 | AWS Machine | ⼀⼿⼯程博客与服务商经验 | success | site:ok(20) |
-| SRC-133 | Google Cloud | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
+| SRC-133 | Google Cloud | ⼀⼿⼯程博客与服务商经验 | success | js:ok |
 | SRC-134 | 阿⾥云开发者社区 | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
 | SRC-135 | 腾讯云开发者社区 | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
 | SRC-136 | 华为云社区 | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
-| SRC-137 | ⽕⼭引擎开发者社 | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
-| SRC-138 | Horace He | 精选作者、专业社区与新来源发现 | success | site:ok |
+| SRC-137 | ⽕⼭引擎开发者社 | ⼀⼿⼯程博客与服务商经验 | success | js:ok |
+| SRC-138 | Horace He | 精选作者、专业社区与新来源发现 | success | js:ok |
 | SRC-139 | Simon Boehm | 精选作者、专业社区与新来源发现 | success | site:ok(8) |
 | SRC-140 | Lei Mao | 精选作者、专业社区与新来源发现 | success | site:ok(50) |
 | SRC-141 | Colfax Research | 精选作者、专业社区与新来源发现 | success | site:ok(10) |
@@ -172,8 +172,8 @@
 | SRC-163 | DistServe | KV、路由、分布式与基础设施 | success | github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-164 | SGLang ⽂档完 | 推理引擎与部署配⽅ | success | site:ok |
 | SRC-165 | vLLM Blog | ⼀⼿⼯程博客与服务商经验 | success | site:ok(50) |
-| SRC-166 | Ascend | 昇腾与其他国产芯⽚ | success | site:ok |
+| SRC-166 | Ascend | 昇腾与其他国产芯⽚ | success | js:ok |
 | SRC-167 | Ascend Gitee | 昇腾与其他国产芯⽚ | blocked | PDF 标 403（Ascend Gitee 组织） |
 | SRC-168 | Awesome LLM | 精选作者、专业社区与新来源发现 | success | github_repo:ok; reference:ok; reference:ok; reference:ok; site:ok; site:ok |
-| SRC-169 | NVIDIA NGC | NVIDIA、AMD 与通⽤芯⽚ | success | site:ok |
-| SRC-170 | ROCm Docker | NVIDIA、AMD 与通⽤芯⽚ | success | site:ok |
+| SRC-169 | NVIDIA NGC | NVIDIA、AMD 与通⽤芯⽚ | success | js:ok |
+| SRC-170 | ROCm Docker | NVIDIA、AMD 与通⽤芯⽚ | success | js:ok |

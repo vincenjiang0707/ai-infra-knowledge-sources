@@ -9,15 +9,14 @@
  "started_at": "2026-09-23T04:08:32Z",
  "finished_at": "2026-09-23T05:03:40Z",
  "duration_seconds": 14.9,
- "attempts": 2,
+ "attempts": 3,
  "channels": {
   "site_a2097dc1": {
    "type": "site",
    "url": "https://docs.nvidia.com/cuda/",
-   "status": "ok",
-   "output": "page.md",
-   "mode": "page",
-   "chars": 1173
+   "status": "error",
+   "mode": "js",
+   "error": "Page.goto: Timeout 45000ms exceeded.\nCall log:\n  - navigating to \"https://docs.nvidia.com/cuda/\", waiting until \"networkidle\"\n"
   }
  },
  "cursor": {},
