@@ -35,26 +35,27 @@
 ├── SCRAPE_REPORT.md            抓取逻辑、状态机、性能与已知边界
 ├── _registry.json              170 SRC 元数据（含 status / channel 状态）
 ├── _summary/                   汇总报告（index / fetched / partial / not_fetched / blocked）
-└── SRC-XXX/
-    ├── _meta.json              状态/游标/渠道结果
-    ├── github_repo.md          仓库 README
-    ├── github_issues.jsonl     top-100 issues (updated_at desc)
-    ├── github_pulls.jsonl      top-100 PRs (updated_at desc)
-    ├── github_releases.jsonl   全部 releases
-    ├── github_changelog.md     聚合 CHANGELOG
-    ├── github_details/         活跃 issue/PR 的评论 + reviews（filter: comments>0 && updated<90d）
-    ├── feed_meta.json          RSS feed 元信息（RSS 源）
-    ├── posts/                  RSS 全文章节（RSS 源）
-    ├── pages/                  站点文档页（sitemap / menu BFS 抓的）
-    └── hf.md                   HF 模型/组织概览（HF 源）
+└── sources/
+    └── SRC-XXX/
+        ├── _meta.json              状态/游标/渠道结果
+        ├── github_repo.md          仓库 README
+        ├── github_issues.jsonl     top-100 issues (updated_at desc)
+        ├── github_pulls.jsonl      top-100 PRs (updated_at desc)
+        ├── github_releases.jsonl   全部 releases
+        ├── github_changelog.md     聚合 CHANGELOG
+        ├── github_details/         活跃 issue/PR 的评论 + reviews（filter: comments>0 && updated<90d）
+        ├── feed_meta.json          RSS feed 元信息（RSS 源）
+        ├── posts/                  RSS 全文章节（RSS 源）
+        ├── pages/                  站点文档页（sitemap / menu BFS 抓的）
+        └── hf.md                   HF 模型/组织概览（HF 源）
 ```
 
 ## 快速检索
 
-- **按 SRC 号找**：直接看目录 `SRC-XXX/`，`_meta.json` 含 URL 与状态
+- **按 SRC 号找**：直接看目录 `sources/SRC-XXX/`，`_meta.json` 含 URL 与状态
 - **按类别找**：用 `_registry.json`，170 条全字段（`src_id` / `category` / `priority` / `status` / `channels` / `channel_types` / `started_at`）
-- **找活跃 GH issue/PR**：看 `SRC-XXX/github_details/_index.jsonl`，`fetched_at` 字段标了每条详情的抓取时间
-- **找 RSS 文章**：看 `SRC-XXX/posts/`，文件名是 `YYYYMMDD_slug.md`，按日期倒序即可
+- **找活跃 GH issue/PR**：看 `sources/SRC-XXX/github_details/_index.jsonl`，`fetched_at` 字段标了每条详情的抓取时间
+- **找 RSS 文章**：看 `sources/SRC-XXX/posts/`，文件名是 `YYYYMMDD_slug.md`，按日期倒序即可
 - **汇总报告**：`_summary/index.md` 列出所有 170 项状态、`_summary/fetched.md` 是成功清单
 
 ## 数据来源分类
@@ -83,6 +84,8 @@
 
 | 版本 | 日期 | 说明 |
 |---|---|---|
+| v1.2 | 2026-09-23 | SRC-XXX 移入 sources/ 子目录，减少顶层目录噪声 |
+| v1.1 | 2026-09-23 | registry enriched（status/duration/channel_types），README 重写：按抓取类型分组 + 快速检索，去掉 scrape 引用 |
 | v1.0 | 2026-09-23 | 首轮全量抓取快照：164 success / 1 partial / 5 blocked；增量逻辑落地 |
 
 ## 已知边界
