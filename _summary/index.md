@@ -1,9 +1,9 @@
 # 知识来源抓取总表
 
-- 日期: 2026-09-23T14:38:31Z
+- 日期: 2026-09-23T14:58:37Z
 - 来源总数: 170
-- 状态: {"success": 163, "blocked": 5, "partial": 1, "error": 1}
-- 产物: 5300 项 / 210.4 MB
+- 状态: {"success": 162, "blocked": 5, "partial": 1, "error": 2}
+- 产物: 5445 项 / 212.6 MB
 
 | SRC | 名称 | 类别 | 状态 | 说明 |
 |---|---|---|---|---|
@@ -27,7 +27,7 @@
 | SRC-018 | NCCL 参数与 | NVIDIA、AMD 与通⽤芯⽚ | success | site:ok |
 | SRC-019 | ROCm ⽂档 | NVIDIA、AMD 与通⽤芯⽚ | success | js:ok |
 | SRC-020 | ROCm vLLM | NVIDIA、AMD 与通⽤芯⽚ | success | site:ok |
-| SRC-021 | ROCm 博客 | NVIDIA、AMD 与通⽤芯⽚ | success | site:ok(10) |
+| SRC-021 | ROCm 博客 | NVIDIA、AMD 与通⽤芯⽚ | success | blog:ok |
 | SRC-022 | RCCL | NVIDIA、AMD 与通⽤芯⽚ | success | github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-023 | ROCm AITER | NVIDIA、AMD 与通⽤芯⽚ | success | github_repo:ok |
 | SRC-024 | Intel | NVIDIA、AMD 与通⽤芯⽚ | success | github_repo:ok; reference:ok; reference:ok; reference:ok; site:ok |
@@ -70,7 +70,7 @@
 | SRC-061 | HF 模型检索 | 模型作者与模型平台 | success | hf:ok |
 | SRC-062 | ModelScope 模 | 模型作者与模型平台 | success | site:ok |
 | SRC-063 | HF 博客 | 模型作者与模型平台 | success | hf:ok(179) |
-| SRC-064 | HF 论坛 | 模型作者与模型平台 | success | site:ok(50) |
+| SRC-064 | HF 论坛 | 模型作者与模型平台 | success | blog:ok |
 | SRC-065 | Triton | Kernel、编译与⾃动优化 | success | github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-066 | CUTLASS | Kernel、编译与⾃动优化 | success | github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-067 | FlashAttention | Kernel、编译与⾃动优化 | success | github_repo:ok |
@@ -130,25 +130,25 @@
 | SRC-121 | SGLang 公开会 | 论⽂、会议与课程 | success | github_repo:ok; reference:ok; reference:ok; reference:ok; site:ok |
 | SRC-122 | NVIDIA On- | 论⽂、会议与课程 | success | js:ok |
 | SRC-123 | LMSYS | ⼀⼿⼯程博客与服务商经验 | success | blog:ok |
-| SRC-124 | PyTorch Blog | ⼀⼿⼯程博客与服务商经验 | success | site:ok(10) |
-| SRC-125 | NVIDIA | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
+| SRC-124 | PyTorch Blog | ⼀⼿⼯程博客与服务商经验 | success | blog:ok |
+| SRC-125 | NVIDIA | ⼀⼿⼯程博客与服务商经验 | error | blog:error |
 | SRC-126 | Baseten | ⼀⼿⼯程博客与服务商经验 | success | js:ok |
 | SRC-127 | Baseten 推理⼯程 | ⼀⼿⼯程博客与服务商经验 | success | js:ok |
 | SRC-128 | Together AI | ⼀⼿⼯程博客与服务商经验 | success | site:ok(99) |
 | SRC-129 | Fireworks AI | ⼀⼿⼯程博客与服务商经验 | error | js:error |
 | SRC-130 | Modal | ⼀⼿⼯程博客与服务商经验 | success | site:ok(133) |
 | SRC-131 | Anyscale | ⼀⼿⼯程博客与服务商经验 | success | js:ok |
-| SRC-132 | AWS Machine | ⼀⼿⼯程博客与服务商经验 | success | site:ok(20) |
+| SRC-132 | AWS Machine | ⼀⼿⼯程博客与服务商经验 | success | blog:ok |
 | SRC-133 | Google Cloud | ⼀⼿⼯程博客与服务商经验 | success | js:ok |
 | SRC-134 | 阿⾥云开发者社区 | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
 | SRC-135 | 腾讯云开发者社区 | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
 | SRC-136 | 华为云社区 | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
 | SRC-137 | ⽕⼭引擎开发者社 | ⼀⼿⼯程博客与服务商经验 | success | js:ok |
 | SRC-138 | Horace He | 精选作者、专业社区与新来源发现 | success | js:ok |
-| SRC-139 | Simon Boehm | 精选作者、专业社区与新来源发现 | success | site:ok(8) |
+| SRC-139 | Simon Boehm | 精选作者、专业社区与新来源发现 | success | blog:ok |
 | SRC-140 | Lei Mao | 精选作者、专业社区与新来源发现 | success | site:ok(50) |
-| SRC-141 | Colfax Research | 精选作者、专业社区与新来源发现 | success | site:ok(10) |
-| SRC-142 | Salykova | 精选作者、专业社区与新来源发现 | success | site:ok(5) |
+| SRC-141 | Colfax Research | 精选作者、专业社区与新来源发现 | success | blog:ok |
+| SRC-142 | Salykova | 精选作者、专业社区与新来源发现 | success | blog:ok |
 | SRC-143 | NVIDIA 开发者论 | 精选作者、专业社区与新来源发现 | success | site:ok |
 | SRC-144 | PyTorch 论坛 | 精选作者、专业社区与新来源发现 | success | site:ok |
 | SRC-145 | PyTorch 开发讨 | 精选作者、专业社区与新来源发现 | success | site:ok |
@@ -160,7 +160,7 @@
 | SRC-151 | CSDN | 精选作者、专业社区与新来源发现 | success | site:ok |
 | SRC-152 | 微信公众号搜索 | 精选作者、专业社区与新来源发现 | success | site:ok |
 | SRC-153 | Bilibili | 精选作者、专业社区与新来源发现 | success | site:ok |
-| SRC-154 | Hacker News | 精选作者、专业社区与新来源发现 | success | site:ok(26) |
+| SRC-154 | Hacker News | 精选作者、专业社区与新来源发现 | success | blog:ok |
 | SRC-155 | Kernel Design | Kernel、编译与⾃动优化 | success | github_repo:ok; github_repo:ok; reference:ok; reference:ok; reference:ok; reference:ok; reference:ok; reference:ok |
 | SRC-156 | KernelWiki | Kernel、编译与⾃动优化 | success | github_repo:ok |
 | SRC-157 | ncu-report-skill | Kernel、编译与⾃动优化 | success | github_repo:ok; github_repo:ok; reference:ok; reference:ok; reference:ok; reference:ok; reference:ok; reference:ok |
@@ -171,7 +171,7 @@
 | SRC-162 | Optuna | 量化、推测解码与精度验证 | success | site:ok |
 | SRC-163 | DistServe | KV、路由、分布式与基础设施 | success | github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-164 | SGLang ⽂档完 | 推理引擎与部署配⽅ | success | site:ok |
-| SRC-165 | vLLM Blog | ⼀⼿⼯程博客与服务商经验 | success | site:ok(50) |
+| SRC-165 | vLLM Blog | ⼀⼿⼯程博客与服务商经验 | success | blog:ok |
 | SRC-166 | Ascend | 昇腾与其他国产芯⽚ | success | js:ok |
 | SRC-167 | Ascend Gitee | 昇腾与其他国产芯⽚ | blocked | PDF 标 403（Ascend Gitee 组织） |
 | SRC-168 | Awesome LLM | 精选作者、专业社区与新来源发现 | success | github_repo:ok; reference:ok; reference:ok; reference:ok; site:ok; site:ok |

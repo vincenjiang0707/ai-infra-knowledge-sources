@@ -5,19 +5,18 @@
  "priority": "",
  "scrape_type": "site",
  "blocked_reason": null,
- "status": "success",
+ "status": "error",
  "started_at": "2026-09-23T04:15:18Z",
  "finished_at": "2026-09-23T04:15:18Z",
  "duration_seconds": 17.2,
- "attempts": 1,
+ "attempts": 2,
  "channels": {
   "site_6305debf": {
-   "type": "site",
+   "type": "blog",
    "url": "https://developer.nvidia.com/blog/",
-   "mode": "page",
-   "status": "ok",
-   "output": "page.md",
-   "chars": 44899
+   "status": "error",
+   "mode": "blog",
+   "error": "Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://developer.nvidia.com/blog/\", waiting until \"networkidle\"\n"
   }
  },
  "cursor": {},

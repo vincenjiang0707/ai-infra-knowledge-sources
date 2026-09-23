@@ -1851,7 +1851,7 @@
   "scrape_type": "site",
   "channels": {
    "site_376e893c": {
-    "type": "site",
+    "type": "blog",
     "url": "https://discuss.huggingface.co/"
    }
   },
@@ -1859,11 +1859,11 @@
   "started_at": "2026-09-23T04:12:55Z",
   "finished_at": "2026-09-23T04:12:55Z",
   "duration_seconds": 52.5,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "blog"
   ],
   "notes": ""
  },
@@ -3890,19 +3890,19 @@
   "scrape_type": "site",
   "channels": {
    "site_6305debf": {
-    "type": "site",
+    "type": "blog",
     "url": "https://developer.nvidia.com/blog/"
    }
   },
-  "status": "success",
+  "status": "error",
   "started_at": "2026-09-23T04:15:18Z",
   "finished_at": "2026-09-23T04:15:18Z",
   "duration_seconds": 17.2,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "blog"
   ],
   "notes": ""
  },
@@ -4058,7 +4058,7 @@
   "scrape_type": "site",
   "channels": {
    "site_b6f74bd3": {
-    "type": "site",
+    "type": "blog",
     "url": "https://aws.amazon.com/blogs/machine-learning/"
    }
   },
@@ -4066,11 +4066,11 @@
   "started_at": "2026-09-23T04:20:52Z",
   "finished_at": "2026-09-23T04:20:52Z",
   "duration_seconds": 27.5,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "blog"
   ],
   "notes": ""
  },
@@ -4226,7 +4226,7 @@
   "scrape_type": "site",
   "channels": {
    "site_dabb35e4": {
-    "type": "site",
+    "type": "blog",
     "url": "https://siboehm.com/"
    }
   },
@@ -4234,11 +4234,11 @@
   "started_at": "2026-09-23T04:21:46Z",
   "finished_at": "2026-09-23T04:21:46Z",
   "duration_seconds": 9.9,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "blog"
   ],
   "notes": ""
  },
@@ -4274,7 +4274,7 @@
   "scrape_type": "site",
   "channels": {
    "site_a06873af": {
-    "type": "site",
+    "type": "blog",
     "url": "https://research.colfax-intl.com/"
    }
   },
@@ -4282,11 +4282,11 @@
   "started_at": "2026-09-23T04:22:11Z",
   "finished_at": "2026-09-23T04:22:11Z",
   "duration_seconds": 24.7,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "blog"
   ],
   "notes": ""
  },
@@ -4298,7 +4298,7 @@
   "scrape_type": "site",
   "channels": {
    "site_ea93237f": {
-    "type": "site",
+    "type": "blog",
     "url": "https://salykova.github.io/"
    }
   },
@@ -4306,11 +4306,11 @@
   "started_at": "2026-09-23T04:22:18Z",
   "finished_at": "2026-09-23T04:22:18Z",
   "duration_seconds": 6.7,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "blog"
   ],
   "notes": ""
  },
@@ -4574,7 +4574,7 @@
   "scrape_type": "site",
   "channels": {
    "site_cbc58071": {
-    "type": "site",
+    "type": "blog",
     "url": "https://news.ycombinator.com/"
    }
   },
@@ -4582,11 +4582,11 @@
   "started_at": "2026-09-23T04:23:57Z",
   "finished_at": "2026-09-23T04:23:57Z",
   "duration_seconds": 52.1,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "blog"
   ],
   "notes": ""
  },
@@ -4910,7 +4910,7 @@
   "scrape_type": "site",
   "channels": {
    "site_30f2e89c": {
-    "type": "site",
+    "type": "blog",
     "url": "https://vllm.ai/blog"
    }
   },
@@ -4918,11 +4918,11 @@
   "started_at": "2026-09-23T03:16:38Z",
   "finished_at": "2026-09-23T03:16:38Z",
   "duration_seconds": 27.1,
-  "attempts": 1,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "blog"
   ],
   "notes": ""
  },

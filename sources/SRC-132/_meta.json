@@ -9,18 +9,18 @@
  "started_at": "2026-09-23T04:20:52Z",
  "finished_at": "2026-09-23T04:20:52Z",
  "duration_seconds": 27.5,
- "attempts": 1,
+ "attempts": 2,
  "channels": {
   "site_b6f74bd3": {
-   "type": "site",
+   "type": "blog",
    "url": "https://aws.amazon.com/blogs/machine-learning/",
-   "mode": "rss",
    "status": "ok",
-   "output": "feed_meta.json",
-   "entries": 20,
-   "posts_fetched": 20,
-   "posts_failed": 0,
-   "output_dir": "posts/"
+   "mode": "blog",
+   "posts": [
+    "01_launch.md",
+    "02_news.md"
+   ],
+   "total_chars": 10679
   }
  },
  "cursor": {

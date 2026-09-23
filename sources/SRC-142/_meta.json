@@ -9,18 +9,15 @@
  "started_at": "2026-09-23T04:22:18Z",
  "finished_at": "2026-09-23T04:22:18Z",
  "duration_seconds": 6.7,
- "attempts": 1,
+ "attempts": 2,
  "channels": {
   "site_ea93237f": {
-   "type": "site",
+   "type": "blog",
    "url": "https://salykova.github.io/",
-   "mode": "rss",
    "status": "ok",
-   "output": "feed_meta.json",
-   "entries": 5,
-   "posts_fetched": 5,
-   "posts_failed": 0,
-   "output_dir": "posts/"
+   "mode": "blog",
+   "posts": [],
+   "total_chars": 0
   }
  },
  "cursor": {

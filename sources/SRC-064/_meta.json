@@ -9,18 +9,17 @@
  "started_at": "2026-09-23T04:12:55Z",
  "finished_at": "2026-09-23T04:12:55Z",
  "duration_seconds": 52.5,
- "attempts": 1,
+ "attempts": 2,
  "channels": {
   "site_376e893c": {
-   "type": "site",
+   "type": "blog",
    "url": "https://discuss.huggingface.co/",
-   "mode": "rss",
    "status": "ok",
-   "output": "feed_meta.json",
-   "entries": 50,
-   "posts_fetched": 50,
-   "posts_failed": 0,
-   "output_dir": "posts/"
+   "mode": "blog",
+   "posts": [
+    "01_20.md"
+   ],
+   "total_chars": 9533
   }
  },
  "cursor": {

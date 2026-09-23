@@ -9,18 +9,19 @@
  "started_at": "2026-09-23T04:22:11Z",
  "finished_at": "2026-09-23T04:22:11Z",
  "duration_seconds": 24.7,
- "attempts": 1,
+ "attempts": 2,
  "channels": {
   "site_a06873af": {
-   "type": "site",
+   "type": "blog",
    "url": "https://research.colfax-intl.com/",
-   "mode": "rss",
    "status": "ok",
-   "output": "feed_meta.json",
-   "entries": 10,
-   "posts_fetched": 10,
-   "posts_failed": 0,
-   "output_dir": "posts/"
+   "mode": "blog",
+   "posts": [
+    "01_blog.md",
+    "02_article.md",
+    "03_blog.md"
+   ],
+   "total_chars": 19863
   }
  },
  "cursor": {

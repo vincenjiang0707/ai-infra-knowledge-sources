@@ -9,18 +9,15 @@
  "started_at": "2026-09-23T04:23:57Z",
  "finished_at": "2026-09-23T04:23:57Z",
  "duration_seconds": 52.1,
- "attempts": 1,
+ "attempts": 2,
  "channels": {
   "site_cbc58071": {
-   "type": "site",
+   "type": "blog",
    "url": "https://news.ycombinator.com/",
-   "mode": "rss",
    "status": "ok",
-   "output": "feed_meta.json",
-   "entries": 30,
-   "posts_fetched": 26,
-   "posts_failed": 4,
-   "output_dir": "posts/"
+   "mode": "blog",
+   "posts": [],
+   "total_chars": 0
   }
  },
  "cursor": {
