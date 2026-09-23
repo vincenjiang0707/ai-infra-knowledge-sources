@@ -1,0 +1,59 @@
+{
+ "feed_url": "https://pytorch.org/blog/feed.xml",
+ "title": "Blog – PyTorch",
+ "link": "https://pytorch.org",
+ "updated": "Tue, 22 Sep 2026 14:59:09 +0000",
+ "entries_total": 10,
+ "entries": [
+  {
+   "title": "Hardware-Agnostic Models in vLLM",
+   "link": "https://pytorch.org/blog/hardware-agnostic-models-in-vllm/",
+   "published": "Tue, 22 Sep 2026 15:45:46 +0000"
+  },
+  {
+   "title": "How Shopify built a continual learning loop with PyTorch and vLLM",
+   "link": "https://pytorch.org/blog/how-shopify-built-a-continual-learning-loop-with-pytorch-and-vllm/",
+   "published": "Tue, 22 Sep 2026 13:45:18 +0000"
+  },
+  {
+   "title": "TinyTorch: Don’t Just Import PyTorch. Build It.",
+   "link": "https://pytorch.org/blog/tinytorch-dont-just-import-pytorch-build-it/",
+   "published": "Mon, 21 Sep 2026 20:41:14 +0000"
+  },
+  {
+   "title": "PyTorch Day Japan 2026 Comes to Tokyo on December 10",
+   "link": "https://pytorch.org/blog/pytorch-day-japan-2026-comes-to-tokyo/",
+   "published": "Fri, 18 Sep 2026 00:25:32 +0000"
+  },
+  {
+   "title": "Open Research, Tooling & Optimization at PyTorch Conference North America 2026",
+   "link": "https://pytorch.org/blog/open-research-tooling-optimization-at-pytorch-conference-north-america-2026/",
+   "published": "Wed, 16 Sep 2026 19:00:47 +0000"
+  },
+  {
+   "title": "Low Precision Flash Attention 4: End-to-End Block-Scaled Attention for Blackwell",
+   "link": "https://pytorch.org/blog/low-precision-flash-attention-4-end-to-end-block-scaled-attention-for-blackwell/",
+   "published": "Wed, 16 Sep 2026 18:55:21 +0000"
+  },
+  {
+   "title": "Helion x 🤗 HF Kernels: Building and Shipping Out-of-the-box Performant Kernels",
+   "link": "https://pytorch.org/blog/helion-x-%f0%9f%a4%97-hf-kernels-building-and-shipping-out-of-the-box-performant-kernels/",
+   "published": "Fri, 11 Sep 2026 17:45:57 +0000"
+  },
+  {
+   "title": "PyTorch Conference China 2026: Advancing the Open Source AI Stack",
+   "link": "https://pytorch.org/blog/pytorch-conference-china-2026-advancing-the-open-source-ai-stack/",
+   "published": "Thu, 10 Sep 2026 00:01:29 +0000"
+  },
+  {
+   "title": "Alibaba Cloud, Ant Group, Cambricon and Huawei Come Together in Shanghai to Advance the Open Source AI Stack at PyTorch Conference China",
+   "link": "https://pytorch.org/blog/alibaba-cloud-ant-group-cambricon-and-huawei-come-together-in-shanghai-to-advance-the-open-source-ai-stack-at-pytorch-conference-china/",
+   "published": "Tue, 08 Sep 2026 01:00:02 +0000"
+  },
+  {
+   "title": "Cambricon Joins the PyTorch Foundation as a Platinum Member",
+   "link": "https://pytorch.org/blog/cambricon-joins-the-pytorch-foundation-as-a-platinum-member/",
+   "published": "Tue, 08 Sep 2026 00:59:13 +0000"
+  }
+ ]
+}

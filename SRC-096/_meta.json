@@ -1,0 +1,83 @@
+{
+ "src_id": "SRC-096",
+ "name": "UCX",
+ "category": "KV、路由、分布式与基础设施",
+ "priority": "扩展",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:33:16Z",
+ "finished_at": "2026-09-23T03:33:16Z",
+ "duration_seconds": 75.3,
+ "attempts": 1,
+ "channels": {
+  "gh_16f383d1": {
+   "type": "github_repo",
+   "url": "https://github.com/openucx/ucx",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 134
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_eb396fb6": {
+   "type": "reference",
+   "url": "https://github.com/openucx/ucx/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 999
+  },
+  "ref_6386022d": {
+   "type": "reference",
+   "url": "https://github.com/openucx/ucx/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 5232
+  },
+  "ref_0f070434": {
+   "type": "reference",
+   "url": "https://github.com/openucx/ucx/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 18058
+  }
+ },
+ "cursor": {
+  "gh_16f383d1:issues": {
+   "last_updated_at": "2026-09-22T21:39:01Z"
+  },
+  "gh_16f383d1:pulls": {
+   "last_updated_at": "2026-09-23T03:26:50Z"
+  },
+  "gh_16f383d1:releases": {
+   "last_id": 364165833
+  }
+ },
+ "notes": ""
+}

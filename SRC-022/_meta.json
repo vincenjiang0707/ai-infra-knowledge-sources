@@ -1,0 +1,83 @@
+{
+ "src_id": "SRC-022",
+ "name": "RCCL",
+ "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+ "priority": "核⼼",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:27:47Z",
+ "finished_at": "2026-09-23T03:27:47Z",
+ "duration_seconds": 65.5,
+ "attempts": 1,
+ "channels": {
+  "gh_5a0488ee": {
+   "type": "github_repo",
+   "url": "https://github.com/ROCm/rccl",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 84
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "CHANGELOG.md",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_bbf0dc6e": {
+   "type": "reference",
+   "url": "https://github.com/ROCm/rccl/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 461
+  },
+  "ref_bd44a921": {
+   "type": "reference",
+   "url": "https://github.com/ROCm/rccl/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 3615
+  },
+  "ref_53c23b14": {
+   "type": "reference",
+   "url": "https://github.com/ROCm/rccl/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 2447
+  }
+ },
+ "cursor": {
+  "gh_5a0488ee:issues": {
+   "last_updated_at": "2026-09-10T18:03:08Z"
+  },
+  "gh_5a0488ee:pulls": {
+   "last_updated_at": "2026-08-20T19:19:07Z"
+  },
+  "gh_5a0488ee:releases": {
+   "last_id": 330975361
+  }
+ },
+ "notes": ""
+}

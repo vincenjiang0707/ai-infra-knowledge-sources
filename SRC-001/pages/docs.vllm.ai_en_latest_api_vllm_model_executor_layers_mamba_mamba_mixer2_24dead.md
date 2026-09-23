@@ -1,0 +1,875 @@
+source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/mamba_mixer2/
+lastmod: 2026-09-23
+
+@PluggableLayer.register("mamba_mixer2")
+class MambaMixer2(MambaBase, PluggableLayer):
+"""Compute ∆, A, B, C, and D the state space parameters and compute
+the `contextualized_states`. A, D are input independent
+(see Mamba paper [1] Section 3.5.2 "Interpretation of A"
+for why A isn't selective) ∆, B, C are input-dependent
+(this is a key difference between Mamba and the linear time
+invariant S4, and is why Mamba is called
+**selective** state spaces)
+"""
+# --8<-- [end:mamba_mixer2]
+def __init__(
+self,
+hidden_size: int,
+ssm_state_size: int,
+conv_kernel_size: int,
+intermediate_size: int,
+use_conv_bias: bool,
+use_bias: bool,
+n_groups: int = 1,
+num_heads: int = 128,
+head_dim: int = 64,
+rms_norm_eps: float = 1e-5,
+activation: str = "silu",
+use_rms_norm: bool = True,
+model_config: ModelConfig | None = None,
+cache_config: CacheConfig | None = None,
+quant_config: QuantizationConfig | None = None,
+prefix: str = "",
+):
+super().__init__()
+# For TP, the sharding plan is as follows:
+# - for the conv modules, since
+# conv_dim = intermediate_size * 2 * n_groups * ssm_state_size,
+# we shard intermediate_size and n_groups
+# - since intermediate_size = n_heads * head_dim, sharding on
+# intermediate_size is achieved by sharding on n_heads.
+# - IF, world_size divides groups, then sharding
+# (n_groups / world_size, n_heads / world_size)
+# also maintains the invariant n_heads % n_groups == 0
+# - HOWEVER IF, world_size DOES NOT divide groups, then we need
+# to allocate extra space in the shard, such that groups
+# may be replicated to follow the head shard.
+# - NOTE: currently for the world size DOES NOT divide groups
+# case, we only support the case when n_groups == 1
+self.tp_size = get_tensor_model_parallel_world_size()
+tp_rank = get_tensor_model_parallel_rank()
+assert num_heads % self.tp_size == 0, (
+"Tensor parallel world size must divide num heads."
+)
+assert (n_groups % self.tp_size) == 0 or n_groups == 1, (
+"If tensor parallel world size does not divide num_groups, "
+"then num_groups must equal 1."
+)
+self.ssm_state_size = ssm_state_size
+self.conv_kernel_size = conv_kernel_size
+self.activation = activation
+self.intermediate_size = intermediate_size
+self.head_dim = head_dim
+self.num_heads = num_heads
+self.n_groups = n_groups
+if n_groups % self.tp_size != 0:
+# - for TP we shard conv_dim by sharding on n_groups,
+# - but if n_groups cannot divide tp_size, we need to
+# extend some extra groups
+groups = MambaStateShapeCalculator.extra_groups_for_head_shards(
+n_groups, self.tp_size
+)
+self.n_groups = n_groups + groups
+self.groups_ssm_state_size = self.n_groups * self.ssm_state_size
+self.conv_dim = intermediate_size + 2 * self.groups_ssm_state_size
+if n_groups % self.tp_size == 0:
+self.conv1d = MergedColumnParallelLinear(
+input_size=conv_kernel_size,
+output_sizes=[
+intermediate_size,
+self.groups_ssm_state_size,
+self.groups_ssm_state_size,
+],
+bias=use_conv_bias,
+quant_config=None,
+prefix=f"{prefix}.conv1d",
+)
+self.in_proj = MergedColumnParallelLinear(
+input_size=hidden_size,
+output_sizes=[
+intermediate_size,
+intermediate_size,
+self.groups_ssm_state_size,
+self.groups_ssm_state_size,
+self.num_heads,
+],
+bias=use_bias,
+quant_config=quant_config,
+prefix=f"{prefix}.in_proj",
+)
+else:
+# This is the n_groups == 1 case,
+# where we need to duplicate groups if TP>1.
+self.conv1d = ColumnParallelLinear(
+input_size=conv_kernel_size,
+output_size=self.conv_dim,
+bias=use_conv_bias,
+quant_config=None,
+prefix=f"{prefix}.conv1d",
+)
+self.in_proj = ColumnParallelLinear(
+input_size=hidden_size,
+output_size=intermediate_size + self.conv_dim + self.num_heads,
+bias=use_bias,
+quant_config=quant_config,
+prefix=f"{prefix}.in_proj",
+)
+# - because in_proj is a concatenation of 3 weights, we
+# need to interleave them before sharding
+# - use the custom weight loader mamba_v2_sharded_weight_loader
+# for conv1d.bias, covn1d.weight and in_proj.weight
+# - need to set these settings, to assign the groups
+# to the head shards
+group_shard_settings = (
+self.groups_ssm_state_size, # expected model size
+(self.n_groups - n_groups) * self.ssm_state_size, # extra dims assigned
+n_groups == 1, # if there was only one group
+)
+intermediate_settings = (intermediate_size, 0, False)
+head_settings = (self.num_heads, 0, False)
+# - the weight already has a "weight_loader" attribute
+# which set_weight_attrs will raise if we do not
+# delete before trying to override it
+# - ditto for the other two weights below
+delattr(self.conv1d.bias, "weight_loader")
+set_weight_attrs(
+self.conv1d.bias,
+{
+"weight_loader": mamba_v2_sharded_weight_loader(
+[
+intermediate_settings,
+group_shard_settings,
+group_shard_settings,
+],
+self.tp_size,
+tp_rank,
+)
+},
+)
+delattr(self.conv1d.weight, "weight_loader")
+set_weight_attrs(
+self.conv1d.weight,
+{
+"weight_loader": mamba_v2_sharded_weight_loader(
+[
+intermediate_settings,
+group_shard_settings,
+group_shard_settings,
+],
+self.tp_size,
+tp_rank,
+)
+},
+)
+# Create the custom weight loader for Mamba sharding with group
+# replication. This handles the interleaved projections correctly.
+mamba_loader = mamba_v2_sharded_weight_loader(
+[
+intermediate_settings, # for gate
+intermediate_settings,
+group_shard_settings,
+group_shard_settings,
+head_settings, # for dt
+],
+self.tp_size,
+tp_rank,
+)
+# Apply the custom weight loader to in_proj.weight
+# Works for both non-quantized (Parameter) and quantized
+# (ModelWeightParameter which extends BasevLLMParameter)
+if isinstance(self.in_proj.weight, BasevLLMParameter):
+# For BasevLLMParameter subclasses (quantized layers like FP8)
+# These have a weight_loader property that can be directly set
+self.in_proj.weight.weight_loader = mamba_loader
+else:
+# For standard Parameter (non-quantized layers)
+delattr(self.in_proj.weight, "weight_loader")
+set_weight_attrs(self.in_proj.weight, {"weight_loader": mamba_loader})
+# unsqueeze to fit conv1d weights shape into the linear weights shape.
+# Can't do this in `weight_loader` since it already exists in
+# `ColumnParallelLinear` and `MergedColumnParallelLinear`,
+# and `set_weight_attrs` doesn't allow to override it
+self.conv1d.weight.data = self.conv1d.weight.data.unsqueeze(1)
+conv_weights = self.conv1d.weight.view(
+self.conv1d.weight.size(0), self.conv1d.weight.size(2)
+)
+self.register_buffer("conv_weights", conv_weights, persistent=False)
+# - these are TPed by heads to reduce the size of the
+# temporal shape
+self.A = nn.Parameter(
+torch.empty(
+divide(num_heads, self.tp_size),
+dtype=torch.float32,
+)
+)
+self.D = nn.Parameter(torch.ones(num_heads // self.tp_size))
+self.dt_bias = nn.Parameter(torch.ones(num_heads // self.tp_size))
+self.use_rms_norm = use_rms_norm
+set_weight_attrs(self.D, {"weight_loader": sharded_weight_loader(0)})
+a_weight_loader = composed_weight_loader(
+sharded_weight_loader(0), lambda x: -torch.exp(x.float())
+)
+set_weight_attrs(self.A, {"weight_loader": a_weight_loader})
+set_weight_attrs(self.dt_bias, {"weight_loader": sharded_weight_loader(0)})
+self.out_proj = RowParallelLinear(
+intermediate_size,
+hidden_size,
+bias=use_bias,
+input_is_parallel=True,
+quant_config=quant_config,
+prefix=f"{prefix}.out_proj",
+)
+self.norm = Mixer2RMSNormGated(
+intermediate_size, n_groups, self.use_rms_norm, eps=rms_norm_eps
+)
+self._ssd_kernels_warmed_up = False
+# - get hidden_states, B and C after depthwise convolution.
+self.split_hidden_states_B_C_fn = lambda hidden_states_B_C: torch.split(
+hidden_states_B_C,
+[
+self.intermediate_size // self.tp_size,
+self.groups_ssm_state_size // self.tp_size,
+self.groups_ssm_state_size // self.tp_size,
+],
+dim=-1,
+)
+vllm_config = get_current_vllm_config()
+compilation_config = vllm_config.compilation_config
+if prefix in compilation_config.static_forward_context:
+raise ValueError(f"Duplicate layer name: {prefix}")
+compilation_config.static_forward_context[prefix] = self
+self.model_config = model_config
+self.cache_config = cache_config
+self.prefix = prefix
+self.use_replayssm = (
+cache_config.use_replayssm if cache_config is not None else False
+)
+self.replayssm_buffer_len = (
+cache_config.replayssm_buffer_len
+if cache_config is not None and cache_config.use_replayssm
+else None
+)
+self.mamba_config = vllm_config.mamba_config
+if self.use_replayssm and self.num_heads % self.tp_size != 0:
+raise ValueError(
+"--use-replayssm requires tensor-parallel heads to divide evenly"
+)
+# ReplaySSM appends x/dt/B rings to (conv_state, ssm_state).
+_n_state = 5 if self.use_replayssm else 2
+self.kv_cache = tuple(torch.tensor([]) for _ in range(_n_state))
+self._replayssm_ring_start = torch.empty(0, dtype=torch.int32)
+self._replayssm_prev_num_accepted = torch.empty(0, dtype=torch.int32)
+self._updates_replayssm_trackers = True
+self.num_spec = vllm_config.num_speculative_tokens
+if self.num_spec > 0:
+self.register_buffer(
+"_decode_state_offsets",
+torch.arange(1 + self.num_spec, dtype=torch.int32).unsqueeze(0),
+persistent=False,
+)
+# Pre-compute sizes for forward pass
+self.tped_intermediate_size = self.intermediate_size // self.tp_size
+self.tped_conv_size = self.conv_dim // self.tp_size
+self.tped_dt_size = self.num_heads // self.tp_size
+self.split_hidden_states_B_C_fn = lambda hidden_states_B_C: torch.split(
+hidden_states_B_C,
+[
+self.tped_intermediate_size,
+self.groups_ssm_state_size // self.tp_size,
+self.groups_ssm_state_size // self.tp_size,
+],
+dim=-1,
+)
+# Check if running on Blackwell (SM100+) for kernel tuning
+self.is_blackwell = current_platform.is_device_capability_family(100)
+def forward(
+self,
+hidden_states: torch.Tensor,
+mup_vector: torch.Tensor | None = None,
+):
+# 1. Gated MLP's linear projection
+projected_states, _ = self.in_proj(hidden_states)
+if mup_vector is not None:
+projected_states = projected_states * mup_vector
+# 2. Prepare inputs for conv + SSM
+ssm_output = torch.empty(
+[
+hidden_states.shape[0],
+(self.num_heads // self.tp_size) * self.head_dim,
+],
+dtype=hidden_states.dtype,
+device=hidden_states.device,
+)
+# 3. conv + SSM
+# (split `projected_states` into hidden_states_B_C, dt in the custom op to
+# ensure it is not treated as an intermediate tensor by torch compile)
+torch.ops.vllm.mamba_mixer2(
+projected_states,
+ssm_output,
+_encode_layer_name(self.prefix),
+)
+# 4. gated MLP
+# GatedRMSNorm internally applying SiLU to the gate
+# SiLU is applied internally before normalization, unlike standard
+# norm usage
+gate = projected_states[..., : self.tped_intermediate_size]
+hidden_states = self.norm(ssm_output, gate)
+# 5. Final linear projection
+output, _ = self.out_proj(hidden_states)
+return output
+def _warmup_ssd_kernels(self, projected_states: torch.Tensor) -> None:
+"""Run a minimal SSD forward pass to trigger Triton autotuning
+while GPU memory is still plentiful (before SSM cache allocation).
+"""
+if self._ssd_kernels_warmed_up:
+return
+self._ssd_kernels_warmed_up = True
+logger.info_once("Warming up Mamba2 SSD Triton kernels...")
+device = projected_states.device
+dtype = projected_states.dtype
+nheads = self.num_heads // self.tp_size
+ngroups = self.n_groups // self.tp_size
+headdim = self.head_dim
+dstate = self.ssm_state_size
+if self.model_config is None:
+return
+chunk_size = self.model_config.get_mamba_chunk_size()
+# Triton's autotuner includes tensor dtypes in its cache key,
+# so state_dtype must match what real inference uses.
+ssm_state_dtype = self.get_state_dtype()[1]
+# SSD kernel autotune keys depend on dtype and head dimensions,
+# not on sequence length or batch size, so a single shape suffices.
+seqlen = chunk_size
+batch = 1
+nchunks = seqlen // chunk_size # = 1
+x = torch.randn(seqlen, nheads, headdim, device=device, dtype=dtype)
+dt = torch.randn(seqlen, nheads, device=device, dtype=dtype)
+B = torch.randn(seqlen, ngroups, dstate, device=device, dtype=dtype)
+C = torch.randn(seqlen, ngroups, dstate, device=device, dtype=dtype)
+cu_seqlens = torch.tensor([0, seqlen], device=device, dtype=torch.int32)
+cu_chunk_seqlens = torch.tensor(
+[i * chunk_size for i in range(nchunks + 1)],
+device=device,
+dtype=torch.int32,
+)
+last_chunk_indices = torch.tensor(
+[nchunks - 1], device=device, dtype=torch.int32
+)
+seq_idx = torch.zeros(nchunks, device=device, dtype=torch.int32)
+out = torch.empty(seqlen, nheads, headdim, device=device, dtype=dtype)
+# Two kernels (_state_passing_fwd, _chunk_scan_fwd) use
+# HAS_INITSTATES as a constexpr, producing separate compiled
+# binaries. Warm up both code paths so neither triggers
+# JIT compilation during inference.
+for use_initial_states in (False, True):
+initial_states = (
+torch.randn(
+batch,
+nheads,
+headdim,
+dstate,
+device=device,
+dtype=ssm_state_dtype,
+)
+if use_initial_states
+else None
+)
+try:
+mamba_chunk_scan_combined_varlen(
+x=x,
+dt=dt,
+A=self.A,
+B=B,
+C=C,
+chunk_size=chunk_size,
+cu_seqlens=cu_seqlens,
+cu_chunk_seqlens=cu_chunk_seqlens,
+last_chunk_indices=last_chunk_indices,
+seq_idx=seq_idx,
+out=out,
+D=self.D,
+z=None,
+dt_bias=self.dt_bias,
+initial_states=initial_states,
+dt_softplus=True,
+dt_limit=(0.0, float("inf")),
+state_dtype=ssm_state_dtype,
+)
+except Exception:
+logger.warning(
+"Mamba2 SSD kernel warmup failed for layer %s "
+"(initial_states=%s). First inference may experience "
+"latency spike or OOM due to autotuner.",
+self.prefix,
+use_initial_states,
+exc_info=True,
+)
+logger.debug("Mamba2 SSD kernel warmup completed for layer %s", self.prefix)
+torch.accelerator.empty_cache()
+def conv_ssm_forward(
+self,
+projected_states: torch.Tensor,
+output: torch.Tensor,
+):
+hidden_states_B_C, dt = torch.split(
+projected_states[..., self.tped_intermediate_size :],
+[self.tped_conv_size, self.tped_dt_size],
+dim=-1,
+)
+forward_context = get_forward_context()
+# attn_metadata contains metadata necessary for the mamba2 triton
+# kernels to operate in continuous batching and in chunked prefill
+# modes; they are computed at top-level model forward since they
+# stay the same and reused for all mamba layers in the same iteration
+attn_metadata_raw = forward_context.attn_metadata
+assert self.cache_config is not None
+mamba_block_size = self.cache_config.mamba_block_size
+is_mamba_cache_all = self.cache_config.mamba_cache_mode == "all"
+ring_start = prev_num_accepted = None
+attn_metadata: AttentionMetadata | None = None
+if attn_metadata_raw is not None:
+assert isinstance(attn_metadata_raw, dict)
+attn_metadata = attn_metadata_raw.get(self.prefix)
+if attn_metadata is not None:
+assert isinstance(attn_metadata, Mamba2AttentionMetadata)
+# conv_state must be (..., dim, width-1) for the conv kernels.
+# DS layout stores it that way directly; SD layout needs a
+# transpose (which keeps dim contiguous via stride tricks).
+conv_state = (
+self.kv_cache[0]
+if is_conv_state_dim_first()
+else self.kv_cache[0].transpose(-1, -2)
+)
+ssm_state = self.kv_cache[1]
+if self.use_replayssm:
+x_cache, dt_cache, B_cache = self.kv_cache[2:5]
+if self.mamba_config.backend == MambaBackendEnum.FLASHINFER:
+ring_start = self._replayssm_ring_start
+prev_num_accepted = self._replayssm_prev_num_accepted
+else:
+x_cache = dt_cache = B_cache = None
+has_initial_states_p = attn_metadata.has_initial_states_p
+prep_initial_states = attn_metadata.prep_initial_states
+chunk_size = attn_metadata.chunk_size
+seq_idx_p = attn_metadata.seq_idx_p
+query_start_loc_p = attn_metadata.query_start_loc_p
+cu_chunk_seqlen_p = attn_metadata.cu_chunk_seqlen_p
+last_chunk_indices_p = attn_metadata.last_chunk_indices_p
+state_indices_tensor_p = attn_metadata.state_indices_tensor_p
+state_indices_tensor_d = attn_metadata.state_indices_tensor_d
+num_accepted_tokens = attn_metadata.num_accepted_tokens
+query_start_loc_d = attn_metadata.query_start_loc_d
+num_decodes = attn_metadata.num_decodes
+num_decode_tokens = attn_metadata.num_decode_tokens
+if attn_metadata is None:
+# V1 profile run -- warm up SSD kernels so that autotuning
+# completes before SSM cache allocation.
+self._warmup_ssd_kernels(projected_states)
+hidden_states_B_C = (
+hidden_states_B_C.transpose(0, 1).clone().transpose(0, 1)
+).contiguous()
+hidden_states, _B, _C = self.split_hidden_states_B_C_fn(hidden_states_B_C)
+return hidden_states
+num_prefills = attn_metadata.num_prefills
+num_prefill_tokens = attn_metadata.num_prefill_tokens
+has_prefill = num_prefills > 0
+has_decode = num_decodes > 0
+num_actual_tokens = num_prefill_tokens + num_decode_tokens
+# Split along token dimension
+hidden_states_B_C_d, hidden_states_B_C_p = torch.split(
+hidden_states_B_C[:num_actual_tokens],
+[num_decode_tokens, num_prefill_tokens],
+dim=0,
+)
+dt_d, dt_p = torch.split(
+dt[:num_actual_tokens],
+[num_decode_tokens, num_prefill_tokens],
+dim=0,
+)
+if is_mamba_cache_all:
+# If prefix caching is enabled, retrieve the relevant variables
+# for prefill and decode
+block_idx_last_computed_token_d, block_idx_last_computed_token_p = (
+torch.split(
+attn_metadata.block_idx_last_computed_token,
+[num_decodes, num_prefills],
+dim=0,
+)
+)
+block_idx_last_scheduled_token_d, block_idx_last_scheduled_token_p = (
+torch.split(
+attn_metadata.block_idx_last_scheduled_token,
+[num_decodes, num_prefills],
+dim=0,
+)
+)
+if attn_metadata.block_idx_last_scheduled_token_prev_step is not None:
+block_idx_last_scheduled_token_prev_step_d, _ = torch.split(
+attn_metadata.block_idx_last_scheduled_token_prev_step,
+[num_decodes, num_prefills],
+dim=0,
+)
+else:
+block_idx_last_scheduled_token_prev_step_d = None
+# Prefill-only variables:
+block_idx_first_scheduled_token_p = (
+attn_metadata.block_idx_first_scheduled_token_p
+)
+num_computed_tokens_p = attn_metadata.num_computed_tokens_p
+else:
+block_idx_last_computed_token_p = None
+block_idx_last_scheduled_token_p = None
+block_idx_first_scheduled_token_p = None
+block_idx_last_scheduled_token_d = None
+block_idx_last_computed_token_d = None
+block_idx_last_scheduled_token_prev_step_d = None
+num_computed_tokens_p = None
+preallocated_ssm_out_d, preallocated_ssm_out_p = torch.split(
+output[:num_actual_tokens],
+[num_decode_tokens, num_prefill_tokens],
+dim=0,
+)
+# Process prefill requests
+if has_prefill:
+# 2. Convolution sequence transformation
+# - It will read the initial states for every sequence,
+# that has "has_initial_states_p" == True,
+# from "cache_indices", using "state_indices_tensor_p".
+# - It updates the "conv_state" cache in positions pointed
+# to by "state_indices_tensor_p".
+# In particular, it will always write the state at the
+# sequence end.
+# In addition, "block_idx_first_scheduled_token_p" and
+# "block_idx_last_scheduled_token_p"
+# are provided (which are pointers into
+# "state_indices_tensor_p"), it will write additional cache
+# states aligned at "block_size_to_align".
+x = hidden_states_B_C_p.transpose(
+0, 1
+) # this is the form that causal-conv see
+hidden_states_B_C_p = causal_conv1d_fn(
+x,
+self.conv_weights,
+self.conv1d.bias,
+activation=self.activation,
+conv_states=conv_state,
+has_initial_state=has_initial_states_p,
+cache_indices=state_indices_tensor_p,
+block_idx_first_scheduled_token=block_idx_first_scheduled_token_p,
+block_idx_last_scheduled_token=block_idx_last_scheduled_token_p,
+initial_state_idx=block_idx_last_computed_token_p,
+num_computed_tokens=num_computed_tokens_p,
+block_size_to_align=mamba_block_size,
+metadata=attn_metadata,
+query_start_loc=query_start_loc_p,
+).transpose(0, 1)[:num_prefill_tokens]
+hidden_states_p, B_p, C_p = self.split_hidden_states_B_C_fn(
+hidden_states_B_C_p
+)
+# 3. State Space Model sequence transformation
+initial_states = None
+if has_initial_states_p is not None and prep_initial_states:
+assert state_indices_tensor_p is not None
+kernel_ssm_indices = state_indices_tensor_p
+if is_mamba_cache_all:
+kernel_ssm_indices = state_indices_tensor_p.gather(
+1, block_idx_last_computed_token_p.unsqueeze(1)
+).squeeze(1)
+initial_states = torch.where(
+has_initial_states_p[:, None, None, None],
+ssm_state[kernel_ssm_indices],
+0,
+)
+# NOTE: final output is an in-place update of out tensor
+assert preallocated_ssm_out_p is not None
+varlen_states = mamba_chunk_scan_combined_varlen(
+hidden_states_p.view(
+num_prefill_tokens, self.num_heads // self.tp_size, self.head_dim
+),
+dt_p,
+self.A,
+B_p.view(num_prefill_tokens, self.n_groups // self.tp_size, -1),
+C_p.view(num_prefill_tokens, self.n_groups // self.tp_size, -1),
+chunk_size=chunk_size,
+D=self.D,
+z=None,
+dt_bias=self.dt_bias,
+seq_idx=seq_idx_p,
+cu_seqlens=query_start_loc_p,
+cu_chunk_seqlens=cu_chunk_seqlen_p,
+last_chunk_indices=last_chunk_indices_p,
+initial_states=initial_states,
+return_intermediate_states=is_mamba_cache_all,
+dt_softplus=True,
+dt_limit=(0.0, float("inf")),
+out=preallocated_ssm_out_p.view(num_prefill_tokens, -1, self.head_dim),
+state_dtype=ssm_state.dtype,
+)
+if is_mamba_cache_all:
+assert mamba_block_size is not None
+assert state_indices_tensor_p is not None
+assert block_idx_first_scheduled_token_p is not None
+assert block_idx_last_scheduled_token_p is not None
+assert last_chunk_indices_p is not None
+assert num_computed_tokens_p is not None
+# The chunk_stride is the number of chunks per mamba block
+# e.g., if mamba_block_size = 512 and chunk_size = 256,
+# then chunk_stride = 2
+chunk_stride = mamba_block_size // chunk_size
+# The per-sequence loop below uses these as Python scalars.
+# TODO avoid sync here?
+with gpu_sync_allowed():
+block_idx_first_cpu = block_idx_first_scheduled_token_p.tolist()
+block_idx_last_cpu = block_idx_last_scheduled_token_p.tolist()
+num_computed_tokens_p_cpu = num_computed_tokens_p.tolist()
+last_chunk_indices_p_cpu = last_chunk_indices_p.tolist()
+# Save state for sequences with more than just final state
+for seq_idx in range(num_prefills):
+# Block index for the first scheduled token
+block_idx_first_scheduled_token = block_idx_first_cpu[seq_idx]
+# Block index for the last scheduled token
+block_idx_last_scheduled_token = block_idx_last_cpu[seq_idx]
+# Number of blocks that need to be written
+n_blocks_to_fill = (
+block_idx_last_scheduled_token - block_idx_first_scheduled_token
+)
+# Skip sequences that don't have any blocks to fill
+if n_blocks_to_fill == 0:
+continue
+# Look up the state indices
+cache_blocks_to_fill = state_indices_tensor_p[
+seq_idx,
+block_idx_first_scheduled_token:block_idx_last_scheduled_token,
+]
+# First chunk index for this sequence
+if seq_idx == 0:
+first_chunk = 0
+else:
+first_chunk = 1 + last_chunk_indices_p_cpu[seq_idx - 1]
+# First chunk that is aligned on the mamba block boundary
+first_aligned_chunk = first_chunk + chunk_stride - 1
+# Calculate the number of computed tokens that were not
+# already cached
+num_unaligned_computed_tokens = (
+num_computed_tokens_p_cpu[seq_idx] % mamba_block_size
+)
+if num_unaligned_computed_tokens > 0:
+# If the number of computed tokens is not block aligned,
+# then we need to shift the index accordingly
+first_aligned_chunk -= (
+num_unaligned_computed_tokens // chunk_size
+)
+# Get states to write
+from_where = varlen_states[
+first_aligned_chunk : first_aligned_chunk
++ n_blocks_to_fill * chunk_stride : chunk_stride
+]
+# Write the states
+ssm_state[cache_blocks_to_fill] = from_where
+# For all seqs, store the last state (note: might be partial):
+assert state_indices_tensor_p is not None
+ssm_state[
+state_indices_tensor_p.gather(
+1, block_idx_last_scheduled_token_p.unsqueeze(1)
+).squeeze(1)
+] = varlen_states[last_chunk_indices_p]
+else:
+# update ssm states
+# - varlen state is a (num_prefills, nheads, headdim, dstate)
+# tensor
+assert state_indices_tensor_p is not None
+ssm_state[state_indices_tensor_p] = varlen_states
+if ring_start is not None and self._updates_replayssm_trackers:
+assert prev_num_accepted is not None
+reset_replayssm_ring_trackers(
+ring_start,
+prev_num_accepted,
+state_indices_tensor_p,
+)
+# Process decode requests
+if has_decode:
+assert state_indices_tensor_d is not None
+if is_mamba_cache_all:
+if self.num_spec > 0:
+assert block_idx_last_scheduled_token_prev_step_d is not None
+input_indices = (
+block_idx_last_scheduled_token_prev_step_d.unsqueeze(1)
++ self._decode_state_offsets
+)
+output_indices = (
+block_idx_last_scheduled_token_d.unsqueeze(1)
++ self._decode_state_offsets
+)
+state_indices_tensor_d_input = state_indices_tensor_d.gather(
+1, input_indices
+)
+state_indices_tensor_d_output = state_indices_tensor_d.gather(
+1, output_indices
+)
+else:
+state_indices_tensor_d_input = state_indices_tensor_d.gather(
+1, block_idx_last_computed_token_d.unsqueeze(1)
+).squeeze(1)
+state_indices_tensor_d_output = state_indices_tensor_d.gather(
+1, block_idx_last_scheduled_token_d.unsqueeze(1)
+).squeeze(1)
+else:
+# Without caching, read and write in-place to the same blocks:
+state_indices_tensor_d_input = state_indices_tensor_d
+state_indices_tensor_d_output = state_indices_tensor_d
+# 2. Convolution sequence transformation
+hidden_states_B_C_d = causal_conv1d_update(
+hidden_states_B_C_d,
+conv_state,
+self.conv_weights,
+self.conv1d.bias,
+self.activation,
+conv_state_indices=state_indices_tensor_d,
+block_idx_last_scheduled_token=block_idx_last_scheduled_token_d,
+initial_state_idx=block_idx_last_computed_token_d,
+num_accepted_tokens=num_accepted_tokens,
+query_start_loc=query_start_loc_d,
+max_query_len=state_indices_tensor_d.size(-1),
+)
+hidden_states_d, B_d, C_d = self.split_hidden_states_B_C_fn(
+hidden_states_B_C_d
+)
+# 3. State Space Model sequence transformation
+n_groups = self.n_groups // self.tp_size
+A_d = (
+self.A[:, None, ...][:, :, None]
+.expand(-1, self.head_dim, self.ssm_state_size)
+.to(dtype=torch.float32)
+)
+dt_d = dt_d[:, :, None].expand(-1, -1, self.head_dim)
+dt_bias = self.dt_bias[:, None, ...].expand(-1, self.head_dim)
+D_d = self.D[:, None, ...].expand(-1, self.head_dim)
+B_d = B_d.view(-1, n_groups, B_d.shape[1] // n_groups)
+C_d = C_d.view(-1, n_groups, C_d.shape[1] // n_groups)
+hidden_states_d = hidden_states_d.view(
+-1, self.num_heads // self.tp_size, self.head_dim
+)
+assert preallocated_ssm_out_d is not None
+# - the hidden is reshaped into (bs, num_heads, head_dim)
+# - mamba_cache_params.ssm_state's slots will be selected
+# using state_indices_tensor_d
+# NOTE: final output is an in-place update of out tensor
+preallocated_ssm_out_d = preallocated_ssm_out_d.view(
+num_decode_tokens, -1, self.head_dim
+)
+if self.use_replayssm:
+assert self.replayssm_buffer_len is not None
+if self.mamba_config.backend == MambaBackendEnum.FLASHINFER:
+assert ring_start is not None
+assert prev_num_accepted is not None
+assert attn_metadata.replayssm_scratch is not None
+selective_state_update_replayssm_flashinfer(
+ssm_state,
+hidden_states_d,
+dt_d,
+A_d,
+B_d,
+C_d,
+preallocated_ssm_out_d,
+x_cache,
+B_cache,
+dt_cache,
+ring_start,
+prev_num_accepted,
+logical_window=self.replayssm_buffer_len,
+D=D_d,
+dt_bias=dt_bias,
+dt_softplus=True,
+state_batch_indices=state_indices_tensor_d_input,
+scratch=attn_metadata.replayssm_scratch,
+update_trackers=self._updates_replayssm_trackers,
+enable_stochastic_rounding=(
+self.mamba_config.enable_stochastic_rounding
+),
+stochastic_rounding_philox_rounds=(
+self.mamba_config.stochastic_rounding_philox_rounds
+),
+)
+else:
+selective_state_update_replayssm_output_only(
+ssm_state,
+hidden_states_d,
+dt_d,
+A_d,
+B_d,
+C_d,
+D_d,
+dt_bias,
+dt_softplus=True,
+x_cache=x_cache,
+dt_cache=dt_cache,
+B_cache=B_cache,
+bc_pre=attn_metadata.bc_pre_scratch,
+write_pos=attn_metadata.write_pos_d,
+is_flush=attn_metadata.is_flush_d,
+max_cache_len=self.replayssm_buffer_len,
+state_batch_indices=state_indices_tensor_d_input,
+out=preallocated_ssm_out_d,
+enable_stochastic_rounding=(
+self.mamba_config.enable_stochastic_rounding
+),
+cache_philox_rounds=(
+self.mamba_config.stochastic_rounding_philox_rounds
+),
+)
+else:
+selective_state_update(
+ssm_state,
+hidden_states_d,
+dt_d,
+A_d,
+B_d,
+C_d,
+D_d,
+dt_bias,
+dt_softplus=True,
+state_batch_indices=state_indices_tensor_d_input,
+dst_state_batch_indices=state_indices_tensor_d_output,
+out=preallocated_ssm_out_d,
+num_accepted_tokens=num_accepted_tokens,
+cu_seqlens=query_start_loc_d,
+is_blackwell=self.is_blackwell,
+)
+def get_state_dtype(self) -> tuple[torch.dtype, ...]:
+assert self.model_config is not None
+assert self.cache_config is not None
+base_dtype = MambaStateDtypeCalculator.mamba2_state_dtype(
+self.model_config.dtype,
+self.cache_config.mamba_cache_dtype,
+self.cache_config.mamba_ssm_cache_dtype,
+)
+if self.use_replayssm:
+return MambaStateDtypeCalculator.append_replayssm_ring(
+base_dtype, self.model_config.dtype
+)
+return base_dtype
+def get_state_shape(self) -> tuple[tuple[int, ...], ...]:
+tp_world_size = get_tensor_model_parallel_world_size()
+base_shape = MambaStateShapeCalculator.mamba2_state_shape(
+intermediate_size=self.intermediate_size,
+tp_world_size=tp_world_size,
+n_groups=self.n_groups,
+num_heads=self.num_heads,
+head_dim=self.head_dim,
+state_size=self.ssm_state_size,
+conv_kernel=self.conv_kernel_size,
+num_spec=self.num_spec,
+)
+if self.use_replayssm:
+assert self.replayssm_buffer_len is not None
+return MambaStateShapeCalculator.append_replayssm_ring(
+base_shapes=base_shape,
+n_groups=self.n_groups,
+tp_world_size=tp_world_size,
+logical_window=self.replayssm_buffer_len,
+backend=self.mamba_config.backend,
+)
+return base_shape
+@property
+def mamba_type(self) -> MambaAttentionBackendEnum:
+return MambaAttentionBackendEnum.MAMBA2

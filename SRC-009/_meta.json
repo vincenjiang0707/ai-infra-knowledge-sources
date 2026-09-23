@@ -1,0 +1,124 @@
+{
+ "src_id": "SRC-009",
+ "name": "TensorRT LLM",
+ "category": "推理引擎与部署配⽅",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:42:00Z",
+ "finished_at": "2026-09-23T03:42:00Z",
+ "duration_seconds": 137.8,
+ "attempts": 1,
+ "channels": {
+  "gh_b71d2e6d": {
+   "type": "github_repo",
+   "url": "https://github.com/vllm-project/vllm-ascend",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 42
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "gh_bdd0b728": {
+   "type": "github_repo",
+   "url": "https://github.com/NVIDIA/TensorRT-LLM",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 90
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_1b31bb4e": {
+   "type": "reference",
+   "url": "https://github.com/vllm-project/vllm-ascend/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 4437
+  },
+  "ref_9277a9cb": {
+   "type": "reference",
+   "url": "https://github.com/vllm-project/vllm-ascend/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 5800
+  },
+  "ref_9d36082a": {
+   "type": "reference",
+   "url": "https://github.com/vllm-project/vllm-ascend/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 82272
+  }
+ },
+ "cursor": {
+  "gh_b71d2e6d:issues": {
+   "last_updated_at": "2026-09-23T03:39:04Z"
+  },
+  "gh_b71d2e6d:pulls": {
+   "last_updated_at": "2026-09-23T03:39:28Z"
+  },
+  "gh_b71d2e6d:releases": {
+   "last_id": 393423406
+  },
+  "gh_bdd0b728:issues": {
+   "last_updated_at": "2026-09-23T01:16:27Z"
+  },
+  "gh_bdd0b728:pulls": {
+   "last_updated_at": "2026-09-23T03:39:54Z"
+  },
+  "gh_bdd0b728:releases": {
+   "last_id": 391190130
+  }
+ },
+ "notes": ""
+}

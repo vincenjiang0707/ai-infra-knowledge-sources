@@ -1,0 +1,32 @@
+{
+ "src_id": "SRC-130",
+ "name": "Modal",
+ "category": "⼀⼿⼯程博客与服务商经验",
+ "priority": "扩展",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:20:07Z",
+ "finished_at": "2026-09-23T04:20:07Z",
+ "duration_seconds": 190.5,
+ "attempts": 1,
+ "channels": {
+  "site_11c7c0f2": {
+   "type": "site",
+   "url": "https://modal.com/blog",
+   "mode": "rss",
+   "status": "ok",
+   "output": "feed_meta.json",
+   "entries": 133,
+   "posts_fetched": 133,
+   "posts_failed": 0,
+   "output_dir": "posts/"
+  }
+ },
+ "cursor": {
+  "site_11c7c0f2:rss": {
+   "last_entry_published": "2026-09-14T00:00:00.000Z"
+  }
+ },
+ "notes": ""
+}

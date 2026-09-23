@@ -1,0 +1,148 @@
+{
+ "src_id": "SRC-070",
+ "name": "DeepEP",
+ "category": "Kernel、编译与⾃动优化",
+ "priority": "核⼼",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:58:58Z",
+ "finished_at": "2026-09-23T03:58:58Z",
+ "duration_seconds": 108.1,
+ "attempts": 1,
+ "channels": {
+  "gh_30d8214c": {
+   "type": "github_repo",
+   "url": "https://github.com/deepseek-ai/DeepGEMM",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 10
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "gh_2bf7c356": {
+   "type": "github_repo",
+   "url": "https://github.com/deepseek-ai/DeepEP",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 1
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_9f5b683e": {
+   "type": "reference",
+   "url": "https://github.com/deepseek-ai/DeepGEMM/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 884
+  },
+  "ref_99bb2271": {
+   "type": "reference",
+   "url": "https://github.com/deepseek-ai/DeepGEMM/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 5219
+  },
+  "ref_e824fb1c": {
+   "type": "reference",
+   "url": "https://github.com/deepseek-ai/DeepGEMM/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 2278
+  },
+  "ref_ceab9188": {
+   "type": "reference",
+   "url": "https://github.com/deepseek-ai/DeepEP/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 927
+  },
+  "ref_b7d233f9": {
+   "type": "reference",
+   "url": "https://github.com/deepseek-ai/DeepEP/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 5206
+  },
+  "ref_f8e600e4": {
+   "type": "reference",
+   "url": "https://github.com/deepseek-ai/DeepEP/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 112
+  }
+ },
+ "cursor": {
+  "gh_30d8214c:issues": {
+   "last_updated_at": "2026-09-22T16:33:12Z"
+  },
+  "gh_30d8214c:pulls": {
+   "last_updated_at": "2026-09-23T02:56:51Z"
+  },
+  "gh_30d8214c:releases": {
+   "last_id": 356595222
+  },
+  "gh_2bf7c356:issues": {
+   "last_updated_at": "2026-09-22T09:05:37Z"
+  },
+  "gh_2bf7c356:pulls": {
+   "last_updated_at": "2026-09-22T22:39:54Z"
+  },
+  "gh_2bf7c356:releases": {
+   "last_id": 247478920
+  }
+ },
+ "notes": ""
+}

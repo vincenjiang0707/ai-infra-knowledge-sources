@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-041",
+ "name": "海光光合开发",
+ "category": "昇腾与其他国产芯⽚",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:10:47Z",
+ "finished_at": "2026-09-23T04:10:47Z",
+ "duration_seconds": 13.0,
+ "attempts": 1,
+ "channels": {
+  "site_6eab021b": {
+   "type": "site",
+   "url": "https://developer.sourcefind.cn/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 650
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

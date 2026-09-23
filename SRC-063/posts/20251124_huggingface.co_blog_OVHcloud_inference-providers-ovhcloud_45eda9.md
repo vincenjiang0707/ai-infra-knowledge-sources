@@ -1,0 +1,127 @@
+# OVHcloud on Hugging Face Inference Providers 🔥
+
+source: https://huggingface.co/blog/OVHcloud/inference-providers-ovhcloud
+published: Mon, 24 Nov 2025 16:08:47 GMT
+
+#
+[
+](https://huggingface.co#ovhcloud-on-hugging-face-inference-providers-🔥)
+OVHcloud on Hugging Face Inference Providers 🔥
+
+[Community Article](https://huggingface.co/blog/community)
+
+
+We're thrilled to share that **OVHcloud** is now a supported Inference Provider on the Hugging Face Hub! OVHcloud joins our growing ecosystem, enhancing the breadth and capabilities of serverless inference directly on the Hub's model pages. Inference Providers are also seamlessly integrated into our client SDKs (for both JS and Python), making it super easy to use a wide variety of models with your preferred providers.
+
+This launch makes it easier than ever to access popular open-weight models like gpt-oss, Qwen3, DeepSeek R1, and Llama — right from Hugging Face. You can browse OVHcloud's org on the Hub at [https://huggingface.co/ovhcloud](https://huggingface.co/ovhcloud) and try trending supported models at [https://huggingface.co/models?inference_provider=ovhcloud&sort=trending](https://huggingface.co/models?inference_provider=ovhcloud&sort=trending).
+
+OVHcloud AI Endpoints are a fully managed, serverless service that provides access to frontier AI models from leading research labs via simple API calls. The service offers competitive pay-per-token pricing starting at €0.04 per million tokens.
+
+The service runs on secure infrastructure located in European data centers, ensuring data sovereignty and low latency for European users. The platform supports advanced features including structured outputs, function calling, and multimodal capabilities for both text and image processing.
+
+Built for production use, OVHcloud's inference infrastructure delivers sub-200ms response times for first tokens, making it ideal for interactive applications and agentic workflows. The service supports both text generation and embedding models. You can learn more about OVHcloud's platform and infrastructure at [https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/](https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog/).
+
+Read more about how to use OVHcloud as an Inference Provider in its dedicated documentation page.
+
+See the list of supported models here.
+
+##
+[
+](https://huggingface.co#how-it-works)
+How it works
+
+###
+[
+](https://huggingface.co#in-the-website-ui)
+In the website UI
+
+In your user account settings, you are able to:
+
+- Set your own API keys for the providers you've signed up with. If no custom key is set, your requests will be routed through HF.
+- Order providers by preference. This applies to the widget and code snippets in the model pages.
+
+As mentioned, there are two modes when calling Inference Providers:
+
+**Custom key**(calls go directly to the inference provider, using your own API key of the corresponding inference provider)**Routed by HF**(in that case, you don't need a token from the provider, and the charges are applied directly to your HF account rather than the provider's account)
+
+Model pages showcase third-party inference providers (the ones that are compatible with the current model, sorted by user preference)
+
+##
+[
+](https://huggingface.co#from-the-client-sdks)
+From the client SDKs
+
+###
+[
+](https://huggingface.co#from-python-using-huggingface_hub)
+From Python, using huggingface_hub
+
+The following example shows how to use OpenAI's gpt-oss-120b using OVHcloud as the inference provider. You can use a Hugging Face token for automatic routing through Hugging Face, or your own OVHcloud AI Endpoints API key if you have one.
+
+**Note:** this requires using a recent version of huggingface_hub (>= 1.1.5).
+
+```
+import os
+from huggingface_hub import InferenceClient
+client = InferenceClient(
+api_key=os.environ["HF_TOKEN"],
+)
+completion = client.chat.completions.create(
+model="openai/gpt-oss-120b:ovhcloud",
+messages=[
+{
+"role": "user",
+"content": "What is the capital of France?"
+}
+],
+)
+print(completion.choices[0].message)
+```
+
+
+###
+[
+](https://huggingface.co#from-js-using-huggingfaceinference)
+From JS using @huggingface/inference
+
+```
+import { InferenceClient } from "@huggingface/inference";
+const client = new InferenceClient(process.env.HF_TOKEN);
+const chatCompletion = await client.chatCompletion({
+model: "openai/gpt-oss-120b:ovhcloud",
+messages: [
+{
+role: "user",
+content: "What is the capital of France?",
+},
+],
+});
+console.log(chatCompletion.choices[0].message);
+```
+
+
+##
+[
+](https://huggingface.co#billing)
+Billing
+
+Here is how billing works:
+
+For
+
+**direct requests**, i.e. when you use the key from an inference provider, you are billed by the corresponding provider. For instance, if you use an OVHcloud API key you're billed on your OVHcloud account.For
+
+**routed requests**, i.e. when you authenticate via the Hugging Face Hub, you'll only pay the standard provider API rates. There's no additional markup from us; we just pass through the provider costs directly. (In the future, we may establish revenue-sharing agreements with our provider partners.)
+
+**Important Note ‼️** PRO users get $2 worth of Inference credits every month. You can use them across providers. 🔥
+
+Subscribe to the [Hugging Face PRO plan](https://huggingface.co/pricing) to get access to Inference credits, ZeroGPU, Spaces Dev Mode, 20x higher limits, and more.
+
+We also provide free inference with a small quota for our signed-in free users, but please upgrade to PRO if you can!
+
+##
+[
+](https://huggingface.co#feedback-and-next-steps)
+Feedback and next steps
+
+We would love to get your feedback! Share your thoughts and/or comments here: [https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/49](https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/49)

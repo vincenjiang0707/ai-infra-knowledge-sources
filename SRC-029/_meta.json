@@ -1,0 +1,91 @@
+{
+ "src_id": "SRC-029",
+ "name": "AWS Neuron",
+ "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:43:22Z",
+ "finished_at": "2026-09-23T03:43:22Z",
+ "duration_seconds": 82.3,
+ "attempts": 1,
+ "channels": {
+  "gh_2d4350d3": {
+   "type": "github_repo",
+   "url": "https://github.com/AI-Hypercomputer/JetStream",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 30,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 4
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_2b1e9911": {
+   "type": "reference",
+   "url": "https://github.com/AI-Hypercomputer/JetStream/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 965
+  },
+  "ref_e5eadd7c": {
+   "type": "reference",
+   "url": "https://github.com/AI-Hypercomputer/JetStream/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 3636
+  },
+  "ref_bb5a96ba": {
+   "type": "reference",
+   "url": "https://github.com/AI-Hypercomputer/JetStream/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 21306
+  },
+  "site_3078e6d3": {
+   "type": "site",
+   "url": "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 4896
+  }
+ },
+ "cursor": {
+  "gh_2d4350d3:issues": {
+   "last_updated_at": "2025-08-12T16:11:10Z"
+  },
+  "gh_2d4350d3:pulls": {
+   "last_updated_at": "2026-08-03T23:05:19Z"
+  },
+  "gh_2d4350d3:releases": {
+   "last_id": 191521262
+  }
+ },
+ "notes": ""
+}

@@ -1,0 +1,32 @@
+{
+ "src_id": "SRC-165",
+ "name": "vLLM Blog",
+ "category": "⼀⼿⼯程博客与服务商经验",
+ "priority": "核⼼",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:16:38Z",
+ "finished_at": "2026-09-23T03:16:38Z",
+ "duration_seconds": 27.1,
+ "attempts": 1,
+ "channels": {
+  "site_30f2e89c": {
+   "type": "site",
+   "url": "https://vllm.ai/blog",
+   "mode": "rss",
+   "status": "ok",
+   "output": "feed_meta.json",
+   "entries": 50,
+   "posts_fetched": 50,
+   "posts_failed": 0,
+   "output_dir": "posts/"
+  }
+ },
+ "cursor": {
+  "site_30f2e89c:rss": {
+   "last_entry_published": "Wed, 29 Jul 2026 00:00:00 GMT"
+  }
+ },
+ "notes": ""
+}

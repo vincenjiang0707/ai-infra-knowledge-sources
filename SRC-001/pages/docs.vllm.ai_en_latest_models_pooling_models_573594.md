@@ -1,0 +1,437 @@
+source: https://docs.vllm.ai/en/latest/models/pooling_models/
+lastmod: 2026-09-23
+
+# Pooling Models[¶](https://docs.vllm.ai#pooling-models)
+
+Note
+
+We currently support pooling models primarily for convenience. This is not guaranteed to provide any performance improvements over using Hugging Face Transformers or Sentence Transformers directly. We plan to optimize pooling models in vLLM. Please comment on [ Issue #21796](https://github.com/vllm-project/vllm/issues/21796) if you have any suggestions!
+
+## What are pooling models?[¶](https://docs.vllm.ai#what-are-pooling-models)
+
+Natural Language Processing (NLP) can be primarily divided into the following two types of tasks:
+
+- Natural Language Understanding (NLU)
+- Natural Language Generation (NLG)
+
+The generative models supported by vLLM cover a variety of task types, such as the large language models (LLMs) we are familiar with, multimodal models (VLM) that handle multimodal inputs like images, videos, and audio, speech-to-text transcription models, and real-time models that support streaming input. Their common feature is the ability to generate text. Taking it a step further, vLLM-Omni supports the generation of multimodal content, including images, videos, and audio.
+
+As the capabilities of generative models continue to improve, the boundaries of these models are also constantly expanding. However, certain application scenarios still require specialized small language models to efficiently complete specific tasks. These models typically have the following characteristics:
+
+- They do not require content generation.
+- They only need to perform very limited functions, without requiring strong generalization, creativity, or high intelligence.
+- They demand extremely low latency and may operate on cost-constrained hardware.
+- Text-only models typically have fewer than 1 billion parameters, while multimodal models generally have fewer than 10 billion parameters.
+
+Although these models are relatively small in scale, they are still based on the Transformer architecture, similar or even identical to the most advanced large language models today. Many recently released pooling models are also fine-tuned from large language models, allowing them to benefit from the continuous improvements in large models. This architecture similarity enables them to reuse much of vLLM’s infrastructure. If compatible, we would be happy to help them leverage the latest features of vLLM as well.
+
+### Cheat Sheet[¶](https://docs.vllm.ai#cheat-sheet)
+
+As illustrated in the figure below, we have summarized the relationships among the key elements of pooling models as a takeaway.
+
+### Sequence-wise Task and Token-wise Task[¶](https://docs.vllm.ai#sequence-wise-task-and-token-wise-task)
+
+The key distinction between sequence-wise task and token-wise task lies in their output granularity: sequence-wise task produces a single result for an entire input sequence, whereas token-wise task yields a result for each individual token within the sequence.
+
+Many Pooling models support both (sequence) task and token task. When the default pooling task (e.g. a sequence-wise task) is not what you want, you need to manually specify (e.g. a token-wise task) via `PoolerConfig(task=<task>)`
+
+offline or `--pooler-config.task <task>`
+
+online.
+
+Of course, we also have "plugin" tasks that allow users to customize input and output processors. For more information, please refer to [IO Processor Plugins](https://docs.vllm.ai/design/io_processor_plugins/).
+
+### Pooling Tasks[¶](https://docs.vllm.ai#pooling-tasks)
+
+| Pooling Tasks | Granularity | Outputs |
+|---|---|---|
+`classify` (see note) | Sequence-wise | probability vector of classes for each sequence |
+`embed` | Sequence-wise | vector representations for each sequence |
+`token_classify` | Token-wise | probability vector of classes for each token |
+`token_embed` | Token-wise | vector representations for each token |
+
+Note
+
+Within classification tasks, there is a specialized subcategory: Cross-encoder (aka reranker) models. These models are a subset of classification models that accept two prompts as input and output num_labels equal to 1.
+
+### Pooling Types[¶](https://docs.vllm.ai#pooling-types)
+
+| Pooling Tasks | Granularity | Description |
+|---|---|---|
+`CLS` pooling | Sequence-wise | For BERT‑like (bidirectional self‑attention) models, CLS pooling is used by default. This means the last_hidden_states corresponding to the first token (the [CLS] token) is taken as the output. |
+`LAST` pooling | Sequence-wise | For GPT‑like (causal self‑attention) models, LAST pooling is used by default. This means the last_hidden_states corresponding to the last token is taken as the output. |
+`MEAN` pooling | Sequence-wise | Many studies have shown that averaging the last_hidden_states over all input tokens performs better on certain downstream tasks. Therefore, more and more models are using MEAN pooling. |
+`ALL` pooling | Token-wise | Outputs the last_hidden_states for all input tokens. |
+`STEP` pooling | Token-wise | Filters and outputs the last_hidden_states corresponding to the token IDs returned by returned_token_ids. |
+
+### Score Types[¶](https://docs.vllm.ai#score-types)
+
+The scoring models is designed to compute similarity scores between two input prompts. It supports three model types (aka `score_type`
+
+): `cross-encoder`
+
+, `late-interaction`
+
+, and `bi-encoder`
+
+.
+
+| Pooling Tasks | Granularity | Outputs | Score Types | scoring function |
+|---|---|---|---|---|
+`classify` (see note) | Sequence-wise | reranker score for each sequence | `cross-encoder` | linear classifier |
+`embed` | Sequence-wise | vector representations for each sequence | `bi-encoder` | cosine similarity |
+`token_classify` | Token-wise | probability vector of classes for each token | N/A | N/A |
+`token_embed` | Token-wise | vector representations for each token | `late-interaction` | late interaction(MaxSim) |
+
+Note
+
+Only when a classification model outputs num_labels equal to 1 can it be used as a scoring model and have its scoring API enabled.
+
+### Pooling Usages[¶](https://docs.vllm.ai#pooling-usages)
+
+| Pooling Usages | Description |
+|---|---|
+| Classification Usages | Predicting which predefined category, class, or label best corresponds to a given input. |
+| Embedding Usages | Converts unstructured data (text, images, audio, etc.) into structured numerical vectors (embeddings). |
+| Token Classification Usages | Token-wise classification |
+| Token Embedding Usages | Token-wise embedding |
+| Reward Usages | Evaluates the quality of outputs generated by a language model, acting as a proxy for human preferences. |
+| Scoring Usages | Computes similarity scores between two inputs. It supports three model types (aka `score_type` ): `cross-encoder` , `late-interaction` , and `bi-encoder` . |
+| Plugins Usages | Allow users to customize input and output processors. For more information, please refer to
+|
+
+We also have some special models that support multiple pooling tasks, or have specific usage scenarios, or support special inputs and outputs.
+
+For more detailed information, please refer to the link below.
+
+[Classification Usages](https://docs.vllm.ai/classify/)[Embedding Usages](https://docs.vllm.ai/embed/)[Token Classification Usages](https://docs.vllm.ai/token_classify/)[Token Embedding Usages](https://docs.vllm.ai/token_embed/)[Reward Usages](https://docs.vllm.ai/reward/)[Scoring Usages](https://docs.vllm.ai/scoring/)[Specific Model Examples](https://docs.vllm.ai/specific_models/)
+
+## Offline Inference[¶](https://docs.vllm.ai#offline-inference)
+
+Each pooling model in vLLM supports one or more of these tasks according to [Pooler.get_supported_tasks](https://docs.vllm.ai/api/vllm/model_executor/layers/pooler/#vllm.model_executor.layers.pooler.Pooler.get_supported_tasks), enabling the corresponding APIs.
+
+### Offline APIs corresponding to pooling usages[¶](https://docs.vllm.ai#offline-apis-corresponding-to-pooling-usages)
+
+| Pooling Usages | Dedicated API | Pooling task for `LLM.encode` API | Score Types | scoring function |
+|---|---|---|---|---|
+| Classification Usages | `LLM.classify(...)` | `classify` | `cross-encoder` (see note) | linear classifier |
+| Embedding Usages | `LLM.embed(...)` | `embed` | `bi-encoder` | cosine similarity |
+| Token Classification Usages | N/A | `token_classify` | N/A | N/A |
+| Token Embedding Usages | N/A | `token_embed` | `late-interaction` | late interaction(MaxSim) |
+| Reward Usages | N/A | `classify` & `token_classify` | N/A | N/A |
+| Scoring Usages | `LLM.score(...)` | N/A | N/A | N/A |
+| Plugins Usages | N/A | `plugin` | N/A | N/A |
+
+Note
+
+Only when a classification model outputs num_labels equal to 1 can it be used as a scoring model and have its scoring API enabled.
+
+`LLM.classify`
+
+[¶](https://docs.vllm.ai#llmclassify)
+
+The [classify](https://docs.vllm.ai/api/vllm/entrypoints/pooling/offline/#vllm.entrypoints.pooling.offline.PoolingOfflineMixin.classify) method outputs a probability vector for each prompt. It is primarily designed for [classification models](https://docs.vllm.ai/classify/). For more information about `LLM.classify`
+
+, see [this page](https://docs.vllm.ai/classify/#offline-inference).
+
+`LLM.embed`
+
+[¶](https://docs.vllm.ai#llmembed)
+
+The [embed](https://docs.vllm.ai/api/vllm/entrypoints/pooling/offline/#vllm.entrypoints.pooling.offline.PoolingOfflineMixin.embed) method outputs an embedding vector for each prompt. It is primarily designed for [embedding models](https://docs.vllm.ai/embed/). For more information about `LLM.embed`
+
+, see [this page](https://docs.vllm.ai/embed/#offline-inference).
+
+`LLM.score`
+
+[¶](https://docs.vllm.ai#llmscore)
+
+The [score](https://docs.vllm.ai/api/vllm/entrypoints/pooling/offline/#vllm.entrypoints.pooling.offline.PoolingOfflineMixin.score) method outputs similarity scores between sentence pairs. It is primarily designed for [score models](https://docs.vllm.ai/scoring/).
+
+`LLM.encode`
+
+[¶](https://docs.vllm.ai#llmencode)
+
+The [encode](https://docs.vllm.ai/api/vllm/entrypoints/pooling/offline/#vllm.entrypoints.pooling.offline.PoolingOfflineMixin.encode) method is available to all pooling models in vLLM.
+
+Please use one of the more specific methods or set the task directly when using `LLM.encode`
+
+, refer to the [table above](https://docs.vllm.ai#offline-apis-corresponding-to-pooling-usages).
+
+### Examples[¶](https://docs.vllm.ai#examples)
+
+from vllm import LLM
+llm = LLM(model="intfloat/e5-small", runner="pooling")
+(output,) = llm.encode("Hello, my name is", pooling_task="embed")
+data = output.outputs.data
+print(f"Data: {data!r}")
+
+
+## Online Serving[¶](https://docs.vllm.ai#online-serving)
+
+Our online Server provides endpoints that correspond to the offline APIs:
+
+- Corresponding to
+`LLM.embed`
+
+:[Cohere Embed API](https://docs.vllm.ai/embed/#cohere-embed-api)(`/v2/embed`
+
+)[OpenAI-compatible Embeddings API](https://docs.vllm.ai/embed/#openai-compatible-embeddings-api)(`/v1/embeddings`
+
+)
+
+- Corresponding to
+`LLM.classify`
+
+:[Classification API](https://docs.vllm.ai/classify/#online-serving)(`/classify`
+
+)
+
+- Corresponding to
+`LLM.score`
+
+:[Score API](https://docs.vllm.ai/scoring/#score-api)(`/score`
+
+,`/v1/score`
+
+)[Cohere Rerank API](https://docs.vllm.ai/scoring/#cohere-rerank-api)(`/rerank`
+
+,`/v1/rerank`
+
+,`/v2/rerank`
+
+)
+
+- Pooling API (
+`/pooling`
+
+) is similar to`LLM.encode`
+
+, being applicable to all types of pooling models.
+
+The following introduces the Pooling API. For other APIs, please refer to the link above.
+
+### Pooling API[¶](https://docs.vllm.ai#pooling-api)
+
+Our Pooling API (`/pooling`
+
+) is similar to `LLM.encode`
+
+, being applicable to all types of pooling models.
+
+The input format is the same as [Embeddings API](https://docs.vllm.ai/embed/#openai-compatible-embeddings-api), but the output data can contain an arbitrary nested list, not just a 1-D list of floats.
+
+Please use one of the more specific APIs or set the task directly when using the Pooling API, refer to the [table above](https://docs.vllm.ai#offline-apis-corresponding-to-pooling-usages).
+
+Code examples:
+
+### Examples[¶](https://docs.vllm.ai#examples_1)
+
+# start a supported embeddings model server with `vllm serve`, e.g.
+# vllm serve intfloat/e5-small
+import requests
+host = "localhost"
+port = "8000"
+model_name = "intfloat/e5-small"
+api_url = f"http://{host}:{port}/pooling"
+prompts = [
+"Hello, my name is",
+"The president of the United States is",
+"The capital of France is",
+"The future of AI is",
+]
+prompt = {"model": model_name, "input": prompts, "task": "embed"}
+response = requests.post(api_url, json=prompt)
+for output in response.json()["data"]:
+data = output["data"]
+print(f"Data: {data!r} (size={len(data)})")
+
+
+## Configuration[¶](https://docs.vllm.ai#configuration)
+
+In vLLM, pooling models implement the [VllmModelForPooling](https://docs.vllm.ai/api/vllm/model_executor/models/#vllm.model_executor.models.VllmModelForPooling) interface. These models use a [Pooler](https://docs.vllm.ai/api/vllm/model_executor/layers/pooler/#vllm.model_executor.layers.pooler.Pooler) to extract the final hidden states of the input before returning them.
+
+### Model Runner[¶](https://docs.vllm.ai#model-runner)
+
+Run a model in pooling mode via the option `--runner pooling`
+
+.
+
+Tip
+
+There is no need to set this option in the vast majority of cases as vLLM can automatically detect the appropriate model runner via `--runner auto`
+
+.
+
+### Model Conversion[¶](https://docs.vllm.ai#model-conversion)
+
+vLLM can adapt models for various pooling tasks via the option `--convert <type>`
+
+.
+
+If `--runner pooling`
+
+has been set (manually or automatically) but the model does not implement the [VllmModelForPooling](https://docs.vllm.ai/api/vllm/model_executor/models/#vllm.model_executor.models.VllmModelForPooling) interface, vLLM will attempt to automatically convert the model according to the architecture names shown in the table below.
+
+| Architecture | `--convert` | Supported pooling tasks |
+|---|---|---|
+`*ForTextEncoding` , `*EmbeddingModel` , `*Model` | `embed` | `token_embed` , `embed` |
+`*ForRewardModeling` , `*RewardModel` | `embed` | `token_embed` , `embed` |
+`*For*Classification` , `*ClassificationModel` | `classify` | `token_classify` , `classify` |
+
+Tip
+
+You can explicitly set `--convert <type>`
+
+to specify how to convert the model.
+
+### Pooler Configuration[¶](https://docs.vllm.ai#pooler-configuration)
+
+#### Predefined models[¶](https://docs.vllm.ai#predefined-models)
+
+If the [Pooler](https://docs.vllm.ai/api/vllm/model_executor/layers/pooler/#vllm.model_executor.layers.pooler.Pooler) defined by the model accepts `pooler_config`
+
+, you can override some of its attributes via the `--pooler-config`
+
+option.
+
+#### Converted models[¶](https://docs.vllm.ai#converted-models)
+
+If the model has been converted via `--convert`
+
+(see above), the pooler assigned to each task has the following attributes by default:
+
+| Task | Pooling Type | Normalization | Softmax |
+|---|---|---|---|
+`embed` | `LAST` | ✅︎ | ❌ |
+`classify` | `LAST` | ❌ | ✅︎ |
+
+#### Resolution precedence[¶](https://docs.vllm.ai#resolution-precedence)
+
+The pooling method and `use_activation`
+
+are resolved per field. An explicitly set field in `--pooler-config`
+
+takes precedence over Sentence Transformers metadata, which in turn takes precedence over the model architecture or task default. Fields left unset continue through the chain independently.
+
+The current [ PoolerConfig](https://docs.vllm.ai/api/vllm/config/pooler/#vllm.config.pooler.PoolerConfig) has no
+
+`normalize`
+
+or `activation`
+
+field. `use_activation`
+
+controls whether the task's constructed normalization or classification activation is applied.| Field | Source precedence | How to override |
+|---|---|---|
+Pooling method (`pooling_type` ) | `--pooler-config` > compact `pooling_mode` or legacy boolean `pooling_mode_*` fields in the Pooling module referenced by Sentence Transformers `modules.json` > architecture default (`LAST` for sequence pooling and `ALL` for token pooling unless the architecture overrides it) | Set `{"pooling_type": "CLS"}` , or set `seq_pooling_type` / `tok_pooling_type` explicitly. |
+Embedding normalization (`use_activation` ) | `--pooler-config` > Sentence Transformers modules (`true` when a Normalize module is present, otherwise `false` ) > pooling-task default (`true` ) when no Sentence Transformers Pooling module is found | Set `{"use_activation": false}` to return unnormalized embeddings. |
+| Classification activation function | Hugging Face `problem_type` > Sentence Transformers activation metadata > sigmoid or softmax selected from the label count | The function cannot be selected through `--pooler-config` ; set `{"use_activation": false}` to return logits instead. |
+
+Both compact `pooling_mode`
+
+values written by Sentence Transformers 5.4+ and legacy boolean `pooling_mode_*`
+
+fields are supported.
+
+For converted models and predefined models using the standard DispatchPooler adapters, `embed`
+
+and `token_embed`
+
+construct an L2-normalization head, while `classify`
+
+and `token_classify`
+
+construct the selected classification activation. In both cases, `use_activation`
+
+controls whether that head is applied. Models with custom poolers can implement different behavior.
+
+To inspect the resolved fields without loading model weights:
+
+from vllm.config import ModelConfig, PoolerConfig
+from vllm.model_executor.layers.pooler.activations import get_act_fn
+def inspect(requested: PoolerConfig) -> None:
+model_config = ModelConfig(
+"intfloat/e5-small",
+runner="pooling",
+pooler_config=requested,
+)
+resolved = model_config.pooler_config
+assert resolved is not None
+print(
+{
+"seq_pooling_type": resolved.seq_pooling_type,
+"tok_pooling_type": resolved.tok_pooling_type,
+"use_activation": resolved.use_activation,
+"sequence_classification_activation": type(
+get_act_fn(model_config.hf_config)
+).__name__,
+}
+)
+inspect(PoolerConfig())
+inspect(PoolerConfig(pooling_type="CLS", use_activation=False))
+
+
+For `intfloat/e5-small`
+
+, the first result contains `MEAN`
+
+, `ALL`
+
+, and `True`
+
+. The second contains `CLS`
+
+, `ALL`
+
+, and `False`
+
+. Both report the classification activation that the standard sequence-classification adapter would construct.
+
+## Removed Features[¶](https://docs.vllm.ai#removed-features)
+
+### Encode task[¶](https://docs.vllm.ai#encode-task)
+
+We have split the `encode`
+
+task into two more specific token-wise tasks: `token_embed`
+
+and `token_classify`
+
+:
+
+`token_embed`
+
+is the same as`embed`
+
+, using normalization as the activation.`token_classify`
+
+is the same as`classify`
+
+, by default using softmax as the activation.
+
+Pooling models now support token-wise task.
+
+- Extracting hidden states prefers using
+`token_embed`
+
+task. - Named Entity Recognition (NER) and reward models prefers using
+`token_classify`
+
+task.
+
+### Score task[¶](https://docs.vllm.ai#score-task)
+
+`score`
+
+task has been removed in v0.21, use `classify`
+
+instead. Only when a classification model outputs num_labels equal to 1 can it be used as a scoring model and have its scoring API enabled.
+
+### Pooling multitask support[¶](https://docs.vllm.ai#pooling-multitask-support)
+
+Pooling multitask support has been removed in v0.21. When the default pooling task is not what you want, you need to manually specify it via `PoolerConfig(task=<task>)`
+
+offline or `--pooler-config.task <task>`
+
+online.

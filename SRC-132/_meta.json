@@ -1,0 +1,32 @@
+{
+ "src_id": "SRC-132",
+ "name": "AWS Machine",
+ "category": "⼀⼿⼯程博客与服务商经验",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:20:52Z",
+ "finished_at": "2026-09-23T04:20:52Z",
+ "duration_seconds": 27.5,
+ "attempts": 1,
+ "channels": {
+  "site_b6f74bd3": {
+   "type": "site",
+   "url": "https://aws.amazon.com/blogs/machine-learning/",
+   "mode": "rss",
+   "status": "ok",
+   "output": "feed_meta.json",
+   "entries": 20,
+   "posts_fetched": 20,
+   "posts_failed": 0,
+   "output_dir": "posts/"
+  }
+ },
+ "cursor": {
+  "site_b6f74bd3:rss": {
+   "last_entry_published": "Tue, 22 Sep 2026 18:10:22 +0000"
+  }
+ },
+ "notes": ""
+}

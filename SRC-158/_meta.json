@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-158",
+ "name": "海光 DTK 专区",
+ "category": "昇腾与其他国产芯⽚",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:23:58Z",
+ "finished_at": "2026-09-23T04:23:58Z",
+ "duration_seconds": 1.6,
+ "attempts": 1,
+ "channels": {
+  "site_45a49ed5": {
+   "type": "site",
+   "url": "https://developer.sourcefind.cn/dtk",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 347
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

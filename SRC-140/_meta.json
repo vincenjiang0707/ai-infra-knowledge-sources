@@ -1,0 +1,32 @@
+{
+ "src_id": "SRC-140",
+ "name": "Lei Mao",
+ "category": "精选作者、专业社区与新来源发现",
+ "priority": "扩展",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:15:40Z",
+ "finished_at": "2026-09-23T03:15:40Z",
+ "duration_seconds": 38.2,
+ "attempts": 1,
+ "channels": {
+  "site_1fd10d56": {
+   "type": "site",
+   "url": "https://leimao.github.io/blog/",
+   "mode": "rss",
+   "status": "ok",
+   "output": "feed_meta.json",
+   "entries": 50,
+   "posts_fetched": 50,
+   "posts_failed": 0,
+   "output_dir": "posts/"
+  }
+ },
+ "cursor": {
+  "site_1fd10d56:rss": {
+   "last_entry_published": "2026-09-20T07:00:00.000Z"
+  }
+ },
+ "notes": ""
+}

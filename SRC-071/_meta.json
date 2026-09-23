@@ -1,0 +1,83 @@
+{
+ "src_id": "SRC-071",
+ "name": "TileLang",
+ "category": "Kernel、编译与⾃动优化",
+ "priority": "扩展",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:29:09Z",
+ "finished_at": "2026-09-23T03:29:09Z",
+ "duration_seconds": 67.5,
+ "attempts": 1,
+ "channels": {
+  "gh_56b0660a": {
+   "type": "github_repo",
+   "url": "https://github.com/tile-ai/tilelang",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 22
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_fdb0af81": {
+   "type": "reference",
+   "url": "https://github.com/tile-ai/tilelang/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 3185
+  },
+  "ref_7371fc25": {
+   "type": "reference",
+   "url": "https://github.com/tile-ai/tilelang/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 6364
+  },
+  "ref_6c99559a": {
+   "type": "reference",
+   "url": "https://github.com/tile-ai/tilelang/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 129153
+  }
+ },
+ "cursor": {
+  "gh_56b0660a:issues": {
+   "last_updated_at": "2026-09-21T17:42:28Z"
+  },
+  "gh_56b0660a:pulls": {
+   "last_updated_at": "2026-09-23T02:13:37Z"
+  },
+  "gh_56b0660a:releases": {
+   "last_id": 380308890
+  }
+ },
+ "notes": ""
+}

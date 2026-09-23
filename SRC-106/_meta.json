@@ -1,0 +1,83 @@
+{
+ "src_id": "SRC-106",
+ "name": "AMD SMI",
+ "category": "Profiling、压测与公开结果",
+ "priority": "核⼼",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:34:37Z",
+ "finished_at": "2026-09-23T03:34:37Z",
+ "duration_seconds": 47.4,
+ "attempts": 1,
+ "channels": {
+  "gh_5bcb9aae": {
+   "type": "github_repo",
+   "url": "https://github.com/ROCm/amdsmi",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 69,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 34
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "CHANGELOG.md",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_5d96373a": {
+   "type": "reference",
+   "url": "https://github.com/ROCm/amdsmi/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 926
+  },
+  "ref_96c2fc03": {
+   "type": "reference",
+   "url": "https://github.com/ROCm/amdsmi/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 4160
+  },
+  "ref_23aa4ff9": {
+   "type": "reference",
+   "url": "https://github.com/ROCm/amdsmi/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 333
+  }
+ },
+ "cursor": {
+  "gh_5bcb9aae:issues": {
+   "last_updated_at": "2026-09-21T13:31:06Z"
+  },
+  "gh_5bcb9aae:pulls": {
+   "last_updated_at": "2026-08-27T17:29:22Z"
+  },
+  "gh_5bcb9aae:releases": {
+   "last_id": 317826924
+  }
+ },
+ "notes": ""
+}

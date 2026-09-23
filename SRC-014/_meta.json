@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-014",
+ "name": "NVIDIA NIM ⽂",
+ "category": "推理引擎与部署配⽅",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:08:08Z",
+ "finished_at": "2026-09-23T05:03:41Z",
+ "duration_seconds": 15.5,
+ "attempts": 2,
+ "channels": {
+  "site_c548973f": {
+   "type": "site",
+   "url": "https://docs.nvidia.com/nim/large-language-models/latest/",
+   "status": "ok",
+   "output": "page.md",
+   "mode": "page",
+   "chars": 0
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

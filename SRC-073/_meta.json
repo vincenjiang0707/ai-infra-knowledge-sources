@@ -1,0 +1,59 @@
+{
+ "src_id": "SRC-073",
+ "name": "PyTorch 源码",
+ "category": "Kernel、编译与⾃动优化",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:20:46Z",
+ "finished_at": "2026-09-23T03:20:46Z",
+ "duration_seconds": 40.9,
+ "attempts": 1,
+ "channels": {
+  "gh_2d9028ec": {
+   "type": "github_repo",
+   "url": "https://github.com/pytorch/pytorch",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 69
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  }
+ },
+ "cursor": {
+  "gh_2d9028ec:issues": {
+   "last_updated_at": "2026-09-23T10:25:44Z"
+  },
+  "gh_2d9028ec:pulls": {
+   "last_updated_at": "2026-09-23T10:32:00Z"
+  },
+  "gh_2d9028ec:releases": {
+   "last_id": 380954849
+  }
+ },
+ "notes": ""
+}

@@ -1,0 +1,83 @@
+{
+ "src_id": "SRC-066",
+ "name": "CUTLASS",
+ "category": "Kernel、编译与⾃动优化",
+ "priority": "核⼼",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:28:35Z",
+ "finished_at": "2026-09-23T03:28:35Z",
+ "duration_seconds": 48.4,
+ "attempts": 1,
+ "channels": {
+  "gh_0642a9fc": {
+   "type": "github_repo",
+   "url": "https://github.com/NVIDIA/cutlass",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 67
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "CHANGELOG.md",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_e86df800": {
+   "type": "reference",
+   "url": "https://github.com/NVIDIA/cutlass/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 2169
+  },
+  "ref_bb839310": {
+   "type": "reference",
+   "url": "https://github.com/NVIDIA/cutlass/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 5479
+  },
+  "ref_d00eaa02": {
+   "type": "reference",
+   "url": "https://github.com/NVIDIA/cutlass/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 34111
+  }
+ },
+ "cursor": {
+  "gh_0642a9fc:issues": {
+   "last_updated_at": "2026-09-22T21:13:10Z"
+  },
+  "gh_0642a9fc:pulls": {
+   "last_updated_at": "2026-09-23T02:55:18Z"
+  },
+  "gh_0642a9fc:releases": {
+   "last_id": 393438317
+  }
+ },
+ "notes": ""
+}

@@ -1,0 +1,59 @@
+{
+ "src_id": "SRC-005",
+ "name": "SGLang 源码与",
+ "category": "推理引擎与部署配⽅",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:18:14Z",
+ "finished_at": "2026-09-23T03:18:14Z",
+ "duration_seconds": 51.2,
+ "attempts": 1,
+ "channels": {
+  "gh_3f18d6a6": {
+   "type": "github_repo",
+   "url": "https://github.com/sgl-project/sglang",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 61
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  }
+ },
+ "cursor": {
+  "gh_3f18d6a6:issues": {
+   "last_updated_at": "2026-09-23T09:19:12Z"
+  },
+  "gh_3f18d6a6:pulls": {
+   "last_updated_at": "2026-09-23T10:03:47Z"
+  },
+  "gh_3f18d6a6:releases": {
+   "last_id": 391825082
+  }
+ },
+ "notes": ""
+}

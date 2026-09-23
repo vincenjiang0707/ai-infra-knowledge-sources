@@ -1,0 +1,83 @@
+{
+ "src_id": "SRC-161",
+ "name": "FlashInfer-Bench",
+ "category": "Profiling、压测与公开结果",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:37:30Z",
+ "finished_at": "2026-09-23T03:37:30Z",
+ "duration_seconds": 60.7,
+ "attempts": 1,
+ "channels": {
+  "gh_8a240e31": {
+   "type": "github_repo",
+   "url": "https://github.com/flashinfer-ai/flashinfer-bench",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 29,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 2
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_e3528ce5": {
+   "type": "reference",
+   "url": "https://github.com/flashinfer-ai/flashinfer-bench/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 1183
+  },
+  "ref_684ca02b": {
+   "type": "reference",
+   "url": "https://github.com/flashinfer-ai/flashinfer-bench/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 5350
+  },
+  "ref_fe7870c4": {
+   "type": "reference",
+   "url": "https://github.com/flashinfer-ai/flashinfer-bench/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 11325
+  }
+ },
+ "cursor": {
+  "gh_8a240e31:issues": {
+   "last_updated_at": "2026-05-28T23:59:59Z"
+  },
+  "gh_8a240e31:pulls": {
+   "last_updated_at": "2026-08-30T01:13:38Z"
+  },
+  "gh_8a240e31:releases": {
+   "last_id": 286017605
+  }
+ },
+ "notes": ""
+}

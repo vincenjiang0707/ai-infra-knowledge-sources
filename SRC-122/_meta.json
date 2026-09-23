@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-122",
+ "name": "NVIDIA On-",
+ "category": "论⽂、会议与课程",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:14:37Z",
+ "finished_at": "2026-09-23T04:14:37Z",
+ "duration_seconds": 4.3,
+ "attempts": 1,
+ "channels": {
+  "site_b8d743ec": {
+   "type": "site",
+   "url": "https://www.nvidia.com/en-us/on-demand/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 189
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

@@ -1,0 +1,145 @@
+{
+ "src_id": "SRC-082",
+ "name": "AWQ",
+ "category": "量化、推测解码与精度验证",
+ "priority": "扩展",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:00:56Z",
+ "finished_at": "2026-09-23T04:00:56Z",
+ "duration_seconds": 126.4,
+ "attempts": 1,
+ "channels": {
+  "gh_f7eb06cb": {
+   "type": "github_repo",
+   "url": "https://github.com/ModelCloud/GPTQModel",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 75
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "gh_ee02ed21": {
+   "type": "github_repo",
+   "url": "https://github.com/mit-han-lab/llm-awq",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_285a3741": {
+   "type": "reference",
+   "url": "https://github.com/ModelCloud/GPTQModel/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 1730
+  },
+  "ref_d2e3db7a": {
+   "type": "reference",
+   "url": "https://github.com/ModelCloud/GPTQModel/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 2637
+  },
+  "ref_bde7e242": {
+   "type": "reference",
+   "url": "https://github.com/ModelCloud/GPTQModel/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 48388
+  },
+  "ref_f35fb220": {
+   "type": "reference",
+   "url": "https://github.com/mit-han-lab/llm-awq/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 869
+  },
+  "ref_59ecb771": {
+   "type": "reference",
+   "url": "https://github.com/mit-han-lab/llm-awq/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 5114
+  },
+  "ref_91b62756": {
+   "type": "reference",
+   "url": "https://github.com/mit-han-lab/llm-awq/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 345
+  }
+ },
+ "cursor": {
+  "gh_f7eb06cb:issues": {
+   "last_updated_at": "2026-09-07T08:13:33Z"
+  },
+  "gh_f7eb06cb:pulls": {
+   "last_updated_at": "2026-09-22T09:33:00Z"
+  },
+  "gh_f7eb06cb:releases": {
+   "last_id": 388827104
+  },
+  "gh_ee02ed21:issues": {
+   "last_updated_at": "2026-07-17T04:25:47Z"
+  },
+  "gh_ee02ed21:pulls": {
+   "last_updated_at": "2026-09-05T00:20:26Z"
+  }
+ },
+ "notes": ""
+}

@@ -1,0 +1,59 @@
+{
+ "feed_url": "https://research.colfax-intl.com/feed/",
+ "title": "Colfax Research",
+ "link": "https://research.colfax-intl.com/",
+ "updated": "Mon, 07 Sep 2026 18:29:15 +0000",
+ "entries_total": 10,
+ "entries": [
+  {
+   "title": "Optimization diaries: S/P ping-pong for FlashAttention-4 decode",
+   "link": "https://research.colfax-intl.com/optimization-diaries-s-p-ping-pong-for-flashattention-4-decode/",
+   "published": "Mon, 07 Sep 2026 17:59:28 +0000"
+  },
+  {
+   "title": "Optimization diaries: Improving FlashAttention-4 backward pass kernel design for head dimension 64",
+   "link": "https://research.colfax-intl.com/optimization-diaries-improving-flashattention-4-backward-for-head-dimension-64/",
+   "published": "Sun, 06 Sep 2026 21:45:28 +0000"
+  },
+  {
+   "title": "Optimizing an NVFP4 Blockscaled GEMM on RTX PRO 6000 Blackwell GPU (SM120)",
+   "link": "https://research.colfax-intl.com/optimizing-an-nvfp4-blockscaled-gemm-on-rtx-pro-6000-blackwell-gpu-sm120/",
+   "published": "Sun, 09 Aug 2026 20:19:07 +0000"
+  },
+  {
+   "title": "NVFP4 Blockscaled GEMM on NVIDIA RTX Pro Blackwell GPUs (SM12x)",
+   "link": "https://research.colfax-intl.com/cutlass-tutorial-nvfp4-blockscaled-gemm-on-nvidia-rtx-pro-blackwell-gpus-sm12x/",
+   "published": "Sat, 20 Jun 2026 17:46:55 +0000"
+  },
+  {
+   "title": "Dynamic persistent tile scheduling with Cluster Launch Control (CLC) on NVIDIA Blackwell GPUs",
+   "link": "https://research.colfax-intl.com/dynamic-persistent-tile-scheduling-with-cluster-launch-control-clc-on-nvidia-blackwell-gpus/",
+   "published": "Sat, 09 May 2026 17:25:55 +0000"
+  },
+  {
+   "title": "GPU Mode: Fundamentals of CuTe Layout Algebra and Category-Theoretic Interpretation",
+   "link": "https://research.colfax-intl.com/gpu-mode-fundamentals-of-cute-layout-algebra-and-category-theoretic-interpretation/",
+   "published": "Mon, 20 Apr 2026 18:37:47 +0000"
+  },
+  {
+   "title": "FlexAttention + FlashAttention-4: Fast and Flexible (External)",
+   "link": "https://research.colfax-intl.com/flexattention-flashattention-4-fast-and-flexible-external/",
+   "published": "Wed, 11 Mar 2026 02:58:16 +0000"
+  },
+  {
+   "title": "CUTLASS Tutorial: Hardware-supported Block-scaling with NVIDIA Blackwell GPUs",
+   "link": "https://research.colfax-intl.com/cutlass-tutorial-hardware-supported-block-scaling-with-nvidia-blackwell-gpus/",
+   "published": "Thu, 05 Mar 2026 17:57:02 +0000"
+  },
+  {
+   "title": "FlashAttention-4: Algorithm and Kernel Pipelining Co-Design for Asymmetric Hardware Scaling",
+   "link": "https://research.colfax-intl.com/flashattention-4-algorithm-and-kernel-pipelining-co-design-for-asymmetric-hardware-scaling/",
+   "published": "Thu, 05 Mar 2026 14:14:51 +0000"
+  },
+  {
+   "title": "A User’s Guide to FlexAttention in FlashAttention CuTe DSL",
+   "link": "https://research.colfax-intl.com/a-users-guide-to-flexattention-in-flash-attention-cute-dsl/",
+   "published": "Sat, 15 Nov 2025 03:11:38 +0000"
+  }
+ ]
+}

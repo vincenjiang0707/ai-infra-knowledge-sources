@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-143",
+ "name": "NVIDIA 开发者论",
+ "category": "精选作者、专业社区与新来源发现",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:22:25Z",
+ "finished_at": "2026-09-23T04:22:25Z",
+ "duration_seconds": 7.5,
+ "attempts": 1,
+ "channels": {
+  "site_e5b41c65": {
+   "type": "site",
+   "url": "https://forums.developer.nvidia.com/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 168
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

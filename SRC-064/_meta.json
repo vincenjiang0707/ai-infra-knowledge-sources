@@ -1,0 +1,32 @@
+{
+ "src_id": "SRC-064",
+ "name": "HF 论坛",
+ "category": "模型作者与模型平台",
+ "priority": "扩展",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:12:55Z",
+ "finished_at": "2026-09-23T04:12:55Z",
+ "duration_seconds": 52.5,
+ "attempts": 1,
+ "channels": {
+  "site_376e893c": {
+   "type": "site",
+   "url": "https://discuss.huggingface.co/",
+   "mode": "rss",
+   "status": "ok",
+   "output": "feed_meta.json",
+   "entries": 50,
+   "posts_fetched": 50,
+   "posts_failed": 0,
+   "output_dir": "posts/"
+  }
+ },
+ "cursor": {
+  "site_376e893c:rss": {
+   "last_entry_published": "Wed, 23 Sep 2026 03:46:00 +0000"
+  }
+ },
+ "notes": ""
+}

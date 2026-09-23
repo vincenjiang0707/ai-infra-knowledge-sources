@@ -1,0 +1,124 @@
+{
+ "src_id": "SRC-104",
+ "name": "ROCm rocprofiler-",
+ "category": "Profiling、压测与公开结果",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:55:06Z",
+ "finished_at": "2026-09-23T03:55:06Z",
+ "duration_seconds": 65.1,
+ "attempts": 1,
+ "channels": {
+  "gh_a11084b1": {
+   "type": "github_repo",
+   "url": "https://github.com/ROCm/rocprofiler-sdk",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 55,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 23
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "CHANGELOG.md",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "gh_a9cbc32e": {
+   "type": "github_repo",
+   "url": "https://github.com/ROCm/rocprofiler-compute",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 40
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "CHANGELOG.md",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_d2c1fc93": {
+   "type": "reference",
+   "url": "https://github.com/ROCm/rocprofiler-sdk/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 477
+  },
+  "ref_d56d9fb1": {
+   "type": "reference",
+   "url": "https://github.com/ROCm/rocprofiler-sdk/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 7250
+  },
+  "ref_11b9b290": {
+   "type": "reference",
+   "url": "https://github.com/ROCm/rocprofiler-sdk/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 349
+  }
+ },
+ "cursor": {
+  "gh_a11084b1:issues": {
+   "last_updated_at": "2026-08-25T23:23:32Z"
+  },
+  "gh_a11084b1:pulls": {
+   "last_updated_at": "2026-06-30T15:17:30Z"
+  },
+  "gh_a11084b1:releases": {
+   "last_id": 331276348
+  },
+  "gh_a9cbc32e:issues": {
+   "last_updated_at": "2026-09-10T03:55:42Z"
+  },
+  "gh_a9cbc32e:pulls": {
+   "last_updated_at": "2026-08-24T18:04:52Z"
+  },
+  "gh_a9cbc32e:releases": {
+   "last_id": 308861523
+  }
+ },
+ "notes": ""
+}

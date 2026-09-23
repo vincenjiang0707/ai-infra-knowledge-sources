@@ -1,0 +1,159 @@
+{
+ "feed_url": "https://news.ycombinator.com/rss",
+ "title": "Hacker News",
+ "link": "https://news.ycombinator.com/",
+ "updated": "",
+ "entries_total": 30,
+ "entries": [
+  {
+   "title": "GPT-6 Sol and Luna",
+   "link": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+   "published": "Tue, 22 Sep 2026 18:00:34 +0000"
+  },
+  {
+   "title": "Claude Opus 5.5",
+   "link": "https://www.anthropic.com/claude-opus-5-5",
+   "published": "Tue, 22 Sep 2026 16:29:05 +0000"
+  },
+  {
+   "title": "US criticises Australia's proposed algorithm opt-out laws as 'censorship'",
+   "link": "https://www.bbc.com/news/articles/cqj3dgy8x3vro",
+   "published": "Wed, 23 Sep 2026 02:13:52 +0000"
+  },
+  {
+   "title": "OpenAI GPT–6 Astra breaks Enigma message that has resisted solution since 2005",
+   "link": "https://www.cryptocellar.org/bgac/the-mvueh-break.html",
+   "published": "Tue, 22 Sep 2026 13:52:15 +0000"
+  },
+  {
+   "title": "'We hacked the FBI:' Hackers say they have data on all FBI employees",
+   "link": "https://www.404media.co/we-hacked-the-fbi-hackers-say-they-have-data-on-all-fbi-employees/",
+   "published": "Tue, 22 Sep 2026 17:46:02 +0000"
+  },
+  {
+   "title": "Microsoft killed FoxPro in 2007. Anyway, here's FoxPro revived",
+   "link": "https://foxscript.org/",
+   "published": "Tue, 22 Sep 2026 21:00:30 +0000"
+  },
+  {
+   "title": "ReBarUEFI: Resizable BAR for almost any UEFI system",
+   "link": "https://github.com/xCuri0/ReBarUEFI",
+   "published": "Mon, 21 Sep 2026 01:07:46 +0000"
+  },
+  {
+   "title": "Transit rewards (Waymo pays you to take the train)",
+   "link": "https://waymo.com/blog/2026/09/transit-rewards/",
+   "published": "Wed, 23 Sep 2026 02:52:29 +0000"
+  },
+  {
+   "title": "What California is learning from solar panels built over irrigation canals",
+   "link": "https://www.kqed.org/science/2002033/heres-what-california-is-learning-from-solar-panels-built-over-irrigation-canals",
+   "published": "Tue, 22 Sep 2026 03:10:05 +0000"
+  },
+  {
+   "title": "SAML: A fractal of bad design",
+   "link": "https://blog.trailofbits.com/2026/09/21/saml-a-fractal-of-bad-design/",
+   "published": "Tue, 22 Sep 2026 18:57:17 +0000"
+  },
+  {
+   "title": "Data-Only Attacks Are Easier Than You Think",
+   "link": "https://www.usenix.org/publications/loginonline/data-only-attacks-are-easier-you-think",
+   "published": "Wed, 23 Sep 2026 03:49:28 +0000"
+  },
+  {
+   "title": "Claude Opus 5.5 Intelligence, Performance and Price Analysis (Max)",
+   "link": "https://artificialanalysis.ai/models/claude-opus-5-5",
+   "published": "Tue, 22 Sep 2026 16:51:31 +0000"
+  },
+  {
+   "title": "WordPress: Unauthenticated path traversal leading to conditional RCE",
+   "link": "https://github.com/WordPress/wordpress-develop/security/advisories/GHSA-7hp8-65ch-5whp",
+   "published": "Tue, 22 Sep 2026 16:33:45 +0000"
+  },
+  {
+   "title": "How did AMD Ryzen get 50% faster in two years?",
+   "link": "https://lemire.me/blog/2026/09/18/how-did-amd-ryzen-get-50-faster-in-two-years/",
+   "published": "Fri, 18 Sep 2026 19:01:03 +0000"
+  },
+  {
+   "title": "Pentagon says overreliance on AI contributed to missile strike on Iran school",
+   "link": "https://www.bloomberg.com/graphics/2026-iran-school-attack/",
+   "published": "Tue, 22 Sep 2026 19:03:38 +0000"
+  },
+  {
+   "title": "Delta: Highly available, strongly consistent storage using chain replication (2022)",
+   "link": "https://engineering.fb.com/2022/05/04/data-infrastructure/delta/",
+   "published": "Mon, 21 Sep 2026 23:29:42 +0000"
+  },
+  {
+   "title": "The Softness of Metal",
+   "link": "https://psyche.co/turning-points/his-frailty-made-ozzys-final-gig-true-heavy-metal",
+   "published": "Mon, 21 Sep 2026 23:59:10 +0000"
+  },
+  {
+   "title": "MUNI Heritage Weekend in San Francisco",
+   "link": "https://daniel.lawrence.lu/blog/2026-09-20-muni-heritage-weekend/",
+   "published": "Sun, 20 Sep 2026 22:13:07 +0000"
+  },
+  {
+   "title": "Unreal Agent",
+   "link": "https://unreallabs.ai/blog/unreal-agent/",
+   "published": "Tue, 22 Sep 2026 18:15:53 +0000"
+  },
+  {
+   "title": "OpenAI is well positioned to fast-follow Jev",
+   "link": "https://arcturus-labs.com/blog/2026/09/21/will-openai-eat-jevs-lunch/",
+   "published": "Tue, 22 Sep 2026 14:42:59 +0000"
+  },
+  {
+   "title": "The current balance of power in open models",
+   "link": "https://www.interconnects.ai/p/the-current-balance-of-power-in-open",
+   "published": "Tue, 22 Sep 2026 22:03:46 +0000"
+  },
+  {
+   "title": "Obscura: VPN that can't log your activity",
+   "link": "https://obscura.com/#faq-technical",
+   "published": "Tue, 22 Sep 2026 19:40:28 +0000"
+  },
+  {
+   "title": "People hooked on vapes try a new way to quit: cigarettes",
+   "link": "https://www.bloomberg.com/news/articles/2026-09-18/to-quit-vaping-some-are-starting-to-smoke",
+   "published": "Tue, 22 Sep 2026 01:21:20 +0000"
+  },
+  {
+   "title": "Show HN: JevBench, a reproducible benchmark for typed decision models",
+   "link": "https://benchmarkheaven.com/jev-models",
+   "published": "Tue, 22 Sep 2026 13:01:03 +0000"
+  },
+  {
+   "title": "Native apps written in TypeScript and CSS",
+   "link": "https://github.com/geastack/examples",
+   "published": "Tue, 22 Sep 2026 19:42:20 +0000"
+  },
+  {
+   "title": "George Lucas Returns to Earth, Bearing Gifts",
+   "link": "https://commonedge.org/george-lucas-returns-to-earth-bearing-gifts/",
+   "published": "Mon, 21 Sep 2026 13:40:03 +0000"
+  },
+  {
+   "title": "Markdown in /src",
+   "link": "https://htmx.org/essays/markdown-in-src/",
+   "published": "Mon, 21 Sep 2026 22:47:54 +0000"
+  },
+  {
+   "title": "Apple has added persistent 'ads' to iOS, and it's driving users crazy",
+   "link": "https://www.techradar.com/phones/iphone/i-wish-apple-would-just-stop-that-crap-apple-has-added-persistent-ads-to-ios-and-its-driving-users-crazy",
+   "published": "Tue, 22 Sep 2026 14:30:12 +0000"
+  },
+  {
+   "title": "Show HN: Training a model to identify AI web content from structure alone",
+   "link": "https://arxiv.org/abs/2609.15369",
+   "published": "Tue, 22 Sep 2026 13:00:49 +0000"
+  },
+  {
+   "title": "16-bit Intel 8088 chip (c. 1985)",
+   "link": "https://allpoetry.com/16-bit-Intel-8088-chip",
+   "published": "Tue, 22 Sep 2026 16:11:34 +0000"
+  }
+ ]
+}

@@ -1,0 +1,115 @@
+{
+ "src_id": "SRC-034",
+ "name": "Ascend",
+ "category": "昇腾与其他国产芯⽚",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:44:34Z",
+ "finished_at": "2026-09-23T03:44:34Z",
+ "duration_seconds": 71.1,
+ "attempts": 1,
+ "channels": {
+  "gh_f37d2519": {
+   "type": "github_repo",
+   "url": "https://github.com/Ascend/samples",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 21,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 2,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "gh_e85f7633": {
+   "type": "github_repo",
+   "url": "https://github.com/Ascend/msmodelslim",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 0,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 1,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_8ef4c39a": {
+   "type": "reference",
+   "url": "https://github.com/Ascend/samples/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 672
+  },
+  "ref_8ef7a2eb": {
+   "type": "reference",
+   "url": "https://github.com/Ascend/samples/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 3396
+  },
+  "ref_b832eaa5": {
+   "type": "reference",
+   "url": "https://github.com/Ascend/samples/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 582
+  }
+ },
+ "cursor": {
+  "gh_f37d2519:issues": {
+   "last_updated_at": "2025-11-17T14:20:07Z"
+  },
+  "gh_f37d2519:pulls": {
+   "last_updated_at": "2023-11-22T06:15:13Z"
+  },
+  "gh_e85f7633:pulls": {
+   "last_updated_at": "2026-08-30T06:40:30Z"
+  }
+ },
+ "notes": ""
+}

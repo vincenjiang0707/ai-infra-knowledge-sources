@@ -1,0 +1,145 @@
+source: https://docs.vllm.ai/en/latest/models/generative_models/
+lastmod: 2026-09-23
+
+# Generative Models[¶](https://docs.vllm.ai#generative-models)
+
+vLLM provides first-class support for generative models, which covers most of LLMs.
+
+In vLLM, generative models implement the [VllmModelForTextGeneration](https://docs.vllm.ai/api/vllm/model_executor/models/#vllm.model_executor.models.VllmModelForTextGeneration) interface. Based on the final hidden states of the input, these models output log probabilities of the tokens to generate, which are then passed through [Sampler](https://docs.vllm.ai/api/vllm/v1/sample/sampler/#vllm.v1.sample.sampler.Sampler) to obtain the final text.
+
+## Configuration[¶](https://docs.vllm.ai#configuration)
+
+### Model Runner (`--runner`
+
+)[¶](https://docs.vllm.ai#model-runner-runner)
+
+Run a model in generation mode via the option `--runner generate`
+
+.
+
+Tip
+
+There is no need to set this option in the vast majority of cases as vLLM can automatically detect the model runner to use via `--runner auto`
+
+.
+
+## Offline Inference[¶](https://docs.vllm.ai#offline-inference)
+
+The [LLM](https://docs.vllm.ai/api/vllm/#vllm.LLM) class provides various methods for offline inference. See [configuration](https://docs.vllm.ai/api/#configuration) for a list of options when initializing the model.
+
+`LLM.generate`
+
+[¶](https://docs.vllm.ai#llmgenerate)
+
+The [generate](https://docs.vllm.ai/api/vllm/#vllm.LLM.generate) method is available to all generative models in vLLM. It is similar to [its counterpart in HF Transformers](https://huggingface.co/docs/transformers/main/en/main_classes/text_generation#transformers.GenerationMixin.generate), except that tokenization and detokenization are also performed automatically.
+
+from vllm import LLM
+llm = LLM(model="facebook/opt-125m")
+outputs = llm.generate("Hello, my name is")
+for output in outputs:
+prompt = output.prompt
+generated_text = output.outputs[0].text
+print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+
+
+You can optionally control the language generation by passing [SamplingParams](https://docs.vllm.ai/api/vllm/#vllm.SamplingParams). For example, you can use greedy sampling by setting `temperature=0`
+
+:
+
+from vllm import LLM, SamplingParams
+llm = LLM(model="facebook/opt-125m")
+params = SamplingParams(temperature=0)
+outputs = llm.generate("Hello, my name is", params)
+for output in outputs:
+prompt = output.prompt
+generated_text = output.outputs[0].text
+print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+
+
+Important
+
+By default, vLLM will use sampling parameters recommended by model creator by applying the `generation_config.json`
+
+from the huggingface model repository if it exists. In most cases, this will provide you with the best results by default if [SamplingParams](https://docs.vllm.ai/api/vllm/#vllm.SamplingParams) is not specified.
+
+However, if vLLM's default sampling parameters are preferred, please pass `generation_config="vllm"`
+
+when creating the [LLM](https://docs.vllm.ai/api/vllm/#vllm.LLM) instance.
+
+A code example can be found here: [ examples/basic/offline_inference/basic.py](https://github.com/vllm-project/vllm/blob/main/examples/basic/offline_inference/basic.py)
+
+`LLM.beam_search`
+
+[¶](https://docs.vllm.ai#llmbeam_search)
+
+The [beam_search](https://docs.vllm.ai/api/vllm/entrypoints/generate/beam_search/offline/#vllm.entrypoints.generate.beam_search.offline.BeamSearchOfflineMixin.beam_search) method implements [beam search](https://huggingface.co/docs/transformers/en/generation_strategies#beam-search) on top of [generate](https://docs.vllm.ai/api/vllm/#vllm.LLM.generate). For example, to search using 5 beams and output at most 50 tokens:
+
+from vllm import LLM
+from vllm.sampling_params import BeamSearchParams
+llm = LLM(model="facebook/opt-125m")
+params = BeamSearchParams(beam_width=5, max_tokens=50)
+outputs = llm.beam_search([{"prompt": "Hello, my name is "}], params)
+for output in outputs:
+generated_text = output.sequences[0].text
+print(f"Generated text: {generated_text!r}")
+
+
+`LLM.chat`
+
+[¶](https://docs.vllm.ai#llmchat)
+
+The [chat](https://docs.vllm.ai/api/vllm/#vllm.LLM.chat) method implements chat functionality on top of [generate](https://docs.vllm.ai/api/vllm/#vllm.LLM.generate). In particular, it accepts input similar to [OpenAI Chat Completions API](https://platform.openai.com/docs/api-reference/chat) and automatically applies the model's [chat template](https://huggingface.co/docs/transformers/en/chat_templating) to format the prompt.
+
+Important
+
+In general, only instruction-tuned models have a chat template. Base models may perform poorly as they are not trained to respond to the chat conversation.
+
+## Code
+
+from vllm import LLM
+llm = LLM(model="meta-llama/Meta-Llama-3-8B-Instruct")
+conversation = [
+{
+"role": "system",
+"content": "You are a helpful assistant",
+},
+{
+"role": "user",
+"content": "Hello",
+},
+{
+"role": "assistant",
+"content": "Hello! How can I assist you today?",
+},
+{
+"role": "user",
+"content": "Write an essay about the importance of higher education.",
+},
+]
+outputs = llm.chat(conversation)
+for output in outputs:
+prompt = output.prompt
+generated_text = output.outputs[0].text
+print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+
+
+A code example can be found here: [ examples/basic/offline_inference/chat.py](https://github.com/vllm-project/vllm/blob/main/examples/basic/offline_inference/chat.py)
+
+If the model doesn't have a chat template or you want to specify another one, you can explicitly pass a chat template:
+
+from vllm.entrypoints.chat_utils import load_chat_template
+# You can find a list of existing chat templates under `examples/`
+custom_template = load_chat_template(chat_template="<path_to_template>")
+print("Loaded chat template:", custom_template)
+outputs = llm.chat(conversation, chat_template=custom_template)
+
+
+## Online Serving[¶](https://docs.vllm.ai#online-serving)
+
+Our [OpenAI-Compatible Server](https://docs.vllm.ai/serving/online_serving/openai_compatible_server/) provides endpoints that correspond to the offline APIs:
+
+[Completions API](https://docs.vllm.ai/serving/online_serving/openai_compatible_server/#completions-api)is similar to`LLM.generate`
+
+but only accepts text.[Chat API](https://docs.vllm.ai/serving/online_serving/openai_compatible_server/#chat-api)is similar to`LLM.chat`
+
+, accepting both text and[multi-modal inputs](https://docs.vllm.ai/features/multimodal_inputs/)for models with a chat template.

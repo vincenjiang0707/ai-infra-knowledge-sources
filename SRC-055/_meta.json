@@ -1,0 +1,29 @@
+{
+ "src_id": "SRC-055",
+ "name": "DeepSeek 模型",
+ "category": "模型作者与模型平台",
+ "priority": "",
+ "scrape_type": "hf",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:11:37Z",
+ "finished_at": "2026-09-23T04:11:37Z",
+ "duration_seconds": 1.9,
+ "attempts": 1,
+ "channels": {
+  "hf_f2ba250b": {
+   "type": "hf",
+   "url": "https://huggingface.co/deepseek-ai",
+   "kind": "org",
+   "models": 105,
+   "status": "ok",
+   "output": "hf.md"
+  }
+ },
+ "cursor": {
+  "hf_f2ba250b:models": {
+   "count": 105
+  }
+ },
+ "notes": ""
+}

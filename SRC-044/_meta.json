@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-044",
+ "name": "昆仑芯官⽅开",
+ "category": "昇腾与其他国产芯⽚",
+ "priority": "",
+ "scrape_type": "github_org",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:10:54Z",
+ "finished_at": "2026-09-23T04:10:54Z",
+ "duration_seconds": 6.8,
+ "attempts": 1,
+ "channels": {
+  "github_org_763a34b6": {
+   "type": "github_org",
+   "url": "https://github.com/kunlunxin",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 306
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-159",
+ "name": "",
+ "category": "昇腾与其他国产芯⽚",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:24:03Z",
+ "finished_at": "2026-09-23T05:05:05Z",
+ "duration_seconds": 3.9,
+ "attempts": 2,
+ "channels": {
+  "site_264a27b9": {
+   "type": "site",
+   "url": "https://docs.opencloudos.org/OC9/ai-deployment/GPU-optimization-practice/hygon-deployment/",
+   "status": "ok",
+   "output": "page.md",
+   "mode": "page",
+   "chars": 3236
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

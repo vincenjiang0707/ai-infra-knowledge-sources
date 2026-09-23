@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-153",
+ "name": "Bilibili",
+ "category": "精选作者、专业社区与新来源发现",
+ "priority": "扩展",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:23:05Z",
+ "finished_at": "2026-09-23T04:23:05Z",
+ "duration_seconds": 1.5,
+ "attempts": 1,
+ "channels": {
+  "site_e0ed1515": {
+   "type": "site",
+   "url": "https://www.bilibili.com/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 816
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

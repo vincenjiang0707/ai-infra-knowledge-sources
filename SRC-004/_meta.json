@@ -1,0 +1,91 @@
+{
+ "src_id": "SRC-004",
+ "name": "SGLang ⽂档",
+ "category": "推理引擎与部署配⽅",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:38:51Z",
+ "finished_at": "2026-09-23T03:38:51Z",
+ "duration_seconds": 81.5,
+ "attempts": 1,
+ "channels": {
+  "gh_6caed060": {
+   "type": "github_repo",
+   "url": "https://github.com/vllm-project/vllm",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 106
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_761bb999": {
+   "type": "reference",
+   "url": "https://github.com/vllm-project/vllm/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 3688
+  },
+  "ref_07743d7e": {
+   "type": "reference",
+   "url": "https://github.com/vllm-project/vllm/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 6065
+  },
+  "ref_d5281516": {
+   "type": "reference",
+   "url": "https://github.com/vllm-project/vllm/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 154554
+  },
+  "site_b556231f": {
+   "type": "site",
+   "url": "https://docs.sglang.io/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 1758
+  }
+ },
+ "cursor": {
+  "gh_6caed060:issues": {
+   "last_updated_at": "2026-09-23T03:36:09Z"
+  },
+  "gh_6caed060:pulls": {
+   "last_updated_at": "2026-09-23T03:37:12Z"
+  },
+  "gh_6caed060:releases": {
+   "last_id": 393467280
+  }
+ },
+ "notes": ""
+}

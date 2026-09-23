@@ -1,0 +1,148 @@
+{
+ "src_id": "SRC-084",
+ "name": "HQQ",
+ "category": "量化、推测解码与精度验证",
+ "priority": "扩展",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:00:47Z",
+ "finished_at": "2026-09-23T04:00:47Z",
+ "duration_seconds": 108.7,
+ "attempts": 1,
+ "channels": {
+  "gh_e0b89e7b": {
+   "type": "github_repo",
+   "url": "https://github.com/bitsandbytes-foundation/bitsandbytes",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 36
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "CHANGELOG.md",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "gh_931d69f0": {
+   "type": "github_repo",
+   "url": "https://github.com/dropbox/hqq",
+   "readme": "missing",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 30,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 28
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_17e55512": {
+   "type": "reference",
+   "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 1455
+  },
+  "ref_dca9a473": {
+   "type": "reference",
+   "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 6904
+  },
+  "ref_1e081d1a": {
+   "type": "reference",
+   "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 37831
+  },
+  "ref_da300c6b": {
+   "type": "reference",
+   "url": "https://github.com/dropbox/hqq/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 2601
+  },
+  "ref_d31521c6": {
+   "type": "reference",
+   "url": "https://github.com/dropbox/hqq/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 534
+  },
+  "ref_1111d226": {
+   "type": "reference",
+   "url": "https://github.com/dropbox/hqq/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 1307
+  }
+ },
+ "cursor": {
+  "gh_e0b89e7b:issues": {
+   "last_updated_at": "2026-09-15T12:48:13Z"
+  },
+  "gh_e0b89e7b:pulls": {
+   "last_updated_at": "2026-09-22T08:46:40Z"
+  },
+  "gh_e0b89e7b:releases": {
+   "last_id": 382239894
+  },
+  "gh_931d69f0:issues": {
+   "last_updated_at": "2026-07-26T16:51:46Z"
+  },
+  "gh_931d69f0:pulls": {
+   "last_updated_at": "2026-02-26T12:50:29Z"
+  },
+  "gh_931d69f0:releases": {
+   "last_id": 255778204
+  }
+ },
+ "notes": ""
+}

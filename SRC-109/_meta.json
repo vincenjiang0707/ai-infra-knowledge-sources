@@ -1,0 +1,80 @@
+{
+ "src_id": "SRC-109",
+ "name": "GenAI Perf",
+ "category": "Profiling、压测与公开结果",
+ "priority": "核⼼",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:35:19Z",
+ "finished_at": "2026-09-23T03:35:19Z",
+ "duration_seconds": 61.9,
+ "attempts": 1,
+ "channels": {
+  "gh_751b47de": {
+   "type": "github_repo",
+   "url": "https://github.com/triton-inference-server/perf_analyzer",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 60,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_808b1b64": {
+   "type": "reference",
+   "url": "https://github.com/triton-inference-server/perf_analyzer/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 1120
+  },
+  "ref_fc07325a": {
+   "type": "reference",
+   "url": "https://github.com/triton-inference-server/perf_analyzer/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 4337
+  },
+  "ref_3cf82065": {
+   "type": "reference",
+   "url": "https://github.com/triton-inference-server/perf_analyzer/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 381
+  }
+ },
+ "cursor": {
+  "gh_751b47de:issues": {
+   "last_updated_at": "2026-04-07T04:39:52Z"
+  },
+  "gh_751b47de:pulls": {
+   "last_updated_at": "2026-09-20T16:24:38Z"
+  }
+ },
+ "notes": ""
+}

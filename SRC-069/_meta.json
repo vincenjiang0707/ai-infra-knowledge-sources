@@ -1,0 +1,124 @@
+{
+ "src_id": "SRC-069",
+ "name": "DeepGEMM",
+ "category": "Kernel、编译与⾃动优化",
+ "priority": "核",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:49:24Z",
+ "finished_at": "2026-09-23T03:49:24Z",
+ "duration_seconds": 103.7,
+ "attempts": 1,
+ "channels": {
+  "gh_bfb54282": {
+   "type": "github_repo",
+   "url": "https://github.com/flashinfer-ai/flashinfer",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 364
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "gh_30d8214c": {
+   "type": "github_repo",
+   "url": "https://github.com/deepseek-ai/DeepGEMM",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 10
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_e14c073b": {
+   "type": "reference",
+   "url": "https://github.com/flashinfer-ai/flashinfer/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 1667
+  },
+  "ref_0ad0620e": {
+   "type": "reference",
+   "url": "https://github.com/flashinfer-ai/flashinfer/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 5869
+  },
+  "ref_de813074": {
+   "type": "reference",
+   "url": "https://github.com/flashinfer-ai/flashinfer/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 22798
+  }
+ },
+ "cursor": {
+  "gh_bfb54282:issues": {
+   "last_updated_at": "2026-09-23T03:35:10Z"
+  },
+  "gh_bfb54282:pulls": {
+   "last_updated_at": "2026-09-23T03:47:15Z"
+  },
+  "gh_bfb54282:releases": {
+   "last_id": 393391756
+  },
+  "gh_30d8214c:issues": {
+   "last_updated_at": "2026-09-22T16:33:12Z"
+  },
+  "gh_30d8214c:pulls": {
+   "last_updated_at": "2026-09-23T02:56:51Z"
+  },
+  "gh_30d8214c:releases": {
+   "last_id": 356595222
+  }
+ },
+ "notes": ""
+}

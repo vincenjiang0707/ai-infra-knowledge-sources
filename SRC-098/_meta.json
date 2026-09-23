@@ -1,0 +1,80 @@
+{
+ "src_id": "SRC-098",
+ "name": "NCCL tests",
+ "category": "KV、路由、分布式与基础设施",
+ "priority": "核⼼",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:34:17Z",
+ "finished_at": "2026-09-23T03:34:17Z",
+ "duration_seconds": 60.7,
+ "attempts": 1,
+ "channels": {
+  "gh_8aeb2d85": {
+   "type": "github_repo",
+   "url": "https://github.com/NVIDIA/nccl-tests",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 61,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_9d07a90f": {
+   "type": "reference",
+   "url": "https://github.com/NVIDIA/nccl-tests/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 841
+  },
+  "ref_a89199fd": {
+   "type": "reference",
+   "url": "https://github.com/NVIDIA/nccl-tests/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 4341
+  },
+  "ref_977d458f": {
+   "type": "reference",
+   "url": "https://github.com/NVIDIA/nccl-tests/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 341
+  }
+ },
+ "cursor": {
+  "gh_8aeb2d85:issues": {
+   "last_updated_at": "2026-09-10T15:52:58Z"
+  },
+  "gh_8aeb2d85:pulls": {
+   "last_updated_at": "2026-09-19T15:35:32Z"
+  }
+ },
+ "notes": ""
+}

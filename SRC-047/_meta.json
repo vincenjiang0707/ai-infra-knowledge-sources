@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-047",
+ "name": "Qwen 官⽅组织",
+ "category": "模型作者与模型平台",
+ "priority": "",
+ "scrape_type": "github_org",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:10:59Z",
+ "finished_at": "2026-09-23T04:10:59Z",
+ "duration_seconds": 5.2,
+ "attempts": 1,
+ "channels": {
+  "github_org_5b9b0166": {
+   "type": "github_org",
+   "url": "https://github.com/QwenLM",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 810
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

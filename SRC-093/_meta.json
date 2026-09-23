@@ -1,0 +1,83 @@
+{
+ "src_id": "SRC-093",
+ "name": "AIBrix",
+ "category": "KV、路由、分布式与基础设施",
+ "priority": "扩展",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:32:01Z",
+ "finished_at": "2026-09-23T03:32:01Z",
+ "duration_seconds": 61.2,
+ "attempts": 1,
+ "channels": {
+  "gh_603a355b": {
+   "type": "github_repo",
+   "url": "https://github.com/vllm-project/aibrix",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 20
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_e1bd68e2": {
+   "type": "reference",
+   "url": "https://github.com/vllm-project/aibrix/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 4482
+  },
+  "ref_c264e4f1": {
+   "type": "reference",
+   "url": "https://github.com/vllm-project/aibrix/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 6024
+  },
+  "ref_6896f5bf": {
+   "type": "reference",
+   "url": "https://github.com/vllm-project/aibrix/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 111552
+  }
+ },
+ "cursor": {
+  "gh_603a355b:issues": {
+   "last_updated_at": "2026-09-23T02:07:17Z"
+  },
+  "gh_603a355b:pulls": {
+   "last_updated_at": "2026-09-23T03:28:54Z"
+  },
+  "gh_603a355b:releases": {
+   "last_id": 341102760
+  }
+ },
+ "notes": ""
+}

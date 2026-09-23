@@ -1,0 +1,91 @@
+{
+ "src_id": "SRC-090",
+ "name": "Dynamo 调优",
+ "category": "KV、路由、分布式与基础设施",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:55:10Z",
+ "finished_at": "2026-09-23T03:55:10Z",
+ "duration_seconds": 94.4,
+ "attempts": 1,
+ "channels": {
+  "gh_638891b9": {
+   "type": "github_repo",
+   "url": "https://github.com/ai-dynamo/dynamo",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 56
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_4629c13c": {
+   "type": "reference",
+   "url": "https://github.com/ai-dynamo/dynamo/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 11960
+  },
+  "ref_b32e053c": {
+   "type": "reference",
+   "url": "https://github.com/ai-dynamo/dynamo/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 17458
+  },
+  "ref_248ba71c": {
+   "type": "reference",
+   "url": "https://github.com/ai-dynamo/dynamo/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 66076
+  },
+  "site_a36abf9a": {
+   "type": "site",
+   "url": "https://docs.nvidia.com/dynamo/dev/agent-skills/optimization",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 1122
+  }
+ },
+ "cursor": {
+  "gh_638891b9:issues": {
+   "last_updated_at": "2026-09-23T02:45:33Z"
+  },
+  "gh_638891b9:pulls": {
+   "last_updated_at": "2026-09-23T03:53:37Z"
+  },
+  "gh_638891b9:releases": {
+   "last_id": 391808455
+  }
+ },
+ "notes": ""
+}

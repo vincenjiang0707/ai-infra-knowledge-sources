@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-117",
+ "name": "USENIX",
+ "category": "论⽂、会议与课程",
+ "priority": "",
+ "scrape_type": "academic",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:14:25Z",
+ "finished_at": "2026-09-23T04:14:25Z",
+ "duration_seconds": 13.4,
+ "attempts": 1,
+ "channels": {
+  "acad_aa8006ca": {
+   "type": "academic",
+   "url": "https://www.usenix.org/publications/proceedings",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 4208
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

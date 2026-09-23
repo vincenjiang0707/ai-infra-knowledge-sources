@@ -1,0 +1,32 @@
+{
+ "src_id": "SRC-142",
+ "name": "Salykova",
+ "category": "精选作者、专业社区与新来源发现",
+ "priority": "扩展",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:22:18Z",
+ "finished_at": "2026-09-23T04:22:18Z",
+ "duration_seconds": 6.7,
+ "attempts": 1,
+ "channels": {
+  "site_ea93237f": {
+   "type": "site",
+   "url": "https://salykova.github.io/",
+   "mode": "rss",
+   "status": "ok",
+   "output": "feed_meta.json",
+   "entries": 5,
+   "posts_fetched": 5,
+   "posts_failed": 0,
+   "output_dir": "posts/"
+  }
+ },
+ "cursor": {
+  "site_ea93237f:rss": {
+   "last_entry_published": "2025-09-30T23:35:01+00:00"
+  }
+ },
+ "notes": ""
+}

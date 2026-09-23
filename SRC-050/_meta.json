@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-050",
+ "name": "GLM / Z.ai 官⽅",
+ "category": "模型作者与模型平台",
+ "priority": "",
+ "scrape_type": "github_org",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:11:13Z",
+ "finished_at": "2026-09-23T04:11:13Z",
+ "duration_seconds": 7.5,
+ "attempts": 1,
+ "channels": {
+  "github_org_c43369e4": {
+   "type": "github_org",
+   "url": "https://github.com/zai-org",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 570
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

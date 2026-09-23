@@ -1,0 +1,32 @@
+{
+ "src_id": "SRC-002",
+ "name": "vLLM 配⽅",
+ "category": "推理引擎与部署配⽅",
+ "priority": "核",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:07:57Z",
+ "finished_at": "2026-09-23T04:07:57Z",
+ "duration_seconds": 78.7,
+ "attempts": 1,
+ "channels": {
+  "site_5405c34f": {
+   "type": "sitemap",
+   "url": "https://docs.vllm.ai/projects/recipes/en/stable/",
+   "mode": "sitemap.xml",
+   "pages_total": 58,
+   "status": "ok",
+   "pages_fetched": 57,
+   "pages_failed": 1,
+   "output_dir": "pages/",
+   "cap": 2000
+  }
+ },
+ "cursor": {
+  "site_5405c34f:sitemap": {
+   "lastmod": "2026-04-27"
+  }
+ },
+ "notes": ""
+}

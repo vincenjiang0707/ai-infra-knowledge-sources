@@ -1,0 +1,59 @@
+{
+ "src_id": "SRC-083",
+ "name": "bitsandbytes",
+ "category": "量化、推测解码与精度验证",
+ "priority": "扩",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:21:26Z",
+ "finished_at": "2026-09-23T03:21:26Z",
+ "duration_seconds": 19.8,
+ "attempts": 1,
+ "channels": {
+  "gh_e0b89e7b": {
+   "type": "github_repo",
+   "url": "https://github.com/bitsandbytes-foundation/bitsandbytes",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 36
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "CHANGELOG.md",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  }
+ },
+ "cursor": {
+  "gh_e0b89e7b:issues": {
+   "last_updated_at": "2026-09-15T12:48:13Z"
+  },
+  "gh_e0b89e7b:pulls": {
+   "last_updated_at": "2026-09-23T07:07:21Z"
+  },
+  "gh_e0b89e7b:releases": {
+   "last_id": 382239894
+  }
+ },
+ "notes": ""
+}

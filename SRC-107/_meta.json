@@ -1,0 +1,32 @@
+{
+ "src_id": "SRC-107",
+ "name": "vLLM benchmark",
+ "category": "Profiling、压测与公开结果",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:13:50Z",
+ "finished_at": "2026-09-23T05:06:55Z",
+ "duration_seconds": 8.3,
+ "attempts": 3,
+ "channels": {
+  "site_62a13795": {
+   "type": "sitemap",
+   "url": "https://docs.vllm.ai/en/latest/benchmarking/",
+   "mode": "sitemap.xml",
+   "pages_total": 4,
+   "status": "ok",
+   "pages_fetched": 4,
+   "pages_failed": 0,
+   "output_dir": "pages/",
+   "cap": 2000
+  }
+ },
+ "cursor": {
+  "site_62a13795:sitemap": {
+   "lastmod": "2026-09-22"
+  }
+ },
+ "notes": ""
+}

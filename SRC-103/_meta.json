@@ -1,0 +1,59 @@
+{
+ "src_id": "SRC-103",
+ "name": "ROCm rocprofiler-",
+ "category": "Profiling、压测与公开结果",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:22:24Z",
+ "finished_at": "2026-09-23T03:22:24Z",
+ "duration_seconds": 15.7,
+ "attempts": 1,
+ "channels": {
+  "gh_a11084b1": {
+   "type": "github_repo",
+   "url": "https://github.com/ROCm/rocprofiler-sdk",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 55,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 23
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "CHANGELOG.md",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  }
+ },
+ "cursor": {
+  "gh_a11084b1:issues": {
+   "last_updated_at": "2026-08-25T23:23:32Z"
+  },
+  "gh_a11084b1:pulls": {
+   "last_updated_at": "2026-06-30T15:17:30Z"
+  },
+  "gh_a11084b1:releases": {
+   "last_id": 331276348
+  }
+ },
+ "notes": ""
+}

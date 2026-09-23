@@ -1,0 +1,29 @@
+{
+ "src_id": "SRC-053",
+ "name": "Kimi 模型⻚",
+ "category": "模型作者与模型平台",
+ "priority": "核",
+ "scrape_type": "hf",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:11:26Z",
+ "finished_at": "2026-09-23T04:11:26Z",
+ "duration_seconds": 1.1,
+ "attempts": 1,
+ "channels": {
+  "hf_2a527163": {
+   "type": "hf",
+   "url": "https://huggingface.co/moonshotai",
+   "kind": "org",
+   "models": 19,
+   "status": "ok",
+   "output": "hf.md"
+  }
+ },
+ "cursor": {
+  "hf_2a527163:models": {
+   "count": 19
+  }
+ },
+ "notes": ""
+}

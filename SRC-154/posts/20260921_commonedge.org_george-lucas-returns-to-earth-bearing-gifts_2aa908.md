@@ -1,0 +1,32 @@
+# George Lucas Returns to Earth, Bearing Gifts
+
+source: https://commonedge.org/george-lucas-returns-to-earth-bearing-gifts/
+published: Mon, 21 Sep 2026 13:40:03 +0000
+
+## George Lucas Returns to Earth, Bearing Gifts
+
+Appearing like a grounded and formidable spaceship, the Lucas Museum of Narrative Art, bearing gifts of memories and myths, opened its portals to an Earth-bound selection of people (local notables, friends, museum members, and journalists) last week in a welcoming Los Angeles, christened by its benefactors, George Lucas, the producer and director of *Star Wars *fame and fortune, and his financier wife, Mellody Hobson. (The general public opening will be on September 22.)
+
+The architecture of the galactic conceit, with a reported $1 billion price tag, is most definitely different, almost stunningly so: a sculptural, organic form, described as a “cloud” by Ma Yansong, founder of [MAD Architects](https://www.i-mad.com/), the principal firm in a design team that also included Michael Siegel of [Stantec](https://www.stantec.com/en) and Mia Lehrer of the heralded local landscape firm of [Studio-MLA](https://studio-mla.com/).
+
+Moored in the city’s [Exposition Park](https://en.wikipedia.org/wiki/Exposition_Park,_Los_Angeles) on a deftly landscaped 13-acre campus that had previously been a parking lot, the soaring sweep of the five-story museum may look to some like a makeshift sci-fi construct, but its interior is grounded in a familiar labyrinth of accessible galleries and convenient visitor services.
+
+Lucas hesitantly declared at the media preview that the museum, long in planning, “was created to honor humanity’s stories and the artists who illustrate them” and, in doing so, “connect our modern imaginations with our ancient emotions, creating community.” The diversity of the roughly 1,300 objects on display—housed in 33 galleries totalling 100,000 square feet—is impressive. It ranges from prehistoric cave paintings, ancient sculptures of gods and goddesses, and Renaissance paintings to screen art, rare vintage illustrations, and photographs. The collection also includes graphic novels and comics, which the museum notes “have not always received the respect they deserve.” Lucas calls them “the people’s art.”
+
+
+Several exhibits exploring the Skywalker saga should appeal to the young and young-at-heart *Star Wars* fans, weaned as they were through (for now) a dozen feature films. The films, in turn, have generated a seemingly endless Hollywood galaxy of action figures and toys, TV shows and cartoons, books and video games, clothing, and other themed merchandise far too numerous to mention. (The collective lifetime revenue of *Stars Wars* is estimated to be around $50 billion.) According to the museum, all of these products are “heavily inspired by archetypes and motifs from classical mythology, religion, political history, and the ‘hero’s journey.’”
+
+Among the exhibits is a selection of vehicle designs, props, costumes, and illustrations from the first six films in the saga that Lucas had, over time, squirreled away for his personal archives. But the museum does way more than commemorate *Star Wars* movies, as some haughty east coast cultural commentators have alluded to in early critiques, out of apparent intellectual and geographic hubris. In contrast, as a longtime fan of comics and cartoons, considerably before being awestruck and enthralled by the masterpieces of art and architecture, I sensed in the engaging exhibits a welcoming curatorial curiosity and refreshing respect for film fans.
+
+
+Indeed, the cinema’s supremacy for telling stories with moving images on a screen is displayed in two theaters on the ground level, off the main lobby, named in honor of [Robert Flaherty](https://en.wikipedia.org/wiki/Robert_J._Flaherty), an acclaimed early documentarian, and [Slavko Vorkapich](https://en.wikipedia.org/wiki/Slavko_Vorkapich), who pioneered special effects and experimental films in the analog heyday of Hollywood, before CGI took over. Not coincidentally, he briefly was also the chair of the famed USC Department of Film, which Lucas attended. To entice, the theaters will each operate free to museumgoers as open-door venues, screening curated films continuously.
+
+The galleries also include a wealth of still photography by luminaries such as Robert Capra, Gordon Parks, Alfred Eisenstaedt, and Dorothea Lange; illustrations by Maxwell Parrish, Norman Rockwell, Andrew and N.C. Wyeth, Frank Frazetta; paintings and murals by Diego Rivera, Judith Baca, and Thomas Hart Benton; and rare comic books illustrated by a bevy of artists: Mœbius, Marie Severin, Jack Kirby, Alison Bechdel, Jim Lee, Frank Miller, Rafael Navarro, and R. Crumb.
+
+Eclectic as the galleries may be, the design of the public areas are blandly functional, and the circulation thankfully fluid, even to this mobility-challenged critic—though more seating, as always, would be appreciated. But there is little question that the museum itself is a good fit for Los Angeles, however bruised it is as the entertainment capital of the world. Certainly the museum feels more at home here than it would have been in Chicago, where it was initially to be located until Lucas failed to get the site he wanted on the lakefront. (He was similarly thwarted in San Francisco, when civic leaders balked at putting the museum in the Presidio.)
+
+Embracing the museum is a diverting people-oriented landscape design that, in addition to the indigenous and drought-tolerant plantings, contains spaces and places for varied public use: a fountain and a surprise waterfall as focal points to meet up with friends and family, a meadow on which to picnic or throw a frisbee, or meandering paths on which to stroll.
+
+From every perspective, the design of the Lucas Museum of Narrative Art clearly dominates and distinguishes the park and surrounding area. It was a fun tour for me, which I acknowledge with a tip of my magician’s hat and the confidence that the museum will soon become a landmark, an architectural must-see, and a tourist attraction, as well as a point of pride for a city long renowned for narrative art.
+
+*Featured image: The Lucas Museum of Narrative Art, designed by MAD Architects, via the museum.*

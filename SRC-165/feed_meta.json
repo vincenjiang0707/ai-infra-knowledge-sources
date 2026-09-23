@@ -1,0 +1,259 @@
+{
+ "feed_url": "https://vllm.ai/blog/rss.xml",
+ "title": "vLLM Blog",
+ "link": "https://vllm.ai/blog",
+ "updated": "Wed, 23 Sep 2026 03:12:49 GMT",
+ "entries_total": 50,
+ "entries": [
+  {
+   "title": "PD Serving of Qwen3.8-2.4T",
+   "link": "https://vllm.ai/blog/2026-09-21-qwen38-pd-serving",
+   "published": "Mon, 21 Sep 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Scaling Multi-GPU Video Captioning with PyNvVideoCodec and vLLM",
+   "link": "https://vllm.ai/blog/2026-09-18-pynvvideocodec",
+   "published": "Fri, 18 Sep 2026 00:00:00 GMT"
+  },
+  {
+   "title": "How we trained the fastest DSpark for Kimi-K3 using GB300 NVL72",
+   "link": "https://vllm.ai/blog/2026-09-15-kimi-k3-dspark",
+   "published": "Tue, 15 Sep 2026 00:00:00 GMT"
+  },
+  {
+   "title": "vLLM x Novita AI: Chord, Faster INT4 MoE for Kimi K2.x. Up to 1.3x on H200, 2.15x on Untuned B300",
+   "link": "https://vllm.ai/blog/2026-09-15-novita-chord-w4a16-moe",
+   "published": "Tue, 15 Sep 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Kimi K3 Performance Optimizations in vLLM: The Road to 2.8× Throughput",
+   "link": "https://vllm.ai/blog/2026-09-13-kimi-k3-performance-optimization",
+   "published": "Sun, 13 Sep 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Following the Bottleneck: Optimizing MiniMax M3 on AMD Instinct MI355X",
+   "link": "https://vllm.ai/blog/2026-09-10-minimax-m3-mi355x",
+   "published": "Thu, 10 Sep 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Tiered KV Cache Offloading in vLLM",
+   "link": "https://vllm.ai/blog/2026-09-10-tiered-kv-offloading",
+   "published": "Thu, 10 Sep 2026 00:00:00 GMT"
+  },
+  {
+   "title": "GLM 5.3 Optimizations, Part 1: Hybrid HiSparse Offloading in vLLM",
+   "link": "https://vllm.ai/blog/2026-09-08-glm53-part1-hybrid-sparse-offloading",
+   "published": "Tue, 08 Sep 2026 00:00:00 GMT"
+  },
+  {
+   "title": "vLLM x AgentX: Optimizing for Real-World Agentic Serving",
+   "link": "https://vllm.ai/blog/2026-09-08-vllm-agentx",
+   "published": "Tue, 08 Sep 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Serving LLMs on Tenstorrent Hardware: Inside the vLLM TT Plugin",
+   "link": "https://vllm.ai/blog/2026-09-07-vllm-tt-plugin",
+   "published": "Mon, 07 Sep 2026 00:00:00 GMT"
+  },
+  {
+   "title": "MiniMax H3 on vLLM-Omni: From System-Wide Optimization to Real-Time Serving with FastVideo’s FastH3",
+   "link": "https://vllm.ai/blog/2026-09-01-minimax-h3-production-serving",
+   "published": "Tue, 01 Sep 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Exploring Speculative Decoding in vLLM on AMD GPUs",
+   "link": "https://vllm.ai/blog/2026-08-23-speculative-decoding-amd-gpus",
+   "published": "Sun, 23 Aug 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Large-Scale Sharded Weight Transfer with Ray Direct Transport (RDT) in vLLM",
+   "link": "https://vllm.ai/blog/2026-08-22-rdt-weight-transfer",
+   "published": "Sat, 22 Aug 2026 00:00:00 GMT"
+  },
+  {
+   "title": "IsoExec: Unified Execution to Eliminate Trainer-Inference Mismatch in SkyRL",
+   "link": "https://vllm.ai/blog/2026-08-21-isoexec",
+   "published": "Fri, 21 Aug 2026 00:00:00 GMT"
+  },
+  {
+   "title": "VeRL-Omni v0.2.0: Faster Diffusion RL and Stable Omni Training",
+   "link": "https://vllm.ai/blog/2026-08-20-verl-omni-v0-2-0",
+   "published": "Thu, 20 Aug 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Distributed Layerwise Offload: Scaling Toward 200B+ DiT Models Efficiently in vLLM-Omni",
+   "link": "https://vllm.ai/blog/2026-08-17-distributed-layerwise-offload",
+   "published": "Mon, 17 Aug 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Adaptive Verification in vLLM: DSpark confidence-scheduled verification",
+   "link": "https://vllm.ai/blog/2026-08-14-dspark-adaptive-verification",
+   "published": "Fri, 14 Aug 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Day 0 Support for Qwen3.8-2.4T-A95B on vLLM",
+   "link": "https://vllm.ai/blog/2026-08-12-qwen3.8",
+   "published": "Wed, 12 Aug 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Announcing Day-0 Support for NVIDIA Nemotron 3.5 Lightning on vLLM",
+   "link": "https://vllm.ai/blog/2026-08-10-nemotron-3-5-lightning-vllm",
+   "published": "Mon, 10 Aug 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Efficient Decode Context Parallelism with vLLM for Long Context Workloads",
+   "link": "https://vllm.ai/blog/2026-08-07-decode-context-parallelism",
+   "published": "Fri, 07 Aug 2026 00:00:00 GMT"
+  },
+  {
+   "title": "vLLM Reaches 25K Total TPS/GPU on Qwen3.5",
+   "link": "https://vllm.ai/blog/2026-08-06-qwen35-25k-tps",
+   "published": "Thu, 06 Aug 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Optimizing vLLM on Arm CPUs",
+   "link": "https://vllm.ai/blog/2026-07-29-optimizing-vllm-on-arm-cpus",
+   "published": "Wed, 29 Jul 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Parallel All the Way Down: Beyond Single-Token Generation with Speculative Decoding",
+   "link": "https://vllm.ai/blog/2026-07-28-speculators-parallel-drafting",
+   "published": "Tue, 28 Jul 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Kimi K3 Is Here: Efficient Day-0 Support on vLLM",
+   "link": "https://vllm.ai/blog/2026-07-27-k3",
+   "published": "Mon, 27 Jul 2026 00:00:00 GMT"
+  },
+  {
+   "title": "From Day 0 to Production SLAs: Serving GLM-5.2 on 24 NVIDIA B300 GPUs with vLLM",
+   "link": "https://vllm.ai/blog/2026-07-23-glm-5.2-nvfp4-b300-pd",
+   "published": "Thu, 23 Jul 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Announcing vLLM AFD Plugin: Disaggregating Attention and FFN for Flexible MoE Serving",
+   "link": "https://vllm.ai/blog/2026-07-23-vllm-afd-plugin",
+   "published": "Thu, 23 Jul 2026 00:00:00 GMT"
+  },
+  {
+   "title": "A Preview of Production-Scale Kimi K3 Support on vLLM",
+   "link": "https://vllm.ai/blog/2026-07-22-kimi-k3-preview",
+   "published": "Wed, 22 Jul 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Beyond a Single Model: Building Mixture-of-Models Systems with vLLM Semantic Router",
+   "link": "https://vllm.ai/blog/2026-07-21-vllm-sr-new-chapter-mom",
+   "published": "Tue, 21 Jul 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Keeping vLLM Production Quality: A Look Inside CI, Benchmarking, and the Release Process",
+   "link": "https://vllm.ai/blog/2026-07-16-keeping-vllm-production-quality",
+   "published": "Thu, 16 Jul 2026 00:00:00 GMT"
+  },
+  {
+   "title": "TML Inkling on vLLM: Day-0 Support with Optimized Performance",
+   "link": "https://vllm.ai/blog/2026-07-15-inkling",
+   "published": "Wed, 15 Jul 2026 00:00:00 GMT"
+  },
+  {
+   "title": "vLLM x TileRT: Specialized Decode for Latency-Critical Serving",
+   "link": "https://vllm.ai/blog/2026-07-14-vllm-tilert-pd",
+   "published": "Tue, 14 Jul 2026 00:00:00 GMT"
+  },
+  {
+   "title": "EAGLE3 Speculative Decoding on AMD Instinct GPUs: Training and Serving with vLLM and AMD Quark",
+   "link": "https://vllm.ai/blog/2026-07-13-eagle-3-amd-instinct",
+   "published": "Mon, 13 Jul 2026 00:00:00 GMT"
+  },
+  {
+   "title": "vime + ROCm: End-to-End RL Post-Training on AMD Instinct™ GPUs",
+   "link": "https://vllm.ai/blog/2026-07-10-vime-rocm",
+   "published": "Fri, 10 Jul 2026 00:00:00 GMT"
+  },
+  {
+   "title": "vLLM × HPC-Ops: High-Performance Attention and MoE Backends from Tencent Hunyuan",
+   "link": "https://vllm.ai/blog/2026-07-06-vllm-hpc-ops",
+   "published": "Mon, 06 Jul 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Experience and Lessons Learned from Serving Multi-Stage Qwen3-Omni in vLLM-Omni",
+   "link": "https://vllm.ai/blog/2026-07-01-qwen3-omni-optimization",
+   "published": "Wed, 01 Jul 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Micro-Agent: Beat Frontier Models with Collaboration inside Model API",
+   "link": "https://vllm.ai/blog/2026-06-29-micro-agent-frontier-models",
+   "published": "Mon, 29 Jun 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Engineering TTS Inference in vLLM-Omni",
+   "link": "https://vllm.ai/blog/2026-06-23-vllm-omni-tts",
+   "published": "Tue, 23 Jun 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Beyond One Model: Fusion in vLLM Semantic Router",
+   "link": "https://vllm.ai/blog/2026-06-16-vllm-sr-fusion-api",
+   "published": "Tue, 16 Jun 2026 00:00:00 GMT"
+  },
+  {
+   "title": "MiniMax M3 in vLLM: Day-0 Serving for 1M-Token Multimodal Reasoning",
+   "link": "https://vllm.ai/blog/2026-06-12-minimax-m3-vllm",
+   "published": "Fri, 12 Jun 2026 00:00:00 GMT"
+  },
+  {
+   "title": "DiffusionGemma: The First Diffusion LLM (dLLM) Natively Supported in vLLM",
+   "link": "https://vllm.ai/blog/2026-06-10-diffusion-gemma",
+   "published": "Wed, 10 Jun 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Announcing vime: A Simple, Stable, and Efficient RL Framework for LLMs",
+   "link": "https://vllm.ai/blog/2026-06-09-announcing-vime",
+   "published": "Tue, 09 Jun 2026 00:00:00 GMT"
+  },
+  {
+   "title": "vLLM Semantic Router v0.3 Themis: From Signals to Stateful Production Routing",
+   "link": "https://vllm.ai/blog/2026-06-05-v0.3-vllm-sr-themis-release",
+   "published": "Fri, 05 Jun 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Announcing Day-0 Support for NVIDIA Nemotron 3 Ultra on vLLM",
+   "link": "https://vllm.ai/blog/2026-06-04-nemotron-3-ultra-vllm",
+   "published": "Thu, 04 Jun 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Fast & Efficient LLM Inference with vLLM: A New Course with DeepLearning.AI",
+   "link": "https://vllm.ai/blog/2026-06-03-deeplearning-ai-vllm-course",
+   "published": "Wed, 03 Jun 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Session-Aware Agentic Routing: Continuity-Aware Model Selection for Long-Horizon LLM Agents",
+   "link": "https://vllm.ai/blog/2026-06-02-session-aware-agentic-routing",
+   "published": "Tue, 02 Jun 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Accelerating vLLM-Omni Inference with AutoRound Quantization",
+   "link": "https://vllm.ai/blog/2026-06-02-vllm-omni-autoround",
+   "published": "Tue, 02 Jun 2026 00:00:00 GMT"
+  },
+  {
+   "title": "vLLM on the DGX Spark: Architecture, Configuration, and Local Evaluation",
+   "link": "https://vllm.ai/blog/2026-06-01-vllm-dgx-spark",
+   "published": "Mon, 01 Jun 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Accelerating Laguna XS.2 Inference with vLLM, Speculators, and LLM Compressor",
+   "link": "https://vllm.ai/blog/2026-05-28-laguna-xs2-dflash-llm-compressor",
+   "published": "Thu, 28 May 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Native RL APIs in vLLM",
+   "link": "https://vllm.ai/blog/2026-05-28-native-rl-apis",
+   "published": "Thu, 28 May 2026 00:00:00 GMT"
+  },
+  {
+   "title": "Speculators v0.5.0: DFlash Support and Online Training",
+   "link": "https://vllm.ai/blog/2026-05-28-speculators-v050",
+   "published": "Thu, 28 May 2026 00:00:00 GMT"
+  }
+ ]
+}

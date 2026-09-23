@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-099",
+ "name": "Linux 性能⼯具",
+ "category": "KV、路由、分布式与基础设施",
+ "priority": "扩",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:13:11Z",
+ "finished_at": "2026-09-23T04:13:11Z",
+ "duration_seconds": 7.4,
+ "attempts": 1,
+ "channels": {
+  "site_8f6b2872": {
+   "type": "site",
+   "url": "https://www.brendangregg.com/linuxperf.html",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 19411
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

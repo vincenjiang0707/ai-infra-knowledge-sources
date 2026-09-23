@@ -1,0 +1,83 @@
+{
+ "src_id": "SRC-111",
+ "name": "GuideLLM",
+ "category": "Profiling、压测与公开结果",
+ "priority": "扩展",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:36:29Z",
+ "finished_at": "2026-09-23T03:36:29Z",
+ "duration_seconds": 70.2,
+ "attempts": 1,
+ "channels": {
+  "gh_8f51e829": {
+   "type": "github_repo",
+   "url": "https://github.com/vllm-project/guidellm",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 18
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_e1421a45": {
+   "type": "reference",
+   "url": "https://github.com/vllm-project/guidellm/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 3085
+  },
+  "ref_73f5cb7b": {
+   "type": "reference",
+   "url": "https://github.com/vllm-project/guidellm/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 4981
+  },
+  "ref_0c9578d9": {
+   "type": "reference",
+   "url": "https://github.com/vllm-project/guidellm/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 45259
+  }
+ },
+ "cursor": {
+  "gh_8f51e829:issues": {
+   "last_updated_at": "2026-09-22T13:11:47Z"
+  },
+  "gh_8f51e829:pulls": {
+   "last_updated_at": "2026-09-23T03:34:29Z"
+  },
+  "gh_8f51e829:releases": {
+   "last_id": 390224936
+  }
+ },
+ "notes": ""
+}

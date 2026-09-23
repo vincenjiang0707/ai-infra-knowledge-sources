@@ -1,0 +1,70 @@
+source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/speech_to_text/translation/serving/
+lastmod: 2026-09-23
+
+class OpenAIServingTranslation(SpeechToTextBaseServing):
+"""Handles translation requests."""
+def __init__(
+self,
+engine_client: EngineClient,
+models: OpenAIServingModels,
+*,
+request_logger: RequestLogger | None,
+return_tokens_as_token_ids: bool = False,
+enable_force_include_usage: bool = False,
+):
+super().__init__(
+engine_client=engine_client,
+models=models,
+request_logger=request_logger,
+return_tokens_as_token_ids=return_tokens_as_token_ids,
+task_type="translate",
+enable_force_include_usage=enable_force_include_usage,
+)
+async def create_translation(
+self,
+audio_data: bytes,
+request: TranslationRequest,
+raw_request: Request | None = None,
+) -> (
+TranslationResponse
+| TranslationResponseVerbose
+| AsyncGenerator[str, None]
+| ErrorResponse
+):
+"""Translation API similar to OpenAI's API.
+See https://platform.openai.com/docs/api-reference/audio/createTranslation
+for the API specification. This API mimics the OpenAI translation API.
+"""
+return await self._create_speech_to_text(
+audio_data=audio_data,
+request=request,
+raw_request=raw_request,
+response_class=(
+TranslationResponseVerbose
+if request.response_format == "verbose_json"
+else TranslationResponse
+),
+stream_generator_method=self.translation_stream_generator,
+)
+async def translation_stream_generator(
+self,
+request: TranslationRequest,
+result_generator: list[AsyncGenerator[RequestOutput, None]],
+request_id: str,
+request_metadata: RequestResponseMetadata,
+audio_duration_s: float,
+separator: str,
+) -> AsyncGenerator[str, None]:
+generator = self._speech_to_text_stream_generator(
+request=request,
+list_result_generator=result_generator,
+request_id=request_id,
+request_metadata=request_metadata,
+audio_duration_s=audio_duration_s,
+chunk_object_type="translation.chunk",
+response_stream_choice_class=TranslationResponseStreamChoice,
+stream_response_class=TranslationStreamResponse,
+separator=separator,
+)
+async for chunk in generator:
+yield chunk

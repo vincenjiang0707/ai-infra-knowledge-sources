@@ -1,0 +1,75 @@
+# arXiv
+
+source: https://arxiv.org/
+
+arXiv is a free distribution service and an open-access archive for nearly 2.4 million scholarly articles in the fields of physics, mathematics, computer science, quantitative biology, quantitative finance, statistics, electrical engineering and systems science, and economics. Materials on this site are not peer-reviewed by arXiv.
+
+## Physics
+
+-
+[Astrophysics](https://arxiv.org/archive/astro-ph)(**astro-ph**[new](https://arxiv.org/list/astro-ph/new),[recent](https://arxiv.org/list/astro-ph/recent),[search](https://arxiv.org/search/astro-ph))[Astrophysics of Galaxies](https://arxiv.org/list/astro-ph.GA/recent);[Cosmology and Nongalactic Astrophysics](https://arxiv.org/list/astro-ph.CO/recent);[Earth and Planetary Astrophysics](https://arxiv.org/list/astro-ph.EP/recent);[High Energy Astrophysical Phenomena](https://arxiv.org/list/astro-ph.HE/recent);[Instrumentation and Methods for Astrophysics](https://arxiv.org/list/astro-ph.IM/recent);[Solar and Stellar Astrophysics](https://arxiv.org/list/astro-ph.SR/recent) -
+[Condensed Matter](https://arxiv.org/archive/cond-mat)(**cond-mat**[new](https://arxiv.org/list/cond-mat/new),[recent](https://arxiv.org/list/cond-mat/recent),[search](https://arxiv.org/search/cond-mat))[Disordered Systems and Neural Networks](https://arxiv.org/list/cond-mat.dis-nn/recent);[Materials Science](https://arxiv.org/list/cond-mat.mtrl-sci/recent);[Mesoscale and Nanoscale Physics](https://arxiv.org/list/cond-mat.mes-hall/recent);[Other Condensed Matter](https://arxiv.org/list/cond-mat.other/recent);[Quantum Gases](https://arxiv.org/list/cond-mat.quant-gas/recent);[Soft Condensed Matter](https://arxiv.org/list/cond-mat.soft/recent);[Statistical Mechanics](https://arxiv.org/list/cond-mat.stat-mech/recent);[Strongly Correlated Electrons](https://arxiv.org/list/cond-mat.str-el/recent);[Superconductivity](https://arxiv.org/list/cond-mat.supr-con/recent) -
+[General Relativity and Quantum Cosmology](https://arxiv.org/archive/gr-qc)(**gr-qc**[new](https://arxiv.org/list/gr-qc/new),[recent](https://arxiv.org/list/gr-qc/recent),[search](https://arxiv.org/search/gr-qc)) -
+[High Energy Physics - Experiment](https://arxiv.org/archive/hep-ex)(**hep-ex**[new](https://arxiv.org/list/hep-ex/new),[recent](https://arxiv.org/list/hep-ex/recent),[search](https://arxiv.org/search/hep-ex)) -
+[High Energy Physics - Lattice](https://arxiv.org/archive/hep-lat)(**hep-lat**[new](https://arxiv.org/list/hep-lat/new),[recent](https://arxiv.org/list/hep-lat/recent),[search](https://arxiv.org/search/hep-lat)) -
+[High Energy Physics - Phenomenology](https://arxiv.org/archive/hep-ph)(**hep-ph**[new](https://arxiv.org/list/hep-ph/new),[recent](https://arxiv.org/list/hep-ph/recent),[search](https://arxiv.org/search/hep-ph)) -
+[High Energy Physics - Theory](https://arxiv.org/archive/hep-th)(**hep-th**[new](https://arxiv.org/list/hep-th/new),[recent](https://arxiv.org/list/hep-th/recent),[search](https://arxiv.org/search/hep-th)) -
+[Mathematical Physics](https://arxiv.org/archive/math-ph)(**math-ph**[new](https://arxiv.org/list/math-ph/new),[recent](https://arxiv.org/list/math-ph/recent),[search](https://arxiv.org/search/math-ph)) -
+[Nonlinear Sciences](https://arxiv.org/archive/nlin)(**nlin**[new](https://arxiv.org/list/nlin/new),[recent](https://arxiv.org/list/nlin/recent),[search](https://arxiv.org/search/nlin))
+
+includes:[Adaptation and Self-Organizing Systems](https://arxiv.org/list/nlin.AO/recent);[Cellular Automata and Lattice Gases](https://arxiv.org/list/nlin.CG/recent);[Chaotic Dynamics](https://arxiv.org/list/nlin.CD/recent);[Exactly Solvable and Integrable Systems](https://arxiv.org/list/nlin.SI/recent);[Pattern Formation and Solitons](https://arxiv.org/list/nlin.PS/recent) -
+[Nuclear Experiment](https://arxiv.org/archive/nucl-ex)(**nucl-ex**[new](https://arxiv.org/list/nucl-ex/new),[recent](https://arxiv.org/list/nucl-ex/recent),[search](https://arxiv.org/search/nucl-ex)) -
+[Nuclear Theory](https://arxiv.org/archive/nucl-th)(**nucl-th**[new](https://arxiv.org/list/nucl-th/new),[recent](https://arxiv.org/list/nucl-th/recent),[search](https://arxiv.org/search/nucl-th)) -
+[Physics](https://arxiv.org/archive/physics)(**physics**[new](https://arxiv.org/list/physics/new),[recent](https://arxiv.org/list/physics/recent),[search](https://arxiv.org/search/physics))
+
+includes:[Accelerator Physics](https://arxiv.org/list/physics.acc-ph/recent);[Applied Physics](https://arxiv.org/list/physics.app-ph/recent);[Atmospheric and Oceanic Physics](https://arxiv.org/list/physics.ao-ph/recent);[Atomic and Molecular Clusters](https://arxiv.org/list/physics.atm-clus/recent);[Atomic Physics](https://arxiv.org/list/physics.atom-ph/recent);[Biological Physics](https://arxiv.org/list/physics.bio-ph/recent);[Chemical Physics](https://arxiv.org/list/physics.chem-ph/recent);[Classical Physics](https://arxiv.org/list/physics.class-ph/recent);[Computational Physics](https://arxiv.org/list/physics.comp-ph/recent);[Data Analysis, Statistics and Probability](https://arxiv.org/list/physics.data-an/recent);[Fluid Dynamics](https://arxiv.org/list/physics.flu-dyn/recent);[General Physics](https://arxiv.org/list/physics.gen-ph/recent);[Geophysics](https://arxiv.org/list/physics.geo-ph/recent);[History and Philosophy of Physics](https://arxiv.org/list/physics.hist-ph/recent);[Instrumentation and Detectors](https://arxiv.org/list/physics.ins-det/recent);[Medical Physics](https://arxiv.org/list/physics.med-ph/recent);[Optics](https://arxiv.org/list/physics.optics/recent);[Physics and Society](https://arxiv.org/list/physics.soc-ph/recent);[Physics Education](https://arxiv.org/list/physics.ed-ph/recent);[Plasma Physics](https://arxiv.org/list/physics.plasm-ph/recent);[Popular Physics](https://arxiv.org/list/physics.pop-ph/recent);[Space Physics](https://arxiv.org/list/physics.space-ph/recent) -
+[Quantum Physics](https://arxiv.org/archive/quant-ph)(**quant-ph**[new](https://arxiv.org/list/quant-ph/new),[recent](https://arxiv.org/list/quant-ph/recent),[search](https://arxiv.org/search/quant-ph))
+
+## Mathematics
+
+-
+[Mathematics](https://arxiv.org/archive/math)(**math**[new](https://arxiv.org/list/math/new),[recent](https://arxiv.org/list/math/recent),[search](https://arxiv.org/search/math))
+
+includes: (see[detailed description](https://info.arxiv.org/help/math/index.html)):[Algebraic Geometry](https://arxiv.org/list/math.AG/recent);[Algebraic Topology](https://arxiv.org/list/math.AT/recent);[Analysis of PDEs](https://arxiv.org/list/math.AP/recent);[Category Theory](https://arxiv.org/list/math.CT/recent);[Classical Analysis and ODEs](https://arxiv.org/list/math.CA/recent);[Combinatorics](https://arxiv.org/list/math.CO/recent);[Commutative Algebra](https://arxiv.org/list/math.AC/recent);[Complex Variables](https://arxiv.org/list/math.CV/recent);[Differential Geometry](https://arxiv.org/list/math.DG/recent);[Dynamical Systems](https://arxiv.org/list/math.DS/recent);[Functional Analysis](https://arxiv.org/list/math.FA/recent);[General Mathematics](https://arxiv.org/list/math.GM/recent);[General Topology](https://arxiv.org/list/math.GN/recent);[Geometric Topology](https://arxiv.org/list/math.GT/recent);[Group Theory](https://arxiv.org/list/math.GR/recent);[History and Overview](https://arxiv.org/list/math.HO/recent);[Information Theory](https://arxiv.org/list/math.IT/recent);[K-Theory and Homology](https://arxiv.org/list/math.KT/recent);[Logic](https://arxiv.org/list/math.LO/recent);[Mathematical Physics](https://arxiv.org/list/math.MP/recent);[Metric Geometry](https://arxiv.org/list/math.MG/recent);[Number Theory](https://arxiv.org/list/math.NT/recent);[Numerical Analysis](https://arxiv.org/list/math.NA/recent);[Operator Algebras](https://arxiv.org/list/math.OA/recent);[Optimization and Control](https://arxiv.org/list/math.OC/recent);[Probability](https://arxiv.org/list/math.PR/recent);[Quantum Algebra](https://arxiv.org/list/math.QA/recent);[Representation Theory](https://arxiv.org/list/math.RT/recent);[Rings and Algebras](https://arxiv.org/list/math.RA/recent);[Spectral Theory](https://arxiv.org/list/math.SP/recent);[Statistics Theory](https://arxiv.org/list/math.ST/recent);[Symplectic Geometry](https://arxiv.org/list/math.SG/recent)
+
+## Computer Science
+
+-
+[Computing Research Repository](https://info.arxiv.org/help/cs/index.html)(**CoRR**[new](https://arxiv.org/list/cs/new),[recent](https://arxiv.org/list/cs/recent),[search](https://arxiv.org/search/cs))
+
+includes: (see[detailed description](https://info.arxiv.org/help/cs/index.html)):[Artificial Intelligence](https://arxiv.org/list/cs.AI/recent);[Computation and Language](https://arxiv.org/list/cs.CL/recent);[Computational Complexity](https://arxiv.org/list/cs.CC/recent);[Computational Engineering, Finance, and Science](https://arxiv.org/list/cs.CE/recent);[Computational Geometry](https://arxiv.org/list/cs.CG/recent);[Computer Science and Game Theory](https://arxiv.org/list/cs.GT/recent);[Computer Vision and Pattern Recognition](https://arxiv.org/list/cs.CV/recent);[Computers and Society](https://arxiv.org/list/cs.CY/recent);[Cryptography and Security](https://arxiv.org/list/cs.CR/recent);[Data Structures and Algorithms](https://arxiv.org/list/cs.DS/recent);[Databases](https://arxiv.org/list/cs.DB/recent);[Digital Libraries](https://arxiv.org/list/cs.DL/recent);[Discrete Mathematics](https://arxiv.org/list/cs.DM/recent);[Distributed, Parallel, and Cluster Computing](https://arxiv.org/list/cs.DC/recent);[Emerging Technologies](https://arxiv.org/list/cs.ET/recent);[Formal Languages and Automata Theory](https://arxiv.org/list/cs.FL/recent);[General Literature](https://arxiv.org/list/cs.GL/recent);[Graphics](https://arxiv.org/list/cs.GR/recent);[Hardware Architecture](https://arxiv.org/list/cs.AR/recent);[Human-Computer Interaction](https://arxiv.org/list/cs.HC/recent);[Information Retrieval](https://arxiv.org/list/cs.IR/recent);[Information Theory](https://arxiv.org/list/cs.IT/recent);[Logic in Computer Science](https://arxiv.org/list/cs.LO/recent);[Machine Learning](https://arxiv.org/list/cs.LG/recent);[Mathematical Software](https://arxiv.org/list/cs.MS/recent);[Multiagent Systems](https://arxiv.org/list/cs.MA/recent);[Multimedia](https://arxiv.org/list/cs.MM/recent);[Networking and Internet Architecture](https://arxiv.org/list/cs.NI/recent);[Neural and Evolutionary Computing](https://arxiv.org/list/cs.NE/recent);[Numerical Analysis](https://arxiv.org/list/cs.NA/recent);[Operating Systems](https://arxiv.org/list/cs.OS/recent);[Other Computer Science](https://arxiv.org/list/cs.OH/recent);[Performance](https://arxiv.org/list/cs.PF/recent);[Programming Languages](https://arxiv.org/list/cs.PL/recent);[Robotics](https://arxiv.org/list/cs.RO/recent);[Social and Information Networks](https://arxiv.org/list/cs.SI/recent);[Software Engineering](https://arxiv.org/list/cs.SE/recent);[Sound](https://arxiv.org/list/cs.SD/recent);[Symbolic Computation](https://arxiv.org/list/cs.SC/recent);[Systems and Control](https://arxiv.org/list/cs.SY/recent)
+
+## Quantitative Biology
+
+-
+[Quantitative Biology](https://arxiv.org/archive/q-bio)(**q-bio**[new](https://arxiv.org/list/q-bio/new),[recent](https://arxiv.org/list/q-bio/recent),[search](https://arxiv.org/search/q-bio))
+
+includes: (see[detailed description](https://info.arxiv.org/help/q-bio/index.html)):[Biomolecules](https://arxiv.org/list/q-bio.BM/recent);[Cell Behavior](https://arxiv.org/list/q-bio.CB/recent);[Genomics](https://arxiv.org/list/q-bio.GN/recent);[Molecular Networks](https://arxiv.org/list/q-bio.MN/recent);[Neurons and Cognition](https://arxiv.org/list/q-bio.NC/recent);[Other Quantitative Biology](https://arxiv.org/list/q-bio.OT/recent);[Populations and Evolution](https://arxiv.org/list/q-bio.PE/recent);[Quantitative Methods](https://arxiv.org/list/q-bio.QM/recent);[Subcellular Processes](https://arxiv.org/list/q-bio.SC/recent);[Tissues and Organs](https://arxiv.org/list/q-bio.TO/recent)
+
+## Quantitative Finance
+
+-
+[Quantitative Finance](https://arxiv.org/archive/q-fin)(**q-fin**[new](https://arxiv.org/list/q-fin/new),[recent](https://arxiv.org/list/q-fin/recent),[search](https://arxiv.org/search/q-fin))
+
+includes: (see[detailed description](https://info.arxiv.org/help/q-fin/index.html)):[Computational Finance](https://arxiv.org/list/q-fin.CP/recent);[Economics](https://arxiv.org/list/q-fin.EC/recent);[General Finance](https://arxiv.org/list/q-fin.GN/recent);[Mathematical Finance](https://arxiv.org/list/q-fin.MF/recent);[Portfolio Management](https://arxiv.org/list/q-fin.PM/recent);[Pricing of Securities](https://arxiv.org/list/q-fin.PR/recent);[Risk Management](https://arxiv.org/list/q-fin.RM/recent);[Statistical Finance](https://arxiv.org/list/q-fin.ST/recent);[Trading and Market Microstructure](https://arxiv.org/list/q-fin.TR/recent)
+
+## Statistics
+
+-
+[Statistics](https://arxiv.org/archive/stat)(**stat**[new](https://arxiv.org/list/stat/new),[recent](https://arxiv.org/list/stat/recent),[search](https://arxiv.org/search/stat))
+
+includes: (see[detailed description](https://info.arxiv.org/help/stat/index.html)):[Applications](https://arxiv.org/list/stat.AP/recent);[Computation](https://arxiv.org/list/stat.CO/recent);[Machine Learning](https://arxiv.org/list/stat.ML/recent);[Methodology](https://arxiv.org/list/stat.ME/recent);[Other Statistics](https://arxiv.org/list/stat.OT/recent);[Statistics Theory](https://arxiv.org/list/stat.TH/recent)
+
+## Electrical Engineering and Systems Science
+
+-
+[Electrical Engineering and Systems Science](https://arxiv.org/archive/eess)(**eess**[new](https://arxiv.org/list/eess/new),[recent](https://arxiv.org/list/eess/recent),[search](https://arxiv.org/search/eess))
+
+includes: (see[detailed description](https://info.arxiv.org/help/eess/index.html)):[Audio and Speech Processing](https://arxiv.org/list/eess.AS/recent);[Image and Video Processing](https://arxiv.org/list/eess.IV/recent);[Signal Processing](https://arxiv.org/list/eess.SP/recent);[Systems and Control](https://arxiv.org/list/eess.SY/recent)
+
+## Economics
+
+-
+[Economics](https://arxiv.org/archive/econ)(**econ**[new](https://arxiv.org/list/econ/new),[recent](https://arxiv.org/list/econ/recent),[search](https://arxiv.org/search/econ))
+
+includes: (see[detailed description](https://info.arxiv.org/help/econ/index.html)):[Econometrics](https://arxiv.org/list/econ.EM/recent);[General Economics](https://arxiv.org/list/econ.GN/recent);[Theoretical Economics](https://arxiv.org/list/econ.TH/recent)

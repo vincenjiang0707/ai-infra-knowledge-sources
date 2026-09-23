@@ -1,0 +1,112 @@
+{
+ "src_id": "SRC-078",
+ "name": "GPU MODE",
+ "category": "Kernel、编译与⾃动优化",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:52:13Z",
+ "finished_at": "2026-09-23T03:52:13Z",
+ "duration_seconds": 84.8,
+ "attempts": 1,
+ "channels": {
+  "gh_da09c3e5": {
+   "type": "github_repo",
+   "url": "https://github.com/gpu-mode/kernelbot",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 45,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "gh_bf1cb4e7": {
+   "type": "github_repo",
+   "url": "https://github.com/gpu-mode/popcorn",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 0,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 0,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_225fbb49": {
+   "type": "reference",
+   "url": "https://github.com/gpu-mode/kernelbot/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 381
+  },
+  "ref_d10f709a": {
+   "type": "reference",
+   "url": "https://github.com/gpu-mode/kernelbot/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 4552
+  },
+  "ref_d6144a00": {
+   "type": "reference",
+   "url": "https://github.com/gpu-mode/kernelbot/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 343
+  }
+ },
+ "cursor": {
+  "gh_da09c3e5:issues": {
+   "last_updated_at": "2026-08-17T19:30:16Z"
+  },
+  "gh_da09c3e5:pulls": {
+   "last_updated_at": "2026-09-18T01:42:12Z"
+  }
+ },
+ "notes": ""
+}

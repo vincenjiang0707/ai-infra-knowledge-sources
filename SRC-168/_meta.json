@@ -1,0 +1,89 @@
+{
+ "src_id": "SRC-168",
+ "name": "Awesome LLM",
+ "category": "精选作者、专业社区与新来源发现",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:57:10Z",
+ "finished_at": "2026-09-23T03:57:10Z",
+ "duration_seconds": 66.6,
+ "attempts": 1,
+ "channels": {
+  "gh_c44348ad": {
+   "type": "github_repo",
+   "url": "https://github.com/DefTruth/Awesome-LLM-Inference",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 0,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 0,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_e41c2821": {
+   "type": "reference",
+   "url": "https://github.com/DefTruth/Awesome-LLM-Inference/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 2527
+  },
+  "ref_41936760": {
+   "type": "reference",
+   "url": "https://github.com/DefTruth/Awesome-LLM-Inference/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 491
+  },
+  "ref_3c0bf8d0": {
+   "type": "reference",
+   "url": "https://github.com/DefTruth/Awesome-LLM-Inference/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 367
+  },
+  "site_7c6687ed": {
+   "type": "site",
+   "url": "https://docs.vllm.ai/en/latest/configuration/optimization/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 25347
+  },
+  "site_5405c34f": {
+   "type": "site",
+   "url": "https://docs.vllm.ai/projects/recipes/en/stable/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 2311
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

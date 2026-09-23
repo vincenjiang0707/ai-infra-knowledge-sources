@@ -1,0 +1,32 @@
+{
+ "src_id": "SRC-139",
+ "name": "Simon Boehm",
+ "category": "精选作者、专业社区与新来源发现",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:21:46Z",
+ "finished_at": "2026-09-23T04:21:46Z",
+ "duration_seconds": 9.9,
+ "attempts": 1,
+ "channels": {
+  "site_dabb35e4": {
+   "type": "site",
+   "url": "https://siboehm.com/",
+   "mode": "rss",
+   "status": "ok",
+   "output": "feed_meta.json",
+   "entries": 8,
+   "posts_fetched": 8,
+   "posts_failed": 0,
+   "output_dir": "posts/"
+  }
+ },
+ "cursor": {
+  "site_dabb35e4:rss": {
+   "last_entry_published": "2023-06-23T09:06:04+02:00"
+  }
+ },
+ "notes": ""
+}

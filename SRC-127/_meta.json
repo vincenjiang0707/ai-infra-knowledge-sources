@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-127",
+ "name": "Baseten 推理⼯程",
+ "category": "⼀⼿⼯程博客与服务商经验",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:15:34Z",
+ "finished_at": "2026-09-23T04:15:34Z",
+ "duration_seconds": 4.0,
+ "attempts": 1,
+ "channels": {
+  "site_26fb952e": {
+   "type": "site",
+   "url": "https://www.baseten.co/inference-engineering/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 2337
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-164",
+ "name": "SGLang ⽂档完",
+ "category": "推理引擎与部署配⽅",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:24:18Z",
+ "finished_at": "2026-09-23T04:57:40Z",
+ "duration_seconds": 0.6,
+ "attempts": 2,
+ "channels": {
+  "site_2adb643c": {
+   "type": "site",
+   "url": "https://docs.sglang.io/llms.txt",
+   "status": "ok",
+   "output": "page.md",
+   "mode": "raw",
+   "chars": 41056
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

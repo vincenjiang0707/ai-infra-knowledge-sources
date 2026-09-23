@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-145",
+ "name": "PyTorch 开发讨",
+ "category": "精选作者、专业社区与新来源发现",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:22:42Z",
+ "finished_at": "2026-09-23T04:22:42Z",
+ "duration_seconds": 9.2,
+ "attempts": 1,
+ "channels": {
+  "site_f1638ef3": {
+   "type": "site",
+   "url": "https://dev-discuss.pytorch.org/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 190
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

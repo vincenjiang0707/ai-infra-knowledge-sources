@@ -1,0 +1,85 @@
+{
+ "src_id": "SRC-037",
+ "name": "MUSA SDK",
+ "category": "昇腾与其他国产芯⽚",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:46:34Z",
+ "finished_at": "2026-09-23T03:46:34Z",
+ "duration_seconds": 55.0,
+ "attempts": 1,
+ "channels": {
+  "gh_3698df73": {
+   "type": "github_repo",
+   "url": "https://github.com/Ascend/MindSpeed",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 0,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 1,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_f20cbb4f": {
+   "type": "reference",
+   "url": "https://github.com/Ascend/MindSpeed/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 2486
+  },
+  "ref_6406df5a": {
+   "type": "reference",
+   "url": "https://github.com/Ascend/MindSpeed/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 2661
+  },
+  "ref_4c8f93d1": {
+   "type": "reference",
+   "url": "https://github.com/Ascend/MindSpeed/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 339
+  },
+  "site_7301faf0": {
+   "type": "site",
+   "url": "https://developer.mthreads.com/sdk/musa",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 3068
+  }
+ },
+ "cursor": {
+  "gh_3698df73:pulls": {
+   "last_updated_at": "2026-08-26T14:22:17Z"
+  }
+ },
+ "notes": ""
+}

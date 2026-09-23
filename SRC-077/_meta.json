@@ -1,0 +1,118 @@
+{
+ "src_id": "SRC-077",
+ "name": "GPU MODE",
+ "category": "Kernel、编译与⾃动优化",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:51:45Z",
+ "finished_at": "2026-09-23T03:51:45Z",
+ "duration_seconds": 92.1,
+ "attempts": 1,
+ "channels": {
+  "gh_86f64589": {
+   "type": "github_repo",
+   "url": "https://github.com/meta-pytorch/KernelAgent",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 15,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "gh_da09c3e5": {
+   "type": "github_repo",
+   "url": "https://github.com/gpu-mode/kernelbot",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 45,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_3b41435c": {
+   "type": "reference",
+   "url": "https://github.com/meta-pytorch/KernelAgent/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 1484
+  },
+  "ref_a5dea0fc": {
+   "type": "reference",
+   "url": "https://github.com/meta-pytorch/KernelAgent/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 3296
+  },
+  "ref_f78c847c": {
+   "type": "reference",
+   "url": "https://github.com/meta-pytorch/KernelAgent/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 355
+  }
+ },
+ "cursor": {
+  "gh_86f64589:issues": {
+   "last_updated_at": "2026-09-03T07:40:33Z"
+  },
+  "gh_86f64589:pulls": {
+   "last_updated_at": "2026-09-22T08:45:24Z"
+  },
+  "gh_da09c3e5:issues": {
+   "last_updated_at": "2026-08-17T19:30:16Z"
+  },
+  "gh_da09c3e5:pulls": {
+   "last_updated_at": "2026-09-18T01:42:12Z"
+  }
+ },
+ "notes": ""
+}

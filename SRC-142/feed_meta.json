@@ -1,0 +1,34 @@
+{
+ "feed_url": "https://salykova.github.io/feed.xml",
+ "title": "salykova",
+ "link": "https://salykova.github.io/",
+ "updated": "2025-10-04T22:11:58+00:00",
+ "entries_total": 5,
+ "entries": [
+  {
+   "title": "Matrix Core Programming on AMD CDNA3 and CDNA4 architecture",
+   "link": "https://salykova.github.io/matrix-cores-cdna",
+   "published": "2025-09-30T23:35:01+00:00"
+  },
+  {
+   "title": "Advanced Matrix Multiplication Optimization on NVIDIA GPUs",
+   "link": "https://salykova.github.io/gemm-gpu",
+   "published": "2025-01-12T09:35:01+00:00"
+  },
+  {
+   "title": "Advanced Matrix Multiplication Optimization on NVIDIA GPUs",
+   "link": "https://salykova.github.io/sgemm-gpu",
+   "published": "2025-01-12T09:35:01+00:00"
+  },
+  {
+   "title": "Advanced Matrix Multiplication Optimization on Modern Multi-Core Processors",
+   "link": "https://salykova.github.io/matmul-cpu",
+   "published": "2025-01-12T09:00:01+00:00"
+  },
+  {
+   "title": "Advanced Matrix Multiplication Optimization on Modern Multi-Core Processors",
+   "link": "https://salykova.github.io/gemm-cpu",
+   "published": "2024-08-01T09:00:01+00:00"
+  }
+ ]
+}

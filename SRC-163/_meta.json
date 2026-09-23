@@ -1,0 +1,80 @@
+{
+ "src_id": "SRC-163",
+ "name": "DistServe",
+ "category": "KV、路由、分布式与基础设施",
+ "priority": "扩展",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:37:58Z",
+ "finished_at": "2026-09-23T03:37:58Z",
+ "duration_seconds": 55.2,
+ "attempts": 1,
+ "channels": {
+  "gh_b6597823": {
+   "type": "github_repo",
+   "url": "https://github.com/LLMServe/DistServe",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 57,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 10,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_0c1f8c0a": {
+   "type": "reference",
+   "url": "https://github.com/LLMServe/DistServe/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 842
+  },
+  "ref_12005fcb": {
+   "type": "reference",
+   "url": "https://github.com/LLMServe/DistServe/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 2743
+  },
+  "ref_4a87e69f": {
+   "type": "reference",
+   "url": "https://github.com/LLMServe/DistServe/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 343
+  }
+ },
+ "cursor": {
+  "gh_b6597823:issues": {
+   "last_updated_at": "2026-06-16T02:22:49Z"
+  },
+  "gh_b6597823:pulls": {
+   "last_updated_at": "2025-04-06T15:53:59Z"
+  }
+ },
+ "notes": ""
+}

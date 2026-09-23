@@ -1,0 +1,148 @@
+{
+ "src_id": "SRC-010",
+ "name": "LMDeploy",
+ "category": "推理引擎与部署配⽅",
+ "priority": "扩展",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:58:50Z",
+ "finished_at": "2026-09-23T03:58:50Z",
+ "duration_seconds": 155.0,
+ "attempts": 1,
+ "channels": {
+  "gh_bdd0b728": {
+   "type": "github_repo",
+   "url": "https://github.com/NVIDIA/TensorRT-LLM",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 90
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "gh_98e650ce": {
+   "type": "github_repo",
+   "url": "https://github.com/InternLM/lmdeploy",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 70
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_91c3ea89": {
+   "type": "reference",
+   "url": "https://github.com/NVIDIA/TensorRT-LLM/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 7172
+  },
+  "ref_1f223f00": {
+   "type": "reference",
+   "url": "https://github.com/NVIDIA/TensorRT-LLM/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 5927
+  },
+  "ref_68865239": {
+   "type": "reference",
+   "url": "https://github.com/NVIDIA/TensorRT-LLM/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 146461
+  },
+  "ref_1cd75f6d": {
+   "type": "reference",
+   "url": "https://github.com/InternLM/lmdeploy/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 1002
+  },
+  "ref_e339875b": {
+   "type": "reference",
+   "url": "https://github.com/InternLM/lmdeploy/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 5089
+  },
+  "ref_7a77ea2a": {
+   "type": "reference",
+   "url": "https://github.com/InternLM/lmdeploy/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 74035
+  }
+ },
+ "cursor": {
+  "gh_bdd0b728:issues": {
+   "last_updated_at": "2026-09-23T01:16:27Z"
+  },
+  "gh_bdd0b728:pulls": {
+   "last_updated_at": "2026-09-23T03:56:23Z"
+  },
+  "gh_bdd0b728:releases": {
+   "last_id": 391190130
+  },
+  "gh_98e650ce:issues": {
+   "last_updated_at": "2026-09-22T06:25:50Z"
+  },
+  "gh_98e650ce:pulls": {
+   "last_updated_at": "2026-09-23T03:45:28Z"
+  },
+  "gh_98e650ce:releases": {
+   "last_id": 380282085
+  }
+ },
+ "notes": ""
+}

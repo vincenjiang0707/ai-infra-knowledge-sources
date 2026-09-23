@@ -1,0 +1,29 @@
+{
+ "src_id": "SRC-048",
+ "name": "Qwen 模型⻚",
+ "category": "模型作者与模型平台",
+ "priority": "",
+ "scrape_type": "hf",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:11:01Z",
+ "finished_at": "2026-09-23T04:11:01Z",
+ "duration_seconds": 1.6,
+ "attempts": 1,
+ "channels": {
+  "hf_41a28395": {
+   "type": "hf",
+   "url": "https://huggingface.co/Qwen",
+   "kind": "org",
+   "models": 200,
+   "status": "ok",
+   "output": "hf.md"
+  }
+ },
+ "cursor": {
+  "hf_41a28395:models": {
+   "count": 200
+  }
+ },
+ "notes": ""
+}

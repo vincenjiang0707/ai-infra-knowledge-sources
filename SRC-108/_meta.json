@@ -1,0 +1,32 @@
+{
+ "src_id": "SRC-108",
+ "name": "vLLM 性能看板说明",
+ "category": "Profiling、压测与公开结果",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:13:58Z",
+ "finished_at": "2026-09-23T05:06:57Z",
+ "duration_seconds": 5.4,
+ "attempts": 3,
+ "channels": {
+  "site_dae13ac4": {
+   "type": "sitemap",
+   "url": "https://docs.vllm.ai/en/latest/benchmarking/dashboard/",
+   "mode": "sitemap.xml",
+   "pages_total": 1,
+   "status": "ok",
+   "pages_fetched": 1,
+   "pages_failed": 0,
+   "output_dir": "pages/",
+   "cap": 2000
+  }
+ },
+ "cursor": {
+  "site_dae13ac4:sitemap": {
+   "lastmod": "2026-09-22"
+  }
+ },
+ "notes": ""
+}

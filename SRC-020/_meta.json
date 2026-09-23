@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-020",
+ "name": "ROCm vLLM",
+ "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:08:57Z",
+ "finished_at": "2026-09-23T05:03:53Z",
+ "duration_seconds": 12.7,
+ "attempts": 2,
+ "channels": {
+  "site_8750a6a0": {
+   "type": "site",
+   "url": "https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/inference-optimization/vllm-optimization.html",
+   "status": "ok",
+   "output": "page.md",
+   "mode": "page",
+   "chars": 36150
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

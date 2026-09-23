@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-151",
+ "name": "CSDN",
+ "category": "精选作者、专业社区与新来源发现",
+ "priority": "扩展",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:23:02Z",
+ "finished_at": "2026-09-23T04:23:02Z",
+ "duration_seconds": 1.7,
+ "attempts": 1,
+ "channels": {
+  "site_9bd61c6b": {
+   "type": "site",
+   "url": "https://www.csdn.net/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 1419
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

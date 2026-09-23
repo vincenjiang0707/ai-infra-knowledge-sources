@@ -1,0 +1,59 @@
+{
+ "feed_url": "https://rocm.blogs.amd.com/blog/atom.xml",
+ "title": "AMD ROCm Blogs",
+ "link": "https://rocm.blogs.amd.com/",
+ "updated": "2026-09-22T19:27:45.604395+00:00",
+ "entries_total": 10,
+ "entries": [
+  {
+   "title": "Zebra-HyLo: Upcycling Transformers into Long-Context Hybrid LLMs on AMD Instinct™ GPUs",
+   "link": "https://rocm.blogs.amd.com/artificial-intelligence/hylo-long-context/README.html",
+   "published": "2026-09-22T00:00:00+00:00"
+  },
+  {
+   "title": "Performance Profiling on AMD GPUs - Part 6: Advanced Thread Trace (ATT) - The Microscope for Your Application",
+   "link": "https://rocm.blogs.amd.com/software-tools-optimization/profiling-guide/att/README.html",
+   "published": "2026-09-22T00:00:00+00:00"
+  },
+  {
+   "title": "Benchmarking Kimi-K3 Across vLLM, SGLang, and ATOM on MI350X",
+   "link": "https://rocm.blogs.amd.com/artificial-intelligence/kimi-k3-mad/README.html",
+   "published": "2026-09-22T00:00:00+00:00"
+  },
+  {
+   "title": "Serving GLM-5.2-MXFP4 on AMD Instinct™ MI355X: When Prefill Context Parallelism Pays",
+   "link": "https://rocm.blogs.amd.com/artificial-intelligence/glm52-mxfp4-mi355/README.html",
+   "published": "2026-09-21T00:00:00+00:00"
+  },
+  {
+   "title": "Hyperloom: A Multi-Agent Harness for Autonomous Inference Optimization on AMD GPUs",
+   "link": "https://rocm.blogs.amd.com/software-tools-optimization/hyperloom-optimization/README.html",
+   "published": "2026-09-21T00:00:00+00:00"
+  },
+  {
+   "title": "Technical Dive into AMD MLPerf Inference v6.1 Submission",
+   "link": "https://rocm.blogs.amd.com/artificial-intelligence/mlperf-inf-v6.1/README.html",
+   "published": "2026-09-17T00:00:00+00:00"
+  },
+  {
+   "title": "Reproducing AMD MLPerf Inference v6.1 Submission Results",
+   "link": "https://rocm.blogs.amd.com/artificial-intelligence/mlperf-inf_v6.1-repro/README.html",
+   "published": "2026-09-17T00:00:00+00:00"
+  },
+  {
+   "title": "Implementing a High-Performance Custom Diffusion Attention Kernel with FlyDSL",
+   "link": "https://rocm.blogs.amd.com/software-tools-optimization/flydsl-customized-attention/README.html",
+   "published": "2026-09-17T00:00:00+00:00"
+  },
+  {
+   "title": "DFlash Speculative Decoding on AMD Instinct MI355X: Up to 5× Faster Qwen3.5 Inference",
+   "link": "https://rocm.blogs.amd.com/artificial-intelligence/dflash-on-MI355x/README.html",
+   "published": "2026-09-16T00:00:00+00:00"
+  },
+  {
+   "title": "Thread Trace Part 1: ROCprof Compute Viewer",
+   "link": "https://rocm.blogs.amd.com/software-tools-optimization/thread-trace/README.html",
+   "published": "2026-09-15T00:00:00+00:00"
+  }
+ ]
+}

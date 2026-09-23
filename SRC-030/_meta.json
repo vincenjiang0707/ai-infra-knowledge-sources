@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-030",
+ "name": "昇腾⽂档中⼼",
+ "category": "昇腾与其他国产芯⽚",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:10:19Z",
+ "finished_at": "2026-09-23T04:10:19Z",
+ "duration_seconds": 4.1,
+ "attempts": 1,
+ "channels": {
+  "site_56543a5f": {
+   "type": "site",
+   "url": "https://www.hiascend.com/document",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 218
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

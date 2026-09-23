@@ -1,0 +1,88 @@
+{
+ "src_id": "SRC-121",
+ "name": "SGLang 公开会",
+ "category": "论⽂、会议与课程",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:56:04Z",
+ "finished_at": "2026-09-23T03:56:04Z",
+ "duration_seconds": 53.7,
+ "attempts": 1,
+ "channels": {
+  "gh_a472ada0": {
+   "type": "github_repo",
+   "url": "https://github.com/gpu-mode/lectures",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 12,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 55,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_9d8543ff": {
+   "type": "reference",
+   "url": "https://github.com/gpu-mode/lectures/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 501
+  },
+  "ref_db28bdeb": {
+   "type": "reference",
+   "url": "https://github.com/gpu-mode/lectures/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 471
+  },
+  "ref_c1a0aca4": {
+   "type": "reference",
+   "url": "https://github.com/gpu-mode/lectures/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 341
+  },
+  "site_391b0854": {
+   "type": "site",
+   "url": "https://meet.sglang.io/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 2299
+  }
+ },
+ "cursor": {
+  "gh_a472ada0:issues": {
+   "last_updated_at": "2025-09-12T13:04:21Z"
+  },
+  "gh_a472ada0:pulls": {
+   "last_updated_at": "2026-09-09T00:33:47Z"
+  }
+ },
+ "notes": ""
+}

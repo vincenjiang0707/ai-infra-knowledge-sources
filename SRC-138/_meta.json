@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-138",
+ "name": "Horace He",
+ "category": "精选作者、专业社区与新来源发现",
+ "priority": "扩",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:21:36Z",
+ "finished_at": "2026-09-23T04:21:36Z",
+ "duration_seconds": 4.9,
+ "attempts": 1,
+ "channels": {
+  "site_c4a21fae": {
+   "type": "site",
+   "url": "https://horace.io/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 276
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

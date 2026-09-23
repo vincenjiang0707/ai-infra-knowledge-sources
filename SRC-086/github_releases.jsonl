@@ -1,0 +1,1 @@
+{"id": 120700073, "tag": "v0.1", "name": "Medusa-v0.1", "published_at": "2023-09-11T20:35:12Z", "prerelease": false, "body_chars": 199, "body": "Medusa is a easy-to-use framework that democratizes the acceleration techniques for LLM generation. Medusa-v0.1 uses several extra light-weighted decoding head, and exclude the need for draft model. "}

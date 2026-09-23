@@ -1,0 +1,259 @@
+{
+ "feed_url": "https://leimao.github.io/atom.xml",
+ "title": "Lei Mao's Log Book",
+ "link": "https://leimao.github.io/",
+ "updated": "2026-09-20T07:00:00.000Z",
+ "entries_total": 50,
+ "entries": [
+  {
+   "title": "CUDA Thread Block Swizzle",
+   "link": "https://leimao.github.io/blog/CUDA-Thread-Block-Swizzle/",
+   "published": "2026-09-20T07:00:00.000Z"
+  },
+  {
+   "title": "2026 Alameda Island Running Festival Half Marathon 竞赛",
+   "link": "https://leimao.github.io/life/2026-Alameda-Island-Running-Festival/",
+   "published": "2026-09-20T07:00:00.000Z"
+  },
+  {
+   "title": "Redwood Shores Loop Trail 徒步",
+   "link": "https://leimao.github.io/life/Redwood-Shores-Loop-Trail-2026-09-19/",
+   "published": "2026-09-19T07:00:00.000Z"
+  },
+  {
+   "title": "Redwood Shores Loop Trail",
+   "link": "https://leimao.github.io/photography/Redwood-Shores-Loop-Trail-2026-09-19/",
+   "published": "2026-09-19T07:00:00.000Z"
+  },
+  {
+   "title": "仙王裹尸布",
+   "link": "https://leimao.github.io/essay/%E4%BB%99%E7%8E%8B%E8%A3%B9%E5%B0%B8%E5%B8%83/",
+   "published": "2026-09-16T07:00:00.000Z"
+  },
+  {
+   "title": "Residual-Quantized Variational Autoencoder",
+   "link": "https://leimao.github.io/blog/Residual-Quantized-Variational-Autoencoder/",
+   "published": "2026-09-14T07:00:00.000Z"
+  },
+  {
+   "title": "邪恶愿望",
+   "link": "https://leimao.github.io/essay/%E9%82%AA%E6%81%B6%E6%84%BF%E6%9C%9B-What-You-Wish-For-2023/",
+   "published": "2026-09-13T07:00:00.000Z"
+  },
+  {
+   "title": "Máyyan Ooyákma - Coyote Ridge Open Space Preserve 徒步",
+   "link": "https://leimao.github.io/life/M%C3%A1yyan-Ooy%C3%A1kma-Coyote-Ridge-Open-Space-Preserve-2026-09-13/",
+   "published": "2026-09-13T07:00:00.000Z"
+  },
+  {
+   "title": "Máyyan Ooyákma - Coyote Ridge Open Space Preserve",
+   "link": "https://leimao.github.io/photography/M%C3%A1yyan-Ooy%C3%A1kma-Coyote-Ridge-Open-Space-Preserve-2026-09-13/",
+   "published": "2026-09-13T07:00:00.000Z"
+  },
+  {
+   "title": "2026 LSA's Run Home 10K 竞赛",
+   "link": "https://leimao.github.io/life/2026-LSA-Run-Home-10K/",
+   "published": "2026-09-12T07:00:00.000Z"
+  },
+  {
+   "title": "Vasona Lake County Park",
+   "link": "https://leimao.github.io/photography/Vasona-Lake-County-Park-2026-09-12/",
+   "published": "2026-09-12T07:00:00.000Z"
+  },
+  {
+   "title": "CUDA Multi-Process Service",
+   "link": "https://leimao.github.io/blog/CUDA-Multi-Process-Service/",
+   "published": "2026-09-08T07:00:00.000Z"
+  },
+  {
+   "title": "Coyote Point Recreation Area 徒步",
+   "link": "https://leimao.github.io/life/Coyote-Point-Recreation-Area-2026-09-07/",
+   "published": "2026-09-07T07:00:00.000Z"
+  },
+  {
+   "title": "Coyote Point Recreation Area",
+   "link": "https://leimao.github.io/photography/Coyote-Point-Recreation-Area-2026-09-07/",
+   "published": "2026-09-07T07:00:00.000Z"
+  },
+  {
+   "title": "绝命孤帆",
+   "link": "https://leimao.github.io/essay/%E7%BB%9D%E5%91%BD%E5%AD%A4%E5%B8%86-The-Boat-2018/",
+   "published": "2026-09-06T07:00:00.000Z"
+  },
+  {
+   "title": "Sam McDonald Park 徒步",
+   "link": "https://leimao.github.io/life/Sam-McDonald-Park-2026-09-05/",
+   "published": "2026-09-05T07:00:00.000Z"
+  },
+  {
+   "title": "Sam McDonald Park",
+   "link": "https://leimao.github.io/photography/Sam-McDonald-Park-2026-09-05/",
+   "published": "2026-09-05T07:00:00.000Z"
+  },
+  {
+   "title": "AOTInductor Input Mutation",
+   "link": "https://leimao.github.io/blog/AOTInductor-Input-Mutation/",
+   "published": "2026-09-01T07:00:00.000Z"
+  },
+  {
+   "title": "Must Be Thai 一次令人尴尬失望的就餐经历",
+   "link": "https://leimao.github.io/essay/Must-Be-Thai-%E4%B8%80%E6%AC%A1%E4%BB%A4%E4%BA%BA%E5%B0%B4%E5%B0%AC%E5%A4%B1%E6%9C%9B%E7%9A%84%E5%B0%B1%E9%A4%90%E7%BB%8F%E5%8E%86/",
+   "published": "2026-08-30T07:00:00.000Z"
+  },
+  {
+   "title": "Henry Cowell Redwoods State Park 徒步",
+   "link": "https://leimao.github.io/life/Henry-Cowell-Redwoods-State-Park-2026-08-30/",
+   "published": "2026-08-30T07:00:00.000Z"
+  },
+  {
+   "title": "一次极度垃圾的 KFC 经历",
+   "link": "https://leimao.github.io/essay/%E4%B8%80%E6%AC%A1%E6%9E%81%E5%BA%A6%E5%9E%83%E5%9C%BE%E7%9A%84KFC%E7%BB%8F%E5%8E%86/",
+   "published": "2026-08-29T07:00:00.000Z"
+  },
+  {
+   "title": "Devil's Slide Trail 徒步",
+   "link": "https://leimao.github.io/life/Devil-Slide-Trail-2026-08-29/",
+   "published": "2026-08-29T07:00:00.000Z"
+  },
+  {
+   "title": "Devil's Slide Trail",
+   "link": "https://leimao.github.io/photography/Devil-Slide-Trail-2026-08-29/",
+   "published": "2026-08-29T07:00:00.000Z"
+  },
+  {
+   "title": "AOTInductor External Weight Storage and Weight Streaming Update",
+   "link": "https://leimao.github.io/blog/AOTInductor-External-Weight-Storage-Weight-Streaming-Update/",
+   "published": "2026-08-27T07:00:00.000Z"
+  },
+  {
+   "title": "宁波特产伴手礼",
+   "link": "https://leimao.github.io/essay/%E5%AE%81%E6%B3%A2%E7%89%B9%E4%BA%A7%E4%BC%B4%E6%89%8B%E7%A4%BC/",
+   "published": "2026-08-26T07:00:00.000Z"
+  },
+  {
+   "title": "Edgewood Park Natural Preserve 徒步",
+   "link": "https://leimao.github.io/life/Edgewood-Park-Natural-Preserve-2026-08-23/",
+   "published": "2026-08-23T07:00:00.000Z"
+  },
+  {
+   "title": "Edgewood Park Natural Preserve",
+   "link": "https://leimao.github.io/photography/Edgewood-Park-Natural-Preserve-2026-08-23/",
+   "published": "2026-08-23T07:00:00.000Z"
+  },
+  {
+   "title": "2026 Race2Unravel 10K 竞赛",
+   "link": "https://leimao.github.io/life/2026-Race2Unravel-10K/",
+   "published": "2026-08-22T07:00:00.000Z"
+  },
+  {
+   "title": "Coyote Lake Harvey Bear Ranch County Park 徒步",
+   "link": "https://leimao.github.io/life/Coyote-Lake-Harvey-Bear-Ranch-County-Park-2026-08-22/",
+   "published": "2026-08-22T07:00:00.000Z"
+  },
+  {
+   "title": "Coyote Lake Harvey Bear Ranch County Park",
+   "link": "https://leimao.github.io/photography/Coyote-Lake-Harvey-Bear-Ranch-County-Park-2026-08-22/",
+   "published": "2026-08-22T07:00:00.000Z"
+  },
+  {
+   "title": "CUDA Graph In The Context of Multi-Stream Execution",
+   "link": "https://leimao.github.io/blog/CUDA-Graph-Multi-Stream/",
+   "published": "2026-08-20T07:00:00.000Z"
+  },
+  {
+   "title": "眼眸",
+   "link": "https://leimao.github.io/essay/%E7%9C%BC%E7%9C%B8-The-Eyes-2026/",
+   "published": "2026-08-19T07:00:00.000Z"
+  },
+  {
+   "title": "Black Diamond Mines 煤矿参观体验",
+   "link": "https://leimao.github.io/life/Black-Diamond-Mines-Regional-Preserve-Coal-Mine-Experience-2026-08-15/",
+   "published": "2026-08-15T07:00:00.000Z"
+  },
+  {
+   "title": "Black Diamond Mines Regional Preserve 徒步",
+   "link": "https://leimao.github.io/life/Black-Diamond-Mines-Regional-Preserve-2026-08-15/",
+   "published": "2026-08-15T07:00:00.000Z"
+  },
+  {
+   "title": "Black Diamond Mines Regional Preserve",
+   "link": "https://leimao.github.io/photography/Black-Diamond-Mines-Regional-Preserve-2026-08-15/",
+   "published": "2026-08-15T07:00:00.000Z"
+  },
+  {
+   "title": "Black Diamond Coal Mine Experience",
+   "link": "https://leimao.github.io/photography/Black-Diamond-Mines-Regional-Preserve-Coal-Mine-Experience-2026-08-15/",
+   "published": "2026-08-15T07:00:00.000Z"
+  },
+  {
+   "title": "PyTorch Asynchronous Assert",
+   "link": "https://leimao.github.io/blog/PyTorch-Assert-Async/",
+   "published": "2026-08-14T07:00:00.000Z"
+  },
+  {
+   "title": "消除在汽车里做窝的蚂蚁",
+   "link": "https://leimao.github.io/essay/%E6%B6%88%E9%99%A4%E5%9C%A8%E6%B1%BD%E8%BD%A6%E9%87%8C%E5%81%9A%E7%AA%9D%E7%9A%84%E8%9A%82%E8%9A%81/",
+   "published": "2026-08-13T07:00:00.000Z"
+  },
+  {
+   "title": "Baylands Nature Preserve 徒步",
+   "link": "https://leimao.github.io/life/Baylands-Nature-Preserve-2026-08-08/",
+   "published": "2026-08-08T07:00:00.000Z"
+  },
+  {
+   "title": "Baylands Nature Preserve",
+   "link": "https://leimao.github.io/photography/Baylands-Nature-Preserve-2026-08-08/",
+   "published": "2026-08-08T07:00:00.000Z"
+  },
+  {
+   "title": "Vector Quantization and Product Quantization",
+   "link": "https://leimao.github.io/blog/Vector-Quantization-Product-Quantization/",
+   "published": "2026-08-07T07:00:00.000Z"
+  },
+  {
+   "title": "悬案",
+   "link": "https://leimao.github.io/essay/%E6%82%AC%E6%A1%88-Unsettled-Case-2026/",
+   "published": "2026-08-06T07:00:00.000Z"
+  },
+  {
+   "title": "2026 Brazen Summer Breeze 5K 竞赛",
+   "link": "https://leimao.github.io/life/2026-Brazen-Summer-Breeze-5K/",
+   "published": "2026-08-01T07:00:00.000Z"
+  },
+  {
+   "title": "PyTorch Multi-Process Inference Weight Sharing Via Inter-Process Communication",
+   "link": "https://leimao.github.io/blog/PyTorch-IPC-Multi-Process-Inference-Weight-Sharing/",
+   "published": "2026-07-31T07:00:00.000Z"
+  },
+  {
+   "title": "Lee Cronin's The Mummy",
+   "link": "https://leimao.github.io/essay/Lee-Cronin-The-Mummy-2026/",
+   "published": "2026-07-30T07:00:00.000Z"
+  },
+  {
+   "title": "Raptor Encounter In Morgan Hill 观摩",
+   "link": "https://leimao.github.io/life/Raptor-Encounter-In-Morgan-Hill-2026-07-26/",
+   "published": "2026-07-26T07:00:00.000Z"
+  },
+  {
+   "title": "Raptor Encounter In Morgan Hill",
+   "link": "https://leimao.github.io/photography/Raptor-Encounter-In-Morgan-Hill-2026-07-26/",
+   "published": "2026-07-26T07:00:00.000Z"
+  },
+  {
+   "title": "Ohlone Wilderness Trail 徒步",
+   "link": "https://leimao.github.io/life/Ohlone-Wilderness-Trail-2026-07-25/",
+   "published": "2026-07-25T07:00:00.000Z"
+  },
+  {
+   "title": "Ohlone Wilderness Trail",
+   "link": "https://leimao.github.io/photography/Ohlone-Wilderness-Trail-2026-07-25/",
+   "published": "2026-07-25T07:00:00.000Z"
+  },
+  {
+   "title": "后室",
+   "link": "https://leimao.github.io/essay/Backrooms-2026/",
+   "published": "2026-07-19T07:00:00.000Z"
+  }
+ ]
+}

@@ -1,0 +1,59 @@
+{
+ "src_id": "SRC-023",
+ "name": "ROCm AITER",
+ "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:19:00Z",
+ "finished_at": "2026-09-23T03:19:00Z",
+ "duration_seconds": 51.2,
+ "attempts": 1,
+ "channels": {
+  "gh_de2bca71": {
+   "type": "github_repo",
+   "url": "https://github.com/ROCm/aiter",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 42
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  }
+ },
+ "cursor": {
+  "gh_de2bca71:issues": {
+   "last_updated_at": "2026-09-23T08:11:58Z"
+  },
+  "gh_de2bca71:pulls": {
+   "last_updated_at": "2026-09-23T10:13:19Z"
+  },
+  "gh_de2bca71:releases": {
+   "last_id": 391064380
+  }
+ },
+ "notes": ""
+}

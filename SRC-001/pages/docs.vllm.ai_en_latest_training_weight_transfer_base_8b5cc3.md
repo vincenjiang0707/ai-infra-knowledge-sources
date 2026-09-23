@@ -1,0 +1,704 @@
+source: https://docs.vllm.ai/en/latest/training/weight_transfer/base/
+lastmod: 2026-09-23
+
+# Base Classes and Custom Engines[¶](https://docs.vllm.ai#base-classes-and-custom-engines)
+
+The weight transfer system is built from four abstractions, each independently replaceable:
+
+| Abstraction | Side | Answers |
+|---|---|---|
+`WeightSource` |
+
+*What*weights to send`VLLMWeightSyncClient`
+
+*How to reach*the inference engine — the adapter for your RL stack's own vLLM wrapper`TrainerWeightTransferEngine`
+
+*How to transmit*the bytes`WeightTransferEngine`
+
+*How to receive*them and load themThe two engines are registered in two separate factories, [ WeightTransferTrainerFactory](https://docs.vllm.ai#weighttransfertrainerfactory) and
+
+[. They share backend names by convention, but a trainer process never instantiates a worker engine or vice versa, so the registries stay independent.](https://docs.vllm.ai#weighttransferenginefactory)
+
+`WeightTransferEngineFactory`
+
+## Trainer Side[¶](https://docs.vllm.ai#trainer-side)
+
+### WeightSource[¶](https://docs.vllm.ai#weightsource)
+
+**This is the adapter for whatever shape your trainer's weights are in.** [ WeightSource](https://docs.vllm.ai/api/vllm/distributed/weight_transfer/base/#vllm.distributed.weight_transfer.base.WeightSource) defines how you extract your weights for your specific framework.
+
+What an engine gets is always the same: HF-format parameter names, and tensors already materialized to their full (unsharded) shape. Whatever gathering, re-fusing, dequantizing or renaming that takes belongs inside the source.
+
+A [ WeightSource](https://docs.vllm.ai/api/vllm/distributed/weight_transfer/base/#vllm.distributed.weight_transfer.base.WeightSource) is
+
+**re-iterable**and has two required channels:
+
+— the name, wire dtype, and full shape of every parameter,`metadata() -> list[ParamMeta]`
+
+*without transferring anything*. Cheap when shapes are known locally (an FSDP`DTensor`
+
+knows its global shape); may be expensive on the first call for producers that must materialize to learn shapes (a Megatron-Bridge export), in which case it should cache.**iteration**— yields fully-materialized`(name, tensor)`
+
+pairs, one at a time.
+
+The two channels must agree, element for element
+
+`metadata()`
+
+must declare exactly what iteration will yield: the same parameters, in the same order, with the same dtypes and shapes. This is an invariant of the ABC, not of any one backend — a source that reorders, omits, or re-dtypes a parameter between the two channels is broken even if the backend you happen to test against never notices. Backends are free to read both channels and to trust that they match; dense NCCL does, and [enforces it](https://docs.vllm.ai/nccl/#the-two-weightsource-channels-must-agree).
+
+Materializing is typically a collective, so **every trainer rank must iterate the same source in the same order, in lockstep**, or ranks deadlock. `metadata()`
+
+can itself be a collective for custom producers, so it too runs on every rank — only the sender ships the result.
+
+`iter(source)`
+
+must yield a *fresh* pass each round.
+
+#### ModuleSource[¶](https://docs.vllm.ai#modulesource)
+
+`ModuleSource(module)`
+
+is the common case, over `module.named_parameters()`
+
+. It handles plain and FSDP-sharded modules with no special casing: iteration all-gathers each `DTensor`
+
+via `full_tensor()`
+
+, while `metadata()`
+
+reads the *global* `.shape`
+
+/ `.dtype`
+
+and so never triggers a gather.
+
+#### Custom sources[¶](https://docs.vllm.ai#custom-sources)
+
+Subclass [ WeightSource](https://docs.vllm.ai/api/vllm/distributed/weight_transfer/base/#vllm.distributed.weight_transfer.base.WeightSource) when the weights need work to reach HF format — a framework-specific export, a re-fusing step, a dtype cast.
+
+from vllm.distributed.weight_transfer import ParamMeta, WeightSource
+class MegatronBridgeSource(WeightSource):
+"""Megatron model -> HF names, via a bridge that gathers TP/PP/EP internally
+and returns full tensors on every rank."""
+def __init__(self, bridge, module, dtype):
+self._bridge, self._module, self._dtype = bridge, module, dtype
+self._meta: list[ParamMeta] | None = None
+def _export(self):
+return self._bridge.export_hf_weights(self._module)
+def metadata(self) -> list[ParamMeta]:
+# Cache: for producers that must materialize to learn shapes, this is
+# the expensive channel. Runs on every rank (it may be a collective).
+if self._meta is None:
+self._meta = [
+ParamMeta(name, self._dtype, tuple(t.shape))
+for name, t in self._export()
+]
+return self._meta
+def __iter__(self):
+# Must yield exactly what metadata() declared, in the same order.
+for name, tensor in self._export():
+yield name, tensor.to(self._dtype).detach().contiguous()
+
+
+`held_names()`
+
+: partial ownership[¶](https://docs.vllm.ai#held_names-partial-ownership)
+
+By default every rank is assumed to be able to produce every parameter — which is what the source above does, since its bridge gathers across all parallelism before yielding. That is simple and always correct, but it means the gather cost is paid in full on every rank.
+
+Optionally, you can override `held_names()`
+
+when the ranks are split so each holds only part of the model. It returns the parameter names this rank holds (or `None`
+
+, the default, for all of them):
+
+def held_names(self):
+# This pipeline stage's layers, and within them only this EP rank's experts.
+return self._my_stage_names - self._foreign_expert_names
+
+
+This covers various trainer layouts — pipeline stages (a rank holds some layers), expert parallelism (a rank holds some experts), both at once, or a shape that fits neither. Backends that can route per parameter (see [sharded RDT](https://docs.vllm.ai/sharded_rdt/)) then pull each name from a rank that actually holds it.
+
+Three requirements come with overriding it:
+
+Only the sender's metadata reaches the inference side, so a rank that reported just its own share would leave the rest silently un-transferred. Sharded RDT cross-checks this across ranks at init.`metadata()`
+
+must still describe the whole model on every rank.**Every name must be held by at least one rank**, or it can never be served. The engine raises at init naming the first orphan.**Iteration yields**The name still appears, in metadata order, so the order check stays aligned across ranks — only the data is absent. Claiming a name and then yielding`None`
+
+for a name this rank does not hold.`None`
+
+for it is an error the engine reports by name.
+
+Partial ownership only works with sharded RDT
+
+Only a backend that routes per parameter honours `held_names()`
+
+. Broadcast backends ignore it and send every name from every rank, so declaring partial ownership there changes nothing.
+
+#### Gather groups[¶](https://docs.vllm.ai#gather-groups)
+
+Some backends transfer a layer at a time rather than a model at a time, so they partition `metadata()`
+
+into **gather groups**. `layerwise_groups`
+
+keys each name on the **outermost index segment** it contains, so **a group is one decoder layer**, with runs of un-indexed names (the embeddings, the final norm, `lm_head`
+
+) forming groups of their own where they appear:
+
+group 0 model.embed_tokens.weight
+group 1 model.layers.0.* <- one decoder layer
+group 2 model.layers.1.*
+...
+group N+1 model.norm.weight, lm_head.weight
+
+
+Keying on the index rather than a literal prefix means no per-architecture table: `model.layers.0.`
+
+, `model.language_model.layers.0.`
+
+(recent Qwen text checkpoints), `transformer.h.0.`
+
+(GPT-2, Falcon), `backbone.layers.0.`
+
+(Mamba) and a vision tower's `visual.blocks.0.`
+
+all partition the same way. The index taken is the *outermost* one, which keeps a MoE layer whole — a per-expert name like `model.layers.3.mlp.experts.7.w1`
+
+keys on the layer, not the expert.
+
+Group index *g* means the same layer on every rank and every consumer, because every side derives it from one rank's `metadata()`
+
+. That agreement is what lets a backend bound its buffers to one layer and free a layer once everyone is done with it.
+
+A leaf module's sources must all fall in one group
+
+The sharded-RDT engine frees a group as soon as its last chunk lands, so a module split across groups would park a pull until the stall watchdog fires. The default partition guarantees this; a `groups()`
+
+override must preserve it.
+
+Two hooks follow from this, both with working defaults:
+
+— this rank's groups, in metadata order. The default is`groups()`
+
+`layerwise_groups(metadata())`
+
+restricted to the groups holding at least one held name. A group with nothing held here is skipped entirely.— the same stream, batched one group at a time. The default drives`iter_groups()`
+
+`__iter__`
+
+and batches its output, checking that names arrive in metadata order. Override it when your framework can produce a whole group in one step: materializing is usually a collective, and driving it per group rather than per tensor turns ~37k generator resumes into ~95 on a per-expert MoE model.
+
+Because `metadata()`
+
+order defines the partition, **all names sharing a layer index must be contiguous in it**. A source whose natural export order interleaves layers — bucketing all the MoE experts together, say — has to reorder before returning.
+
+### VLLMWeightSyncClient[¶](https://docs.vllm.ai#vllmweightsyncclient)
+
+**This is the adapter for however your RL stack reaches vLLM.** Many RL frameworks wrap inference engines in their own abstractions, and each reaches vLLM its own way. [ VLLMWeightSyncClient](https://docs.vllm.ai/api/vllm/distributed/weight_transfer/base/#vllm.distributed.weight_transfer.base.VLLMWeightSyncClient) is the single seam where that bespoke shape is adapted, so weight sync engines remain control plane agnostic.
+
+The contract is only this: **however the wrapper is shaped, it must bottom out in the same four calls** — `init_weight_transfer_engine`
+
+once at setup, then `start_weight_update`
+
+→ one or more `update_weights`
+
+→ `finish_weight_update`
+
+per round. Everything a trainer engine needs from the inference side goes through them.
+
+class VLLMWeightSyncClient(Protocol):
+def init_weight_transfer_engine(self, init_info: dict[str, Any]) -> None: ...
+def start_weight_update(self) -> None: ...
+def update_weights(self, update_info: dict[str, Any]) -> None: ...
+def finish_weight_update(self, weight_version: str | None = None) -> None: ...
+
+
+It is a `@runtime_checkable`
+
+structural `Protocol`
+
+(PEP 544), which is what makes adapting cheap: **any object with those four methods already satisfies it**. An existing wrapper in your framework can usually become a client by gaining four forwarding methods.
+
+Two implementations ship with vLLM:
+
+| Client | Talks to |
+|---|---|
+`RayVLLMWeightSyncClient(handle)` | One or more
+`AsyncLLM` |
+
+[Ray actors. Accepts a list and fans each call out to every handle, blocking on all of them, so a multi-actor (e.g. multi-DP) deployment is driven as one unit](https://docs.vllm.ai/api/vllm/entrypoints/llm/#vllm.entrypoints.llm.LLM)
+
+`LLM`
+
+`HTTPVLLMWeightSyncClient(base_url, timeout=300)`
+
+Custom weight sync clients can be implemented like so:
+
+class MyFrameworkWeightSyncClient:
+"""Adapts one RL framework's rollout pool to the four weight-sync calls."""
+def __init__(self, rollout_pool):
+self.pool = rollout_pool # whatever your stack already has
+def init_weight_transfer_engine(self, init_info):
+# Fan out to every replica and block: all of them receive weights.
+self.pool.broadcast_rpc("init_weight_transfer_engine", init_info=init_info)
+def start_weight_update(self):
+self.pool.broadcast_rpc("start_weight_update")
+def update_weights(self, update_info):
+self.pool.broadcast_rpc("update_weights", update_info=update_info)
+def finish_weight_update(self, weight_version=None):
+self.pool.broadcast_rpc("finish_weight_update")
+if weight_version is not None:
+self.pool.broadcast_rpc("update_weight_version", weight_version)
+
+
+Two things to get right in any adapter:
+
+**Reach every replica, and block until all of them are done.**A weight update is not a load-balanced request: every worker holding a copy of the model must receive it. Returning before they all finish lets the trainer race ahead of workers still loading. (Both built-in clients do this — Ray by fanning out over its handles, HTTP because the server's DP client broadcasts internally.)**Raise on failure.**Trainer engines rely on exceptions to surface inference-side errors; a client that swallows them turns a failed sync into silently stale weights, or into a hang for backends whose transfer rendezvouses with the worker.
+
+Note
+
+HTTP cannot carry raw CUDA IPC handles, so [ HTTPVLLMWeightSyncClient](https://docs.vllm.ai/api/vllm/distributed/weight_transfer/clients/#vllm.distributed.weight_transfer.clients.HTTPVLLMWeightSyncClient) pickles and base64-encodes them into an
+
+`ipc_handles_pickled`
+
+field. The worker deserializes it only when `VLLM_ALLOW_INSECURE_SERIALIZATION=1`
+
+. Backends whose payloads are JSON-native (NCCL) pass through untouched.### TrainerWeightTransferEngine[¶](https://docs.vllm.ai#trainerweighttransferengine)
+
+The trainer-side engine: it holds the transport state (NCCL communicators, IPC device info, transfer plans), pulls weights from a [ WeightSource](https://docs.vllm.ai/api/vllm/distributed/weight_transfer/base/#vllm.distributed.weight_transfer.base.WeightSource), and drives the inference side through a
+
+[. It is generic over its init info type, constructed by the](https://docs.vllm.ai/api/vllm/distributed/weight_transfer/base/#vllm.distributed.weight_transfer.base.VLLMWeightSyncClient)
+
+`VLLMWeightSyncClient`
+
+`trainer_init`
+
+classmethod factory, and driven by `send_weights()`
+
+.| Method | Description |
+|---|---|
+`trainer_init(init_info, *, client, source=None)` | Classmethod. Rendezvous with the inference side and return a ready instance |
+`send_weights()` | Push weights and drive the full update round trip |
+`shutdown()` | Tear down communicators / process groups. Default no-op |
+
+Both `trainer_init`
+
+and `send_weights`
+
+are called on **every** trainer rank. `is_sender`
+
+is resolved once, at `trainer_init`
+
+, from `init_info.rank`
+
+. Each engine holds the real client on every rank but guards the control-plane RPCs and the transmit on `self.is_sender`
+
+, so only the sender touches the wire; non-sender ranks still run every collective so the group stays aligned.
+
+The trainer side takes **no **. The backend comes from the init info's
+
+`WeightTransferConfig`
+
+`backend`
+
+`ClassVar`
+
+, and the wire params ride the init info too.#### TrainerInitInfo[¶](https://docs.vllm.ai#trainerinitinfo)
+
+The `init_info`
+
+passed to `trainer_init`
+
+above. It is how a caller configures a transfer: it selects the backend, says which rank this process is, and carries the wire params. Each backend subclasses it; the base class holds the one field every backend needs.
+
+@dataclass
+class TrainerInitInfo:
+backend: ClassVar[str] # factory dispatch key
+rank: int = field(kw_only=True)
+@property
+def is_sender(self) -> bool:
+return self.rank == 0
+
+
+is this trainer process's rank, supplied`rank`
+
+**explicitly**. The engine does not read it from a global process group, which is ambiguous once several groups (FSDP / TP / PP / EP) exist.**Rank 0 is always the sender**— this is what`trainer_init`
+
+resolves into`is_sender`
+
+. It is keyword-only, so backend subclasses can add positional fields freely.is a`backend`
+
+`ClassVar`
+
+, not an`__init__`
+
+field: it is a fixed per-backend constant that the factory reads to dispatch, which is why callers never pass a`backend=`
+
+argument. Every subclass must set it —`__init_subclass__`
+
+raises otherwise.
+
+Subclasses also carry the transfer's **wire params** (`packed`
+
+, buffer sizes). The sender propagates them to the worker inside `trainer_init`
+
+, so the two sides cannot disagree. See [ NCCLTrainerInitInfo](https://docs.vllm.ai/nccl/#nccltrainerinitinfo) and
+
+[for the concrete fields.](https://docs.vllm.ai/ipc/#ipctrainerinitinfo)
+
+`IPCTrainerInitInfo`
+
+#### Full-Resync vs. Delta Backends[¶](https://docs.vllm.ai#full-resync-vs-delta-backends)
+
+`source`
+
+is optional, which splits the backends into two shapes:
+
+**Full resync**(NCCL, IPC) — a stableis fixed at`WeightSource`
+
+`trainer_init`
+
+and re-iterated each round;`send_weights()`
+
+takes no arguments. These backends validate that`source`
+
+is non-null themselves.**Delta**(sparse NCCL) — the payload differs every round, so there is no stable source. The engine takes no`source`
+
+and each round's payload is passed straight to`send_weights(patches)`
+
+.
+
+#### Implementing a Custom Trainer Engine[¶](https://docs.vllm.ai#implementing-a-custom-trainer-engine)
+
+from dataclasses import dataclass
+from typing import ClassVar
+from typing_extensions import Self
+from vllm.distributed.weight_transfer.base import (
+TrainerInitInfo,
+TrainerWeightTransferEngine,
+VLLMWeightSyncClient,
+WeightSource,
+)
+@dataclass
+class MyTrainerInitInfo(TrainerInitInfo):
+backend: ClassVar[str] = "my_backend"
+endpoint: str
+chunk_size_bytes: int = 256 * 1024 * 1024 # a wire param: shipped to the worker
+class MyTrainerWeightTransferEngine(TrainerWeightTransferEngine[MyTrainerInitInfo]):
+init_info_cls = MyTrainerInitInfo
+def __init__(self, *, client, source, is_sender=True, chunk_size_bytes=0):
+super().__init__(client=client, source=source, is_sender=is_sender)
+self.chunk_size_bytes = chunk_size_bytes
+@classmethod
+def trainer_init(
+cls,
+init_info: MyTrainerInitInfo,
+*,
+client: VLLMWeightSyncClient,
+source: WeightSource | None = None,
+) -> Self:
+if source is None:
+raise ValueError("my_backend requires a WeightSource.")
+engine = cls(
+client=client,
+source=source,
+is_sender=init_info.is_sender,
+chunk_size_bytes=init_info.chunk_size_bytes,
+)
+if engine.is_sender:
+# Ship the must-agree wire params so the worker decodes exactly as
+# this trainer encodes, then open the trainer-side endpoint.
+engine.client.init_weight_transfer_engine(
+{"chunk_size_bytes": init_info.chunk_size_bytes}
+)
+return engine
+def send_weights(self) -> None:
+assert self.source is not None
+meta = self.source.metadata() # every rank: may be a collective
+if not self.is_sender:
+for _ in self.source: # stay in the trainer-side collective
+pass
+return
+self.client.start_weight_update()
+self.client.update_weights(
+{
+"names": [m.name for m in meta],
+"dtype_names": [str(m.dtype).split(".")[-1] for m in meta],
+"shapes": [list(m.shape) for m in meta],
+}
+)
+for name, tensor in self.source:
+... # transmit
+self.client.finish_weight_update()
+
+
+Two things to get right, both of which have bitten the built-in backends:
+
+**Drain before returning.**`send_weights`
+
+must not return with transfers still in flight. Anything keeping a send buffer alive dies with the frame, and the inference side's`finish_weight_update`
+
+post-processing can otherwise finalize weights that have not landed.**Never join a control-plane thread on the error path.**If you run`update_weights`
+
+on a side thread concurrently with a transmit (as NCCL does) and the transmit raises, the worker is still blocked in the matching collective and will never return. Shut the executor down without waiting, so the real exception surfaces instead of hanging.
+
+### WeightTransferTrainerFactory[¶](https://docs.vllm.ai#weighttransfertrainerfactory)
+
+from vllm.distributed.weight_transfer import WeightTransferTrainerFactory
+# Lazy loading (recommended): the module is imported only when the backend is used
+WeightTransferTrainerFactory.register_engine(
+"my_backend",
+"my_package.my_module",
+"MyTrainerWeightTransferEngine",
+)
+# Or register the class directly
+WeightTransferTrainerFactory.register_engine("my_backend", MyTrainerWeightTransferEngine)
+engine = WeightTransferTrainerFactory.trainer_init(
+init_info=MyTrainerInitInfo(rank=0, endpoint="..."), # `backend` selects the engine
+client=client,
+source=source,
+)
+
+
+## Inference Side[¶](https://docs.vllm.ai#inference-side)
+
+### WeightTransferEngine[¶](https://docs.vllm.ai#weighttransferengine)
+
+A generic abstract class parameterized by two dataclass types:
+
+(extends`TInitInfo`
+
+): backend-specific initialization parameters.`WeightTransferInitInfo`
+
+(extends`TUpdateInfo`
+
+): backend-specific weight update metadata.`WeightTransferUpdateInfo`
+
+
+Subclasses must implement five methods:
+
+| Method | Description |
+|---|---|
+`init_transfer_engine(init_info)` | Initialize the communication channel on each inference worker, and record the trainer-supplied wire params |
+`start_weight_update()` | Prepare for an update (e.g. begin layerwise reload); no-op for in-place engines |
+`finish_weight_update()` | Finalize the update (e.g. finalize layerwise reload); no-op for in-place engines |
+`receive_weights(update_info)` | Receive weights and load them into `self.model` |
+`shutdown()` | Clean up resources |
+
+The base class provides:
+
+`__init__`
+
+, taking`config`
+
+(),`WeightTransferConfig`
+
+`vllm_config`
+
+(),`VllmConfig`
+
+`device`
+
+(`torch.device`
+
+), and`model`
+
+(`nn.Module`
+
+).`update_weights(update_info_dict)`
+
+, a thin wrapper for`receive_weights`
+
+: it parses the dict into the typed dataclass, calls`receive_weights`
+
+, and synchronizes the device — unless the engine sets`defers_processing`
+
+, below.`parse_init_info`
+
+/`parse_update_info`
+
+, which convert API-level dicts into the typed dataclasses and raise`ValueError`
+
+on a bad payload.`set_weight_update_target`
+
+/`reset_weight_update_target`
+
+, used to retarget an update at the speculative draft model.
+
+Read wire params from the handshake, not the payload
+
+Anything the two sides must agree on — `packed`
+
+, buffer geometry — arrives on the **init info** and should be stored on `self`
+
+in `init_transfer_engine`
+
+, then read from `self`
+
+in `receive_weights`
+
+. Per-round update info carries only per-round metadata. This is what makes a trainer/worker mismatch unrepresentable.
+
+`defers_processing`
+
+: when a returned update means queued, not applied
+
+An engine that pipelines its GPU post-processing onto background threads cannot let `update_weights`
+
+synchronize the device — that would block on those threads and serialize the pipeline. Such an engine sets the class attribute `defers_processing = True`
+
+, omits the per-update sync, and guarantees completion in `finish_weight_update`
+
+instead.
+
+Callers that go through `finish_weight_update`
+
+need do nothing; the engine drains there. A caller that drives the tail itself — running its own `finalize_layerwise_reload`
+
+, say — must check the flag and call `drain_pending()`
+
+first, because with it set a returned `update_weights`
+
+means *queued*, not *applied*. `drain_pending()`
+
+is idempotent, and a no-op on an engine that processes synchronously, so it is always safe to call.
+
+[Sharded RDT](https://docs.vllm.ai/sharded_rdt/) is the built-in engine that sets it: it scatters and quantizes on background threads with their own CUDA streams, so its `drain_pending()`
+
+joins both queues and syncs both streams before `finalize_layerwise_reload`
+
+runs.
+
+### Request Classes[¶](https://docs.vllm.ai#request-classes)
+
+The API-level request classes provide backend-agnostic serialization using plain dictionaries.
+
+from vllm.distributed.weight_transfer.base import (
+WeightTransferInitRequest,
+WeightTransferUpdateRequest,
+)
+# Init request (dict is converted to backend-specific TInitInfo)
+init_request = WeightTransferInitRequest(
+init_info={"master_address": "10.0.0.1", "master_port": 29500, ...}
+)
+# Update request (dict is converted to backend-specific TUpdateInfo)
+update_request = WeightTransferUpdateRequest(
+update_info={"names": [...], "dtype_names": [...], "shapes": [...]}
+)
+
+
+Using a built-in client, you never construct these by hand — [ RayVLLMWeightSyncClient](https://docs.vllm.ai/api/vllm/distributed/weight_transfer/clients/#vllm.distributed.weight_transfer.clients.RayVLLMWeightSyncClient) wraps the dicts for you, and
+
+[posts them as JSON.](https://docs.vllm.ai/api/vllm/distributed/weight_transfer/clients/#vllm.distributed.weight_transfer.clients.HTTPVLLMWeightSyncClient)
+
+`HTTPVLLMWeightSyncClient`
+
+At the LLM/API layer, call `start_draft_weight_update()`
+
+instead of `start_weight_update()`
+
+to target the speculative draft model; `update_weights`
+
+/ `finish_weight_update`
+
+are unchanged. Engines that cannot support this set `supports_draft_weight_update = False`
+
+.
+
+### Implementing a Custom Engine[¶](https://docs.vllm.ai#implementing-a-custom-engine)
+
+#### 1. Define Info Dataclasses[¶](https://docs.vllm.ai#1-define-info-dataclasses)
+
+from dataclasses import dataclass
+from vllm.distributed.weight_transfer.base import (
+WeightTransferEngine,
+WeightTransferInitInfo,
+WeightTransferUpdateInfo,
+)
+@dataclass
+class MyInitInfo(WeightTransferInitInfo):
+endpoint: str
+chunk_size_bytes: int = 256 * 1024 * 1024 # must-agree wire param
+@dataclass
+class MyUpdateInfo(WeightTransferUpdateInfo):
+names: list[str]
+dtype_names: list[str]
+shapes: list[list[int]]
+# Per-round metadata only.
+
+
+#### 2. Implement the Engine[¶](https://docs.vllm.ai#2-implement-the-engine)
+
+class MyWeightTransferEngine(WeightTransferEngine[MyInitInfo, MyUpdateInfo]):
+init_info_cls = MyInitInfo
+update_info_cls = MyUpdateInfo
+def init_transfer_engine(self, init_info: MyInitInfo) -> None:
+# Record the trainer's wire params, then set up the connection.
+self.chunk_size_bytes = init_info.chunk_size_bytes
+...
+def start_weight_update(self) -> None:
+# Checkpoint-format engines: run initialize_layerwise_reload(self.model).
+# In-place engines: no-op
+...
+def finish_weight_update(self) -> None:
+# Checkpoint-format engines: run finalize_layerwise_reload(...).
+# In-place engines: no-op
+...
+def receive_weights(self, update_info: MyUpdateInfo) -> None:
+weights = []
+for name, dtype_name, shape in zip(
+update_info.names, update_info.dtype_names, update_info.shapes
+):
+dtype = getattr(torch, dtype_name)
+weight = self._fetch_weight(name, shape, dtype)
+weights.append((name, weight))
+self.model.load_weights(weights)
+def shutdown(self) -> None:
+# Clean up resources
+...
+
+
+#### 3. Register with the Factory[¶](https://docs.vllm.ai#3-register-with-the-factory)
+
+from vllm.distributed.weight_transfer import WeightTransferEngineFactory
+# Option 1: Lazy loading (recommended for built-in engines)
+WeightTransferEngineFactory.register_engine(
+"my_backend",
+"my_package.my_module",
+"MyWeightTransferEngine",
+)
+# Option 2: Direct class registration
+WeightTransferEngineFactory.register_engine(
+"my_backend",
+MyWeightTransferEngine,
+)
+
+
+Once registered, users select your backend via `WeightTransferConfig(backend="my_backend")`
+
+.
+
+### WeightTransferEngineFactory[¶](https://docs.vllm.ai#weighttransferenginefactory)
+
+The factory uses a registry pattern with lazy loading. Built-in engines (`nccl`
+
+, `ipc`
+
+, `sparse_nccl`
+
+and `sharded_rdt`
+
+) are registered at import time but their modules are only loaded when the backend is actually requested. This avoids importing heavy dependencies (like NCCL communicators) when they aren't needed.
+
+from vllm.distributed.weight_transfer import WeightTransferEngineFactory
+# Create an engine from config
+engine = WeightTransferEngineFactory.create_engine(
+config=weight_transfer_config,
+vllm_config=vllm_config,
+device=device,
+model=model,
+)
+
+
+vLLM calls this for you during worker startup; you only need it directly when embedding the engine in your own worker.

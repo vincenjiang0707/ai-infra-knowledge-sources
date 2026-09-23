@@ -1,0 +1,109 @@
+{
+ "src_id": "SRC-036",
+ "name": "Ascend",
+ "category": "昇腾与其他国产芯⽚",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:45:55Z",
+ "finished_at": "2026-09-23T03:45:55Z",
+ "duration_seconds": 81.1,
+ "attempts": 1,
+ "channels": {
+  "gh_918dad7a": {
+   "type": "github_repo",
+   "url": "https://github.com/Ascend/msprof",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 0,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 0,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "gh_3698df73": {
+   "type": "github_repo",
+   "url": "https://github.com/Ascend/MindSpeed",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 0,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 1,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_3103374f": {
+   "type": "reference",
+   "url": "https://github.com/Ascend/msprof/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 2481
+  },
+  "ref_cf7b7ef3": {
+   "type": "reference",
+   "url": "https://github.com/Ascend/msprof/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 448
+  },
+  "ref_ae5b74ae": {
+   "type": "reference",
+   "url": "https://github.com/Ascend/msprof/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 580
+  }
+ },
+ "cursor": {
+  "gh_3698df73:pulls": {
+   "last_updated_at": "2026-08-26T14:22:17Z"
+  }
+ },
+ "notes": ""
+}

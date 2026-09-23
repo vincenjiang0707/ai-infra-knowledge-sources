@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-125",
+ "name": "NVIDIA",
+ "category": "⼀⼿⼯程博客与服务商经验",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:15:18Z",
+ "finished_at": "2026-09-23T04:15:18Z",
+ "duration_seconds": 17.2,
+ "attempts": 1,
+ "channels": {
+  "site_6305debf": {
+   "type": "site",
+   "url": "https://developer.nvidia.com/blog/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 44899
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

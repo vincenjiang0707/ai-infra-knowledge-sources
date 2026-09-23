@@ -1,0 +1,32 @@
+{
+ "src_id": "SRC-124",
+ "name": "PyTorch Blog",
+ "category": "⼀⼿⼯程博客与服务商经验",
+ "priority": "核",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:15:01Z",
+ "finished_at": "2026-09-23T04:15:01Z",
+ "duration_seconds": 16.1,
+ "attempts": 1,
+ "channels": {
+  "site_f61f6e52": {
+   "type": "site",
+   "url": "https://pytorch.org/blog/",
+   "mode": "rss",
+   "status": "ok",
+   "output": "feed_meta.json",
+   "entries": 10,
+   "posts_fetched": 10,
+   "posts_failed": 0,
+   "output_dir": "posts/"
+  }
+ },
+ "cursor": {
+  "site_f61f6e52:rss": {
+   "last_entry_published": "Wed, 16 Sep 2026 19:00:47 +0000"
+  }
+ },
+ "notes": ""
+}

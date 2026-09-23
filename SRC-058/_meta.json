@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-058",
+ "name": "InternLM",
+ "category": "模型作者与模型平台",
+ "priority": "",
+ "scrape_type": "github_org",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:11:59Z",
+ "finished_at": "2026-09-23T04:11:59Z",
+ "duration_seconds": 10.8,
+ "attempts": 1,
+ "channels": {
+  "github_org_6794cc18": {
+   "type": "github_org",
+   "url": "https://github.com/InternLM",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 1789
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

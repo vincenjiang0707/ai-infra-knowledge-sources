@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-152",
+ "name": "微信公众号搜索",
+ "category": "精选作者、专业社区与新来源发现",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:23:03Z",
+ "finished_at": "2026-09-23T04:23:03Z",
+ "duration_seconds": 1.3,
+ "attempts": 1,
+ "channels": {
+  "site_62fa1b51": {
+   "type": "site",
+   "url": "https://weixin.sogou.com/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 136
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

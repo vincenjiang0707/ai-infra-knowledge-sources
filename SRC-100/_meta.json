@@ -1,0 +1,32 @@
+{
+ "src_id": "SRC-100",
+ "name": "Kubernetes 资源管",
+ "category": "KV、路由、分布式与基础设施",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:13:19Z",
+ "finished_at": "2026-09-23T05:06:46Z",
+ "duration_seconds": 15.4,
+ "attempts": 3,
+ "channels": {
+  "site_608433fd": {
+   "type": "sitemap",
+   "url": "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+   "mode": "sitemap.xml",
+   "pages_total": 1,
+   "status": "ok",
+   "pages_fetched": 1,
+   "pages_failed": 0,
+   "output_dir": "pages/",
+   "cap": 2000
+  }
+ },
+ "cursor": {
+  "site_608433fd:sitemap": {
+   "lastmod": "2026-07-27T20:54:50+01:00"
+  }
+ },
+ "notes": ""
+}

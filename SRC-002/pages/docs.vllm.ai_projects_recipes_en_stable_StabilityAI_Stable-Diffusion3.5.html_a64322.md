@@ -1,0 +1,99 @@
+source: https://docs.vllm.ai/projects/recipes/en/stable/StabilityAI/Stable-Diffusion3.5.html
+lastmod: 2026-04-27
+
+# Stable Diffusion 3.5 Usage Guide[¶](https://docs.vllm.ai#stable-diffusion-35-usage-guide)
+
+This guide provides instructions for running Stable-Diffusion3.5 text-to-image generation models using vLLM-Omni with Cache-DiT acceleration.
+
+## Supported Models[¶](https://docs.vllm.ai#supported-models)
+
+**stabilityai/stable-diffusion-3.5-large**: 8.1B parameters model**stabilityai/stable-diffusion-3.5-large-turbo**: 8.1B parameters model (timestep-distilled enabling few-step inference)**stabilityai/stable-diffusion-3.5-medium**: 2.5B parameters model
+
+## Installing vLLM-Omni[¶](https://docs.vllm.ai#installing-vllm-omni)
+
+uv venv
+source .venv/bin/activate
+uv pip install vllm==0.12.0
+uv pip install git+https://github.com/vllm-project/vllm-omni.git
+
+
+The CLI examples below are from the vLLM-Omni repo. If you want to run them directly, clone that repo and run the scripts from its `examples/offline_inference`
+
+directory.
+
+## Text-to-Image Generation[¶](https://docs.vllm.ai#text-to-image-generation)
+
+### Basic Usage[¶](https://docs.vllm.ai#basic-usage)
+
+from vllm_omni.entrypoints.omni import Omni
+omni = Omni(model="stabilityai/stable-diffusion-3.5-medium")
+images = omni.generate(
+prompt="a cat wearing sunglasses, cyberpunk style",
+negative_prompt="blurry, low quality",
+height=1024,
+width=1024,
+num_inference_steps=28,
+guidance_scale=7.5,
+num_outputs_per_prompt=2,
+)
+
+
+### CLI Usage[¶](https://docs.vllm.ai#cli-usage)
+
+python examples/offline_inference/text_to_image/text_to_image.py \
+--model stabilityai/stable-diffusion-3.5-medium \
+--prompt "a cat wearing sunglasses, cyberpunk style" \
+--negative-prompt "blurry, low quality" \
+--height 1024 \
+--width 1024 \
+--num-inference-steps 28 \
+--guidance-scale 7.5
+
+
+## Cache-DiT Acceleration[¶](https://docs.vllm.ai#cache-dit-acceleration)
+
+vLLM-Omni supports Cache-DiT acceleration for stable-diffusion-3.5 models, which can significantly speed up image generation through caching mechanisms.
+
+### Enabling Cache-DiT[¶](https://docs.vllm.ai#enabling-cache-dit)
+
+from vllm_omni.entrypoints.omni import Omni
+omni = Omni(
+model="stabilityai/stable-diffusion-3.5-medium",
+cache_backend="cache_dit",
+)
+images = omni.generate(
+prompt="a cat wearing sunglasses, cyberpunk style",
+height=1024,
+width=1024,
+num_inference_steps=28,
+)
+
+
+### Custom Cache-DiT Configuration[¶](https://docs.vllm.ai#custom-cache-dit-configuration)
+
+For fine-tuned control over the acceleration:
+
+omni = Omni(
+model="stabilityai/stable-diffusion-3.5-medium",
+cache_backend="cache_dit",
+cache_config={
+"Fn_compute_blocks": 8,
+"Bn_compute_blocks": 0,
+"max_warmup_steps": 4,
+"residual_diff_threshold": 0.12,
+},
+)
+
+
+## Key Parameters[¶](https://docs.vllm.ai#key-parameters)
+
+| Parameter | Default | Description |
+|---|---|---|
+`height` |
+1024 | image height (multiples of 16) |
+`width` |
+1024 | image width (multiples of 16) |
+`num_inference_steps` |
+28 | Denoising steps |
+`guidance_scale` |
+1.0 | Classifier-free guidance scale |

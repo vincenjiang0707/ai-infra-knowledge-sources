@@ -1,0 +1,59 @@
+{
+ "src_id": "SRC-113",
+ "name": "MLPerf Inference",
+ "category": "Profiling、压测与公开结果",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:22:49Z",
+ "finished_at": "2026-09-23T03:22:49Z",
+ "duration_seconds": 35.4,
+ "attempts": 1,
+ "channels": {
+  "gh_6f701904": {
+   "type": "github_repo",
+   "url": "https://github.com/mlcommons/inference",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 13
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  }
+ },
+ "cursor": {
+  "gh_6f701904:issues": {
+   "last_updated_at": "2026-09-04T14:43:34Z"
+  },
+  "gh_6f701904:pulls": {
+   "last_updated_at": "2026-09-17T17:13:37Z"
+  },
+  "gh_6f701904:releases": {
+   "last_id": 272352597
+  }
+ },
+ "notes": ""
+}

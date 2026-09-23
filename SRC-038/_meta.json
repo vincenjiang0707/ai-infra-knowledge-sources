@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-038",
+ "name": "MUSA SDK",
+ "category": "昇腾与其他国产芯⽚",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:10:31Z",
+ "finished_at": "2026-09-23T05:03:58Z",
+ "duration_seconds": 2.7,
+ "attempts": 2,
+ "channels": {
+  "site_7e13722b": {
+   "type": "site",
+   "url": "https://docs.mthreads.com/en/musa-sdk/musa-sdk-doc-online/",
+   "status": "ok",
+   "output": "page.md",
+   "mode": "page",
+   "chars": 904
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

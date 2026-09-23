@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-136",
+ "name": "华为云社区",
+ "category": "⼀⼿⼯程博客与服务商经验",
+ "priority": "扩展",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:21:29Z",
+ "finished_at": "2026-09-23T04:21:29Z",
+ "duration_seconds": 2.0,
+ "attempts": 1,
+ "channels": {
+  "site_739f3883": {
+   "type": "site",
+   "url": "https://bbs.huaweicloud.com/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 1244
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

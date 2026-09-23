@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-115",
+ "name": "arXiv",
+ "category": "论⽂、会议与课程",
+ "priority": "核⼼",
+ "scrape_type": "academic",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:14:04Z",
+ "finished_at": "2026-09-23T04:14:04Z",
+ "duration_seconds": 5.5,
+ "attempts": 1,
+ "channels": {
+  "acad_9427e1aa": {
+   "type": "academic",
+   "url": "https://arxiv.org/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 14491
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

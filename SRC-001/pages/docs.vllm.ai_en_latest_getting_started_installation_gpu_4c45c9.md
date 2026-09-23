@@ -1,0 +1,1301 @@
+source: https://docs.vllm.ai/en/latest/getting_started/installation/gpu/
+lastmod: 2026-09-23
+
+# GPU[¶](https://docs.vllm.ai#gpu)
+
+vLLM is a Python library that supports the following GPU variants. Select your GPU type to see vendor specific instructions:
+
+vLLM contains pre-compiled C++ and CUDA (12.9) binaries.
+
+vLLM supports AMD GPUs with ROCm 6.3 or above. Pre-built wheels are available for ROCm 7.0 and ROCm 7.2.1.
+
+#### Prebuilt Wheels[¶](https://docs.vllm.ai#prebuilt-wheels)
+
+| ROCm Variant | Python Version | ROCm Version | glibc Requirement | Supported Versions |
+|---|---|---|---|---|
+`rocm700` | 3.12 | 7.0 | >= 2.35 | `0.14.0` to `0.18.0` |
+`rocm721` | 3.12 | 7.2.1 | >= 2.35 | Nightly releases after commit `171775f306a333a9cf105bfd533bf3e113d401d9` |
+
+vLLM initially supports basic model inference and serving on Intel GPU platform.
+
+For GPU-accelerated inference on Apple Silicon, use [vLLM-Metal](https://github.com/vllm-project/vllm-metal), a community-maintained hardware plugin that uses MLX as the compute backend and provides native GPU acceleration via Apple's Metal framework.
+
+vLLM-Metal works with MLX-optimized models from the [mlx-community](https://huggingface.co/mlx-community) organization on Hugging Face, which provides quantized versions of popular models optimized for Apple Silicon.
+
+Tip
+
+For installation and usage instructions, see the [Set up using vLLM-Metal](https://docs.vllm.ai#set-up-using-vllm-metal) section below.
+
+## Requirements[¶](https://docs.vllm.ai#requirements)
+
+- OS: Linux
+- Python: 3.10 -- 3.13
+
+Note
+
+vLLM does not support Windows natively. To run vLLM on Windows, you can use the Windows Subsystem for Linux (WSL) with a compatible Linux distribution, or use some community-maintained forks, e.g. [https://github.com/SystemPanic/vllm-windows](https://github.com/SystemPanic/vllm-windows).
+
+- GPU: compute capability 7.5 or higher (e.g., T4, RTX20xx, A100, L4, H100, B200, etc.)
+
+- GPU: MI200s (gfx90a), MI300 (gfx942), MI350 (gfx950), Radeon RX 7900 series (gfx1100/1101), Radeon RX 9000 series (gfx1200/1201), Ryzen AI MAX / AI 300 Series (gfx1151/1150)
+- ROCm 6.3 or above
+- MI350 requires ROCm 7.0 or above
+- Ryzen AI MAX / AI 300 Series requires ROCm 7.0.2 or above
+
+
+- Supported Hardware: Intel Data Center GPU, Intel ARC GPU
+- Dependency:
+[vllm-xpu-kernels](https://github.com/vllm-project/vllm-xpu-kernels): a package provide all necessary vllm custom kernel when running vLLM on Intel GPU platform, - Python: 3.12
+
+Warning
+
+The provided vllm-xpu-kernels whl is Python3.12 specific so this version is a MUST.
+
+- OS: macOS Sonoma or later
+- Hardware: Apple Silicon
+- Metal support enabled
+
+Note
+
+See the [Set up using vLLM-Metal](https://docs.vllm.ai#set-up-using-vllm-metal) section below for installation instructions.
+
+## Set up using Python[¶](https://docs.vllm.ai#set-up-using-python)
+
+### Create a new Python environment[¶](https://docs.vllm.ai#create-a-new-python-environment)
+
+It's recommended to use [uv](https://docs.astral.sh/uv/), a very fast Python environment manager, to create and manage Python environments. Please follow the [documentation](https://docs.astral.sh/uv/#getting-started) to install `uv`
+
+. After installing `uv`
+
+, you can create a new Python environment using the following commands:
+
+Note
+
+PyTorch installed via `conda`
+
+will statically link `NCCL`
+
+library, which can cause issues when vLLM tries to use `NCCL`
+
+. See [ Issue #8420](https://github.com/vllm-project/vllm/issues/8420) for more details.
+
+In order to be performant, vLLM has to compile many cuda kernels. The compilation unfortunately introduces binary incompatibility with other CUDA versions and PyTorch versions, even for the same PyTorch version with different building configurations.
+
+Therefore, it is recommended to install vLLM with a **fresh new** environment. If either you have a different CUDA version or you want to use an existing PyTorch installation, you need to build vLLM from source. See [below](https://docs.vllm.ai#build-wheel-from-source) for more details.
+
+The vLLM wheel bundles PyTorch and all required dependencies, and you should use the included PyTorch for compatibility. Because vLLM compiles many ROCm kernels to ensure a validated, high‑performance stack, the resulting binaries may not be compatible with other ROCm or PyTorch builds. If you need a different ROCm version or want to use an existing PyTorch installation, you’ll need to build vLLM from source. See [below](https://docs.vllm.ai#build-wheel-from-source) for more details.
+
+There is no extra information on creating a new Python environment for this device.
+
+## Set up using vLLM-Metal[¶](https://docs.vllm.ai#set-up-using-vllm-metal)
+
+vLLM-Metal is distributed as a separate package that provides native GPU acceleration on Apple Silicon.
+
+To install vLLM-Metal, follow the installation instructions in the [vLLM-Metal documentation](https://github.com/vllm-project/vllm-metal#installation).
+
+The installation will:
+
+- Set up the appropriate Python environment
+- Install MLX and required dependencies
+- Install the vLLM-Metal package
+
+After installation, you can start using vLLM with Metal GPU acceleration.
+
+Tip
+
+When using vLLM-Metal, use models from the [mlx-community](https://huggingface.co/mlx-community) on Hugging Face for best performance. These models are optimized for MLX and often include quantized versions (4-bit, 8-bit) that run efficiently on Apple Silicon.
+
+Example model: `mlx-community/Qwen2.5-0.5B-Instruct-4bit`
+
+
+### Using vLLM-Metal[¶](https://docs.vllm.ai#using-vllm-metal)
+
+After installation, vLLM-Metal provides an easy-to-use CLI for running an OpenAI-compatible API server:
+
+# Activate the vLLM-Metal environment
+source ~/.venv-vllm-metal/bin/activate
+# Start the API server (specify your mlx-community model or it will use default)
+vllm serve
+
+
+Wait for 2-3 minutes until you see application startup complete:
+
+INFO: Application startup complete.
+
+
+Once the server is running, you have multiple options to interact with it:
+
+#### Option 1: Interactive chat[¶](https://docs.vllm.ai#option-1-interactive-chat)
+
+Open a new terminal and start an interactive chat session:
+
+#### Option 2: API requests with curl[¶](https://docs.vllm.ai#option-2-api-requests-with-curl)
+
+curl http://localhost:8000/v1/chat/completions \
+-H "Content-Type: application/json" \
+-d '{
+"messages": [{"role": "user", "content": "Hello!"}],
+"max_tokens": 50
+}'
+
+
+#### Option 3: Python with OpenAI SDK[¶](https://docs.vllm.ai#option-3-python-with-openai-sdk)
+
+from openai import OpenAI
+client = OpenAI(
+base_url="http://localhost:8000/v1",
+api_key="dummy" # No auth required for local server
+)
+response = client.chat.completions.create(
+model="mlx-community/Qwen2.5-0.5B-Instruct-4bit",
+messages=[{"role": "user", "content": "Hello!"}]
+)
+print(response.choices[0].message.content)
+
+
+For more details on the `vllm`
+
+CLI commands, see the [OpenAI-compatible server documentation](https://docs.vllm.ai/serving/online_serving/openai_compatible_server/).
+
+### Pre-built wheels[¶](https://docs.vllm.ai#pre-built-wheels)
+
+## pip
+
+We recommend leveraging `uv`
+
+to [automatically select the appropriate PyTorch index at runtime](https://docs.astral.sh/uv/guides/integration/pytorch/#automatic-backend-selection) by inspecting the installed CUDA driver version via `--torch-backend=auto`
+
+(or `UV_TORCH_BACKEND=auto`
+
+). To select a specific backend (e.g., `cu130`
+
+), set `--torch-backend=cu130`
+
+(or `UV_TORCH_BACKEND=cu130`
+
+). If this doesn't work, try running `uv self update`
+
+to update `uv`
+
+first.
+
+Note
+
+NVIDIA Blackwell GPUs (B200, GB200) require a minimum of CUDA 12.8, so make sure you are installing PyTorch wheels with at least that version. PyTorch itself offers a [dedicated interface](https://pytorch.org/get-started/locally/) to determine the appropriate pip command to run for a given target configuration.
+
+As of now, vLLM's binaries are compiled with CUDA 12.9 and public PyTorch release versions by default. We also provide vLLM binaries compiled with CUDA 12.8, 13.0, and public PyTorch release versions:
+
+# Install vLLM with a specific CUDA version (e.g., 13.0).
+export VLLM_VERSION=$(curl -s https://api.github.com/repos/vllm-project/vllm/releases/latest | jq -r .tag_name | sed 's/^v//')
+export CUDA_VERSION=130 # or other
+export CPU_ARCH=$(uname -m) # x86_64 or aarch64
+uv pip install "https://github.com/vllm-project/vllm/releases/download/v${VLLM_VERSION}/vllm-${VLLM_VERSION}+cu${CUDA_VERSION}-cp38-abi3-manylinux_2_28_${CPU_ARCH}.whl" --extra-index-url "https://download.pytorch.org/whl/cu${CUDA_VERSION}"
+
+
+#### Install the latest code[¶](https://docs.vllm.ai#install-the-latest-code)
+
+LLM inference is a fast-evolving field, and the latest code may contain bug fixes, performance improvements, and new features that are not released yet. To allow users to try the latest code without waiting for the next release, vLLM provides wheels for every commit since `v0.5.3`
+
+on [https://wheels.vllm.ai/nightly](https://wheels.vllm.ai/nightly). There are multiple indices that could be used:
+
+`https://wheels.vllm.ai/nightly`
+
+: the default variant (CUDA with version specified in`VLLM_MAIN_CUDA_VERSION`
+
+) built with the last commit on the`main`
+
+branch. Currently it is CUDA 12.9.`https://wheels.vllm.ai/nightly/<variant>`
+
+: all other variants. Now this includes`cu130`
+
+, and`cpu`
+
+. The default variant (`cu129`
+
+) also has a subdirectory to keep consistency.
+
+To install from nightly index, run:
+
+uv pip install -U vllm \
+--torch-backend=auto \
+--extra-index-url https://wheels.vllm.ai/nightly # add variant subdirectory here if needed
+
+
+`pip`
+
+caveat
+
+Using `pip`
+
+to install from nightly indices is *not supported*, because `pip`
+
+combines packages from `--extra-index-url`
+
+and the default index, choosing only the latest version, which makes it difficult to install a development version prior to the released version. In contrast, `uv`
+
+gives the extra index [higher priority than the default index](https://docs.astral.sh/uv/pip/compatibility/#packages-that-exist-on-multiple-indexes).
+
+If you insist on using `pip`
+
+, you have to specify the full URL of the wheel file (which can be obtained from the web page).
+
+pip install -U https://wheels.vllm.ai/2f3f441f84bd5b35ec8aa9fcfffb540f107da8a7/vllm-0.23.1rc1.dev901%2Bg2f3f441f8-cp38-abi3-manylinux_2_28_x86_64.whl # current nightly build (the filename will change!)
+pip install -U https://wheels.vllm.ai/${VLLM_COMMIT}/vllm-0.23.1rc1.dev901%2Bg2f3f441f8-cp38-abi3-manylinux_2_28_x86_64.whl # from specific commit
+
+
+##### Install specific revisions[¶](https://docs.vllm.ai#install-specific-revisions)
+
+If you want to access the wheels for previous commits (e.g. to bisect the behavior change, performance regression), you can specify the commit hash in the URL:
+
+Python 3.12 required for ROCm wheels
+
+ROCm pre-built wheels are only available for **Python 3.12**. If you are using a different Python version (e.g. 3.11 or 3.13), the installer **will silently fall back** to the CUDA wheel from PyPI, which will fail on AMD GPUs with errors like `libcudart.so: cannot open shared object file`
+
+.
+
+To check your Python version: `python3 --version`
+
+
+If you need Python 3.12, you can create an isolated environment with `uv`
+
+:
+
+To install the latest version of vLLM for Python 3.12, ROCm 7.0 and `glibc >= 2.35`
+
+.
+
+Tip
+
+You can find out about which ROCm version the latest vLLM supports by checking the `vllm`
+
+package in index in extra-index-url [https://wheels.vllm.ai/rocm/](https://wheels.vllm.ai/rocm/) at [https://wheels.vllm.ai/rocm/vllm](https://wheels.vllm.ai/rocm/vllm) .
+
+Another approach is that you can use this following commands to automatically extract the wheel variants:
+
+# automatically extract the available rocm variant
+export VLLM_ROCM_VARIANT=$(curl -s https://wheels.vllm.ai/rocm/vllm | grep -oP 'rocm\d+' | head -1)
+# automatically extract the vLLM version
+export VLLM_VERSION=$(curl -s https://wheels.vllm.ai/rocm/vllm | grep -oP 'vllm-\K[0-9.]+' | head -1)
+# inspect if the ROCm version is compatible with your environment
+echo $VLLM_ROCM_VARIANT
+echo $VLLM_VERSION
+
+
+To install a specific version and ROCm variant of vLLM wheel.
+
+# version without the `v`
+uv pip install vllm==${VLLM_VERSION} --extra-index-url https://wheels.vllm.ai/rocm/${VLLM_VERSION}/${VLLM_ROCM_VARIANT}
+# Example
+uv pip install vllm==0.18.0 --extra-index-url https://wheels.vllm.ai/rocm/0.18.0/rocm700
+
+
+Caveats for using `pip`
+
+
+We recommend leveraging `uv`
+
+to install the vLLM wheel. Using `pip`
+
+to install from custom indices is cumbersome because `pip`
+
+combines packages from `--extra-index-url`
+
+and the default index, choosing only the latest version. This makes it difficult to install a wheel from a custom index unless exact versions of all packages are specified. In contrast, `uv`
+
+gives the extra index [higher priority than the default index](https://docs.astral.sh/uv/pip/compatibility/#packages-that-exist-on-multiple-indexes).
+
+If you insist on using `pip`
+
+, you need to specify the exact vLLM version in the package name and provide the custom index URL `https://wheels.vllm.ai/rocm/${VLLM_VERSION}/${VLLM_ROCM_VARIANT}`
+
+via `--extra-index-url`
+
+.
+
+#### Install the latest code[¶](https://docs.vllm.ai#install-the-latest-code_1)
+
+LLM inference is a fast-evolving field, and the latest code may contain bug fixes, performance improvements, and new features that are not released yet. To allow users to try the latest code without waiting for the next release, vLLM provides wheels for every commit since commit `171775f306a333a9cf105bfd533bf3e113d401d9`
+
+on [https://wheels.vllm.ai/rocm/nightly/](https://wheels.vllm.ai/rocm/nightly/). The custom index to be used is `https://wheels.vllm.ai/rocm/nightly/${VLLM_ROCM_VARIANT}`
+
+
+**NOTE:** The first ROCm Variant that supports nightly wheel is ROCm 7.2.1
+
+To install from latest nightly index, run:
+
+# automatically extract the available rocm variant
+export VLLM_ROCM_VARIANT=$(curl -s https://wheels.vllm.ai/rocm/nightly | \
+grep -oP 'rocm\d+' | head -1 | sed 's/%2B/+/g')
+# inspect if the ROCm version is compatible with your environment
+echo $VLLM_ROCM_VARIANT
+uv pip install --pre vllm \
+--extra-index-url https://wheels.vllm.ai/rocm/nightly/${VLLM_ROCM_VARIANT} \
+--index-strategy unsafe-best-match
+
+
+##### Install specific revisions[¶](https://docs.vllm.ai#install-specific-revisions_1)
+
+If you want to access the wheels for previous commits (e.g. to bisect the behavior change, performance regression), you can specify the commit hash in the URL, example:
+
+export VLLM_COMMIT=5b8c30d62b754b575e043ce2fc0dcbf8a64f6306
+export VLLM_ROCM_VARIANT=$(curl -s https://wheels.vllm.ai/rocm/${VLLM_COMMIT} | \
+grep -oP 'rocm\d+' | head -1 | sed 's/%2B/+/g')
+# Extract the version from the wheel URL
+export VLLM_VERSION=$(curl -s https://wheels.vllm.ai/rocm/${VLLM_COMMIT}/${VLLM_ROCM_VARIANT}/vllm/ | \
+grep -oP 'vllm-\K[^-]+' | head -1 | sed 's/%2B/+/g')
+# inspect the version if it is compatible with the ROCm version of your environment
+echo $VLLM_ROCM_VARIANT
+echo $VLLM_VERSION
+uv pip install vllm==${VLLM_VERSION} \
+--extra-index-url https://wheels.vllm.ai/rocm/${VLLM_COMMIT}/${VLLM_ROCM_VARIANT} \
+--index-strategy unsafe-best-match
+
+
+`pip`
+
+caveat
+
+Using `pip`
+
+to install from nightly indices is *not supported*, because `pip`
+
+combines packages from `--extra-index-url`
+
+and the default index, choosing only the latest version, which makes it difficult to install a development version prior to the released version. In contrast, `uv`
+
+gives the extra index [higher priority than the default index](https://docs.astral.sh/uv/pip/compatibility/#packages-that-exist-on-multiple-indexes).
+
+If you insist on using `pip`
+
+, you need to specify the exact vLLM version in the package name and provide the custom index URL (which can be obtained from the web page).
+
+export VLLM_COMMIT=5b8c30d62b754b575e043ce2fc0dcbf8a64f6306
+export VLLM_ROCM_VARIANT=$(curl -s https://wheels.vllm.ai/rocm/${VLLM_COMMIT} | \
+grep -oP 'rocm\d+' | head -1 | sed 's/%2B/+/g')
+# Extract the version from the wheel URL
+export VLLM_VERSION=$(curl -s https://wheels.vllm.ai/rocm/${VLLM_COMMIT}/${VLLM_ROCM_VARIANT}/vllm/ | \
+grep -oP 'vllm-\K[^-]+' | head -1 | sed 's/%2B/+/g')
+# inspect the version if it is compatible with the ROCm version of your environment
+echo $VLLM_ROCM_VARIANT
+echo $VLLM_VERSION
+pip install vllm==${VLLM_VERSION} \
+--extra-index-url https://wheels.vllm.ai/rocm/${VLLM_COMMIT}/${VLLM_ROCM_VARIANT}
+
+
+Pre-built vLLM XPU wheels are published to `wheels.vllm.ai`
+
+. Each XPU wheel index also contains the `triton==3.7.2+xpu`
+
+shim described below. PyTorch XPU packages are served from the PyTorch XPU index, so both index URLs are needed.
+
+#### Install the latest code[¶](https://docs.vllm.ai#install-the-latest-code_2)
+
+To install the wheel built from the latest main branch:
+
+uv pip install vllm --extra-index-url https://wheels.vllm.ai/nightly/xpu --extra-index-url https://download.pytorch.org/whl/xpu --index-strategy unsafe-best-match
+
+
+#### Install specific revisions[¶](https://docs.vllm.ai#install-specific-revisions_2)
+
+If you want to access the wheels for previous commits (e.g. to bisect the behavior change, performance regression), you can specify the commit hash in the URL:
+
+vLLM-Metal is installed via the vLLM-Metal package. See the [Set up using vLLM-Metal](https://docs.vllm.ai#set-up-using-vllm-metal) section above.
+
+### Build wheel from source[¶](https://docs.vllm.ai#build-wheel-from-source)
+
+#### Set up using Python-only build (without compilation)[¶](https://docs.vllm.ai#python-only-build)
+
+If you only need to change Python code, you can build and install vLLM without compilation. Using `uv pip`
+
+'s [ --editable flag](https://docs.astral.sh/uv/pip/packages/#editable-packages), changes you make to the code will be reflected when you run vLLM:
+
+git clone https://github.com/vllm-project/vllm.git
+cd vllm
+VLLM_USE_PRECOMPILED=1 uv pip install --editable . --torch-backend=auto
+
+
+This command will do the following:
+
+- Look for the current branch in your vLLM clone.
+- Identify the corresponding base commit in the main branch.
+- Download the pre-built wheel of the base commit.
+- Use its compiled libraries and
+`vllm-rs`
+
+binary in the installation.
+
+Note
+
+- If you change C++ or kernel code, you cannot use Python-only build; otherwise you will see an import error about library not found or undefined symbol.
+- If you rebase your dev branch, it is recommended to uninstall vllm and re-run the above command to make sure your libraries are up to date.
+
+Rebuilding the Rust frontend
+
+If you need to recompile the `vllm-rs`
+
+Rust frontend binary, you can rebuild and install it without re-running the full pip install:
+
+```
+```bash
+./build_rust.sh # release build
+./build_rust.sh --debug # faster build for development
+```
+This will install the required Rust toolchain if needed, build the binary, and place it in `vllm/vllm-rs`.
+```
+
+
+In case you see an error about wheel not found when running the above command, it might be because the commit you based on in the `main`
+
+branch was just merged and its precompiled wheel is not available yet. You can wait around an hour and retry, or set `VLLM_PRECOMPILED_WHEEL_COMMIT=nightly`
+
+to automatically select the most recent already-built commit on `main`
+
+.
+
+export VLLM_PRECOMPILED_WHEEL_COMMIT=nightly
+export VLLM_USE_PRECOMPILED=1
+uv pip install --editable .
+
+
+There are more environment variables to control the behavior of Python-only build:
+
+`VLLM_PRECOMPILED_WHEEL_LOCATION`
+
+: specify the exact wheel URL or local file path of a pre-compiled wheel to use. All other logic to find the wheel will be skipped.`VLLM_PRECOMPILED_WHEEL_COMMIT`
+
+: override the commit hash to download the pre-compiled wheel. It can be`nightly`
+
+to use the last**already built**commit on the main branch.`VLLM_PRECOMPILED_WHEEL_VARIANT`
+
+: specify the variant subdirectory to use on the nightly index, e.g.,`cu129`
+
+,`cu130`
+
+,`cpu`
+
+. If not specified, the variant is auto-detected based on your system's CUDA version (from PyTorch or nvidia-smi). You can also set`VLLM_MAIN_CUDA_VERSION`
+
+to override auto-detection.
+
+You can find more information about vLLM's wheels in [Install the latest code](https://docs.vllm.ai#install-the-latest-code).
+
+Note
+
+There is a possibility that your source code may have a different commit ID compared to the latest vLLM wheel, which could potentially lead to unknown errors. It is recommended to use the same commit ID for the source code as the vLLM wheel you have installed. Please refer to [Install the latest code](https://docs.vllm.ai#install-the-latest-code) for instructions on how to install a specified wheel.
+
+#### Full build (with compilation)[¶](https://docs.vllm.ai#full-build)
+
+Compiler requirement
+
+Building from source requires GCC/G++ ≥ 11.3. PyTorch's C++20 headers are not compatible with GCC 10 or GCC < 11.3. On Ubuntu 22.04:
+
+If you want to modify C++ or CUDA code, you'll need to build vLLM from source. This can take several minutes:
+
+CUDA Architecture & PTX Flags
+
+vLLM normalizes CUDA architectures on a per-source basis to optimize build times and wheel sizes. Global `+PTX`
+
+requests in `TORCH_CUDA_ARCH_LIST`
+
+(e.g., `TORCH_CUDA_ARCH_LIST="8.0+PTX"`
+
+) are ignored for general extension targets; vLLM generates PTX only for specific internal kernels that require it.
+
+Tip
+
+Building from source requires a lot of compilation. If you are building from source repeatedly, it's more efficient to cache the compilation results.
+
+For example, you can install [ccache](https://github.com/ccache/ccache) using `conda install ccache`
+
+or `apt install ccache`
+
+. As long as `which ccache`
+
+command can find the `ccache`
+
+binary, it will be used automatically by the build system. After the first build, subsequent builds will be much faster.
+
+When using `ccache`
+
+with `pip install -e .`
+
+, you should run `CCACHE_NOHASHDIR="true" pip install --no-build-isolation -e .`
+
+. This is because `pip`
+
+creates a new folder with a random name for each build, preventing `ccache`
+
+from recognizing that the same files are being built.
+
+[sccache](https://github.com/mozilla/sccache) works similarly to `ccache`
+
+, but has the capability to utilize caching in remote storage environments. The following environment variables can be set to configure the vLLM `sccache`
+
+remote: `SCCACHE_BUCKET=vllm-build-sccache SCCACHE_REGION=us-west-2 SCCACHE_S3_NO_CREDENTIALS=1`
+
+. We also recommend setting `SCCACHE_IDLE_TIMEOUT=0`
+
+.
+
+Faster Kernel Development
+
+For frequent C++/CUDA kernel changes, after the initial `uv pip install -e .`
+
+setup, consider using the [Incremental Compilation Workflow](https://docs.vllm.ai/contributing/incremental_build/) for significantly faster rebuilds of only the modified kernel code.
+
+##### Use an existing PyTorch installation[¶](https://docs.vllm.ai#use-an-existing-pytorch-installation)
+
+There are scenarios where the PyTorch dependency cannot be easily installed with `uv`
+
+, for example, when building vLLM with non-default PyTorch builds (like nightly or a custom build).
+
+To build vLLM using an existing PyTorch installation:
+
+# install PyTorch first, either from PyPI or from source
+git clone https://github.com/vllm-project/vllm.git
+cd vllm
+python use_existing_torch.py
+uv pip install -r requirements/build/cuda.txt
+uv pip install --no-build-isolation -e .
+
+
+Alternatively: if you are exclusively using `uv`
+
+to create and manage virtual environments, it has [a unique mechanism](https://docs.astral.sh/uv/concepts/projects/config/#disabling-build-isolation) for disabling build isolation for specific packages. vLLM can leverage this mechanism to specify `torch`
+
+as the package to disable build isolation for:
+
+# install PyTorch first, either from PyPI or from source
+git clone https://github.com/vllm-project/vllm.git
+cd vllm
+# pip install -e . does not work directly, only uv can do this
+uv pip install -e .
+
+
+##### Use the local cutlass for compilation[¶](https://docs.vllm.ai#use-the-local-cutlass-for-compilation)
+
+Currently, before starting the build process, vLLM fetches cutlass code from GitHub. However, there may be scenarios where you want to use a local version of cutlass instead. To achieve this, you can set the environment variable VLLM_CUTLASS_SRC_DIR to point to your local cutlass directory.
+
+git clone https://github.com/vllm-project/vllm.git
+cd vllm
+VLLM_CUTLASS_SRC_DIR=/path/to/cutlass uv pip install -e . --torch-backend=auto
+
+
+##### Troubleshooting[¶](https://docs.vllm.ai#troubleshooting)
+
+To avoid your system being overloaded, you can limit the number of compilation jobs to be run simultaneously, via the environment variable `MAX_JOBS`
+
+. For example:
+
+This is especially useful when you are building on less powerful machines. For example, when you use WSL it only [assigns 50% of the total memory by default](https://learn.microsoft.com/en-us/windows/wsl/wsl-config#main-wsl-settings), so using `export MAX_JOBS=1`
+
+can avoid compiling multiple files simultaneously and running out of memory. A side effect is a much slower build process.
+
+Additionally, if you have trouble building vLLM, we recommend using the NVIDIA PyTorch Docker image.
+
+# Use `--ipc=host` to make sure the shared memory is large enough.
+docker run \
+--gpus all \
+-it \
+--rm \
+--ipc=host nvcr.io/nvidia/pytorch:23.10-py3
+
+
+If you don't want to use docker, it is recommended to have a full installation of CUDA Toolkit. You can download and install it from [the official website](https://developer.nvidia.com/cuda-toolkit-archive). After installation, set the environment variable `CUDA_HOME`
+
+to the installation path of CUDA Toolkit, and make sure that the `nvcc`
+
+compiler is in your `PATH`
+
+, e.g.:
+
+Here is a sanity check to verify that the CUDA Toolkit is correctly installed:
+
+nvcc --version # verify that nvcc is in your PATH
+${CUDA_HOME}/bin/nvcc --version # verify that nvcc is in your CUDA_HOME
+
+
+#### Unsupported OS build[¶](https://docs.vllm.ai#unsupported-os-build)
+
+vLLM can fully run only on Linux but for development purposes, you can still build it on other systems (for example, macOS), allowing for imports and a more convenient development environment. The binaries will not be compiled and won't work on non-Linux systems.
+
+Simply disable the `VLLM_TARGET_DEVICE`
+
+environment variable before installing:
+
+#### Set up using Python-only build (without compilation)[¶](https://docs.vllm.ai#python-only-build)
+
+If you only need to change Python code, you can build and install vLLM without compilation. Changes you make to the code will be reflected when you run vLLM:
+
+git clone https://github.com/vllm-project/vllm.git
+cd vllm
+VLLM_USE_PRECOMPILED=1 python3 setup.py develop
+
+
+This command will do the following:
+
+- Look for the current branch in your vLLM clone.
+- Identify the corresponding base commit in the main branch.
+- Detect the ROCm version in your environment and select the matching wheel variant.
+- Download the pre-built wheel of the base commit.
+- Use its compiled libraries and
+`vllm-rs`
+
+binary in the installation.
+
+Note
+
+- If you change C++, HIP, or kernel code, you cannot use Python-only build; otherwise you may see an import error about a library not being found or an undefined symbol.
+- If you rebase your development branch, it is recommended to uninstall vLLM and re-run the above command to make sure your libraries are up to date.
+
+Rebuilding the Rust frontend
+
+If you need to recompile the `vllm-rs`
+
+Rust frontend binary, you can rebuild and install it without re-running the full installation:
+
+```
+```bash
+./build_rust.sh # release build
+./build_rust.sh --debug # faster build for development
+```
+This will install the required Rust toolchain if needed, build the binary,
+and place it in `vllm/vllm-rs`.
+```
+
+
+If you see an error about a wheel not being found, the wheel for your base commit and ROCm patch version might not be available. Check the available variants under `https://wheels.vllm.ai/rocm/<commit>/`
+
+. For example, ROCm 7.2.1 uses the `rocm721`
+
+variant.
+
+There are more environment variables to control the behavior of Python-only build:
+
+`VLLM_PRECOMPILED_WHEEL_LOCATION`
+
+: specify the exact wheel URL or local file path of a pre-compiled wheel to use. All other logic to find the wheel will be skipped.`VLLM_PRECOMPILED_WHEEL_COMMIT`
+
+: override the full commit hash used to download the pre-compiled wheel.`VLLM_PRECOMPILED_WHEEL_VARIANT`
+
+: specify the ROCm variant subdirectory, e.g.,`rocm700`
+
+or`rocm721`
+
+. If not specified, the variant is auto-detected based on your system's ROCm version. An explicitly specified variant must match the detected environment.
+
+You can find more information about vLLM's wheels in [Install the latest code](https://docs.vllm.ai#install-the-latest-code).
+
+Note
+
+There is a possibility that your source code may have a different commit ID compared to the vLLM wheel, which could potentially lead to unknown errors. It is recommended to use the same commit ID for the source code as the vLLM wheel you have installed. Please refer to [Install the latest code](https://docs.vllm.ai#install-the-latest-code) for instructions on how to install a specified wheel.
+
+#### Full build (with compilation)[¶](https://docs.vllm.ai#full-build)
+
+Tip
+
+- If you found that the following installation step does not work for you, please refer to
+[docker/Dockerfile.rocm_base](https://github.com/vllm-project/vllm/blob/main/docker/Dockerfile.rocm_base). Dockerfile is a form of installation steps.
+
+-
+Install prerequisites (skip if you are already in an environment/docker with the following installed):
+
+For installing PyTorch, you can start from a fresh docker image, e.g,
+
+`rocm/pytorch:rocm7.0_ubuntu22.04_py3.10_pytorch_release_2.8.0`
+
+,`rocm/pytorch-nightly`
+
+. If you are using docker image, you can skip to Step 3.Alternatively, you can install PyTorch using PyTorch wheels. You can check PyTorch installation guide in PyTorch
+
+[Getting Started](https://pytorch.org/get-started/locally/). Example: -
+Install
+
+[Triton for ROCm](https://github.com/ROCm/triton.git)Install ROCm's Triton following the instructions from
+
+[ROCm/triton](https://github.com/ROCm/triton.git)[python3 -m pip install ninja cmake wheel pybind11](https://docs.vllm.ai#__codelineno-37-1)[pip uninstall -y triton](https://docs.vllm.ai#__codelineno-37-2)[git clone https://github.com/ROCm/triton.git](https://docs.vllm.ai#__codelineno-37-3)[cd triton](https://docs.vllm.ai#__codelineno-37-4)[# git checkout $TRITON_BRANCH](https://docs.vllm.ai#__codelineno-37-5)[git checkout f9e5bf54](https://docs.vllm.ai#__codelineno-37-6)[if [ ! -f setup.py ]; then cd python; fi](https://docs.vllm.ai#__codelineno-37-7)[python3 setup.py install](https://docs.vllm.ai#__codelineno-37-8)[cd ../..](https://docs.vllm.ai#__codelineno-37-9)Note
+
+- The validated
+`$TRITON_BRANCH`
+
+can be found in the[docker/Dockerfile.rocm_base](https://github.com/vllm-project/vllm/blob/main/docker/Dockerfile.rocm_base). - If you see HTTP issue related to downloading packages during building triton, please try again as the HTTP error is intermittent.
+
+- The validated
+-
+Optionally, if you choose to use CK flash attention, you can install
+
+[flash attention for ROCm](https://github.com/Dao-AILab/flash-attention.git)Install ROCm's flash attention (v2.8.0) following the instructions from
+
+[ROCm/flash-attention](https://github.com/Dao-AILab/flash-attention#amd-rocm-support)For example, for ROCm 7.0, suppose your gfx arch is
+
+`gfx942`
+
+. To get your gfx architecture, run`rocminfo |grep gfx`
+
+.[git clone https://github.com/Dao-AILab/flash-attention.git](https://docs.vllm.ai#__codelineno-38-1)[cd flash-attention](https://docs.vllm.ai#__codelineno-38-2)[# git checkout $FA_BRANCH](https://docs.vllm.ai#__codelineno-38-3)[git checkout 0e60e394](https://docs.vllm.ai#__codelineno-38-4)[git submodule update --init](https://docs.vllm.ai#__codelineno-38-5)[GPU_ARCHS="gfx942" python3 setup.py install](https://docs.vllm.ai#__codelineno-38-6)[cd ..](https://docs.vllm.ai#__codelineno-38-7)Note
+
+- The validated
+`$FA_BRANCH`
+
+can be found in the[docker/Dockerfile.rocm_base](https://github.com/vllm-project/vllm/blob/main/docker/Dockerfile.rocm_base).
+
+- The validated
+-
+Optionally, if you choose to build AITER yourself to use a certain branch or commit, you can build AITER using the following steps:
+
+[python3 -m pip uninstall -y aiter](https://docs.vllm.ai#__codelineno-39-1)[git clone --recursive https://github.com/ROCm/aiter.git](https://docs.vllm.ai#__codelineno-39-2)[cd aiter](https://docs.vllm.ai#__codelineno-39-3)[git checkout $AITER_BRANCH_OR_COMMIT](https://docs.vllm.ai#__codelineno-39-4)[git submodule sync; git submodule update --init --recursive](https://docs.vllm.ai#__codelineno-39-5)[python3 setup.py develop](https://docs.vllm.ai#__codelineno-39-6)Note
+
+- You will need to config the
+`$AITER_BRANCH_OR_COMMIT`
+
+for your purpose. - The validated
+`$AITER_BRANCH_OR_COMMIT`
+
+can be found in the[docker/Dockerfile.rocm_base](https://github.com/vllm-project/vllm/blob/main/docker/Dockerfile.rocm_base).
+
+- You will need to config the
+-
+Optionally, if you want to use MORI for EP or PD disaggregation, you can install
+
+[MORI](https://github.com/ROCm/mori)using the following steps:[git clone https://github.com/ROCm/mori.git](https://docs.vllm.ai#__codelineno-40-1)[cd mori](https://docs.vllm.ai#__codelineno-40-2)[git checkout $MORI_BRANCH_OR_COMMIT](https://docs.vllm.ai#__codelineno-40-3)[git submodule sync; git submodule update --init --recursive](https://docs.vllm.ai#__codelineno-40-4)[MORI_GPU_ARCHS="gfx942;gfx950" python3 setup.py install](https://docs.vllm.ai#__codelineno-40-5)Note
+
+- You will need to config the
+`$MORI_BRANCH_OR_COMMIT`
+
+for your purpose. - The validated
+`$MORI_BRANCH_OR_COMMIT`
+
+can be found in the[docker/Dockerfile.rocm_base](https://github.com/vllm-project/vllm/blob/main/docker/Dockerfile.rocm_base).
+
+- You will need to config the
+-
+Build vLLM. For example, vLLM on ROCM 7.0 can be built with the following steps:
+
+## Commands
+
+[pip install --upgrade pip](https://docs.vllm.ai#__codelineno-41-1)[# Build & install AMD SMI](https://docs.vllm.ai#__codelineno-41-3)[pip install /opt/rocm/share/amd_smi](https://docs.vllm.ai#__codelineno-41-4)[# Install dependencies](https://docs.vllm.ai#__codelineno-41-6)[pip install --upgrade numba \](https://docs.vllm.ai#__codelineno-41-7)[scipy \](https://docs.vllm.ai#__codelineno-41-8)[huggingface-hub \](https://docs.vllm.ai#__codelineno-41-9)[setuptools_scm](https://docs.vllm.ai#__codelineno-41-10)[pip install -r requirements/rocm.txt](https://docs.vllm.ai#__codelineno-41-11)[# To build for a single architecture (e.g., MI300) for faster installation (recommended):](https://docs.vllm.ai#__codelineno-41-13)[export PYTORCH_ROCM_ARCH="gfx942"](https://docs.vllm.ai#__codelineno-41-14)[# To build vLLM for multiple arch MI210/MI250/MI300, use this instead](https://docs.vllm.ai#__codelineno-41-16)[# export PYTORCH_ROCM_ARCH="gfx90a;gfx942"](https://docs.vllm.ai#__codelineno-41-17)[python3 setup.py develop](https://docs.vllm.ai#__codelineno-41-19)This may take 5-10 minutes. Currently,
+
+`pip install .`
+
+does not work for ROCm when installing vLLM from source.Tip
+
+- The ROCm version of PyTorch, ideally, should match the ROCm driver version.
+
+
+Tip
+
+- For MI300x (gfx942) users, to achieve optimal performance, please refer to
+[MI300x tuning guide](https://rocm.docs.amd.com/en/latest/how-to/tuning-guides/mi300x/index.html)for performance optimization and tuning tips on system and workflow level. For vLLM, please refer to[vLLM performance optimization](https://rocm.docs.amd.com/en/latest/how-to/rocm-for-ai/inference-optimization/vllm-optimization.html).
+
+- First, install required
+[driver](https://dgpu-docs.intel.com/driver/installation.html#installing-gpu-drivers). - Second, install Python packages for vLLM XPU backend building (Intel OneAPI dependencies are installed automatically as part of
+`torch-xpu`
+
+, see[PyTorch XPU get started](https://docs.pytorch.org/docs/stable/notes/get_start_xpu.html)): - Start from vllm-xpu-kernels v0.1.10, we recommend user upgrade driver to
+[compute runtime 26.18](https://github.com/intel/compute-runtime/releases/tag/26.18.38308.1)release, to avoid potential compatibility issue.
+
+git clone https://github.com/vllm-project/vllm.git
+cd vllm
+pip install --upgrade pip
+pip install -v -r requirements/xpu.txt
+
+
+- Then, install vLLM XPU backend:
+
+Note
+
+`requirements/xpu.txt`
+
+pins `triton==3.7.2+xpu`
+
+, a compatibility shim hosted on `https://wheels.vllm.ai/xpu`
+
+that transparently resolves to the real Intel XPU implementation (`triton-xpu`
+
+). This exists because some transitive dependencies (e.g. `xgrammar`
+
+) unconditionally require a distribution literally named `triton`
+
+, which otherwise resolves to the NVIDIA-only PyPI `triton`
+
+package on XPU and can cause correctness or runtime issues. No manual uninstall/reinstall of `triton`
+
+/`triton-xpu`
+
+is needed; both `pip install`
+
+and `uv pip install --index-strategy unsafe-best-match`
+
+resolve the correct package automatically.
+
+For build instructions from source, refer to the [vLLM-Metal documentation](https://github.com/vllm-project/vllm-metal#installation).
+
+## Set up using Docker[¶](https://docs.vllm.ai#set-up-using-docker)
+
+### Pre-built images[¶](https://docs.vllm.ai#pre-built-images)
+
+vLLM offers an official Docker image for deployment. The image can be used to run OpenAI compatible server and is available on Docker Hub as [vllm/vllm-openai](https://hub.docker.com/r/vllm/vllm-openai/tags).
+
+docker run --runtime nvidia --gpus all \
+-v ~/.cache/huggingface:/root/.cache/huggingface \
+--env "HF_TOKEN=$HF_TOKEN" \
+-p 8000:8000 \
+--ipc=host \
+vllm/vllm-openai:latest \
+--model Qwen/Qwen3-0.6B
+
+
+This image can also be used with other container engines such as [Podman](https://podman.io/).
+
+podman run --device nvidia.com/gpu=all \
+-v ~/.cache/huggingface:/root/.cache/huggingface \
+--env "HF_TOKEN=$HF_TOKEN" \
+-p 8000:8000 \
+--ipc=host \
+docker.io/vllm/vllm-openai:latest \
+--model Qwen/Qwen3-0.6B
+
+
+You can add any other [engine-args](https://docs.vllm.ai/configuration/engine_args/) you need after the image tag (`vllm/vllm-openai:latest`
+
+).
+
+Note
+
+You can either use the `ipc=host`
+
+flag or `--shm-size`
+
+flag to allow the container to access the host's shared memory. vLLM uses PyTorch, which uses shared memory to share data between processes under the hood, particularly for tensor parallel inference.
+
+Note
+
+Optional dependencies are not included in order to avoid licensing issues (e.g. [ Issue #8030](https://github.com/vllm-project/vllm/issues/8030)).
+
+If you need to use those dependencies (having accepted the license terms), create a custom Dockerfile on top of the base image with an extra layer that installs them:
+
+Tip
+
+Some new models may only be available on the main branch of [HF Transformers](https://github.com/huggingface/transformers).
+
+To use the development version of `transformers`
+
+, create a custom Dockerfile on top of the base image with an extra layer that installs their code from source:
+
+#### Running on Systems with Older CUDA Drivers[¶](https://docs.vllm.ai#running-on-systems-with-older-cuda-drivers)
+
+vLLM's Docker image comes with [CUDA compatibility libraries](https://docs.nvidia.com/deploy/cuda-compatibility/index.html) pre-installed. This allows you to run vLLM on systems with NVIDIA drivers that are older than the CUDA Toolkit version used in the image, but only supports select professional and datacenter NVIDIA GPUs.
+
+For CUDA 13 images, the minimum host kernel is Linux 4.15 when running normally because CUDA 13 requires an R580 or newer driver. Compatibility mode supports R535 and R570 host drivers; R535 lowers the minimum host kernel to Linux 3.10, while R570 still requires Linux 4.15. Upgrading the container userland to Ubuntu 24.04 does not raise these driver-defined kernel requirements. See NVIDIA's [forward compatibility matrix](https://docs.nvidia.com/deploy/cuda-compatibility/forward-compatibility.html#use-the-right-cuda-forward-compatibility-package), [R535 requirements](https://download.nvidia.com/XFree86/Linux-x86_64/535.104.05/README/minimumrequirements.html), and [R580 requirements](https://download.nvidia.com/XFree86/Linux-x86_64/580.76.05/README/minimumrequirements.html).
+
+To enable this feature, set the `VLLM_ENABLE_CUDA_COMPATIBILITY`
+
+environment variable to `1`
+
+or `true`
+
+when running the container:
+
+docker run --runtime nvidia --gpus all \
+-v ~/.cache/huggingface:/root/.cache/huggingface \
+-p 8000:8000 \
+--env "HF_TOKEN=<secret>" \
+--env "VLLM_ENABLE_CUDA_COMPATIBILITY=1" \
+vllm/vllm-openai <args...>
+
+
+This will automatically configure `LD_LIBRARY_PATH`
+
+to point to the compatibility libraries before loading PyTorch and other dependencies.
+
+vLLM offers official Docker images for deployment. The images can be used to run OpenAI compatible server and are available on Docker Hub as [vllm/vllm-openai-rocm](https://hub.docker.com/r/vllm/vllm-openai-rocm/tags).
+
+`vllm/vllm-openai-rocm:latest`
+
+— stable release`vllm/vllm-openai-rocm:nightly`
+
+— preview build from the latest development branch, use this if you want the latest features and fixes
+
+docker run --rm \
+--group-add=video \
+--cap-add=SYS_PTRACE \
+--security-opt seccomp=unconfined \
+--device /dev/kfd \
+--device /dev/dri \
+-v ~/.cache/huggingface:/root/.cache/huggingface \
+--env "HF_TOKEN=$HF_TOKEN" \
+-p 8000:8000 \
+--ipc=host \
+vllm/vllm-openai-rocm:<tag> \
+--model Qwen/Qwen3-0.6B
+
+
+To use the docker image as base for development, you can launch it in interactive session through overriding the entrypoint.
+
+## Commands
+
+docker run --rm -it \
+--group-add=video \
+--cap-add=SYS_PTRACE \
+--security-opt seccomp=unconfined \
+--device /dev/kfd \
+--device /dev/dri \
+-v ~/.cache/huggingface:/root/.cache/huggingface \
+--env "HF_TOKEN=$HF_TOKEN" \
+--network=host \
+--ipc=host \
+--entrypoint /bin/bash \
+vllm/vllm-openai-rocm:<tag>
+
+
+#### Use AMD's Docker Images (Deprecated)[¶](https://docs.vllm.ai#use-amds-docker-images-deprecated)
+
+Deprecated
+
+AMD's Docker images (`rocm/vllm`
+
+and `rocm/vllm-dev`
+
+) are deprecated in favor of the official vLLM Docker images above (`vllm/vllm-openai-rocm`
+
+). Please migrate to the official images.
+
+Prior to January 20th, 2026 when the official docker images became available on [upstream vLLM docker hub](https://hub.docker.com/v2/repositories/vllm/vllm-openai-rocm/tags/), the [AMD Infinity hub for vLLM](https://hub.docker.com/r/rocm/vllm/tags) offered a prebuilt, optimized docker image designed for validating inference performance on the AMD Instinct MI300X™ accelerator. AMD also offered nightly prebuilt docker image from [Docker Hub](https://hub.docker.com/r/rocm/vllm-dev), which has vLLM and all its dependencies installed. The entrypoint of this docker image is `/bin/bash`
+
+(different from the vLLM's Official Docker Image).
+
+Tip
+
+Please check [LLM inference performance validation on AMD Instinct MI300X](https://rocm.docs.amd.com/en/latest/how-to/performance-validation/mi300x/vllm-benchmark.html) for instructions on how to use this prebuilt docker image.
+
+vLLM offers official Docker images for deployment. The images can be used to run OpenAI compatible server and are available on Docker Hub as [vllm/vllm-openai-xpu](https://hub.docker.com/r/vllm/vllm-openai-xpu/tags).
+
+`vllm/vllm-openai-xpu:latest`
+
+— stable release, available starting from v0.26.0`vllm/vllm-openai-xpu:nightly`
+
+— preview build from the latest development branch, use this if you want the latest features and fixes
+
+docker run --rm \
+--network=host \
+--device /dev/dri:/dev/dri \
+-v /dev/dri/by-path:/dev/dri/by-path \
+-v ~/.cache/huggingface:/root/.cache/huggingface \
+--env "HF_TOKEN=$HF_TOKEN" \
+--ipc=host \
+--privileged \
+vllm/vllm-openai-xpu:<tag> \
+--model Qwen/Qwen3-0.6B
+
+
+To use the docker image as base for development, you can launch it in interactive session through overriding the entrypoint.
+
+### Build image from source[¶](https://docs.vllm.ai#build-image-from-source)
+
+You can build and run vLLM from source via the provided [docker/Dockerfile](https://github.com/vllm-project/vllm/blob/main/docker/Dockerfile). To build vLLM:
+
+# optionally specifies: --build-arg max_jobs=8 --build-arg nvcc_threads=2
+DOCKER_BUILDKIT=1 docker build . \
+--target vllm-openai \
+--tag vllm/vllm-openai \
+--file docker/Dockerfile
+
+
+Note
+
+By default vLLM will build for all GPU types for widest distribution. If you are just building for the current GPU type, you can add `--build-arg torch_cuda_arch_list=""`
+
+to delegate architecture selection to PyTorch. This requires the GPU to be visible to the container build; standard Docker BuildKit builds do not expose it and PyTorch instead falls back to its common architecture list.
+
+If you are using Podman instead of Docker, you might need to disable SELinux labeling by adding `--security-opt label=disable`
+
+when running `podman build`
+
+command to avoid certain [existing issues](https://github.com/containers/buildah/discussions/4184).
+
+Note
+
+If you have not changed any C++ or CUDA kernel code, you can use precompiled wheels to significantly reduce Docker build time.
+
+**Enable the feature**by adding the build argument:`--build-arg VLLM_USE_PRECOMPILED="1"`
+
+.**How it works**: By default, vLLM automatically finds the correct wheels from our[Nightly Builds](https://docs.vllm.ai/contributing/ci/nightly_builds/)by using the merge-base commit with the upstream`main`
+
+branch.**Override commit**: To use wheels from a specific commit, provide the`--build-arg VLLM_PRECOMPILED_WHEEL_COMMIT=<commit_hash>`
+
+argument.
+
+For a detailed explanation, refer to the documentation on 'Set up using Python-only build (without compilation)' part in [Build wheel from source](https://docs.vllm.ai/contributing/ci/nightly_builds/#precompiled-wheels-usage), these args are similar.
+
+#### Building vLLM's Docker Image from Source for Arm64/aarch64[¶](https://docs.vllm.ai#building-vllms-docker-image-from-source-for-arm64aarch64)
+
+A docker container can be built for aarch64 systems such as the Nvidia Grace-Hopper and Grace-Blackwell. Using the flag `--platform "linux/arm64"`
+
+will build for arm64.
+
+Note
+
+Multiple modules must be compiled, so this process can take a while. Recommend using `--build-arg max_jobs=`
+
+& `--build-arg nvcc_threads=`
+
+flags to speed up build process. However, ensure your `max_jobs`
+
+is substantially larger than `nvcc_threads`
+
+to get the most benefits. Keep an eye on memory usage with parallel jobs as it can be substantial (see example below).
+
+## Command
+
+# Example of building on Nvidia GH200 server. (Memory usage: ~15GB, Build time: ~1475s / ~25 min, Image size: 6.93GB)
+DOCKER_BUILDKIT=1 docker build . \
+--file docker/Dockerfile \
+--target vllm-openai \
+--platform "linux/arm64" \
+-t vllm/vllm-gh200-openai:latest \
+--build-arg max_jobs=66 \
+--build-arg nvcc_threads=2 \
+--build-arg BUILD_BASE_IMAGE=pytorch/manylinuxaarch64-builder:cuda13.0-78e737ad29420ffc4800e677c51e2a852caf8359 \
+--build-arg torch_cuda_arch_list="9.0 10.0+PTX"
+
+
+For (G)B300, we recommend using CUDA 13, as shown in the following command.
+
+## Command
+
+DOCKER_BUILDKIT=1 docker build \
+--build-arg CUDA_VERSION=13.0.2 \
+--build-arg BUILD_BASE_IMAGE=pytorch/manylinuxaarch64-builder:cuda13.0-78e737ad29420ffc4800e677c51e2a852caf8359 \
+--build-arg max_jobs=256 \
+--build-arg nvcc_threads=2 \
+--build-arg torch_cuda_arch_list='9.0 10.0+PTX' \
+--platform "linux/arm64" \
+--tag vllm/vllm-gb300-openai:latest \
+--target vllm-openai \
+-f docker/Dockerfile \
+.
+
+
+Note
+
+If you are building the `linux/arm64`
+
+image on a non-ARM host (e.g., an x86_64 machine), you need to ensure your system is set up for cross-compilation using QEMU. This allows your host machine to emulate ARM64 execution.
+
+Run the following command on your host machine to register QEMU user static handlers:
+
+After setting up QEMU, you can use the `--platform "linux/arm64"`
+
+flag in your `docker build`
+
+command.
+
+#### [Preview] Building vLLM's Docker Image from Source for NVIDIA Rubin GPU Architecture[¶](https://docs.vllm.ai#preview-building-vllms-docker-image-from-source-for-nvidia-rubin-gpu-architecture)
+
+Set `INSTALL_RUBIN_PRERELEASE=true`
+
+to enable the Rubin build path.
+
+Triton must currently be installed from source for Rubin compatibility. Specify its repository with `TRITON_INSTALL_FROM_SOURCE_REPO`
+
+; an empty `TRITON_INSTALL_FROM_SOURCE_REVISION`
+
+selects the repository's latest `main`
+
+, while a commit, branch, or tag selects that revision. The tested revision lowers SM107 through LLVM's SM100 target and uses the final CUDA image's version-matched `ptxas`
+
+for SM107 assembly. This enables vLLM's default compiled mode on VR200 and R100.
+
+BuildKit does not automatically invalidate cached layers when a mutable Git ref changes. Use `--no-cache-filter extensions-build`
+
+to refresh an empty, branch, or tag revision.
+
+For `FINAL_BASE_IMAGE`
+
+, use the public, multi-arch `nvcr.io/nvidia/cuda-dl-base:26.08-cuda13.4-devel-ubuntu24.04`
+
+image. For `BUILD_BASE_IMAGE`
+
+, use:
+
+`pytorch/manylinux2_28-builder:cuda13.4`
+
+for x86_64 CPUs.`pytorch/manylinuxaarch64-builder:cuda13.4`
+
+for ARM64/AArch64 CPUs.
+
+## ARM64/AArch64 build command
+
+docker buildx build --progress=plain --load \
+--file docker/Dockerfile \
+--target vllm-openai \
+--platform "linux/arm64" \
+--tag "vllm/vllm-rubin-openai:prerelease-cu134-public-arm64" \
+--build-arg max_jobs="$(nproc)" \
+--build-arg nvcc_threads=2 \
+--build-arg RUN_WHEEL_CHECK=false \
+--build-arg INSTALL_RUBIN_PRERELEASE=true \
+--build-arg TRITON_INSTALL_FROM_SOURCE_REPO=https://github.com/triton-lang/triton.git \
+--build-arg TRITON_INSTALL_FROM_SOURCE_REVISION=3f6e41132b5edf639bfb872ad73d4688765e08b8 \
+--build-arg CUDA_VERSION=13.4 \
+--build-arg BUILD_BASE_IMAGE="pytorch/manylinuxaarch64-builder:cuda13.4" \
+--build-arg FINAL_BASE_IMAGE="nvcr.io/nvidia/cuda-dl-base:26.08-cuda13.4-devel-ubuntu24.04" \
+.
+
+
+## x86_64 build command
+
+docker buildx build --progress=plain --load \
+--file docker/Dockerfile \
+--target vllm-openai \
+--platform "linux/amd64" \
+--tag "vllm/vllm-rubin-openai:prerelease-cu134-public-amd64" \
+--build-arg max_jobs="$(nproc)" \
+--build-arg nvcc_threads=2 \
+--build-arg RUN_WHEEL_CHECK=false \
+--build-arg INSTALL_RUBIN_PRERELEASE=true \
+--build-arg TRITON_INSTALL_FROM_SOURCE_REPO=https://github.com/triton-lang/triton.git \
+--build-arg TRITON_INSTALL_FROM_SOURCE_REVISION=3f6e41132b5edf639bfb872ad73d4688765e08b8 \
+--build-arg CUDA_VERSION=13.4 \
+--build-arg BUILD_BASE_IMAGE="pytorch/manylinux2_28-builder:cuda13.4" \
+--build-arg FINAL_BASE_IMAGE="nvcr.io/nvidia/cuda-dl-base:26.08-cuda13.4-devel-ubuntu24.04" \
+.
+
+
+Note
+
+Keep the default explicit `torch_cuda_arch_list`
+
+. GPU-less BuildKit builds cannot inspect the host GPU. R100 and VR200 report compute capability 10.7, for which the generic `10.0`
+
+target provides family-compatible kernels. The Ubuntu `devel`
+
+final image is also required: the corresponding `base`
+
+image lacks the CUDA runtime/JIT package closure used by vLLM and the prerelease PyTorch wheel.
+
+`RUN_WHEEL_CHECK=false`
+
+disables only the PyPI publication-size guard for this private staging image.
+
+#### Use the custom-built vLLM Docker image**[¶](https://docs.vllm.ai#use-the-custom-built-vllm-docker-image)
+
+To run vLLM with the custom-built Docker image:
+
+docker run --runtime nvidia --gpus all \
+-v ~/.cache/huggingface:/root/.cache/huggingface \
+-p 8000:8000 \
+--env "HF_TOKEN=<secret>" \
+vllm/vllm-openai <args...>
+
+
+The argument `vllm/vllm-openai`
+
+specifies the image to run, and should be replaced with the name of the custom-built image (the `-t`
+
+tag from the build command).
+
+Note
+
+**For version 0.4.1 and 0.4.2 only** - the vLLM docker images under these versions are supposed to be run under the root user since a library under the root user's home directory, i.e. `/root/.config/vllm/nccl/cu12/libnccl.so.2.18.1`
+
+is required to be loaded during runtime. If you are running the container under a different user, you may need to first change the permissions of the library (and all the parent directories) to allow the user to access it, then run vLLM with environment variable `VLLM_NCCL_SO_PATH=/root/.config/vllm/nccl/cu12/libnccl.so.2.18.1`
+
+.
+
+You can build and run vLLM from source via the provided [docker/Dockerfile.rocm](https://github.com/vllm-project/vllm/blob/main/docker/Dockerfile.rocm).
+
+## (Optional) Build an image with ROCm software stack
+
+Build a docker image from [docker/Dockerfile.rocm_base](https://github.com/vllm-project/vllm/blob/main/docker/Dockerfile.rocm_base) which setup ROCm software stack needed by the vLLM. **This step is optional as this rocm_base image is usually prebuilt and store at Docker Hub under tag rocm/vllm-dev:base to speed up user experience.** If you choose to build this rocm_base image yourself, the steps are as follows.
+
+
+It is important that the user kicks off the docker build using buildkit. Either the user put `DOCKER_BUILDKIT=1`
+
+as environment variable when calling docker build command, or the user needs to set up buildkit in the docker daemon configuration `/etc/docker/daemon.json`
+
+as follows and restart the daemon:
+
+To build vllm on ROCm 7.0 for MI200 and MI300 series, you can use the default:
+
+First, build a docker image from [docker/Dockerfile.rocm](https://github.com/vllm-project/vllm/blob/main/docker/Dockerfile.rocm) and launch a docker container from the image. It is important that the user kicks off the docker build using buildkit. Either the user put `DOCKER_BUILDKIT=1`
+
+as environment variable when calling docker build command, or the user needs to set up buildkit in the docker daemon configuration /etc/docker/daemon.json as follows and restart the daemon:
+
+[docker/Dockerfile.rocm](https://github.com/vllm-project/vllm/blob/main/docker/Dockerfile.rocm) uses ROCm 7.0 by default, but also supports ROCm 5.7, 6.0, 6.1, 6.2, 6.3, and 6.4, in older vLLM branches. It provides flexibility to customize the build of docker image using the following arguments:
+
+`BASE_IMAGE`
+
+: specifies the base image used when running`docker build`
+
+. The default value`rocm/vllm-dev:base`
+
+is an image published and maintained by AMD. It is being built using[docker/Dockerfile.rocm_base](https://github.com/vllm-project/vllm/blob/main/docker/Dockerfile.rocm_base)`ARG_PYTORCH_ROCM_ARCH`
+
+: Allows to override the gfx architecture values from the base docker image
+
+Their values can be passed in when running `docker build`
+
+with `--build-arg`
+
+options.
+
+To build vllm on ROCm 7.0 for MI200 and MI300 series, you can use the default (which build a docker image with `vllm serve`
+
+as entrypoint):
+
+To run vLLM with the custom-built Docker image:
+
+docker run --rm \
+--group-add=video \
+--cap-add=SYS_PTRACE \
+--security-opt seccomp=unconfined \
+--device /dev/kfd \
+--device /dev/dri \
+-v ~/.cache/huggingface:/root/.cache/huggingface \
+--env "HF_TOKEN=$HF_TOKEN" \
+-p 8000:8000 \
+--ipc=host \
+vllm/vllm-openai-rocm <args...>
+
+
+The argument `vllm/vllm-openai-rocm`
+
+specifies the image to run, and should be replaced with the name of the custom-built image (the `-t`
+
+tag from the build command).
+
+To use the docker image as base for development, you can launch it in interactive session through overriding the entrypoint.
+
+## Commands
+
+## Supported features[¶](https://docs.vllm.ai#supported-features)
+
+See [Feature x Hardware](https://docs.vllm.ai/features/#feature-x-hardware) compatibility matrix for feature support information.
+
+See [Feature x Hardware](https://docs.vllm.ai/features/#feature-x-hardware) compatibility matrix for feature support information.
+
+XPU platform supports **tensor parallel** inference/serving and also supports **pipeline parallel** as a beta feature for online serving. For **pipeline parallel**, we support it on single node with mp as the backend. For example, a reference execution like following:
+
+vllm serve facebook/opt-13b \
+--dtype=bfloat16 \
+--max_model_len=1024 \
+--distributed-executor-backend=mp \
+--pipeline-parallel-size=2 \
+-tp=8
+
+
+By default, a ray instance will be launched automatically if no existing one is detected in the system, with `num-gpus`
+
+equals to `parallel_config.world_size`
+
+. We recommend properly starting a ray cluster before execution, referring to the [examples/ray_serving/run_cluster.sh](https://github.com/vllm-project/vllm/blob/main/examples/ray_serving/run_cluster.sh) helper script.
+
+vLLM-Metal provides:
+
+- Native GPU acceleration using Metal
+- MLX-based compute backend optimized for Apple Silicon
+- OpenAI-compatible API server
+- Support for popular model architectures
+
+For specific feature support and limitations, refer to the [vLLM-Metal documentation](https://github.com/vllm-project/vllm-metal).

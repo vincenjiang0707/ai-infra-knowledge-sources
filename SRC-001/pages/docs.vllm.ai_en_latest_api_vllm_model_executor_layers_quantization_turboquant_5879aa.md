@@ -1,0 +1,284 @@
+source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/turboquant/
+lastmod: 2026-09-23
+
+#
+
+`vllm.model_executor.layers.quantization.turboquant`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant)
+
+TurboQuant: KV-cache quantization for vLLM.
+
+Hadamard rotation + per-coordinate Lloyd-Max scalar quantization for keys, uniform quantization for values.
+
+The core algorithmic pattern implemented for key quantization (Hadamard rotation followed by deterministic scalar quantization and re-normalization) was originally established in DRIVE (Vargaftik et al., NeurIPS 2021) and EDEN (Vargaftik et al., ICML 2022). This formulation is also mathematically equivalent to the scalar case of the HIGGS quantization method (Malinovskii et al., "Pushing the Limits of Large Language Model Quantization via the Linearity Theorem", NAACL 2025; preprint arXiv:2411.17525), which subsequently generalized these concepts.
+
+A first application of this approach to KV-cache compression is in "Cache Me If You Must: Adaptive Key-Value Quantization for Large Language Models" (Shutova et al., ICML 2025; preprint arXiv:2501.19392). All of these foundational and application references pre-date the TurboQuant paper (Zandieh et al., ICLR 2026).
+
+Modules:
+
+Classes:
+
+-
+–[TurboQuantConfig](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig)Configuration for TurboQuant KV-cache quantization.
+
+
+##
+
+`TurboQuantConfig`
+
+`dataclass`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig)
+
+Configuration for TurboQuant KV-cache quantization.
+
+Applies Hadamard rotation followed by per-coordinate Lloyd-Max scalar quantization for keys, and uniform quantization for values.
+
+Historical note: the core algorithmic pattern implemented for key quantization (Hadamard rotation followed by deterministic scalar quantization and re-normalization) was originally established in DRIVE (Vargaftik et al., NeurIPS 2021) and EDEN (Vargaftik et al., ICML 2022). This formulation is also mathematically equivalent to the scalar case of the HIGGS quantization method (Malinovskii et al., "Pushing the Limits of Large Language Model Quantization via the Linearity Theorem", NAACL 2025; preprint arXiv:2411.17525), which subsequently generalized these concepts.
+
+A first application of this approach to KV-cache compression is in "Cache Me If You Must: Adaptive Key-Value Quantization for Large Language Models" (Shutova et al., ICML 2025; preprint arXiv:2501.19392). All of these foundational and application references pre-date the TurboQuant paper (Zandieh et al., ICLR 2026).
+
+QJL is intentionally omitted: community consensus (5+ independent groups) found it hurts attention quality by amplifying variance through softmax.
+
+Named presets (use via --kv-cache-dtype): turboquant_k8v4: FP8 keys + 4-bit values, 2.6x, +1.17% PPL turboquant_4bit_nc: 4-bit MSE keys + 4-bit values + NC, 3.8x, +2.71% turboquant_k3v4_nc: 3-bit MSE keys + 4-bit values + NC, ~3.5x, +10.63% turboquant_3bit_nc: 3-bit MSE keys + 3-bit values + NC, 4.9x, +20.59%
+
+Parameters:
+
+-
+
+(`head_dim`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig(head_dim))
+
+, default:[int](https://docs.python.org/3/builtins/functions.html#int)`128`
+
+) –Attention head dimension (e.g. 64, 96, 128).
+
+-
+
+(`key_quant_bits`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig(key_quant_bits))
+
+, default:[int](https://docs.python.org/3/builtins/functions.html#int)`3`
+
+) –Bits for key quantization. 8 = FP8 keys (no rotation/MSE). 3-4 = Lloyd-Max MSE quantized keys.
+
+-
+
+(`value_quant_bits`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig(value_quant_bits))
+
+, default:[int](https://docs.python.org/3/builtins/functions.html#int)`4`
+
+) –Bits per value dimension for uniform quantization. 3 = 8 levels, 4 = 16 levels (default).
+
+-
+
+(`norm_correction`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig(norm_correction))
+
+, default:[bool](https://docs.python.org/3/builtins/functions.html#bool)`False`
+
+) –Re-normalize centroid vectors to unit norm before inverse rotation during dequant. Fixes quantization-induced norm distortion, improving PPL by ~0.8% at 4-bit.
+
+
+Methods:
+
+-
+–[from_cache_dtype](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.from_cache_dtype)Create config from a named preset.
+
+-
+–[get_boundary_skip_layers](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.get_boundary_skip_layers)Layer indices to skip TQ compression (boundary protection).
+
+
+Attributes:
+
+-
+([centroid_bits](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.centroid_bits)
+
+) –[int](https://docs.python.org/3/builtins/functions.html#int)Bits for centroid generation — always non-zero.
+
+-
+([effective_value_quant_bits](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.effective_value_quant_bits)
+
+) –[int](https://docs.python.org/3/builtins/functions.html#int)Actual bits used for value storage.
+
+-
+([key_fp8](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.key_fp8)
+
+) –[bool](https://docs.python.org/3/builtins/functions.html#bool)Whether keys are stored as FP8 — no rotation/quantization needed.
+
+-
+([key_mse_bits](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.key_mse_bits)
+
+) –[int](https://docs.python.org/3/builtins/functions.html#int)MSE bits actually used for key quantization (0 if FP8 keys).
+
+-
+([key_packed_size](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.key_packed_size)
+
+) –[int](https://docs.python.org/3/builtins/functions.html#int)Packed bytes for a single KEY vector.
+
+-
+([mse_bits](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.mse_bits)
+
+) –[int](https://docs.python.org/3/builtins/functions.html#int)MSE quantizer bit-width (determines centroid count: 2^mse_bits).
+
+-
+([slot_size](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.slot_size)
+
+) –[int](https://docs.python.org/3/builtins/functions.html#int)Total packed bytes per head per position (key + value combined).
+
+-
+([slot_size_aligned](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.slot_size_aligned)
+
+) –[int](https://docs.python.org/3/builtins/functions.html#int)Slot size rounded up to next even number.
+
+-
+([value_packed_size](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.value_packed_size)
+
+) –[int](https://docs.python.org/3/builtins/functions.html#int)Packed bytes for a single VALUE vector.
+
+
+## Source code in `vllm/model_executor/layers/quantization/turboquant/config.py`
+
+
+|
+|
+
+###
+
+`centroid_bits`
+
+`property`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.centroid_bits)
+
+Bits for centroid generation — always non-zero.
+
+###
+
+`effective_value_quant_bits`
+
+`property`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.effective_value_quant_bits)
+
+Actual bits used for value storage.
+
+###
+
+`key_fp8`
+
+`property`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.key_fp8)
+
+Whether keys are stored as FP8 — no rotation/quantization needed.
+
+###
+
+`key_mse_bits`
+
+`property`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.key_mse_bits)
+
+MSE bits actually used for key quantization (0 if FP8 keys).
+
+###
+
+`key_packed_size`
+
+`property`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.key_packed_size)
+
+Packed bytes for a single KEY vector.
+
+FP8 mode (key_quant_bits=8): head_dim bytes (1 byte per element, no overhead).
+
+## TQ mode
+
+- MSE indices: ceil(head_dim * key_mse_bits / 8) bytes
+- vec_norm: 2 bytes (float16)
+
+###
+
+`mse_bits`
+
+`property`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.mse_bits)
+
+MSE quantizer bit-width (determines centroid count: 2^mse_bits).
+
+For MSE key modes, equals key_quant_bits. For FP8 key mode, falls back to value_quant_bits (centroids are still needed for continuation-prefill dequant and decode kernel params).
+
+###
+
+`slot_size`
+
+`property`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.slot_size)
+
+Total packed bytes per head per position (key + value combined).
+
+Layout: [key_packed | value_packed]
+
+###
+
+`slot_size_aligned`
+
+`property`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.slot_size_aligned)
+
+Slot size rounded up to next even number.
+
+Even-number is required so effective_head_size = slot_size_aligned // 2 is integral.
+
+###
+
+`value_packed_size`
+
+`property`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.value_packed_size)
+
+Packed bytes for a single VALUE vector.
+
+Uniform quantization: ceil(head_dim * bits / 8) + 4 bytes (scale + zero fp16).
+
+###
+
+`from_cache_dtype(cache_dtype, head_dim)`
+
+`staticmethod`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.from_cache_dtype)
+
+Create config from a named preset.
+
+Valid presets: turboquant_k8v4, turboquant_4bit_nc, etc.
+
+## Source code in `vllm/model_executor/layers/quantization/turboquant/config.py`
+
+
+###
+
+`get_boundary_skip_layers(model_config, n=2)`
+
+`staticmethod`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.turboquant.TurboQuantConfig.get_boundary_skip_layers)
+
+Layer indices to skip TQ compression (boundary protection).
+
+For hybrid models (attention + Mamba/linear-attention), boundary protection is disabled — hybrids typically have only 8-12 full-attention layers and a hard n=2 on each side would cover ~40 % of them. The dense GSM8K baselines that motivate n=2 don't apply to hybrids.
+
+For dense models, skips first N and last N attention layers. Empirically required for aggressive presets (k3v4_nc, 3bit_nc) — without it GSM8K drops ~30 points on Qwen3-4B.

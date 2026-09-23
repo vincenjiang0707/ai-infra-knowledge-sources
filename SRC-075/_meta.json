@@ -1,0 +1,56 @@
+{
+ "src_id": "SRC-075",
+ "name": "KernelBench",
+ "category": "Kernel、编译与⾃动优化",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:21:07Z",
+ "finished_at": "2026-09-23T03:21:07Z",
+ "duration_seconds": 31.6,
+ "attempts": 1,
+ "channels": {
+  "gh_f993255d": {
+   "type": "github_repo",
+   "url": "https://github.com/ScalingIntelligence/KernelBench",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 48,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 0
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  }
+ },
+ "cursor": {
+  "gh_f993255d:issues": {
+   "last_updated_at": "2026-09-17T08:23:10Z"
+  },
+  "gh_f993255d:pulls": {
+   "last_updated_at": "2026-09-21T02:00:13Z"
+  }
+ },
+ "notes": ""
+}

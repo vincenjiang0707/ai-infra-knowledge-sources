@@ -1,0 +1,28 @@
+{
+ "src_id": "SRC-094",
+ "name": "Ray Serve LLM",
+ "category": "KV、路由、分布式与基础设施",
+ "priority": "扩",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:13:03Z",
+ "finished_at": "2026-09-23T05:06:52Z",
+ "duration_seconds": 20.9,
+ "attempts": 3,
+ "channels": {
+  "site_1038e238": {
+   "type": "sitemap",
+   "url": "https://docs.ray.io/en/latest/serve/llm/",
+   "mode": "sitemap.xml",
+   "pages_total": 27,
+   "status": "ok",
+   "pages_fetched": 27,
+   "pages_failed": 0,
+   "output_dir": "pages/",
+   "cap": 2000
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

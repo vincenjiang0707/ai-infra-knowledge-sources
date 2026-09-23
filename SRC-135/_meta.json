@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-135",
+ "name": "腾讯云开发者社区",
+ "category": "⼀⼿⼯程博客与服务商经验",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:21:26Z",
+ "finished_at": "2026-09-23T04:21:26Z",
+ "duration_seconds": 2.7,
+ "attempts": 1,
+ "channels": {
+  "site_f60d78c2": {
+   "type": "site",
+   "url": "https://cloud.tencent.com/developer",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 3917
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

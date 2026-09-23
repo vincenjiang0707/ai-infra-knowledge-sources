@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-101",
+ "name": "Nsight Systems",
+ "category": "Profiling、压测与公开结果",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:13:31Z",
+ "finished_at": "2026-09-23T05:04:42Z",
+ "duration_seconds": 15.6,
+ "attempts": 2,
+ "channels": {
+  "site_38219096": {
+   "type": "site",
+   "url": "https://docs.nvidia.com/nsight-systems/",
+   "status": "ok",
+   "output": "page.md",
+   "mode": "page",
+   "chars": 885
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

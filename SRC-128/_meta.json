@@ -1,0 +1,32 @@
+{
+ "src_id": "SRC-128",
+ "name": "Together AI",
+ "category": "⼀⼿⼯程博客与服务商经验",
+ "priority": "扩",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:16:49Z",
+ "finished_at": "2026-09-23T04:16:49Z",
+ "duration_seconds": 74.4,
+ "attempts": 1,
+ "channels": {
+  "site_4e3ee560": {
+   "type": "site",
+   "url": "https://www.together.ai/blog",
+   "mode": "rss",
+   "status": "ok",
+   "output": "feed_meta.json",
+   "entries": 100,
+   "posts_fetched": 99,
+   "posts_failed": 1,
+   "output_dir": "posts/"
+  }
+ },
+ "cursor": {
+  "site_4e3ee560:rss": {
+   "last_entry_published": "Wed, 29 Jul 2026 00:00:00 GMT"
+  }
+ },
+ "notes": ""
+}

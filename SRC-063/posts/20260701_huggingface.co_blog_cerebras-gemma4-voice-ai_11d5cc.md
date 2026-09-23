@@ -1,0 +1,61 @@
+# Hugging Face and Cerebras bring Gemma 4 to real-time voice AI
+
+source: https://huggingface.co/blog/cerebras-gemma4-voice-ai
+published: Wed, 01 Jul 2026 00:00:00 GMT
+
+#
+[
+](https://huggingface.co#hugging-face-and-cerebras-bring-gemma-4-to-real-time-voice-ai)
+Hugging Face and Cerebras bring Gemma 4 to real-time voice AI
+
+[Update on GitHub](https://github.com/huggingface/blog/blob/main/cerebras-gemma4-voice-ai.md)
+
+The result is a speech-to-speech experience that feels dramatically more natural. Instead of waiting for an AI to respond, conversations flow with the responsiveness users expect from human interaction.
+
+##
+[
+](https://huggingface.co#architecture-an-open-cascaded-speech-to-speech-stack)
+Architecture: an Open, Cascaded Speech-to-Speech stack
+
+The demo is built as a real-time speech-to-speech pipeline. Each part of the system is modular, open, and replaceable, making it easy for developers to adapt the stack for different assistants, robots, products, or research projects.
+
+This creates a fully open speech-to-speech loop:
+
+```
+Speech input
+-> speech recognition with Nvidia's Parakeet
+-> Gemma 4 VLM inference on Cerebras
+-> text-to-speech with Alibaba's Qwen3TTS
+-> spoken response
+```
+
+
+The architecture brings together the strength of the open-source AI ecosystem: Cerebras for fast inference, Google DeepMind’s Gemma 4 31B for the language model, and Qwen for text-to-speech. Every layer can be inspected, modified, and extended by the developers
+
+##
+[
+](https://huggingface.co#cerebras-and-hugging-face-partnership)
+Cerebras and Hugging Face Partnership
+
+Today, some production systems see a reasonable median latency while still experiencing frustrating multi-second delays at the P95. Those delays become even more noticeable when tool calls or multimodal steps require multiple turns.
+
+Cerebras helps solve one of the most important bottlenecks in the stack: the language-model response time. By making inference dramatically faster and more stable, Cerebras allows the rest of the Hugging Face pipeline to shine.
+
+That stability is especially important at the long tail. Many systems can deliver acceptable median response times, but occasional slow responses still make conversations feel unreliable.
+
+##
+[
+](https://huggingface.co#built-for-real-world-interaction)
+Built for real-world interaction
+
+This same Hugging Face speech-to-speech pipeline already powers Reachy Mini robots, with more than 9,000 robots in the wild. For robots, voice assistants, and embodied AI, responsiveness is not a cosmetic improvement. It is what makes the interaction feel alive.
+
+The motivation to use Cerebras is therefore not simply cost reduction. It is low latency, predictable performance, and the ability to create real-time experiences that feel natural at scale.
+
+This collaboration reflects a shared belief that the future of AI will be both open and performant. Open-source models, open infrastructure, and breakthrough inference speed together create a foundation for the next generation of conversational AI.
+
+We invite developers to explore the demo, experiment with the code, and help shape what comes next for real-time voice AI.
+
+Demo: [Hugging Face Space](https://huggingface.co/spaces/smolagents/hf-realtime-voice)
+
+Repository: [huggingface/speech-to-speech](https://github.com/huggingface/speech-to-speech)

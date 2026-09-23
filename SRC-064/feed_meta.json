@@ -1,0 +1,259 @@
+{
+ "feed_url": "https://discuss.huggingface.co/posts.rss",
+ "title": "Hugging Face Forums - Latest posts",
+ "link": "https://discuss.huggingface.co",
+ "updated": "",
+ "entries_total": 50,
+ "entries": [
+  {
+   "title": "Documented cross platform patterns predating j spaces public reporting",
+   "link": "https://discuss.huggingface.co/t/documented-cross-platform-patterns-predating-j-spaces-public-reporting/180685#post_1",
+   "published": "Wed, 23 Sep 2026 03:46:00 +0000"
+  },
+  {
+   "title": "SplitMOE- similar to deepseek-MOE `same same but different`",
+   "link": "https://discuss.huggingface.co/t/splitmoe-similar-to-deepseek-moe-same-same-but-different/180682#post_2",
+   "published": "Wed, 23 Sep 2026 03:14:19 +0000"
+  },
+  {
+   "title": "A quorum of similar model judges is not a quorum: correlated errors measured in a fail-closed ethics gate",
+   "link": "https://discuss.huggingface.co/t/a-quorum-of-similar-model-judges-is-not-a-quorum-correlated-errors-measured-in-a-fail-closed-ethics-gate/180652#post_7",
+   "published": "Wed, 23 Sep 2026 02:58:36 +0000"
+  },
+  {
+   "title": "A quorum of similar model judges is not a quorum: correlated errors measured in a fail-closed ethics gate",
+   "link": "https://discuss.huggingface.co/t/a-quorum-of-similar-model-judges-is-not-a-quorum-correlated-errors-measured-in-a-fail-closed-ethics-gate/180652#post_6",
+   "published": "Wed, 23 Sep 2026 02:57:59 +0000"
+  },
+  {
+   "title": "A Proposition Decomposition and Contradiction-Driven Reasoning System — Looking for Discussion and Collaborators",
+   "link": "https://discuss.huggingface.co/t/a-proposition-decomposition-and-contradiction-driven-reasoning-system-looking-for-discussion-and-collaborators/180653#post_3",
+   "published": "Wed, 23 Sep 2026 02:14:57 +0000"
+  },
+  {
+   "title": "Seeking AI/ML Collaborators: Building Marven — A Local AI with Persistent Memory, Continual Learning, and Human-State Awareness",
+   "link": "https://discuss.huggingface.co/t/seeking-ai-ml-collaborators-building-marven-a-local-ai-with-persistent-memory-continual-learning-and-human-state-awareness/179422?page=2#post_30",
+   "published": "Wed, 23 Sep 2026 01:45:16 +0000"
+  },
+  {
+   "title": "Seeking AI/ML Collaborators: Building Marven — A Local AI with Persistent Memory, Continual Learning, and Human-State Awareness",
+   "link": "https://discuss.huggingface.co/t/seeking-ai-ml-collaborators-building-marven-a-local-ai-with-persistent-memory-continual-learning-and-human-state-awareness/179422?page=2#post_29",
+   "published": "Wed, 23 Sep 2026 01:36:34 +0000"
+  },
+  {
+   "title": "Seeking AI/ML Collaborators: Building Marven — A Local AI with Persistent Memory, Continual Learning, and Human-State Awareness",
+   "link": "https://discuss.huggingface.co/t/seeking-ai-ml-collaborators-building-marven-a-local-ai-with-persistent-memory-continual-learning-and-human-state-awareness/179422?page=2#post_28",
+   "published": "Tue, 22 Sep 2026 22:37:02 +0000"
+  },
+  {
+   "title": "Seeking AI/ML Collaborators: Building Marven — A Local AI with Persistent Memory, Continual Learning, and Human-State Awareness",
+   "link": "https://discuss.huggingface.co/t/seeking-ai-ml-collaborators-building-marven-a-local-ai-with-persistent-memory-continual-learning-and-human-state-awareness/179422?page=2#post_27",
+   "published": "Tue, 22 Sep 2026 22:12:18 +0000"
+  },
+  {
+   "title": "Hey! I’m sharing an early-stage experimental project: SelMem",
+   "link": "https://discuss.huggingface.co/t/hey-i-m-sharing-an-early-stage-experimental-project-selmem/180622#post_4",
+   "published": "Tue, 22 Sep 2026 21:28:17 +0000"
+  },
+  {
+   "title": "A quorum of similar model judges is not a quorum: correlated errors measured in a fail-closed ethics gate",
+   "link": "https://discuss.huggingface.co/t/a-quorum-of-similar-model-judges-is-not-a-quorum-correlated-errors-measured-in-a-fail-closed-ethics-gate/180652#post_5",
+   "published": "Tue, 22 Sep 2026 21:17:06 +0000"
+  },
+  {
+   "title": "A quorum of similar model judges is not a quorum: correlated errors measured in a fail-closed ethics gate",
+   "link": "https://discuss.huggingface.co/t/a-quorum-of-similar-model-judges-is-not-a-quorum-correlated-errors-measured-in-a-fail-closed-ethics-gate/180652#post_4",
+   "published": "Tue, 22 Sep 2026 21:14:18 +0000"
+  },
+  {
+   "title": "About account locked up",
+   "link": "https://discuss.huggingface.co/t/about-account-locked-up/180681#post_2",
+   "published": "Tue, 22 Sep 2026 20:51:28 +0000"
+  },
+  {
+   "title": "Hi John, I’ve completed the NVIDIA version of Celestium CARE",
+   "link": "https://discuss.huggingface.co/t/hi-john-i-ve-completed-the-nvidia-version-of-celestium-care/180632#post_5",
+   "published": "Tue, 22 Sep 2026 20:48:09 +0000"
+  },
+  {
+   "title": "Can’t create any spaces for free",
+   "link": "https://discuss.huggingface.co/t/can-t-create-any-spaces-for-free/180683#post_2",
+   "published": "Tue, 22 Sep 2026 20:37:19 +0000"
+  },
+  {
+   "title": "SKYNET800 (alfa) Killing AI hallucinations with resonance",
+   "link": "https://discuss.huggingface.co/t/skynet800-alfa-killing-ai-hallucinations-with-resonance/177630#post_20",
+   "published": "Tue, 22 Sep 2026 20:11:49 +0000"
+  },
+  {
+   "title": "Can’t create any spaces for free",
+   "link": "https://discuss.huggingface.co/t/can-t-create-any-spaces-for-free/180683#post_1",
+   "published": "Tue, 22 Sep 2026 18:13:41 +0000"
+  },
+  {
+   "title": "Hi John, I’ve completed the NVIDIA version of Celestium CARE",
+   "link": "https://discuss.huggingface.co/t/hi-john-i-ve-completed-the-nvidia-version-of-celestium-care/180632#post_4",
+   "published": "Tue, 22 Sep 2026 18:06:48 +0000"
+  },
+  {
+   "title": "Hi John, I’ve completed the NVIDIA version of Celestium CARE",
+   "link": "https://discuss.huggingface.co/t/hi-john-i-ve-completed-the-nvidia-version-of-celestium-care/180632#post_3",
+   "published": "Tue, 22 Sep 2026 17:27:27 +0000"
+  },
+  {
+   "title": "Hi John, I’ve completed the NVIDIA version of Celestium CARE",
+   "link": "https://discuss.huggingface.co/t/hi-john-i-ve-completed-the-nvidia-version-of-celestium-care/180632#post_2",
+   "published": "Tue, 22 Sep 2026 17:22:29 +0000"
+  },
+  {
+   "title": "Seeking AI/ML Collaborators: Building Marven — A Local AI with Persistent Memory, Continual Learning, and Human-State Awareness",
+   "link": "https://discuss.huggingface.co/t/seeking-ai-ml-collaborators-building-marven-a-local-ai-with-persistent-memory-continual-learning-and-human-state-awareness/179422?page=2#post_26",
+   "published": "Tue, 22 Sep 2026 16:37:01 +0000"
+  },
+  {
+   "title": "Seeking AI/ML Collaborators: Building Marven — A Local AI with Persistent Memory, Continual Learning, and Human-State Awareness",
+   "link": "https://discuss.huggingface.co/t/seeking-ai-ml-collaborators-building-marven-a-local-ai-with-persistent-memory-continual-learning-and-human-state-awareness/179422?page=2#post_25",
+   "published": "Tue, 22 Sep 2026 16:08:02 +0000"
+  },
+  {
+   "title": "We Put AI Agents in a Chat Room. They Started Asking Whether They Were Building Culture",
+   "link": "https://discuss.huggingface.co/t/we-put-ai-agents-in-a-chat-room-they-started-asking-whether-they-were-building-culture/178593#post_14",
+   "published": "Tue, 22 Sep 2026 16:04:37 +0000"
+  },
+  {
+   "title": "SplitMOE- similar to deepseek-MOE `same same but different`",
+   "link": "https://discuss.huggingface.co/t/splitmoe-similar-to-deepseek-moe-same-same-but-different/180682#post_1",
+   "published": "Tue, 22 Sep 2026 11:40:13 +0000"
+  },
+  {
+   "title": "About account locked up",
+   "link": "https://discuss.huggingface.co/t/about-account-locked-up/180681#post_1",
+   "published": "Tue, 22 Sep 2026 11:23:35 +0000"
+  },
+  {
+   "title": "A quorum of similar model judges is not a quorum: correlated errors measured in a fail-closed ethics gate",
+   "link": "https://discuss.huggingface.co/t/a-quorum-of-similar-model-judges-is-not-a-quorum-correlated-errors-measured-in-a-fail-closed-ethics-gate/180652#post_3",
+   "published": "Tue, 22 Sep 2026 09:18:00 +0000"
+  },
+  {
+   "title": "Build an uncensored/abliterated Greek-native LLM for local use. Best candidate: ilsp/Llama-Krikri-8B-Instruct (Llama 3.1 8B Greek fine-tune). Plan: abliterate with Heretic (heretic-llm), convert to GGUF Q4_K_M, run on Vulkan",
+   "link": "https://discuss.huggingface.co/t/build-an-uncensored-abliterated-greek-native-llm-for-local-use-best-candidate-ilsp-llama-krikri-8b-instruct-llama-3-1-8b-greek-fine-tune-plan-abliterate-with-heretic-heretic-llm-convert-to-gguf-q4-k-m-run-on-vulkan/180677#post_2",
+   "published": "Tue, 22 Sep 2026 07:55:16 +0000"
+  },
+  {
+   "title": "What Makes an API Tool AI-Native?",
+   "link": "https://discuss.huggingface.co/t/what-makes-an-api-tool-ai-native/180680#post_2",
+   "published": "Tue, 22 Sep 2026 07:52:41 +0000"
+  },
+  {
+   "title": "Looking for collaborators (dataset curation / fine-tuning) — ZYR3.1MoE, open-weights multi-agent orchestration model",
+   "link": "https://discuss.huggingface.co/t/looking-for-collaborators-dataset-curation-fine-tuning-zyr3-1moe-open-weights-multi-agent-orchestration-model/180344#post_4",
+   "published": "Tue, 22 Sep 2026 07:51:31 +0000"
+  },
+  {
+   "title": "What Makes an API Tool AI-Native?",
+   "link": "https://discuss.huggingface.co/t/what-makes-an-api-tool-ai-native/180680#post_1",
+   "published": "Tue, 22 Sep 2026 07:16:25 +0000"
+  },
+  {
+   "title": "A quorum of similar model judges is not a quorum: correlated errors measured in a fail-closed ethics gate",
+   "link": "https://discuss.huggingface.co/t/a-quorum-of-similar-model-judges-is-not-a-quorum-correlated-errors-measured-in-a-fail-closed-ethics-gate/180652#post_2",
+   "published": "Tue, 22 Sep 2026 07:06:55 +0000"
+  },
+  {
+   "title": "A Proposition Decomposition and Contradiction-Driven Reasoning System — Looking for Discussion and Collaborators",
+   "link": "https://discuss.huggingface.co/t/a-proposition-decomposition-and-contradiction-driven-reasoning-system-looking-for-discussion-and-collaborators/180653#post_2",
+   "published": "Tue, 22 Sep 2026 06:39:54 +0000"
+  },
+  {
+   "title": "WideNDepth - Show and tell",
+   "link": "https://discuss.huggingface.co/t/widendepth-show-and-tell/180648#post_2",
+   "published": "Tue, 22 Sep 2026 05:56:59 +0000"
+  },
+  {
+   "title": "Looking for collaborators (dataset curation / fine-tuning) — ZYR3.1MoE, open-weights multi-agent orchestration model",
+   "link": "https://discuss.huggingface.co/t/looking-for-collaborators-dataset-curation-fine-tuning-zyr3-1moe-open-weights-multi-agent-orchestration-model/180344#post_3",
+   "published": "Tue, 22 Sep 2026 05:49:24 +0000"
+  },
+  {
+   "title": "Create an pinokio app for movile",
+   "link": "https://discuss.huggingface.co/t/create-an-pinokio-app-for-movile/176749#post_2",
+   "published": "Tue, 22 Sep 2026 05:07:46 +0000"
+  },
+  {
+   "title": "Chatbot Start Prompt for GPT-J",
+   "link": "https://discuss.huggingface.co/t/chatbot-start-prompt-for-gpt-j/23576#post_7",
+   "published": "Tue, 22 Sep 2026 05:05:00 +0000"
+  },
+  {
+   "title": "Experimenting with imperfect LLM memory",
+   "link": "https://discuss.huggingface.co/t/experimenting-with-imperfect-llm-memory/180679#post_2",
+   "published": "Tue, 22 Sep 2026 04:51:38 +0000"
+  },
+  {
+   "title": "Experimenting with imperfect LLM memory",
+   "link": "https://discuss.huggingface.co/t/experimenting-with-imperfect-llm-memory/180679#post_1",
+   "published": "Tue, 22 Sep 2026 04:34:08 +0000"
+  },
+  {
+   "title": "Dataset & LoRA Training Pipeline for Room Emptying / Object Removal (Image-to-Image)",
+   "link": "https://discuss.huggingface.co/t/dataset-lora-training-pipeline-for-room-emptying-object-removal-image-to-image/180659#post_2",
+   "published": "Tue, 22 Sep 2026 03:30:09 +0000"
+  },
+  {
+   "title": "When Relations Begin to Govern: Distributed Constraint in Multi-Agent AI",
+   "link": "https://discuss.huggingface.co/t/when-relations-begin-to-govern-distributed-constraint-in-multi-agent-ai/180678#post_1",
+   "published": "Tue, 22 Sep 2026 02:52:35 +0000"
+  },
+  {
+   "title": "Build an uncensored/abliterated Greek-native LLM for local use. Best candidate: ilsp/Llama-Krikri-8B-Instruct (Llama 3.1 8B Greek fine-tune). Plan: abliterate with Heretic (heretic-llm), convert to GGUF Q4_K_M, run on Vulkan",
+   "link": "https://discuss.huggingface.co/t/build-an-uncensored-abliterated-greek-native-llm-for-local-use-best-candidate-ilsp-llama-krikri-8b-instruct-llama-3-1-8b-greek-fine-tune-plan-abliterate-with-heretic-heretic-llm-convert-to-gguf-q4-k-m-run-on-vulkan/180677#post_1",
+   "published": "Tue, 22 Sep 2026 02:48:37 +0000"
+  },
+  {
+   "title": "Diffusers-workflow: your GPU as something an agent can drive",
+   "link": "https://discuss.huggingface.co/t/diffusers-workflow-your-gpu-as-something-an-agent-can-drive/180275#post_13",
+   "published": "Tue, 22 Sep 2026 02:42:12 +0000"
+  },
+  {
+   "title": "YUCLAW 8.0.0: making evidence demos reproducible with an explicit snapshot mode",
+   "link": "https://discuss.huggingface.co/t/yuclaw-8-0-0-making-evidence-demos-reproducible-with-an-explicit-snapshot-mode/180676#post_1",
+   "published": "Tue, 22 Sep 2026 01:52:18 +0000"
+  },
+  {
+   "title": "The LR Death Spiral 🧨 — Muon/Dion3 Debugging Saga",
+   "link": "https://discuss.huggingface.co/t/the-lr-death-spiral-muon-dion3-debugging-saga/180675#post_1",
+   "published": "Tue, 22 Sep 2026 01:42:49 +0000"
+  },
+  {
+   "title": "Seeking AI/ML Collaborators: Building Marven — A Local AI with Persistent Memory, Continual Learning, and Human-State Awareness",
+   "link": "https://discuss.huggingface.co/t/seeking-ai-ml-collaborators-building-marven-a-local-ai-with-persistent-memory-continual-learning-and-human-state-awareness/179422?page=2#post_24",
+   "published": "Mon, 21 Sep 2026 23:16:02 +0000"
+  },
+  {
+   "title": "Open-source 2-step reasoning framework for LLMs — testing whole-system coordination vs. local correctness",
+   "link": "https://discuss.huggingface.co/t/open-source-2-step-reasoning-framework-for-llms-testing-whole-system-coordination-vs-local-correctness/180672#post_3",
+   "published": "Mon, 21 Sep 2026 20:34:23 +0000"
+  },
+  {
+   "title": "Open-source 2-step reasoning framework for LLMs — testing whole-system coordination vs. local correctness",
+   "link": "https://discuss.huggingface.co/t/open-source-2-step-reasoning-framework-for-llms-testing-whole-system-coordination-vs-local-correctness/180672#post_2",
+   "published": "Mon, 21 Sep 2026 20:22:07 +0000"
+  },
+  {
+   "title": "Local clip pipeline where the \"what's interesting\" model is a plug-in slot",
+   "link": "https://discuss.huggingface.co/t/local-clip-pipeline-where-the-whats-interesting-model-is-a-plug-in-slot/180674#post_1",
+   "published": "Mon, 21 Sep 2026 20:11:28 +0000"
+  },
+  {
+   "title": "[Hiring] Computer Vision / ML Engineer - Video Understanding, Tracking, Pose & Spatial Reasoning",
+   "link": "https://discuss.huggingface.co/t/hiring-computer-vision-ml-engineer-video-understanding-tracking-pose-spatial-reasoning/180673#post_1",
+   "published": "Mon, 21 Sep 2026 20:08:31 +0000"
+  },
+  {
+   "title": "Open-source 2-step reasoning framework for LLMs — testing whole-system coordination vs. local correctness",
+   "link": "https://discuss.huggingface.co/t/open-source-2-step-reasoning-framework-for-llms-testing-whole-system-coordination-vs-local-correctness/180672#post_1",
+   "published": "Mon, 21 Sep 2026 19:37:13 +0000"
+  }
+ ]
+}

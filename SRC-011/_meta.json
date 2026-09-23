@@ -1,0 +1,83 @@
+{
+ "src_id": "SRC-011",
+ "name": "llama.cpp",
+ "category": "推理引擎与部署配⽅",
+ "priority": "扩展",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:26:52Z",
+ "finished_at": "2026-09-23T03:26:52Z",
+ "duration_seconds": 241.4,
+ "attempts": 1,
+ "channels": {
+  "gh_087dae28": {
+   "type": "github_repo",
+   "url": "https://github.com/ggml-org/llama.cpp",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 7304
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_30f1d35c": {
+   "type": "reference",
+   "url": "https://github.com/ggml-org/llama.cpp/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 1859
+  },
+  "ref_fa4151fc": {
+   "type": "reference",
+   "url": "https://github.com/ggml-org/llama.cpp/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 11170
+  },
+  "ref_e954bc49": {
+   "type": "reference",
+   "url": "https://github.com/ggml-org/llama.cpp/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 49604
+  }
+ },
+ "cursor": {
+  "gh_087dae28:issues": {
+   "last_updated_at": "2026-09-23T02:25:36Z"
+  },
+  "gh_087dae28:pulls": {
+   "last_updated_at": "2026-09-23T03:09:18Z"
+  },
+  "gh_087dae28:releases": {
+   "last_id": 394243883
+  }
+ },
+ "notes": ""
+}

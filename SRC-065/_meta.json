@@ -1,0 +1,83 @@
+{
+ "src_id": "SRC-065",
+ "name": "Triton",
+ "category": "Kernel、编译与⾃动优化",
+ "priority": "核⼼",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:28:02Z",
+ "finished_at": "2026-09-23T03:28:02Z",
+ "duration_seconds": 69.9,
+ "attempts": 1,
+ "channels": {
+  "gh_67164921": {
+   "type": "github_repo",
+   "url": "https://github.com/triton-lang/triton",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 7
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "ref_e5a585c4": {
+   "type": "reference",
+   "url": "https://github.com/triton-lang/triton/issues",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 880
+  },
+  "ref_8773c98d": {
+   "type": "reference",
+   "url": "https://github.com/triton-lang/triton/pulls",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 5204
+  },
+  "ref_e1d304a3": {
+   "type": "reference",
+   "url": "https://github.com/triton-lang/triton/releases",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 67422
+  }
+ },
+ "cursor": {
+  "gh_67164921:issues": {
+   "last_updated_at": "2026-09-22T23:09:12Z"
+  },
+  "gh_67164921:pulls": {
+   "last_updated_at": "2026-09-23T03:22:37Z"
+  },
+  "gh_67164921:releases": {
+   "last_id": 378170972
+  }
+ },
+ "notes": ""
+}

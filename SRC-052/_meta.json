@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-052",
+ "name": "Kimi 官⽅组织",
+ "category": "模型作者与模型平台",
+ "priority": "",
+ "scrape_type": "github_org",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:11:25Z",
+ "finished_at": "2026-09-23T04:11:25Z",
+ "duration_seconds": 10.3,
+ "attempts": 1,
+ "channels": {
+  "github_org_8aeb1747": {
+   "type": "github_org",
+   "url": "https://github.com/MoonshotAI",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 4254
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

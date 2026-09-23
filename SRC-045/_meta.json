@@ -1,0 +1,59 @@
+{
+ "src_id": "SRC-045",
+ "name": "Paddle 推理",
+ "category": "昇腾与其他国产芯⽚",
+ "priority": "",
+ "scrape_type": "github_repo",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T03:19:55Z",
+ "finished_at": "2026-09-23T03:19:55Z",
+ "duration_seconds": 38.8,
+ "attempts": 1,
+ "channels": {
+  "gh_85b6002c": {
+   "type": "github_repo",
+   "url": "https://github.com/PaddlePaddle/Paddle",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at"
+   },
+   "releases": {
+    "status": "ok",
+    "count": 70
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  }
+ },
+ "cursor": {
+  "gh_85b6002c:issues": {
+   "last_updated_at": "2026-09-22T15:37:21Z"
+  },
+  "gh_85b6002c:pulls": {
+   "last_updated_at": "2026-09-23T08:45:18Z"
+  },
+  "gh_85b6002c:releases": {
+   "last_id": 387036818
+  }
+ },
+ "notes": ""
+}

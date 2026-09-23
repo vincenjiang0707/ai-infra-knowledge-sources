@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-133",
+ "name": "Google Cloud",
+ "category": "⼀⼿⼯程博客与服务商经验",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:21:19Z",
+ "finished_at": "2026-09-23T04:21:19Z",
+ "duration_seconds": 27.7,
+ "attempts": 1,
+ "channels": {
+  "site_64d7727e": {
+   "type": "site",
+   "url": "https://cloud.google.com/blog/products/ai-machine-learning",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 624
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

@@ -1,0 +1,25 @@
+{
+ "src_id": "SRC-119",
+ "name": "OpenReview",
+ "category": "论⽂、会议与课程",
+ "priority": "",
+ "scrape_type": "academic",
+ "blocked_reason": null,
+ "status": "success",
+ "started_at": "2026-09-23T04:14:32Z",
+ "finished_at": "2026-09-23T04:14:32Z",
+ "duration_seconds": 7.2,
+ "attempts": 1,
+ "channels": {
+  "acad_46fc02a8": {
+   "type": "academic",
+   "url": "https://openreview.net/",
+   "mode": "page",
+   "status": "ok",
+   "output": "page.md",
+   "chars": 307706
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}
