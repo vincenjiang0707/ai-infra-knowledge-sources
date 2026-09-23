@@ -1,9 +1,9 @@
 # 知识来源抓取总表
 
-- 日期: 2026-09-23T14:18:17Z
+- 日期: 2026-09-23T14:27:19Z
 - 来源总数: 170
 - 状态: {"success": 163, "blocked": 5, "partial": 1, "error": 1}
-- 产物: 5199 项 / 208.9 MB
+- 产物: 5203 项 / 208.9 MB
 
 | SRC | 名称 | 类别 | 状态 | 说明 |
 |---|---|---|---|---|
@@ -129,7 +129,7 @@
 | SRC-120 | GPU MODE 讲 | 论⽂、会议与课程 | success | github_repo:ok |
 | SRC-121 | SGLang 公开会 | 论⽂、会议与课程 | success | github_repo:ok; reference:ok; reference:ok; reference:ok; site:ok |
 | SRC-122 | NVIDIA On- | 论⽂、会议与课程 | success | js:ok |
-| SRC-123 | LMSYS | ⼀⼿⼯程博客与服务商经验 | success | js:ok |
+| SRC-123 | LMSYS | ⼀⼿⼯程博客与服务商经验 | success | blog:ok |
 | SRC-124 | PyTorch Blog | ⼀⼿⼯程博客与服务商经验 | success | site:ok(10) |
 | SRC-125 | NVIDIA | ⼀⼿⼯程博客与服务商经验 | success | site:ok |
 | SRC-126 | Baseten | ⼀⼿⼯程博客与服务商经验 | success | js:ok |

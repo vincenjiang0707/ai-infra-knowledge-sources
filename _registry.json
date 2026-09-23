@@ -3842,7 +3842,7 @@
   "scrape_type": "site",
   "channels": {
    "site_47b8f5ab": {
-    "type": "js",
+    "type": "blog",
     "url": "https://lmsys.org/blog/"
    }
   },
@@ -3854,9 +3854,9 @@
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "js"
+   "blog"
   ],
-  "notes": ""
+  "notes": "blog index → 3 posts抓取（默认 cap）"
  },
  {
   "src_id": "SRC-124",
