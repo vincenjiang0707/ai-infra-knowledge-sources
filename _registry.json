@@ -10,7 +10,18 @@
     "type": "site",
     "url": "https://docs.vllm.ai/en/latest/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:53:57Z",
+  "finished_at": "2026-09-23T04:53:57Z",
+  "duration_seconds": 2839.1,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-002",
@@ -23,7 +34,18 @@
     "type": "site",
     "url": "https://docs.vllm.ai/projects/recipes/en/stable/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:07:57Z",
+  "finished_at": "2026-09-23T04:07:57Z",
+  "duration_seconds": 78.7,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-003",
@@ -36,7 +58,18 @@
     "type": "github_repo",
     "url": "https://github.com/vllm-project/vllm"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:14:45Z",
+  "finished_at": "2026-09-23T03:14:45Z",
+  "duration_seconds": 49.8,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-004",
@@ -65,7 +98,20 @@
     "type": "site",
     "url": "https://docs.sglang.io/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:38:51Z",
+  "finished_at": "2026-09-23T03:38:51Z",
+  "duration_seconds": 81.5,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference",
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-005",
@@ -78,7 +124,18 @@
     "type": "github_repo",
     "url": "https://github.com/sgl-project/sglang"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:18:14Z",
+  "finished_at": "2026-09-23T03:18:14Z",
+  "duration_seconds": 51.2,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-006",
@@ -107,7 +164,19 @@
     "type": "reference",
     "url": "https://github.com/sgl-project/sglang/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:39:42Z",
+  "finished_at": "2026-09-23T03:39:42Z",
+  "duration_seconds": 104.8,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-007",
@@ -136,7 +205,20 @@
     "type": "site",
     "url": "https://docs.vllm.ai/projects/ascend/en/latest/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:39:45Z",
+  "finished_at": "2026-09-23T03:39:45Z",
+  "duration_seconds": 53.5,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference",
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-008",
@@ -149,7 +231,18 @@
     "type": "github_repo",
     "url": "https://github.com/vllm-project/vllm-ascend"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:18:09Z",
+  "finished_at": "2026-09-23T03:18:09Z",
+  "duration_seconds": 46.0,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-009",
@@ -178,7 +271,19 @@
     "type": "reference",
     "url": "https://github.com/vllm-project/vllm-ascend/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:42:00Z",
+  "finished_at": "2026-09-23T03:42:00Z",
+  "duration_seconds": 137.8,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-010",
@@ -219,7 +324,19 @@
     "type": "reference",
     "url": "https://github.com/InternLM/lmdeploy/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:58:50Z",
+  "finished_at": "2026-09-23T03:58:50Z",
+  "duration_seconds": 155.0,
+  "attempts": 1,
+  "channel_count": 8,
+  "channels_ok": 8,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-011",
@@ -244,7 +361,19 @@
     "type": "reference",
     "url": "https://github.com/ggml-org/llama.cpp/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:26:52Z",
+  "finished_at": "2026-09-23T03:26:52Z",
+  "duration_seconds": 241.4,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-012",
@@ -269,7 +398,19 @@
     "type": "reference",
     "url": "https://github.com/mlc-ai/mlc-llm/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:24:10Z",
+  "finished_at": "2026-09-23T03:24:10Z",
+  "duration_seconds": 56.2,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-013",
@@ -294,7 +435,19 @@
     "type": "reference",
     "url": "https://github.com/llm-d/llm-d/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:25:36Z",
+  "finished_at": "2026-09-23T03:25:36Z",
+  "duration_seconds": 86.4,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-014",
@@ -307,7 +460,18 @@
     "type": "site",
     "url": "https://docs.nvidia.com/nim/large-language-models/latest/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:08:08Z",
+  "finished_at": "2026-09-23T05:03:41Z",
+  "duration_seconds": 15.5,
+  "attempts": 2,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-015",
@@ -320,7 +484,18 @@
     "type": "site",
     "url": "https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:08:19Z",
+  "finished_at": "2026-09-23T04:57:40Z",
+  "duration_seconds": 18.1,
+  "attempts": 2,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-016",
@@ -333,7 +508,18 @@
     "type": "site",
     "url": "https://docs.nvidia.com/cuda/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:08:32Z",
+  "finished_at": "2026-09-23T05:03:40Z",
+  "duration_seconds": 14.9,
+  "attempts": 2,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-017",
@@ -358,7 +544,19 @@
     "type": "reference",
     "url": "https://github.com/NVIDIA/nccl/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:26:41Z",
+  "finished_at": "2026-09-23T03:26:41Z",
+  "duration_seconds": 65.2,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-018",
@@ -371,7 +569,18 @@
     "type": "site",
     "url": "https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:08:42Z",
+  "finished_at": "2026-09-23T05:03:55Z",
+  "duration_seconds": 14.8,
+  "attempts": 2,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-019",
@@ -384,7 +593,18 @@
     "type": "site",
     "url": "https://rocm.docs.amd.com/en/latest/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:08:48Z",
+  "finished_at": "2026-09-23T04:08:48Z",
+  "duration_seconds": 6.8,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-020",
@@ -397,7 +617,18 @@
     "type": "site",
     "url": "https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/inference-optimization/vllm-optimization.html"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:08:57Z",
+  "finished_at": "2026-09-23T05:03:53Z",
+  "duration_seconds": 12.7,
+  "attempts": 2,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-021",
@@ -410,7 +641,18 @@
     "type": "site",
     "url": "https://rocm.blogs.amd.com/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:09:07Z",
+  "finished_at": "2026-09-23T04:09:07Z",
+  "duration_seconds": 9.8,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-022",
@@ -435,7 +677,19 @@
     "type": "reference",
     "url": "https://github.com/ROCm/rccl/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:27:47Z",
+  "finished_at": "2026-09-23T03:27:47Z",
+  "duration_seconds": 65.5,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-023",
@@ -448,7 +702,18 @@
     "type": "github_repo",
     "url": "https://github.com/ROCm/aiter"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:19:00Z",
+  "finished_at": "2026-09-23T03:19:00Z",
+  "duration_seconds": 51.2,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-024",
@@ -477,7 +742,20 @@
     "type": "site",
     "url": "https://docs.openvino.ai/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:41:12Z",
+  "finished_at": "2026-09-23T03:41:12Z",
+  "duration_seconds": 87.5,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference",
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-025",
@@ -490,7 +768,18 @@
     "type": "site",
     "url": "https://docs.habana.ai/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:10:02Z",
+  "finished_at": "2026-09-23T04:10:02Z",
+  "duration_seconds": 54.8,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-026",
@@ -503,7 +792,18 @@
     "type": "site",
     "url": "https://cloud.google.com/tpu/docs"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:10:15Z",
+  "finished_at": "2026-09-23T05:04:09Z",
+  "duration_seconds": 15.3,
+  "attempts": 2,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-027",
@@ -516,7 +816,18 @@
     "type": "github_repo",
     "url": "https://github.com/AI-Hypercomputer/maxtext"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:19:16Z",
+  "finished_at": "2026-09-23T03:19:16Z",
+  "duration_seconds": 61.7,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-028",
@@ -545,7 +856,19 @@
     "type": "reference",
     "url": "https://github.com/AI-Hypercomputer/maxtext/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:43:17Z",
+  "finished_at": "2026-09-23T03:43:17Z",
+  "duration_seconds": 124.8,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-029",
@@ -574,7 +897,20 @@
     "type": "site",
     "url": "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:43:22Z",
+  "finished_at": "2026-09-23T03:43:22Z",
+  "duration_seconds": 82.3,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference",
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-030",
@@ -587,7 +923,18 @@
     "type": "site",
     "url": "https://www.hiascend.com/document"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:10:19Z",
+  "finished_at": "2026-09-23T04:10:19Z",
+  "duration_seconds": 4.1,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-031",
@@ -600,7 +947,18 @@
     "type": "site",
     "url": "https://www.hiascend.com/document/detail/zh/mindie/230/mindiellm/llmdev/mindie_llm0526.html"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:10:29Z",
+  "finished_at": "2026-09-23T04:10:29Z",
+  "duration_seconds": 10.2,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-032",
@@ -613,7 +971,18 @@
     "type": "github_repo",
     "url": "https://github.com/Ascend/pytorch"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:19:30Z",
+  "finished_at": "2026-09-23T03:19:30Z",
+  "duration_seconds": 29.8,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-033",
@@ -642,7 +1011,19 @@
     "type": "reference",
     "url": "https://github.com/Ascend/pytorch/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:44:34Z",
+  "finished_at": "2026-09-23T03:44:34Z",
+  "duration_seconds": 76.5,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-034",
@@ -671,7 +1052,19 @@
     "type": "reference",
     "url": "https://github.com/Ascend/samples/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:44:34Z",
+  "finished_at": "2026-09-23T03:44:34Z",
+  "duration_seconds": 71.1,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-035",
@@ -700,7 +1093,19 @@
     "type": "reference",
     "url": "https://github.com/Ascend/msmodelslim/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:45:39Z",
+  "finished_at": "2026-09-23T03:45:39Z",
+  "duration_seconds": 65.3,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-036",
@@ -729,7 +1134,19 @@
     "type": "reference",
     "url": "https://github.com/Ascend/msprof/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:45:55Z",
+  "finished_at": "2026-09-23T03:45:55Z",
+  "duration_seconds": 81.1,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-037",
@@ -758,7 +1175,20 @@
     "type": "site",
     "url": "https://developer.mthreads.com/sdk/musa"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:46:34Z",
+  "finished_at": "2026-09-23T03:46:34Z",
+  "duration_seconds": 55.0,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference",
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-038",
@@ -771,7 +1201,18 @@
     "type": "site",
     "url": "https://docs.mthreads.com/en/musa-sdk/musa-sdk-doc-online/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:10:31Z",
+  "finished_at": "2026-09-23T05:03:58Z",
+  "duration_seconds": 2.7,
+  "attempts": 2,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-039",
@@ -784,7 +1225,18 @@
     "type": "site",
     "url": "https://docs.mthreads.com/torchmusa/torchmusa-doc-online/introduction/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:10:33Z",
+  "finished_at": "2026-09-23T05:04:00Z",
+  "duration_seconds": 2.7,
+  "attempts": 2,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-040",
@@ -797,7 +1249,18 @@
     "type": "site",
     "url": "https://docs.mthreads.com/musa-deploy/musa-deploy-doc-online/introduction/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T08:12:04Z",
+  "finished_at": "2026-09-23T08:12:04Z",
+  "duration_seconds": 21.1,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-041",
@@ -810,7 +1273,18 @@
     "type": "site",
     "url": "https://developer.sourcefind.cn/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:10:47Z",
+  "finished_at": "2026-09-23T04:10:47Z",
+  "duration_seconds": 13.0,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-042",
@@ -819,7 +1293,10 @@
   "priority": "",
   "scrape_type": "site",
   "channels": {},
-  "blocked_reason": "PDF 标 504（寒武纪开发者论坛）"
+  "blocked_reason": "PDF 标 504（寒武纪开发者论坛）",
+  "channel_types": [],
+  "notes": "",
+  "status": "blocked"
  },
  {
   "src_id": "SRC-043",
@@ -836,7 +1313,19 @@
     "type": "site",
     "url": "https://forum.cambricon.com/"
    }
-  }
+  },
+  "status": "partial",
+  "started_at": "2026-09-23T04:25:38Z",
+  "finished_at": "2026-09-23T05:07:43Z",
+  "duration_seconds": 48.0,
+  "attempts": 3,
+  "channel_count": 2,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_org",
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-044",
@@ -849,7 +1338,18 @@
     "type": "github_org",
     "url": "https://github.com/kunlunxin"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:10:54Z",
+  "finished_at": "2026-09-23T04:10:54Z",
+  "duration_seconds": 6.8,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_org"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-045",
@@ -862,7 +1362,18 @@
     "type": "github_repo",
     "url": "https://github.com/PaddlePaddle/Paddle"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:19:55Z",
+  "finished_at": "2026-09-23T03:19:55Z",
+  "duration_seconds": 38.8,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-046",
@@ -891,7 +1402,20 @@
     "type": "site",
     "url": "https://www.enflame-tech.com/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:47:04Z",
+  "finished_at": "2026-09-23T03:47:04Z",
+  "duration_seconds": 69.0,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference",
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-047",
@@ -904,7 +1428,18 @@
     "type": "github_org",
     "url": "https://github.com/QwenLM"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:10:59Z",
+  "finished_at": "2026-09-23T04:10:59Z",
+  "duration_seconds": 5.2,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_org"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-048",
@@ -917,7 +1452,18 @@
     "type": "hf",
     "url": "https://huggingface.co/Qwen"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:11:01Z",
+  "finished_at": "2026-09-23T04:11:01Z",
+  "duration_seconds": 1.6,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "hf"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-049",
@@ -930,7 +1476,18 @@
     "type": "site",
     "url": "https://qwen.readthedocs.io/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:11:05Z",
+  "finished_at": "2026-09-23T04:11:05Z",
+  "duration_seconds": 4.6,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-050",
@@ -943,7 +1500,18 @@
     "type": "github_org",
     "url": "https://github.com/zai-org"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:11:13Z",
+  "finished_at": "2026-09-23T04:11:13Z",
+  "duration_seconds": 7.5,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_org"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-051",
@@ -956,7 +1524,18 @@
     "type": "hf",
     "url": "https://huggingface.co/zai-org"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:11:15Z",
+  "finished_at": "2026-09-23T04:11:15Z",
+  "duration_seconds": 1.7,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "hf"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-052",
@@ -969,7 +1548,18 @@
     "type": "github_org",
     "url": "https://github.com/MoonshotAI"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:11:25Z",
+  "finished_at": "2026-09-23T04:11:25Z",
+  "duration_seconds": 10.3,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_org"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-053",
@@ -982,7 +1572,18 @@
     "type": "hf",
     "url": "https://huggingface.co/moonshotai"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:11:26Z",
+  "finished_at": "2026-09-23T04:11:26Z",
+  "duration_seconds": 1.1,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "hf"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-054",
@@ -995,7 +1596,18 @@
     "type": "github_org",
     "url": "https://github.com/deepseek-ai"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:11:35Z",
+  "finished_at": "2026-09-23T04:11:35Z",
+  "duration_seconds": 8.7,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_org"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-055",
@@ -1008,7 +1620,18 @@
     "type": "hf",
     "url": "https://huggingface.co/deepseek-ai"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:11:37Z",
+  "finished_at": "2026-09-23T04:11:37Z",
+  "duration_seconds": 1.9,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "hf"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-056",
@@ -1021,7 +1644,18 @@
     "type": "github_org",
     "url": "https://github.com/MiniMax-AI"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:11:47Z",
+  "finished_at": "2026-09-23T04:11:47Z",
+  "duration_seconds": 9.8,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_org"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-057",
@@ -1034,7 +1668,18 @@
     "type": "hf",
     "url": "https://huggingface.co/MiniMaxAI"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:11:48Z",
+  "finished_at": "2026-09-23T04:11:48Z",
+  "duration_seconds": 1.1,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "hf"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-058",
@@ -1047,7 +1692,18 @@
     "type": "github_org",
     "url": "https://github.com/InternLM"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:11:59Z",
+  "finished_at": "2026-09-23T04:11:59Z",
+  "duration_seconds": 10.8,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_org"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-059",
@@ -1060,7 +1716,18 @@
     "type": "github_repo",
     "url": "https://github.com/PaddlePaddle/ERNIE"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:20:05Z",
+  "finished_at": "2026-09-23T03:20:05Z",
+  "duration_seconds": 35.2,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-060",
@@ -1089,7 +1756,20 @@
     "type": "reference",
     "url": "https://github.com/PaddlePaddle/ERNIE/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:47:41Z",
+  "finished_at": "2026-09-23T03:47:41Z",
+  "duration_seconds": 66.7,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_org",
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-061",
@@ -1102,7 +1782,18 @@
     "type": "hf",
     "url": "https://huggingface.co/models"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:11:59Z",
+  "finished_at": "2026-09-23T04:57:32Z",
+  "duration_seconds": 10.7,
+  "attempts": 2,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "hf"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-062",
@@ -1115,7 +1806,18 @@
     "type": "site",
     "url": "https://modelscope.cn/models"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:12:01Z",
+  "finished_at": "2026-09-23T04:12:01Z",
+  "duration_seconds": 1.6,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-063",
@@ -1128,7 +1830,18 @@
     "type": "hf",
     "url": "https://huggingface.co/blog"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:12:02Z",
+  "finished_at": "2026-09-23T05:03:07Z",
+  "duration_seconds": 334.4,
+  "attempts": 2,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "hf"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-064",
@@ -1141,7 +1854,18 @@
     "type": "site",
     "url": "https://discuss.huggingface.co/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:12:55Z",
+  "finished_at": "2026-09-23T04:12:55Z",
+  "duration_seconds": 52.5,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-065",
@@ -1166,7 +1890,19 @@
     "type": "reference",
     "url": "https://github.com/triton-lang/triton/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:28:02Z",
+  "finished_at": "2026-09-23T03:28:02Z",
+  "duration_seconds": 69.9,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-066",
@@ -1191,7 +1927,19 @@
     "type": "reference",
     "url": "https://github.com/NVIDIA/cutlass/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:28:35Z",
+  "finished_at": "2026-09-23T03:28:35Z",
+  "duration_seconds": 48.4,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-067",
@@ -1204,7 +1952,18 @@
     "type": "github_repo",
     "url": "https://github.com/Dao-AILab/flash-attention"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:20:35Z",
+  "finished_at": "2026-09-23T03:20:35Z",
+  "duration_seconds": 40.4,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-068",
@@ -1233,7 +1992,19 @@
     "type": "reference",
     "url": "https://github.com/Dao-AILab/flash-attention/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:48:53Z",
+  "finished_at": "2026-09-23T03:48:53Z",
+  "duration_seconds": 109.6,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-069",
@@ -1262,7 +2033,19 @@
     "type": "reference",
     "url": "https://github.com/flashinfer-ai/flashinfer/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:49:24Z",
+  "finished_at": "2026-09-23T03:49:24Z",
+  "duration_seconds": 103.7,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-070",
@@ -1303,7 +2086,19 @@
     "type": "reference",
     "url": "https://github.com/deepseek-ai/DeepEP/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:58:58Z",
+  "finished_at": "2026-09-23T03:58:58Z",
+  "duration_seconds": 108.1,
+  "attempts": 1,
+  "channel_count": 8,
+  "channels_ok": 8,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-071",
@@ -1328,7 +2123,19 @@
     "type": "reference",
     "url": "https://github.com/tile-ai/tilelang/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:29:09Z",
+  "finished_at": "2026-09-23T03:29:09Z",
+  "duration_seconds": 67.5,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-072",
@@ -1353,7 +2160,19 @@
     "type": "reference",
     "url": "https://github.com/apache/tvm/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:29:40Z",
+  "finished_at": "2026-09-23T03:29:40Z",
+  "duration_seconds": 65.3,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-073",
@@ -1366,7 +2185,18 @@
     "type": "github_repo",
     "url": "https://github.com/pytorch/pytorch"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:20:46Z",
+  "finished_at": "2026-09-23T03:20:46Z",
+  "duration_seconds": 40.9,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-074",
@@ -1395,7 +2225,20 @@
     "type": "site",
     "url": "https://docs.pytorch.org/docs/stable/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:50:13Z",
+  "finished_at": "2026-09-23T03:50:13Z",
+  "duration_seconds": 79.4,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference",
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-075",
@@ -1408,7 +2251,18 @@
     "type": "github_repo",
     "url": "https://github.com/ScalingIntelligence/KernelBench"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:21:07Z",
+  "finished_at": "2026-09-23T03:21:07Z",
+  "duration_seconds": 31.6,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-076",
@@ -1437,7 +2291,19 @@
     "type": "reference",
     "url": "https://github.com/ScalingIntelligence/KernelBench/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:50:48Z",
+  "finished_at": "2026-09-23T03:50:48Z",
+  "duration_seconds": 83.9,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-077",
@@ -1466,7 +2332,19 @@
     "type": "reference",
     "url": "https://github.com/meta-pytorch/KernelAgent/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:51:45Z",
+  "finished_at": "2026-09-23T03:51:45Z",
+  "duration_seconds": 92.1,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-078",
@@ -1495,7 +2373,19 @@
     "type": "reference",
     "url": "https://github.com/gpu-mode/kernelbot/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:52:13Z",
+  "finished_at": "2026-09-23T03:52:13Z",
+  "duration_seconds": 84.8,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-079",
@@ -1508,7 +2398,18 @@
     "type": "github_repo",
     "url": "https://github.com/NVIDIA/Model-Optimizer"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:21:31Z",
+  "finished_at": "2026-09-23T03:21:31Z",
+  "duration_seconds": 45.4,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-080",
@@ -1537,7 +2438,19 @@
     "type": "reference",
     "url": "https://github.com/NVIDIA/Model-Optimizer/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:53:35Z",
+  "finished_at": "2026-09-23T03:53:35Z",
+  "duration_seconds": 110.7,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-081",
@@ -1566,7 +2479,19 @@
     "type": "reference",
     "url": "https://github.com/vllm-project/llm-compressor/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:54:01Z",
+  "finished_at": "2026-09-23T03:54:01Z",
+  "duration_seconds": 108.2,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-082",
@@ -1607,7 +2532,19 @@
     "type": "reference",
     "url": "https://github.com/mit-han-lab/llm-awq/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:00:56Z",
+  "finished_at": "2026-09-23T04:00:56Z",
+  "duration_seconds": 126.4,
+  "attempts": 1,
+  "channel_count": 8,
+  "channels_ok": 8,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-083",
@@ -1620,7 +2557,18 @@
     "type": "github_repo",
     "url": "https://github.com/bitsandbytes-foundation/bitsandbytes"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:21:26Z",
+  "finished_at": "2026-09-23T03:21:26Z",
+  "duration_seconds": 19.8,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-084",
@@ -1661,7 +2609,19 @@
     "type": "reference",
     "url": "https://github.com/dropbox/hqq/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:00:47Z",
+  "finished_at": "2026-09-23T04:00:47Z",
+  "duration_seconds": 108.7,
+  "attempts": 1,
+  "channel_count": 8,
+  "channels_ok": 8,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-085",
@@ -1686,7 +2646,19 @@
     "type": "reference",
     "url": "https://github.com/SafeAILab/EAGLE/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:29:58Z",
+  "finished_at": "2026-09-23T03:29:58Z",
+  "duration_seconds": 48.2,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-086",
@@ -1711,7 +2683,19 @@
     "type": "reference",
     "url": "https://github.com/FasterDecoding/Medusa/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:30:34Z",
+  "finished_at": "2026-09-23T03:30:34Z",
+  "duration_seconds": 53.3,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-087",
@@ -1724,7 +2708,18 @@
     "type": "github_repo",
     "url": "https://github.com/vllm-project/speculators"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:22:08Z",
+  "finished_at": "2026-09-23T03:22:08Z",
+  "duration_seconds": 41.8,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-088",
@@ -1765,7 +2760,19 @@
     "type": "reference",
     "url": "https://github.com/EleutherAI/lm-evaluation-harness/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:03:01Z",
+  "finished_at": "2026-09-23T04:03:01Z",
+  "duration_seconds": 133.6,
+  "attempts": 1,
+  "channel_count": 8,
+  "channels_ok": 8,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-089",
@@ -1778,7 +2785,18 @@
     "type": "github_repo",
     "url": "https://github.com/ai-dynamo/dynamo"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:22:13Z",
+  "finished_at": "2026-09-23T03:22:13Z",
+  "duration_seconds": 42.1,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-090",
@@ -1807,7 +2825,20 @@
     "type": "site",
     "url": "https://docs.nvidia.com/dynamo/dev/agent-skills/optimization"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:55:10Z",
+  "finished_at": "2026-09-23T03:55:10Z",
+  "duration_seconds": 94.4,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference",
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-091",
@@ -1832,7 +2863,19 @@
     "type": "reference",
     "url": "https://github.com/LMCache/LMCache/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:30:59Z",
+  "finished_at": "2026-09-23T03:30:59Z",
+  "duration_seconds": 61.8,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-092",
@@ -1857,7 +2900,19 @@
     "type": "reference",
     "url": "https://github.com/kvcache-ai/Mooncake/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:31:40Z",
+  "finished_at": "2026-09-23T03:31:40Z",
+  "duration_seconds": 65.8,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-093",
@@ -1882,7 +2937,19 @@
     "type": "reference",
     "url": "https://github.com/vllm-project/aibrix/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:32:01Z",
+  "finished_at": "2026-09-23T03:32:01Z",
+  "duration_seconds": 61.2,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-094",
@@ -1895,7 +2962,18 @@
     "type": "site",
     "url": "https://docs.ray.io/en/latest/serve/llm/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:13:03Z",
+  "finished_at": "2026-09-23T05:06:52Z",
+  "duration_seconds": 20.9,
+  "attempts": 3,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-095",
@@ -1920,7 +2998,19 @@
     "type": "reference",
     "url": "https://github.com/ray-project/kuberay/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:32:37Z",
+  "finished_at": "2026-09-23T03:32:37Z",
+  "duration_seconds": 57.7,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-096",
@@ -1945,7 +3035,19 @@
     "type": "reference",
     "url": "https://github.com/openucx/ucx/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:33:16Z",
+  "finished_at": "2026-09-23T03:33:16Z",
+  "duration_seconds": 75.3,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-097",
@@ -1970,7 +3072,19 @@
     "type": "reference",
     "url": "https://github.com/ai-dynamo/nixl/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:33:49Z",
+  "finished_at": "2026-09-23T03:33:49Z",
+  "duration_seconds": 72.0,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-098",
@@ -1995,7 +3109,19 @@
     "type": "reference",
     "url": "https://github.com/NVIDIA/nccl-tests/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:34:17Z",
+  "finished_at": "2026-09-23T03:34:17Z",
+  "duration_seconds": 60.7,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-099",
@@ -2008,7 +3134,18 @@
     "type": "site",
     "url": "https://www.brendangregg.com/linuxperf.html"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:13:11Z",
+  "finished_at": "2026-09-23T04:13:11Z",
+  "duration_seconds": 7.4,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-100",
@@ -2021,7 +3158,18 @@
     "type": "site",
     "url": "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:13:19Z",
+  "finished_at": "2026-09-23T05:06:46Z",
+  "duration_seconds": 15.4,
+  "attempts": 3,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-101",
@@ -2034,7 +3182,18 @@
     "type": "site",
     "url": "https://docs.nvidia.com/nsight-systems/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:13:31Z",
+  "finished_at": "2026-09-23T05:04:42Z",
+  "duration_seconds": 15.6,
+  "attempts": 2,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-102",
@@ -2047,7 +3206,18 @@
     "type": "site",
     "url": "https://docs.nvidia.com/nsight-compute/ProfilingGuide/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:13:41Z",
+  "finished_at": "2026-09-23T05:04:57Z",
+  "duration_seconds": 16.9,
+  "attempts": 2,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-103",
@@ -2060,7 +3230,18 @@
     "type": "github_repo",
     "url": "https://github.com/ROCm/rocprofiler-sdk"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:22:24Z",
+  "finished_at": "2026-09-23T03:22:24Z",
+  "duration_seconds": 15.7,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-104",
@@ -2089,7 +3270,19 @@
     "type": "reference",
     "url": "https://github.com/ROCm/rocprofiler-sdk/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:55:06Z",
+  "finished_at": "2026-09-23T03:55:06Z",
+  "duration_seconds": 65.1,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-105",
@@ -2130,7 +3323,19 @@
     "type": "reference",
     "url": "https://github.com/NVIDIA/DCGM/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:02:41Z",
+  "finished_at": "2026-09-23T04:02:41Z",
+  "duration_seconds": 104.5,
+  "attempts": 1,
+  "channel_count": 8,
+  "channels_ok": 8,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-106",
@@ -2155,7 +3360,19 @@
     "type": "reference",
     "url": "https://github.com/ROCm/amdsmi/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:34:37Z",
+  "finished_at": "2026-09-23T03:34:37Z",
+  "duration_seconds": 47.4,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-107",
@@ -2168,7 +3385,18 @@
     "type": "site",
     "url": "https://docs.vllm.ai/en/latest/benchmarking/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:13:50Z",
+  "finished_at": "2026-09-23T05:06:55Z",
+  "duration_seconds": 8.3,
+  "attempts": 3,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-108",
@@ -2181,7 +3409,18 @@
     "type": "site",
     "url": "https://docs.vllm.ai/en/latest/benchmarking/dashboard/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:13:58Z",
+  "finished_at": "2026-09-23T05:06:57Z",
+  "duration_seconds": 5.4,
+  "attempts": 3,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-109",
@@ -2206,7 +3445,19 @@
     "type": "reference",
     "url": "https://github.com/triton-inference-server/perf_analyzer/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:35:19Z",
+  "finished_at": "2026-09-23T03:35:19Z",
+  "duration_seconds": 61.9,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-110",
@@ -2231,7 +3482,19 @@
     "type": "reference",
     "url": "https://github.com/modelscope/evalscope/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:35:43Z",
+  "finished_at": "2026-09-23T03:35:43Z",
+  "duration_seconds": 66.2,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-111",
@@ -2256,7 +3519,19 @@
     "type": "reference",
     "url": "https://github.com/vllm-project/guidellm/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:36:29Z",
+  "finished_at": "2026-09-23T03:36:29Z",
+  "duration_seconds": 70.2,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-112",
@@ -2281,7 +3556,19 @@
     "type": "reference",
     "url": "https://github.com/SemiAnalysisAI/InferenceX/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:37:02Z",
+  "finished_at": "2026-09-23T03:37:02Z",
+  "duration_seconds": 79.5,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-113",
@@ -2294,7 +3581,18 @@
     "type": "github_repo",
     "url": "https://github.com/mlcommons/inference"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:22:49Z",
+  "finished_at": "2026-09-23T03:22:49Z",
+  "duration_seconds": 35.4,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-114",
@@ -2323,7 +3621,20 @@
     "type": "academic",
     "url": "https://docs.mlcommons.org/inference/submission/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:56:15Z",
+  "finished_at": "2026-09-23T03:56:15Z",
+  "duration_seconds": 68.4,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "academic",
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-115",
@@ -2336,7 +3647,18 @@
     "type": "academic",
     "url": "https://arxiv.org/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:14:04Z",
+  "finished_at": "2026-09-23T04:14:04Z",
+  "duration_seconds": 5.5,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "academic"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-116",
@@ -2349,7 +3671,18 @@
     "type": "academic",
     "url": "https://proceedings.mlsys.org/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:14:12Z",
+  "finished_at": "2026-09-23T04:14:12Z",
+  "duration_seconds": 8.1,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "academic"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-117",
@@ -2362,7 +3695,18 @@
     "type": "academic",
     "url": "https://www.usenix.org/publications/proceedings"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:14:25Z",
+  "finished_at": "2026-09-23T04:14:25Z",
+  "duration_seconds": 13.4,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "academic"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-118",
@@ -2371,7 +3715,10 @@
   "priority": "",
   "scrape_type": "academic",
   "channels": {},
-  "blocked_reason": "PDF 标 403（ACM Digital Library）"
+  "blocked_reason": "PDF 标 403（ACM Digital Library）",
+  "channel_types": [],
+  "notes": "",
+  "status": "blocked"
  },
  {
   "src_id": "SRC-119",
@@ -2384,7 +3731,18 @@
     "type": "academic",
     "url": "https://openreview.net/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:14:32Z",
+  "finished_at": "2026-09-23T04:14:32Z",
+  "duration_seconds": 7.2,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "academic"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-120",
@@ -2397,7 +3755,18 @@
     "type": "github_repo",
     "url": "https://github.com/gpu-mode/lectures"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:22:49Z",
+  "finished_at": "2026-09-23T03:22:49Z",
+  "duration_seconds": 24.7,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-121",
@@ -2426,7 +3795,20 @@
     "type": "site",
     "url": "https://meet.sglang.io/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:56:04Z",
+  "finished_at": "2026-09-23T03:56:04Z",
+  "duration_seconds": 53.7,
+  "attempts": 1,
+  "channel_count": 5,
+  "channels_ok": 5,
+  "channel_types": [
+   "github_repo",
+   "reference",
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-122",
@@ -2439,7 +3821,18 @@
     "type": "site",
     "url": "https://www.nvidia.com/en-us/on-demand/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:14:37Z",
+  "finished_at": "2026-09-23T04:14:37Z",
+  "duration_seconds": 4.3,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-123",
@@ -2452,7 +3845,18 @@
     "type": "site",
     "url": "https://lmsys.org/blog/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:14:45Z",
+  "finished_at": "2026-09-23T04:14:45Z",
+  "duration_seconds": 8.3,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-124",
@@ -2465,7 +3869,18 @@
     "type": "site",
     "url": "https://pytorch.org/blog/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:15:01Z",
+  "finished_at": "2026-09-23T04:15:01Z",
+  "duration_seconds": 16.1,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-125",
@@ -2478,7 +3893,18 @@
     "type": "site",
     "url": "https://developer.nvidia.com/blog/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:15:18Z",
+  "finished_at": "2026-09-23T04:15:18Z",
+  "duration_seconds": 17.2,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-126",
@@ -2491,7 +3917,18 @@
     "type": "site",
     "url": "https://www.baseten.co/blog/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:15:30Z",
+  "finished_at": "2026-09-23T04:15:30Z",
+  "duration_seconds": 12.0,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-127",
@@ -2504,7 +3941,18 @@
     "type": "site",
     "url": "https://www.baseten.co/inference-engineering/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:15:34Z",
+  "finished_at": "2026-09-23T04:15:34Z",
+  "duration_seconds": 4.0,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-128",
@@ -2517,7 +3965,18 @@
     "type": "site",
     "url": "https://www.together.ai/blog"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:16:49Z",
+  "finished_at": "2026-09-23T04:16:49Z",
+  "duration_seconds": 74.4,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-129",
@@ -2530,7 +3989,18 @@
     "type": "site",
     "url": "https://fireworks.ai/blog"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:16:57Z",
+  "finished_at": "2026-09-23T04:16:57Z",
+  "duration_seconds": 8.1,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-130",
@@ -2543,7 +4013,18 @@
     "type": "site",
     "url": "https://modal.com/blog"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:20:07Z",
+  "finished_at": "2026-09-23T04:20:07Z",
+  "duration_seconds": 190.5,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-131",
@@ -2556,7 +4037,18 @@
     "type": "site",
     "url": "https://www.anyscale.com/blog"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:20:24Z",
+  "finished_at": "2026-09-23T04:20:24Z",
+  "duration_seconds": 16.7,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-132",
@@ -2569,7 +4061,18 @@
     "type": "site",
     "url": "https://aws.amazon.com/blogs/machine-learning/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:20:52Z",
+  "finished_at": "2026-09-23T04:20:52Z",
+  "duration_seconds": 27.5,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-133",
@@ -2582,7 +4085,18 @@
     "type": "site",
     "url": "https://cloud.google.com/blog/products/ai-machine-learning"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:21:19Z",
+  "finished_at": "2026-09-23T04:21:19Z",
+  "duration_seconds": 27.7,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-134",
@@ -2595,7 +4109,18 @@
     "type": "site",
     "url": "https://developer.aliyun.com/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:21:24Z",
+  "finished_at": "2026-09-23T04:21:24Z",
+  "duration_seconds": 4.2,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-135",
@@ -2608,7 +4133,18 @@
     "type": "site",
     "url": "https://cloud.tencent.com/developer"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:21:26Z",
+  "finished_at": "2026-09-23T04:21:26Z",
+  "duration_seconds": 2.7,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-136",
@@ -2621,7 +4157,18 @@
     "type": "site",
     "url": "https://bbs.huaweicloud.com/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:21:29Z",
+  "finished_at": "2026-09-23T04:21:29Z",
+  "duration_seconds": 2.0,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-137",
@@ -2634,7 +4181,18 @@
     "type": "site",
     "url": "https://developer.volcengine.com/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:21:31Z",
+  "finished_at": "2026-09-23T04:21:31Z",
+  "duration_seconds": 2.9,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-138",
@@ -2647,7 +4205,18 @@
     "type": "site",
     "url": "https://horace.io/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:21:36Z",
+  "finished_at": "2026-09-23T04:21:36Z",
+  "duration_seconds": 4.9,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-139",
@@ -2660,7 +4229,18 @@
     "type": "site",
     "url": "https://siboehm.com/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:21:46Z",
+  "finished_at": "2026-09-23T04:21:46Z",
+  "duration_seconds": 9.9,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-140",
@@ -2673,7 +4253,18 @@
     "type": "site",
     "url": "https://leimao.github.io/blog/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:15:40Z",
+  "finished_at": "2026-09-23T03:15:40Z",
+  "duration_seconds": 38.2,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-141",
@@ -2686,7 +4277,18 @@
     "type": "site",
     "url": "https://research.colfax-intl.com/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:22:11Z",
+  "finished_at": "2026-09-23T04:22:11Z",
+  "duration_seconds": 24.7,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-142",
@@ -2699,7 +4301,18 @@
     "type": "site",
     "url": "https://salykova.github.io/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:22:18Z",
+  "finished_at": "2026-09-23T04:22:18Z",
+  "duration_seconds": 6.7,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-143",
@@ -2712,7 +4325,18 @@
     "type": "site",
     "url": "https://forums.developer.nvidia.com/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:22:25Z",
+  "finished_at": "2026-09-23T04:22:25Z",
+  "duration_seconds": 7.5,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-144",
@@ -2725,7 +4349,18 @@
     "type": "site",
     "url": "https://discuss.pytorch.org/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:22:33Z",
+  "finished_at": "2026-09-23T04:22:33Z",
+  "duration_seconds": 8.0,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-145",
@@ -2738,7 +4373,18 @@
     "type": "site",
     "url": "https://dev-discuss.pytorch.org/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:22:42Z",
+  "finished_at": "2026-09-23T04:22:42Z",
+  "duration_seconds": 9.2,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-146",
@@ -2751,7 +4397,18 @@
     "type": "reference",
     "url": "https://github.com/topics/llm-inference"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:05:28Z",
+  "finished_at": "2026-09-23T04:05:28Z",
+  "duration_seconds": 7.7,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-147",
@@ -2764,7 +4421,18 @@
     "type": "github_org",
     "url": "https://github.com/trending"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:22:55Z",
+  "finished_at": "2026-09-23T04:22:55Z",
+  "duration_seconds": 13.0,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_org"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-148",
@@ -2777,7 +4445,18 @@
     "type": "hf",
     "url": "https://huggingface.co/papers"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:22:57Z",
+  "finished_at": "2026-09-23T05:05:02Z",
+  "duration_seconds": 5.1,
+  "attempts": 2,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "hf"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-149",
@@ -2790,7 +4469,18 @@
     "type": "site",
     "url": "https://www.reddit.com/r/LocalLLaMA/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:23:00Z",
+  "finished_at": "2026-09-23T04:23:00Z",
+  "duration_seconds": 3.1,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-150",
@@ -2799,7 +4489,10 @@
   "priority": "扩展",
   "scrape_type": "site",
   "channels": {},
-  "blocked_reason": "PDF 标登录拦截（知乎）"
+  "blocked_reason": "PDF 标登录拦截（知乎）",
+  "channel_types": [],
+  "notes": "",
+  "status": "blocked"
  },
  {
   "src_id": "SRC-151",
@@ -2812,7 +4505,18 @@
     "type": "site",
     "url": "https://www.csdn.net/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:23:02Z",
+  "finished_at": "2026-09-23T04:23:02Z",
+  "duration_seconds": 1.7,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-152",
@@ -2825,7 +4529,18 @@
     "type": "site",
     "url": "https://weixin.sogou.com/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:23:03Z",
+  "finished_at": "2026-09-23T04:23:03Z",
+  "duration_seconds": 1.3,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-153",
@@ -2838,7 +4553,18 @@
     "type": "site",
     "url": "https://www.bilibili.com/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:23:05Z",
+  "finished_at": "2026-09-23T04:23:05Z",
+  "duration_seconds": 1.5,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-154",
@@ -2851,7 +4577,18 @@
     "type": "site",
     "url": "https://news.ycombinator.com/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:23:57Z",
+  "finished_at": "2026-09-23T04:23:57Z",
+  "duration_seconds": 52.1,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-155",
@@ -2892,7 +4629,19 @@
     "type": "reference",
     "url": "https://github.com/NVlabs/kda/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:04:28Z",
+  "finished_at": "2026-09-23T04:04:28Z",
+  "duration_seconds": 107.2,
+  "attempts": 1,
+  "channel_count": 8,
+  "channels_ok": 8,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-156",
@@ -2905,7 +4654,18 @@
     "type": "github_repo",
     "url": "https://github.com/mit-han-lab/KernelWiki"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:23:13Z",
+  "finished_at": "2026-09-23T03:23:13Z",
+  "duration_seconds": 24.5,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "github_repo"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-157",
@@ -2946,7 +4706,19 @@
     "type": "reference",
     "url": "https://github.com/mit-han-lab/ncu-report-skill/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:04:39Z",
+  "finished_at": "2026-09-23T04:04:39Z",
+  "duration_seconds": 98.4,
+  "attempts": 1,
+  "channel_count": 8,
+  "channels_ok": 8,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-158",
@@ -2959,7 +4731,18 @@
     "type": "site",
     "url": "https://developer.sourcefind.cn/dtk"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:23:58Z",
+  "finished_at": "2026-09-23T04:23:58Z",
+  "duration_seconds": 1.6,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-159",
@@ -2972,7 +4755,18 @@
     "type": "site",
     "url": "https://docs.opencloudos.org/OC9/ai-deployment/GPU-optimization-practice/hygon-deployment/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:24:03Z",
+  "finished_at": "2026-09-23T05:05:05Z",
+  "duration_seconds": 3.9,
+  "attempts": 2,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-160",
@@ -2981,7 +4775,10 @@
   "priority": "",
   "scrape_type": "site",
   "channels": {},
-  "blocked_reason": "PDF 标获取失败（寒武纪 SDK 文档）"
+  "blocked_reason": "PDF 标获取失败（寒武纪 SDK 文档）",
+  "channel_types": [],
+  "notes": "",
+  "status": "blocked"
  },
  {
   "src_id": "SRC-161",
@@ -3006,7 +4803,19 @@
     "type": "reference",
     "url": "https://github.com/flashinfer-ai/flashinfer-bench/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:37:30Z",
+  "finished_at": "2026-09-23T03:37:30Z",
+  "duration_seconds": 60.7,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-162",
@@ -3019,7 +4828,18 @@
     "type": "site",
     "url": "https://optuna.readthedocs.io/en/stable/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:24:07Z",
+  "finished_at": "2026-09-23T04:24:07Z",
+  "duration_seconds": 4.2,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-163",
@@ -3044,7 +4864,19 @@
     "type": "reference",
     "url": "https://github.com/LLMServe/DistServe/releases"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:37:58Z",
+  "finished_at": "2026-09-23T03:37:58Z",
+  "duration_seconds": 55.2,
+  "attempts": 1,
+  "channel_count": 4,
+  "channels_ok": 4,
+  "channel_types": [
+   "github_repo",
+   "reference"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-164",
@@ -3057,7 +4889,18 @@
     "type": "site",
     "url": "https://docs.sglang.io/llms.txt"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:24:18Z",
+  "finished_at": "2026-09-23T04:57:40Z",
+  "duration_seconds": 0.6,
+  "attempts": 2,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-165",
@@ -3070,7 +4913,18 @@
     "type": "site",
     "url": "https://vllm.ai/blog"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:16:38Z",
+  "finished_at": "2026-09-23T03:16:38Z",
+  "duration_seconds": 27.1,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-166",
@@ -3083,7 +4937,18 @@
     "type": "site",
     "url": "https://gitcode.com/Ascend"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:24:26Z",
+  "finished_at": "2026-09-23T04:24:26Z",
+  "duration_seconds": 8.0,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-167",
@@ -3092,7 +4957,10 @@
   "priority": "",
   "scrape_type": "site",
   "channels": {},
-  "blocked_reason": "PDF 标 403（Ascend Gitee 组织）"
+  "blocked_reason": "PDF 标 403（Ascend Gitee 组织）",
+  "channel_types": [],
+  "notes": "",
+  "status": "blocked"
  },
  {
   "src_id": "SRC-168",
@@ -3125,7 +4993,20 @@
     "type": "site",
     "url": "https://docs.vllm.ai/projects/recipes/en/stable/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T03:57:10Z",
+  "finished_at": "2026-09-23T03:57:10Z",
+  "duration_seconds": 66.6,
+  "attempts": 1,
+  "channel_count": 6,
+  "channels_ok": 6,
+  "channel_types": [
+   "github_repo",
+   "reference",
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-169",
@@ -3138,7 +5019,18 @@
     "type": "site",
     "url": "https://catalog.ngc.nvidia.com/"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:24:40Z",
+  "finished_at": "2026-09-23T04:24:40Z",
+  "duration_seconds": 14.0,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  },
  {
   "src_id": "SRC-170",
@@ -3151,6 +5043,17 @@
     "type": "site",
     "url": "https://hub.docker.com/u/rocm"
    }
-  }
+  },
+  "status": "success",
+  "started_at": "2026-09-23T04:24:50Z",
+  "finished_at": "2026-09-23T04:24:50Z",
+  "duration_seconds": 9.5,
+  "attempts": 1,
+  "channel_count": 1,
+  "channels_ok": 1,
+  "channel_types": [
+   "site"
+  ],
+  "notes": ""
  }
 ]
