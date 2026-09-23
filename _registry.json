@@ -944,21 +944,21 @@
   "scrape_type": "site",
   "channels": {
    "site_3c52dc24": {
-    "type": "site",
+    "type": "js",
     "url": "https://www.hiascend.com/document/detail/zh/mindie/230/mindiellm/llmdev/mindie_llm0526.html"
    }
   },
   "status": "success",
   "started_at": "2026-09-23T04:10:29Z",
-  "finished_at": "2026-09-23T04:10:29Z",
-  "duration_seconds": 10.2,
-  "attempts": 1,
+  "finished_at": "2026-09-23T13:48:31Z",
+  "duration_seconds": 10.8,
+  "attempts": 2,
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "js"
   ],
-  "notes": ""
+  "notes": "Nuxt.js SPA shell. js 通道 playwright headless chromium 重抓，正文 26979 chars。"
  },
  {
   "src_id": "SRC-032",

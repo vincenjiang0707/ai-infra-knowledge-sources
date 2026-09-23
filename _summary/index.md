@@ -1,9 +1,9 @@
 # 知识来源抓取总表
 
-- 日期: 2026-09-23T05:09:15Z
+- 日期: 2026-09-23T13:51:57Z
 - 来源总数: 170
 - 状态: {"success": 164, "blocked": 5, "partial": 1}
-- 产物: 3585 项 / 155.4 MB
+- 产物: 5199 项 / 208.8 MB
 
 | SRC | 名称 | 类别 | 状态 | 说明 |
 |---|---|---|---|---|
@@ -37,7 +37,7 @@
 | SRC-028 | JetStream | NVIDIA、AMD 与通⽤芯⽚ | success | github_repo:ok; github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-029 | AWS Neuron | NVIDIA、AMD 与通⽤芯⽚ | success | github_repo:ok; reference:ok; reference:ok; reference:ok; site:ok |
 | SRC-030 | 昇腾⽂档中⼼ | 昇腾与其他国产芯⽚ | success | site:ok |
-| SRC-031 | MindIE 调优 | 昇腾与其他国产芯⽚ | success | site:ok |
+| SRC-031 | MindIE 调优 | 昇腾与其他国产芯⽚ | success | js:ok |
 | SRC-032 | Ascend | 昇腾与其他国产芯⽚ | success | github_repo:ok |
 | SRC-033 | Ascend 样例 | 昇腾与其他国产芯⽚ | success | github_repo:ok; github_repo:ok; reference:ok; reference:ok; reference:ok |
 | SRC-034 | Ascend | 昇腾与其他国产芯⽚ | success | github_repo:ok; github_repo:ok; reference:ok; reference:ok; reference:ok |
@@ -46,7 +46,7 @@
 | SRC-037 | MUSA SDK | 昇腾与其他国产芯⽚ | success | github_repo:ok; reference:ok; reference:ok; reference:ok; site:ok |
 | SRC-038 | MUSA SDK | 昇腾与其他国产芯⽚ | success | site:ok |
 | SRC-039 | torch_musa | 昇腾与其他国产芯⽚ | success | site:ok |
-| SRC-040 | MUSA 部署 | 昇腾与其他国产芯⽚ | success | site:ok |
+| SRC-040 | MUSA 部署 | 昇腾与其他国产芯⽚ | success | menu:ok(63) |
 | SRC-041 | 海光光合开发 | 昇腾与其他国产芯⽚ | success | site:ok |
 | SRC-042 | 寒武纪开发者 | 昇腾与其他国产芯⽚ | blocked | PDF 标 504（寒武纪开发者论坛） |
 | SRC-043 | 寒武纪官⽅开 | 昇腾与其他国产芯⽚ | partial | github_org:ok; site:error |
