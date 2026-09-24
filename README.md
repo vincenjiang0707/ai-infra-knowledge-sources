@@ -55,6 +55,8 @@
 
 - **按 SRC 号找**：直接看目录 `sources/SRC-XXX/`，`_meta.json` 含 URL 与状态
 - **按类别找**：用 `_registry.json`，170 条全字段（`src_id` / `category` / `priority` / `status` / `channels` / `channel_types` / `started_at`）
+- **浏览器浏览**：打开 `index.html`（按 category 分组的可折叠目录 + 顶部 status 筛选 + 点击 SRC 看子文件清单）
+- **机器读取**：fetch `_index.json`（170 项 SRC + 每个 SRC 的子文件 path + url，skill 友好）
 - **找活跃 GH issue/PR**：看 `sources/SRC-XXX/github_details/_index.jsonl`，`fetched_at` 字段标了每条详情的抓取时间
 - **找 RSS 文章**：看 `sources/SRC-XXX/posts/`，文件名是 `YYYYMMDD_slug.md`，按日期倒序即可
 - **汇总报告**：`_summary/index.md` 列出所有 170 项状态、`_summary/fetched.md` 是成功清单
@@ -86,6 +88,7 @@
 | 版本 | 日期 | 说明 |
 |---|---|---|
 | v1.2 | 2026-09-23 | SRC-XXX 移入 sources/ 子目录，减少顶层目录噪声 |
+| v1.7 | 2026-09-24 | 生成静态索引：`scrape/build_index.py` 读 `_registry.json` + filesystem 扫描，产出 `index.html`（按 category 分组的可折叠目录 + status 筛选 + SRC 子文件清单）与 `_index.json`（skill 友好的 SRC + 文件路径 JSON，170 项） |
 | v1.6 | 2026-09-24 | blog 通道批量补抓 SRC-125 NVIDIA 50 篇、SRC-126 Baseten 25 篇、SRC-129 Fireworks 23 篇、SRC-131 Anyscale 18 篇、SRC-132 AWS ML 2 篇（partial，JS lazy）、SRC-133 Google Cloud 48 篇、SRC-140 Lei Mao 52→62 篇（partial，networkidle timeout）；修复 batch2 跳过 error 状态的 bug |
 | v1.5 | 2026-09-23 | blog 通道上线：playwright 渲染 index + 正则抓 post permalinks + 串行访问每篇；SRC-123 LMSYS blog 全量 100 篇 1.5 MB 正文集（含 NVFP4 KV / DeepSeek-V4.1 / SGLang SSD Expert Pack / 等完整技术博文）|
 | v1.4 | 2026-09-23 | js 通道批量重抓 21 个 SPA shell 候选：LMSYS blog 117→34700、PyTorch docs 95→8980、Horace He 317→276 等显著提升；SRC-016 CUDA docs timeout 退回 site；SRC-129 Fireworks blog trafilatura no_md 标 error |

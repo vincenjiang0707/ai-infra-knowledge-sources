@@ -1,0 +1,2719 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>AI Infra Knowledge Sources — 索引</title>
+<style>
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #777;
+  --line: #e5e5e5;
+  --accent: #2563eb;
+  --ok: #16a34a;
+  --partial: #d97706;
+  --blocked: #dc2626;
+  --code-bg: #f4f4f5;
+}
+* { box-sizing: border-box; }
+body { font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+       color: var(--fg); background: var(--bg); margin: 0; padding: 24px 32px; max-width: 1200px; }
+header { border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 16px; }
+h1 { margin: 0 0 4px; font-size: 22px; }
+.meta { color: var(--muted); font-size: 12px; }
+.controls { margin: 12px 0; display: flex; gap: 8px; flex-wrap: wrap; }
+.controls button { font: inherit; padding: 4px 10px; border: 1px solid var(--line);
+                   background: #fff; cursor: pointer; border-radius: 4px; }
+.controls button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.category { margin: 16px 0 8px; padding: 8px 0; border-top: 1px solid var(--line); }
+.category h2 { margin: 0 0 8px; font-size: 15px; cursor: pointer; user-select: none; }
+.category h2::before { content: "▸ "; color: var(--muted); transition: transform .1s; display: inline-block; }
+.category.open h2::before { content: "▾ "; }
+.src-list { display: none; padding-left: 12px; }
+.category.open .src-list { display: block; }
+.src-row { padding: 6px 8px; border-left: 3px solid transparent; margin: 2px 0; }
+.src-row:hover { background: #f0f0f0; }
+.src-row details { margin-top: 4px; }
+.src-row summary { cursor: pointer; list-style: none; }
+.src-row summary::-webkit-details-marker { display: none; }
+.src-row summary::before { content: "▸ "; color: var(--muted); display: inline-block; width: 14px; }
+.src-row details[open] summary::before { content: "▾ "; }
+.src-name { font-weight: 500; }
+.src-id { color: var(--muted); font-family: ui-monospace, SFMono-Regular, monospace; font-size: 12px; margin-left: 6px; }
+.src-url { color: var(--muted); font-size: 11px; margin-left: 8px; word-break: break-all; }
+.badge { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px;
+         text-transform: uppercase; margin-left: 6px; vertical-align: middle; }
+.badge.success { background: #dcfce7; color: var(--ok); }
+.badge.partial { background: #fef3c7; color: var(--partial); }
+.badge.blocked { background: #fee2e2; color: var(--blocked); }
+.badge.not_fetched { background: #f3f4f6; color: var(--muted); }
+.file-list { padding: 4px 0 4px 20px; font-size: 12px; }
+.file-list a { color: var(--accent); text-decoration: none; margin-right: 12px; }
+.file-list a:hover { text-decoration: underline; }
+.dim { opacity: .35; pointer-events: none; }
+footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line);
+         color: var(--muted); font-size: 11px; }
+code { background: var(--code-bg); padding: 1px 4px; border-radius: 3px; font-size: 12px; }
+</style>
+</head><body>
+<header>
+<h1>AI Infra Knowledge Sources — 索引</h1>
+<div class="meta">
+共 170 个来源 · 抓取快照 2026-09-24T09:53:11Z · 
+success 162 / partial 3 / blocked 5 / 其他 0
+</div>
+<div class="controls" id="status-filter">
+<button data-status="all" class="active">全部</button>
+<button data-status="success">success (162)</button>
+<button data-status="partial">partial (3)</button>
+<button data-status="blocked">blocked (5)</button>
+<button data-status="not_fetched">not_fetched (0)</button>
+</div>
+</header>
+<div class="category open" data-cat="推理引擎与部署配⽅">
+<h2>推理引擎与部署配⽅ <span class="meta">(15)</span></h2>
+<div class="src-list">
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">vLLM ⽂档</span>
+<span class="src-id">SRC-001</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.vllm.ai/en/latest/" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-001/_meta.json">_meta.json</a>
+<a href="./sources/SRC-001/pages/">pages/ (1991 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">vLLM 配⽅</span>
+<span class="src-id">SRC-002</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.vllm.ai/projects/recipes/en/stable/" target="_blank" rel="noopener">https://docs.vllm.ai/projects/recipes/en/stable/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-002/_meta.json">_meta.json</a>
+<a href="./sources/SRC-002/pages/">pages/ (57 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">vLLM 源码与讨</span>
+<span class="src-id">SRC-003</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">https://github.com/vllm-project/vllm</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-003/_meta.json">_meta.json</a>
+<a href="./sources/SRC-003/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-003/github_details/">github_details/ (298 files)</a>
+<a href="./sources/SRC-003/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-003/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-003/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-003/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">SGLang ⽂档</span>
+<span class="src-id">SRC-004</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">https://github.com/vllm-project/vllm</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-004/_meta.json">_meta.json</a>
+<a href="./sources/SRC-004/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-004/github_details/">github_details/ (395 files)</a>
+<a href="./sources/SRC-004/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-004/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-004/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-004/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-004/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">SGLang 源码与</span>
+<span class="src-id">SRC-005</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/sgl-project/sglang" target="_blank" rel="noopener">https://github.com/sgl-project/sglang</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-005/_meta.json">_meta.json</a>
+<a href="./sources/SRC-005/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-005/github_details/">github_details/ (252 files)</a>
+<a href="./sources/SRC-005/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-005/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-005/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-005/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">SGLang 学习资</span>
+<span class="src-id">SRC-006</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/sgl-project/sglang" target="_blank" rel="noopener">https://github.com/sgl-project/sglang</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-006/_meta.json">_meta.json</a>
+<a href="./sources/SRC-006/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-006/github_details/">github_details/ (73 files)</a>
+<a href="./sources/SRC-006/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-006/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-006/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-006/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-006/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">vLLM Ascend</span>
+<span class="src-id">SRC-007</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/sgl-project/sgl-learning-materials" target="_blank" rel="noopener">https://github.com/sgl-project/sgl-learning-materials</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-007/_meta.json">_meta.json</a>
+<a href="./sources/SRC-007/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-007/github_details/">github_details/ (2 files)</a>
+<a href="./sources/SRC-007/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-007/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-007/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-007/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">vLLM Ascend</span>
+<span class="src-id">SRC-008</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/vllm-project/vllm-ascend" target="_blank" rel="noopener">https://github.com/vllm-project/vllm-ascend</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-008/_meta.json">_meta.json</a>
+<a href="./sources/SRC-008/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-008/github_details/">github_details/ (177 files)</a>
+<a href="./sources/SRC-008/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-008/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-008/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-008/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">TensorRT LLM</span>
+<span class="src-id">SRC-009</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/vllm-project/vllm-ascend" target="_blank" rel="noopener">https://github.com/vllm-project/vllm-ascend</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-009/_meta.json">_meta.json</a>
+<a href="./sources/SRC-009/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-009/github_details/">github_details/ (154 files)</a>
+<a href="./sources/SRC-009/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-009/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-009/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-009/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-009/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">LMDeploy</span>
+<span class="src-id">SRC-010</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/NVIDIA/TensorRT-LLM" target="_blank" rel="noopener">https://github.com/NVIDIA/TensorRT-LLM</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-010/_meta.json">_meta.json</a>
+<a href="./sources/SRC-010/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-010/github_details/">github_details/ (134 files)</a>
+<a href="./sources/SRC-010/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-010/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-010/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-010/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-010/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">llama.cpp</span>
+<span class="src-id">SRC-011</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/ggml-org/llama.cpp" target="_blank" rel="noopener">https://github.com/ggml-org/llama.cpp</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-011/_meta.json">_meta.json</a>
+<a href="./sources/SRC-011/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-011/github_details/">github_details/ (64 files)</a>
+<a href="./sources/SRC-011/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-011/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-011/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-011/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-011/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">MLC LLM</span>
+<span class="src-id">SRC-012</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/mlc-ai/mlc-llm" target="_blank" rel="noopener">https://github.com/mlc-ai/mlc-llm</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-012/_meta.json">_meta.json</a>
+<a href="./sources/SRC-012/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-012/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-012/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-012/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-012/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-012/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">llm-d</span>
+<span class="src-id">SRC-013</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/llm-d/llm-d" target="_blank" rel="noopener">https://github.com/llm-d/llm-d</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-013/_meta.json">_meta.json</a>
+<a href="./sources/SRC-013/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-013/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-013/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-013/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-013/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-013/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">NVIDIA NIM ⽂</span>
+<span class="src-id">SRC-014</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.nvidia.com/nim/large-language-models/latest/" target="_blank" rel="noopener">https://docs.nvidia.com/nim/large-language-models/latest/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-014/_meta.json">_meta.json</a>
+<a href="./sources/SRC-014/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">SGLang ⽂档完</span>
+<span class="src-id">SRC-164</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.sglang.io/llms.txt" target="_blank" rel="noopener">https://docs.sglang.io/llms.txt</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-164/_meta.json">_meta.json</a>
+<a href="./sources/SRC-164/page.md">page.md</a>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div class="category open" data-cat="NVIDIA、AMD 与通⽤芯⽚软件栈">
+<h2>NVIDIA、AMD 与通⽤芯⽚软件栈 <span class="meta">(17)</span></h2>
+<div class="src-list">
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">CUDA 最佳实</span>
+<span class="src-id">SRC-015</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/" target="_blank" rel="noopener">https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-015/_meta.json">_meta.json</a>
+<a href="./sources/SRC-015/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">CUDA ⽂档⼊</span>
+<span class="src-id">SRC-016</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.nvidia.com/cuda/" target="_blank" rel="noopener">https://docs.nvidia.com/cuda/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-016/_meta.json">_meta.json</a>
+<a href="./sources/SRC-016/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">NCCL</span>
+<span class="src-id">SRC-017</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/NVIDIA/nccl" target="_blank" rel="noopener">https://github.com/NVIDIA/nccl</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-017/_meta.json">_meta.json</a>
+<a href="./sources/SRC-017/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-017/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-017/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-017/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-017/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-017/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">NCCL 参数与</span>
+<span class="src-id">SRC-018</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/" target="_blank" rel="noopener">https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-018/_meta.json">_meta.json</a>
+<a href="./sources/SRC-018/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">ROCm ⽂档</span>
+<span class="src-id">SRC-019</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://rocm.docs.amd.com/en/latest/" target="_blank" rel="noopener">https://rocm.docs.amd.com/en/latest/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-019/_meta.json">_meta.json</a>
+<a href="./sources/SRC-019/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">ROCm vLLM</span>
+<span class="src-id">SRC-020</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/inference-optimization/vllm-optimization.html" target="_blank" rel="noopener">https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/inference-optimization/vllm-optimization.html</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-020/_meta.json">_meta.json</a>
+<a href="./sources/SRC-020/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">ROCm 博客</span>
+<span class="src-id">SRC-021</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://rocm.blogs.amd.com/" target="_blank" rel="noopener">https://rocm.blogs.amd.com/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-021/_meta.json">_meta.json</a>
+<a href="./sources/SRC-021/feed_meta.json">feed_meta.json</a>
+<a href="./sources/SRC-021/posts/">posts/ (20 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">RCCL</span>
+<span class="src-id">SRC-022</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/ROCm/rccl" target="_blank" rel="noopener">https://github.com/ROCm/rccl</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-022/_meta.json">_meta.json</a>
+<a href="./sources/SRC-022/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-022/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-022/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-022/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-022/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-022/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">ROCm AITER</span>
+<span class="src-id">SRC-023</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/ROCm/aiter" target="_blank" rel="noopener">https://github.com/ROCm/aiter</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-023/_meta.json">_meta.json</a>
+<a href="./sources/SRC-023/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-023/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-023/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-023/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-023/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Intel</span>
+<span class="src-id">SRC-024</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/ROCm/aiter" target="_blank" rel="noopener">https://github.com/ROCm/aiter</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-024/_meta.json">_meta.json</a>
+<a href="./sources/SRC-024/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-024/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-024/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-024/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-024/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-024/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Intel Gaudi ⽂</span>
+<span class="src-id">SRC-025</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.habana.ai/" target="_blank" rel="noopener">https://docs.habana.ai/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-025/_meta.json">_meta.json</a>
+<a href="./sources/SRC-025/pages/">pages/ (41 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Google TPU</span>
+<span class="src-id">SRC-026</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://cloud.google.com/tpu/docs" target="_blank" rel="noopener">https://cloud.google.com/tpu/docs</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-026/_meta.json">_meta.json</a>
+<a href="./sources/SRC-026/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">MaxText</span>
+<span class="src-id">SRC-027</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/AI-Hypercomputer/maxtext" target="_blank" rel="noopener">https://github.com/AI-Hypercomputer/maxtext</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-027/_meta.json">_meta.json</a>
+<a href="./sources/SRC-027/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-027/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-027/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-027/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-027/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">JetStream</span>
+<span class="src-id">SRC-028</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/AI-Hypercomputer/maxtext" target="_blank" rel="noopener">https://github.com/AI-Hypercomputer/maxtext</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-028/_meta.json">_meta.json</a>
+<a href="./sources/SRC-028/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-028/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-028/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-028/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-028/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-028/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">AWS Neuron</span>
+<span class="src-id">SRC-029</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/AI-Hypercomputer/JetStream" target="_blank" rel="noopener">https://github.com/AI-Hypercomputer/JetStream</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-029/_meta.json">_meta.json</a>
+<a href="./sources/SRC-029/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-029/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-029/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-029/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-029/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-029/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">NVIDIA NGC</span>
+<span class="src-id">SRC-169</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://catalog.ngc.nvidia.com/" target="_blank" rel="noopener">https://catalog.ngc.nvidia.com/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-169/_meta.json">_meta.json</a>
+<a href="./sources/SRC-169/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">ROCm Docker</span>
+<span class="src-id">SRC-170</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://hub.docker.com/u/rocm" target="_blank" rel="noopener">https://hub.docker.com/u/rocm</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-170/_meta.json">_meta.json</a>
+<a href="./sources/SRC-170/page.md">page.md</a>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div class="category open" data-cat="昇腾与其他国产芯⽚">
+<h2>昇腾与其他国产芯⽚ <span class="meta">(22)</span></h2>
+<div class="src-list">
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">昇腾⽂档中⼼</span>
+<span class="src-id">SRC-030</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://www.hiascend.com/document" target="_blank" rel="noopener">https://www.hiascend.com/document</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-030/_meta.json">_meta.json</a>
+<a href="./sources/SRC-030/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">MindIE 调优</span>
+<span class="src-id">SRC-031</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://www.hiascend.com/document/detail/zh/mindie/230/mindiellm/llmdev/mindie_llm0526.html" target="_blank" rel="noopener">https://www.hiascend.com/document/detail/zh/mindie/230/mindiellm/llmdev/mindie_llm0526.html</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-031/_meta.json">_meta.json</a>
+<a href="./sources/SRC-031/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Ascend</span>
+<span class="src-id">SRC-032</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/Ascend/pytorch" target="_blank" rel="noopener">https://github.com/Ascend/pytorch</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-032/_meta.json">_meta.json</a>
+<a href="./sources/SRC-032/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-032/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-032/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-032/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Ascend 样例</span>
+<span class="src-id">SRC-033</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/Ascend/pytorch" target="_blank" rel="noopener">https://github.com/Ascend/pytorch</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-033/_meta.json">_meta.json</a>
+<a href="./sources/SRC-033/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-033/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-033/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-033/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-033/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Ascend</span>
+<span class="src-id">SRC-034</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/Ascend/samples" target="_blank" rel="noopener">https://github.com/Ascend/samples</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-034/_meta.json">_meta.json</a>
+<a href="./sources/SRC-034/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-034/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-034/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-034/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-034/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Ascend</span>
+<span class="src-id">SRC-035</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/Ascend/msmodelslim" target="_blank" rel="noopener">https://github.com/Ascend/msmodelslim</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-035/_meta.json">_meta.json</a>
+<a href="./sources/SRC-035/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-035/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-035/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-035/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Ascend</span>
+<span class="src-id">SRC-036</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/Ascend/msprof" target="_blank" rel="noopener">https://github.com/Ascend/msprof</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-036/_meta.json">_meta.json</a>
+<a href="./sources/SRC-036/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-036/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-036/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-036/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">MUSA SDK</span>
+<span class="src-id">SRC-037</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/Ascend/MindSpeed" target="_blank" rel="noopener">https://github.com/Ascend/MindSpeed</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-037/_meta.json">_meta.json</a>
+<a href="./sources/SRC-037/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-037/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-037/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-037/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">MUSA SDK</span>
+<span class="src-id">SRC-038</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.mthreads.com/en/musa-sdk/musa-sdk-doc-online/" target="_blank" rel="noopener">https://docs.mthreads.com/en/musa-sdk/musa-sdk-doc-online/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-038/_meta.json">_meta.json</a>
+<a href="./sources/SRC-038/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">torch_musa</span>
+<span class="src-id">SRC-039</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.mthreads.com/torchmusa/torchmusa-doc-online/introduction/" target="_blank" rel="noopener">https://docs.mthreads.com/torchmusa/torchmusa-doc-online/introduction/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-039/_meta.json">_meta.json</a>
+<a href="./sources/SRC-039/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">MUSA 部署</span>
+<span class="src-id">SRC-040</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.mthreads.com/musa-deploy/musa-deploy-doc-online/introduction/" target="_blank" rel="noopener">https://docs.mthreads.com/musa-deploy/musa-deploy-doc-online/introduction/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-040/_meta.json">_meta.json</a>
+<a href="./sources/SRC-040/pages/">pages/ (61 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">海光光合开发</span>
+<span class="src-id">SRC-041</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://developer.sourcefind.cn/" target="_blank" rel="noopener">https://developer.sourcefind.cn/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-041/_meta.json">_meta.json</a>
+<a href="./sources/SRC-041/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="blocked">
+<details>
+<summary><span class="src-name">寒武纪开发者</span>
+<span class="src-id">SRC-042</span>
+<span class="badge blocked">blocked</span>
+</summary>
+<div class="file-list meta">（无子文件 / blocked）</div>
+</details>
+</div>
+<div class="src-row" data-status="partial">
+<details>
+<summary><span class="src-name">寒武纪官⽅开</span>
+<span class="src-id">SRC-043</span>
+<span class="badge partial">partial</span>
+<a class="src-url" href="https://github.com/Cambricon" target="_blank" rel="noopener">https://github.com/Cambricon</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-043/_meta.json">_meta.json</a>
+<a href="./sources/SRC-043/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">昆仑芯官⽅开</span>
+<span class="src-id">SRC-044</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/kunlunxin" target="_blank" rel="noopener">https://github.com/kunlunxin</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-044/_meta.json">_meta.json</a>
+<a href="./sources/SRC-044/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Paddle 推理</span>
+<span class="src-id">SRC-045</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/PaddlePaddle/Paddle" target="_blank" rel="noopener">https://github.com/PaddlePaddle/Paddle</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-045/_meta.json">_meta.json</a>
+<a href="./sources/SRC-045/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-045/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-045/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-045/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-045/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">燧原官⽹</span>
+<span class="src-id">SRC-046</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/PaddlePaddle/Paddle" target="_blank" rel="noopener">https://github.com/PaddlePaddle/Paddle</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-046/_meta.json">_meta.json</a>
+<a href="./sources/SRC-046/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-046/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-046/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-046/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-046/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-046/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">海光 DTK 专区</span>
+<span class="src-id">SRC-158</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://developer.sourcefind.cn/dtk" target="_blank" rel="noopener">https://developer.sourcefind.cn/dtk</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-158/_meta.json">_meta.json</a>
+<a href="./sources/SRC-158/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">SRC-159</span>
+<span class="src-id">SRC-159</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.opencloudos.org/OC9/ai-deployment/GPU-optimization-practice/hygon-deployment/" target="_blank" rel="noopener">https://docs.opencloudos.org/OC9/ai-deployment/GPU-optimization-practice/hygon-deployment/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-159/_meta.json">_meta.json</a>
+<a href="./sources/SRC-159/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="blocked">
+<details>
+<summary><span class="src-name">寒武纪 SDK</span>
+<span class="src-id">SRC-160</span>
+<span class="badge blocked">blocked</span>
+</summary>
+<div class="file-list meta">（无子文件 / blocked）</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Ascend</span>
+<span class="src-id">SRC-166</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://gitcode.com/Ascend" target="_blank" rel="noopener">https://gitcode.com/Ascend</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-166/_meta.json">_meta.json</a>
+<a href="./sources/SRC-166/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="blocked">
+<details>
+<summary><span class="src-name">Ascend Gitee</span>
+<span class="src-id">SRC-167</span>
+<span class="badge blocked">blocked</span>
+</summary>
+<div class="file-list meta">（无子文件 / blocked）</div>
+</details>
+</div>
+</div>
+</div>
+<div class="category open" data-cat="模型作者与模型平台">
+<h2>模型作者与模型平台 <span class="meta">(18)</span></h2>
+<div class="src-list">
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Qwen 官⽅组织</span>
+<span class="src-id">SRC-047</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/QwenLM" target="_blank" rel="noopener">https://github.com/QwenLM</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-047/_meta.json">_meta.json</a>
+<a href="./sources/SRC-047/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Qwen 模型⻚</span>
+<span class="src-id">SRC-048</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://huggingface.co/Qwen" target="_blank" rel="noopener">https://huggingface.co/Qwen</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-048/_meta.json">_meta.json</a>
+<a href="./sources/SRC-048/hf.md">hf.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Qwen ⽂档</span>
+<span class="src-id">SRC-049</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://qwen.readthedocs.io/" target="_blank" rel="noopener">https://qwen.readthedocs.io/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-049/_meta.json">_meta.json</a>
+<a href="./sources/SRC-049/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">GLM / Z.ai 官⽅</span>
+<span class="src-id">SRC-050</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/zai-org" target="_blank" rel="noopener">https://github.com/zai-org</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-050/_meta.json">_meta.json</a>
+<a href="./sources/SRC-050/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">GLM 模型⻚</span>
+<span class="src-id">SRC-051</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://huggingface.co/zai-org" target="_blank" rel="noopener">https://huggingface.co/zai-org</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-051/_meta.json">_meta.json</a>
+<a href="./sources/SRC-051/hf.md">hf.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Kimi 官⽅组织</span>
+<span class="src-id">SRC-052</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/MoonshotAI" target="_blank" rel="noopener">https://github.com/MoonshotAI</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-052/_meta.json">_meta.json</a>
+<a href="./sources/SRC-052/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Kimi 模型⻚</span>
+<span class="src-id">SRC-053</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://huggingface.co/moonshotai" target="_blank" rel="noopener">https://huggingface.co/moonshotai</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-053/_meta.json">_meta.json</a>
+<a href="./sources/SRC-053/hf.md">hf.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">DeepSeek 官⽅</span>
+<span class="src-id">SRC-054</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/deepseek-ai" target="_blank" rel="noopener">https://github.com/deepseek-ai</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-054/_meta.json">_meta.json</a>
+<a href="./sources/SRC-054/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">DeepSeek 模型</span>
+<span class="src-id">SRC-055</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://huggingface.co/deepseek-ai" target="_blank" rel="noopener">https://huggingface.co/deepseek-ai</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-055/_meta.json">_meta.json</a>
+<a href="./sources/SRC-055/hf.md">hf.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">MiniMax 官⽅组</span>
+<span class="src-id">SRC-056</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/MiniMax-AI" target="_blank" rel="noopener">https://github.com/MiniMax-AI</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-056/_meta.json">_meta.json</a>
+<a href="./sources/SRC-056/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">MiniMax 模型⻚</span>
+<span class="src-id">SRC-057</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://huggingface.co/MiniMaxAI" target="_blank" rel="noopener">https://huggingface.co/MiniMaxAI</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-057/_meta.json">_meta.json</a>
+<a href="./sources/SRC-057/hf.md">hf.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">InternLM</span>
+<span class="src-id">SRC-058</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/InternLM" target="_blank" rel="noopener">https://github.com/InternLM</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-058/_meta.json">_meta.json</a>
+<a href="./sources/SRC-058/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Baidu ERNIE</span>
+<span class="src-id">SRC-059</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/PaddlePaddle/ERNIE" target="_blank" rel="noopener">https://github.com/PaddlePaddle/ERNIE</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-059/_meta.json">_meta.json</a>
+<a href="./sources/SRC-059/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-059/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-059/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-059/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-059/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">腾讯 Hunyuan</span>
+<span class="src-id">SRC-060</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/Tencent-Hunyuan" target="_blank" rel="noopener">https://github.com/Tencent-Hunyuan</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-060/_meta.json">_meta.json</a>
+<a href="./sources/SRC-060/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-060/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-060/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-060/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-060/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-060/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">HF 模型检索</span>
+<span class="src-id">SRC-061</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://huggingface.co/models" target="_blank" rel="noopener">https://huggingface.co/models</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-061/_meta.json">_meta.json</a>
+<a href="./sources/SRC-061/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">ModelScope 模</span>
+<span class="src-id">SRC-062</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://modelscope.cn/models" target="_blank" rel="noopener">https://modelscope.cn/models</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-062/_meta.json">_meta.json</a>
+<a href="./sources/SRC-062/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">HF 博客</span>
+<span class="src-id">SRC-063</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://huggingface.co/blog" target="_blank" rel="noopener">https://huggingface.co/blog</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-063/_meta.json">_meta.json</a>
+<a href="./sources/SRC-063/feed_meta.json">feed_meta.json</a>
+<a href="./sources/SRC-063/posts/">posts/ (179 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">HF 论坛</span>
+<span class="src-id">SRC-064</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://discuss.huggingface.co/" target="_blank" rel="noopener">https://discuss.huggingface.co/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-064/_meta.json">_meta.json</a>
+<a href="./sources/SRC-064/feed_meta.json">feed_meta.json</a>
+<a href="./sources/SRC-064/posts/">posts/ (51 files)</a>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div class="category open" data-cat="Kernel、编译与⾃动优化">
+<h2>Kernel、编译与⾃动优化 <span class="meta">(17)</span></h2>
+<div class="src-list">
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Triton</span>
+<span class="src-id">SRC-065</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/triton-lang/triton" target="_blank" rel="noopener">https://github.com/triton-lang/triton</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-065/_meta.json">_meta.json</a>
+<a href="./sources/SRC-065/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-065/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-065/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-065/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-065/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-065/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">CUTLASS</span>
+<span class="src-id">SRC-066</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/NVIDIA/cutlass" target="_blank" rel="noopener">https://github.com/NVIDIA/cutlass</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-066/_meta.json">_meta.json</a>
+<a href="./sources/SRC-066/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-066/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-066/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-066/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-066/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-066/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">FlashAttention</span>
+<span class="src-id">SRC-067</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/Dao-AILab/flash-attention" target="_blank" rel="noopener">https://github.com/Dao-AILab/flash-attention</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-067/_meta.json">_meta.json</a>
+<a href="./sources/SRC-067/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-067/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-067/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-067/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-067/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">FlashInfer</span>
+<span class="src-id">SRC-068</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/Dao-AILab/flash-attention" target="_blank" rel="noopener">https://github.com/Dao-AILab/flash-attention</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-068/_meta.json">_meta.json</a>
+<a href="./sources/SRC-068/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-068/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-068/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-068/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-068/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-068/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">DeepGEMM</span>
+<span class="src-id">SRC-069</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/flashinfer-ai/flashinfer" target="_blank" rel="noopener">https://github.com/flashinfer-ai/flashinfer</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-069/_meta.json">_meta.json</a>
+<a href="./sources/SRC-069/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-069/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-069/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-069/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-069/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-069/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">DeepEP</span>
+<span class="src-id">SRC-070</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/deepseek-ai/DeepGEMM" target="_blank" rel="noopener">https://github.com/deepseek-ai/DeepGEMM</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-070/_meta.json">_meta.json</a>
+<a href="./sources/SRC-070/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-070/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-070/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-070/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-070/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-070/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">TileLang</span>
+<span class="src-id">SRC-071</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/tile-ai/tilelang" target="_blank" rel="noopener">https://github.com/tile-ai/tilelang</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-071/_meta.json">_meta.json</a>
+<a href="./sources/SRC-071/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-071/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-071/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-071/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-071/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-071/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">TVM</span>
+<span class="src-id">SRC-072</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/apache/tvm" target="_blank" rel="noopener">https://github.com/apache/tvm</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-072/_meta.json">_meta.json</a>
+<a href="./sources/SRC-072/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-072/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-072/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-072/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-072/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-072/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">PyTorch 源码</span>
+<span class="src-id">SRC-073</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/pytorch/pytorch" target="_blank" rel="noopener">https://github.com/pytorch/pytorch</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-073/_meta.json">_meta.json</a>
+<a href="./sources/SRC-073/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-073/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-073/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-073/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-073/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">PyTorch ⽂档</span>
+<span class="src-id">SRC-074</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/pytorch/pytorch" target="_blank" rel="noopener">https://github.com/pytorch/pytorch</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-074/_meta.json">_meta.json</a>
+<a href="./sources/SRC-074/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-074/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-074/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-074/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-074/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-074/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">KernelBench</span>
+<span class="src-id">SRC-075</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/ScalingIntelligence/KernelBench" target="_blank" rel="noopener">https://github.com/ScalingIntelligence/KernelBench</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-075/_meta.json">_meta.json</a>
+<a href="./sources/SRC-075/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-075/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-075/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-075/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">PyTorch</span>
+<span class="src-id">SRC-076</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/ScalingIntelligence/KernelBench" target="_blank" rel="noopener">https://github.com/ScalingIntelligence/KernelBench</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-076/_meta.json">_meta.json</a>
+<a href="./sources/SRC-076/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-076/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-076/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-076/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-076/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">GPU MODE</span>
+<span class="src-id">SRC-077</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/meta-pytorch/KernelAgent" target="_blank" rel="noopener">https://github.com/meta-pytorch/KernelAgent</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-077/_meta.json">_meta.json</a>
+<a href="./sources/SRC-077/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-077/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-077/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-077/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-077/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">GPU MODE</span>
+<span class="src-id">SRC-078</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/gpu-mode/kernelbot" target="_blank" rel="noopener">https://github.com/gpu-mode/kernelbot</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-078/_meta.json">_meta.json</a>
+<a href="./sources/SRC-078/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-078/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-078/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-078/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-078/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Kernel Design</span>
+<span class="src-id">SRC-155</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/gpu-mode/popcorn" target="_blank" rel="noopener">https://github.com/gpu-mode/popcorn</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-155/_meta.json">_meta.json</a>
+<a href="./sources/SRC-155/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-155/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-155/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-155/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-155/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">KernelWiki</span>
+<span class="src-id">SRC-156</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/mit-han-lab/KernelWiki" target="_blank" rel="noopener">https://github.com/mit-han-lab/KernelWiki</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-156/_meta.json">_meta.json</a>
+<a href="./sources/SRC-156/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-156/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-156/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-156/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">ncu-report-skill</span>
+<span class="src-id">SRC-157</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/mit-han-lab/KernelWiki" target="_blank" rel="noopener">https://github.com/mit-han-lab/KernelWiki</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-157/_meta.json">_meta.json</a>
+<a href="./sources/SRC-157/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-157/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-157/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-157/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-157/page.md">page.md</a>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div class="category open" data-cat="量化、推测解码与精度验证">
+<h2>量化、推测解码与精度验证 <span class="meta">(11)</span></h2>
+<div class="src-list">
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">NVIDIA Model</span>
+<span class="src-id">SRC-079</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/NVIDIA/Model-Optimizer" target="_blank" rel="noopener">https://github.com/NVIDIA/Model-Optimizer</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-079/_meta.json">_meta.json</a>
+<a href="./sources/SRC-079/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-079/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-079/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-079/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-079/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">LLM</span>
+<span class="src-id">SRC-080</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/NVIDIA/Model-Optimizer" target="_blank" rel="noopener">https://github.com/NVIDIA/Model-Optimizer</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-080/_meta.json">_meta.json</a>
+<a href="./sources/SRC-080/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-080/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-080/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-080/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-080/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-080/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">GPTQModel</span>
+<span class="src-id">SRC-081</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/vllm-project/llm-compressor" target="_blank" rel="noopener">https://github.com/vllm-project/llm-compressor</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-081/_meta.json">_meta.json</a>
+<a href="./sources/SRC-081/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-081/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-081/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-081/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-081/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-081/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">AWQ</span>
+<span class="src-id">SRC-082</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/ModelCloud/GPTQModel" target="_blank" rel="noopener">https://github.com/ModelCloud/GPTQModel</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-082/_meta.json">_meta.json</a>
+<a href="./sources/SRC-082/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-082/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-082/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-082/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-082/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-082/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">bitsandbytes</span>
+<span class="src-id">SRC-083</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/bitsandbytes-foundation/bitsandbytes" target="_blank" rel="noopener">https://github.com/bitsandbytes-foundation/bitsandbytes</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-083/_meta.json">_meta.json</a>
+<a href="./sources/SRC-083/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-083/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-083/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-083/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-083/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">HQQ</span>
+<span class="src-id">SRC-084</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/bitsandbytes-foundation/bitsandbytes" target="_blank" rel="noopener">https://github.com/bitsandbytes-foundation/bitsandbytes</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-084/_meta.json">_meta.json</a>
+<a href="./sources/SRC-084/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-084/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-084/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-084/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-084/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-084/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">EAGLE</span>
+<span class="src-id">SRC-085</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/SafeAILab/EAGLE" target="_blank" rel="noopener">https://github.com/SafeAILab/EAGLE</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-085/_meta.json">_meta.json</a>
+<a href="./sources/SRC-085/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-085/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-085/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-085/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-085/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Medusa</span>
+<span class="src-id">SRC-086</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/FasterDecoding/Medusa" target="_blank" rel="noopener">https://github.com/FasterDecoding/Medusa</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-086/_meta.json">_meta.json</a>
+<a href="./sources/SRC-086/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-086/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-086/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-086/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-086/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-086/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Speculators</span>
+<span class="src-id">SRC-087</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/vllm-project/speculators" target="_blank" rel="noopener">https://github.com/vllm-project/speculators</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-087/_meta.json">_meta.json</a>
+<a href="./sources/SRC-087/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-087/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-087/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-087/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-087/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">lm-evaluation-</span>
+<span class="src-id">SRC-088</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/vllm-project/speculators" target="_blank" rel="noopener">https://github.com/vllm-project/speculators</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-088/_meta.json">_meta.json</a>
+<a href="./sources/SRC-088/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-088/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-088/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-088/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-088/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-088/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Optuna</span>
+<span class="src-id">SRC-162</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://optuna.readthedocs.io/en/stable/" target="_blank" rel="noopener">https://optuna.readthedocs.io/en/stable/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-162/_meta.json">_meta.json</a>
+<a href="./sources/SRC-162/page.md">page.md</a>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div class="category open" data-cat="KV、路由、分布式与基础设施">
+<h2>KV、路由、分布式与基础设施 <span class="meta">(13)</span></h2>
+<div class="src-list">
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">NVIDIA Dynamo</span>
+<span class="src-id">SRC-089</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/ai-dynamo/dynamo" target="_blank" rel="noopener">https://github.com/ai-dynamo/dynamo</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-089/_meta.json">_meta.json</a>
+<a href="./sources/SRC-089/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-089/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-089/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-089/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-089/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Dynamo 调优</span>
+<span class="src-id">SRC-090</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/ai-dynamo/dynamo" target="_blank" rel="noopener">https://github.com/ai-dynamo/dynamo</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-090/_meta.json">_meta.json</a>
+<a href="./sources/SRC-090/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-090/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-090/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-090/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-090/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-090/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">LMCache</span>
+<span class="src-id">SRC-091</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/LMCache/LMCache" target="_blank" rel="noopener">https://github.com/LMCache/LMCache</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-091/_meta.json">_meta.json</a>
+<a href="./sources/SRC-091/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-091/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-091/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-091/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-091/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-091/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Mooncake</span>
+<span class="src-id">SRC-092</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/kvcache-ai/Mooncake" target="_blank" rel="noopener">https://github.com/kvcache-ai/Mooncake</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-092/_meta.json">_meta.json</a>
+<a href="./sources/SRC-092/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-092/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-092/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-092/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-092/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-092/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">AIBrix</span>
+<span class="src-id">SRC-093</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/vllm-project/aibrix" target="_blank" rel="noopener">https://github.com/vllm-project/aibrix</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-093/_meta.json">_meta.json</a>
+<a href="./sources/SRC-093/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-093/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-093/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-093/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-093/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-093/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Ray Serve LLM</span>
+<span class="src-id">SRC-094</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.ray.io/en/latest/serve/llm/" target="_blank" rel="noopener">https://docs.ray.io/en/latest/serve/llm/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-094/_meta.json">_meta.json</a>
+<a href="./sources/SRC-094/pages/">pages/ (27 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">KubeRay</span>
+<span class="src-id">SRC-095</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/ray-project/kuberay" target="_blank" rel="noopener">https://github.com/ray-project/kuberay</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-095/_meta.json">_meta.json</a>
+<a href="./sources/SRC-095/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-095/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-095/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-095/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-095/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-095/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">UCX</span>
+<span class="src-id">SRC-096</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/openucx/ucx" target="_blank" rel="noopener">https://github.com/openucx/ucx</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-096/_meta.json">_meta.json</a>
+<a href="./sources/SRC-096/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-096/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-096/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-096/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-096/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-096/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">NIXL</span>
+<span class="src-id">SRC-097</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/ai-dynamo/nixl" target="_blank" rel="noopener">https://github.com/ai-dynamo/nixl</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-097/_meta.json">_meta.json</a>
+<a href="./sources/SRC-097/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-097/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-097/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-097/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-097/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-097/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">NCCL tests</span>
+<span class="src-id">SRC-098</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/NVIDIA/nccl-tests" target="_blank" rel="noopener">https://github.com/NVIDIA/nccl-tests</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-098/_meta.json">_meta.json</a>
+<a href="./sources/SRC-098/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-098/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-098/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-098/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-098/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Linux 性能⼯具</span>
+<span class="src-id">SRC-099</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://www.brendangregg.com/linuxperf.html" target="_blank" rel="noopener">https://www.brendangregg.com/linuxperf.html</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-099/_meta.json">_meta.json</a>
+<a href="./sources/SRC-099/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Kubernetes 资源管</span>
+<span class="src-id">SRC-100</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/" target="_blank" rel="noopener">https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-100/_meta.json">_meta.json</a>
+<a href="./sources/SRC-100/pages/">pages/ (1 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">DistServe</span>
+<span class="src-id">SRC-163</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/LLMServe/DistServe" target="_blank" rel="noopener">https://github.com/LLMServe/DistServe</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-163/_meta.json">_meta.json</a>
+<a href="./sources/SRC-163/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-163/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-163/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-163/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-163/page.md">page.md</a>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div class="category open" data-cat="Profiling、压测与公开结果">
+<h2>Profiling、压测与公开结果 <span class="meta">(15)</span></h2>
+<div class="src-list">
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Nsight Systems</span>
+<span class="src-id">SRC-101</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.nvidia.com/nsight-systems/" target="_blank" rel="noopener">https://docs.nvidia.com/nsight-systems/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-101/_meta.json">_meta.json</a>
+<a href="./sources/SRC-101/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Nsight Compute</span>
+<span class="src-id">SRC-102</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.nvidia.com/nsight-compute/ProfilingGuide/" target="_blank" rel="noopener">https://docs.nvidia.com/nsight-compute/ProfilingGuide/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-102/_meta.json">_meta.json</a>
+<a href="./sources/SRC-102/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">ROCm rocprofiler-</span>
+<span class="src-id">SRC-103</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/ROCm/rocprofiler-sdk" target="_blank" rel="noopener">https://github.com/ROCm/rocprofiler-sdk</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-103/_meta.json">_meta.json</a>
+<a href="./sources/SRC-103/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-103/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-103/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-103/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-103/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">ROCm rocprofiler-</span>
+<span class="src-id">SRC-104</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/ROCm/rocprofiler-sdk" target="_blank" rel="noopener">https://github.com/ROCm/rocprofiler-sdk</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-104/_meta.json">_meta.json</a>
+<a href="./sources/SRC-104/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-104/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-104/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-104/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-104/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-104/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">DCGM</span>
+<span class="src-id">SRC-105</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/ROCm/rocprofiler-compute" target="_blank" rel="noopener">https://github.com/ROCm/rocprofiler-compute</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-105/_meta.json">_meta.json</a>
+<a href="./sources/SRC-105/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-105/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-105/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-105/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-105/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-105/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">AMD SMI</span>
+<span class="src-id">SRC-106</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/ROCm/amdsmi" target="_blank" rel="noopener">https://github.com/ROCm/amdsmi</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-106/_meta.json">_meta.json</a>
+<a href="./sources/SRC-106/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-106/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-106/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-106/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-106/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-106/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">vLLM benchmark</span>
+<span class="src-id">SRC-107</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.vllm.ai/en/latest/benchmarking/" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/benchmarking/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-107/_meta.json">_meta.json</a>
+<a href="./sources/SRC-107/pages/">pages/ (4 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">vLLM 性能看板说明</span>
+<span class="src-id">SRC-108</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://docs.vllm.ai/en/latest/benchmarking/dashboard/" target="_blank" rel="noopener">https://docs.vllm.ai/en/latest/benchmarking/dashboard/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-108/_meta.json">_meta.json</a>
+<a href="./sources/SRC-108/pages/">pages/ (1 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">GenAI Perf</span>
+<span class="src-id">SRC-109</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/triton-inference-server/perf_analyzer" target="_blank" rel="noopener">https://github.com/triton-inference-server/perf_analyzer</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-109/_meta.json">_meta.json</a>
+<a href="./sources/SRC-109/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-109/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-109/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-109/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-109/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">EvalScope</span>
+<span class="src-id">SRC-110</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/modelscope/evalscope" target="_blank" rel="noopener">https://github.com/modelscope/evalscope</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-110/_meta.json">_meta.json</a>
+<a href="./sources/SRC-110/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-110/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-110/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-110/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-110/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-110/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">GuideLLM</span>
+<span class="src-id">SRC-111</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/vllm-project/guidellm" target="_blank" rel="noopener">https://github.com/vllm-project/guidellm</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-111/_meta.json">_meta.json</a>
+<a href="./sources/SRC-111/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-111/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-111/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-111/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-111/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-111/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">InferenceX</span>
+<span class="src-id">SRC-112</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/SemiAnalysisAI/InferenceX" target="_blank" rel="noopener">https://github.com/SemiAnalysisAI/InferenceX</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-112/_meta.json">_meta.json</a>
+<a href="./sources/SRC-112/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-112/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-112/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-112/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-112/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-112/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">MLPerf Inference</span>
+<span class="src-id">SRC-113</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/mlcommons/inference" target="_blank" rel="noopener">https://github.com/mlcommons/inference</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-113/_meta.json">_meta.json</a>
+<a href="./sources/SRC-113/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-113/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-113/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-113/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-113/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">MLCommons 提交</span>
+<span class="src-id">SRC-114</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/mlcommons/inference" target="_blank" rel="noopener">https://github.com/mlcommons/inference</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-114/_meta.json">_meta.json</a>
+<a href="./sources/SRC-114/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-114/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-114/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-114/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-114/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-114/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">FlashInfer-Bench</span>
+<span class="src-id">SRC-161</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/flashinfer-ai/flashinfer-bench" target="_blank" rel="noopener">https://github.com/flashinfer-ai/flashinfer-bench</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-161/_meta.json">_meta.json</a>
+<a href="./sources/SRC-161/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-161/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-161/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-161/github_releases.jsonl">github_releases.jsonl</a>
+<a href="./sources/SRC-161/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-161/page.md">page.md</a>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div class="category open" data-cat="论⽂、会议与课程">
+<h2>论⽂、会议与课程 <span class="meta">(8)</span></h2>
+<div class="src-list">
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">arXiv</span>
+<span class="src-id">SRC-115</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://arxiv.org/" target="_blank" rel="noopener">https://arxiv.org/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-115/_meta.json">_meta.json</a>
+<a href="./sources/SRC-115/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">MLSys</span>
+<span class="src-id">SRC-116</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://proceedings.mlsys.org/" target="_blank" rel="noopener">https://proceedings.mlsys.org/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-116/_meta.json">_meta.json</a>
+<a href="./sources/SRC-116/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">USENIX</span>
+<span class="src-id">SRC-117</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://www.usenix.org/publications/proceedings" target="_blank" rel="noopener">https://www.usenix.org/publications/proceedings</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-117/_meta.json">_meta.json</a>
+<a href="./sources/SRC-117/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="blocked">
+<details>
+<summary><span class="src-name">ACM Digital</span>
+<span class="src-id">SRC-118</span>
+<span class="badge blocked">blocked</span>
+</summary>
+<div class="file-list meta">（无子文件 / blocked）</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">OpenReview</span>
+<span class="src-id">SRC-119</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://openreview.net/" target="_blank" rel="noopener">https://openreview.net/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-119/_meta.json">_meta.json</a>
+<a href="./sources/SRC-119/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">GPU MODE 讲</span>
+<span class="src-id">SRC-120</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/gpu-mode/lectures" target="_blank" rel="noopener">https://github.com/gpu-mode/lectures</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-120/_meta.json">_meta.json</a>
+<a href="./sources/SRC-120/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-120/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-120/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-120/github_repo.md">github_repo.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">SGLang 公开会</span>
+<span class="src-id">SRC-121</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/gpu-mode/lectures" target="_blank" rel="noopener">https://github.com/gpu-mode/lectures</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-121/_meta.json">_meta.json</a>
+<a href="./sources/SRC-121/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-121/github_issues.jsonl">github_issues.jsonl</a>
+<a href="./sources/SRC-121/github_pulls.jsonl">github_pulls.jsonl</a>
+<a href="./sources/SRC-121/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-121/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">NVIDIA On-</span>
+<span class="src-id">SRC-122</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://www.nvidia.com/en-us/on-demand/" target="_blank" rel="noopener">https://www.nvidia.com/en-us/on-demand/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-122/_meta.json">_meta.json</a>
+<a href="./sources/SRC-122/page.md">page.md</a>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div class="category open" data-cat="⼀⼿⼯程博客与服务商经验">
+<h2>⼀⼿⼯程博客与服务商经验 <span class="meta">(16)</span></h2>
+<div class="src-list">
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">LMSYS</span>
+<span class="src-id">SRC-123</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://lmsys.org/blog/" target="_blank" rel="noopener">https://lmsys.org/blog/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-123/_meta.json">_meta.json</a>
+<a href="./sources/SRC-123/page.md">page.md</a>
+<a href="./sources/SRC-123/posts/">posts/ (100 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">PyTorch Blog</span>
+<span class="src-id">SRC-124</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://pytorch.org/blog/" target="_blank" rel="noopener">https://pytorch.org/blog/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-124/_meta.json">_meta.json</a>
+<a href="./sources/SRC-124/feed_meta.json">feed_meta.json</a>
+<a href="./sources/SRC-124/posts/">posts/ (38 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">NVIDIA</span>
+<span class="src-id">SRC-125</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://developer.nvidia.com/blog/" target="_blank" rel="noopener">https://developer.nvidia.com/blog/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-125/_meta.json">_meta.json</a>
+<a href="./sources/SRC-125/page.md">page.md</a>
+<a href="./sources/SRC-125/posts/">posts/ (50 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Baseten</span>
+<span class="src-id">SRC-126</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://www.baseten.co/blog/" target="_blank" rel="noopener">https://www.baseten.co/blog/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-126/_meta.json">_meta.json</a>
+<a href="./sources/SRC-126/page.md">page.md</a>
+<a href="./sources/SRC-126/posts/">posts/ (24 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Baseten 推理⼯程</span>
+<span class="src-id">SRC-127</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://www.baseten.co/inference-engineering/" target="_blank" rel="noopener">https://www.baseten.co/inference-engineering/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-127/_meta.json">_meta.json</a>
+<a href="./sources/SRC-127/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Together AI</span>
+<span class="src-id">SRC-128</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://www.together.ai/blog" target="_blank" rel="noopener">https://www.together.ai/blog</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-128/_meta.json">_meta.json</a>
+<a href="./sources/SRC-128/feed_meta.json">feed_meta.json</a>
+<a href="./sources/SRC-128/posts/">posts/ (99 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Fireworks AI</span>
+<span class="src-id">SRC-129</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://fireworks.ai/blog" target="_blank" rel="noopener">https://fireworks.ai/blog</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-129/_meta.json">_meta.json</a>
+<a href="./sources/SRC-129/page.md">page.md</a>
+<a href="./sources/SRC-129/posts/">posts/ (23 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Modal</span>
+<span class="src-id">SRC-130</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://modal.com/blog" target="_blank" rel="noopener">https://modal.com/blog</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-130/_meta.json">_meta.json</a>
+<a href="./sources/SRC-130/feed_meta.json">feed_meta.json</a>
+<a href="./sources/SRC-130/posts/">posts/ (133 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Anyscale</span>
+<span class="src-id">SRC-131</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://www.anyscale.com/blog" target="_blank" rel="noopener">https://www.anyscale.com/blog</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-131/_meta.json">_meta.json</a>
+<a href="./sources/SRC-131/page.md">page.md</a>
+<a href="./sources/SRC-131/posts/">posts/ (18 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="partial">
+<details>
+<summary><span class="src-name">AWS Machine</span>
+<span class="src-id">SRC-132</span>
+<span class="badge partial">partial</span>
+<a class="src-url" href="https://aws.amazon.com/blogs/machine-learning/" target="_blank" rel="noopener">https://aws.amazon.com/blogs/machine-learning/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-132/_meta.json">_meta.json</a>
+<a href="./sources/SRC-132/feed_meta.json">feed_meta.json</a>
+<a href="./sources/SRC-132/posts/">posts/ (22 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Google Cloud</span>
+<span class="src-id">SRC-133</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://cloud.google.com/blog/products/ai-machine-learning" target="_blank" rel="noopener">https://cloud.google.com/blog/products/ai-machine-learning</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-133/_meta.json">_meta.json</a>
+<a href="./sources/SRC-133/page.md">page.md</a>
+<a href="./sources/SRC-133/posts/">posts/ (48 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">阿⾥云开发者社区</span>
+<span class="src-id">SRC-134</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://developer.aliyun.com/" target="_blank" rel="noopener">https://developer.aliyun.com/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-134/_meta.json">_meta.json</a>
+<a href="./sources/SRC-134/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">腾讯云开发者社区</span>
+<span class="src-id">SRC-135</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://cloud.tencent.com/developer" target="_blank" rel="noopener">https://cloud.tencent.com/developer</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-135/_meta.json">_meta.json</a>
+<a href="./sources/SRC-135/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">华为云社区</span>
+<span class="src-id">SRC-136</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://bbs.huaweicloud.com/" target="_blank" rel="noopener">https://bbs.huaweicloud.com/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-136/_meta.json">_meta.json</a>
+<a href="./sources/SRC-136/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">⽕⼭引擎开发者社</span>
+<span class="src-id">SRC-137</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://developer.volcengine.com/" target="_blank" rel="noopener">https://developer.volcengine.com/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-137/_meta.json">_meta.json</a>
+<a href="./sources/SRC-137/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">vLLM Blog</span>
+<span class="src-id">SRC-165</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://vllm.ai/blog" target="_blank" rel="noopener">https://vllm.ai/blog</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-165/_meta.json">_meta.json</a>
+<a href="./sources/SRC-165/feed_meta.json">feed_meta.json</a>
+<a href="./sources/SRC-165/posts/">posts/ (150 files)</a>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div class="category open" data-cat="精选作者、专业社区与新来源发现">
+<h2>精选作者、专业社区与新来源发现 <span class="meta">(18)</span></h2>
+<div class="src-list">
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Horace He</span>
+<span class="src-id">SRC-138</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://horace.io/" target="_blank" rel="noopener">https://horace.io/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-138/_meta.json">_meta.json</a>
+<a href="./sources/SRC-138/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Simon Boehm</span>
+<span class="src-id">SRC-139</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://siboehm.com/" target="_blank" rel="noopener">https://siboehm.com/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-139/_meta.json">_meta.json</a>
+<a href="./sources/SRC-139/feed_meta.json">feed_meta.json</a>
+<a href="./sources/SRC-139/posts/">posts/ (8 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="partial">
+<details>
+<summary><span class="src-name">Lei Mao</span>
+<span class="src-id">SRC-140</span>
+<span class="badge partial">partial</span>
+<a class="src-url" href="https://leimao.github.io/blog/" target="_blank" rel="noopener">https://leimao.github.io/blog/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-140/_meta.json">_meta.json</a>
+<a href="./sources/SRC-140/feed_meta.json">feed_meta.json</a>
+<a href="./sources/SRC-140/posts/">posts/ (62 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Colfax Research</span>
+<span class="src-id">SRC-141</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://research.colfax-intl.com/" target="_blank" rel="noopener">https://research.colfax-intl.com/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-141/_meta.json">_meta.json</a>
+<a href="./sources/SRC-141/feed_meta.json">feed_meta.json</a>
+<a href="./sources/SRC-141/posts/">posts/ (13 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Salykova</span>
+<span class="src-id">SRC-142</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://salykova.github.io/" target="_blank" rel="noopener">https://salykova.github.io/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-142/_meta.json">_meta.json</a>
+<a href="./sources/SRC-142/feed_meta.json">feed_meta.json</a>
+<a href="./sources/SRC-142/posts/">posts/ (5 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">NVIDIA 开发者论</span>
+<span class="src-id">SRC-143</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://forums.developer.nvidia.com/" target="_blank" rel="noopener">https://forums.developer.nvidia.com/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-143/_meta.json">_meta.json</a>
+<a href="./sources/SRC-143/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">PyTorch 论坛</span>
+<span class="src-id">SRC-144</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://discuss.pytorch.org/" target="_blank" rel="noopener">https://discuss.pytorch.org/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-144/_meta.json">_meta.json</a>
+<a href="./sources/SRC-144/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">PyTorch 开发讨</span>
+<span class="src-id">SRC-145</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://dev-discuss.pytorch.org/" target="_blank" rel="noopener">https://dev-discuss.pytorch.org/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-145/_meta.json">_meta.json</a>
+<a href="./sources/SRC-145/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">GitHub</span>
+<span class="src-id">SRC-146</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/topics/llm-inference" target="_blank" rel="noopener">https://github.com/topics/llm-inference</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-146/_meta.json">_meta.json</a>
+<a href="./sources/SRC-146/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">GitHub</span>
+<span class="src-id">SRC-147</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/trending" target="_blank" rel="noopener">https://github.com/trending</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-147/_meta.json">_meta.json</a>
+<a href="./sources/SRC-147/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Hugging Face</span>
+<span class="src-id">SRC-148</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://huggingface.co/papers" target="_blank" rel="noopener">https://huggingface.co/papers</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-148/_meta.json">_meta.json</a>
+<a href="./sources/SRC-148/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Reddit</span>
+<span class="src-id">SRC-149</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://www.reddit.com/r/LocalLLaMA/" target="_blank" rel="noopener">https://www.reddit.com/r/LocalLLaMA/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-149/_meta.json">_meta.json</a>
+<a href="./sources/SRC-149/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="blocked">
+<details>
+<summary><span class="src-name">知乎</span>
+<span class="src-id">SRC-150</span>
+<span class="badge blocked">blocked</span>
+</summary>
+<div class="file-list meta">（无子文件 / blocked）</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">CSDN</span>
+<span class="src-id">SRC-151</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://www.csdn.net/" target="_blank" rel="noopener">https://www.csdn.net/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-151/_meta.json">_meta.json</a>
+<a href="./sources/SRC-151/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">微信公众号搜索</span>
+<span class="src-id">SRC-152</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://weixin.sogou.com/" target="_blank" rel="noopener">https://weixin.sogou.com/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-152/_meta.json">_meta.json</a>
+<a href="./sources/SRC-152/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Bilibili</span>
+<span class="src-id">SRC-153</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://www.bilibili.com/" target="_blank" rel="noopener">https://www.bilibili.com/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-153/_meta.json">_meta.json</a>
+<a href="./sources/SRC-153/page.md">page.md</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Hacker News</span>
+<span class="src-id">SRC-154</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://news.ycombinator.com/" target="_blank" rel="noopener">https://news.ycombinator.com/</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-154/_meta.json">_meta.json</a>
+<a href="./sources/SRC-154/feed_meta.json">feed_meta.json</a>
+<a href="./sources/SRC-154/posts/">posts/ (26 files)</a>
+</div>
+</details>
+</div>
+<div class="src-row" data-status="success">
+<details>
+<summary><span class="src-name">Awesome LLM</span>
+<span class="src-id">SRC-168</span>
+<span class="badge success">success</span>
+<a class="src-url" href="https://github.com/DefTruth/Awesome-LLM-Inference" target="_blank" rel="noopener">https://github.com/DefTruth/Awesome-LLM-Inference</a>
+</summary>
+<div class="file-list">
+<a href="./sources/SRC-168/_meta.json">_meta.json</a>
+<a href="./sources/SRC-168/github_changelog.md">github_changelog.md</a>
+<a href="./sources/SRC-168/github_repo.md">github_repo.md</a>
+<a href="./sources/SRC-168/page.md">page.md</a>
+</div>
+</details>
+</div>
+</div>
+</div>
+<footer>
+静态生成 · 不抓原网 · 内容版权见各原链接 · 生成时间 2026-09-24T09:53:11Z
+</footer>
+
+<script>
+(function(){
+  // category toggle
+  document.querySelectorAll('.category h2').forEach(h=>{
+    h.addEventListener('click',()=>h.parentElement.classList.toggle('open'));
+  });
+  // status filter
+  const btns=document.querySelectorAll('#status-filter button');
+  btns.forEach(b=>b.addEventListener('click',()=>{
+    btns.forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const s=b.dataset.status;
+    document.querySelectorAll('.src-row').forEach(r=>{
+      r.classList.toggle('dim', s!=='all' && r.dataset.status!==s);
+    });
+  }));
+})();
+</script>
+
+</body></html>

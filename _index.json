@@ -1,0 +1,4873 @@
+{
+ "generated_at": "2026-09-24T09:53:11Z",
+ "source_count": 170,
+ "sources": [
+  {
+   "src_id": "SRC-001",
+   "name": "vLLM ⽂档",
+   "category": "推理引擎与部署配⽅",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.vllm.ai/en/latest/",
+   "files": [
+    {
+     "path": "sources/SRC-001/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-001/pages/",
+     "label": "pages/ (1991 files)"
+    }
+   ],
+   "_meta": "sources/SRC-001/_meta.json"
+  },
+  {
+   "src_id": "SRC-002",
+   "name": "vLLM 配⽅",
+   "category": "推理引擎与部署配⽅",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.vllm.ai/projects/recipes/en/stable/",
+   "files": [
+    {
+     "path": "sources/SRC-002/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-002/pages/",
+     "label": "pages/ (57 files)"
+    }
+   ],
+   "_meta": "sources/SRC-002/_meta.json"
+  },
+  {
+   "src_id": "SRC-003",
+   "name": "vLLM 源码与讨",
+   "category": "推理引擎与部署配⽅",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/vllm-project/vllm",
+   "files": [
+    {
+     "path": "sources/SRC-003/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-003/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-003/github_details/",
+     "label": "github_details/ (298 files)"
+    },
+    {
+     "path": "sources/SRC-003/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-003/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-003/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-003/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-003/_meta.json"
+  },
+  {
+   "src_id": "SRC-004",
+   "name": "SGLang ⽂档",
+   "category": "推理引擎与部署配⽅",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/vllm-project/vllm",
+   "files": [
+    {
+     "path": "sources/SRC-004/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-004/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-004/github_details/",
+     "label": "github_details/ (395 files)"
+    },
+    {
+     "path": "sources/SRC-004/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-004/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-004/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-004/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-004/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-004/_meta.json"
+  },
+  {
+   "src_id": "SRC-005",
+   "name": "SGLang 源码与",
+   "category": "推理引擎与部署配⽅",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/sgl-project/sglang",
+   "files": [
+    {
+     "path": "sources/SRC-005/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-005/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-005/github_details/",
+     "label": "github_details/ (252 files)"
+    },
+    {
+     "path": "sources/SRC-005/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-005/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-005/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-005/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-005/_meta.json"
+  },
+  {
+   "src_id": "SRC-006",
+   "name": "SGLang 学习资",
+   "category": "推理引擎与部署配⽅",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/sgl-project/sglang",
+   "files": [
+    {
+     "path": "sources/SRC-006/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-006/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-006/github_details/",
+     "label": "github_details/ (73 files)"
+    },
+    {
+     "path": "sources/SRC-006/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-006/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-006/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-006/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-006/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-006/_meta.json"
+  },
+  {
+   "src_id": "SRC-007",
+   "name": "vLLM Ascend",
+   "category": "推理引擎与部署配⽅",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/sgl-project/sgl-learning-materials",
+   "files": [
+    {
+     "path": "sources/SRC-007/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-007/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-007/github_details/",
+     "label": "github_details/ (2 files)"
+    },
+    {
+     "path": "sources/SRC-007/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-007/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-007/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-007/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-007/_meta.json"
+  },
+  {
+   "src_id": "SRC-008",
+   "name": "vLLM Ascend",
+   "category": "推理引擎与部署配⽅",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/vllm-project/vllm-ascend",
+   "files": [
+    {
+     "path": "sources/SRC-008/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-008/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-008/github_details/",
+     "label": "github_details/ (177 files)"
+    },
+    {
+     "path": "sources/SRC-008/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-008/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-008/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-008/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-008/_meta.json"
+  },
+  {
+   "src_id": "SRC-009",
+   "name": "TensorRT LLM",
+   "category": "推理引擎与部署配⽅",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/vllm-project/vllm-ascend",
+   "files": [
+    {
+     "path": "sources/SRC-009/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-009/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-009/github_details/",
+     "label": "github_details/ (154 files)"
+    },
+    {
+     "path": "sources/SRC-009/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-009/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-009/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-009/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-009/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-009/_meta.json"
+  },
+  {
+   "src_id": "SRC-010",
+   "name": "LMDeploy",
+   "category": "推理引擎与部署配⽅",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/NVIDIA/TensorRT-LLM",
+   "files": [
+    {
+     "path": "sources/SRC-010/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-010/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-010/github_details/",
+     "label": "github_details/ (134 files)"
+    },
+    {
+     "path": "sources/SRC-010/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-010/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-010/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-010/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-010/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-010/_meta.json"
+  },
+  {
+   "src_id": "SRC-011",
+   "name": "llama.cpp",
+   "category": "推理引擎与部署配⽅",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/ggml-org/llama.cpp",
+   "files": [
+    {
+     "path": "sources/SRC-011/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-011/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-011/github_details/",
+     "label": "github_details/ (64 files)"
+    },
+    {
+     "path": "sources/SRC-011/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-011/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-011/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-011/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-011/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-011/_meta.json"
+  },
+  {
+   "src_id": "SRC-012",
+   "name": "MLC LLM",
+   "category": "推理引擎与部署配⽅",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/mlc-ai/mlc-llm",
+   "files": [
+    {
+     "path": "sources/SRC-012/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-012/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-012/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-012/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-012/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-012/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-012/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-012/_meta.json"
+  },
+  {
+   "src_id": "SRC-013",
+   "name": "llm-d",
+   "category": "推理引擎与部署配⽅",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/llm-d/llm-d",
+   "files": [
+    {
+     "path": "sources/SRC-013/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-013/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-013/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-013/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-013/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-013/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-013/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-013/_meta.json"
+  },
+  {
+   "src_id": "SRC-014",
+   "name": "NVIDIA NIM ⽂",
+   "category": "推理引擎与部署配⽅",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.nvidia.com/nim/large-language-models/latest/",
+   "files": [
+    {
+     "path": "sources/SRC-014/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-014/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-014/_meta.json"
+  },
+  {
+   "src_id": "SRC-015",
+   "name": "CUDA 最佳实",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/",
+   "files": [
+    {
+     "path": "sources/SRC-015/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-015/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-015/_meta.json"
+  },
+  {
+   "src_id": "SRC-016",
+   "name": "CUDA ⽂档⼊",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.nvidia.com/cuda/",
+   "files": [
+    {
+     "path": "sources/SRC-016/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-016/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-016/_meta.json"
+  },
+  {
+   "src_id": "SRC-017",
+   "name": "NCCL",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/NVIDIA/nccl",
+   "files": [
+    {
+     "path": "sources/SRC-017/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-017/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-017/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-017/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-017/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-017/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-017/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-017/_meta.json"
+  },
+  {
+   "src_id": "SRC-018",
+   "name": "NCCL 参数与",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/",
+   "files": [
+    {
+     "path": "sources/SRC-018/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-018/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-018/_meta.json"
+  },
+  {
+   "src_id": "SRC-019",
+   "name": "ROCm ⽂档",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://rocm.docs.amd.com/en/latest/",
+   "files": [
+    {
+     "path": "sources/SRC-019/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-019/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-019/_meta.json"
+  },
+  {
+   "src_id": "SRC-020",
+   "name": "ROCm vLLM",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://rocm.docs.amd.com/en/docs-7.2.4/how-to/rocm-for-ai/inference-optimization/vllm-optimization.html",
+   "files": [
+    {
+     "path": "sources/SRC-020/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-020/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-020/_meta.json"
+  },
+  {
+   "src_id": "SRC-021",
+   "name": "ROCm 博客",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://rocm.blogs.amd.com/",
+   "files": [
+    {
+     "path": "sources/SRC-021/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-021/feed_meta.json",
+     "label": "feed_meta.json"
+    },
+    {
+     "path": "sources/SRC-021/posts/",
+     "label": "posts/ (20 files)"
+    }
+   ],
+   "_meta": "sources/SRC-021/_meta.json"
+  },
+  {
+   "src_id": "SRC-022",
+   "name": "RCCL",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/ROCm/rccl",
+   "files": [
+    {
+     "path": "sources/SRC-022/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-022/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-022/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-022/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-022/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-022/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-022/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-022/_meta.json"
+  },
+  {
+   "src_id": "SRC-023",
+   "name": "ROCm AITER",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/ROCm/aiter",
+   "files": [
+    {
+     "path": "sources/SRC-023/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-023/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-023/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-023/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-023/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-023/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-023/_meta.json"
+  },
+  {
+   "src_id": "SRC-024",
+   "name": "Intel",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/ROCm/aiter",
+   "files": [
+    {
+     "path": "sources/SRC-024/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-024/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-024/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-024/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-024/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-024/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-024/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-024/_meta.json"
+  },
+  {
+   "src_id": "SRC-025",
+   "name": "Intel Gaudi ⽂",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.habana.ai/",
+   "files": [
+    {
+     "path": "sources/SRC-025/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-025/pages/",
+     "label": "pages/ (41 files)"
+    }
+   ],
+   "_meta": "sources/SRC-025/_meta.json"
+  },
+  {
+   "src_id": "SRC-026",
+   "name": "Google TPU",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://cloud.google.com/tpu/docs",
+   "files": [
+    {
+     "path": "sources/SRC-026/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-026/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-026/_meta.json"
+  },
+  {
+   "src_id": "SRC-027",
+   "name": "MaxText",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/AI-Hypercomputer/maxtext",
+   "files": [
+    {
+     "path": "sources/SRC-027/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-027/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-027/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-027/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-027/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-027/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-027/_meta.json"
+  },
+  {
+   "src_id": "SRC-028",
+   "name": "JetStream",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/AI-Hypercomputer/maxtext",
+   "files": [
+    {
+     "path": "sources/SRC-028/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-028/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-028/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-028/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-028/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-028/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-028/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-028/_meta.json"
+  },
+  {
+   "src_id": "SRC-029",
+   "name": "AWS Neuron",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/AI-Hypercomputer/JetStream",
+   "files": [
+    {
+     "path": "sources/SRC-029/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-029/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-029/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-029/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-029/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-029/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-029/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-029/_meta.json"
+  },
+  {
+   "src_id": "SRC-030",
+   "name": "昇腾⽂档中⼼",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://www.hiascend.com/document",
+   "files": [
+    {
+     "path": "sources/SRC-030/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-030/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-030/_meta.json"
+  },
+  {
+   "src_id": "SRC-031",
+   "name": "MindIE 调优",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://www.hiascend.com/document/detail/zh/mindie/230/mindiellm/llmdev/mindie_llm0526.html",
+   "files": [
+    {
+     "path": "sources/SRC-031/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-031/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-031/_meta.json"
+  },
+  {
+   "src_id": "SRC-032",
+   "name": "Ascend",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/Ascend/pytorch",
+   "files": [
+    {
+     "path": "sources/SRC-032/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-032/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-032/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-032/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-032/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-032/_meta.json"
+  },
+  {
+   "src_id": "SRC-033",
+   "name": "Ascend 样例",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/Ascend/pytorch",
+   "files": [
+    {
+     "path": "sources/SRC-033/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-033/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-033/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-033/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-033/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-033/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-033/_meta.json"
+  },
+  {
+   "src_id": "SRC-034",
+   "name": "Ascend",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/Ascend/samples",
+   "files": [
+    {
+     "path": "sources/SRC-034/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-034/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-034/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-034/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-034/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-034/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-034/_meta.json"
+  },
+  {
+   "src_id": "SRC-035",
+   "name": "Ascend",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/Ascend/msmodelslim",
+   "files": [
+    {
+     "path": "sources/SRC-035/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-035/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-035/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-035/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-035/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-035/_meta.json"
+  },
+  {
+   "src_id": "SRC-036",
+   "name": "Ascend",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/Ascend/msprof",
+   "files": [
+    {
+     "path": "sources/SRC-036/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-036/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-036/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-036/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-036/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-036/_meta.json"
+  },
+  {
+   "src_id": "SRC-037",
+   "name": "MUSA SDK",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/Ascend/MindSpeed",
+   "files": [
+    {
+     "path": "sources/SRC-037/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-037/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-037/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-037/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-037/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-037/_meta.json"
+  },
+  {
+   "src_id": "SRC-038",
+   "name": "MUSA SDK",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.mthreads.com/en/musa-sdk/musa-sdk-doc-online/",
+   "files": [
+    {
+     "path": "sources/SRC-038/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-038/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-038/_meta.json"
+  },
+  {
+   "src_id": "SRC-039",
+   "name": "torch_musa",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.mthreads.com/torchmusa/torchmusa-doc-online/introduction/",
+   "files": [
+    {
+     "path": "sources/SRC-039/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-039/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-039/_meta.json"
+  },
+  {
+   "src_id": "SRC-040",
+   "name": "MUSA 部署",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.mthreads.com/musa-deploy/musa-deploy-doc-online/introduction/",
+   "files": [
+    {
+     "path": "sources/SRC-040/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-040/pages/",
+     "label": "pages/ (61 files)"
+    }
+   ],
+   "_meta": "sources/SRC-040/_meta.json"
+  },
+  {
+   "src_id": "SRC-041",
+   "name": "海光光合开发",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://developer.sourcefind.cn/",
+   "files": [
+    {
+     "path": "sources/SRC-041/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-041/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-041/_meta.json"
+  },
+  {
+   "src_id": "SRC-042",
+   "name": "寒武纪开发者",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "blocked",
+   "scrape_type": "site",
+   "channel_type": "",
+   "url": "",
+   "files": [],
+   "_meta": "sources/SRC-042/_meta.json"
+  },
+  {
+   "src_id": "SRC-043",
+   "name": "寒武纪官⽅开",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "partial",
+   "scrape_type": "github_org",
+   "channel_type": "github_org",
+   "url": "https://github.com/Cambricon",
+   "files": [
+    {
+     "path": "sources/SRC-043/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-043/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-043/_meta.json"
+  },
+  {
+   "src_id": "SRC-044",
+   "name": "昆仑芯官⽅开",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "github_org",
+   "channel_type": "github_org",
+   "url": "https://github.com/kunlunxin",
+   "files": [
+    {
+     "path": "sources/SRC-044/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-044/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-044/_meta.json"
+  },
+  {
+   "src_id": "SRC-045",
+   "name": "Paddle 推理",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/PaddlePaddle/Paddle",
+   "files": [
+    {
+     "path": "sources/SRC-045/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-045/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-045/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-045/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-045/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-045/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-045/_meta.json"
+  },
+  {
+   "src_id": "SRC-046",
+   "name": "燧原官⽹",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/PaddlePaddle/Paddle",
+   "files": [
+    {
+     "path": "sources/SRC-046/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-046/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-046/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-046/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-046/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-046/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-046/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-046/_meta.json"
+  },
+  {
+   "src_id": "SRC-047",
+   "name": "Qwen 官⽅组织",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "github_org",
+   "channel_type": "github_org",
+   "url": "https://github.com/QwenLM",
+   "files": [
+    {
+     "path": "sources/SRC-047/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-047/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-047/_meta.json"
+  },
+  {
+   "src_id": "SRC-048",
+   "name": "Qwen 模型⻚",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "hf",
+   "channel_type": "hf",
+   "url": "https://huggingface.co/Qwen",
+   "files": [
+    {
+     "path": "sources/SRC-048/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-048/hf.md",
+     "label": "hf.md"
+    }
+   ],
+   "_meta": "sources/SRC-048/_meta.json"
+  },
+  {
+   "src_id": "SRC-049",
+   "name": "Qwen ⽂档",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://qwen.readthedocs.io/",
+   "files": [
+    {
+     "path": "sources/SRC-049/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-049/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-049/_meta.json"
+  },
+  {
+   "src_id": "SRC-050",
+   "name": "GLM / Z.ai 官⽅",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "github_org",
+   "channel_type": "github_org",
+   "url": "https://github.com/zai-org",
+   "files": [
+    {
+     "path": "sources/SRC-050/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-050/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-050/_meta.json"
+  },
+  {
+   "src_id": "SRC-051",
+   "name": "GLM 模型⻚",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "hf",
+   "channel_type": "hf",
+   "url": "https://huggingface.co/zai-org",
+   "files": [
+    {
+     "path": "sources/SRC-051/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-051/hf.md",
+     "label": "hf.md"
+    }
+   ],
+   "_meta": "sources/SRC-051/_meta.json"
+  },
+  {
+   "src_id": "SRC-052",
+   "name": "Kimi 官⽅组织",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "github_org",
+   "channel_type": "github_org",
+   "url": "https://github.com/MoonshotAI",
+   "files": [
+    {
+     "path": "sources/SRC-052/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-052/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-052/_meta.json"
+  },
+  {
+   "src_id": "SRC-053",
+   "name": "Kimi 模型⻚",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "hf",
+   "channel_type": "hf",
+   "url": "https://huggingface.co/moonshotai",
+   "files": [
+    {
+     "path": "sources/SRC-053/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-053/hf.md",
+     "label": "hf.md"
+    }
+   ],
+   "_meta": "sources/SRC-053/_meta.json"
+  },
+  {
+   "src_id": "SRC-054",
+   "name": "DeepSeek 官⽅",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "github_org",
+   "channel_type": "github_org",
+   "url": "https://github.com/deepseek-ai",
+   "files": [
+    {
+     "path": "sources/SRC-054/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-054/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-054/_meta.json"
+  },
+  {
+   "src_id": "SRC-055",
+   "name": "DeepSeek 模型",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "hf",
+   "channel_type": "hf",
+   "url": "https://huggingface.co/deepseek-ai",
+   "files": [
+    {
+     "path": "sources/SRC-055/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-055/hf.md",
+     "label": "hf.md"
+    }
+   ],
+   "_meta": "sources/SRC-055/_meta.json"
+  },
+  {
+   "src_id": "SRC-056",
+   "name": "MiniMax 官⽅组",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "github_org",
+   "channel_type": "github_org",
+   "url": "https://github.com/MiniMax-AI",
+   "files": [
+    {
+     "path": "sources/SRC-056/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-056/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-056/_meta.json"
+  },
+  {
+   "src_id": "SRC-057",
+   "name": "MiniMax 模型⻚",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "hf",
+   "channel_type": "hf",
+   "url": "https://huggingface.co/MiniMaxAI",
+   "files": [
+    {
+     "path": "sources/SRC-057/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-057/hf.md",
+     "label": "hf.md"
+    }
+   ],
+   "_meta": "sources/SRC-057/_meta.json"
+  },
+  {
+   "src_id": "SRC-058",
+   "name": "InternLM",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "github_org",
+   "channel_type": "github_org",
+   "url": "https://github.com/InternLM",
+   "files": [
+    {
+     "path": "sources/SRC-058/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-058/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-058/_meta.json"
+  },
+  {
+   "src_id": "SRC-059",
+   "name": "Baidu ERNIE",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/PaddlePaddle/ERNIE",
+   "files": [
+    {
+     "path": "sources/SRC-059/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-059/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-059/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-059/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-059/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-059/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-059/_meta.json"
+  },
+  {
+   "src_id": "SRC-060",
+   "name": "腾讯 Hunyuan",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_org",
+   "url": "https://github.com/Tencent-Hunyuan",
+   "files": [
+    {
+     "path": "sources/SRC-060/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-060/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-060/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-060/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-060/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-060/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-060/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-060/_meta.json"
+  },
+  {
+   "src_id": "SRC-061",
+   "name": "HF 模型检索",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "hf",
+   "channel_type": "hf",
+   "url": "https://huggingface.co/models",
+   "files": [
+    {
+     "path": "sources/SRC-061/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-061/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-061/_meta.json"
+  },
+  {
+   "src_id": "SRC-062",
+   "name": "ModelScope 模",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://modelscope.cn/models",
+   "files": [
+    {
+     "path": "sources/SRC-062/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-062/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-062/_meta.json"
+  },
+  {
+   "src_id": "SRC-063",
+   "name": "HF 博客",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "hf",
+   "channel_type": "hf",
+   "url": "https://huggingface.co/blog",
+   "files": [
+    {
+     "path": "sources/SRC-063/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-063/feed_meta.json",
+     "label": "feed_meta.json"
+    },
+    {
+     "path": "sources/SRC-063/posts/",
+     "label": "posts/ (179 files)"
+    }
+   ],
+   "_meta": "sources/SRC-063/_meta.json"
+  },
+  {
+   "src_id": "SRC-064",
+   "name": "HF 论坛",
+   "category": "模型作者与模型平台",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "blog",
+   "url": "https://discuss.huggingface.co/",
+   "files": [
+    {
+     "path": "sources/SRC-064/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-064/feed_meta.json",
+     "label": "feed_meta.json"
+    },
+    {
+     "path": "sources/SRC-064/posts/",
+     "label": "posts/ (51 files)"
+    }
+   ],
+   "_meta": "sources/SRC-064/_meta.json"
+  },
+  {
+   "src_id": "SRC-065",
+   "name": "Triton",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/triton-lang/triton",
+   "files": [
+    {
+     "path": "sources/SRC-065/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-065/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-065/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-065/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-065/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-065/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-065/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-065/_meta.json"
+  },
+  {
+   "src_id": "SRC-066",
+   "name": "CUTLASS",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/NVIDIA/cutlass",
+   "files": [
+    {
+     "path": "sources/SRC-066/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-066/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-066/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-066/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-066/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-066/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-066/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-066/_meta.json"
+  },
+  {
+   "src_id": "SRC-067",
+   "name": "FlashAttention",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/Dao-AILab/flash-attention",
+   "files": [
+    {
+     "path": "sources/SRC-067/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-067/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-067/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-067/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-067/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-067/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-067/_meta.json"
+  },
+  {
+   "src_id": "SRC-068",
+   "name": "FlashInfer",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/Dao-AILab/flash-attention",
+   "files": [
+    {
+     "path": "sources/SRC-068/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-068/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-068/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-068/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-068/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-068/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-068/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-068/_meta.json"
+  },
+  {
+   "src_id": "SRC-069",
+   "name": "DeepGEMM",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/flashinfer-ai/flashinfer",
+   "files": [
+    {
+     "path": "sources/SRC-069/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-069/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-069/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-069/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-069/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-069/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-069/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-069/_meta.json"
+  },
+  {
+   "src_id": "SRC-070",
+   "name": "DeepEP",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/deepseek-ai/DeepGEMM",
+   "files": [
+    {
+     "path": "sources/SRC-070/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-070/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-070/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-070/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-070/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-070/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-070/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-070/_meta.json"
+  },
+  {
+   "src_id": "SRC-071",
+   "name": "TileLang",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/tile-ai/tilelang",
+   "files": [
+    {
+     "path": "sources/SRC-071/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-071/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-071/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-071/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-071/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-071/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-071/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-071/_meta.json"
+  },
+  {
+   "src_id": "SRC-072",
+   "name": "TVM",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/apache/tvm",
+   "files": [
+    {
+     "path": "sources/SRC-072/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-072/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-072/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-072/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-072/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-072/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-072/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-072/_meta.json"
+  },
+  {
+   "src_id": "SRC-073",
+   "name": "PyTorch 源码",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/pytorch/pytorch",
+   "files": [
+    {
+     "path": "sources/SRC-073/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-073/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-073/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-073/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-073/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-073/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-073/_meta.json"
+  },
+  {
+   "src_id": "SRC-074",
+   "name": "PyTorch ⽂档",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/pytorch/pytorch",
+   "files": [
+    {
+     "path": "sources/SRC-074/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-074/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-074/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-074/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-074/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-074/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-074/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-074/_meta.json"
+  },
+  {
+   "src_id": "SRC-075",
+   "name": "KernelBench",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/ScalingIntelligence/KernelBench",
+   "files": [
+    {
+     "path": "sources/SRC-075/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-075/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-075/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-075/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-075/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-075/_meta.json"
+  },
+  {
+   "src_id": "SRC-076",
+   "name": "PyTorch",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/ScalingIntelligence/KernelBench",
+   "files": [
+    {
+     "path": "sources/SRC-076/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-076/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-076/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-076/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-076/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-076/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-076/_meta.json"
+  },
+  {
+   "src_id": "SRC-077",
+   "name": "GPU MODE",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/meta-pytorch/KernelAgent",
+   "files": [
+    {
+     "path": "sources/SRC-077/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-077/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-077/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-077/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-077/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-077/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-077/_meta.json"
+  },
+  {
+   "src_id": "SRC-078",
+   "name": "GPU MODE",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/gpu-mode/kernelbot",
+   "files": [
+    {
+     "path": "sources/SRC-078/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-078/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-078/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-078/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-078/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-078/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-078/_meta.json"
+  },
+  {
+   "src_id": "SRC-079",
+   "name": "NVIDIA Model",
+   "category": "量化、推测解码与精度验证",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/NVIDIA/Model-Optimizer",
+   "files": [
+    {
+     "path": "sources/SRC-079/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-079/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-079/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-079/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-079/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-079/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-079/_meta.json"
+  },
+  {
+   "src_id": "SRC-080",
+   "name": "LLM",
+   "category": "量化、推测解码与精度验证",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/NVIDIA/Model-Optimizer",
+   "files": [
+    {
+     "path": "sources/SRC-080/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-080/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-080/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-080/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-080/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-080/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-080/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-080/_meta.json"
+  },
+  {
+   "src_id": "SRC-081",
+   "name": "GPTQModel",
+   "category": "量化、推测解码与精度验证",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/vllm-project/llm-compressor",
+   "files": [
+    {
+     "path": "sources/SRC-081/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-081/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-081/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-081/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-081/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-081/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-081/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-081/_meta.json"
+  },
+  {
+   "src_id": "SRC-082",
+   "name": "AWQ",
+   "category": "量化、推测解码与精度验证",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/ModelCloud/GPTQModel",
+   "files": [
+    {
+     "path": "sources/SRC-082/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-082/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-082/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-082/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-082/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-082/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-082/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-082/_meta.json"
+  },
+  {
+   "src_id": "SRC-083",
+   "name": "bitsandbytes",
+   "category": "量化、推测解码与精度验证",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/bitsandbytes-foundation/bitsandbytes",
+   "files": [
+    {
+     "path": "sources/SRC-083/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-083/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-083/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-083/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-083/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-083/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-083/_meta.json"
+  },
+  {
+   "src_id": "SRC-084",
+   "name": "HQQ",
+   "category": "量化、推测解码与精度验证",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/bitsandbytes-foundation/bitsandbytes",
+   "files": [
+    {
+     "path": "sources/SRC-084/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-084/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-084/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-084/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-084/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-084/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-084/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-084/_meta.json"
+  },
+  {
+   "src_id": "SRC-085",
+   "name": "EAGLE",
+   "category": "量化、推测解码与精度验证",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/SafeAILab/EAGLE",
+   "files": [
+    {
+     "path": "sources/SRC-085/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-085/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-085/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-085/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-085/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-085/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-085/_meta.json"
+  },
+  {
+   "src_id": "SRC-086",
+   "name": "Medusa",
+   "category": "量化、推测解码与精度验证",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/FasterDecoding/Medusa",
+   "files": [
+    {
+     "path": "sources/SRC-086/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-086/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-086/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-086/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-086/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-086/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-086/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-086/_meta.json"
+  },
+  {
+   "src_id": "SRC-087",
+   "name": "Speculators",
+   "category": "量化、推测解码与精度验证",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/vllm-project/speculators",
+   "files": [
+    {
+     "path": "sources/SRC-087/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-087/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-087/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-087/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-087/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-087/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-087/_meta.json"
+  },
+  {
+   "src_id": "SRC-088",
+   "name": "lm-evaluation-",
+   "category": "量化、推测解码与精度验证",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/vllm-project/speculators",
+   "files": [
+    {
+     "path": "sources/SRC-088/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-088/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-088/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-088/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-088/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-088/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-088/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-088/_meta.json"
+  },
+  {
+   "src_id": "SRC-089",
+   "name": "NVIDIA Dynamo",
+   "category": "KV、路由、分布式与基础设施",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/ai-dynamo/dynamo",
+   "files": [
+    {
+     "path": "sources/SRC-089/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-089/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-089/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-089/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-089/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-089/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-089/_meta.json"
+  },
+  {
+   "src_id": "SRC-090",
+   "name": "Dynamo 调优",
+   "category": "KV、路由、分布式与基础设施",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/ai-dynamo/dynamo",
+   "files": [
+    {
+     "path": "sources/SRC-090/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-090/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-090/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-090/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-090/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-090/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-090/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-090/_meta.json"
+  },
+  {
+   "src_id": "SRC-091",
+   "name": "LMCache",
+   "category": "KV、路由、分布式与基础设施",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/LMCache/LMCache",
+   "files": [
+    {
+     "path": "sources/SRC-091/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-091/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-091/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-091/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-091/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-091/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-091/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-091/_meta.json"
+  },
+  {
+   "src_id": "SRC-092",
+   "name": "Mooncake",
+   "category": "KV、路由、分布式与基础设施",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/kvcache-ai/Mooncake",
+   "files": [
+    {
+     "path": "sources/SRC-092/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-092/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-092/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-092/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-092/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-092/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-092/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-092/_meta.json"
+  },
+  {
+   "src_id": "SRC-093",
+   "name": "AIBrix",
+   "category": "KV、路由、分布式与基础设施",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/vllm-project/aibrix",
+   "files": [
+    {
+     "path": "sources/SRC-093/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-093/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-093/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-093/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-093/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-093/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-093/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-093/_meta.json"
+  },
+  {
+   "src_id": "SRC-094",
+   "name": "Ray Serve LLM",
+   "category": "KV、路由、分布式与基础设施",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.ray.io/en/latest/serve/llm/",
+   "files": [
+    {
+     "path": "sources/SRC-094/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-094/pages/",
+     "label": "pages/ (27 files)"
+    }
+   ],
+   "_meta": "sources/SRC-094/_meta.json"
+  },
+  {
+   "src_id": "SRC-095",
+   "name": "KubeRay",
+   "category": "KV、路由、分布式与基础设施",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/ray-project/kuberay",
+   "files": [
+    {
+     "path": "sources/SRC-095/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-095/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-095/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-095/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-095/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-095/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-095/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-095/_meta.json"
+  },
+  {
+   "src_id": "SRC-096",
+   "name": "UCX",
+   "category": "KV、路由、分布式与基础设施",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/openucx/ucx",
+   "files": [
+    {
+     "path": "sources/SRC-096/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-096/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-096/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-096/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-096/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-096/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-096/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-096/_meta.json"
+  },
+  {
+   "src_id": "SRC-097",
+   "name": "NIXL",
+   "category": "KV、路由、分布式与基础设施",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/ai-dynamo/nixl",
+   "files": [
+    {
+     "path": "sources/SRC-097/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-097/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-097/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-097/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-097/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-097/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-097/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-097/_meta.json"
+  },
+  {
+   "src_id": "SRC-098",
+   "name": "NCCL tests",
+   "category": "KV、路由、分布式与基础设施",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/NVIDIA/nccl-tests",
+   "files": [
+    {
+     "path": "sources/SRC-098/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-098/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-098/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-098/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-098/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-098/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-098/_meta.json"
+  },
+  {
+   "src_id": "SRC-099",
+   "name": "Linux 性能⼯具",
+   "category": "KV、路由、分布式与基础设施",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://www.brendangregg.com/linuxperf.html",
+   "files": [
+    {
+     "path": "sources/SRC-099/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-099/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-099/_meta.json"
+  },
+  {
+   "src_id": "SRC-100",
+   "name": "Kubernetes 资源管",
+   "category": "KV、路由、分布式与基础设施",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+   "files": [
+    {
+     "path": "sources/SRC-100/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-100/pages/",
+     "label": "pages/ (1 files)"
+    }
+   ],
+   "_meta": "sources/SRC-100/_meta.json"
+  },
+  {
+   "src_id": "SRC-101",
+   "name": "Nsight Systems",
+   "category": "Profiling、压测与公开结果",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://docs.nvidia.com/nsight-systems/",
+   "files": [
+    {
+     "path": "sources/SRC-101/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-101/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-101/_meta.json"
+  },
+  {
+   "src_id": "SRC-102",
+   "name": "Nsight Compute",
+   "category": "Profiling、压测与公开结果",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.nvidia.com/nsight-compute/ProfilingGuide/",
+   "files": [
+    {
+     "path": "sources/SRC-102/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-102/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-102/_meta.json"
+  },
+  {
+   "src_id": "SRC-103",
+   "name": "ROCm rocprofiler-",
+   "category": "Profiling、压测与公开结果",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/ROCm/rocprofiler-sdk",
+   "files": [
+    {
+     "path": "sources/SRC-103/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-103/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-103/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-103/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-103/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-103/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-103/_meta.json"
+  },
+  {
+   "src_id": "SRC-104",
+   "name": "ROCm rocprofiler-",
+   "category": "Profiling、压测与公开结果",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/ROCm/rocprofiler-sdk",
+   "files": [
+    {
+     "path": "sources/SRC-104/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-104/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-104/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-104/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-104/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-104/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-104/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-104/_meta.json"
+  },
+  {
+   "src_id": "SRC-105",
+   "name": "DCGM",
+   "category": "Profiling、压测与公开结果",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/ROCm/rocprofiler-compute",
+   "files": [
+    {
+     "path": "sources/SRC-105/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-105/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-105/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-105/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-105/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-105/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-105/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-105/_meta.json"
+  },
+  {
+   "src_id": "SRC-106",
+   "name": "AMD SMI",
+   "category": "Profiling、压测与公开结果",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/ROCm/amdsmi",
+   "files": [
+    {
+     "path": "sources/SRC-106/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-106/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-106/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-106/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-106/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-106/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-106/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-106/_meta.json"
+  },
+  {
+   "src_id": "SRC-107",
+   "name": "vLLM benchmark",
+   "category": "Profiling、压测与公开结果",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.vllm.ai/en/latest/benchmarking/",
+   "files": [
+    {
+     "path": "sources/SRC-107/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-107/pages/",
+     "label": "pages/ (4 files)"
+    }
+   ],
+   "_meta": "sources/SRC-107/_meta.json"
+  },
+  {
+   "src_id": "SRC-108",
+   "name": "vLLM 性能看板说明",
+   "category": "Profiling、压测与公开结果",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.vllm.ai/en/latest/benchmarking/dashboard/",
+   "files": [
+    {
+     "path": "sources/SRC-108/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-108/pages/",
+     "label": "pages/ (1 files)"
+    }
+   ],
+   "_meta": "sources/SRC-108/_meta.json"
+  },
+  {
+   "src_id": "SRC-109",
+   "name": "GenAI Perf",
+   "category": "Profiling、压测与公开结果",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/triton-inference-server/perf_analyzer",
+   "files": [
+    {
+     "path": "sources/SRC-109/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-109/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-109/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-109/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-109/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-109/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-109/_meta.json"
+  },
+  {
+   "src_id": "SRC-110",
+   "name": "EvalScope",
+   "category": "Profiling、压测与公开结果",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/modelscope/evalscope",
+   "files": [
+    {
+     "path": "sources/SRC-110/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-110/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-110/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-110/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-110/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-110/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-110/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-110/_meta.json"
+  },
+  {
+   "src_id": "SRC-111",
+   "name": "GuideLLM",
+   "category": "Profiling、压测与公开结果",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/vllm-project/guidellm",
+   "files": [
+    {
+     "path": "sources/SRC-111/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-111/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-111/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-111/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-111/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-111/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-111/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-111/_meta.json"
+  },
+  {
+   "src_id": "SRC-112",
+   "name": "InferenceX",
+   "category": "Profiling、压测与公开结果",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/SemiAnalysisAI/InferenceX",
+   "files": [
+    {
+     "path": "sources/SRC-112/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-112/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-112/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-112/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-112/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-112/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-112/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-112/_meta.json"
+  },
+  {
+   "src_id": "SRC-113",
+   "name": "MLPerf Inference",
+   "category": "Profiling、压测与公开结果",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/mlcommons/inference",
+   "files": [
+    {
+     "path": "sources/SRC-113/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-113/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-113/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-113/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-113/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-113/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-113/_meta.json"
+  },
+  {
+   "src_id": "SRC-114",
+   "name": "MLCommons 提交",
+   "category": "Profiling、压测与公开结果",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/mlcommons/inference",
+   "files": [
+    {
+     "path": "sources/SRC-114/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-114/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-114/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-114/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-114/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-114/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-114/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-114/_meta.json"
+  },
+  {
+   "src_id": "SRC-115",
+   "name": "arXiv",
+   "category": "论⽂、会议与课程",
+   "status": "success",
+   "scrape_type": "academic",
+   "channel_type": "academic",
+   "url": "https://arxiv.org/",
+   "files": [
+    {
+     "path": "sources/SRC-115/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-115/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-115/_meta.json"
+  },
+  {
+   "src_id": "SRC-116",
+   "name": "MLSys",
+   "category": "论⽂、会议与课程",
+   "status": "success",
+   "scrape_type": "academic",
+   "channel_type": "academic",
+   "url": "https://proceedings.mlsys.org/",
+   "files": [
+    {
+     "path": "sources/SRC-116/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-116/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-116/_meta.json"
+  },
+  {
+   "src_id": "SRC-117",
+   "name": "USENIX",
+   "category": "论⽂、会议与课程",
+   "status": "success",
+   "scrape_type": "academic",
+   "channel_type": "academic",
+   "url": "https://www.usenix.org/publications/proceedings",
+   "files": [
+    {
+     "path": "sources/SRC-117/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-117/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-117/_meta.json"
+  },
+  {
+   "src_id": "SRC-118",
+   "name": "ACM Digital",
+   "category": "论⽂、会议与课程",
+   "status": "blocked",
+   "scrape_type": "academic",
+   "channel_type": "",
+   "url": "",
+   "files": [],
+   "_meta": "sources/SRC-118/_meta.json"
+  },
+  {
+   "src_id": "SRC-119",
+   "name": "OpenReview",
+   "category": "论⽂、会议与课程",
+   "status": "success",
+   "scrape_type": "academic",
+   "channel_type": "academic",
+   "url": "https://openreview.net/",
+   "files": [
+    {
+     "path": "sources/SRC-119/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-119/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-119/_meta.json"
+  },
+  {
+   "src_id": "SRC-120",
+   "name": "GPU MODE 讲",
+   "category": "论⽂、会议与课程",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/gpu-mode/lectures",
+   "files": [
+    {
+     "path": "sources/SRC-120/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-120/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-120/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-120/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-120/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-120/_meta.json"
+  },
+  {
+   "src_id": "SRC-121",
+   "name": "SGLang 公开会",
+   "category": "论⽂、会议与课程",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/gpu-mode/lectures",
+   "files": [
+    {
+     "path": "sources/SRC-121/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-121/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-121/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-121/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-121/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-121/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-121/_meta.json"
+  },
+  {
+   "src_id": "SRC-122",
+   "name": "NVIDIA On-",
+   "category": "论⽂、会议与课程",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://www.nvidia.com/en-us/on-demand/",
+   "files": [
+    {
+     "path": "sources/SRC-122/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-122/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-122/_meta.json"
+  },
+  {
+   "src_id": "SRC-123",
+   "name": "LMSYS",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "blog",
+   "url": "https://lmsys.org/blog/",
+   "files": [
+    {
+     "path": "sources/SRC-123/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-123/page.md",
+     "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-123/posts/",
+     "label": "posts/ (100 files)"
+    }
+   ],
+   "_meta": "sources/SRC-123/_meta.json"
+  },
+  {
+   "src_id": "SRC-124",
+   "name": "PyTorch Blog",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://pytorch.org/blog/",
+   "files": [
+    {
+     "path": "sources/SRC-124/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-124/feed_meta.json",
+     "label": "feed_meta.json"
+    },
+    {
+     "path": "sources/SRC-124/posts/",
+     "label": "posts/ (38 files)"
+    }
+   ],
+   "_meta": "sources/SRC-124/_meta.json"
+  },
+  {
+   "src_id": "SRC-125",
+   "name": "NVIDIA",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "blog",
+   "url": "https://developer.nvidia.com/blog/",
+   "files": [
+    {
+     "path": "sources/SRC-125/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-125/page.md",
+     "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-125/posts/",
+     "label": "posts/ (50 files)"
+    }
+   ],
+   "_meta": "sources/SRC-125/_meta.json"
+  },
+  {
+   "src_id": "SRC-126",
+   "name": "Baseten",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://www.baseten.co/blog/",
+   "files": [
+    {
+     "path": "sources/SRC-126/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-126/page.md",
+     "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-126/posts/",
+     "label": "posts/ (24 files)"
+    }
+   ],
+   "_meta": "sources/SRC-126/_meta.json"
+  },
+  {
+   "src_id": "SRC-127",
+   "name": "Baseten 推理⼯程",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://www.baseten.co/inference-engineering/",
+   "files": [
+    {
+     "path": "sources/SRC-127/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-127/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-127/_meta.json"
+  },
+  {
+   "src_id": "SRC-128",
+   "name": "Together AI",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://www.together.ai/blog",
+   "files": [
+    {
+     "path": "sources/SRC-128/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-128/feed_meta.json",
+     "label": "feed_meta.json"
+    },
+    {
+     "path": "sources/SRC-128/posts/",
+     "label": "posts/ (99 files)"
+    }
+   ],
+   "_meta": "sources/SRC-128/_meta.json"
+  },
+  {
+   "src_id": "SRC-129",
+   "name": "Fireworks AI",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://fireworks.ai/blog",
+   "files": [
+    {
+     "path": "sources/SRC-129/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-129/page.md",
+     "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-129/posts/",
+     "label": "posts/ (23 files)"
+    }
+   ],
+   "_meta": "sources/SRC-129/_meta.json"
+  },
+  {
+   "src_id": "SRC-130",
+   "name": "Modal",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://modal.com/blog",
+   "files": [
+    {
+     "path": "sources/SRC-130/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-130/feed_meta.json",
+     "label": "feed_meta.json"
+    },
+    {
+     "path": "sources/SRC-130/posts/",
+     "label": "posts/ (133 files)"
+    }
+   ],
+   "_meta": "sources/SRC-130/_meta.json"
+  },
+  {
+   "src_id": "SRC-131",
+   "name": "Anyscale",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://www.anyscale.com/blog",
+   "files": [
+    {
+     "path": "sources/SRC-131/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-131/page.md",
+     "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-131/posts/",
+     "label": "posts/ (18 files)"
+    }
+   ],
+   "_meta": "sources/SRC-131/_meta.json"
+  },
+  {
+   "src_id": "SRC-132",
+   "name": "AWS Machine",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "partial",
+   "scrape_type": "site",
+   "channel_type": "blog",
+   "url": "https://aws.amazon.com/blogs/machine-learning/",
+   "files": [
+    {
+     "path": "sources/SRC-132/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-132/feed_meta.json",
+     "label": "feed_meta.json"
+    },
+    {
+     "path": "sources/SRC-132/posts/",
+     "label": "posts/ (22 files)"
+    }
+   ],
+   "_meta": "sources/SRC-132/_meta.json"
+  },
+  {
+   "src_id": "SRC-133",
+   "name": "Google Cloud",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://cloud.google.com/blog/products/ai-machine-learning",
+   "files": [
+    {
+     "path": "sources/SRC-133/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-133/page.md",
+     "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-133/posts/",
+     "label": "posts/ (48 files)"
+    }
+   ],
+   "_meta": "sources/SRC-133/_meta.json"
+  },
+  {
+   "src_id": "SRC-134",
+   "name": "阿⾥云开发者社区",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://developer.aliyun.com/",
+   "files": [
+    {
+     "path": "sources/SRC-134/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-134/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-134/_meta.json"
+  },
+  {
+   "src_id": "SRC-135",
+   "name": "腾讯云开发者社区",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://cloud.tencent.com/developer",
+   "files": [
+    {
+     "path": "sources/SRC-135/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-135/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-135/_meta.json"
+  },
+  {
+   "src_id": "SRC-136",
+   "name": "华为云社区",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://bbs.huaweicloud.com/",
+   "files": [
+    {
+     "path": "sources/SRC-136/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-136/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-136/_meta.json"
+  },
+  {
+   "src_id": "SRC-137",
+   "name": "⽕⼭引擎开发者社",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://developer.volcengine.com/",
+   "files": [
+    {
+     "path": "sources/SRC-137/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-137/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-137/_meta.json"
+  },
+  {
+   "src_id": "SRC-138",
+   "name": "Horace He",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://horace.io/",
+   "files": [
+    {
+     "path": "sources/SRC-138/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-138/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-138/_meta.json"
+  },
+  {
+   "src_id": "SRC-139",
+   "name": "Simon Boehm",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "blog",
+   "url": "https://siboehm.com/",
+   "files": [
+    {
+     "path": "sources/SRC-139/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-139/feed_meta.json",
+     "label": "feed_meta.json"
+    },
+    {
+     "path": "sources/SRC-139/posts/",
+     "label": "posts/ (8 files)"
+    }
+   ],
+   "_meta": "sources/SRC-139/_meta.json"
+  },
+  {
+   "src_id": "SRC-140",
+   "name": "Lei Mao",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "partial",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://leimao.github.io/blog/",
+   "files": [
+    {
+     "path": "sources/SRC-140/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-140/feed_meta.json",
+     "label": "feed_meta.json"
+    },
+    {
+     "path": "sources/SRC-140/posts/",
+     "label": "posts/ (62 files)"
+    }
+   ],
+   "_meta": "sources/SRC-140/_meta.json"
+  },
+  {
+   "src_id": "SRC-141",
+   "name": "Colfax Research",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "blog",
+   "url": "https://research.colfax-intl.com/",
+   "files": [
+    {
+     "path": "sources/SRC-141/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-141/feed_meta.json",
+     "label": "feed_meta.json"
+    },
+    {
+     "path": "sources/SRC-141/posts/",
+     "label": "posts/ (13 files)"
+    }
+   ],
+   "_meta": "sources/SRC-141/_meta.json"
+  },
+  {
+   "src_id": "SRC-142",
+   "name": "Salykova",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "blog",
+   "url": "https://salykova.github.io/",
+   "files": [
+    {
+     "path": "sources/SRC-142/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-142/feed_meta.json",
+     "label": "feed_meta.json"
+    },
+    {
+     "path": "sources/SRC-142/posts/",
+     "label": "posts/ (5 files)"
+    }
+   ],
+   "_meta": "sources/SRC-142/_meta.json"
+  },
+  {
+   "src_id": "SRC-143",
+   "name": "NVIDIA 开发者论",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://forums.developer.nvidia.com/",
+   "files": [
+    {
+     "path": "sources/SRC-143/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-143/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-143/_meta.json"
+  },
+  {
+   "src_id": "SRC-144",
+   "name": "PyTorch 论坛",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://discuss.pytorch.org/",
+   "files": [
+    {
+     "path": "sources/SRC-144/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-144/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-144/_meta.json"
+  },
+  {
+   "src_id": "SRC-145",
+   "name": "PyTorch 开发讨",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://dev-discuss.pytorch.org/",
+   "files": [
+    {
+     "path": "sources/SRC-145/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-145/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-145/_meta.json"
+  },
+  {
+   "src_id": "SRC-146",
+   "name": "GitHub",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "reference",
+   "channel_type": "reference",
+   "url": "https://github.com/topics/llm-inference",
+   "files": [
+    {
+     "path": "sources/SRC-146/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-146/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-146/_meta.json"
+  },
+  {
+   "src_id": "SRC-147",
+   "name": "GitHub",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "github_org",
+   "channel_type": "github_org",
+   "url": "https://github.com/trending",
+   "files": [
+    {
+     "path": "sources/SRC-147/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-147/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-147/_meta.json"
+  },
+  {
+   "src_id": "SRC-148",
+   "name": "Hugging Face",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "hf",
+   "channel_type": "hf",
+   "url": "https://huggingface.co/papers",
+   "files": [
+    {
+     "path": "sources/SRC-148/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-148/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-148/_meta.json"
+  },
+  {
+   "src_id": "SRC-149",
+   "name": "Reddit",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://www.reddit.com/r/LocalLLaMA/",
+   "files": [
+    {
+     "path": "sources/SRC-149/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-149/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-149/_meta.json"
+  },
+  {
+   "src_id": "SRC-150",
+   "name": "知乎",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "blocked",
+   "scrape_type": "site",
+   "channel_type": "",
+   "url": "",
+   "files": [],
+   "_meta": "sources/SRC-150/_meta.json"
+  },
+  {
+   "src_id": "SRC-151",
+   "name": "CSDN",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://www.csdn.net/",
+   "files": [
+    {
+     "path": "sources/SRC-151/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-151/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-151/_meta.json"
+  },
+  {
+   "src_id": "SRC-152",
+   "name": "微信公众号搜索",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://weixin.sogou.com/",
+   "files": [
+    {
+     "path": "sources/SRC-152/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-152/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-152/_meta.json"
+  },
+  {
+   "src_id": "SRC-153",
+   "name": "Bilibili",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://www.bilibili.com/",
+   "files": [
+    {
+     "path": "sources/SRC-153/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-153/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-153/_meta.json"
+  },
+  {
+   "src_id": "SRC-154",
+   "name": "Hacker News",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "blog",
+   "url": "https://news.ycombinator.com/",
+   "files": [
+    {
+     "path": "sources/SRC-154/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-154/feed_meta.json",
+     "label": "feed_meta.json"
+    },
+    {
+     "path": "sources/SRC-154/posts/",
+     "label": "posts/ (26 files)"
+    }
+   ],
+   "_meta": "sources/SRC-154/_meta.json"
+  },
+  {
+   "src_id": "SRC-155",
+   "name": "Kernel Design",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/gpu-mode/popcorn",
+   "files": [
+    {
+     "path": "sources/SRC-155/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-155/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-155/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-155/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-155/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-155/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-155/_meta.json"
+  },
+  {
+   "src_id": "SRC-156",
+   "name": "KernelWiki",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/mit-han-lab/KernelWiki",
+   "files": [
+    {
+     "path": "sources/SRC-156/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-156/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-156/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-156/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-156/github_repo.md",
+     "label": "github_repo.md"
+    }
+   ],
+   "_meta": "sources/SRC-156/_meta.json"
+  },
+  {
+   "src_id": "SRC-157",
+   "name": "ncu-report-skill",
+   "category": "Kernel、编译与⾃动优化",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/mit-han-lab/KernelWiki",
+   "files": [
+    {
+     "path": "sources/SRC-157/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-157/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-157/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-157/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-157/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-157/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-157/_meta.json"
+  },
+  {
+   "src_id": "SRC-158",
+   "name": "海光 DTK 专区",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://developer.sourcefind.cn/dtk",
+   "files": [
+    {
+     "path": "sources/SRC-158/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-158/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-158/_meta.json"
+  },
+  {
+   "src_id": "SRC-159",
+   "name": "SRC-159",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.opencloudos.org/OC9/ai-deployment/GPU-optimization-practice/hygon-deployment/",
+   "files": [
+    {
+     "path": "sources/SRC-159/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-159/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-159/_meta.json"
+  },
+  {
+   "src_id": "SRC-160",
+   "name": "寒武纪 SDK",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "blocked",
+   "scrape_type": "site",
+   "channel_type": "",
+   "url": "",
+   "files": [],
+   "_meta": "sources/SRC-160/_meta.json"
+  },
+  {
+   "src_id": "SRC-161",
+   "name": "FlashInfer-Bench",
+   "category": "Profiling、压测与公开结果",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/flashinfer-ai/flashinfer-bench",
+   "files": [
+    {
+     "path": "sources/SRC-161/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-161/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-161/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-161/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-161/github_releases.jsonl",
+     "label": "github_releases.jsonl"
+    },
+    {
+     "path": "sources/SRC-161/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-161/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-161/_meta.json"
+  },
+  {
+   "src_id": "SRC-162",
+   "name": "Optuna",
+   "category": "量化、推测解码与精度验证",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://optuna.readthedocs.io/en/stable/",
+   "files": [
+    {
+     "path": "sources/SRC-162/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-162/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-162/_meta.json"
+  },
+  {
+   "src_id": "SRC-163",
+   "name": "DistServe",
+   "category": "KV、路由、分布式与基础设施",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/LLMServe/DistServe",
+   "files": [
+    {
+     "path": "sources/SRC-163/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-163/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-163/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-163/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
+    },
+    {
+     "path": "sources/SRC-163/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-163/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-163/_meta.json"
+  },
+  {
+   "src_id": "SRC-164",
+   "name": "SGLang ⽂档完",
+   "category": "推理引擎与部署配⽅",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "site",
+   "url": "https://docs.sglang.io/llms.txt",
+   "files": [
+    {
+     "path": "sources/SRC-164/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-164/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-164/_meta.json"
+  },
+  {
+   "src_id": "SRC-165",
+   "name": "vLLM Blog",
+   "category": "⼀⼿⼯程博客与服务商经验",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "blog",
+   "url": "https://vllm.ai/blog",
+   "files": [
+    {
+     "path": "sources/SRC-165/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-165/feed_meta.json",
+     "label": "feed_meta.json"
+    },
+    {
+     "path": "sources/SRC-165/posts/",
+     "label": "posts/ (150 files)"
+    }
+   ],
+   "_meta": "sources/SRC-165/_meta.json"
+  },
+  {
+   "src_id": "SRC-166",
+   "name": "Ascend",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://gitcode.com/Ascend",
+   "files": [
+    {
+     "path": "sources/SRC-166/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-166/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-166/_meta.json"
+  },
+  {
+   "src_id": "SRC-167",
+   "name": "Ascend Gitee",
+   "category": "昇腾与其他国产芯⽚",
+   "status": "blocked",
+   "scrape_type": "site",
+   "channel_type": "",
+   "url": "",
+   "files": [],
+   "_meta": "sources/SRC-167/_meta.json"
+  },
+  {
+   "src_id": "SRC-168",
+   "name": "Awesome LLM",
+   "category": "精选作者、专业社区与新来源发现",
+   "status": "success",
+   "scrape_type": "github_repo",
+   "channel_type": "github_repo",
+   "url": "https://github.com/DefTruth/Awesome-LLM-Inference",
+   "files": [
+    {
+     "path": "sources/SRC-168/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-168/github_changelog.md",
+     "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-168/github_repo.md",
+     "label": "github_repo.md"
+    },
+    {
+     "path": "sources/SRC-168/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-168/_meta.json"
+  },
+  {
+   "src_id": "SRC-169",
+   "name": "NVIDIA NGC",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://catalog.ngc.nvidia.com/",
+   "files": [
+    {
+     "path": "sources/SRC-169/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-169/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-169/_meta.json"
+  },
+  {
+   "src_id": "SRC-170",
+   "name": "ROCm Docker",
+   "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
+   "status": "success",
+   "scrape_type": "site",
+   "channel_type": "js",
+   "url": "https://hub.docker.com/u/rocm",
+   "files": [
+    {
+     "path": "sources/SRC-170/_meta.json",
+     "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-170/page.md",
+     "label": "page.md"
+    }
+   ],
+   "_meta": "sources/SRC-170/_meta.json"
+  }
+ ]
+}
