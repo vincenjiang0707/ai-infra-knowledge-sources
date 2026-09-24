@@ -7,11 +7,11 @@
 
 | 项 | 值 |
 |---|---|
-| 抓取快照日期 | 2026-09-23 |
-| 来源数 | 170（success 163 / partial 1 / error 1 / blocked 5，SRC-043 寒武纪 forum 504 partial、SRC-129 Fireworks blog trafilatura no_md error）|
-| 文件总数 | ~5060 |
-| 总体积 | ~210 MB |
-| 来源类型 | GitHub 80 · RSS/Blog 12 · HF 8 · 学术 5 · Sitemap/Docs 12 · 论坛/国产社区 9 · 其他 |
+| 抓取快照日期 | 2026-09-24 |
+| 来源数 | 170（success 162 / partial 3 / blocked 5，SRC-043 寒武纪 forum 504 partial、SRC-132 AWS ML blog SPA lazy 2 posts partial、SRC-140 Lei Mao networkidle 62 posts partial）|
+| 文件总数 | ~5200 |
+| 总体积 | ~220 MB |
+| 来源类型 | GitHub 80 · Blog 14 · HF 8 · 学术 5 · Sitemap/Docs 12 · 论坛/国产社区 9 · 其他 |
 
 ## 按抓取类型分组
 
@@ -21,7 +21,7 @@
 | site（sitemap 文档站）| 12 | `pages/*.md`（≤2000 页 / SRC）| SRC-001 vLLM docs, SRC-040 MUSA deploy |
 | site（RSS 博客）| 12 | `feed_meta.json` + `posts/*.md` | SRC-165 vLLM blog, SRC-140 Lei Mao |
 | site（菜单 BFS 兜底）| 4 | `pages/*.md`（深度3、≤200 页）| SRC-040 MUSA（Docusaurus baseUrl 错配走 BFS）|
-| blog（JS 索引 + 串行抓 post）| 1 | `posts/NN_slug.md`（默认 ≤100 篇/SRC）| SRC-123 LMSYS blog 100 篇 1.5 MB |
+| blog（JS 索引 + 串行抓 post）| 14 | `posts/NN_slug.md`（默认 ≤100 篇/SRC）| SRC-123 LMSYS blog 100 篇 1.5 MB、SRC-129 Fireworks 23 篇 |
 | hf（HF 模型 / 组织）| 8 | `hf.md` | SRC-018 deepseek-ai |
 | academic（arxiv / usenix）| 5 | `page.md` | SRC-067 arxiv vLLM |
 | forum / 国产社区 | 9 | 多数 blocked（需登录 / 反爬）| SRC-043 寒武纪（GitHub 成功 + 论坛 504）|
@@ -86,6 +86,7 @@
 | 版本 | 日期 | 说明 |
 |---|---|---|
 | v1.2 | 2026-09-23 | SRC-XXX 移入 sources/ 子目录，减少顶层目录噪声 |
+| v1.6 | 2026-09-24 | blog 通道批量补抓 SRC-125 NVIDIA 50 篇、SRC-126 Baseten 25 篇、SRC-129 Fireworks 23 篇、SRC-131 Anyscale 18 篇、SRC-132 AWS ML 2 篇（partial，JS lazy）、SRC-133 Google Cloud 48 篇、SRC-140 Lei Mao 52→62 篇（partial，networkidle timeout）；修复 batch2 跳过 error 状态的 bug |
 | v1.5 | 2026-09-23 | blog 通道上线：playwright 渲染 index + 正则抓 post permalinks + 串行访问每篇；SRC-123 LMSYS blog 全量 100 篇 1.5 MB 正文集（含 NVFP4 KV / DeepSeek-V4.1 / SGLang SSD Expert Pack / 等完整技术博文）|
 | v1.4 | 2026-09-23 | js 通道批量重抓 21 个 SPA shell 候选：LMSYS blog 117→34700、PyTorch docs 95→8980、Horace He 317→276 等显著提升；SRC-016 CUDA docs timeout 退回 site；SRC-129 Fireworks blog trafilatura no_md 标 error |
 | v1.3 | 2026-09-23 | js 通道上线：playwright headless chromium 抓 JS-rendered 站；修复 SCRAPE 路径 bug（SRC 目录迁移后 load_meta/save_meta/detail_fetcher/incremental_gh/summary_gen 仍走旧路径）；SRC-031 Nuxt.js SPA shell 重抓 898 → 26979 chars |
