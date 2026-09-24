@@ -1,0 +1,109 @@
+# whats-new-in-ai-infrastructure-this-month
+
+source: https://cloud.google.com/blog/topics/ai-infrastructure/whats-new-in-ai-infrastructure-this-month
+
+# What’s new in AI infrastructure and orchestration in August
+
+##### Alex Barrett
+
+Editor, Google Cloud blog
+
+Welcome back to What’s new in AI infrastructure and orchestration this month, a collection of product updates, how-tos, customer stories, research and other resources about all the AI compute, networks, storage, frameworks, and orchestration software that you can find at Google Cloud. To be honest, we thought August would be a slow month, but nothing could be further from the truth. Read on and you’ll see what we mean.
+
+### August 2026
+
+#### Product, technology, and tools updates
+
+-
+**Product update:**[Filestore](https://cloud.google.com/filestore), Google Cloud’s first-party, secure, scalable NFS file service, has emerged as a popular storage platform for AI and agentic workflows, and now, it’s even better suited to the task, with a new backend storage layer built directly on[Colossus](https://cloud.google.com/blog/products/storage-data-transfer/how-colossus-optimizes-data-placement-for-performance?e=48754805), Google’s foundational distributed storage system. This new backend lets you provision IOPS independently from storage capacity, and is deeply integrated with GKE. In AI environments, this can help you service so-called agentic swarms — large groups of agents that need to read and write to a common dataset — without a drop off in performance. For more, check out the[blog post](https://cloud.google.com/blog/products/storage-data-transfer/filestore-file-service-runs-on-colossus?e=48754805). -
+**New feature:**[gVisor sandboxes are now available in distributed Ray clusters on GKE](https://cloud.google.com/blog/products/containers-kubernetes/gvisor-sandboxes-for-ray-clusters-on-gke?e=48754805). In partnership with Anyscale, we introduced an experimental library for Ray that brings gVisor, Google’s open-source application kernel, directly into distributed Ray clusters. gVisor provides lightweight environments with stronger isolation than ordinary containers, plus fast startup times and low memory overhead. To try out these sandboxing capabilities on GKE, head over to the[Ray sandboxing User Guide](https://docs.ray.io/en/master/cluster/kubernetes/examples/ray-sandboxing.html). -
+**Product update:**Looking for high-performance, easy-to-use infrastructure on which to run a personal AI agent, but don’t want to spend a lot of money? New[Cloud Run instances](https://cloud.google.com/blog/products/serverless/introducing-cloud-run-instances)are dedicated, singleton compute runtimes on Cloud Run that won’t shut down when the agent is idle. Better yet, the cost to run a Cloud Run instance with 1 vCPU and 1 GiB of memory continuously for 30 days is just $5.70.
+
+#### Practitioner guides, documentation and how-tos
+
+**How-to guide:**Big news in Model Context Protocol (MCP) land: As of the 2026-07-28 specification, the protocol core is “completely stateless. The handshake is gone. The initialize / initialized handshake (SEP-2575) and the logical Mcp-Session-Id header (SEP-2567) have been removed entirely. Instead, every request is now self-describing and independent.” Whoa. Learn more about the changes that the latest MCP specification brings, and more importantly, how to implement them, in[this Google Developers blog](https://developers.googleblog.com/scaling-ai-agent-infrastructure-with-the-mcp-stateless-updates/).**Guide:**Real-time AI systems make a mess of traditional network load balancing techniques. “Instead of handling isolated requests, the backend has to manage a continuous, live bidirectional stream. You’re dealing with a constant stream of audio chunks, transcripts, model outputs, and synthesized speech flowing back and forth simultaneously.” Things only get worse when the user gets involved. “The server has to immediately halt its current speech generation, pivot to update the context, maybe trigger a new tool, and start drafting a different response; this must be done without dropping the connection.” For a new approach to managing load in the AI era, read[Scaling real-time AI agents with session-aware load balancing](https://developers.googleblog.com/scaling-real-time-ai-agents-with-session-aware-load-balancing/).**How-to:**Learn how to build an elastic, scalable LLM inference platform on GKE, even with a mix of different GPU accelerators. The proposed architecture combines Capacity Advisor and Compute Advisor, plus high-performance storage like RunAI:model streamer or GCPFuse with parallel downloads. Get all the details[here](https://discuss.google.dev/t/how-to-build-an-elastic-scalable-llm-inference-platform-on-gke-using-fluid-compute/388108).**Documentation:**The thing about hosts with GPUs or TPUs is that you can’t use live migration to update them, setting up a maintenance challenge. In this new docs page, learn how to[update accelerator-equipped hosts](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/perform-host-maintenance-accelerators)according to your tolerance for downtime for your training and inference workloads.**Documentation:**Advanced Compute Images, or ACIs, are standardized image stacks for AI/ML and HPC infrastructure, so you don’t need to manually build your own custom images. In this new docs page, learn how to[create an ACI image](https://docs.cloud.google.com/compute/docs/instances/use-aci-images)using the Google Cloud CLI, console, or SchedMD's Slurm workload manager**.****Guide:**AI workloads are notoriously difficult to architect, resource-intensive, and bursty, which can also lead to scaling bottlenecks and large pools of underutilized — or misutilized — compute resources. A new blog outlines the[three main ways to achieve dynamic capacity management in Google Cloud](https://cloud.google.com/blog/topics/ai-infrastructure/best-practices-for-dynamic-capacity-management?e=48754805): 1) scheduling capacity for planned downtime; 2) maintaining automated fallback capacity for unplanned downtime; and 3) relying on GKE’s core orchestration capabilities to automate resource allocation.
+
+#### Customer and partner updates
+
+-
+Business orchestration software provider
+
+was dealing with spiky workloads, and wanted more predictable costs. To get there, it re-architected its infrastructure, moving from isolated clusters to a shared Google Cloud GPU fleet that included both A3 VM instances (NVIDIA H100 GPUs) for training with G4 VM instances (NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs) for inference. You can read more about their architecture**UiPath**[here](https://cloud.google.com/blog/topics/customers/how-uipath-built-its-high-performance-gpu-platform). -
+, an frontier AI lab focused on accelerating AI development, announced that it is**Mirendil**[using AI Hypercomputer](https://cloud.google.com/blog/topics/startups/mirendil-selects-ai-hypercomputer?e=48754805)with both TPUs and NVIDIA GPUs to support its model pre-training and post-training applications. -
+, a retail CRM provider, built its AI decision engine in Google Cloud, using BigQuery, Gemini Enterprise Agent Platform, and open-source Gemma models that it runs on Cloud TPUs. This latter combination provided Replenit with 90% lower pipeline costs than their previous cloud provider, the company reports. Read the**Replenit**[full case study](https://cloud.google.com/customers/replenit?e=48754805&hl=en)for more. -
+architected its AI-powered e-commerce recommendation platform on top of Bigtable, Managed Service for Apache Kafka, Pub/Sub, Compute Engine, and last but not least, GKE. See how it all comes together in**Malachyte**[this blog](https://cloud.google.com/blog/products/data-analytics/solving-retails-cold-start-problem-malachytes-recommendation-reinvention?e=48754805).
+
+### July 2026
+
+#### Product, technology, and tools updates
+
+-
+**Product update:**[Google Cloud Managed Lustre](https://cloud.google.com/products/managed-lustre)is now GA, and available in four distinct performance tiers that deliver throughput ranging from 125 MB/s, 250 MB/s, 500 MB/s, to 1000 MB/s per TiB of capacity — with the ability to scale up to 8 PB of storage capacity. The Managed Lustre solution is powered by DDN’s EXAScaler, combining DDN's decades of leadership in high-performance storage with Google Cloud's expertise in cloud infrastructure. -
+**Product update:**[C4N network and storage optimized VMs are now GA](https://cloud.google.com/blog/products/compute/c4n-network-and-storage-optimized-vms?e=0). C4N is our first network- and block-storage-optimized VM series built to eliminate data-transfer bottlenecks. Powered by 5th Gen Intel Xeon Scalable processors and built on Google's[Titanium](https://cloud.google.com/titanium?e=0)offloading hardware, it achieves 400 Gbps network bandwidth, 95 million packets per second (MPPS), and up to 25 GiB/s of block storage throughput when paired with Hyperdisk Extreme. -
+**New feature:**[GKE Dataplane V2 up to 15K Nodes with Network Policies (GA)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/planning-large-clusters#clusters-5k-nodes). This capability enables standard GKE clusters to scale up to 15,000 nodes while maintaining full active Network Policy enforcement, supporting the massive infrastructure needs of large enterprise and AI/ML customers. -
+**New feature:**[Co-operative time-slicing in llm-d](https://cloud.google.com/blog/products/containers-kubernetes/introducing-co-operative-time-slicing-for-rl-in-llm-d?e=0). If you’re running reinforcement learning (RL) workloads, you can now interleave independent RL jobs onto shared physical hardware, increasing aggregate accelerator duty cycles from a ~40% baseline up to 70% without impacting model convergence or accuracy. -
+**New AI security tool:**[Looking to secure your AI supply chain on GKE](https://cloud.google.com/blog/products/identity-security/introducing-k8s-aibom-on-gke-for-automated-ai-bills-of-materials?e=0), deploy AI workloads safely, and cut down on shadow AI? We open-sourced k8s-aibom, a lightweight, unprivileged Kubernetes controller that continuously monitors container clusters to automatically detect running AI runtimes (like vLLM and Triton) and generate standard CycloneDX Machine Learning Bill of Materials (ML-BOMs). Check out the[k8s-aibom project](https://github.com/GoogleCloudPlatform/k8s-aibom)and get involved.
+
+#### Practitioner guides and how-tos
+
+-
+**How-to guide:**On July 27, Google announced[Day 0 support for Moonshot AI’s Kimi K3](https://discuss.google.dev/t/announcing-day-0-support-for-kimi-k3-on-google-cloud/385392)2.8-trillion-parameter open-weight model, the day weights were released. Whichever your preferred deployment path — via Model Garden, custom orchestration, or GKE with llm-d recipes — this guide offers detailed step-by-step instructions to help you evaluate and pilot Kimi K3 in Google Cloud. -
+**How-to guide:**[Google Kubernetes Engine (GKE) managed DRANET supports both GPUs and TPUs](https://cloud.google.com/blog/topics/developers-practitioners/autopilot-clusters-with-gke-managed-dranet-gpus-and-tpus). There are several configurations to use this implementation, including standard cluster (where you have full control) and autopilot cluster (where Google does the heavy configs for you). Take a deeper dive in the hands-on lab,[GKE Autopilot clusters with TPUs, GKE managed DRANET and Gemma 4](https://codelabs.developers.google.com/codelabs/gke-autopilot-tpus-dranet-gemma#0). -
+**How-to guide:**Learn to run Ray on TPUs, not GPUs. In[Part 1](https://developers.googleblog.com/run-ray-on-tpu-part-1-the-foundations/)of this two-part series, we discuss TPU slices (hint: Ray thinks of them as just another accelerator on which to schedule), then walk through Ray’s various AI libraries ([Part 2](https://developers.googleblog.com/run-ray-on-tpu-part-2-ray-ai-libraries/)). -
+**How-to guide:**Evaluate TPUs for sample workloads using a new microbenchmark suite that helps you accurately assess whether a device is achieving its theoretical performance specifications, and to identify specific performance gaps or architecture-specific bottlenecks. Dive in[here](https://developers.googleblog.com/how-to-use-google-microbenchmarks-for-evaluating-tpu-performance/). -
+**How-to guide:**Scale your agents without killing your budget.[Learn how GKE orchestration can help you safely pack more agents onto a fixed compute footprint](https://cloud.google.com/blog/products/containers-kubernetes/reduce-your-agents-costs-with-gke-agent-sandbox?e=48754805)with GKE Agent Sandbox and Pod snapshots. Whether your goal is performance or cost optimization, we teach you how to turn the right dials for optimal agent efficiency. -
+**Technical blueprint:**Inside the optimization of Mistral 3 large inference on Ironwood. This blog outlines how one Google team optimized Mistral 3 large MoE model inference on Google’s Ironwood (TPU v7x), achieving a 1.5x performance gain. They did so with hybrid sharding, replacing linear VPU summations with tree reductions, optimizing GMM/MLA kernels, and adopting asynchronous scheduling. As a result, they boosted throughput by up to 48% while maintaining benchmark accuracy neutrality. Read the full blog[here](https://discuss.google.dev/t/inside-the-optimization-of-mistral-3-large-inference-on-ironwood/385847).
+
+#### Research, reports and deep-dives
+
+-
+**Report:**Google was named a Leader in the inaugural[GartnerⓇ Magic Quadrant™ for AI Infrastructure](https://cloud.google.com/blog/topics/ai-infrastructure/google-is-a-leader-in-gartner-magic-quadrant-for-ai-infra?e=0), positioned highest for ‘Ability to Execute’ and furthest for ‘Completeness of Vision’. Gartner called out Google’s proprietary scalable compute, integrated AI Hypercomputer architecture, and the scale of our AI compute capacity as key strengths. Download a copy[here](https://cloud.google.com/resources/content/2026-gartner-mq-ai-infrastructure?e=0). -
+**Report:**We recently surveyed more than 1,400 senior IT leaders for our[State of AI Infrastructure report](https://cloud.google.com/resources/content/state-of-infrastructure-in-the-agentic-ai-era?e=48754805), and a resounding pattern emerged: The gap between AI ambition and infrastructure reality is widening. In fact, 83% of organizations say they require infrastructure upgrades to support production-grade agentic AI.[Read the accompanying blog](https://cloud.google.com/blog/products/compute/state-of-ai-infrastructure-report-overview?e=0)to understand how adapting your infrastructure to meet the demands that agentic applications place on your systems will help you move from pilot to production.
+
+### June 2026
+
+#### Product, technology and tool updates
+
+-
+**Product update:**Protecting sensitive data used with AI is a critical part of advanced and secure cloud infrastructure.[Confidential Computing](https://cloud.google.com/security/products/confidential-computing?e=0)cryptographically protects data in use in hardware-based Trusted Execution Environments (TEEs) with verifiable data integrity, and is[now available](https://cloud.google.com/blog/products/identity-security/verifiable-trust-in-the-ai-era-whats-new-in-confidential-computing?e=0)on the accelerator-optimized[G4 machine series](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g4-series), featuring[NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs](https://www.nvidia.com/en-us/products/workstations/professional-desktop-gpus/rtx-pro-6000-family/). Get started with[Confidential G4 VMs](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/create-a-confidential-vm-instance-with-gpu)and[Confidential G4 GKE Nodes](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gpus-confidential-nodes). -
+**Developer resource:**The new[TPU Developer Hub](https://cloud.google.com/products/tpu/tpu-developer?e=0)is the place to go for model builders, optimizers, and developers to learn to unlock the full performance of Google Cloud TPUs. Read more in this[blog](https://developers.googleblog.com/unlocking-the-power-of-the-tpu-stack-introducing-our-new-developer-hub/). -
+**New product:**Scale your AI workloads with the new[OpenTelemetry-Based TPU AI Telemetry Collector Agent](https://discuss.google.dev/t/stop-training-blind-scaling-ai-with-the-new-opentelemetry-based-tpu-ai-telemetry-collector-agent/375210). For the first time, you can route high-fidelity TPU hardware telemetry to Google Cloud Monitoring, Google Managed Prometheus, or your own self-hosted Grafana stack.
+
+#### Practitioner guides and how-tos
+
+-
+**How-to guide:**Learn how to build high availability into an AI inference workload running on GKE Inference Gateway with TPUs, Cloud Storage FUSE and Dynamic Resource Allocation (DRA). This[blog](https://cloud.google.com/blog/topics/developers-practitioners/experimenting-with-tpus-gke-managed-dranet-and-multi-cluster-inference-gateway?_gl=1*jj3plw*_ga*OTAxNzc0MzU1LjE3ODIyMjAxNDk.*_ga_4LYFWVHBEB*czE3ODI3NTc3NzAkbzkkZzEkdDE3ODI3NTg2MDEkajYwJGwwJGgw&e=0)provides an overview, or you can get all the technical details in the[hands-on codelab](https://codelabs.developers.google.com/codelabs/gke-inference-gateway-multi-cluster-tpus-dranet#0). -
+**How-to guide:**Did you know you can connect your AI agents to unstructured data in[Cloud Storage](https://cloud.google.com/storage)via Model Context Protocol (MCP)? In[this blog](https://cloud.google.com/blog/topics/developers-practitioners/build-ai-agents-faster-with-gcs-google-cloud-storage-mcp-server), learn about why would want to do that from three customer examples, then how to do it, choosing either a fully managed service, or a self-managed local server for more customization and control.
+
+#### Research, reports and deep-dives
+
+-
+**Report:**According to an independent benchmark report,[GKE Inference Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/about-gke-inference-gateway)outperforms the next leading managed Kubernetes service with 15.7% higher throughput, 92.8% shorter wait times, and 62.6% lower inter-token latency. This performance can be attributed to its use of prefix caching, which optimizes LLM performance by storing the KV cache (activation states) of long, repetitive prompt prefixes. Learn more in the[blog](https://cloud.google.com/blog/products/containers-kubernetes/gke-inference-gateway-prefix-caching-accelerates-ai-inference?e=0). -
+**Architecture deep dive:**A closer look at[the cold start problem, this time for TPUs and GKE](https://discuss.google.dev/t/accelerate-tpu-model-loading-while-saving-ram-on-gke/374835), and how the Run:ai Model Streamer can help change the dynamic.
+
+#### Customer and partner updates
+
+-
+**Customer win:**Leveraging GKE, BigQuery, Cloud SQL, and Gemini Enterprise Agent Platform,[Pager Health is eliminating operational fragmentation to deliver a simplified, personalized U.S. healthcare experience](https://www.youtube.com/watch?v=x36QJ-QKRGg)that transforms lives. -
+**Customer win:**Trustpilot, the customer review platform, built a high-volume streaming pipeline using fine-tuned Gemma models with Dataflow and Gemini Enterprise Agent Platform running on cost-optimized A2 VMs using A100 GPUs, as well as optimized version of vLLM maintained by Gemini Enterprise Agent Platform.
+
+### May 2026
+
+#### Product, technology and tool updates
+
+-
+**Product update:**[GKE Agent Sandbox](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-learning/agent-sandbox)is now generally available. -
+**New open-source project:**[Agent Substrate](https://github.com/agent-substrate/substrate)is a new open-source project aimed at continuing to push the limits of agentic infrastructure density -
+**New feature:**[Google AI Edge Portal](https://ai.google.dev/edge/ai-edge-portal), a solution for testing and benchmarking on-device machine learning (ML) at scale, now supports benchmarking and debugging on-device LLMs. Read more[here](https://cloud.google.com/blog/products/ai-machine-learning/benchmark-llms-on-device-with-ai-edge-portal?e=48754805). -
+**Product deep dive:**We went[into depth about Cloud Storage Rapid](https://cloud.google.com/blog/products/storage-data-transfer/cloud-storage-rapid-turbocharges-object-storage-for-ai-analytics?e=48754805), a new family of high-performance storage offerings for AI workloads. At launch, offerings include Rapid Bucket (formerly Rapid Storage), a high-performance zonal object storage offering, and Rapid Cache (formerly Anywhere Cache), which accelerates reads on-demand and colocates compute and data for workloads in existing buckets.
+
+#### Research, reports and deep dives
+
+-
+**Architecture deep dive:**Google Global Infrastructure VP Bikash Koley and Engineering Fellow Arjun Singh provide a high-level overview of[the challenges that AI workloads pose to network infrastructure](https://cloud.google.com/blog/products/networking/data-center-and-global-networks-built-for-ai-era), and discuss the deep enhancements we’ve made to our data center fabrics, WAN, and global networks to better support them. -
+**Architecture deep dive:**We unveiled a[new cluster-level reliability model](https://cloud.google.com/blog/products/compute/cluster-reliability-for-trillion-parameter-models-on-tpus?e=48754805)for developing frontier AI models on TPUs, ditching instance-level reliability
+
+#### Customer and partner updates
+
+-
+**Customer win:**Visual media provider[Imgix serves more than 8 billion images and videos from AI Hypercomputer](https://cloud.google.com/blog/products/infrastructure/how-imgix-processes-8-billion-images-daily-with-g4-vms-powered-by-nvidia-blackwell?e=48754805)equipped with G4 VMs powered by NVIDIA RTX PRO 6000 Blackwell GPUs.

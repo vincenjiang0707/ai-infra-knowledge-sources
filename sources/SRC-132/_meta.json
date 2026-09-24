@@ -5,22 +5,42 @@
  "priority": "",
  "scrape_type": "site",
  "blocked_reason": null,
- "status": "success",
+ "status": "partial",
  "started_at": "2026-09-23T04:20:52Z",
  "finished_at": "2026-09-23T04:20:52Z",
  "duration_seconds": 27.5,
- "attempts": 2,
+ "attempts": 4,
  "channels": {
   "site_b6f74bd3": {
    "type": "blog",
    "url": "https://aws.amazon.com/blogs/machine-learning/",
-   "status": "ok",
+   "status": "partial",
    "mode": "blog",
    "posts": [
     "01_launch.md",
-    "02_news.md"
+    "02_news.md",
+    "20260917_reduce-time-to-hire-for-quality-candidates-with-ai-powered-amazon-connect-talent_f82ad0.md",
+    "20260918_aws.amazon.com_blogs_machine-learning_introducing-kimi-k3-on-amazon-bedrock_7dfa61.md",
+    "20260918_earning_the-new-agentcore-runtime-elastic-optimized-and-consistently-fast-starts_781cbf.md",
+    "20260918_ine-learning_migrating-multi-model-ai-agents-to-amazon-bedrock-agentcore-runtime_f5c5e9.md",
+    "20260918_m_blogs_machine-learning_introducing-amazon-sagemaker-hyperpod-inference-gateway_d27d84.md",
+    "20260918_machine-learning_amazon-sagemaker-inference-2026-year-to-date-launches-in-review_4a2cc4.md",
+    "20260918_ne-learning_deploy-hugging-face-models-on-amazon-sagemaker-ai-with-coding-agents_416201.md",
+    "20260921__machine-learning_run-positron-on-amazon-sagemaker-ai-for-data-science-workflows_5efd9f.md",
+    "20260921__reducing-medical-claims-review-time-with-ai-on-aws-the-exl-medical-idp-solution_7b7a3c.md",
+    "20260921_achine-learning_how-bmw-group-detects-cost-anomalies-across-14000-cloud-accounts_d3dd7e.md",
+    "20260921_azon.com_blogs_machine-learning_xais-grok-4-6-is-now-available-in-amazon-bedrock_5bd76c.md",
+    "20260921_rning_how-benchling-secured-multi-tenant-ai-agents-with-amazon-bedrock-agentcore_c99981.md",
+    "20260922_achine-learning_how-tata-elxsi-detects-industrial-safety-risks-in-seconds-on-aws_e19cc1.md",
+    "20260922_arning_how-trane-gets-building-insights-60x-faster-with-amazon-bedrock-agentcore_5195df.md",
+    "20260922_aws.amazon.com_blogs_machine-learning_claude-opus-5-5-is-now-available-on-aws_4273a1.md",
+    "20260922_g_evaluate-skill-equipped-agents-with-strands-evals-and-amazon-bedrock-agentcore_509e0c.md",
+    "20260922_gs_machine-learning_extending-public-sector-intelligence-with-agentforce-and-aws_40306e.md",
+    "20260922_ight-size-generative-ai-endpoints-with-concurrency-sweeps-on-amazon-sagemaker-ai_7dc7da.md",
+    "20260922_ng_how-reactiv-automates-mobile-commerce-80-faster-with-amazon-bedrock-agentcore_d99e3e.md",
+    "20260922_re-intelligence-to-everyday-work-with-gpt-6-sol-and-gpt-6-luna-on-amazon-bedrock_1f8a8b.md"
    ],
-   "total_chars": 10679
+   "total_chars": 322097
   }
  },
  "cursor": {
