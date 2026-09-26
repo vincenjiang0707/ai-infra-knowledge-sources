@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/model_manager/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class LoRAModelManager:
 """A manager that manages multiple LoRA-fine-tuned models."""

@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:35:19Z",
- "finished_at": "2026-09-23T03:35:19Z",
- "duration_seconds": 61.9,
- "attempts": 1,
+ "finished_at": "2026-09-25T18:39:41Z",
+ "duration_seconds": 715.2,
+ "attempts": 4,
  "channels": {
   "gh_751b47de": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 60,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 49,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -46,25 +56,25 @@
   "ref_808b1b64": {
    "type": "reference",
    "url": "https://github.com/triton-inference-server/perf_analyzer/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 1120
   },
   "ref_fc07325a": {
    "type": "reference",
    "url": "https://github.com/triton-inference-server/perf_analyzer/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 4337
+   "mode": "page",
+   "chars": 4407
   },
   "ref_3cf82065": {
    "type": "reference",
    "url": "https://github.com/triton-inference-server/perf_analyzer/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 381
   }
  },

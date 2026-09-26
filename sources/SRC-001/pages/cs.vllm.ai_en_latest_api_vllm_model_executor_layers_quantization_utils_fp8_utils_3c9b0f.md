@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/utils/fp8_utils/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -39,15 +39,21 @@ Functions:
 –[process_fp8_input_tensor_strategy_moe](https://docs.vllm.ai#vllm.model_executor.layers.quantization.utils.fp8_utils.process_fp8_input_tensor_strategy_moe)Process moe input scales for tensor-wise quantization strategy.
 
 -
-–[process_fp8_weight_block_strategy](https://docs.vllm.ai#vllm.model_executor.layers.quantization.utils.fp8_utils.process_fp8_weight_block_strategy)Process weights for block-wise quantization strategy.
+–[process_fp8_weight_block_strategy](https://docs.vllm.ai#vllm.model_executor.layers.quantization.utils.fp8_utils.process_fp8_weight_block_strategy)Normalize FNUZ if needed and return
 
--
-–[process_fp8_weight_channel_strategy](https://docs.vllm.ai#vllm.model_executor.layers.quantization.utils.fp8_utils.process_fp8_weight_channel_strategy)Process weights for channel-wise quantization strategy.
+`(N, K)`
 
--
-–[process_fp8_weight_tensor_strategy](https://docs.vllm.ai#vllm.model_executor.layers.quantization.utils.fp8_utils.process_fp8_weight_tensor_strategy)Process weights for tensor-wise quantization strategy.
+weight (no transpose). -
+–[process_fp8_weight_channel_strategy](https://docs.vllm.ai#vllm.model_executor.layers.quantization.utils.fp8_utils.process_fp8_weight_channel_strategy)Normalize FNUZ if needed and return
 
--
+`(K, N)`
+
+weight. -
+–[process_fp8_weight_tensor_strategy](https://docs.vllm.ai#vllm.model_executor.layers.quantization.utils.fp8_utils.process_fp8_weight_tensor_strategy)Requantize fused shards to one scale and return
+
+`(K, N)`
+
+weight. -
 –[process_fp8_weight_tensor_strategy_moe](https://docs.vllm.ai#vllm.model_executor.layers.quantization.utils.fp8_utils.process_fp8_weight_tensor_strategy_moe)Process moe weights for tensor-wise quantization strategy.
 
 -
@@ -355,7 +361,9 @@ Process moe input scales for tensor-wise quantization strategy.
 
 [¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.utils.fp8_utils.process_fp8_weight_block_strategy)
 
-Process weights for block-wise quantization strategy.
+Normalize FNUZ if needed and return `(N, K)`
+
+weight (no transpose).
 
 ## Source code in `vllm/model_executor/layers/quantization/utils/fp8_utils.py`
 
@@ -366,7 +374,9 @@ Process weights for block-wise quantization strategy.
 
 [¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.utils.fp8_utils.process_fp8_weight_channel_strategy)
 
-Process weights for channel-wise quantization strategy.
+Normalize FNUZ if needed and return `(K, N)`
+
+weight.
 
 ## Source code in `vllm/model_executor/layers/quantization/utils/fp8_utils.py`
 
@@ -377,7 +387,9 @@ Process weights for channel-wise quantization strategy.
 
 [¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.utils.fp8_utils.process_fp8_weight_tensor_strategy)
 
-Process weights for tensor-wise quantization strategy.
+Requantize fused shards to one scale and return `(K, N)`
+
+weight.
 
 ## Source code in `vllm/model_executor/layers/quantization/utils/fp8_utils.py`
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/utils/b12x_moe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 def prepare_nvfp4_moe_layer_for_b12x(
 w13: torch.Tensor,

@@ -1,16 +1,14 @@
-# LMCache
-
 source: https://github.com/LMCache/LMCache/releases
 
 # Releases: LMCache/LMCache
 
 ## Release list
 
-## Nightly 2026-09-22 · ROCm 7.2 (gfx942, gfx950)
+## Nightly 2026-09-24 · ROCm 7.2 (gfx942, gfx950)
 
 Nightly ROCm 7.2 wheels built from `dev`
 
-on 2026-09-22,
+on 2026-09-24,
 
 for AMD Instinct gfx942 (MI300X/MI325X) and gfx950 (MI350X/MI355X),
 
@@ -23,16 +21,16 @@ image
 Install into an upstream vLLM ROCm container:
 
 ```
-pip install lmcache==0.5.6.dev66+rocm7.2 --no-deps \
+pip install lmcache==0.5.6.dev98+rocm7.2 --no-deps \
 --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/nightly-rocm
 ```
 
 
-## Nightly 2026-09-22 · Moore Threads MUSA
+## Nightly 2026-09-24 · Moore Threads MUSA
 
 Nightly MUSA wheel for LMCache, built from `dev`
 
-on 2026-09-22.
+on 2026-09-24.
 
 Built and smoke-tested in the validated public MUSA image. TorchMUSA,
 
@@ -43,15 +41,15 @@ in the wheel.
 Install inside the matching MUSA runtime image:
 
 ```
-pip install lmcache==0.5.6.dev66+musa --no-deps \
+pip install lmcache==0.5.6.dev98+musa --no-deps \
 --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/nightly-musa
 ```
 
-## Nightly 2026-09-22 · CUDA 12.9
+## Nightly 2026-09-24 · CUDA 12.9
 
 Nightly CUDA 12.9 wheels built from `dev`
 
-on 2026-09-22.
+on 2026-09-24.
 
 ```
 uv pip install lmcache --pre \
@@ -61,11 +59,11 @@ uv pip install lmcache --pre \
 ```
 
 
-## Nightly 2026-09-22 · CUDA 13.0
+## Nightly 2026-09-24 · CUDA 13.0
 
 Nightly CUDA 13.0 wheels built from `dev`
 
-on 2026-09-22.
+on 2026-09-24.
 
 ```
 uv pip install lmcache --pre \

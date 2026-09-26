@@ -1,5 +1,3 @@
-# lm-evaluation-
-
 source: https://github.com/EleutherAI/lm-evaluation-harness/releases
 
 # Releases: EleutherAI/lm-evaluation-harness

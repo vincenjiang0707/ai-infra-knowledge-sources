@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/pooling/base/io_processor/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class PoolingIOProcessor:
 """Processor for handling preprocessing & postprocessing ops for pooling requests.

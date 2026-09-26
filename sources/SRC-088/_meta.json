@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:03:01Z",
- "finished_at": "2026-09-23T04:03:01Z",
- "duration_seconds": 133.6,
- "attempts": 1,
+ "finished_at": "2026-09-24T18:10:55Z",
+ "duration_seconds": 94.5,
+ "attempts": 2,
  "channels": {
   "gh_e38b593c": {
    "type": "github_repo",
@@ -20,12 +20,12 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
@@ -52,12 +52,12 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
@@ -78,67 +78,67 @@
   "ref_c2db6cea": {
    "type": "reference",
    "url": "https://github.com/vllm-project/speculators/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 1895
+   "mode": "page",
+   "chars": 1369
   },
   "ref_e5bbd288": {
    "type": "reference",
    "url": "https://github.com/vllm-project/speculators/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 5525
+   "mode": "page",
+   "chars": 5756
   },
   "ref_5764b515": {
    "type": "reference",
    "url": "https://github.com/vllm-project/speculators/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 60077
   },
   "ref_3331e714": {
    "type": "reference",
    "url": "https://github.com/EleutherAI/lm-evaluation-harness/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 1228
+   "mode": "page",
+   "chars": 1064
   },
   "ref_296bfbae": {
    "type": "reference",
    "url": "https://github.com/EleutherAI/lm-evaluation-harness/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 6648
+   "mode": "page",
+   "chars": 5394
   },
   "ref_f9ed1e89": {
    "type": "reference",
    "url": "https://github.com/EleutherAI/lm-evaluation-harness/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 117410
   }
  },
  "cursor": {
   "gh_e38b593c:issues": {
-   "last_updated_at": "2026-09-22T20:06:42Z"
+   "last_updated_at": "2026-09-24T05:13:39Z"
   },
   "gh_e38b593c:pulls": {
-   "last_updated_at": "2026-09-22T18:59:12Z"
+   "last_updated_at": "2026-09-24T18:03:09Z"
   },
   "gh_e38b593c:releases": {
    "last_id": 382113622
   },
   "gh_2d528e43:issues": {
-   "last_updated_at": "2026-09-23T03:46:41Z"
+   "last_updated_at": "2026-09-24T04:42:37Z"
   },
   "gh_2d528e43:pulls": {
-   "last_updated_at": "2026-09-23T01:39:31Z"
+   "last_updated_at": "2026-09-24T17:39:12Z"
   },
   "gh_2d528e43:releases": {
    "last_id": 380029544

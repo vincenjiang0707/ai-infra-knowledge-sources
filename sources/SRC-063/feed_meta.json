@@ -3,8 +3,18 @@
  "title": "Hugging Face - Blog",
  "link": "https://huggingface.co/blog",
  "updated": "",
- "entries_total": 866,
+ "entries_total": 868,
  "entries": [
+  {
+   "title": "Accelerating vision-language models with LFM2.5-VL-DSpark",
+   "link": "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark",
+   "published": "Thu, 24 Sep 2026 14:08:57 GMT"
+  },
+  {
+   "title": "How to Use NVIDIA Warp and MjWarp to Accelerate Robotics Simulation and Learning Workflows",
+   "link": "https://huggingface.co/blog/nvidia/how-to-use-nvidia-warp-and-mjwarp",
+   "published": "Wed, 23 Sep 2026 18:41:40 GMT"
+  },
   {
    "title": "How UK AISI and EvalEval Are Making Benchmark Results Reproducible",
    "link": "https://huggingface.co/blog/evaleval-aisi",

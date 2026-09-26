@@ -1,0 +1,396 @@
+source: https://docs.nvidia.com/dynamo/v1.1.1/kubernetes-deployment/deployment-guide/webhooks
+lastmod: 2026-09-24T19:58:16.636Z
+
+# Webhooks
+
+This document describes the webhook functionality in the Dynamo Operator, including validation webhooks, certificate management, and troubleshooting.
+
+## Overview
+
+The Dynamo Operator uses **Kubernetes admission webhooks** to provide real-time validation and mutation of custom resources. Currently, the operator implements **validation webhooks** that ensure invalid configurations are rejected immediately at the API server level, providing faster feedback to users compared to controller-based validation.
+
+All webhook types (validating, mutating, conversion, etc.) share the same **webhook server** and **TLS certificate infrastructure**, making certificate management consistent across all webhook operations.
+
+### Key Features
+
+- ✅
+**Always enabled**- Webhooks are a required component of the operator - ✅
+**Shared certificate infrastructure**- All webhook types use the same TLS certificates - ✅
+**Automatic certificate generation and rotation**- Built-in cert-controller, no manual management required - ✅
+**cert-manager integration**- Optional integration for custom PKI or organizational certificate policies - ✅
+**Immutability enforcement**- Critical fields protected via CEL validation rules
+
+### Current Webhook Types
+
+**Validating Webhooks**: Validate custom resource specifications before persistence`DynamoComponentDeployment`
+
+validation`DynamoGraphDeployment`
+
+validation`DynamoModel`
+
+validation`DynamoGraphDeploymentRequest`
+
+validation
+
+**Mutating Webhooks**: Apply default values to resources on creation`DynamoGraphDeployment`
+
+defaulting
+
+
+**Note:** All webhook types use the same certificate infrastructure described in this document.
+
+## Architecture
+
+### Admission Flow
+
+**Mutating webhooks**: Apply defaults and transformations before validation**Validating webhooks**: Validate the (possibly mutated) CR against business rules**CEL validation**: Kubernetes-native immutability checks (always active)
+
+## Upgrading from versions with `webhook.enabled: false`
+
+
+The `webhook.enabled`
+
+Helm value has been removed. Webhooks are now a required component of the operator and are always active. If you previously ran with `webhook.enabled: false`
+
+, take the following steps before upgrading:
+
+**Remove**from any custom values files. Helm will ignore the unknown key, but it should be cleaned up to avoid confusion.`webhook.enabled`
+
+**Ensure port 9443 is reachable**from the Kubernetes API server to the operator pod. If you have`NetworkPolicy`
+
+rules or firewall configurations restricting traffic, add an ingress rule allowing the API server to reach the webhook server on port 9443.**Ensure webhook TLS certificates are available.**By default, the operator’s built-in cert-controller generates and rotates self-signed certificates automatically at startup — no action needed. If you use cert-manager or externally managed certificates, verify your configuration is in place before upgrading.
+
+## Configuration
+
+### Certificate Management Options
+
+The operator supports three certificate management modes:
+
+### Advanced Configuration
+
+#### Complete Configuration Reference
+
+#### Failure Policy
+
+**Recommendation:** Use `Fail`
+
+in production to ensure validation is always enforced. Only use `Ignore`
+
+if you need high availability and can tolerate occasional invalid resources.
+
+#### Namespace Filtering
+
+Control which namespaces are validated (applies to **cluster-wide operator** only):
+
+**Note:** For **namespace-restricted operators** (deprecated), the namespace selector is automatically set to validate only the operator’s namespace. This configuration is ignored in namespace-restricted mode.
+
+## Certificate Management
+
+### Automatic Certificates (Default)
+
+**Zero configuration required!** The operator’s built-in cert-controller generates and rotates certificates automatically at startup.
+
+#### How It Works
+
+-
+**Operator starts**: The`CertManager`
+
+checks for an existing certificate Secret (configured via`webhook.certificateSecret.name`
+
+, default:`webhook-server-cert`
+
+). If missing or invalid, it generates a self-signed Root CA and server certificate and writes them to the Secret. -
+**CA bundle injection**: The`CABundleInjector`
+
+reads`ca.crt`
+
+from the Secret and patches both the`ValidatingWebhookConfiguration`
+
+and`MutatingWebhookConfiguration`
+
+with the base64-encoded CA bundle. -
+**Certificate rotation**: The cert-controller monitors certificate validity and regenerates certificates before they expire. -
+**Webhook server starts**: The webhook server only begins serving after certificates are confirmed ready, preventing startup races.
+
+#### Certificate Validity
+
+**Root CA**: 10 years**Server Certificate**: 10 years (same as Root CA)**Automatic rotation**: The cert-controller monitors validity and regenerates before expiration
+
+#### Smart Certificate Management
+
+The cert-controller is intelligent about certificate lifecycle:
+
+- ✅
+**Checks existing certificates**at startup before generating new ones - ✅
+**Skips generation**if valid certificates already exist in the Secret - ✅
+**Regenerates**only when needed (missing, expiring soon, or incorrect SANs)
+
+This means:
+
+- Fast operator restarts (no unnecessary cert generation)
+- No dependency on Helm hooks or external Jobs
+- Certificates persist across pod restarts (stored in Secret)
+
+#### Manual Certificate Rotation
+
+If you need to rotate certificates manually:
+
+### cert-manager Integration
+
+For clusters with cert-manager installed, you can enable automated certificate lifecycle management.
+
+#### Prerequisites
+
+**cert-manager installed**(v1.0+)**CA issuer configured**(e.g.,`selfsigned-issuer`
+
+)
+
+#### Configuration
+
+#### How It Works
+
+**Helm creates Certificate resource**: Requests TLS certificate from cert-manager**cert-manager generates certificate**: Based on configured issuer**cert-manager stores in Secret**:`<release>-webhook-server-cert`
+
+**cert-manager ca-injector**: Automatically injects CA bundle into`ValidatingWebhookConfiguration`
+
+**Operator pod**: Mounts certificate secret and serves webhook
+
+#### When to Use cert-manager
+
+- ✅
+**Custom validity periods**: Configure certificate lifetime to match organizational policy - ✅
+**Integration with existing PKI**: Use your organization’s certificate infrastructure - ✅
+**Centralized certificate management**: Manage all cluster certificates through cert-manager
+
+#### Certificate Rotation
+
+With cert-manager, certificate rotation is **fully automated**:
+
+-
+**Leaf certificate rotation**(default: every year)- cert-manager auto-renews before expiration
+- controller-runtime auto-reloads new certificate
+**No pod restart required****No caBundle update required**(same Root CA)
+
+-
+**Root CA rotation**(every 10 years)- cert-manager rotates Root CA
+- ca-injector auto-updates caBundle in
+`ValidatingWebhookConfiguration`
+
+**No manual intervention required**
+
+
+#### Example: Self-Signed Issuer
+
+### External Certificates
+
+Bring your own certificates for custom PKI requirements.
+
+#### Steps
+
+**Create certificate secret manually**:
+
+**Configure operator to use external secret**:
+
+**Deploy operator**:
+
+#### Certificate Requirements
+
+**Secret name**: Must match`webhook.certificateSecret.name`
+
+(default:`webhook-server-cert`
+
+)**Secret keys**:`tls.crt`
+
+,`tls.key`
+
+,`ca.crt`
+
+**Certificate SAN**: Must include`<service-name>.<namespace>.svc`
+
+- Example:
+`dynamo-platform-dynamo-operator-webhook-service.dynamo-system.svc`
+
+
+- Example:
+
+## Multi-Operator Deployments (DEPRECATED)
+
+
+DEPRECATED:Namespace-restricted mode and multi-operator deployments are deprecated and will be removed in a future release. Use a single cluster-wide operator instead.
+
+The operator supports running both **cluster-wide** and **namespace-restricted** instances simultaneously using a **lease-based coordination mechanism**.
+
+### Scenario
+
+### How It Works
+
+**Namespace-restricted operator**creates a Lease in its namespace**Cluster-wide operator**watches for Leases named`dynamo-operator-ns-lock`
+
+**Cluster-wide operator**skips validation for namespaces with active Leases**Namespace-restricted operator**validates resources in its namespace
+
+### Lease Configuration
+
+The lease mechanism is **automatically configured** based on deployment mode:
+
+### Deployment Example
+
+### ValidatingWebhookConfiguration Naming
+
+The webhook configuration name reflects the deployment mode:
+
+**Cluster-wide**:`<release>-validating`
+
+**Namespace-restricted**:`<release>-validating-<namespace>`
+
+
+Example:
+
+This allows multiple webhook configurations to coexist without conflicts.
+
+### Lease Health
+
+If the namespace-restricted operator is deleted or becomes unhealthy:
+
+- Lease expires after
+`leaseDuration + gracePeriod`
+
+(default: ~30 seconds) - Cluster-wide operator automatically resumes validation for that namespace
+
+## Troubleshooting
+
+### Webhook Not Called
+
+**Symptoms:**
+
+- Invalid resources are accepted
+- No validation errors in logs
+
+**Checks:**
+
+**Verify webhook configuration exists**:
+
+**Check webhook configuration**:
+
+**Verify webhook service exists**:
+
+**Check operator logs for webhook startup**:
+
+### Connection Refused Errors
+
+**Symptoms:**
+
+**Checks:**
+
+**Verify operator pod is running**:
+
+**Check webhook server is listening**:
+
+**Verify webhook port in deployment**:
+
+**Check for webhook initialization errors**:
+
+### Certificate Errors
+
+**Symptoms:**
+
+**Checks:**
+
+**Verify caBundle is present**:
+
+**Verify certificate secret exists**:
+
+**Check certificate validity**:
+
+**Check operator logs for CA injection errors**:
+
+### Certificate Controller Errors
+
+**Symptoms:**
+
+- Operator logs show cert-controller errors
+- Certificate Secret is not created
+- CA bundle is not injected into webhook configurations
+
+**Checks:**
+
+**Check cert-controller logs**:
+
+**Verify RBAC permissions**:
+
+**Check if the certificate Secret was created**:
+
+**Force certificate regeneration**:
+
+### Validation Errors Not Clear
+
+**Symptoms:**
+
+- Webhook rejects resource but error message is unclear
+
+**Solution:**
+
+Check operator logs for detailed validation errors:
+
+Webhook logs include:
+
+- Resource name and namespace
+- Validation errors with context
+- Warnings for immutable field changes
+
+### Stuck Deleting Resources
+
+**Symptoms:**
+
+- Resource stuck in “Terminating” state
+- Webhook blocks finalizer removal
+
+**Solution:**
+
+The webhook automatically skips validation for resources being deleted. If stuck:
+
+**Check if webhook is blocking**:
+
+**Temporarily work around the webhook**:
+
+**Delete resource again**:
+
+**Restore webhook configuration**:
+
+## Best Practices
+
+### Production Deployments
+
+- ✅
+**Use**(default) to ensure validation is enforced`failurePolicy: Fail`
+
+- ✅
+**Monitor webhook latency**- Validation adds ~10-50ms per resource operation - ✅
+**Automatic certificates work well for production**- The built-in cert-controller handles generation and rotation; use cert-manager only if you need integration with organizational PKI - ✅
+**Test webhook configuration**in staging before production
+
+### Development Deployments
+
+- ✅
+**Use**if webhook availability is problematic during development`failurePolicy: Ignore`
+
+- ✅
+**Keep automatic certificates**(zero configuration, built into the operator)
+
+### Multi-Tenant Deployments
+
+- ✅
+**Deploy one cluster-wide operator**for platform-wide validation ~~Deploy namespace-restricted operators for tenant-specific namespaces~~(**DEPRECATED**- use cluster-wide mode instead)
+
+## Additional Resources
+
+[Kubernetes Admission Webhooks](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/)[cert-manager Documentation](https://cert-manager.io/docs/)[Kubebuilder Webhook Tutorial](https://book.kubebuilder.io/cronjob-tutorial/webhook-implementation.html)[CEL Validation Rules](https://kubernetes.io/docs/reference/using-api/cel/)
+
+## Support
+
+For issues or questions:
+
+- Check
+[Troubleshooting](https://docs.nvidia.com/dynamo/v1.1.1/kubernetes-deployment/deployment-guide/webhooks#troubleshooting)section - Review operator logs:
+`kubectl logs -n <namespace> deployment/<release>-dynamo-operator`
+
+- Open an issue on GitHub

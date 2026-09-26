@@ -1,12 +1,12 @@
 # vllm-project/llm-compressor
 
-- stars: 3809
-- forks: 672
-- open_issues: 123
+- stars: 3822
+- forks: 671
+- open_issues: 109
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-23T03:49:13Z
+- pushed_at: 2026-09-25T14:21:10Z
 - homepage: https://docs.vllm.ai/projects/llm-compressor
 
 ## README

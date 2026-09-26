@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/hisparse/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # HiSparse local KV offload architecture[¶](https://docs.vllm.ai#hisparse-local-kv-offload-architecture)
 

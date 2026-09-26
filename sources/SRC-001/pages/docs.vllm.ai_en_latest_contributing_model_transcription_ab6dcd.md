@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/contributing/model/transcription/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Speech-to-Text (Transcription/Translation) Support[¶](https://docs.vllm.ai#speech-to-text-transcriptiontranslation-support)
 

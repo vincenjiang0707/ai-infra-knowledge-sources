@@ -1,5 +1,3 @@
-# RCCL
-
 source: https://github.com/ROCm/rccl/releases
 
 # Releases: ROCm/rccl

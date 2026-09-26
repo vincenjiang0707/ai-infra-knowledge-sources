@@ -1,8 +1,8 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/parakeet/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class ParakeetExtractor:
-def __init__(self, config: PretrainedConfig) -> None:
+def __init__(self, config: PreTrainedConfig) -> None:
 self.config = ExtractorConfig.from_hf_config(config)
 """`config` is named *exactly* for `._get_subsampling_output_length` below"""
 self._clip_target_samples = int(
@@ -178,6 +178,6 @@ return {
 "audio_num_clips": audio_num_clips,
 }
 @staticmethod
-def audio_length(raw_config: PretrainedConfig, audio_tokens: int) -> int:
+def audio_length(raw_config: PreTrainedConfig, audio_tokens: int) -> int:
 config = ExtractorConfig.from_hf_config(raw_config)
 return int(audio_tokens * config.subsampling_factor * config.hop_length)

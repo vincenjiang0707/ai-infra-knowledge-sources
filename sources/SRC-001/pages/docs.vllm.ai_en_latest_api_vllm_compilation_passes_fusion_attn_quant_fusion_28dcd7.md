@@ -1,175 +1,94 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/passes/fusion/attn_quant_fusion/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
-class AttnNvfp4QuantPattern(
-VllmPatternReplacement[..., tuple[torch.Tensor, torch.Tensor]]
-):
-"""Fusion for Attention+Nvfp4Quant.
-Only triggers when the attention implementation returns True in
-`fused_output_quant_supported()`. If the pattern is found, the
-Nvfp4Quant op will be removed from the graph, and its scale
-will be passed into Attention op as the `output_scale` argument.
-"""
-def __init__(self, layer: Attention, dtype: torch.dtype):
-self._layer_name = layer.layer_name
-self._num_heads = layer.num_heads
-self._head_size = layer.head_size
-self._dtype = dtype
-self._QUANT_OP = QUANT_OPS[kNvfp4Dynamic]
-@property
-def pattern(self) -> Callable[..., tuple[torch.Tensor, torch.Tensor]]:
-_ln = _encode_layer_name(self._layer_name)
-if _USE_LAYERNAME:
-def _pattern_with_ln( # type: ignore[misc]
-q,
-k,
-v,
-output_attn,
-output_quant,
-output_scale,
-input_scale,
-kv_cache_dummy_dep,
-layer_name,
-):
-at1 = auto_functionalized(
-ATTN_OP,
-query=q,
-key=k,
-value=v,
-output=output_attn,
-layer_name=layer_name,
-output_scale=None,
-output_block_scale=None,
-kv_cache_dummy_dep=kv_cache_dummy_dep,
-)
-attn_out_view = RESHAPE_OP(
-at1[1], [q.shape[0], self._num_heads * self._head_size]
-)
-at2 = auto_functionalized(
-self._QUANT_OP,
-input=attn_out_view,
-input_scale=input_scale,
-is_sf_swizzled_layout=True,
-output=output_quant,
-output_scale=output_scale,
-)
-return at2[1], torch.ops.aten.view.dtype(at2[2], FP8_DTYPE)
-return _pattern_with_ln
-def _pattern(
-q,
-k,
-v,
-output_attn,
-output_quant,
-output_scale,
-input_scale,
-kv_cache_dummy_dep,
-):
-at1 = auto_functionalized(
-ATTN_OP,
-query=q,
-key=k,
-value=v,
-output=output_attn,
-layer_name=_ln,
-output_scale=None,
-output_block_scale=None,
-kv_cache_dummy_dep=kv_cache_dummy_dep,
-)
-attn_out_view = RESHAPE_OP(
-at1[1], [q.shape[0], self._num_heads * self._head_size]
-)
-at2 = auto_functionalized(
-self._QUANT_OP,
-input=attn_out_view,
-input_scale=input_scale,
-is_sf_swizzled_layout=True,
-output=output_quant,
-output_scale=output_scale,
-)
-return at2[1], torch.ops.aten.view.dtype(at2[2], FP8_DTYPE)
-return _pattern
-@property
-def replacement(self) -> Callable[..., tuple[torch.Tensor, torch.Tensor]]:
-_ln = _encode_layer_name(self._layer_name)
-if _USE_LAYERNAME:
-def _replacement_with_ln( # type: ignore[misc]
-q,
-k,
-v,
-output_attn,
-_output_quant,
-output_scale,
-input_scale,
-kv_cache_dummy_dep,
-layer_name,
-):
-output_attn = torch.empty(
-[q.shape[0], self._num_heads, self._head_size // 2],
-dtype=FP4_DTYPE,
-device=q.device,
-)
-osv = torch.ops.aten.view.dtype(output_scale, FP8_DTYPE)
-at2 = auto_functionalized(
-ATTN_OP,
-query=q,
-key=k,
-value=v,
-output=output_attn,
-layer_name=layer_name,
-output_scale=input_scale,
-output_block_scale=osv,
-kv_cache_dummy_dep=kv_cache_dummy_dep,
-)
-return RESHAPE_OP(
-at2[1], [-1, self._num_heads * self._head_size // 2]
-), at2[2]
-return _replacement_with_ln
-def _replacement(
-q,
-k,
-v,
-output_attn,
-_output_quant,
-output_scale,
-input_scale,
-kv_cache_dummy_dep,
-):
-output_attn = torch.empty(
-[q.shape[0], self._num_heads, self._head_size // 2],
-dtype=FP4_DTYPE,
-device=q.device,
-)
-osv = torch.ops.aten.view.dtype(output_scale, FP8_DTYPE)
-at2 = auto_functionalized(
-ATTN_OP,
-query=q,
-key=k,
-value=v,
-output=output_attn,
-layer_name=_ln,
-output_scale=input_scale,
-output_block_scale=osv,
-kv_cache_dummy_dep=kv_cache_dummy_dep,
-)
-return RESHAPE_OP(
-at2[1], [-1, self._num_heads * self._head_size // 2]
-), at2[2]
-return _replacement
-def get_inputs(self):
-dtype = self._dtype
-num_heads = self._num_heads
-head_size = self._head_size
-inputs: list = [
-self.empty_bf16(5, num_heads, head_size), # q
-self.empty_bf16(5, num_heads, head_size), # k
-self.empty_bf16(5, num_heads, head_size), # v
-self.empty_bf16(5, num_heads, head_size), # output_attn
-self.empty(5, num_heads * head_size // 2, dtype=FP4_DTYPE),
-self.empty_i32(128, round_up(num_heads * head_size // 16, 4)),
-self.empty_fp32(1, 1), # input_scale
-self.empty(0, dtype=dtype), # kv_cache_dummy_dep
-]
-if _USE_LAYERNAME:
-inputs.append(_encode_layer_name(self._layer_name))
-return inputs
+#
+
+`vllm.compilation.passes.fusion.attn_quant_fusion`
+
+[¶](https://docs.vllm.ai#vllm.compilation.passes.fusion.attn_quant_fusion)
+
+Classes:
+
+-
+–[AttnFp8StaticQuantPattern](https://docs.vllm.ai#vllm.compilation.passes.fusion.attn_quant_fusion.AttnFp8StaticQuantPattern)Fusion for Attention+Fp8StaticQuant.
+
+-
+–[AttnNvfp4QuantPattern](https://docs.vllm.ai#vllm.compilation.passes.fusion.attn_quant_fusion.AttnNvfp4QuantPattern)Fusion for Attention+Nvfp4Quant.
+
+-
+–[AttnQuantFusionPass](https://docs.vllm.ai#vllm.compilation.passes.fusion.attn_quant_fusion.AttnQuantFusionPass)This pass fuses post-attention quantization onto attention if supported.
+
+-
+–[RocmAttnFp8StaticQuantPattern](https://docs.vllm.ai#vllm.compilation.passes.fusion.attn_quant_fusion.RocmAttnFp8StaticQuantPattern)Fuse AITER static quantization while preserving its scale output.
+
+
+##
+
+`AttnFp8StaticQuantPattern`
+
+[¶](https://docs.vllm.ai#vllm.compilation.passes.fusion.attn_quant_fusion.AttnFp8StaticQuantPattern)
+
+Bases: [VllmPatternReplacement](https://docs.vllm.ai/vllm_inductor_pass/#vllm.compilation.passes.vllm_inductor_pass.VllmPatternReplacement)[..., [Tensor](https://pytorch.org/docs/stable/tensors.html#torch.Tensor) | [tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Tensor](https://pytorch.org/docs/stable/tensors.html#torch.Tensor), [Tensor](https://pytorch.org/docs/stable/tensors.html#torch.Tensor)]]
+
+Fusion for Attention+Fp8StaticQuant.
+
+Only triggers when the attention implementation returns True in `fused_output_quant_supported()`
+
+. If the pattern is found, the Fp8StaticQuant op will be removed from the graph, and its scale will be passed into Attention op as the `output_scale`
+
+argument.
+
+## Source code in `vllm/compilation/passes/fusion/attn_quant_fusion.py`
+
+
+|
+|
+
+##
+
+`AttnNvfp4QuantPattern`
+
+[¶](https://docs.vllm.ai#vllm.compilation.passes.fusion.attn_quant_fusion.AttnNvfp4QuantPattern)
+
+Bases: [VllmPatternReplacement](https://docs.vllm.ai/vllm_inductor_pass/#vllm.compilation.passes.vllm_inductor_pass.VllmPatternReplacement)[..., [tuple](https://docs.python.org/3/builtins/stdtypes.html#tuple)[[Tensor](https://pytorch.org/docs/stable/tensors.html#torch.Tensor), [Tensor](https://pytorch.org/docs/stable/tensors.html#torch.Tensor)]]
+
+Fusion for Attention+Nvfp4Quant.
+
+Only triggers when the attention implementation returns True in `fused_output_quant_supported()`
+
+. If the pattern is found, the Nvfp4Quant op will be removed from the graph, and its scale will be passed into Attention op as the `output_scale`
+
+argument.
+
+## Source code in `vllm/compilation/passes/fusion/attn_quant_fusion.py`
+
+
+|
+|
+
+##
+
+`AttnQuantFusionPass`
+
+[¶](https://docs.vllm.ai#vllm.compilation.passes.fusion.attn_quant_fusion.AttnQuantFusionPass)
+
+Bases: [VllmFusionPatternMatcherPass](https://docs.vllm.ai/vllm_inductor_pass/#vllm.compilation.passes.vllm_inductor_pass.VllmFusionPatternMatcherPass)
+
+This pass fuses post-attention quantization onto attention if supported.
+
+It uses the pattern matcher and matches each layer manually, as strings cannot be wildcarded. This also lets us check support on attention layers upon registration instead of during pattern matching.
+
+Currently, only static fp8 quant is supported, but patterns could easily be added for other quant schemes and dtypes. The bigger hurdle for wider support are attention kernels, which need to support fusing output quant.
+
+## Source code in `vllm/compilation/passes/fusion/attn_quant_fusion.py`
+
+
+##
+
+`RocmAttnFp8StaticQuantPattern`
+
+[¶](https://docs.vllm.ai#vllm.compilation.passes.fusion.attn_quant_fusion.RocmAttnFp8StaticQuantPattern)
+
+Bases: [AttnFp8StaticQuantPattern](https://docs.vllm.ai#vllm.compilation.passes.fusion.attn_quant_fusion.AttnFp8StaticQuantPattern)
+
+Fuse AITER static quantization while preserving its scale output.

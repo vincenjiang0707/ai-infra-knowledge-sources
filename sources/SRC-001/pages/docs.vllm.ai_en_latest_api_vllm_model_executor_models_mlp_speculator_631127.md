@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/mlp_speculator/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MLPSpeculator(nn.Module):
 """An implementation of the speculative models introduced in

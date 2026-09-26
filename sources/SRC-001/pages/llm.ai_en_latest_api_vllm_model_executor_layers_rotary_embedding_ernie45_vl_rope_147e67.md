@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/ernie45_vl_rope/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class Ernie4_5_VLRotaryEmbedding(MRotaryEmbedding):
 """3D rotary positional embedding. 3D is t:time h:height w:width."""

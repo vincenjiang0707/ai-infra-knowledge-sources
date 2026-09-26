@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/amd/dspark/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class DSparkDeepseekV4ForCausalLM(nn.Module):
 # Draft weights ship in the target checkpoint (mtp.*) without embed/head, so

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/aiter_mxfp8_moe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class AiterMxfp8Experts(Mxfp8TritonExpertsBase):
 """MXFP8 MoE through AITER's FlyDSL two-stage grouped GEMM (gfx950)."""

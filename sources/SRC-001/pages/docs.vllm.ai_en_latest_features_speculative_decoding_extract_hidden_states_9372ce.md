@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/speculative_decoding/extract_hidden_states/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Hidden State Extraction[¶](https://docs.vllm.ai#hidden-state-extraction)
 
@@ -97,6 +97,7 @@ Pass `kv_transfer_params`
 
 as a top-level field in the API request:
 
+```json
 {
 "model": "Qwen/Qwen3-8B",
 "messages": [{"role": "user", "content": "Hello"}],
@@ -106,6 +107,7 @@ as a top-level field in the API request:
 "include_output_tokens": true
 }
 }
+```
 
 
 ## Configuration[¶](https://docs.vllm.ai#configuration)

@@ -15,10 +15,12 @@ Thanks @WoosukKwon @zhuohan123 @suquark for their contributions.
 ## v0.1.1 (2023-06-22)
 
 ## What's Changed
+```
 * Fix Ray node resources error by @zhuohan123 in https://github.com/vllm-project/vllm/pull/193
 * [Bugfix] Fix a bug in RequestOutput.finished by @WoosukKwon in https://github.com/vllm-project/vllm/pull/202
 * [Fix] Better error message when there is OOM during cache initialization by @zhuohan123 in https://github.com/vllm-project/vllm/pull/203
 * Bump up version to 0.1.1 by @zhuohan123 in https://github.com/vllm-project/vllm/pull/204
+```
 
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.1.0...v0.1.1
@@ -56,6 +58,7 @@ Thanks to the following amazing people who contributed to this release:
 
 ### All changes
 
+```
 * fix: only response [DONE] once when streaming response. by @gesanqiu in https://github.com/vllm-project/vllm/pull/378
 * [Fix] Change /generate response-type to json for non-streaming by @nicolasf in https://github.com/vllm-project/vllm/pull/374
 * Add trust-remote-code flag to handle remote tokenizers by @codethazine in https://github.com/vllm-project/vllm/pull/364
@@ -100,8 +103,10 @@ Thanks to the following amazing people who contributed to this release:
 * Refactor scheduler by @WoosukKwon in https://github.com/vllm-project/vllm/pull/658
 * [Doc] Add Baichuan 13B to supported models by @zhuohan123 in https://github.com/vllm-project/vllm/pull/656
 * Bump up version to 0.1.3 by @zhuohan123 in https://github.com/vllm-project/vllm/pull/657
+```
 
 ## New Contributors
+```
 * @nicolasf made their first contribution in https://github.com/vllm-project/vllm/pull/374
 * @codethazine made their first contribution in https://github.com/vllm-project/vllm/pull/364
 * @lpfhs made their first contribution in https://github.com/vllm-project/vllm/pull/373
@@ -123,6 +128,7 @@ Thanks to the following amazing people who contributed to this release:
 * @SiriusNEO made their first contribution in https://github.com/vllm-project/vllm/pull/622
 * @Sanster made their first contribution in https://github.com/vllm-project/vllm/pull/598
 * @YHPeter made their first contribution in https://github.com/vllm-project/vllm/pull/650
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.1.2...v0.1.3
 
@@ -136,6 +142,7 @@ Thanks to the following amazing people who contributed to this release:
 * Many bug fixes.
 
 ## What's Changed
+```
 * Fix gibberish outputs of GPT-BigCode-based models by @HermitSun in https://github.com/vllm-project/vllm/pull/676
 * [OPTIMIZATION] Optimizes the single_query_cached_kv_attention kernel by @naed90 in https://github.com/vllm-project/vllm/pull/420
 * add QWen-7b support by @Sanster in https://github.com/vllm-project/vllm/pull/685
@@ -161,8 +168,10 @@ Thanks to the following amazing people who contributed to this release:
 * Clean up code by @wenjun93 in https://github.com/vllm-project/vllm/pull/844
 * Set replacement=True in torch.multinomial by @WoosukKwon in https://github.com/vllm-project/vllm/pull/858
 * Bump up the version to v0.1.4 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/846
+```
 
 ## New Contributors
+```
 * @naed90 made their first contribution in https://github.com/vllm-project/vllm/pull/420
 * @gqjia made their first contribution in https://github.com/vllm-project/vllm/pull/528
 * @nicobasile made their first contribution in https://github.com/vllm-project/vllm/pull/472
@@ -177,6 +186,7 @@ Thanks to the following amazing people who contributed to this release:
 * @shunxing1234 made their first contribution in https://github.com/vllm-project/vllm/pull/663
 * @ftgreat made their first contribution in https://github.com/vllm-project/vllm/pull/836
 * @wenjun93 made their first contribution in https://github.com/vllm-project/vllm/pull/844
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.1.3...v0.1.4
 
@@ -190,6 +200,7 @@ Thanks to the following amazing people who contributed to this release:
 * Many other correctness fixes.
 
 ## What's Changed
+```
 * Add support for CodeLlama by @Yard1 in https://github.com/vllm-project/vllm/pull/854
 * [Fix] Fix a condition for ignored sequences by @zhuohan123 in https://github.com/vllm-project/vllm/pull/867
 * use flash-attn via xformers by @tmm1 in https://github.com/vllm-project/vllm/pull/877
@@ -216,13 +227,16 @@ Thanks to the following amazing people who contributed to this release:
 * Enable safetensors loading for all models by @zhuohan123 in https://github.com/vllm-project/vllm/pull/974
 * [FIX] Fix Alibi implementation in PagedAttention kernel by @zhuohan123 in https://github.com/vllm-project/vllm/pull/945
 * Bump up the version to v0.1.5 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/944
+```
 
 ## New Contributors
+```
 * @tmm1 made their first contribution in https://github.com/vllm-project/vllm/pull/877
 * @Peilun-Li made their first contribution in https://github.com/vllm-project/vllm/pull/865
 * @JF-D made their first contribution in https://github.com/vllm-project/vllm/pull/234
 * @pfldy2850 made their first contribution in https://github.com/vllm-project/vllm/pull/913
 * @nelson-liu made their first contribution in https://github.com/vllm-project/vllm/pull/939
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.1.4...v0.1.5
 
@@ -245,6 +259,7 @@ Thanks to the following amazing people who contributed to this release:
 A minor release to fix the bugs in ALiBi, Falcon-40B, and Code Llama.
 
 ## What's Changed
+```
 * fix "tansformers_module" ModuleNotFoundError when load model with `trust_remote_code=True` by @Jingru in https://github.com/vllm-project/vllm/pull/871
 * Fix wrong dtype in PagedAttentionWithALiBi bias by @Yard1 in https://github.com/vllm-project/vllm/pull/996
 * fix: CUDA error when inferencing with Falcon-40B base model by @kyujin-cho in https://github.com/vllm-project/vllm/pull/992
@@ -252,6 +267,7 @@ A minor release to fix the bugs in ALiBi, Falcon-40B, and Code Llama.
 * Update setup.py by @WoosukKwon in https://github.com/vllm-project/vllm/pull/1006
 * Use FP32 in RoPE initialization by @WoosukKwon in https://github.com/vllm-project/vllm/pull/1004
 * Bump up the version to v0.1.7 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/1013
+```
 
 ## New Contributors
 * @Jingru made their first contribution in https://github.com/vllm-project/vllm/pull/871
@@ -270,6 +286,7 @@ A minor release to fix the bugs in ALiBi, Falcon-40B, and Code Llama.
 * Many bug fixes
 
 ## What's Changed
+```
 * add option to shorten prompt print in log by @leiwen83 in https://github.com/vllm-project/vllm/pull/991
 * Make `max_model_len` configurable by @Yard1 in https://github.com/vllm-project/vllm/pull/972
 * Fix typo in README.md by @eltociear in https://github.com/vllm-project/vllm/pull/1033
@@ -324,8 +341,10 @@ A minor release to fix the bugs in ALiBi, Falcon-40B, and Code Llama.
 * Fix OOM in attention kernel test by @WoosukKwon in https://github.com/vllm-project/vllm/pull/1223
 * Provide default max model length by @WoosukKwon in https://github.com/vllm-project/vllm/pull/1224
 * Bump up the version to v0.2.0 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/1212
+```
 
 ## New Contributors
+```
 * @leiwen83 made their first contribution in https://github.com/vllm-project/vllm/pull/991
 * @LLukas22 made their first contribution in https://github.com/vllm-project/vllm/pull/1045
 * @rucyang made their first contribution in https://github.com/vllm-project/vllm/pull/1020
@@ -337,6 +356,7 @@ A minor release to fix the bugs in ALiBi, Falcon-40B, and Code Llama.
 * @danilopeixoto made their first contribution in https://github.com/vllm-project/vllm/pull/1166
 * @blahblahasdf made their first contribution in https://github.com/vllm-project/vllm/pull/1186
 * @Bam4d made their first contribution in https://github.com/vllm-project/vllm/pull/1196
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.1.7...v0.2.0
 
@@ -349,6 +369,7 @@ A minor release to fix the bugs in ALiBi, Falcon-40B, and Code Llama.
 * AWQ support for Mistral 7B
 
 ## What's Changed
+```
 * fixing typo in `tiiuae/falcon-rw-7b` model name by @0ssamaak0 in https://github.com/vllm-project/vllm/pull/1226
 * Added `dtype` arg to benchmarks by @kg6-sleipnir in https://github.com/vllm-project/vllm/pull/1228
 * fix vulnerable memory modification to gpu shared memory by @soundOfDestiny in https://github.com/vllm-project/vllm/pull/1241
@@ -381,8 +402,10 @@ A minor release to fix the bugs in ALiBi, Falcon-40B, and Code Llama.
 * Fix PyTorch index URL in workflow by @WoosukKwon in https://github.com/vllm-project/vllm/pull/1378
 * Fix sampler test by @WoosukKwon in https://github.com/vllm-project/vllm/pull/1379
 * Bump up the version to v0.2.1 by @zhuohan123 in https://github.com/vllm-project/vllm/pull/1355
+```
 
 ## New Contributors
+```
 * @0ssamaak0 made their first contribution in https://github.com/vllm-project/vllm/pull/1226
 * @kg6-sleipnir made their first contribution in https://github.com/vllm-project/vllm/pull/1228
 * @soundOfDestiny made their first contribution in https://github.com/vllm-project/vllm/pull/1241
@@ -393,6 +416,7 @@ A minor release to fix the bugs in ALiBi, Falcon-40B, and Code Llama.
 * @chu-tianxiang made their first contribution in https://github.com/vllm-project/vllm/pull/1295
 * @AmaleshV made their first contribution in https://github.com/vllm-project/vllm/pull/1278
 * @lu-wang-dl made their first contribution in https://github.com/vllm-project/vllm/pull/1339
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.2.0...v0.2.1
 
@@ -413,6 +437,7 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * Preliminary support for SqueezeLLM
 
 ## What's Changed
+```
 * Change scheduler & input tensor shape by @WoosukKwon in https://github.com/vllm-project/vllm/pull/1381
 * Add Mistral 7B to `test_models` by @WoosukKwon in https://github.com/vllm-project/vllm/pull/1366
 * fix typo by @WrRan in https://github.com/vllm-project/vllm/pull/1383
@@ -474,8 +499,10 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * Support fused add rmsnorm for LLaMA by @beginlner in https://github.com/vllm-project/vllm/pull/1667
 * [Fix] Fix warning msg on quantization by @WoosukKwon in https://github.com/vllm-project/vllm/pull/1715
 * Bump up the version to v0.2.2 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/1689
+```
 
 ## New Contributors
+```
 * @lxrite made their first contribution in https://github.com/vllm-project/vllm/pull/1427
 * @thiagosalvatore made their first contribution in https://github.com/vllm-project/vllm/pull/1429
 * @chooper1 made their first contribution in https://github.com/vllm-project/vllm/pull/1326
@@ -504,6 +531,7 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * @ichernev made their first contribution in https://github.com/vllm-project/vllm/pull/1663
 * @linotfan made their first contribution in https://github.com/vllm-project/vllm/pull/1704
 * @liuyhwangyh made their first contribution in https://github.com/vllm-project/vllm/pull/1588
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.2.1...v0.2.2
 
@@ -517,6 +545,7 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * Fix Baichuan & Baichuan 2
 
 ## What's Changed
+```
 * Add instructions to install vllm+cu118 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/1717
 * Documentation about official docker image by @simon-mo in https://github.com/vllm-project/vllm/pull/1709
 * Fix the code block's format in deploying_with_docker page by @HermitSun in https://github.com/vllm-project/vllm/pull/1722
@@ -567,8 +596,10 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * chore(examples-docs): upgrade to OpenAI V1  by @mspronesti in https://github.com/vllm-project/vllm/pull/1785
 * Fix num_gpus when TP > 1 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/1852
 * Bump up to v0.2.3 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/1903
+```
 
 ## New Contributors
+```
 * @boydfd made their first contribution in https://github.com/vllm-project/vllm/pull/1395
 * @explainerauthors made their first contribution in https://github.com/vllm-project/vllm/pull/1818
 * @FlorianJoncour made their first contribution in https://github.com/vllm-project/vllm/pull/1821
@@ -577,6 +608,7 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * @allenhaozi made their first contribution in https://github.com/vllm-project/vllm/pull/1832
 * @aisensiy made their first contribution in https://github.com/vllm-project/vllm/pull/1858
 * @xukp20 made their first contribution in https://github.com/vllm-project/vllm/pull/1886
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.2.2...v0.2.3
 
@@ -584,10 +616,13 @@ This is an emergency release to fix a bug on tensor parallelism support.
 
 ## Major changes
 
+```
 * Mixtral model support (officially from @mistralai)
 * AMD GPU support (collaboration with @embeddedllm)
+```
 
 ## What's Changed
+```
 * add custom server params by @esmeetu in https://github.com/vllm-project/vllm/pull/1868
 * support ChatGLMForConditionalGeneration by @dancingpipi in https://github.com/vllm-project/vllm/pull/1932
 * Save pytorch profiler output for latency benchmark by @Yard1 in https://github.com/vllm-project/vllm/pull/1871
@@ -616,8 +651,10 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * Update README.md to add megablocks requirement for mixtral by @0-hero in https://github.com/vllm-project/vllm/pull/2033
 * [Minor] Fix import error msg for megablocks by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2038
 * Bump up to v0.2.4 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2034
+```
 
 ## New Contributors
+```
 * @dancingpipi made their first contribution in https://github.com/vllm-project/vllm/pull/1932
 * @petergtz made their first contribution in https://github.com/vllm-project/vllm/pull/1947
 * @theFool32 made their first contribution in https://github.com/vllm-project/vllm/pull/1956
@@ -631,6 +668,7 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * @wbn03 made their first contribution in https://github.com/vllm-project/vllm/pull/1997
 * @pierrestock made their first contribution in https://github.com/vllm-project/vllm/pull/2011
 * @0-hero made their first contribution in https://github.com/vllm-project/vllm/pull/2029
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.2.3...v0.2.4
 
@@ -642,6 +680,7 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * [BugFix] Fix input positions for long context with sliding window
 
 ## What's Changed
+```
 * Update Dockerfile to support Mixtral by @simon-mo in https://github.com/vllm-project/vllm/pull/2027
 * Remove python 3.10 requirement by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2040
 * [CI/CD] Upgrade PyTorch version to v2.1.1 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2045
@@ -657,6 +696,7 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * [BugFix] Fix input positions for long context with sliding window by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2088
 * Mixtral expert parallelism by @Yard1 in https://github.com/vllm-project/vllm/pull/2090
 * Bump up to v0.2.5 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2095
+```
 
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.2.4...v0.2.5
@@ -670,6 +710,7 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * Fix *.bin weight loading for Mixtral models
 
 ## What's Changed
+```
 * Fix typing in generate function for AsyncLLMEngine & add toml to requirements-dev by @mezuzza in https://github.com/vllm-project/vllm/pull/2100
 * Fix Dockerfile.rocm by @tjtanaa in https://github.com/vllm-project/vllm/pull/2101
 * avoid multiple redefinition by @MitchellX in https://github.com/vllm-project/vllm/pull/1817
@@ -692,6 +733,7 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * [Minor] Fix a typo in .pt weight support by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2160
 * Disable CUDA graph for SqueezeLLM by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2161
 * Bump up to v0.2.6 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2157
+```
 
 ## New Contributors
 * @mezuzza made their first contribution in https://github.com/vllm-project/vllm/pull/2100
@@ -707,6 +749,7 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * Fix tensor parallelism support for Mixtral + GPTQ/AWQ
 
 ## What's Changed
+```
 * Minor fix for gpu-memory-utilization description by @SuhongMoon in https://github.com/vllm-project/vllm/pull/2162
 * [BugFix] Raise error when max_model_len is larger than KV cache size by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2163
 * [BugFix] Fix RoPE kernel on long sequences by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2164
@@ -737,8 +780,10 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * Remove unused const TIMEOUT_TO_PREVENT_DEADLOCK by @ronensc in https://github.com/vllm-project/vllm/pull/2321
 * [Minor] Revert the changes in test_cache by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2335
 * Bump up to v0.2.7 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2337
+```
 
 ## New Contributors
+```
 * @SuhongMoon made their first contribution in https://github.com/vllm-project/vllm/pull/2162
 * @HMellor made their first contribution in https://github.com/vllm-project/vllm/pull/2109
 * @oushu1zhangxiangxuan1 made their first contribution in https://github.com/vllm-project/vllm/pull/2166
@@ -749,6 +794,7 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * @skt7 made their first contribution in https://github.com/vllm-project/vllm/pull/2246
 * @blueceiling made their first contribution in https://github.com/vllm-project/vllm/pull/2260
 * @dalgarak made their first contribution in https://github.com/vllm-project/vllm/pull/2301
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.2.6...v0.2.7
 
@@ -763,6 +809,7 @@ This is an emergency release to fix a bug on tensor parallelism support.
 - Support batch completion in server
 
 ## What's Changed
+```
 * Miner fix of type hint by @beginlner in https://github.com/vllm-project/vllm/pull/2340
 * Build docker image with shared objects from "build" step by @payoto in https://github.com/vllm-project/vllm/pull/2237
 * Ensure metrics are logged regardless of requests by @ichernev in https://github.com/vllm-project/vllm/pull/2347
@@ -843,8 +890,10 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * [Minor] Fix false warning when TP=1 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2674
 * Add quantized mixtral support by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2673
 * Bump up version to v0.3.0 by @zhuohan123 in https://github.com/vllm-project/vllm/pull/2656
+```
 
 ## New Contributors
+```
 * @payoto made their first contribution in https://github.com/vllm-project/vllm/pull/2237
 * @NadavShmayo made their first contribution in https://github.com/vllm-project/vllm/pull/2290
 * @EvilPsyCHo made their first contribution in https://github.com/vllm-project/vllm/pull/2390
@@ -877,6 +926,7 @@ This is an emergency release to fix a bug on tensor parallelism support.
 * @andoorve made their first contribution in https://github.com/vllm-project/vllm/pull/2618
 * @rlrs made their first contribution in https://github.com/vllm-project/vllm/pull/2581
 * @zwd003 made their first contribution in https://github.com/vllm-project/vllm/pull/2453
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.2.7...v0.3.0
 
@@ -891,6 +941,7 @@ This version fixes the following major bugs:
 Also with many smaller bug fixes listed below.
 
 ## What's Changed
+```
 * Fixes assertion failure in prefix caching: the lora index mapping should respect `prefix_len`. by @sighingnow in https://github.com/vllm-project/vllm/pull/2688
 * fix some bugs about parameter description by @zspo in https://github.com/vllm-project/vllm/pull/2689
 * [Minor] Fix test_cache.py CI test failure by @pcmoritz in https://github.com/vllm-project/vllm/pull/2684
@@ -941,8 +992,10 @@ Also with many smaller bug fixes listed below.
 * [ROCm] Dockerfile fix for flash-attention build by @hongxiayang in https://github.com/vllm-project/vllm/pull/2885
 * Prefix Caching- fix t4 triton error by @caoshiyi in https://github.com/vllm-project/vllm/pull/2517
 * Bump up to v0.3.1 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2887
+```
 
 ## New Contributors
+```
 * @sighingnow made their first contribution in https://github.com/vllm-project/vllm/pull/2688
 * @rib-2 made their first contribution in https://github.com/vllm-project/vllm/pull/2316
 * @Leymore made their first contribution in https://github.com/vllm-project/vllm/pull/2666
@@ -956,6 +1009,7 @@ Also with many smaller bug fixes listed below.
 * @rkooo567 made their first contribution in https://github.com/vllm-project/vllm/pull/2471
 * @ywang96 made their first contribution in https://github.com/vllm-project/vllm/pull/2433
 * @tterrysun made their first contribution in https://github.com/vllm-project/vllm/pull/2831
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.3.0...v0.3.1
 
@@ -966,6 +1020,7 @@ Also with many smaller bug fixes listed below.
 This version adds support for the OLMo and Gemma Model, as well as `seed` parameter. 
 
 ## What's Changed
+```
 * Defensively copy `sampling_params` by @njhill in https://github.com/vllm-project/vllm/pull/2881
 * multi-LoRA as extra models in OpenAI server by @jvmncs in https://github.com/vllm-project/vllm/pull/2775
 * Add code-revision config argument for Hugging Face Hub by @mbm-ai in https://github.com/vllm-project/vllm/pull/2892
@@ -984,12 +1039,15 @@ This version adds support for the OLMo and Gemma Model, as well as `seed` parame
 * [ROCm] Upgrade transformers to v4.38.0 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/2967
 * Support per-request seed by @njhill in https://github.com/vllm-project/vllm/pull/2514
 * Bump up version to v0.3.2 by @zhuohan123 in https://github.com/vllm-project/vllm/pull/2968
+```
 
 ## New Contributors
+```
 * @jvmncs made their first contribution in https://github.com/vllm-project/vllm/pull/2775
 * @mbm-ai made their first contribution in https://github.com/vllm-project/vllm/pull/2892
 * @Isotr0py made their first contribution in https://github.com/vllm-project/vllm/pull/2832
 * @jamestwhedbee made their first contribution in https://github.com/vllm-project/vllm/pull/2792
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.3.1...v0.3.2
 
@@ -1006,6 +1064,7 @@ This version adds support for the OLMo and Gemma Model, as well as `seed` parame
 * [Experimental] Structured output (JSON, Regex) in OpenAI Server
 
 ## What's Changed
+```
 * Update a comment in `benchmark_serving.py` by @ronensc in https://github.com/vllm-project/vllm/pull/2934
 * Added early stopping to completion APIs by @Maxusmusti in https://github.com/vllm-project/vllm/pull/2939
 * Migrate MistralForCausalLM to LlamaForCausalLM by @esmeetu in https://github.com/vllm-project/vllm/pull/2868
@@ -1047,8 +1106,10 @@ This version adds support for the OLMo and Gemma Model, as well as `seed` parame
 * fix relative import path of protocol.py by @Huarong in https://github.com/vllm-project/vllm/pull/3134
 * Integrate Marlin Kernels for Int4 GPTQ inference by @robertgshaw2-neuralmagic in https://github.com/vllm-project/vllm/pull/2497
 * Bump up to v0.3.3 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/3129
+```
 
 ## New Contributors
+```
 * @Maxusmusti made their first contribution in https://github.com/vllm-project/vllm/pull/2939
 * @44670 made their first contribution in https://github.com/vllm-project/vllm/pull/2983
 * @jlcmoore made their first contribution in https://github.com/vllm-project/vllm/pull/2918
@@ -1063,6 +1124,7 @@ This version adds support for the OLMo and Gemma Model, as well as `seed` parame
 * @HyperdriveHustle made their first contribution in https://github.com/vllm-project/vllm/pull/3016
 * @terrytangyuan made their first contribution in https://github.com/vllm-project/vllm/pull/2586
 * @Huarong made their first contribution in https://github.com/vllm-project/vllm/pull/3134
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.3.2...v0.3.3
 
@@ -1089,6 +1151,7 @@ This version adds support for the OLMo and Gemma Model, as well as `seed` parame
 * Usage statistics collection (#2852)
 
 ## What's Changed
+```
 * allow user chose log level by --log-level instead of fixed 'info'. by @AllenDou in https://github.com/vllm-project/vllm/pull/3109
 * Reorder kv dtype check to avoid nvcc not found error on AMD platform by @cloudhan in https://github.com/vllm-project/vllm/pull/3104
 * Add Automatic Prefix Caching by @SageMoore in https://github.com/vllm-project/vllm/pull/2762
@@ -1280,8 +1343,10 @@ This version adds support for the OLMo and Gemma Model, as well as `seed` parame
 * [Core][Bugfix] cache len of tokenizer by @youkaichao in https://github.com/vllm-project/vllm/pull/3741
 * Fix build when nvtools is missing by @bnellnm in https://github.com/vllm-project/vllm/pull/3698
 * CMake build elf without PTX by @simon-mo in https://github.com/vllm-project/vllm/pull/3739
+```
 
 ## New Contributors
+```
 * @cloudhan made their first contribution in https://github.com/vllm-project/vllm/pull/3104
 * @SageMoore made their first contribution in https://github.com/vllm-project/vllm/pull/2762
 * @jasonacox made their first contribution in https://github.com/vllm-project/vllm/pull/3161
@@ -1327,6 +1392,7 @@ This version adds support for the OLMo and Gemma Model, as well as `seed` parame
 * @adamrb made their first contribution in https://github.com/vllm-project/vllm/pull/3695
 * @IKACE made their first contribution in https://github.com/vllm-project/vllm/pull/3628
 * @yhu422 made their first contribution in https://github.com/vllm-project/vllm/pull/2852
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.3.3...v0.4.0
 
@@ -1337,6 +1403,7 @@ This version adds support for the OLMo and Gemma Model, as well as `seed` parame
 v0.4.0 lacks support for sm70/75 support. We did a hotfix for it.
 
 ## What's Changed
+```
 * [Kernel] Layernorm performance optimization by @mawong-amd in https://github.com/vllm-project/vllm/pull/3662
 * [Doc] Update installation doc for build from source and explain the dependency on torch/cuda version by @youkaichao in https://github.com/vllm-project/vllm/pull/3746
 * [CI/Build] Make Marlin Tests Green by @robertgshaw2-neuralmagic in https://github.com/vllm-project/vllm/pull/3753
@@ -1354,12 +1421,15 @@ v0.4.0 lacks support for sm70/75 support. We did a hotfix for it.
 * Fix crash when try torch.cuda.set_device in worker by @leiwen83 in https://github.com/vllm-project/vllm/pull/3770
 * [Bugfix] Add `__init__.py` files for `vllm/core/block/` and `vllm/spec_decode/` by @mgoin in https://github.com/vllm-project/vllm/pull/3798
 * [CI/Build] 0.4.0.post1, fix sm 7.0/7.5 binary by @youkaichao in https://github.com/vllm-project/vllm/pull/3803
+```
 
 ## New Contributors
+```
 * @mawong-amd made their first contribution in https://github.com/vllm-project/vllm/pull/3662
 * @Qubitium made their first contribution in https://github.com/vllm-project/vllm/pull/3689
 * @bigPYJ1151 made their first contribution in https://github.com/vllm-project/vllm/pull/3634
 * @A-Mahla made their first contribution in https://github.com/vllm-project/vllm/pull/3788
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.4.0...v0.4.0.post1
 
@@ -1386,6 +1456,7 @@ Hardwares
 * AMD backend is enhanced with Triton kernel and e4m3fn KV cache (#3643, #3290)
 
 ## What's Changed
+```
 * [Kernel] Layernorm performance optimization by @mawong-amd in https://github.com/vllm-project/vllm/pull/3662
 * [Doc] Update installation doc for build from source and explain the dependency on torch/cuda version by @youkaichao in https://github.com/vllm-project/vllm/pull/3746
 * [CI/Build] Make Marlin Tests Green by @robertgshaw2-neuralmagic in https://github.com/vllm-project/vllm/pull/3753
@@ -1555,8 +1626,10 @@ Hardwares
 * [Core][Distributed] use cpu/gloo to initialize pynccl by @youkaichao in https://github.com/vllm-project/vllm/pull/4248
 * [CI][Build] change pynvml to nvidia-ml-py by @youkaichao in https://github.com/vllm-project/vllm/pull/4302
 * [Misc] Reduce supported Punica dtypes by @WoosukKwon in https://github.com/vllm-project/vllm/pull/4304
+```
 
 ## New Contributors
+```
 * @mawong-amd made their first contribution in https://github.com/vllm-project/vllm/pull/3662
 * @Qubitium made their first contribution in https://github.com/vllm-project/vllm/pull/3689
 * @bigPYJ1151 made their first contribution in https://github.com/vllm-project/vllm/pull/3634
@@ -1593,6 +1666,7 @@ Hardwares
 * @jgordley made their first contribution in https://github.com/vllm-project/vllm/pull/4016
 * @DefTruth made their first contribution in https://github.com/vllm-project/vllm/pull/4286
 * @jaemzfleming made their first contribution in https://github.com/vllm-project/vllm/pull/3287
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.4.0...v0.4.1
 
@@ -1624,6 +1698,7 @@ Hardwares
 
 
 ## What's Changed
+```
 * [Core][Distributed] use existing torch.cuda.device context manager by @youkaichao in https://github.com/vllm-project/vllm/pull/4318
 * [Misc] Update ShareGPT Dataset Sampling in Serving Benchmark by @ywang96 in https://github.com/vllm-project/vllm/pull/4279
 * [Bugfix] Fix marlin kernel crash on H100 by @alexm-nm in https://github.com/vllm-project/vllm/pull/4218
@@ -1727,8 +1802,10 @@ Hardwares
 * [Bugfix] Fix inappropriate content of model_name tag in Prometheus metrics by @DearPlanet in https://github.com/vllm-project/vllm/pull/3937
 * bump version to v0.4.2 by @simon-mo in https://github.com/vllm-project/vllm/pull/4600
 * [CI] Reduce wheel size by not shipping debug symbols by @simon-mo in https://github.com/vllm-project/vllm/pull/4602
+```
 
 ## New Contributors
+```
 * @zifeitong made their first contribution in https://github.com/vllm-project/vllm/pull/4300
 * @caiom made their first contribution in https://github.com/vllm-project/vllm/pull/4298
 * @Alexei-V-Ivanov-AMD made their first contribution in https://github.com/vllm-project/vllm/pull/4213
@@ -1749,6 +1826,7 @@ Hardwares
 * @Atry made their first contribution in https://github.com/vllm-project/vllm/pull/4567
 * @schoennenbeck made their first contribution in https://github.com/vllm-project/vllm/pull/2727
 * @DearPlanet made their first contribution in https://github.com/vllm-project/vllm/pull/3937
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.4.1...v0.4.2
 
@@ -1832,6 +1910,7 @@ Hardwares
 
 
 ## What's Changed
+```
 * Disable cuda version check in vllm-openai image by @zhaoyang-star in https://github.com/vllm-project/vllm/pull/4530
 * [Bugfix] Fix `asyncio.Task` not being subscriptable by @DarkLight1337 in https://github.com/vllm-project/vllm/pull/4623
 * [CI] use ccache actions properly in release workflow by @simon-mo in https://github.com/vllm-project/vllm/pull/4629
@@ -2002,8 +2081,10 @@ Hardwares
 * [Model] Enable FP8 QKV in MoE and refine kernel tuning script by @comaniac in https://github.com/vllm-project/vllm/pull/5039
 * [Doc] Add checkmark for GPTBigCodeForCausalLM LoRA support by @njhill in https://github.com/vllm-project/vllm/pull/5171
 * [Build] Guard against older CUDA versions when building CUTLASS 3.x kernels by @tlrmchlsmth in https://github.com/vllm-project/vllm/pull/5168
+```
 
 ## New Contributors
+```
 * @MahmoudAshraf97 made their first contribution in https://github.com/vllm-project/vllm/pull/4400
 * @sfc-gh-hazhang made their first contribution in https://github.com/vllm-project/vllm/pull/4652
 * @stevegrubb made their first contribution in https://github.com/vllm-project/vllm/pull/4719
@@ -2036,6 +2117,7 @@ Hardwares
 * @deep-diver made their first contribution in https://github.com/vllm-project/vllm/pull/3074
 * @xingweiqu made their first contribution in https://github.com/vllm-project/vllm/pull/5081
 * @functionxu123 made their first contribution in https://github.com/vllm-project/vllm/pull/4196
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.4.2...v0.4.3
 
@@ -2064,6 +2146,7 @@ Hardwares
 * Update Outlines Integration from `FSM` to `Guide` (#4109)
 
 ## What's Changed
+```
 * [CI/Build] CMakeLists: build all extensions' cmake targets at the same time by @dtrifiro in https://github.com/vllm-project/vllm/pull/5034
 * [Kernel] Refactor CUTLASS kernels to always take scales that reside on the GPU by @tlrmchlsmth in https://github.com/vllm-project/vllm/pull/5137
 * [Kernel] Update Cutlass fp8 configs by @varun-sundar-rabindranath in https://github.com/vllm-project/vllm/pull/5144
@@ -2172,8 +2255,10 @@ Hardwares
 * [Core][Distributed] add same-node detection by @youkaichao in https://github.com/vllm-project/vllm/pull/5369
 * [Core][Doc] Default to multiprocessing for single-node distributed case by @njhill in https://github.com/vllm-project/vllm/pull/5230
 * [Doc] add common case for long waiting time by @youkaichao in https://github.com/vllm-project/vllm/pull/5430
+```
 
 ## New Contributors
+```
 * @dtrifiro made their first contribution in https://github.com/vllm-project/vllm/pull/5034
 * @varun-sundar-rabindranath made their first contribution in https://github.com/vllm-project/vllm/pull/5144
 * @dashanji made their first contribution in https://github.com/vllm-project/vllm/pull/5151
@@ -2195,6 +2280,7 @@ Hardwares
 * @BlackBird-Coding made their first contribution in https://github.com/vllm-project/vllm/pull/5164
 * @maor-ps made their first contribution in https://github.com/vllm-project/vllm/pull/5312
 * @c3-ali made their first contribution in https://github.com/vllm-project/vllm/pull/5398
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.4.3...v0.5.0
 
@@ -2207,6 +2293,7 @@ Hardwares
 * Fix issues when using num_devices < num_available_devices (#5473)
 
 ## What's Changed
+```
 * [CI/Build] Add `is_quant_method_supported` to control quantization test configurations by @mgoin in https://github.com/vllm-project/vllm/pull/5253
 * Revert "[CI/Build] Add `is_quant_method_supported` to control quantization test configurations" by @simon-mo in https://github.com/vllm-project/vllm/pull/5463
 * [CI] Upgrade codespell version. by @rkooo567 in https://github.com/vllm-project/vllm/pull/5381
@@ -2243,6 +2330,7 @@ Hardwares
 * [Hardware][Intel] Support CPU inference with AVX2 ISA by @DamonFool in https://github.com/vllm-project/vllm/pull/5452
 * [Bugfix]typofix by @AllenDou in https://github.com/vllm-project/vllm/pull/5507
 * bump version to v0.5.0.post1 by @simon-mo in https://github.com/vllm-project/vllm/pull/5522
+```
 
 ## New Contributors
 * @kimdwkimdw made their first contribution in https://github.com/vllm-project/vllm/pull/5444
@@ -2294,6 +2382,7 @@ Hardwares
 
 
 ## What's Changed
+```
 * [CI/Build] Add `is_quant_method_supported` to control quantization test configurations by @mgoin in https://github.com/vllm-project/vllm/pull/5253
 * Revert "[CI/Build] Add `is_quant_method_supported` to control quantization test configurations" by @simon-mo in https://github.com/vllm-project/vllm/pull/5463
 * [CI] Upgrade codespell version. by @rkooo567 in https://github.com/vllm-project/vllm/pull/5381
@@ -2566,8 +2655,10 @@ Hardwares
 * [Bugfix] Add verbose error if scipy is missing for blocksparse attention by @JGSweets in https://github.com/vllm-project/vllm/pull/5695
 * bump version to v0.5.1 by @simon-mo in https://github.com/vllm-project/vllm/pull/6157
 * [Docs] Fix readthedocs for tag build by @simon-mo in https://github.com/vllm-project/vllm/pull/6158
+```
 
 ## New Contributors
+```
 * @kimdwkimdw made their first contribution in https://github.com/vllm-project/vllm/pull/5444
 * @sywangyi made their first contribution in https://github.com/vllm-project/vllm/pull/5303
 * @garg-amit made their first contribution in https://github.com/vllm-project/vllm/pull/5595
@@ -2598,6 +2689,7 @@ Hardwares
 * @frittentheke made their first contribution in https://github.com/vllm-project/vllm/pull/6136
 * @jvlunteren made their first contribution in https://github.com/vllm-project/vllm/pull/5742
 * @JGSweets made their first contribution in https://github.com/vllm-project/vllm/pull/5695
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.5.0...v0.5.1
 
@@ -2637,6 +2729,7 @@ Hardwares
 
 
 ## What's Changed
+```
 * Update wheel builds to strip debug by @simon-mo in https://github.com/vllm-project/vllm/pull/6161
 * Fix release wheel build env var by @simon-mo in https://github.com/vllm-project/vllm/pull/6162
 * Move release wheel env var to Dockerfile instead by @simon-mo in https://github.com/vllm-project/vllm/pull/6163
@@ -2741,8 +2834,10 @@ Hardwares
 * [Bugfix] use float32 precision in samplers/test_logprobs.py for comparing with HF  by @tdoublep in https://github.com/vllm-project/vllm/pull/6409
 * bump version to v0.5.2 by @simon-mo in https://github.com/vllm-project/vllm/pull/6433
 * [misc][distributed] fix pp missing layer condition by @youkaichao in https://github.com/vllm-project/vllm/pull/6446
+```
 
 ## New Contributors
+```
 * @haichuan1221 made their first contribution in https://github.com/vllm-project/vllm/pull/5857
 * @kczimm made their first contribution in https://github.com/vllm-project/vllm/pull/6196
 * @ericperfect made their first contribution in https://github.com/vllm-project/vllm/pull/6203
@@ -2761,6 +2856,7 @@ Hardwares
 * @EthanqX made their first contribution in https://github.com/vllm-project/vllm/pull/5090
 * @rscohn2 made their first contribution in https://github.com/vllm-project/vllm/pull/6393
 * @lxline made their first contribution in https://github.com/vllm-project/vllm/pull/6428
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.5.1...v0.5.2
 
@@ -2802,6 +2898,7 @@ Hardwares
 
 
 ## What's Changed
+```
 * [Docs] Add Google Cloud to sponsor list by @WoosukKwon in https://github.com/vllm-project/vllm/pull/6450
 * [Misc] Add CustomOp Interface to UnquantizedFusedMoEMethod by @WoosukKwon in https://github.com/vllm-project/vllm/pull/6289
 * [CI/Build][TPU] Add TPU CI test by @WoosukKwon in https://github.com/vllm-project/vllm/pull/6277
@@ -2900,14 +2997,17 @@ Hardwares
 * [VLM][Model] Support image input for Chameleon  by @ywang96 in https://github.com/vllm-project/vllm/pull/6633
 * support ignore patterns in model loader by @simon-mo in https://github.com/vllm-project/vllm/pull/6673
 * Bump version to v0.5.3 by @simon-mo in https://github.com/vllm-project/vllm/pull/6674
+```
 
 ## New Contributors
+```
 * @g-eoj made their first contribution in https://github.com/vllm-project/vllm/pull/6419
 * @peng1999 made their first contribution in https://github.com/vllm-project/vllm/pull/6442
 * @Jeffwan made their first contribution in https://github.com/vllm-project/vllm/pull/6230
 * @wushidonguc made their first contribution in https://github.com/vllm-project/vllm/pull/6455
 * @ShangmingCai made their first contribution in https://github.com/vllm-project/vllm/pull/6467
 * @ruisearch42 made their first contribution in https://github.com/vllm-project/vllm/pull/6032
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.5.2...v0.5.3
 
@@ -2917,11 +3017,13 @@ Hardwares
 * We fixed an configuration incompatibility between vLLM (which tested against pre-released version) and the published Meta Llama 3.1 weights (#6693)
 
 ## What's Changed
+```
 * [Docs] Announce llama3.1 support by @WoosukKwon in https://github.com/vllm-project/vllm/pull/6688
 * [doc][distributed] fix doc argument order by @youkaichao in https://github.com/vllm-project/vllm/pull/6691
 * [Bugfix] Fix a log error in chunked prefill by @WoosukKwon in https://github.com/vllm-project/vllm/pull/6694
 * [BugFix] Fix RoPE error in Llama 3.1 by @WoosukKwon in https://github.com/vllm-project/vllm/pull/6693
 * Bump version to 0.5.3.post1 by @simon-mo in https://github.com/vllm-project/vllm/pull/6696
+```
 
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.5.3...v0.5.3.post1
@@ -2960,6 +3062,7 @@ We are progressing along our quest to quickly improve performance. Each of the f
 
 
 ## What's Changed
+```
 * [Docs] Announce llama3.1 support by @WoosukKwon in https://github.com/vllm-project/vllm/pull/6688
 * [doc][distributed] fix doc argument order by @youkaichao in https://github.com/vllm-project/vllm/pull/6691
 * [Bugfix] Fix a log error in chunked prefill by @WoosukKwon in https://github.com/vllm-project/vllm/pull/6694
@@ -3137,8 +3240,10 @@ We are progressing along our quest to quickly improve performance. Each of the f
 * [CI/Build] Suppress divide-by-zero and missing return statement warnings by @tlrmchlsmth in https://github.com/vllm-project/vllm/pull/7001
 * [Bugfix][CI/Build] Fix CUTLASS FetchContent by @tlrmchlsmth in https://github.com/vllm-project/vllm/pull/7171
 * bump version to v0.5.4 by @simon-mo in https://github.com/vllm-project/vllm/pull/7139
+```
 
 ## New Contributors
+```
 * @yecohn made their first contribution in https://github.com/vllm-project/vllm/pull/6652
 * @thesues made their first contribution in https://github.com/vllm-project/vllm/pull/5753
 * @luizanao made their first contribution in https://github.com/vllm-project/vllm/pull/6748
@@ -3161,6 +3266,7 @@ We are progressing along our quest to quickly improve performance. Each of the f
 * @fialhocoelho made their first contribution in https://github.com/vllm-project/vllm/pull/7080
 * @ChristopherCho made their first contribution in https://github.com/vllm-project/vllm/pull/6942
 * @VastoLorde95 made their first contribution in https://github.com/vllm-project/vllm/pull/7121
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.5.3...v0.5.4
 
@@ -3204,6 +3310,7 @@ We are progressing along our quest to quickly improve performance. Each of the f
 * `torch.compile`: register custom ops for kernels (#7591, #7594, #7536)
 
 ## What's Changed
+```
 * [ci][frontend] deduplicate tests by @youkaichao in https://github.com/vllm-project/vllm/pull/7101
 * [Doc] [SpecDecode] Update MLPSpeculator documentation by @tdoublep in https://github.com/vllm-project/vllm/pull/7100
 * [Bugfix] Specify device when loading LoRA and embedding tensors by @jischein in https://github.com/vllm-project/vllm/pull/7129
@@ -3441,8 +3548,10 @@ We are progressing along our quest to quickly improve performance. Each of the f
 * [github][misc] promote asking llm first by @youkaichao in https://github.com/vllm-project/vllm/pull/7809
 * [Misc] Update `marlin` to use vLLMParameters by @dsikka in https://github.com/vllm-project/vllm/pull/7803
 * Bump version to v0.5.5 by @simon-mo in https://github.com/vllm-project/vllm/pull/7823
+```
 
 ## New Contributors
+```
 * @jischein made their first contribution in https://github.com/vllm-project/vllm/pull/7129
 * @kpapis made their first contribution in https://github.com/vllm-project/vllm/pull/7198
 * @xiaobochen123 made their first contribution in https://github.com/vllm-project/vllm/pull/7193
@@ -3473,6 +3582,7 @@ We are progressing along our quest to quickly improve performance. Each of the f
 * @learninmou made their first contribution in https://github.com/vllm-project/vllm/pull/7509
 * @brian14708 made their first contribution in https://github.com/vllm-project/vllm/pull/7734
 * @sfc-gh-zhwang made their first contribution in https://github.com/vllm-project/vllm/pull/7708
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.5.4...v0.5.5
 
@@ -3513,6 +3623,7 @@ We are progressing along our quest to quickly improve performance. Each of the f
 * Progress in integration with `torch.compile`: avoid Dynamo guard evaluation overhead (#7898), skip compile for profiling (#7796)
 
 ## What's Changed
+```
 * [Core] Add multi-step support to LLMEngine by @alexm-neuralmagic in https://github.com/vllm-project/vllm/pull/7789
 * [Bugfix] Fix run_batch logger by @pooyadavoodi in https://github.com/vllm-project/vllm/pull/7640
 * [Frontend] Publish  Prometheus metrics in run_batch API by @pooyadavoodi in https://github.com/vllm-project/vllm/pull/7641
@@ -3626,8 +3737,10 @@ We are progressing along our quest to quickly improve performance. Each of the f
 * [MISC] Replace input token throughput with total token throughput by @comaniac in https://github.com/vllm-project/vllm/pull/8164
 * [Neuron] Adding support for adding/ overriding neuron configuration a… by @hbikki in https://github.com/vllm-project/vllm/pull/8062
 * Bump version to v0.6.0 by @simon-mo in https://github.com/vllm-project/vllm/pull/8166
+```
 
 ## New Contributors
+```
 * @rockwotj made their first contribution in https://github.com/vllm-project/vllm/pull/7654
 * @HollowMan6 made their first contribution in https://github.com/vllm-project/vllm/pull/7855
 * @patrickvonplaten made their first contribution in https://github.com/vllm-project/vllm/pull/7739
@@ -3649,6 +3762,7 @@ We are progressing along our quest to quickly improve performance. Each of the f
 * @haitwang-cloud made their first contribution in https://github.com/vllm-project/vllm/pull/8103
 * @wnma3mz made their first contribution in https://github.com/vllm-project/vllm/pull/8106
 * @K-Mistele made their first contribution in https://github.com/vllm-project/vllm/pull/5649
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.5.5...v0.6.0
 
@@ -3676,6 +3790,7 @@ We are progressing along our quest to quickly improve performance. Each of the f
 
 
 ## What's Changed
+```
 * [Doc] [Misc] Create CODE_OF_CONDUCT.md by @mmcelaney in https://github.com/vllm-project/vllm/pull/8161
 * [bugfix] Upgrade minimum OpenAI version by @SolitaryThinker in https://github.com/vllm-project/vllm/pull/8169
 * [Misc] Clean up RoPE forward_native by @WoosukKwon in https://github.com/vllm-project/vllm/pull/8076
@@ -3736,8 +3851,10 @@ We are progressing along our quest to quickly improve performance. Each of the f
 * [Speculative Decoding] Test refactor by @LiuXiaoxuanPKU in https://github.com/vllm-project/vllm/pull/8317
 * Pixtral by @patrickvonplaten in https://github.com/vllm-project/vllm/pull/8377
 * Bump version to v0.6.1 by @simon-mo in https://github.com/vllm-project/vllm/pull/8379
+```
 
 ## New Contributors
+```
 * @mmcelaney made their first contribution in https://github.com/vllm-project/vllm/pull/8161
 * @elfiegg made their first contribution in https://github.com/vllm-project/vllm/pull/8173
 * @Manikandan-Thangaraj-ZS0321 made their first contribution in https://github.com/vllm-project/vllm/pull/7860
@@ -3747,6 +3864,7 @@ We are progressing along our quest to quickly improve performance. Each of the f
 * @kevin314 made their first contribution in https://github.com/vllm-project/vllm/pull/8224
 * @TKONIY made their first contribution in https://github.com/vllm-project/vllm/pull/7559
 * @akx made their first contribution in https://github.com/vllm-project/vllm/pull/8322
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.6.0...v0.6.1
 
@@ -3767,6 +3885,7 @@ Also
 
 
 ## What's Changed
+```
 * [MISC] Dump model runner inputs when crashing by @comaniac in https://github.com/vllm-project/vllm/pull/8305
 * [misc] remove engine_use_ray by @youkaichao in https://github.com/vllm-project/vllm/pull/8126
 * [TPU] Use Ray for default distributed backend by @WoosukKwon in https://github.com/vllm-project/vllm/pull/8389
@@ -3798,6 +3917,7 @@ Also
 * [Bugfix] Fix async log stats by @alexm-neuralmagic in https://github.com/vllm-project/vllm/pull/8417
 * [bugfix] torch profiler bug for single gpu with GPUExecutor by @SolitaryThinker in https://github.com/vllm-project/vllm/pull/8354
 * bump version to v0.6.1.post1 by @simon-mo in https://github.com/vllm-project/vllm/pull/8440
+```
 
 ## New Contributors
 * @blueyo0 made their first contribution in https://github.com/vllm-project/vllm/pull/8338
@@ -3812,6 +3932,7 @@ Also
 * This release contains an important bugfix related to token streaming combined with stop string (#8468) 
 
 ## What's Changed
+```
 * [CI/Build] Enable InternVL2 PP test only on single node by @Isotr0py in https://github.com/vllm-project/vllm/pull/8437
 * [doc] recommend pip instead of conda by @youkaichao in https://github.com/vllm-project/vllm/pull/8446
 * [Misc] Skip loading extra bias for Qwen2-VL GPTQ-Int8 by @jeejeelee in https://github.com/vllm-project/vllm/pull/8442
@@ -3822,6 +3943,7 @@ Also
 * [Doc] Add oneDNN installation to CPU backend documentation by @Isotr0py in https://github.com/vllm-project/vllm/pull/8467
 * [HotFix] Fix final output truncation with stop string + streaming by @njhill in https://github.com/vllm-project/vllm/pull/8468
 * bump version to v0.6.1.post2 by @simon-mo in https://github.com/vllm-project/vllm/pull/8473
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.6.1.post1...v0.6.1.post2
 
@@ -3839,8 +3961,10 @@ Also
 
     > Using beam search as a sampling parameter is deprecated, and will be removed in the future release. Please use the `vllm.LLM.use_beam_search` method for dedicated beam search instead, or set the environment variable `VLLM_ALLOW_DEPRECATED_BEAM_SEARCH=1` to suppress this error. For more details, see https://github.com/vllm-project/vllm/issues/8306
 
+```
 * Support for Solar Model (#8386), minicpm3 (#8297), LLaVA-Onevision model support (#8486)
 * Enhancements: pp for qwen2-vl (#8696), multiple images for qwen-vl (#8247), mistral function calling (#8515), bitsandbytes support for Gemma2 (#8338), tensor parallelism with bitsandbytes quantization (#8434)
+```
 
 ### Hardware Support
 * TPU: implement multi-step scheduling (#8489), use Ray for default distributed backend (#8389)
@@ -3866,6 +3990,7 @@ Also
 
 
 ## What's Changed
+```
 * [MISC] Dump model runner inputs when crashing by @comaniac in https://github.com/vllm-project/vllm/pull/8305
 * [misc] remove engine_use_ray by @youkaichao in https://github.com/vllm-project/vllm/pull/8126
 * [TPU] Use Ray for default distributed backend by @WoosukKwon in https://github.com/vllm-project/vllm/pull/8389
@@ -4045,8 +4170,10 @@ Also
 * [Model] Add support for the multi-modal Llama 3.2 model by @heheda12345 in https://github.com/vllm-project/vllm/pull/8811
 * [Doc] Update doc for Transformers 4.45 by @ywang96 in https://github.com/vllm-project/vllm/pull/8817
 * [Misc] Support quantization of MllamaForCausalLM by @mgoin in https://github.com/vllm-project/vllm/pull/8822
+```
 
 ## New Contributors
+```
 * @blueyo0 made their first contribution in https://github.com/vllm-project/vllm/pull/8338
 * @lnykww made their first contribution in https://github.com/vllm-project/vllm/pull/8403
 * @vegaluisjose made their first contribution in https://github.com/vllm-project/vllm/pull/8423
@@ -4071,6 +4198,7 @@ Also
 * @darthhexx made their first contribution in https://github.com/vllm-project/vllm/pull/8767
 * @abatom made their first contribution in https://github.com/vllm-project/vllm/pull/8761
 * @heheda12345 made their first contribution in https://github.com/vllm-project/vllm/pull/8811
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.6.1...v0.6.2
 
@@ -4125,6 +4253,7 @@ Also
 
 
 ## What's Changed
+```
 * [Misc] Update config loading for Qwen2-VL and remove Granite by @ywang96 in https://github.com/vllm-project/vllm/pull/8837
 * [Build/CI] Upgrade to gcc 10 in the base build Docker image by @tlrmchlsmth in https://github.com/vllm-project/vllm/pull/8814
 * [Docs] Add README to the build docker image by @mgoin in https://github.com/vllm-project/vllm/pull/8825
@@ -4318,8 +4447,10 @@ Also
 * [Hardware][intel GPU] add async output process for xpu by @jikunshang in https://github.com/vllm-project/vllm/pull/8897
 * [CI/Build] setuptools-scm fixes by @dtrifiro in https://github.com/vllm-project/vllm/pull/8900
 * [Docs] Remove PDF build from Readtehdocs by @simon-mo in https://github.com/vllm-project/vllm/pull/9347
+```
 
 ## New Contributors
+```
 * @fyuan1316 made their first contribution in https://github.com/vllm-project/vllm/pull/8834
 * @panpan0000 made their first contribution in https://github.com/vllm-project/vllm/pull/8830
 * @bvrockwell made their first contribution in https://github.com/vllm-project/vllm/pull/8871
@@ -4354,6 +4485,7 @@ Also
 * @allenwang28 made their first contribution in https://github.com/vllm-project/vllm/pull/9202
 * @cermeng made their first contribution in https://github.com/vllm-project/vllm/pull/9309
 * @mrsalehi made their first contribution in https://github.com/vllm-project/vllm/pull/9016
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.6.2...v0.6.3
 
@@ -4379,6 +4511,7 @@ Also
 
 
 ## What's Changed
+```
 * [TPU] Fix TPU SMEM OOM by Pallas paged attention kernel by @WoosukKwon in https://github.com/vllm-project/vllm/pull/9350
 * [Frontend] merge beam search implementations by @LunrEclipse in https://github.com/vllm-project/vllm/pull/9296
 * [Model] Make llama3.2 support multiple and interleaved images by @xiangxu-google in https://github.com/vllm-project/vllm/pull/9095
@@ -4414,6 +4547,7 @@ Also
 * [Hardware][CPU] compressed-tensor INT8 W8A8 AZP support  by @bigPYJ1151 in https://github.com/vllm-project/vllm/pull/9344
 * [Core] Deprecating block manager v1 and make block manager v2 default by @KuntaiDu in https://github.com/vllm-project/vllm/pull/8704
 * [CI/Build] remove .github from .dockerignore, add dirty repo check by @dtrifiro in https://github.com/vllm-project/vllm/pull/9375
+```
 
 ## New Contributors
 * @gracehonv made their first contribution in https://github.com/vllm-project/vllm/pull/9349
@@ -4465,6 +4599,7 @@ Also
 
 
 ## What's Changed
+```
 * [TPU] Fix TPU SMEM OOM by Pallas paged attention kernel by @WoosukKwon in https://github.com/vllm-project/vllm/pull/9350
 * [Frontend] merge beam search implementations by @LunrEclipse in https://github.com/vllm-project/vllm/pull/9296
 * [Model] Make llama3.2 support multiple and interleaved images by @xiangxu-google in https://github.com/vllm-project/vllm/pull/9095
@@ -4908,8 +5043,10 @@ Also
 * [Bugfix]  Qwen-vl output is inconsistent in speculative decoding by @skylee-01 in https://github.com/vllm-project/vllm/pull/10350
 * [Misc] Consolidate pooler config overrides by @DarkLight1337 in https://github.com/vllm-project/vllm/pull/10351
 * [Build] skip renaming files for release wheels pipeline by @simon-mo in https://github.com/vllm-project/vllm/pull/9671
+```
 
 ## New Contributors
+```
 * @gracehonv made their first contribution in https://github.com/vllm-project/vllm/pull/9349
 * @streaver91 made their first contribution in https://github.com/vllm-project/vllm/pull/9396
 * @wukaixingxp made their first contribution in https://github.com/vllm-project/vllm/pull/9013
@@ -4976,6 +5113,7 @@ Also
 * @mdepinet made their first contribution in https://github.com/vllm-project/vllm/pull/9859
 * @jxpxxzj made their first contribution in https://github.com/vllm-project/vllm/pull/9583
 * @skylee-01 made their first contribution in https://github.com/vllm-project/vllm/pull/10350
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.6.3...v0.6.4
 
@@ -4984,6 +5122,7 @@ Also
 This patch release covers bug fixes (#10347, #10349, #10348, #10352, #10363), keep compatibility for `vLLMConfig` usage in out of tree models (#10356)
 
 ## What's Changed
+```
 * Add default value to avoid Falcon crash (#5363) by @wchen61 in https://github.com/vllm-project/vllm/pull/10347
 * [Misc] Fix import error in tensorizer tests and cleanup some code by @DarkLight1337 in https://github.com/vllm-project/vllm/pull/10349
 * [Doc] Remove float32 choice from --lora-dtype by @xyang16 in https://github.com/vllm-project/vllm/pull/10348
@@ -4993,6 +5132,7 @@ This patch release covers bug fixes (#10347, #10349, #10348, #10352, #10363), ke
 * [Bugfix] Ensure special tokens are properly filtered out for guided structured output with MistralTokenizer by @gcalmettes in https://github.com/vllm-project/vllm/pull/10363
 * [Misc] Bump up test_fused_moe tolerance by @ElizaWszola in https://github.com/vllm-project/vllm/pull/10364
 * [Misc] bump mistral common version by @simon-mo in https://github.com/vllm-project/vllm/pull/10367
+```
 
 ## New Contributors
 * @wchen61 made their first contribution in https://github.com/vllm-project/vllm/pull/10347
@@ -5033,6 +5173,7 @@ This patch release covers bug fixes (#10347, #10349, #10348, #10352, #10363), ke
 * Add GH200 support (#11212, #11244)
 
 ## What's Changed
+```
 * Add default value to avoid Falcon crash (#5363) by @wchen61 in https://github.com/vllm-project/vllm/pull/10347
 * [Misc] Fix import error in tensorizer tests and cleanup some code by @DarkLight1337 in https://github.com/vllm-project/vllm/pull/10349
 * [Doc] Remove float32 choice from --lora-dtype by @xyang16 in https://github.com/vllm-project/vllm/pull/10348
@@ -5439,8 +5580,10 @@ This patch release covers bug fixes (#10347, #10349, #10348, #10352, #10363), ke
 * [Misc] Kernel Benchmark for `RMSNorm` by @ywang96 in https://github.com/vllm-project/vllm/pull/11241
 * [Misc] Allow passing logits_soft_cap for xformers backend by @Isotr0py in https://github.com/vllm-project/vllm/pull/11252
 * [Bugfix] Fix request cancellation without polling by @joerunde in https://github.com/vllm-project/vllm/pull/11190
+```
 
 ## New Contributors
+```
 * @wchen61 made their first contribution in https://github.com/vllm-project/vllm/pull/10347
 * @kakao-steve-ai made their first contribution in https://github.com/vllm-project/vllm/pull/10287
 * @Maybewuss made their first contribution in https://github.com/vllm-project/vllm/pull/10415
@@ -5479,6 +5622,7 @@ This patch release covers bug fixes (#10347, #10349, #10348, #10352, #10363), ke
 * @cennn made their first contribution in https://github.com/vllm-project/vllm/pull/11212
 * @bk-TurbaAI made their first contribution in https://github.com/vllm-project/vllm/pull/11235
 * @kylehh made their first contribution in https://github.com/vllm-project/vllm/pull/11027
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.6.4...v0.6.5
 
@@ -5511,6 +5655,7 @@ This patch release covers bug fixes (#10347, #10349, #10348, #10352, #10363), ke
 * Add pypi index for every commit and nightly build (#11404)
 
 ## What's Changed
+```
 * [Bugfix] Set temperature=0.7 in test_guided_choice_chat by @mgoin in https://github.com/vllm-project/vllm/pull/11264
 * [V1] Prefix caching for vision language models by @comaniac in https://github.com/vllm-project/vllm/pull/11187
 * [Bugfix] Restore support for larger block sizes by @kzawora-intel in https://github.com/vllm-project/vllm/pull/11259
@@ -5596,8 +5741,10 @@ This patch release covers bug fixes (#10347, #10349, #10348, #10352, #10363), ke
 * [Model] [Quantization] Support deepseek_v3 w8a8 fp8 block-wise quantization by @mgoin in https://github.com/vllm-project/vllm/pull/11523
 * [2/N] API Server: Avoid ulimit footgun by @robertgshaw2-neuralmagic in https://github.com/vllm-project/vllm/pull/11530
 * Deepseek v3 by @simon-mo in https://github.com/vllm-project/vllm/pull/11502
+```
 
 ## New Contributors
+```
 * @Ghjk94522 made their first contribution in https://github.com/vllm-project/vllm/pull/11336
 * @Akashcodes732 made their first contribution in https://github.com/vllm-project/vllm/pull/11331
 * @omer-dayan made their first contribution in https://github.com/vllm-project/vllm/pull/10192
@@ -5605,6 +5752,7 @@ This patch release covers bug fixes (#10347, #10349, #10348, #10352, #10363), ke
 * @n1hility made their first contribution in https://github.com/vllm-project/vllm/pull/11390
 * @lucas-tucker made their first contribution in https://github.com/vllm-project/vllm/pull/11418
 * @shiquan1988 made their first contribution in https://github.com/vllm-project/vllm/pull/11438
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.6.5...v0.6.6
 
@@ -5613,6 +5761,7 @@ This patch release covers bug fixes (#10347, #10349, #10348, #10352, #10363), ke
 This release restore functionalities for other quantized MoEs, which was introduced as part of initial DeepSeek V3 support 🙇 . 
 
 ## What's Changed
+```
 * [Docs] Document Deepseek V3 support by @simon-mo in https://github.com/vllm-project/vllm/pull/11535
 * Update openai_compatible_server.md by @robertgshaw2-neuralmagic in https://github.com/vllm-project/vllm/pull/11536
 * [V1] Use FlashInfer Sampling Kernel for Top-P & Top-K Sampling by @WoosukKwon in https://github.com/vllm-project/vllm/pull/11394
@@ -5621,6 +5770,7 @@ This release restore functionalities for other quantized MoEs, which was introdu
 * [misc] fix typing by @youkaichao in https://github.com/vllm-project/vllm/pull/11540
 * [V1][3/N] API Server: Reduce Task Switching + Handle Abort Properly by @robertgshaw2-neuralmagic in https://github.com/vllm-project/vllm/pull/11534
 * [BugFix] Deepseekv3 broke quantization for all other methods by @robertgshaw2-neuralmagic in https://github.com/vllm-project/vllm/pull/11547
+```
 
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.6.6...v0.6.6.post1
@@ -5668,6 +5818,7 @@ This release features
 * Security: Set `weights_only=True` when using `torch.load()` (#12366)
 
 ## What's Changed
+```
 * [Docs] Document Deepseek V3 support by @simon-mo in https://github.com/vllm-project/vllm/pull/11535
 * Update openai_compatible_server.md by @robertgshaw2-redhat in https://github.com/vllm-project/vllm/pull/11536
 * [V1] Use FlashInfer Sampling Kernel for Top-P & Top-K Sampling by @WoosukKwon in https://github.com/vllm-project/vllm/pull/11394
@@ -6068,8 +6219,10 @@ This release features
 * [V1] Avoid list creation in input preparation by @WoosukKwon in https://github.com/vllm-project/vllm/pull/12457
 * [Frontend] Support scores endpoint in run_batch by @pooyadavoodi in https://github.com/vllm-project/vllm/pull/12430
 * [Bugfix] Fix Granite 3.0 MoE model loading by @DarkLight1337 in https://github.com/vllm-project/vllm/pull/12446
+```
 
 ## New Contributors
+```
 * @Chen-0210 made their first contribution in https://github.com/vllm-project/vllm/pull/11549
 * @ErezSC42 made their first contribution in https://github.com/vllm-project/vllm/pull/11209
 * @selalipop made their first contribution in https://github.com/vllm-project/vllm/pull/11561
@@ -6127,6 +6280,7 @@ This release features
 * @zhenwei-intel made their first contribution in https://github.com/vllm-project/vllm/pull/12338
 * @MohitIntel made their first contribution in https://github.com/vllm-project/vllm/pull/12382
 * @mhendrey made their first contribution in https://github.com/vllm-project/vllm/pull/12242
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.6.6...v0.7.0
 
@@ -6155,6 +6309,7 @@ For the V1 architecture, we
 * Support reasoning content in API for deepseek R1 (#12473)
 
 ## What's Changed
+```
 * [Bugfix] Fix missing seq_start_loc in xformers prefill metadata by @Isotr0py in https://github.com/vllm-project/vllm/pull/12464
 * [V1][Minor] Minor optimizations for update_from_output by @WoosukKwon in https://github.com/vllm-project/vllm/pull/12454
 * [Bugfix] Fix gpt2 GGUF inference by @Isotr0py in https://github.com/vllm-project/vllm/pull/12467
@@ -6224,8 +6379,10 @@ For the V1 architecture, we
 * [Attention] Deepseek v3 MLA support with FP8 compute by @LucasWilkinson in https://github.com/vllm-project/vllm/pull/12601
 * [CI/Build] Add label automation for structured-output, speculative-decoding, v1 by @russellb in https://github.com/vllm-project/vllm/pull/12280
 * Disable chunked prefill and/or prefix caching when MLA is enabled  by @simon-mo in https://github.com/vllm-project/vllm/pull/12642
+```
 
 ## New Contributors
+```
 * @abmfy made their first contribution in https://github.com/vllm-project/vllm/pull/11194
 * @hosseinsarshar made their first contribution in https://github.com/vllm-project/vllm/pull/12453
 * @gmarinho2 made their first contribution in https://github.com/vllm-project/vllm/pull/12021
@@ -6237,6 +6394,7 @@ For the V1 architecture, we
 * @brian-dellabetta made their first contribution in https://github.com/vllm-project/vllm/pull/12585
 * @sleepwalker2017 made their first contribution in https://github.com/vllm-project/vllm/pull/11161
 * @eldarkurtic made their first contribution in https://github.com/vllm-project/vllm/pull/12617
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.7.0...v0.7.1
 
@@ -6263,6 +6421,7 @@ For the V1 architecture, we
 * Enable FusedSDPA support for Intel Gaudi (HPU) (#12359)
 
 ## What's Changed
+```
 * Apply torch.compile to fused_moe/grouped_topk by @mgoin in https://github.com/vllm-project/vllm/pull/12637
 * doc: fixing minor typo in readme.md by @vicenteherrera in https://github.com/vllm-project/vllm/pull/12643
 * [Bugfix] fix moe_wna16 get_quant_method by @jinzhen-lin in https://github.com/vllm-project/vllm/pull/12648
@@ -6329,8 +6488,10 @@ For the V1 architecture, we
 * Improve `TransformersModel` UX by @hmellor in https://github.com/vllm-project/vllm/pull/12785
 * [Misc] Remove duplicated DeepSeek V2/V3 model definition by @mgoin in https://github.com/vllm-project/vllm/pull/12793
 * [Misc] Improve error message for incorrect pynvml by @youkaichao in https://github.com/vllm-project/vllm/pull/12809
+```
 
 ## New Contributors
+```
 * @vicenteherrera made their first contribution in https://github.com/vllm-project/vllm/pull/12643
 * @chenyang78 made their first contribution in https://github.com/vllm-project/vllm/pull/12574
 * @srikanthsrnvs made their first contribution in https://github.com/vllm-project/vllm/pull/12570
@@ -6340,6 +6501,7 @@ For the V1 architecture, we
 * @akeshet made their first contribution in https://github.com/vllm-project/vllm/pull/12368
 * @arvindsun made their first contribution in https://github.com/vllm-project/vllm/pull/12717
 * @thedebugger made their first contribution in https://github.com/vllm-project/vllm/pull/11253
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.7.1...v0.7.2
 
@@ -6406,6 +6568,7 @@ For the V1 architecture, we
 * Run v1 benchmark and integrate with PyTorch OSS benchmark database (#13068)
 
 ## What's Changed
+```
 * [Misc] Update w2 scale loading for GPTQMarlinMoE by @dsikka in https://github.com/vllm-project/vllm/pull/12757
 * [Docs] Add Google Cloud Slides by @simon-mo in https://github.com/vllm-project/vllm/pull/12814
 * [Attention] Use FA3 for MLA on Hopper by @LucasWilkinson in https://github.com/vllm-project/vllm/pull/12807
@@ -6659,8 +6822,10 @@ For the V1 architecture, we
 * [Kernel] LoRA - Refactor sgmv kernels by @varun-sundar-rabindranath in https://github.com/vllm-project/vllm/pull/13110
 * Merge similar examples in `offline_inference` into single `basic` example by @hmellor in https://github.com/vllm-project/vllm/pull/12737
 * [Bugfix] Fix deepseekv3 grouped topk error by @Chen-XiaoBing in https://github.com/vllm-project/vllm/pull/13474
+```
 
 ## New Contributors
+```
 * @jitseklomp made their first contribution in https://github.com/vllm-project/vllm/pull/12840
 * @fabianlim made their first contribution in https://github.com/vllm-project/vllm/pull/10909
 * @ZSL98 made their first contribution in https://github.com/vllm-project/vllm/pull/12824
@@ -6690,6 +6855,7 @@ For the V1 architecture, we
 * @luccafong made their first contribution in https://github.com/vllm-project/vllm/pull/12755
 * @wilsonwu made their first contribution in https://github.com/vllm-project/vllm/pull/13561
 * @Chen-XiaoBing made their first contribution in https://github.com/vllm-project/vllm/pull/13474
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.7.2...v0.7.3
 
@@ -6698,6 +6864,7 @@ For the V1 architecture, we
 Note: vLLM no longer sets the global seed (#14274). Please set the `seed` parameter if you need to reproduce your results.
 
 ## What's Changed
+```
 * Update `pre-commit`'s `isort` version to remove warnings by @hmellor in https://github.com/vllm-project/vllm/pull/13614
 * [V1][Minor] Print KV cache size in token counts by @WoosukKwon in https://github.com/vllm-project/vllm/pull/13596
 * fix neuron performance issue by @ajayvohra2005 in https://github.com/vllm-project/vllm/pull/13589
@@ -7197,8 +7364,10 @@ Note: vLLM no longer sets the global seed (#14274). Please set the `seed` parame
 * [Misc] Replace os environ to monkeypatch in test suite by @t-sibiraj in https://github.com/vllm-project/vllm/pull/14516
 * [Benchmark] Do not save detailed info to json by default by @simon-mo in https://github.com/vllm-project/vllm/pull/14879
 * [V1] [Spec Decode] Support random sampling for spec decode by @LiuXiaoxuanPKU in https://github.com/vllm-project/vllm/pull/13933
+```
 
 ## New Contributors
+```
 * @ajayvohra2005 made their first contribution in https://github.com/vllm-project/vllm/pull/13589
 * @Edwinhr716 made their first contribution in https://github.com/vllm-project/vllm/pull/12913
 * @Hongbosherlock made their first contribution in https://github.com/vllm-project/vllm/pull/12978
@@ -7265,12 +7434,14 @@ Note: vLLM no longer sets the global seed (#14274). Please set the `seed` parame
 * @Flechman made their first contribution in https://github.com/vllm-project/vllm/pull/12211
 * @vadiklyutiy made their first contribution in https://github.com/vllm-project/vllm/pull/14901
 * @t-sibiraj made their first contribution in https://github.com/vllm-project/vllm/pull/14516
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.7.3...v0.8.0rc1
 
 ## v0.8.0rc2 (2025-03-17)
 
 ## What's Changed
+```
 * [V1] Remove input cache client by @DarkLight1337 in https://github.com/vllm-project/vllm/pull/14864
 * [Misc][XPU] Use None as device capacity for XPU by @yma11 in https://github.com/vllm-project/vllm/pull/14932
 * [Doc] Add vLLM Beijing meetup slide by @heheda12345 in https://github.com/vllm-project/vllm/pull/14938
@@ -7288,6 +7459,7 @@ Note: vLLM no longer sets the global seed (#14274). Please set the `seed` parame
 * [Bugfix][Model] Mixtral: use unused head_dim config argument by @qtrrb in https://github.com/vllm-project/vllm/pull/14961
 * [Fix][Structured Output] using vocab_size to construct matcher by @aarnphm in https://github.com/vllm-project/vllm/pull/14868
 * [Bugfix] Make Gemma3 MM V0 only for now by @ywang96 in https://github.com/vllm-project/vllm/pull/14971
+```
 
 ## New Contributors
 * @vllmellm made their first contribution in https://github.com/vllm-project/vllm/pull/14810
@@ -7481,6 +7653,7 @@ CI and Build
 
 
 ## What's Changed
+```
 * Update `pre-commit`'s `isort` version to remove warnings by @hmellor in https://github.com/vllm-project/vllm/pull/13614
 * [V1][Minor] Print KV cache size in token counts by @WoosukKwon in https://github.com/vllm-project/vllm/pull/13596
 * fix neuron performance issue by @ajayvohra2005 in https://github.com/vllm-project/vllm/pull/13589
@@ -7997,8 +8170,10 @@ CI and Build
 * [Bugfix][Model] Mixtral: use unused head_dim config argument by @qtrrb in https://github.com/vllm-project/vllm/pull/14961
 * [Fix][Structured Output] using vocab_size to construct matcher by @aarnphm in https://github.com/vllm-project/vllm/pull/14868
 * [Bugfix] Make Gemma3 MM V0 only for now by @ywang96 in https://github.com/vllm-project/vllm/pull/14971
+```
 
 ## New Contributors
+```
 * @ajayvohra2005 made their first contribution in https://github.com/vllm-project/vllm/pull/13589
 * @Edwinhr716 made their first contribution in https://github.com/vllm-project/vllm/pull/12913
 * @Hongbosherlock made their first contribution in https://github.com/vllm-project/vllm/pull/12978
@@ -8066,6 +8241,7 @@ CI and Build
 * @t-sibiraj made their first contribution in https://github.com/vllm-project/vllm/pull/14516
 * @vllmellm made their first contribution in https://github.com/vllm-project/vllm/pull/14810
 * @qtrrb made their first contribution in https://github.com/vllm-project/vllm/pull/14961
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.7.3...v0.8.0
 
@@ -8092,6 +8268,7 @@ This release contains important bug fixes for v0.8.0. We highly recommend upgrad
 
 
 ## What's Changed
+```
 * [Bugfix] Fix interface for Olmo2 on V1 by @ywang96 in https://github.com/vllm-project/vllm/pull/14976
 * [CI/Build] Use `AutoModelForImageTextToText` to load image models in tests by @DarkLight1337 in https://github.com/vllm-project/vllm/pull/14945
 * [V1] Guard Against Main Thread Usage by @robertgshaw2-redhat in https://github.com/vllm-project/vllm/pull/14972
@@ -8133,8 +8310,10 @@ This release contains important bug fixes for v0.8.0. We highly recommend upgrad
 * [Doc] Update the "the first vLLM China Meetup" slides link to point to the first page by @imkero in https://github.com/vllm-project/vllm/pull/15134
 * [Frontend] Remove custom_cache_manager by @fulvius31 in https://github.com/vllm-project/vllm/pull/13791
 * [V1] Minor V1 async engine test refactor by @andoorve in https://github.com/vllm-project/vllm/pull/15075
+```
 
 ## New Contributors
+```
 * @tristanleclercq made their first contribution in https://github.com/vllm-project/vllm/pull/14950
 * @hiyouga made their first contribution in https://github.com/vllm-project/vllm/pull/14899
 * @ekuznetsov139 made their first contribution in https://github.com/vllm-project/vllm/pull/14987
@@ -8143,6 +8322,7 @@ This release contains important bug fixes for v0.8.0. We highly recommend upgrad
 * @MarcCote made their first contribution in https://github.com/vllm-project/vllm/pull/15070
 * @jkaniecki made their first contribution in https://github.com/vllm-project/vllm/pull/15112
 * @fulvius31 made their first contribution in https://github.com/vllm-project/vllm/pull/13791
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.8.0...v0.8.1
 
@@ -8189,6 +8369,7 @@ This release contains important bug fix for the V1 engine's memory usage. We hig
 
 
 ## What's Changed
+```
 * [FEAT]Support reset prefix cache by specified device by @maobaolong in https://github.com/vllm-project/vllm/pull/15003
 * [BugFix][V1] Update stats.py by @WrRan in https://github.com/vllm-project/vllm/pull/15139
 * [V1][TPU] Change kv cache shape. by @vanbasten23 in https://github.com/vllm-project/vllm/pull/15145
@@ -8304,8 +8485,10 @@ This release contains important bug fix for the V1 engine's memory usage. We hig
 * [Bugfix] Fixed the issue of not being able to input video and image simultaneously by @chaunceyjiang in https://github.com/vllm-project/vllm/pull/15387
 * [V1] guidance backend for structured output + `auto` fallback mode by @russellb in https://github.com/vllm-project/vllm/pull/14779
 * [V1][Spec Decode] Update target_logits in place for rejection sampling by @WoosukKwon in https://github.com/vllm-project/vllm/pull/15427
+```
 
 ## New Contributors
+```
 * @maobaolong made their first contribution in https://github.com/vllm-project/vllm/pull/15003
 * @jovsa made their first contribution in https://github.com/vllm-project/vllm/pull/14713
 * @mickaelseznec made their first contribution in https://github.com/vllm-project/vllm/pull/14570
@@ -8323,12 +8506,14 @@ This release contains important bug fix for the V1 engine's memory usage. We hig
 * @sfbemerk made their first contribution in https://github.com/vllm-project/vllm/pull/15310
 * @manish-sethi made their first contribution in https://github.com/vllm-project/vllm/pull/10647
 * @yiliu30 made their first contribution in https://github.com/vllm-project/vllm/pull/15076
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.8.1...v0.8.2
 
 ## v0.8.3rc1 (2025-04-05)
 
 ## What's Changed
+```
 * Fix CUDA kernel index data type in vllm/csrc/quantization/gptq_marlin/awq_marlin_repack.cu +10 by @houseroad in https://github.com/vllm-project/vllm/pull/15160
 * [Hardware][TPU][Bugfix] Fix v1 mp profiler by @lsy323 in https://github.com/vllm-project/vllm/pull/15409
 * [Kernel][CPU] CPU MLA by @gau-nernst in https://github.com/vllm-project/vllm/pull/14744
@@ -8587,8 +8772,10 @@ This release contains important bug fix for the V1 engine's memory usage. We hig
 * [Kernel][Bugfix] Re-fuse triton moe weight application by @bnellnm in https://github.com/vllm-project/vllm/pull/16071
 * [Bugfix][TPU] Fix V1 TPU worker for sliding window by @mgoin in https://github.com/vllm-project/vllm/pull/16059
 * [V1][Spec Decode] Update N-gram Proposer Interface by @WoosukKwon in https://github.com/vllm-project/vllm/pull/15750
+```
 
 ## New Contributors
+```
 * @Shafi-Hussain made their first contribution in https://github.com/vllm-project/vllm/pull/15402
 * @oteroantoniogom made their first contribution in https://github.com/vllm-project/vllm/pull/15471
 * @cyyever made their first contribution in https://github.com/vllm-project/vllm/pull/15532
@@ -8627,6 +8814,7 @@ This release contains important bug fix for the V1 engine's memory usage. We hig
 * @lengrongfu made their first contribution in https://github.com/vllm-project/vllm/pull/15770
 * @StevenShi-23 made their first contribution in https://github.com/vllm-project/vllm/pull/15955
 * @jonghyunchoe made their first contribution in https://github.com/vllm-project/vllm/pull/15939
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.8.2...v0.8.3rc1
 
@@ -8697,6 +8885,7 @@ This release features 260 commits, 109 contributors, 38 new contributors.
 * TPU CI: Add basic perf regression test (#15414)
 
 ## What's Changed
+```
 * Fix CUDA kernel index data type in vllm/csrc/quantization/gptq_marlin/awq_marlin_repack.cu +10 by @houseroad in https://github.com/vllm-project/vllm/pull/15160
 * [Hardware][TPU][Bugfix] Fix v1 mp profiler by @lsy323 in https://github.com/vllm-project/vllm/pull/15409
 * [Kernel][CPU] CPU MLA by @gau-nernst in https://github.com/vllm-project/vllm/pull/14744
@@ -8956,8 +9145,10 @@ This release features 260 commits, 109 contributors, 38 new contributors.
 * [Bugfix][TPU] Fix V1 TPU worker for sliding window by @mgoin in https://github.com/vllm-project/vllm/pull/16059
 * [V1][Spec Decode] Update N-gram Proposer Interface by @WoosukKwon in https://github.com/vllm-project/vllm/pull/15750
 * [Model] Support Llama4 in vLLM by @houseroad in https://github.com/vllm-project/vllm/pull/16104
+```
 
 ## New Contributors
+```
 * @Shafi-Hussain made their first contribution in https://github.com/vllm-project/vllm/pull/15402
 * @oteroantoniogom made their first contribution in https://github.com/vllm-project/vllm/pull/15471
 * @cyyever made their first contribution in https://github.com/vllm-project/vllm/pull/15532
@@ -8995,6 +9186,7 @@ This release features 260 commits, 109 contributors, 38 new contributors.
 * @meffmadd made their first contribution in https://github.com/vllm-project/vllm/pull/13483
 * @lengrongfu made their first contribution in https://github.com/vllm-project/vllm/pull/15770
 * @StevenShi-23 made their first contribution in https://github.com/vllm-project/vllm/pull/15955
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.8.2...v0.8.3
 
@@ -9058,6 +9250,7 @@ This release includes important accuracy fixes for Llama4 models, if you are usi
 
 
 ## What's Changed
+```
 * [Misc] Auto detect bitsandbytes pre-quantized models by @tristanleclercq in https://github.com/vllm-project/vllm/pull/16027
 * [CI] Fix benchmark script level by @khluu in https://github.com/vllm-project/vllm/pull/16089
 * fix: support clang17 for macos and fix the real libomp by @yihong0618 in https://github.com/vllm-project/vllm/pull/16086
@@ -9237,8 +9430,10 @@ This release includes important accuracy fixes for Llama4 models, if you are usi
 * Enable PTPC FP8 for CompressedTensorsW8A8Fp8MoEMethod (triton fused_moe) by @mgoin in https://github.com/vllm-project/vllm/pull/16537
 * [Benchmark][Bugfix] Fix SonnetDataset default values in benchmark_throughput.py by @JenZhao in https://github.com/vllm-project/vllm/pull/16556
 * [Core][V0] Enable regex support with xgrammar by @russellb in https://github.com/vllm-project/vllm/pull/13228
+```
 
 ## New Contributors
+```
 * @bjj made their first contribution in https://github.com/vllm-project/vllm/pull/14501
 * @psschwei made their first contribution in https://github.com/vllm-project/vllm/pull/16025
 * @paolovic made their first contribution in https://github.com/vllm-project/vllm/pull/16093
@@ -9264,6 +9459,7 @@ This release includes important accuracy fixes for Llama4 models, if you are usi
 * @ezhoureal made their first contribution in https://github.com/vllm-project/vllm/pull/16466
 * @SnowCharmQ made their first contribution in https://github.com/vllm-project/vllm/pull/16484
 * @rymc made their first contribution in https://github.com/vllm-project/vllm/pull/16529
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.8.3...v0.8.4
 
@@ -9347,6 +9543,7 @@ This release features important multi-modal bug fixes, day 0 support for Qwen3, 
 * `--enable-chunked-prefill`, `--multi-step-stream-outputs`, `--disable-chunked-mm-input` can no longer explicitly be set to `False`. Instead, add `no-` to the start of the argument (i.e. `--enable-chunked-prefill` and `--no-enable-chunked-prefill`) (https://github.com/vllm-project/vllm/pull/16533)
 
 ## What's Changed
+```
 * Improve configs - `SchedulerConfig` by @hmellor in https://github.com/vllm-project/vllm/pull/16533
 * [Misc] remove warning if triton>=3.2.0 by @DefTruth in https://github.com/vllm-project/vllm/pull/16553
 * [Misc] refactor examples by @reidliu41 in https://github.com/vllm-project/vllm/pull/16563
@@ -9656,8 +9853,10 @@ This release features important multi-modal bug fixes, day 0 support for Qwen3, 
 * [BugFix] Fix cascade attention - RuntimeError: scheduler_metadata must have shape (metadata_size) by @LucasWilkinson in https://github.com/vllm-project/vllm/pull/17283
 * [Bugfix] Fix moe weight losing all extra attrs after `process_weights_after_loading`. by @charlifu in https://github.com/vllm-project/vllm/pull/16854
 * [Model] Qwen3 Dense FP8 Compat Fixes by @simon-mo in https://github.com/vllm-project/vllm/pull/17318
+```
 
 ## New Contributors
+```
 * @Nash-123 made their first contribution in https://github.com/vllm-project/vllm/pull/16036
 * @celestialli made their first contribution in https://github.com/vllm-project/vllm/pull/16562
 * @taneem-ibrahim made their first contribution in https://github.com/vllm-project/vllm/pull/16549
@@ -9713,6 +9912,7 @@ This release features important multi-modal bug fixes, day 0 support for Qwen3, 
 * @Ther-LF made their first contribution in https://github.com/vllm-project/vllm/pull/16751
 * @Eviannn made their first contribution in https://github.com/vllm-project/vllm/pull/17266
 * @idouba made their first contribution in https://github.com/vllm-project/vllm/pull/17288
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.8.4...v0.8.5
 
@@ -9818,6 +10018,7 @@ This release features 649 commits, from 215 contributors (82 new contributors!)
 
 
 ## What's Changed
+```
 * Support loading transformers models with named parameters by @wuisawesome in https://github.com/vllm-project/vllm/pull/16868
 * Add tuned triton fused_moe configs for Qwen3Moe by @mgoin in https://github.com/vllm-project/vllm/pull/17328
 * [Benchmark] Add single turn MTBench to Serving Bench by @ekagra-ranjan in https://github.com/vllm-project/vllm/pull/17202
@@ -10467,8 +10668,10 @@ This release features 649 commits, from 215 contributors (82 new contributors!)
 * optimize get_kv_cache_torch_dtype by @chunxiaozheng in https://github.com/vllm-project/vllm/pull/18531
 * [Core] Automatically cast multi-modal input dtype by @DarkLight1337 in https://github.com/vllm-project/vllm/pull/18756
 * [Bugfix] Mistral tool calling when content is list by @mgoin in https://github.com/vllm-project/vllm/pull/18729
+```
 
 ## New Contributors
+```
 * @r-barnes made their first contribution in https://github.com/vllm-project/vllm/pull/17316
 * @qscqesze made their first contribution in https://github.com/vllm-project/vllm/pull/16328
 * @ponix-j made their first contribution in https://github.com/vllm-project/vllm/pull/17100
@@ -10551,6 +10754,7 @@ This release features 649 commits, from 215 contributors (82 new contributors!)
 * @almersawi made their first contribution in https://github.com/vllm-project/vllm/pull/18565
 * @huangyuxiang03 made their first contribution in https://github.com/vllm-project/vllm/pull/18739
 * @chunxiaozheng made their first contribution in https://github.com/vllm-project/vllm/pull/18531
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.8.5.post1...v0.9.0
 
@@ -10563,6 +10767,7 @@ This patch release contains important bugfix for DeepSeek family of models on NV
 ## v0.9.1rc1 (2025-06-09)
 
 ## What's Changed
+```
 * [CI/Build] [TPU] Fix TPU CI exit code by @CAROLZXYZXY in https://github.com/vllm-project/vllm/pull/18282
 * [Neuron] Support quantization on neuron by @aws-satyajith in https://github.com/vllm-project/vllm/pull/18283
 * Support datasets in `vllm bench serve` and sync with benchmark_[serving,datasets].py by @mgoin in https://github.com/vllm-project/vllm/pull/18566
@@ -10820,8 +11025,10 @@ This patch release contains important bugfix for DeepSeek family of models on NV
 * [TPU]Fix KV cache sharing tests by @lsy323 in https://github.com/vllm-project/vllm/pull/19371
 * [HOT-FIX] Add `kv_sharing_target_layer_name` argument to cutlass_mla backend by @pavanimajety in https://github.com/vllm-project/vllm/pull/19374
 * [Misc] Fix a config typo in disable_hybrid_kv_cache_manager configuration by @lsy323 in https://github.com/vllm-project/vllm/pull/19383
+```
 
 ## New Contributors
+```
 * @nerdalert made their first contribution in https://github.com/vllm-project/vllm/pull/18856
 * @Duyi-Wang made their first contribution in https://github.com/vllm-project/vllm/pull/18692
 * @jinyouzhi made their first contribution in https://github.com/vllm-project/vllm/pull/18918
@@ -10846,6 +11053,7 @@ This patch release contains important bugfix for DeepSeek family of models on NV
 * @KsuParkhamchuk made their first contribution in https://github.com/vllm-project/vllm/pull/19288
 * @cr7258 made their first contribution in https://github.com/vllm-project/vllm/pull/19333
 * @liusiqian-tal made their first contribution in https://github.com/vllm-project/vllm/pull/18472
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.9.0...v0.9.1rc1
 
@@ -10903,6 +11111,7 @@ This release features **274 commits, from 123 contributors (27 new contributors!
 
 
 ## What's Changed
+```
 * [CI/Build] [TPU] Fix TPU CI exit code by @CAROLZXYZXY in https://github.com/vllm-project/vllm/pull/18282
 * [Neuron] Support quantization on neuron by @aws-satyajith in https://github.com/vllm-project/vllm/pull/18283
 * Support datasets in `vllm bench serve` and sync with benchmark_[serving,datasets].py by @mgoin in https://github.com/vllm-project/vllm/pull/18566
@@ -11177,8 +11386,10 @@ This release features **274 commits, from 123 contributors (27 new contributors!
 * [BugFix][CPU] Fix CPU CI by ignore collecting test_pixtral by @bigPYJ1151 in https://github.com/vllm-project/vllm/pull/19411
 * Simplify ep kernels installation by @youkaichao in https://github.com/vllm-project/vllm/pull/19412
 * [Misc] Slight improvement of the BNB  by @jeejeelee in https://github.com/vllm-project/vllm/pull/19418
+```
 
 ## New Contributors
+```
 * @nerdalert made their first contribution in https://github.com/vllm-project/vllm/pull/18856
 * @Duyi-Wang made their first contribution in https://github.com/vllm-project/vllm/pull/18692
 * @jinyouzhi made their first contribution in https://github.com/vllm-project/vllm/pull/18918
@@ -11206,12 +11417,14 @@ This release features **274 commits, from 123 contributors (27 new contributors!
 * @annapendleton made their first contribution in https://github.com/vllm-project/vllm/pull/19369
 * @louie-tsai made their first contribution in https://github.com/vllm-project/vllm/pull/17930
 * @YUNQIUGUO made their first contribution in https://github.com/vllm-project/vllm/pull/19134
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.9.0...v0.9.1
 
 ## v0.9.2rc1 (2025-07-03)
 
 ## What's Changed
+```
 * [Docs] Note that alternative structured output backends are supported by @russellb in https://github.com/vllm-project/vllm/pull/19426
 * [ROCm][V1] Adding ROCm to the list of plaforms using V1 by default by @gshtras in https://github.com/vllm-project/vllm/pull/19440
 * [Model] use AutoWeightsLoader for commandr by @py-andy-c in https://github.com/vllm-project/vllm/pull/19399
@@ -11625,8 +11838,10 @@ This release features **274 commits, from 123 contributors (27 new contributors!
 * [Misc] Clean up InternVL family config registration by @Isotr0py in https://github.com/vllm-project/vllm/pull/19992
 * [Misc] adjust for ipv6 for mookcacke url parse by @andyxning in https://github.com/vllm-project/vllm/pull/20107
 * [Misc] Remove _maybe_ignore_quant_config from GLM4.1v by @zRzRzRzRzRzRzR in https://github.com/vllm-project/vllm/pull/20432
+```
 
 ## New Contributors
+```
 * @py-andy-c made their first contribution in https://github.com/vllm-project/vllm/pull/19399
 * @2niuhe made their first contribution in https://github.com/vllm-project/vllm/pull/19394
 * @leopardracer made their first contribution in https://github.com/vllm-project/vllm/pull/19442
@@ -11685,12 +11900,14 @@ This release features **274 commits, from 123 contributors (27 new contributors!
 * @huaqiangwang made their first contribution in https://github.com/vllm-project/vllm/pull/20322
 * @zichongli5 made their first contribution in https://github.com/vllm-project/vllm/pull/20286
 * @cronoik-inceptionai made their first contribution in https://github.com/vllm-project/vllm/pull/20373
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.9.1...v0.9.2rc1
 
 ## v0.9.2rc2 (2025-07-06)
 
 ## What's Changed
+```
 * [Kernel] Enable fp8 support for pplx and BatchedTritonExperts. by @bnellnm in https://github.com/vllm-project/vllm/pull/18864
 * [Misc] Fix `Unable to detect current VLLM config. Defaulting to NHD kv cache layout` warning by @NickLucche in https://github.com/vllm-project/vllm/pull/20400
 * [Bugfix] Register reducer even if transformers_modules not available by @eicherseiji in https://github.com/vllm-project/vllm/pull/19510
@@ -11730,12 +11947,15 @@ This release features **274 commits, from 123 contributors (27 new contributors!
 * [V1] Support any head size for FlexAttention backend by @DarkLight1337 in https://github.com/vllm-project/vllm/pull/20467
 * [BugFix][Spec Decode] Fix spec token ids in model runner by @WoosukKwon in https://github.com/vllm-project/vllm/pull/20530
 * [Bugfix] Add `use_cross_encoder` flag to use correct activation in `ClassifierPooler` by @DarkLight1337 in https://github.com/vllm-project/vllm/pull/20527
+```
 
 ## New Contributors
+```
 * @sangbumlikeagod made their first contribution in https://github.com/vllm-project/vllm/pull/18809
 * @djmmoss made their first contribution in https://github.com/vllm-project/vllm/pull/19757
 * @GuyStone made their first contribution in https://github.com/vllm-project/vllm/pull/20497
 * @bottler made their first contribution in https://github.com/vllm-project/vllm/pull/20487
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.9.2rc1...v0.9.2rc2
 
@@ -11795,6 +12015,7 @@ This release contains 452 commits from 167 contributors (31 new!)
 
 
 ## What's Changed
+```
 * [Docs] Note that alternative structured output backends are supported by @russellb in https://github.com/vllm-project/vllm/pull/19426
 * [ROCm][V1] Adding ROCm to the list of plaforms using V1 by default by @gshtras in https://github.com/vllm-project/vllm/pull/19440
 * [Model] use AutoWeightsLoader for commandr by @py-andy-c in https://github.com/vllm-project/vllm/pull/19399
@@ -12247,8 +12468,10 @@ This release contains 452 commits from 167 contributors (31 new!)
 * [V1] Support any head size for FlexAttention backend by @DarkLight1337 in https://github.com/vllm-project/vllm/pull/20467
 * [BugFix][Spec Decode] Fix spec token ids in model runner by @WoosukKwon in https://github.com/vllm-project/vllm/pull/20530
 * [Bugfix] Add `use_cross_encoder` flag to use correct activation in `ClassifierPooler` by @DarkLight1337 in https://github.com/vllm-project/vllm/pull/20527
+```
 
 ## New Contributors
+```
 * @py-andy-c made their first contribution in https://github.com/vllm-project/vllm/pull/19399
 * @2niuhe made their first contribution in https://github.com/vllm-project/vllm/pull/19394
 * @leopardracer made their first contribution in https://github.com/vllm-project/vllm/pull/19442
@@ -12310,12 +12533,14 @@ This release contains 452 commits from 167 contributors (31 new!)
 * @djmmoss made their first contribution in https://github.com/vllm-project/vllm/pull/19757
 * @GuyStone made their first contribution in https://github.com/vllm-project/vllm/pull/20497
 * @bottler made their first contribution in https://github.com/vllm-project/vllm/pull/20487
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.9.1...v0.9.2
 
 ## v0.10.0rc1 (2025-07-20)
 
 ## What's Changed
+```
 * [Kernel] Enable fp8 support for pplx and BatchedTritonExperts. by @bnellnm in https://github.com/vllm-project/vllm/pull/18864
 * [Misc] Fix `Unable to detect current VLLM config. Defaulting to NHD kv cache layout` warning by @NickLucche in https://github.com/vllm-project/vllm/pull/20400
 * [Bugfix] Register reducer even if transformers_modules not available by @eicherseiji in https://github.com/vllm-project/vllm/pull/19510
@@ -12685,8 +12910,10 @@ This release contains 452 commits from 167 contributors (31 new!)
 * [Docs] [V1] Update docs to remove enforce_eager limitation for hybrid models. by @tdoublep in https://github.com/vllm-project/vllm/pull/21233
 * [TPU] support fp8 kv cache quantization by @yaochengji in https://github.com/vllm-project/vllm/pull/19292
 * Enable v1 metrics tests by @eicherseiji in https://github.com/vllm-project/vllm/pull/20953
+```
 
 ## New Contributors
+```
 * @sangbumlikeagod made their first contribution in https://github.com/vllm-project/vllm/pull/18809
 * @djmmoss made their first contribution in https://github.com/vllm-project/vllm/pull/19757
 * @GuyStone made their first contribution in https://github.com/vllm-project/vllm/pull/20497
@@ -12735,12 +12962,14 @@ This release contains 452 commits from 167 contributors (31 new!)
 * @hax0r31337 made their first contribution in https://github.com/vllm-project/vllm/pull/21077
 * @Deepfocused made their first contribution in https://github.com/vllm-project/vllm/pull/21060
 * @fhl2000 made their first contribution in https://github.com/vllm-project/vllm/pull/21228
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.9.2rc1...v0.10.0rc1
 
 ## v0.10.0rc2 (2025-07-24)
 
 ## What's Changed
+```
 * [Model] use AutoWeightsLoader for bart by @calvin0327 in https://github.com/vllm-project/vllm/pull/18299
 * [Model] Support VLMs with transformers backend by @zucchini-nlp in https://github.com/vllm-project/vllm/pull/20543
 * [bugfix] fix syntax warning caused by backslash by @1195343015 in https://github.com/vllm-project/vllm/pull/21251
@@ -12835,8 +13064,10 @@ This release contains 452 commits from 167 contributors (31 new!)
 * Dump input metadata on crash for async scheduling by @WoosukKwon in https://github.com/vllm-project/vllm/pull/21258
 * [BugFix] Set CUDA_VISIBLE_DEVICES before spawning the subprocesses by @yinghai in https://github.com/vllm-project/vllm/pull/21211
 * Add think chunk by @juliendenize in https://github.com/vllm-project/vllm/pull/21333
+```
 
 ## New Contributors
+```
 * @chaojun-zhang made their first contribution in https://github.com/vllm-project/vllm/pull/21021
 * @alyosha-swamy made their first contribution in https://github.com/vllm-project/vllm/pull/21296
 * @bbartels made their first contribution in https://github.com/vllm-project/vllm/pull/21330
@@ -12851,6 +13082,7 @@ This release contains 452 commits from 167 contributors (31 new!)
 * @MatthewBonanni made their first contribution in https://github.com/vllm-project/vllm/pull/21468
 * @david6666666 made their first contribution in https://github.com/vllm-project/vllm/pull/21437
 * @KazusatoOoko made their first contribution in https://github.com/vllm-project/vllm/pull/21390
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.10.0rc1...v0.10.0rc2
 
@@ -12897,6 +13129,7 @@ v0.10.0 release includes 308 commits, 168 contributors (62 new!).
 * FlashInfer updated to v0.2.8rc1 (#20718)
 
 ## What's Changed
+```
 * [Docs] Note that alternative structured output backends are supported by @russellb in https://github.com/vllm-project/vllm/pull/19426
 * [ROCm][V1] Adding ROCm to the list of plaforms using V1 by default by @gshtras in https://github.com/vllm-project/vllm/pull/19440
 * [Model] use AutoWeightsLoader for commandr by @py-andy-c in https://github.com/vllm-project/vllm/pull/19399
@@ -13773,8 +14006,10 @@ v0.10.0 release includes 308 commits, 168 contributors (62 new!).
 * Dump input metadata on crash for async scheduling by @WoosukKwon in https://github.com/vllm-project/vllm/pull/21258
 * [BugFix] Set CUDA_VISIBLE_DEVICES before spawning the subprocesses by @yinghai in https://github.com/vllm-project/vllm/pull/21211
 * Add think chunk by @juliendenize in https://github.com/vllm-project/vllm/pull/21333
+```
 
 ## New Contributors
+```
 * @py-andy-c made their first contribution in https://github.com/vllm-project/vllm/pull/19399
 * @2niuhe made their first contribution in https://github.com/vllm-project/vllm/pull/19394
 * @leopardracer made their first contribution in https://github.com/vllm-project/vllm/pull/19442
@@ -13889,12 +14124,14 @@ v0.10.0 release includes 308 commits, 168 contributors (62 new!).
 * @MatthewBonanni made their first contribution in https://github.com/vllm-project/vllm/pull/21468
 * @david6666666 made their first contribution in https://github.com/vllm-project/vllm/pull/21437
 * @KazusatoOoko made their first contribution in https://github.com/vllm-project/vllm/pull/21390
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.9.1...v0.10.0
 
 ## v0.10.1rc1 (2025-08-17)
 
 ## What's Changed
+```
 * Deduplicate Transformers backend code using inheritance by @hmellor in https://github.com/vllm-project/vllm/pull/21461
 * [Bugfix][ROCm] Fix for warp_size uses on host by @gshtras in https://github.com/vllm-project/vllm/pull/21205
 * [TPU][Bugfix] fix moe layer by @yaochengji in https://github.com/vllm-project/vllm/pull/21340
@@ -14622,8 +14859,10 @@ v0.10.0 release includes 308 commits, 168 contributors (62 new!).
 * [Misc] Convert use_structured_output property into constant by @WoosukKwon in https://github.com/vllm-project/vllm/pull/23060
 * [XPU] fix xpu to set cudagraph batch sizes by @calvin0327 in https://github.com/vllm-project/vllm/pull/23044
 * fix: gptq marlin weight loading failure by @simon-mo in https://github.com/vllm-project/vllm/pull/23066
+```
 
 ## New Contributors
+```
 * @zhouwfang made their first contribution in https://github.com/vllm-project/vllm/pull/21407
 * @juncgu made their first contribution in https://github.com/vllm-project/vllm/pull/18293
 * @weireweire made their first contribution in https://github.com/vllm-project/vllm/pull/21485
@@ -14729,6 +14968,7 @@ v0.10.0 release includes 308 commits, 168 contributors (62 new!).
 * @minpeter made their first contribution in https://github.com/vllm-project/vllm/pull/16890
 * @947132885 made their first contribution in https://github.com/vllm-project/vllm/pull/22972
 * @KevinZeng08 made their first contribution in https://github.com/vllm-project/vllm/pull/23051
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.10.0...v0.10.1rc1
 
@@ -14755,6 +14995,7 @@ v0.10.1 release includes 727 commits, 245 committers (105 new contributors).
 * **Extensibility and configuration**: Model loader plugin system (#21067), custom operations support for FusedMoe (#22509), rate limiting with bucket algorithm for proxy server (#22643), torch.compile support for bailing MoE (#21664).
 * **Performance optimizations**: Improved startup time by disabling C++ compilation of symbolic shapes (#20836), enhanced headless models for pooling in Transformers backend (#21767).
 
+```
 ### Hardware & Performance
 * **NVIDIA Blackwell (SM100) optimizations**: CutlassMLA as default backend (#21626), FlashInfer MoE per-tensor scale FP8 backend (#21458), SM90 CUTLASS FP8 GEMM with kernel tuning and swap AB support (#20396).
 * **NVIDIA RTX 5090/RTX PRO 6000 (SM120) support**: Block FP8 quantization (#22131) and CUTLASS NVFP4 4-bit weights/activations support (#21309).
@@ -14764,6 +15005,7 @@ v0.10.1 release includes 727 commits, 245 committers (105 new contributors).
 * **Parallelization and MoE optimizations**: Guided decoding throughput improvements (#21862), balanced expert sharding for MoE models (#21497), expanded fused kernel support for topk softmax (#22211), fused MoE for nomic-embed-text-v2-moe (#18321).
 * **Hardware compatibility and kernels**: ARM CPU build fixes for systems without BF16 support (#21848), Machete memory-bound performance improvements (#21556), FlashInfer TRT-LLM prefill attention kernel support (#22095), optimized `reshape_and_cache_flash` CUDA kernel (#22036), CPU transfer support in NixlConnector (#18293).
 * **Specialized CUDA kernels**: GPT-OSS activation functions (#22538), RLHF weight loading acceleration (#21164).
+```
 
 ### Quantization
 * **Advanced quantization techniques**: MXFP4 and bias support for Marlin kernel (#22428), NVFP4 GEMM FlashInfer backends (#22346), compressed-tensors mixed-precision model loading (#22468), FlashInfer MoE support for NVFP4 (#21639).
@@ -14795,6 +15037,7 @@ v0.10.1 release includes 727 commits, 245 committers (105 new contributors).
 
 
 ## What's Changed
+```
 * Deduplicate Transformers backend code using inheritance by @hmellor in https://github.com/vllm-project/vllm/pull/21461
 * [Bugfix][ROCm] Fix for warp_size uses on host by @gshtras in https://github.com/vllm-project/vllm/pull/21205
 * [TPU][Bugfix] fix moe layer by @yaochengji in https://github.com/vllm-project/vllm/pull/21340
@@ -15522,8 +15765,10 @@ v0.10.1 release includes 727 commits, 245 committers (105 new contributors).
 * [Misc] Convert use_structured_output property into constant by @WoosukKwon in https://github.com/vllm-project/vllm/pull/23060
 * [XPU] fix xpu to set cudagraph batch sizes by @calvin0327 in https://github.com/vllm-project/vllm/pull/23044
 * fix: gptq marlin weight loading failure by @simon-mo in https://github.com/vllm-project/vllm/pull/23066
+```
 
 ## New Contributors
+```
 * @zhouwfang made their first contribution in https://github.com/vllm-project/vllm/pull/21407
 * @juncgu made their first contribution in https://github.com/vllm-project/vllm/pull/18293
 * @weireweire made their first contribution in https://github.com/vllm-project/vllm/pull/21485
@@ -15629,6 +15874,7 @@ v0.10.1 release includes 727 commits, 245 committers (105 new contributors).
 * @minpeter made their first contribution in https://github.com/vllm-project/vllm/pull/16890
 * @947132885 made their first contribution in https://github.com/vllm-project/vllm/pull/22972
 * @KevinZeng08 made their first contribution in https://github.com/vllm-project/vllm/pull/23051
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.10.0...v0.10.1
 
@@ -15657,12 +15903,14 @@ uv pip install vllm==0.10.2 --extra-index-url https://wheels.vllm.ai/0.10.2/ --t
 ```
 
 ### Model Support
+```
 * **New model families and enhancements**: Apertus (#23068), LFM2 (#22845), MiDashengLM (#23652), Motif-1-Tiny (#23414), Seed-Oss (#23241), Google EmbeddingGemma-300m (#24318), GTE sequence classification (#23524), Donut OCR model (#23229), KeyeVL-1.5-8B (#23838), R-4B vision model (#23246), Ernie4.5 VL (#22514), MiniCPM-V 4.5 (#23586), Ovis2.5 (#23084), Qwen3-Next with hybrid attention (#24526), InternVL3.5 with video support (#23658), Qwen2Audio embeddings (#23625), NemotronH Nano VLM (#23644), BLOOM V1 engine support (#23488), and Whisper encoder-decoder for V1 (#21088).
 * **Pipeline parallelism expansion**: Added PP support for Hunyuan (#24212), Ovis2.5 (#23405), GPT-OSS (#23680), and Kimi-VL-A3B-Thinking-2506 (#23114).
 * **Data parallelism for vision models**: Enabled DP for ViT across Qwen2.5VL (#22742), MiniCPM-V (#23948, #23327), Kimi-VL (#23817), and GLM-4.5V (#23168).
 * **LoRA ecosystem expansion**: Added LoRA support to Voxtral (#24517), Qwen-2.5-Omni (#24231), and DeepSeek models V2/V3/R1-0528 (#23971), with significantly faster LoRA startup performance (#23777).
 * **Classification and pooling enhancements**: Multi-label classification support (#23173), logit bias and sigmoid normalization (#24031), and FP32 precision heads for pooling models (#23810).
 * **Performance optimizations**: Removed unnecessary CUDA sync from GLM-4.1V (#24332) and Qwen2VL (#24334) preprocessing, eliminated redundant all-reduce in Qwen3 MoE (#23169), optimized InternVL CPU threading (#24519), and GLM4.5-V video frame decoding (#24161).
+```
 
 ### Engine Core
 * **V1 engine maturation**: Extended V1 support to compute capability < 8.0 (#23614, #24022), added cross-attention KV cache for encoder-decoder models (#23664), request-level logits processor integration (#23656), and KV events from connectors (#19737).
@@ -15712,6 +15960,7 @@ uv pip install vllm==0.10.2 --extra-index-url https://wheels.vllm.ai/0.10.2/ --t
 6. **Metrics renaming** - TPOT deprecated in favor of ITL
 
 ## What's Changed
+```
 * [Misc] Minor code cleanup for _get_prompt_logprobs_dict by @WoosukKwon in https://github.com/vllm-project/vllm/pull/23064
 * [Misc] enhance static type hint by @andyxning in https://github.com/vllm-project/vllm/pull/23059
 * [Bugfix] fix Qwen2.5-Omni processor output mapping by @DoubleVII in https://github.com/vllm-project/vllm/pull/23058
@@ -16452,8 +16701,10 @@ uv pip install vllm==0.10.2 --extra-index-url https://wheels.vllm.ai/0.10.2/ --t
 * [Startup] Make DeepGEMM warmup scale with max-num-batched-tokens by @LucasWilkinson in https://github.com/vllm-project/vllm/pull/24693
 * [V1] feat:add engine v1 tracing by @RichardoMrMu in https://github.com/vllm-project/vllm/pull/20372
 * [Bugfix] fixes the causal_conv1d_update kernel update non-speculative decoding cases by @sighingnow in https://github.com/vllm-project/vllm/pull/24680
+```
 
 ## New Contributors
+```
 * @DoubleVII made their first contribution in https://github.com/vllm-project/vllm/pull/23058
 * @carlory made their first contribution in https://github.com/vllm-project/vllm/pull/23090
 * @nikheal2 made their first contribution in https://github.com/vllm-project/vllm/pull/22725
@@ -16548,6 +16799,7 @@ uv pip install vllm==0.10.2 --extra-index-url https://wheels.vllm.ai/0.10.2/ --t
 * @qandrew made their first contribution in https://github.com/vllm-project/vllm/pull/24127
 * @Zazzle516 made their first contribution in https://github.com/vllm-project/vllm/pull/18698
 * @RichardoMrMu made their first contribution in https://github.com/vllm-project/vllm/pull/20372
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.10.1.1...v0.10.2rc3
 
@@ -16627,6 +16879,7 @@ Note: In v0.11.0 (and v0.10.2), `--async-scheduling` will produce gibberish outp
 * Interfaces: LoRA (#25686), async output processor (#25334), MultiModalPlaceholderMap (#25366), seq group methods (#25330), placeholder attention (#25510), input embeddings (#25242), multimodal registry (#25362), max_seq_len_to_capture (#25543), attention classes (#25541), hybrid models (#25400), backend suffixes (#25489), compilation fallbacks (#25675), default args (#25409).
 
 ## What's Changed
+```
 * [Qwen3-Next] MoE configs for H20 TP=1,2,4,8 by @jeejeelee in https://github.com/vllm-project/vllm/pull/24707
 * [DOCs] Update ROCm installation docs section by @gshtras in https://github.com/vllm-project/vllm/pull/24691
 * Enable conversion of multimodal models to pooling tasks by @maxdebayser in https://github.com/vllm-project/vllm/pull/24451
@@ -17165,8 +17418,10 @@ Note: In v0.11.0 (and v0.10.2), `--async-scheduling` will produce gibberish outp
 * [Fix][torch.compile] fix unique_filepath by @ZJY0516 in https://github.com/vllm-project/vllm/pull/25732
 * Eagle3 that supports the Minicpm3 model by @LDLINGLINGLING in https://github.com/vllm-project/vllm/pull/24243
 * [Doc]: improve CPU(x86) build-wheel-from-source section by @brokedba in https://github.com/vllm-project/vllm/pull/25617
+```
 
 ## New Contributors
+```
 * @SamitHuang made their first contribution in https://github.com/vllm-project/vllm/pull/24733
 * @rozeappletree made their first contribution in https://github.com/vllm-project/vllm/pull/24785
 * @ChenTaoyu-SJTU made their first contribution in https://github.com/vllm-project/vllm/pull/24732
@@ -17228,6 +17483,7 @@ Note: In v0.11.0 (and v0.10.2), `--async-scheduling` will produce gibberish outp
 * @Iceber made their first contribution in https://github.com/vllm-project/vllm/pull/25744
 * @LDLINGLINGLING made their first contribution in https://github.com/vllm-project/vllm/pull/24243
 * @brokedba made their first contribution in https://github.com/vllm-project/vllm/pull/25617
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.10.2...v0.11.0
 
@@ -17237,15 +17493,18 @@ Note: In v0.11.0 (and v0.10.2), `--async-scheduling` will produce gibberish outp
 This release includes 1456 commits from 449 contributors (184 new contributors)!
 
 Key changes include:
+```
 * **PyTorch 2.9.0 + CUDA 12.9.1**: Updated the default CUDA build to `torch==2.9.0+cu129`, enabling Inductor partitioning and landing multiple fixes in graph-partition rules and compile-cache integration.
 * **Batch-invariant `torch.compile`**: Generalized batch-invariant support across attention and MoE backends, with explicit support for DeepGEMM and FlashInfer on Hopper and Blackwell GPUs.
 * **Robust async scheduling**: Fixed several correctness and stability issues in async scheduling, especially when combined with chunked prefill, structured outputs, priority scheduling, MTP, and DeepEP / DCP. We expect `--async-scheduling` to be enabled by default in the next release.
 * **Stronger scheduler + KV ecosystem**: Improved test coverage in CI and made scheduler behavior more robust with KV connectors, prefix caching, and multi-node deployments.
 * **Anthropic API Support**: Added support for the `/v1/messages` endpoint, allowing users to interact with `vllm serve` using Anthropic-compatible clients.
+```
 
 Detailed release notes will be updated in the next few days.
 
 ## What's Changed
+```
 * [Bugfix] Improve GLM4 MoE Reasoning Parser's is_reasoning_end Condition (@frankwang28 #25355)
 * [Docs] Add Toronto Meetup (@mgoin #25773)
 * [CI] Add E2E Blackwell Quantized MoE Test (@mgoin #25723)
@@ -18702,8 +18961,10 @@ Detailed release notes will be updated in the next few days.
 * [MISC] Remove format.sh (@KuntaiDu #28906)
 * [CI/Build] Replace wikipedia url with local server ones (@Isotr0py #28908)
 * [BugFix] Fix PP/async scheduling with pooling models (@njhill #28899)
+```
 
 ## New Contributors
+```
 * @bwasti first commit is #25603
 * @Renovamen first commit is #25796
 * @patrick-toulme first commit is #25084
@@ -18888,6 +19149,7 @@ Detailed release notes will be updated in the next few days.
 * @Ronald1995 first commit is #24799
 * @shreyas269 first commit is #28435
 * @pranav4501 first commit is #28332
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.11.0...v0.11.1
 
@@ -19039,6 +19301,7 @@ This release features 474 commits from 213 contributors (57 new)！
 
 
 ## New Contributors
+```
 * @jesse996 made their first contribution in https://github.com/vllm-project/vllm/pull/28846
 * @Nepherpitou made their first contribution in https://github.com/vllm-project/vllm/pull/28960
 * @Samoed made their first contribution in https://github.com/vllm-project/vllm/pull/27329
@@ -19098,6 +19361,7 @@ This release features 474 commits from 213 contributors (57 new)！
 * @knlnguyen1802 made their first contribution in https://github.com/vllm-project/vllm/pull/28525
 * @finbarrtimbers made their first contribution in https://github.com/vllm-project/vllm/pull/29796
 * @hholtmann made their first contribution in https://github.com/vllm-project/vllm/pull/29711
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.11.1...v0.12.0
 
@@ -19187,6 +19451,7 @@ This release features **442 commits from 207 contributors (61 new contributors)!
 
 ## New Contributors 🎉
 
+```
 * @ajpqs made their first contribution in https://github.com/vllm-project/vllm/pull/29905
 * @amitz-nv made their first contribution in https://github.com/vllm-project/vllm/pull/29978
 * @amrmahdi made their first contribution in https://github.com/vllm-project/vllm/pull/29452
@@ -19248,6 +19513,7 @@ This release features **442 commits from 207 contributors (61 new contributors)!
 * @yuttian1 made their first contribution in https://github.com/vllm-project/vllm/pull/30102
 * @ZhijianJiang made their first contribution in https://github.com/vllm-project/vllm/pull/30219
 * @ZhiweiYan-96 made their first contribution in https://github.com/vllm-project/vllm/pull/29773
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.12.0...v0.13.0
 
@@ -19444,6 +19710,7 @@ This release features approximately 660 commits from 251 contributors (86 new co
 - Claude Code example (#31188)
 - CustomOp developer guide (#30886)
 
+```
 ## New Contributors 🎉
 * @penfree made their first contribution in https://github.com/vllm-project/vllm/pull/30237
 * @jiangkuaixue123 made their first contribution in https://github.com/vllm-project/vllm/pull/30120
@@ -19531,6 +19798,7 @@ This release features approximately 660 commits from 251 contributors (86 new co
 * @andyzhangx made their first contribution in https://github.com/vllm-project/vllm/pull/32185
 * @sanghoon-yn made their first contribution in https://github.com/vllm-project/vllm/pull/31956
 * @potatosalad made their first contribution in https://github.com/vllm-project/vllm/pull/32212
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.13.0...v0.14.0
 
@@ -19618,6 +19886,7 @@ This release features 335 commits from 158 contributors (39 new)!
 
 ---
 
+```
 ## New Contributors 🎉
 * @YunzhuLu made their first contribution in https://github.com/vllm-project/vllm/pull/32126
 * @emricksini-h made their first contribution in https://github.com/vllm-project/vllm/pull/30784
@@ -19658,6 +19927,7 @@ This release features 335 commits from 158 contributors (39 new)!
 * @Chenhao-Guan made their first contribution in https://github.com/vllm-project/vllm/pull/32763
 * @joshuadeng made their first contribution in https://github.com/vllm-project/vllm/pull/28973
 * @ZhanqiuHu made their first contribution in https://github.com/vllm-project/vllm/pull/33016
+```
 
 **Full Changelog**: https://github.com/vllm-project/vllm/compare/v0.14.1...v0.15.0
 
@@ -19781,6 +20051,7 @@ This release features 440 commits from 203 contributors (7 new)!
 ---
 ## New Contributors 🎉
 
+```
 * @aabbccddwasd made their first contribution in https://github.com/vllm-project/vllm/pull/33771
 * @Code4me2 made their first contribution in https://github.com/vllm-project/vllm/pull/33517
 * @ikchifo made their first contribution in https://github.com/vllm-project/vllm/pull/33967
@@ -19788,6 +20059,7 @@ This release features 440 commits from 203 contributors (7 new)!
 * @pjs102793 made their first contribution in https://github.com/vllm-project/vllm/pull/33963
 * @sleepcoo made their first contribution in https://github.com/vllm-project/vllm/pull/33978
 * @TundeAtSN made their first contribution in https://github.com/vllm-project/vllm/pull/33939
+```
 
 ## v0.17.0 (2026-03-07)
 
@@ -19951,6 +20223,7 @@ This release features 699 commits from 272 contributors (48 new)!
 
 ## New Contributors 🎉
 
+```
 * @2ez4bz made their first contribution in https://github.com/vllm-project/vllm/pull/33607
 * @Alibaba-HZY made their first contribution in https://github.com/vllm-project/vllm/pull/35289
 * @aykoppol made their first contribution in https://github.com/vllm-project/vllm/pull/35451
@@ -20000,6 +20273,7 @@ This release features 699 commits from 272 contributors (48 new)!
 * @yoonsnowdev made their first contribution in https://github.com/vllm-project/vllm/pull/35382
 * @ZhongsJie made their first contribution in https://github.com/vllm-project/vllm/pull/35835
 * @MekayelAnik made their first contribution in https://github.com/vllm-project/vllm/pull/35466
+```
 
 ## v0.17.1 (2026-03-11)
 
@@ -20075,12 +20349,14 @@ This release features 445 commits from 213 contributors (61 new)!
 * **Performance**: 5% E2E improvement for PD disaggregation scheduling (#35781), packed recurrent decode fast path (#36596), pooling model maxsim 2.7%+3.2% throughput (#36159, #36710).
 * **torch.compile**: FakeTensors instead of real GPU tensors for single-size compilation (#36093), non-contiguous fused RMSNorm + group quant (#36551), stop lazy compiling (#35472).
 
+```
 ### Large Scale Serving
 * **Elastic EP Milestone 2**: NIXL-EP integration (#35627), `--enable-ep-weight-filter` for faster EP loading (#37351).
 * **PD Disaggregation**: ~5% scheduler overhead reduction (#35781), KV transfer fix with spec decode (#35158), P/D for hybrid SSM-FA models via NIXL (#36687), PP for multimodal models on Transformers backend (#37057).
 * **KV Connectors**: HMA + NIXL connector (#35758), FlexKV offloading (#34328), worker→scheduler metadata (#31964), All-to-All DCP backend (#34883).
 * **LMCache**: Fault tolerance mechanism (#36586), memory leak fix (#35931), race condition fix (#35831), TP size for MLA multi-reader locking (#36129).
 * **EP loading**: Skip non-local expert weights (#37136).
+```
 
 ### Quantization
 * **ModelOpt MXFP8 MoE** support (#35986).
@@ -20125,6 +20401,7 @@ This release features 445 commits from 213 contributors (61 new)!
 
 ## New Contributors 🎉
 
+```
 * @11happy made their first contribution in https://github.com/vllm-project/vllm/pull/35481
 * @12010486 made their first contribution in https://github.com/vllm-project/vllm/pull/36782
 * @abhishkh made their first contribution in https://github.com/vllm-project/vllm/pull/32454
@@ -20186,6 +20463,7 @@ This release features 445 commits from 213 contributors (61 new)!
 * @yitingw1 made their first contribution in https://github.com/vllm-project/vllm/pull/36612
 * @yuanheng-zhao made their first contribution in https://github.com/vllm-project/vllm/pull/36106
 * @zihaoanllm made their first contribution in https://github.com/vllm-project/vllm/pull/35973
+```
 
 
 ## v0.18.1 (2026-03-31)
@@ -20306,6 +20584,7 @@ This release features 448 commits from 197 contributors (54 new)!
 * Refactor KV cache from list to element (#37487).
 
 ### New Contributors
+```
 * @aaab8b made their first contribution in #37533
 * @aasgaonkar made their first contribution in #35386
 * @allgather made their first contribution in #38410
@@ -20360,6 +20639,7 @@ This release features 448 commits from 197 contributors (54 new)!
 * @Young-Leo made their first contribution in #37565
 * @ZeldaHuang made their first contribution in #37425
 * @zhejiangxiaomai made their first contribution in #37259
+```
 
 
 
@@ -20402,6 +20682,7 @@ This release features 752 commits from 320 contributors (123 new)!
 * **Performance**: Optimize batch invariant with fused rms norm — 2.1% E2E latency improvement (#40413); avoid `seq_lens_cpu` GPU→CPU sync (#40654); cache `InductorPass.hash_source` (#39328); skip FX-graph deserialization on loading for faster warm compile (#40151); CUDAGraph memory profiling enabled by default for clearer startup memory accounting (#38284).
 
 ### Model Support
+```
 * New architectures: DeepSeek V4 (#40860), Hunyuan v3 preview (#40681), Granite 4.1 Vision (#40282), EXAONE-4.5 (#39388), BharatGen Param2MoE (#38000), Phi-4-reasoning-vision-15B (#38306), Cheers multimodal (#38788), telechat3 (#38510), FireRedLID (#39290), jina-reranker-v3 (#38800), Jina Embeddings v5 (#39575), Nemotron-v3 VL Nano/Super (#39747).
 * Gemma4 series: fast prefill (#38879), quantized MoE (#39045), Eagle3 (#39450), block-local attention + YaRN for Gemma3 (#39823), bidirectional vision attention for sliding layers (#40534), token-repetition fix via dynamic BOS (#39842), multimodal embedder norm-order fix (#40411), plus a string of streaming/tool-call fixes (#38844, #38909, #38992, #39114, #39679, #39027).
 * Quantization formats: GGUF support for MiniMax-M2.1 (#36965), non-standard GGUF quant types with prefix such as UD-IQ1_S (#39471).
@@ -20409,6 +20690,7 @@ This release features 752 commits from 320 contributors (123 new)!
 * LoRA: Qwen3ASRForConditionalGeneration (#37247), Gemma4ForConditionalGeneration (#39291, #38844), DeepSeek V3.2 (#35077), Qwen3.5 / Step3.x expert base_layer extension (#37114), MoE LoRA refactor (#40338), dual-CUDA-streams linear layer (#35721).
 * Multimodal MRoPE refresh: mm_features-based MRoPE for Ernie-4.5 VL (#39753), Keye-VL / Keye-1.5-VL (#39869), PaddleOCR-VL (#39888).
 * Other: Nano-Nemotron-VL static image inputs fix (#40724); Qwen3 MoE no longer calls gate twice (#40664); DeepSeek V2-Lite accuracy drop fix (#40673); Parakeet UX / perf enhancements (#39423); ColModernVBERT updated for latest HF checkpoint (#39307); NemotronH default `mamba_ssm_cache_dtype=float32` with NemotronHNanoVLV2 auto-hook (#39032); new TP plan styles for the Transformers backend (#40467); GLM-5.1 fix on ROCm (#40763).
+```
 
 ### Engine Core
 * **Model Runner V2**: Full CUDA graph for eagle prefill (#37588), auto cudagraph mode/sizes based on attention backend (#32936), fused probabilistic rejection-sample kernels (#38496), config validation (#38758), eagle-draft piecewise fallback disabled (#39773), multiple prompt logprobs (#39937), prefill warmup coverage (#40746), stale sampled/draft tokens accuracy fix (#39833).
@@ -20423,6 +20705,7 @@ This release features 752 commits from 320 contributors (123 new)!
 * **Metrics & scheduling**: Labeled waiting-breakdown (capacity/deferred) metric (#38435), API server handshake simplified (#39364), mm-scheduler `get_num_embed` overhead reduced (#40143), `request_id` on `FinishedRequestStats` (#39710).
 * **Executor**: RayExecutorV2 introduced (#36836); unified engine process monitoring with Ray backend (#35862).
 
+```
 ### Hardware & Performance
 * **NVIDIA**: swapAB support for SM120 CUTLASS blockwise FP8 GEMM (#38325), MXFP4 W4A4 CUTLASS MoE for SM100 (#37463), TRTLLM GEN NVFP4 MoE with non-512-aligned hidden dims via weight padding (#39510), TRTLLM FP8 MoE with shuffled weights + BlockMajorK layout (#38993), fused qknorm+rope kernel on SM9.0 (#37376), tuned fused_moe config for RTX PRO 6000 Blackwell (#39183), ViT full CUDA graph for Qwen3-VL video (#38061), `--enable-vit-cuda-graph` for VLM examples (#40580), default `max_frames_per_batch` auto-infer for ViT CG video (#40445), fused FP8 output quantization into `merge_attn_states` (#36518), batched KV-cache swap via `cuMemcpyBatchAsync` (#38460), sm_110 (Jetson Thor) added to CUDA 13.0 build targets (#39233).
 * **AMD ROCm**: ZenCPU / AMD Zen CPU backend via zentorch (#39967), RDNA 3.5/4 device IDs (gfx1150/1151/1201) (#38455), gfx1102/gfx1103 added (#40037), MORI EP for unquantized MoE with AITER (#37529), MoRI build with AMD AINIC stack (#38371), MoRI-IO message format aligned with P2pNcclConnector and vllm-router (#39565), MORI prefill/decode API correction (#39835), AITER gemm w8a8 ptpc integration (#33773), TritonW4A16LinearKernel (#37352), asymmetric INT8 in `TritonInt8ScaledMMLinearKernel` (#38501), `fused_silu_mul_block_quant` enabled (#38817), KV-cache shuffle for `paged_attention_common` (#32914), MLA decode output zero-fill removed in AITER (#37539), MLA dual RMS norm fusion pass for DeepSeek/Kimi-K2 (#39242, with older-AITer guard #40386), AITER MLA + Eagle3 spec decode (#39616), DFlash on ROCm (#39703), wvSplitK FP8 path for RDNA (#37712), GPU↔NUMA-node detection (#40015), non-causal attention in `ROCM_ATTN` (#40176), engine-shutdown GPU memory leak fix (#38503), score-correction-bias dtype cast for DeepSeek/Kimi-K2 (#39999).
@@ -20432,6 +20715,7 @@ This release features 752 commits from 320 contributors (123 new)!
 * **DeepSeek / MLA / Indexer**: Persistent TopK scheduler for DSV3.2 DSA decode (#37421), DSV3.2 indexer fused weights projection (#38684), Triton MLA perf fixes (#33529), indexer WK upcast to BF16 for fusion (#38928), MLA indexer uniform-decode optimization for MTP>1 (#39458), DSA + MTP IMA fix (#40772).
 * **GDN / Mamba**: Kernel fusion in GDN (#37813), TMA aligned with upstream FLA (#38981), GPU↔CPU syncs eliminated in prefill and spec-decode paths (#38361, #38047).
 * **Other**: DeepGEMM integrated into the vLLM wheel via CMake (#37980), Lustre FS checkpoint prefetching enabled by default (#39422), Gemma4 fused routing Triton kernel (#39083), Gemma4 embed_input_ids GPU/CPU sync removed (#39234), Nemotron VL image/video preprocessing optimized (#40283), SiLU block-quant fusion v1 (#32996), bilinear_pos_embed Triton kernel for ViT (#37948), mean-pooling optimization (~5.9% throughput) (#38559), redundant-sync removal for pooling (~3.7% throughput) (#39113), H2D pageable-memory copy reduction (#38794), fused zero initializer for FP8 DeepGemm block-quant (#39547), batch-invariant fused-rms-norm 2.1% E2E latency improvement (#40413), `InductorPass.hash_source` cached (#39328), humming quantization kernel (#34556).
+```
 
 ### Large Scale Serving
 * **EPLB**: Alternative communication for EPLB weight exchange (#33176), nixl-based EPLB communicator (#36276), mapping optimization with router record for prefill (#36261), `TransferMetadata` consolidation (#37341), Async EPLB synchronization refactor (#37601), asyncio infrastructure removed from Async EPLB (#40730), replica-selection bias fix in fused_moe router (#40810), Async EPLB integration test added (#40168).
@@ -20448,6 +20732,7 @@ This release features 752 commits from 320 contributors (123 new)!
 * **Deprecations**: Petit NVFP4 removed (#32694).
 
 ### API & Frontend
+```
 * **OpenAI / Anthropic API**: `presence_penalty` / `frequency_penalty` on Responses API (#38613), Responses API streaming migrated to unified parser (#38755), `tool_choice` / `tools` validation on Responses to match OpenAI (#40399), Mistral Grammar factory (#38150), multimodal support on `/inference/v1/generate` (#38405), `max_tokens_per_doc` in rerank (#38827), Generative Scoring (#34539), MaxSim re-enabled on GPU (#38620), `chat_template_kwargs` on Anthropic `/v1/messages` (#40125), auto-detection of `reasoning_config` when only `reasoning_parser` is set (#38214), reasoning parsers can access model config via `adjust_request` (#37848, #39027), effective chat-template kwargs passed to reasoning parsers (#40460), reasoning parsers expose `reasoning_start_str`/`reasoning_end_str` (#40566).
 * **Pooling ecosystem**: Pooling entrypoints overhauled across scoring (#28631), pooling (#39153), and cleanup (#39675); preprocessing/postprocessing offloaded to thread pool (#39763); async scheduling disabled by default for pooling (#39592); `logit_scale` added to PoolerConfig (#39435), then renamed `logit_bias`/`logit_scale` → `logit_mean`/`logit_sigma` for affine score calibration (#39530) — breaking. `LLM.reward` deprecated; use `LLM.encode` instead (#40688).
 * **gRPC / streaming**: Streaming on token-generation endpoint (#37171); gRPC periodic stats logging + servicer log forwarding (#38333); standard `grpc.health.v1` health check for Kubernetes-native probes (#38016).
@@ -20455,6 +20740,7 @@ This release features 752 commits from 320 contributors (123 new)!
 * **Multimodal**: Externally processed `mm_kwargs` with cache injection (#39502), PyAV video backend for concurrent decoding (#39986), custom video metadata for pre-extracted frame sequences (#40133), image+video mixed inputs (per prompt) for VLM examples (#40335), deepstack buffer optimized for Qwen3 multimodal (#40145), readonly multimodal processor warmup during renderer startup (#40797), `mm_processor_kwargs` forwarded in offline `generate` APIs (#40251), normalize malformed dict prompts that carry token IDs in `prompt` (#40339), hotwords for FunASR (#39674), bundle `get_generation_prompt()` params into `SpeechToTextParams` (#36268).
 * **Frontend / vLLM Omni**: `--omni` delegates to vLLM Omni (#40744); avoid eager import of `mistral_common` (#40043).
 * **LLM / CLI**: Structured-output special tokens preserved in offline `LLM.chat` (#39352), `use_audio_in_video` passable at `vllm serve` for nemotron-nano-vl (#38538), deferred imports save ~2s CLI startup (#40056), improved MM-input-too-long error message (#39409), warning when FP8 KV cache misses prefill query quant (#39752), clearer DCP error message (#28443), `--model` deprecation warning updated (#39518), Mimo reasoning/tooling parsers mapped (#40089), human-readable `k/K/m/M…` suffix in JSON CLI args (#40473).
+```
 
 ### Spec Decode
 * Eagle3 for MiniMax-M2 (#37512), Eagle3 for Gemma4 (#39450), AITER MLA + Eagle3 on ROCm (#39616).
@@ -20488,6 +20774,7 @@ This release features 752 commits from 320 contributors (123 new)!
 * Petit NVFP4 (#32694), `accept output buffer` in attention (#39125), `cprofile` / `cprofile_context` (#39100), `LLM.reward` offline API (#40688).
 
 ## New Contributors
+```
 * @1096125073 made their first contribution in https://github.com/vllm-project/vllm/pull/38510
 * @2imi9 made their first contribution in https://github.com/vllm-project/vllm/pull/38970
 * @AAISSJ made their first contribution in https://github.com/vllm-project/vllm/pull/37831
@@ -20611,6 +20898,7 @@ This release features 752 commits from 320 contributors (123 new)!
 * @zhangj1an made their first contribution in https://github.com/vllm-project/vllm/pull/40629
 * @Zhenzhong1 made their first contribution in https://github.com/vllm-project/vllm/pull/38192
 * @zxd1997066 made their first contribution in https://github.com/vllm-project/vllm/pull/38899
+```
 
 
 ## v0.20.1 (2026-05-04)
@@ -20743,6 +21031,7 @@ This release features 367 commits from 202 contributors (49 new)!
 
 ## New Contributors
 
+```
 * @abdulrahman-cohere made their first contribution in https://github.com/vllm-project/vllm/pull/41266
 * @AbhiOnGithub made their first contribution in https://github.com/vllm-project/vllm/pull/42180
 * @Aktsvigun made their first contribution in https://github.com/vllm-project/vllm/pull/40788
@@ -20792,6 +21081,7 @@ This release features 367 commits from 202 contributors (49 new)!
 * @yangrz7 made their first contribution in https://github.com/vllm-project/vllm/pull/40449
 * @yuankaichen-amd made their first contribution in https://github.com/vllm-project/vllm/pull/40390
 * @zhangxin81 made their first contribution in https://github.com/vllm-project/vllm/pull/39904
+```
 
 
 ## v0.22.0 (2026-05-29)
@@ -20800,12 +21090,15 @@ This release features 367 commits from 202 contributors (49 new)!
 
 This release features 459 commits from 230 contributors (63 new)!
 
+```
 * **DeepSeek V4 maturity**: DeepSeek V4 received a major hardening pass this cycle — the model was reorganized into a dedicated `vllm/models/deepseek_v4/` package (#43004, #43039, #43073, #43077, #43149), gained NVFP4 fused MoE support (#42209), full + piecewise CUDA graph (#42604), and MTP speculative decoding (#43385). A large set of fused kernels (MegaMoE, `mhc`, Q-norm, indexer, sparse MLA) and ROCm parity fixes landed alongside accuracy fixes (#42810, #43710).
 * **Model Runner V2 advances toward default**: MRv2 is now default for Qwen3 dense models. vLLM will fall back to MRv1 for features that aren't yet supported in MRv2 (#39337). sleep-mode weight reload (#42673), `update_config` (#42783), and shared KV-cache layers (#35045), plus many correctness fixes.
 * **Experimental Rust frontend**: A new Rust front-end integration landed (#40848), with the implementation moved into the tree (#43283) and a DP Supervisor for data-parallel serving (#40841).
 * **Batch invariance, faster**: Batch-invariant inference gained Cutlass FP8 support for a **28.9% end-to-end latency improvement** (#40408), compile-mode support on SM80 (#42456), and an NVFP4 Cutlass linear path (#39912).
 * **Multi-tier KV cache offloading**: A new multi-tier KV cache offloading framework (#40020) with a Python filesystem secondary tier (#41735), DSv4 support (#43142), and Mooncake disk offloading (#42689) extends offloading beyond CPU memory.
+```
 
+```
 ### Model Support
 * New architectures: MiniCPM-V 4.6 (#41254), InternS2 Preview (#42705), OpenVLA (#42654), MolmoWeb `hf_overrides` docs (#42163); EXAONE-4.5 aligned with Transformers update (#42246).
 * Speculative decoding: custom callable proposer backend (#39487), post-norm EAGLE-3 speculators (#42764), peagle speculators (#41826), hybrid-attention models in `extract_hidden_states` (#39949), non-MTP speculation for NemotronH (#43130), shared MTP weights in MRv2 (#42538).
@@ -20816,6 +21109,7 @@ This release features 459 commits from 230 contributors (63 new)!
 * Cohere: enable Cohere MoE (#43143), pipeline parallelism for Cohere vision (#42819).
 * Tool calling: Apertus tool parser (#41154), Qwen3Coder `anyOf`/`oneOf`/`$ref` resolution re-land (#37831), shared `coerce_to_schema_type` across MiniMax-M2 / DeepSeek-V3.2 / Seed-OSS parsers (#43006, #43019, #43140).
 * ViT CUDA graph: Qwen2-VL (#41736), Step3-VL encoder (#42224), Qwen3.5 (#42151), FlashInfer metadata for Qwen2.5-VL vision attention (#42787).
+```
 
 ### Engine Core
 * Model Runner V2: Qwen3-dense-by-default oracle (#39337), sleep-mode reload weights (#42673), `update_config` (#42783), shared KV-cache layers (#35045), FP32 gumbel sampling (#41775), auto-fallback to MRv1 with connectors (#42955), `logprob_token_ids` correctness (#43125, #41761), prompt-logprobs size fix (#42778).
@@ -20835,12 +21129,14 @@ This release features 459 commits from 230 contributors (63 new)!
 * **Kernel ABI**: continued migration to libtorch stable ABI — 5/n (#42339), 6/n (#42663), 7/n (#43209).
 * **Experimental**: breakable CUDA graph (#42304).
 
+```python
 ### Large Scale Serving
 * Disaggregated serving (NIXL): lease-renewal TTL for KV blocks on P (#41383), handshake-failure policy honoring (#40364), GDN support for PD with NIXL (#41869), multi-node TP>8 fix (#39907), side-channel host-selection fix (#41806).
 * Mooncake: disk offloading in MooncakeStoreConnector (#42689), HMA support for DSV4 (#42828), operation metrics (#43392), load-failure propagation (#42788), block-aligned full hits (#43494), finish-after-preemption handling (#43281).
 * Data parallel: DP Supervisor (#40841), publish request counts at engine-step start (#41626), forward `X-data-parallel-rank` header (#42330).
 * EPLB: change default EPLB communicator (#43110), VLM-wrapper init fix (#39805), remove dead `torch.accelerator.synchronize()` (#40733).
 * LoRA: one-shot Triton kernel for MoE LoRA (#42290), simultaneous 2D & 3D MoE LoRA adapters (#42242), reduced 2D-weight memory under EP (#42737), MoE LoRA align-kernel grid fix (#40131).
+```
 
 ### Quantization
 * **MXFP4**: linear layers + compressed-tensors integration (#41664), CPU W4A16 MoE (#41922), XPU mxfp8 MoE (#41918).
@@ -20878,6 +21174,7 @@ This release features 459 commits from 230 contributors (63 new)!
 
 ## New Contributors
 
+```
 * @abinggo made their first contribution in https://github.com/vllm-project/vllm/pull/42128
 * @afierka-intel made their first contribution in https://github.com/vllm-project/vllm/pull/40327
 * @alexagriffith made their first contribution in https://github.com/vllm-project/vllm/pull/41987
@@ -20941,6 +21238,7 @@ This release features 459 commits from 230 contributors (63 new)!
 * @zhengluo-nv made their first contribution in https://github.com/vllm-project/vllm/pull/43105
 * @zhougit86 made their first contribution in https://github.com/vllm-project/vllm/pull/42739
 * @zx3xyy made their first contribution in https://github.com/vllm-project/vllm/pull/42855
+```
 
 
 ## v0.22.1 (2026-06-05)
@@ -20952,10 +21250,12 @@ This release features 8 commits from 6 contributors (1 new)!
 v0.22.1 is a patch release on top of v0.22.0 with targeted bug fixes plus a couple of additions: new model support for JetBrains' Mellum v2, zentorch-accelerated quantized linear inference on AMD Zen CPUs, and fixes for multi-node Ray data-parallel serving, DeepSeek-V4 initialization, and a few model-loading regressions.
 
 ### Model Support
+```json
 * New model: JetBrains' **Mellum v2**, an open-weights Mixture-of-Experts code-generation model (#43992).
 * **DeepSeek-V4**: resolve a CUTLASS `fmin` compatibility issue that broke initialization (0decac0d).
 * Fix `OlmoHybridForCausalLM` failing to initialise after the checkpoint changed `rope_parameters` from `None` to `{"rope_type": None}` (#43846).
 * Fix **HyperCLOVAX** loading after the upstream HuggingFace repo removed its remote code (now native in `transformers >= 5.9.0`): register the `hyperclovax` model_type so vLLM uses its vendored config instead of the stale `auto_map` (#43860).
+```
 
 ### Hardware & Performance
 * **AMD Zen CPUs**: route W8A8 (int8 dynamic-symmetric) and W4A16 (GPTQ) linear inference through zentorch kernels, registered ahead of the generic oneDNN CPU kernels, with transparent fallback on non-Zen CPUs, GPUs, and XPU (#41813).
@@ -20985,6 +21285,7 @@ Please note that Minimax M3 is not yet supported in this version. Please follow 
 
 This release features 408 commits from 200 contributors (63 new)!
 
+```
 * **DeepSeek-V4 matures across backends**: Following its introduction in v0.22.0, DeepSeek-V4 received another large hardening and optimization pass. Its sparse MLA metadata is now decoupled from DeepSeek-V3.2 (#44699), it gained a TRTLLM-gen attention kernel (#43827), EPLB support for the Mega-MoE (#43339), selective prefix-cache retention for sliding-window KV cache (#43447), and an index-share feature for DSA MTP (#44420). The model was also detached from `torch.compile` (#43746, #43891), its attention and RoPE paths were refactored (#44569, #44262, #43926), and an XPU attention decode path was added (#42953).
 * **Model Runner V2 expands to more dense models**: MRv2 is now selected by default for **Llama and Mistral dense models** (#43458) in addition to Qwen3. It gained a FlashInfer sampler (#42472), breakable CUDA graphs (#44050), pipeline-parallel bubble elimination (#42187), kernel block-size support for hybrid models (#38831), and Gemma 4 MTP (#43241).
 * **Rust frontend grows up**: The experimental Rust frontend added a streaming `generate` endpoint (#43779), dynamic LoRA endpoints (#43778), `/version` (#43854) and `/server_info` (#43942) endpoints, a server-router extension hook (#43774), request-ID headers (#43883), and many new tool parsers (InternLM2 #43481, hy_v3 #43872, Phi-4-mini #44213, Gemma4 #43850).
@@ -20992,6 +21293,7 @@ This release features 408 commits from 200 contributors (63 new)!
 * **Transformers v5 compatibility**: vLLM now targets Transformers v5, with vendored MiniCPM-V/O processors (#44282) and compatibility fixes for Sarvam (#38804) and Voxtral (#44559).
 * **Multi-tier KV cache offloading**: The offloading framework gained an **object-store secondary tier** (#41968), HMA enabled by default for capable connectors (#41847), tiering support for HMA models (#44287), and a per-request offloading policy via the `on_new_request` lifecycle hook (#43205).
 * **Unified parser**: Reasoning and tool-call parsing are now unified behind a single `Parser.parse()` interface (#44267), with the Responses parser migrated to it (#42977).
+```
 
 ### Model Support
 * **New models**: Step-3.7-Flash (#43859), Cosmos3 Reasoner (#43356), Gemma 4 Unified encoder-free (#44429), JetBrains Mellum v2 (#43992), Granite Speech Plus (#43519), Cohere Mini Code (#44707).
@@ -21003,12 +21305,15 @@ This release features 408 commits from 200 contributors (63 new)!
 * **Refactor**: AutoWeightsLoader for InternLM2 (#38278).
 
 ### Engine Core
+```
 * **Model Runner V2**: Default for Llama and Mistral dense models (#43458), FlashInfer sampler (#42472), breakable CUDA graphs (#44050), removed Eagle's dedicated CUDA graph pool (#44078), pipeline-parallel bubble elimination (#42187), kernel block size for hybrid models (#38831), zeroing of freshly allocated KV blocks for hybrid + FP8 KV cache (#43990), actual batch `max_seq_len` for attention metadata (#43991), rejection-sampling acceptance-rate fix (#40651), KVConnector + PP cleanup (#43732), speculator-prefill warmup/capture (#44253).
 * **Speculative decoding (DFlash)**: Causal DFlash (#43445), proper lookahead-slot allocation (#43733), prefix-cache corruption fix (#42971); independent drafter attention-backend selection (#39930), attention-group split by `num_heads_q` for drafts (#43543), EAGLE/MTP lookahead caching in the SWA prefix-cache mask (#44082).
 * **Attention & hybrid/Mamba**: FlexAttention/FlashAttention num-blocks-first layouts (#42095), OOT MLA prefill backend registration (#43325), FlashAttention upstream sync (#44065), Mamba LINEAR attention-module refactor (#43556), corrupted MLA + linear attention fix (#43961), KDA conv-state unification (#44539) and gate/cumsum fusion (#43667), Mamba SSD `do_not_specialize` (#43803), Qwen3.5 mixed prefill+decode split routing (#44700), MiniMax-M2 gate kernel (#38445).
 * **KV cache & scheduler**: Pluggable `KVCacheSpec` (#37505), `scheduler_block_size` threaded into KVCacheManager/Coordinator (#44165), `max_concurrent_batches` moved to `VllmConfig` (#44274), config validation rejecting 0/negative knobs (#43794, #44057, #44207), KV-cache scale boilerplate removed from weight loading (#43167).
 * **Core**: Freeze the garbage collector in workers after model init (#44363), sparse NCCL weight transfer for in-place updates (#40096), graceful spinloop ext-load failure handling (#43659), scheduled-function deprecations (#43358).
+```
 
+```
 ### Large Scale Serving & Distributed
 * **KV cache offloading**: Object-store secondary tier (#41968), HMA on by default for capable connectors (#41847) and tiering (#44287), per-request offloading policy (`on_new_request`) (#43205) and `on_schedule_end()` hook (#44206), token-offset selective offload (#39983), skip decode-phase blocks in CPU offload (#43797), page-size block alignment (#43689), Triton fast-path for small CPU→GPU `swap_blocks_batch` (#42212), stale sliding-window block fix (#42959).
 * **KV connectors / disaggregated serving**: PP-aware handshake aggregation and intermediate-PP output plumbing (#43720), multiple-async-KV-load deadlock fix (#44560), Nixl Mamba prefix-caching mode (#42554), NixlConnector `kv_both` role deprecation cycle (#43874), Mooncake fixes (#43742, #44103, #42694), LMCache `LMCacheMPConnector` (#42865), EC connector shutdown API (#42423) and non-blocking lookup (#41627), KV-transfer tokens excluded from `iteration_tokens_total` (#43346).
@@ -21022,20 +21327,25 @@ This release features 408 commits from 200 contributors (63 new)!
 * **CPU & other architectures**: zentorch-accelerated W8A8/W4A16 on AMD Zen CPUs (#41813), CPU top-k/top-p Triton sampling (#43633), non-divisible GQA decode in mixed batches (#43032), `cpu_awq` folded into `awq_marlin` (#43841), RISC-V RVV WNA16 helpers (#42730), fused GDN gated-delta-rule kernels (#43534), PowerPC SHM communicator (#43754), arm64 CI image (#41303).
 * **TPU**: tpu-inference upgraded to v0.20.0 (#43394) then v0.21.0 (#44621).
 * **torch stable ABI**: Continued migration of kernels to the libtorch stable ABI — merge_attn_states/mamba/sampler [8/n] (#43361), attention/cache kernels [9/n] (#43717), header files (#44013), cuda_view/silu_and_mul [10/n] (#44334), custom all-reduce/DeepSeek-V4 fused MLA/MXFP8 MoE [10b/n] (#44365); ROCm fallback to regular ABI (#44648), `_has_module` trial-import verification (#44035).
+```
 
 ### Quantization
+```
 * **ModelOpt**: LM-head quantization (#42124), MXFP8 non-gated MoE (#42958).
 * **compressed-tensors**: WNA8O8Int linears and WNInt embeddings (#44340), asymmetric MoE WNA16 Marlin (#44025), single-class NVFP4 linear refactor (#42443).
 * **Kernels & backends**: Triton W4A16 as CUDA fallback for non-Marlin-aligned shapes (#43731), Marlin MoE on SM 12.x (#40923), Machete W4A16 tests (#35450), fail-fast for unsupported NVFP4 KV-cache-dtype arch (#43669), CuteDSL compressor 128-split kernel optimization (#44230).
 * **MoE refactor (oracle)**: Migrated ModelOpt MXFP8 (#42768), W4A8-int8 (#42789), and WNA16 backend selection (#42553) into the modular-kernel oracle; removed `supports_expert_map` (#43108) and the inplace fused-experts mechanism (#43727).
+```
 
 ### API & Frontend
+```
 * **Anthropic Messages API**: Structured output and effort support (#42396), system-role messages inside the messages array (#44283).
 * **OpenAI / Responses API**: `system_fingerprint` field (#40537), streaming tool/function calling with `required` (#40700), `chat_template_kwargs` in Responses (#43761), developer-to-system conversion in the HF renderer (#43590), unstreamed tool-call-args streaming fix (#44348).
 * **Parsers**: Unified reasoning + tool-call parsing behind `Parser.parse()` (#44267), Responses parser migrated to the unified interface (#42977), unstreamed tool-arg flush moved into the parser (#44017); new/fixed tool parsers — MiniCPM5 XML (#43175), Qwen3 XML JSON-args-first (#43243), DeepSeek DSML incremental streaming (#42879), first-args-chunk serializer fix (#42683), `tool_choice="none"` honored in streaming (#42752), null-tool-args crash fix (#43862).
 * **Frontend**: `thinking_token_budget` validation (#43402), GPT-OSS instruction rendering (#44330), Harmony `stop_token_ids` cleanup (#44009), consistent `VLLMValidationError` in chat/completion validators (#36254), consolidation of dev entrypoints (#44170) and online-serving utils (#44479).
 * **Rust frontend**: Streaming `generate` endpoint (#43779), dynamic LoRA endpoints (#43778), `/version` (#43854) and `/server_info` (#43942), server-router extension hook (#43774), `--enable-request-id-headers` (#43883), recursive tool-parameter conversion (#44299), `include_reasoning=false` (#44391), `--language-model-only` skips the multimodal processor (#44500), per-engine batch auto-abort (#44591), UTF-8 char-boundary detokenizer fix (#44620), HF chat-template fixes (#44311), cross-DP aggregation of `is_sleeping`/`reset_prefix_cache` (#43429); new tool parsers — InternLM2 (#43481), hy_v3 (#43872), Phi-4-mini JSON (#44213), Gemma4 (#43850).
 * **Benchmarks**: Timed trace replay for Moonshot/Alibaba workloads in `vllm bench serve` (#39795), reasoning-model (thinking) benchmarking via `--chat-template-kwargs` (#44244).
+```
 
 ### Security
 * **Transport encryption**: SSL/TLS support for the data-parallel supervisor (#43688).
@@ -21053,6 +21363,7 @@ This release features 408 commits from 200 contributors (63 new)!
 
 ## New Contributors
 
+```
 * @aadwived made their first contribution in https://github.com/vllm-project/vllm/pull/41813
 * @adhithyamulticoreware made their first contribution in https://github.com/vllm-project/vllm/pull/44615
 * @adityasingh2400 made their first contribution in https://github.com/vllm-project/vllm/pull/43550
@@ -21116,6 +21427,7 @@ This release features 408 commits from 200 contributors (63 new)!
 * @zhangtao2-1 made their first contribution in https://github.com/vllm-project/vllm/pull/43175
 * @zvik made their first contribution in https://github.com/vllm-project/vllm/pull/43519
 * @zzt93 made their first contribution in https://github.com/vllm-project/vllm/pull/43770
+```
 
 ## Contributors
 
@@ -21142,6 +21454,7 @@ This release features 571 commits from 256 contributors (77 new)!
 * **Device selection change**: vLLM no longer sets `CUDA_VISIBLE_DEVICES` internally; a new `device_ids` argument is provided instead (#45026). On ROCm, a deprecation window for `CUDA_VISIBLE_DEVICES` has begun (#46636).
 
 ### Model Support
+```
 * **New models**: MiniMax-M3 (#45381), DiffusionGemma (#45163) + Gemma Diffusion on CPU (#45690), Hierarchical Reasoning Model — Text / HrmTextForCausalLM (#43098), OpenMOSS (#44124).
 * **Gemma 4**: Unified FlashAttention (FA4) across all layers + `mm_prefix` support (#42175); many parser/serving fixes — forced-JSON skip for required/named tool choice (#45795), parsing with thinking disabled (#45832), streaming reasoning-state init (#45852), reasoning rendering on assistant turns (#45867), offline-parser truncation/token-leak fix (#45553); legacy Gemma4 parsers replaced with an engine-based implementation (#45588).
 * **DeepSeek-V4**: OOM fix (#44914), MTP projection prefixing (#44821), supported KV-cache dtypes (#44892).
@@ -21149,14 +21462,18 @@ This release features 571 commits from 256 contributors (77 new)!
 * **ViT full CUDA graph**: GLM-4.1V (#40576), DeepSeek-OCR dual-path (#43586), Kimi-VL (#41992), mllama4 (#40660), Lfm2VL encoder (#44930).
 * **Other model fixes**: Llama4 weight loading (#45047) and streamed loading to avoid host-OOM (#44645), MiMo v2.x QKV TP sharding + FP4 (#45200), ColQwen3.5 retrieval correctness (#46108), EXAONE-4.5 vision encoder (#45073), MiDashengLM TP>1 audio-encoder crash (#44408), MiniCPM-o/V device-placement and image-size fixes (#43844, #42332, #44980, #45244), Cohere2 MoE weight loading + parser (#44747, #44907), Nemotron V3 reasoning-as-content (#39091), ColBERT AutoWeightsLoader + query/document embedding io processor (#44999, #45210).
 * **Kernels**: GLM-5 TRT-LLM ragged MLA prefill dimensions (#43525), GLM-5 router GEMM (#46385).
+```
 
 ### Engine Core
+```
 * **Model Runner V2**: Quantized models by default (#44446), GraniteMoE default (#45461), Qwen/DSv2 MoE migration (#42667), DFlash (#44586), simplified async output handling (#45442), attention-group split on `num_heads_q` (#45564), LoRA warmup fix (#35536), more accurate FP32 Gumbel sampling (#45996), `min_tokens` off-by-one fix in the V2 GPU sampler (#46243), plus assorted model/config compatibility fixes (#45868).
 * **Speculative decoding**: Dynamic SD (#32374); DFlash with FlashInfer (#43081), mixed KV page sizes (#45181), and Qwen3Next targets (#45319); EAGLE3 support for Qwen3 (#43132); reduced TP communication for large-vocab drafts (#39419); race fix in async accepted counts (#45100); EAGLE multimodal encoder cache fixes (#46315).
 * **KV cache & scheduler**: KV-cache watermark to reduce preemptions (#44594), two-phase allocation for cross-group prefix-cache hits (#44409), Marconi-style admission policy for hybrid cache (#37898), prefix-cache retention for Mamba/linear attention (#45845), DS Mamba tail-copy for MTP align mode (#45473), reduced scheduler copy overhead (#45840).
 * **Attention**: Re-enabled cross-layer KV cache layout for MLA via stride-aware kernels (#45111), MLA prefill FA4 fp8 output (#43050), FlexAttention custom mask mods made fully cudagraphable (#45232), triton diff-kv backend for MiMo (#41797), FlashMLA sparse accuracy fix (#36616).
 * **Weight loading & core**: fastsafetensors `ParallelLoader` for weight loading (#40183), release of cached device memory under pressure on UMA GPUs (#45179), structured outputs for beam search (#35022), `device_ids` arg / no internal `CUDA_VISIBLE_DEVICES` (#45026), graceful fallback when `numactl --membind` is blocked (#45438), config-class registration before tokenizer init (#40299), async scheduling with prompt embeds for multimodal models (#45673).
+```
 
+```
 ### Large Scale Serving & Distributed
 * **Expert parallel**: DeepEP v2 integration (#41183) with token-bound and topk-index fixes (#46404, #46432); NIXL EP — DBO with NIXL EP (#45275), top-k index dtype query (#45298), NVFP4 post-receive quantization skip (#45606), elastic-EP communicator (#45013); reject NCCL-based EPLB with async EPLB (#44978).
 * **KV connectors / disaggregated serving**: KV push from prefill to decode via NIXL (#35264); per-region KV transfer classification for mixed full-attn + MLA groups (#44583); Mooncake pipeline-parallel PD support (#44528), async lookup (#45659), compact chunk-hash zero-copy lookup (#45969), SWA-block skipping (#45444); P/D fixes with DP supervisor (#46628) and DSV4 disaggregation (#45831); removed `P2pNcclConnector` (#44854).
@@ -21171,14 +21488,18 @@ This release features 571 commits from 256 contributors (77 new)!
 * **CPU & other architectures**: 2.5× faster ASR CPU preprocessing via multi-threading (#44612), CPU W4A16 INT4 MoE (#43409), cgroup memory-limit-aware KV cache sizing (#45086), RISC-V oneDNN W8A8 INT8 (#44478) and RVV micro-GEMM for WNA16 (#44324), pinned memory for WSL2 (#41496), ZenCPU runtime logging (#42726).
 * **TPU**: tpu-inference upgraded to v0.22.1 (#45793).
 * **Misc perf**: `VLLM_TRITON_FORCE_FIRST_CONFIG` to skip Triton autotuning (#42425), Triton recompile detection (#45631), fused multi-group block-table staged writes (#44944).
+```
 
 ### Quantization
+```
 * **Online & mixed-precision**: Online FP8 per-token-per-channel (PTPC) quantization (#44132); `modelopt_mixed` support extended to Ampere/SM80-86 (#45306) and Turing/SM75 (#45375).
 * **FP4 / MXFP**: FlashInfer cutedsl NVFP4 GEMM backend (#42235) and cute-dsl MXFP8 linear kernel (#46393), MXFP4 W4A4 MoE CUTLASS E8M0 scale fix (#43557), SwiGLU clamp wired for NVFP4 MoE on non-Blackwell (#45836), `flashinfer_cutlass` allowed as a clamped NVFP4 MoE backend (#46492), NVFP4/OCP MX MoE emulation fix (#46254), FP8 MoE re-enabled on NVIDIA Thor (#46339).
 * **GGUF / compressed-tensors / AWQ**: GGUF quantization migrated to a plugin (#39612), compressed-tensors WNA16 MoE actorder fix (#41161) and KV-cache-scheme rejection (#45312), AWQ format on XPU (#43404) and AWQ dequantize fix on Intel XPU (#42727).
 * **Kernels & correctness**: QuantizedActivation linear-kernel contract (#44260), consolidated Marlin thread-tile padding (#45295), FP8 weight layout canonicalized to (K, N) (#44735), corrupt-output fix for MoE FP8 with LoRAs loaded (#42120), symmetric-quant regression fix in GPTQ/CT MoE (#45656), `fp8_e5m2` KV cache allowed for non-fp8 checkpoints (#45040).
+```
 
 ### API & Frontend
+```
 * **Tool calling & parsing**: Strict mode for tool calling in Chat Completions (#45003) and Responses API (#45396); new Streaming Parser Engine (#45413) with Qwen3, MiniMax-M2 (#45701), GLM-4.7/5.1/5.2 (#45915), Nemotron V3 (#45755) parsers; unified Parser consolidation in chat serving (#45548); numerous parser correctness fixes (#46047, #46091, #46159, #45763, #46351, #43984).
 * **OpenAI / Responses**: Real `/v1/embeddings` support for messages + `chat_template_kwargs` (#45173), multimodal token counts in `usage.prompt_tokens_details` (#45458), omit empty `tool_calls` from chat responses (#44105), Responses API streaming `function_call` id fix (#44608), Harmony refactor of streaming/non-streaming paths (#45171, #45104).
 * **Anthropic Messages API**: Cache-usage reporting in `/v1/messages` (#40912), mid-conversation system-message handling (#46025), inline system-message position preserved for prefix caching (#44602), `tool_use` argument-dropping fix (#45287).
@@ -21186,6 +21507,7 @@ This release features 571 commits from 256 contributors (77 new)!
 * **Metrics**: `vllm:tool_call_parser_invocations_total` (#44448), group-aware KV cache capacity in `vllm:cache_config_info` (#42206), MLA attention metrics for DeepSeek MFU estimation (#39457).
 * **Pooling / embeddings**: Validation for Cohere `/v2/embed` input exclusivity (#45640), non-negative rerank `top_n` (#46119), matryoshka embedding dimension bounds (#46313).
 * **Benchmarks**: BFCL tool-calling dataset for `vllm bench serve` (#42457), multi-turn benchmark api_key/custom headers (#44516), tokenizer-mismatch auto-correction (#44708).
+```
 
 ### Security
 
@@ -21206,6 +21528,7 @@ This release ships another coordinated security-hardening batch (much of it from
 
 ## New Contributors
 
+```
 * @abcd1927 made their first contribution in https://github.com/vllm-project/vllm/pull/43098
 * @Achyuthan-S made their first contribution in https://github.com/vllm-project/vllm/pull/44795
 * @Alex-ai-future made their first contribution in https://github.com/vllm-project/vllm/pull/45905
@@ -21283,6 +21606,7 @@ This release ships another coordinated security-hardening batch (much of it from
 * @zhangshuoming990105 made their first contribution in https://github.com/vllm-project/vllm/pull/40912
 * @ZiguanWang made their first contribution in https://github.com/vllm-project/vllm/pull/43981
 * @zlxi02 made their first contribution in https://github.com/vllm-project/vllm/pull/44595
+```
 
 ## Contributors
 
@@ -21307,6 +21631,7 @@ This release features 558 commits from 232 contributors (64 new)!
 * **Universal speculative decoding for heterogeneous vocabularies (TLI)** (#38174), plus new DSpark (#46995) and DFlash (#46770, #46853) drafters.
 
 ### Model Support
+```
 * New models: LLaVA-OneVision-2 (#44785), Unlimited OCR (#46564) with a Triton R-SWA backend (#47102), MOSS-Transcribe-Diarize (#47729), openai/privacy-filter (#41026), Hy3 with token-suffix and JSON Schema array support (#47192).
 * GLM-5 family: GLM-5 / DeepSeek-V3.2 added to the model zoo (#46808), GLM-5.2 FP32 gate (#47410), GLM MTP post-final-norm fix (#47448), GLM4V startup fix (#47155).
 * MiniMax-M3: pipeline parallelism (#45810), streaming reasoning parsing (#45718), and `tok_sparse_select` from MSA replacing Triton kernels (#47502).
@@ -21314,6 +21639,7 @@ This release features 558 commits from 232 contributors (64 new)!
 * Voxtral: migrated to mistral-common 1.11.5 audio API (#46705) and realtime token-feedback hang fix (#44461).
 * Gemma family: Gemma4 sliding-window/FA4 attention fixes (#47217, #47332), Gemma4 MTP quant_config fix (#47091); DiffusionGemma tensor parallelism (#45719) and HF stability-window semantics (#45965).
 * Other fixes: MiniCPM-V 4.6 language-backbone LoRA (#46740) and placeholder grid fix (#45918), pooled Whisper sliding-window sizing (#47071, #47437), Mamba/Mamba2 checkpoint-without-`architectures` crash fix (#46037), DeepSeek-V2 hidden-size and aux-hidden-state fixes (#46986, #46973).
+```
 
 ### Engine Core
 * Model Runner V2: default for all dense models (#44443); EVS (#46535), realtime embeddings (#46762), Mamba hybrid prefix caching (#42406), multimodal-prefix bidirectional attention (#46942), cross-attention warmup/block-table fixes (#46753, #47308), Mamba2 crash fix (#47428), scheduling slot accounting (#46974), model-ref cleanup on shutdown (#47483), bounded memory for large-logprobs requests (#46746).
@@ -21323,6 +21649,7 @@ This release features 558 commits from 232 contributors (64 new)!
 * KV offloading: tiering metric plumbing (#45959), request lifecycle fix (#46284), batched lookup in C (#46713), `LookupResult` enum (#46363).
 * Misc: `VLLM_GPU_SYNC_CHECK` env var (#44800), VRAM semaphore infrastructure (#44465), skip detokenization in online beam search (#46422), several int32-overflow fixes in sampler/attention kernels (#46560, #47383, #47671).
 
+```
 ### Hardware & Performance
 * GLM-5.2 / DeepSeek: `fused_indexer_q_rope_quant` Triton kernel (1.9–3.3% E2E throughput) (#46862), reduce-scatter MoE all-reduce (3.1–3.2% E2E) (#46635), op fusion for GLM5/DSV3.2 (#46876), `token_to_req_indices` cache for DSv4 (5–6x kernel speedup) (#47474), better DSv4 MXFP8 kernel (#47229), redundant-op removal (#47198, #46651).
 * NVIDIA/Blackwell: FlashInfer fused all-reduce tuned for world_size=16 on GB300 (#46392), restored NVFP4 swizzled-scale zero-init to recover Blackwell decode throughput (#45739), CuTeDSL/FA4-MLA warmup infrastructure (#46182), skip cooperative top-K on SM120 (#47164), B12x backend for non-gated MoEs (#43328).
@@ -21332,6 +21659,7 @@ This release features 558 commits from 232 contributors (64 new)!
 * CPU: accelerated unquantized MoE for AArch64 (#46353), macOS/Apple Silicon hang fix via OpenMP (#46769) and broken-install fix (#47457), compressed-tensor w8a8 int8 MoE (#42920), Mamba ShortConv (#35059), chunked prefill + prefix caching for Qwen3.5 (#46202), faster gelu via tanh AOR (#44639).
 * RISC-V: RVV path for W4A8 INT4 GEMM (#45269), BF16 on VLEN=256 hardware (#45243), reduced LMUL pressure in INT4 LUT dequant (#47538). POWER: fp16 support on PowerPC (#46135).
 * Platform: accelerator-agnostic `get_memory_info` (#44825).
+```
 
 ### Large Scale Serving & Distributed
 * Sequence parallelism without requiring DP, 1.9–5.0% E2E throughput improvement (#47070).
@@ -21342,11 +21670,13 @@ This release features 558 commits from 232 contributors (64 new)!
 * ROCm: stabilized high-throughput DBO for DP+EP (#46990), EPLB for Quark OCP MXFP4 MoE (#47220).
 
 ### Quantization
+```
 * 2/3/5/6/7-bit pack-quantized weight-only inference (Humming) (#46389), Triton INT4 per-token-head KV cache quantization (#40835).
 * NVFP4: fused weight dequantization with compute in the MoE MLP Triton kernel (#44667), NVFP4 KV cache with skip-layers sliding window (#42890), MiniMax-M3 ModelOpt NVFP4 support (#46756).
 * FP8: weights padding for per-block online quantization (#44763); deprecated the old FP8 online MoE quantization class (#44514).
 * Marlin: thread-tile padding extended to MoE (WNA16 + FP8/MXFP8) (#45703), int8 grouped WNA16 MoE (#47154); FlashInfer MXINT4 MoE for gated SiLU (#46518).
 * Fixes: W8A8 int-quant scheme-selection regression (#46860), tied quantized embeddings for ModelOpt Gemma4 (#45544), NVFP4+MTP crash on Qwen3Next (#46316), ModelOpt mixed-precision for sparse configs (#47318), CPU w4a8_int8 MoE path (#46739), actionable error on group-size/TP mismatch (#46230).
+```
 
 ### API & Frontend
 * Streaming Parser Engine (#46610): unified tool-call/reasoning parsing with a new Kimi k2.5/k2.6/k2.7 parser; ported seed_oss (#46314) and DeepSeek V4 (#45877).
@@ -21375,6 +21705,7 @@ This release features 558 commits from 232 contributors (64 new)!
 
 ## New Contributors
 
+```
 * @aaarkai made their first contribution in https://github.com/vllm-project/vllm/pull/44610
 * @Acaciasama made their first contribution in https://github.com/vllm-project/vllm/pull/45850
 * @ACEEE-1222 made their first contribution in https://github.com/vllm-project/vllm/pull/47716
@@ -21439,6 +21770,7 @@ This release features 558 commits from 232 contributors (64 new)!
 * @zhongjing123 made their first contribution in https://github.com/vllm-project/vllm/pull/47024
 * @zhou9402 made their first contribution in https://github.com/vllm-project/vllm/pull/47448
 * @ZichenYuan made their first contribution in https://github.com/vllm-project/vllm/pull/46452
+```
 
 ## Contributors
 
@@ -21547,6 +21879,7 @@ This release features 411 commits from 212 contributors (61 new)!
 
 ## New Contributors
 
+```
 * @adhi29 made their first contribution in https://github.com/vllm-project/vllm/pull/48262
 * @adsridhar made their first contribution in https://github.com/vllm-project/vllm/pull/48291
 * @alexxu-roblox made their first contribution in https://github.com/vllm-project/vllm/pull/48025
@@ -21608,6 +21941,7 @@ This release features 411 commits from 212 contributors (61 new)!
 * @yuvalluria made their first contribution in https://github.com/vllm-project/vllm/pull/46396
 * @zihaomu made their first contribution in https://github.com/vllm-project/vllm/pull/47404
 * @zqzten made their first contribution in https://github.com/vllm-project/vllm/pull/44303
+```
 
 ## Contributors
 
@@ -21622,6 +21956,7 @@ This release features 411 commits from 212 contributors (61 new)!
 
 This release features 561 commits from 242 contributors (64 new)!
 
+```
 * **Kimi K3 support** with a full stack landing in one release: core model files and kernels (#50089, #50000), Python (#50093) and Rust (#50104) frontends, AttnRes kernels (#50090), DeepGEMM support (#50458), compressed-tensors quantized checkpoints (#50500), DSpark AR fusion (#50242), and an option to shard the shared expert instead of replicating it (#50656).
 * **More new models**: Qwen3.5 text-only dense and MoE models (#50210) with EVS video token pruning (#48912), K-EXAONE-2.0-750B-A37B (#50524), VaultGemma via the Transformers modeling backend (#49803), and jina-embeddings-v5-text-nano (#50688).
 * **PyTorch 2.13.0 upgrade** along with torchvision 0.28.0 and Triton 3.7.1 (#48155) — this is a breaking environment change; XPU (#48677) and CPU (#50412) followed to torch 2.13 as well.
@@ -21632,6 +21967,7 @@ This release features 561 commits from 242 contributors (64 new)!
 * **Disaggregation for hybrid models**: NIXL P/D for hybrid MLA+SSM models (#49762), heterogeneous P/D block sizes for hybrid models (#49612), and MoRIIO heterogeneous TP<->DP prefill/decode read routing (#46116).
 * **Rust frontend grows a gRPC control plane**: engine-aware health reporting (#48992), abort control (#49255), server and model discovery (#49491), KV event source discovery (#50033), plus `vllm-bench` integrated into the `vllm` CLI (#48930).
 * **Early next-gen hardware enablement**: `sm_107` target for NVIDIA Rubin (#49387) with NVLink all-reduce paths on SM107 (#49647), and ROCm gfx1250 architecture enabled (#46516).
+```
 
 ### Model Support
 * Kimi K3: new model (#50000) with model files and kernels (#50089), Python frontend (#50093), Rust frontend (#50104), AttnRes kernels (#50090), DeepGEMM support (#50458), DSpark AR fusion (#50242), and optional shared-expert sharding (#50656).
@@ -21642,6 +21978,7 @@ This release features 561 commits from 242 contributors (64 new)!
 * Transformers modeling backend: audio model support (#39330), improved `fx` tracer (#49957), fused residual-add + RMSNorm compilation pass (#48757), and fixes for MLA padding + grouped topk routing (#49982), MQA with TP (#49987), and Qwen3-VL M-RoPE (#49292).
 
 ### Engine Core
+```
 * Warmup: new JIT warmup infrastructure (#47451), runner-owned Triton kernels warmed before the first request (#49903), and proper renderer warmup (#50408).
 * Attention: FlashAttention 4 SM100 FP8 KV cache (#42569) and headdim-256 (#42669); query replication for MLA decode under DCP for DeepSeek-V2/R1 and Kimi-K2.5 (#45964); masked MHA for sparse MLA prefills (#48770); skip sparse indexer scoring for short dense prefills (#48407); FlexAttention epilogue hook (#45841) and encoder block-mask compile explosion avoided (#50339); attention backends stay eligible for text-only serving of prefix-LM models (#48796); merge-attention context count as a runtime argument (#48739); unified multi-path encoder CUDA graph support (#49934); encoder cache extension hooks (#48218).
 * Model Runner V2: encoder-only attention (#49331), sequence pooling for embedding and classification (#48791), encoder token classification (#50293), encoder token embedding (#50574), BGE-M3 pooling (#50661), multimodal on CPU (#50073), multi-layer MTP speculator (#48892), PCP selects MRV2 (#50034), attention metadata always built at capture time (#49364), encoder cache profiling (#47985), skipped no-op FP32 logits materialization (#47711), chunked rejection sampler to avoid OOM (#48630), fewer GPU<->CPU syncs in hybrid Mamba (#49736).
@@ -21652,6 +21989,7 @@ This release features 561 commits from 242 contributors (64 new)!
 * Preprocessing performance: derender CPU work offloaded to the renderer thread pool (#49396), raw-prompt preprocessing off the event loop in AsyncLLM (#49608), multimodal preprocessing isolated on its own executor (#49524), MM embeds loading deferred off the event loop (#49477), parallel preprocessing within a request for online pooling (#49153), videos hashed by source bytes (#49607), original image mode preserved in ImageIO (#49159).
 * RL: weight version tagging for RL rollouts (#49040), stateful trainer-send IPC (#48981), vLLM config set during weight reload (#45989), router replay output from the FlashInfer monolithic MoE kernel (#44214).
 * Memory & robustness: CuMem slept-L1 fragmentation accounting (#49208), cgroup memory limits respected on all platforms (#49966), fail fast when /dev/shm is too small (#48879), zero-copy tensor pickling in shm_broadcast (#48442), LRU hash-split skipped in free_blocks when prefix caching is off (#48017), location-derived path vars excluded from torch.compile cache factors (#47573), `CustomOp.forward_native` compiled for ReLU^2 (#50244), HF config used for HF tokenizers (#49907), batch-invariant RMSNorm via pinned block size (#48391).
+```
 
 ### Hardware & Performance
 * DeepSeek-V4: sequence parallelism (#46789), ~2x kernel skipping empty c128 launches (#48957), 3.4% E2E TTFT skipping topk/router in decode (#49486), 3.9% E2E TTFT workspace reuse (#49236), 1.88x kernel removing a redundant full kernel (#50298), adaptive topk width 1.0% E2E (#50004), 448 MiB GPU memory saved (#50312), compact MXFP4 indexer KV cache (#48993), sparse-MLA q-head padding removed for FlashInfer >= 0.6.14 (#48047).
@@ -21661,6 +21999,7 @@ This release features 561 commits from 242 contributors (64 new)!
 * XPU: QK Norm + RoPE fusion pass (#49394), FP8 o_proj with fp8_bmm and load-time scale transpose (#48334), DeepSeek-V4 fuse_index_q SYCL kernel path (#45991), TD operand loads for batched MoE GEMM (#46340), RMSNorm kernels unified with vllm_c (#46981).
 * CPU: INT8 fused MoE kernel for Arm CPUs (#48637), s390x inference optimization with oneDNN INT8 GEMM (#50219), GDN conv path optimized for speculative decoding (#48577), granite-4 enabled (#47641), FAST_EXP for Power (#49571), CPU kernels bumped to the latest version (#50387), macOS build fixes (#49021, #50915).
 
+```
 ### Large Scale Serving & Distributed
 * Fault tolerance framework (simplified) for DP+EP external LB deployments (#44428).
 * Elastic EP: async preparation (#47288) and non-contiguous weight transfer fix (#50641).
@@ -21669,6 +22008,7 @@ This release features 561 commits from 242 contributors (64 new)!
 * Mooncake: vectorized `prepare_value` on the KV load path (#48531), full external hits re-derived on stored boundaries (#49481).
 * Encoder-cache connectors: `has_pending_push_work` (#49582).
 * Communicators: process-checkpoint lifecycle hooks, starting with FlashInfer (#46877).
+```
 
 ### Quantization
 * New capabilities: FP4 Qutlass integration for compressed-tensors (#43229), CuTeDSL MoE for ReLU2 NVFP4 (#49580), MXFP8 linear support in INC (#47514), AutoRound W4A16 MoE and MXFP4 linear/MoE on XPU (#47124), KV quant mode for TurboQuant (#50533), ModelOpt FP8 emulation on SM80 (#50019), `--linear-backend` honored for ModelOpt W4A16 (#50273).
@@ -21693,6 +22033,7 @@ This release features 561 commits from 242 contributors (64 new)!
 
 ## New Contributors
 
+```
 * @afriedri made their first contribution in https://github.com/vllm-project/vllm/pull/49621
 * @amd-sourjya made their first contribution in https://github.com/vllm-project/vllm/pull/48050
 * @andreatassi made their first contribution in https://github.com/vllm-project/vllm/pull/48879
@@ -21757,6 +22098,7 @@ This release features 561 commits from 242 contributors (64 new)!
 * @yuan-alex made their first contribution in https://github.com/vllm-project/vllm/pull/48917
 * @yudigege86 made their first contribution in https://github.com/vllm-project/vllm/pull/50476
 * @zaristei made their first contribution in https://github.com/vllm-project/vllm/pull/49647
+```
 
 ## Contributors
 
@@ -21777,6 +22119,7 @@ This is a patch release on top of v0.27.0.
 
 This release features 584 commits from 270 contributors (76 new)!
 
+```
 * **Kimi-K3 performance push**: a major optimization effort for Kimi-K3 across the stack — Decode Context Parallel (DCP) support (#50484), fused FlashKDA decode and prefill kernels (#50654, #51311, #52458), SiTU activation support for MegaMoE (#50510), GEMM-RS for sequence parallelism (#52079), combined all-gathers with 1.5~3x kernel-level speedup (#51070), an adaptive speculative token budget delivering ~60% better DSpark TTFT (#51725), and optional shared-expert sharding saving ~17 GiB of memory per GPU (#50912). Kimi-K3 also now runs on ROCm with the V2 model runner (#51653).
 * **DeepSeek V4**: sparse MLA now works end-to-end for plain decode, MTP, and DSpark speculative decoding (#51538), joined by AMD Quark NVFP4 support (#47972), reasoning-effort prompts and mappings (#50580), sparse top-k metadata kernel optimizations (#52084, #51967), narrowed eager CUDA graph regions (#51430, #52401), and ROCm enablement on gfx11 and gfx950 (#47017, #52212).
 * **Speculative decoding advances**: DFlash2 with local convolution and a candidate selector (#52816), DSpark confidence-scheduled verification (#47808), and async scheduling auto-enabled for draft models (#48341).
@@ -21785,6 +22128,7 @@ This release features 584 commits from 270 contributors (76 new)!
 * **Rust frontend & gRPC**: a standalone renderer (#50289), multimodal image inference over gRPC (#50368), explicit data-parallel rank routing (#51178), and RL lifecycle control (#51316), with protobuf schemas now published to Buf (#51276).
 * **New defaults**: `max_num_batched_tokens` raised from 8192 to 16384 (#51726), prefix caching enabled by default for Mamba models (#50991), and the Blackwell CUDA graph capture default raised to 1024 (#49390).
 * **Breaking changes**: bitsandbytes support migrated to an out-of-tree plugin (#43529); Transformers bumped to 5.15.0 (#51668); the deprecated `calculate_kv_scales` runtime KV scale calculation was removed (#49389); `override_attention_dtype` was removed (#48684).
+```
 
 ## Release Artifacts
 
@@ -21828,18 +22172,22 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 * **Multimodal performance**: fused on-device multimodal preprocess normalization (#50411), faster placeholder and token-match scanning (#50716), and repeated prompt-update scans avoided (#51774).
 
 ## Engine Core
+```
 * **Speculative decoding**: DSpark confidence-scheduled verification (#47808), top-k DSpark Markov projection (#49969), DFlash2 with local convolution and a candidate selector (#52816), async scheduling auto-enabled for draft models (#48341), fused MTP trailing all-reduce with local-argmax draft tokens (#49793), and an adaptive budget for speculative scheduled input tokens (#51725).
 * **KV cache & scheduling**: per-request scheduling for MLA chunked context (#50613), partial-tail prefix reuse with fine-grained prefix matching (#50507), backend-published KV packing in the KV-cache layout refactor (#51612, #51704), LIFO free-block reuse order restored when prefix caching is off (#51482), and silent request skipping in priority scheduling fixed (#49206).
 * **Performance**: continued elimination of GPU<->CPU syncs on the execution path (#51458, #51738, #52369) now guarded by a CI sync check (#43107), new JIT warmup infrastructure with predicate filtering (#49315), the top-k/top-p Triton sampler launched with 8 warps (#51507), detokenization skipped in offline beam search (#50333), Mask Replay (#49577), optimized long-context MLA cache gathers (#51739), and HF revisions resolved to a commit hash once per model load (#49990).
 * **Hybrid/Mamba**: prefix caching on by default (#50991), the final part of the Mamba attention module refactor (#44857), 3D-grid tiling of the state-copy Triton kernels (#49436), and Mamba alignment applied before encoder caps (#51603).
 * **RL workflows**: stateful trainer send over NCCL and sparse NCCL (#50902), `CuMemAllocator.discard()` for tag-selective GPU memory release (#52514), level-2 sleep/wake/reload fixed with LoRA enabled (#39935), and rewritten weight-transfer docs with standardized examples (#51729).
 * **Startup robustness**: file:// rendezvous for single-node executors eliminates startup port races (#50999, #51652), frontend processes are watched during engine startup (#43417), a `get_open_port()` livelock on DP-reserved ports was fixed (#50965), and NVML is no longer re-initialized on every device-capability check (#50393).
+```
 
+```
 ## Hardware & Performance
 * **NVIDIA**: FlashInfer XQA decode support on SM12x (#49718), a CuTeDSL fused query kernel on SM100 (#49792), programmatic dependent launch for the DSA decode kernels (#50230), the native DSA decode path for MTP=3 on SM90 (#52164), GB10 fused-MoE FP8 tuning configs (#52502), and B12X dense linear backends (#52016).
 * **AMD ROCm**: torch 2.12 / triton 3.7 stack bump (#50607), AITER and FP8 inference enabled on GFX120x (#43615), DeepSeek-V4 on gfx11 (#47017), optimized Triton sparse-MLA decode on gfx950 (#52212), FlyDSL decode-attention kernel for 4-bit TurboQuant KV cache (#47896) and an fp8 MQA logits kernel on gfx942 (#49544), a fused Kimi-K3 KDA decode kernel (#50654), fused bf16→fp32 router GEMM (#50268), pinned memory on supported WSL2 kernels (#50126), and preshuffled sparse indexing for 16-token blocks (#51216).
 * **Intel XPU**: a torch linear backend including blockwise GEMM (#49664, #50826), MXFP8 linear weights for the INC DeepSeek V4 model (#48476), async-scheduling PP sampled-token broadcast overlapped with compute (#51650), an XPU wheel added to the release pipeline (#52108), tuned Mamba SSU configs for Arc Pro B70 (#50534), and UVA weight offloading fixes (#51770).
 * **CPU**: an MLA backend so DeepSeek-V2/V3 can run on CPU (#49453), a triton-cpu wheel (#52092), GPTQ and AWQ enabled on s390x (#51148) along with tcmalloc (#50841), BF16 MoE routed through zentorch on AMD (#44201), an unquantized MoE backend for Power (VSX) (#51624), unquantized MoE migrated to the modular-kernel experts structure (#50133), and the MXFP4 block scale folded in 2 instructions instead of 4 (#51583).
+```
 
 ## Large Scale Serving
 * **E/P/D disaggregation**: Model Runner V2 E/P/D support (#38390), duplicate image preprocessing removed with GPU-side preprocessing (#50390), KV consumers may omit multimodal embeddings (#52697), encoder-instance requests kept alive until their images are encoded (#50275), and EC connector scheduler/worker metadata plumbing (#49579, #49585).
@@ -21855,12 +22203,14 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 * **Fixes**: dynamic INT8 W8A8 MoE config no longer built as W8A16 (#50833) and a TritonExperts crash (#51411), MXFP4 conversion for FlashInfer CUTLASS (#51038), fp32 weight scales and per-expert checkpoint mapping for MXFP4 (#51419), and fused block-scale orientation (#50727).
 
 ## API & Frontend
+```
 * **New capabilities**: request priority parsed from an HTTP header (#51089), session ID plumbing into requests (#48048), `count_reasoning_tokens` in the streaming parser engine (#45802), `content_parts` on `/inference/v1/generate` (#51478), `model` optional on all `/derender` request classes (#51463), output token IDs logged at DEBUG level (#52098), and vLLM Recipes connected to native config-based deployment and benchmarking (#51308, #51878).
 * **Rust frontend**: a standalone renderer (#50289), gRPC multimodal image inference (#50368), explicit data-parallel rank routing (#51178), RL lifecycle control (#51316), dynamic tools from developer messages (#51144), protobuf schemas published to Buf (#51276), and MiniJinja upgraded to 2.22 (#51235).
 * **Anthropic API**: 4xx returned for client-caused errors on `/v1/messages` (#52246), `disable_parallel_tool_use` preserved (#52021), and stop sequences bounded (#51997).
 * **Cohere**: upstreamed parser fixes (#51998), stop sequences reported correctly (#51556), and vectorized binary embedding bit-packing (#52277).
 * **Structured output**: request stop tokens masked in xgrammar until the grammar terminates (#49227, #50595), NUL bytes rejected in `structured_outputs.regex` (#51796), negative token IDs rejected as out-of-vocabulary (#51795), and `VLLMValidationError` raised from validators (#52394).
 * **Robustness**: uvicorn signal handlers disabled instead of racing them (#50916), a consolidated entrypoint exception handler (#52261), 400 instead of 500 on non-object JSON bodies (#51654, #52528), generation inputs bounded before expensive work (#51447), and `cache_salt` now required to be non-empty (#50816).
+```
 
 ## Security
 * Fixed a DoS via sample-rate forgery that bypassed the audio decode duration guard (#49948); the audio decode duration limit is now also enforced in NanoNemotronVL (#50221).
@@ -21883,6 +22233,7 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 * MoE legacy code removed (#51078).
 
 ## New Contributors
+```
 * @acheamponge made their first contribution in https://github.com/vllm-project/vllm/pull/49353
 * @acmore made their first contribution in https://github.com/vllm-project/vllm/pull/51259
 * @anhtra3889 made their first contribution in https://github.com/vllm-project/vllm/pull/51002
@@ -21959,6 +22310,7 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 * @zcxGGmu made their first contribution in https://github.com/vllm-project/vllm/pull/50746
 * @ziqifan617 made their first contribution in https://github.com/vllm-project/vllm/pull/51879
 * @zobinHuang made their first contribution in https://github.com/vllm-project/vllm/pull/52164
+```
 
 ## Contributors
 @yewentao256, @AndreasKaratzas, @njhill, @mgoin, @aoshen02, @khluu, @hmellor, @stefankoncarevic, @taneem-ibrahim, @LucasWilkinson, @chaunceyjiang, @jikunshang, @zufangzhu, @bigPYJ1151, @NickLucche, @askliar, @fxmarty-amd, @Rohan138, @gty111, @zhenwei-intel, @Isotr0py, @jeejeelee, @ZJY0516, @wangxiyuan, @BugenZhao, @yma11, @zyongye, @DarkLight1337, @jperezdealgaba, @zhou9402, @connorcarpenter15, @kliuae, @lucifer1004, @Alex-ai-future, @aarushjain29, @TheEpicDolphin, @chaojun-zhang, @pmanczak, @WoosukKwon, @BabyDrangoner, @noooop, @almogtavor, @hongxiayang, @fuscof-ibm, @gau-nernst, @zxd1997066, @tlrmchlsmth, @music-dino, @zexplorerhj, @S1ro1, @jdebache, @sfeng33, @mayuyuace, @ganeshr10, @benchislett, @tzulingk, @gcanlin, @ivanium, @divakar-amd, @R3hankhan123, @sagearc, @vhagor, @ronensc, @micah-wil, @qyYue1389, @vanshbhatia-amd, @hao-aaron, @chengy-sysu, @elvircrn, @taking-lying-flat, @omerpaz95, @Etelis, @vllmellm, @frank-suwen, @KernelClint, @Fangzhou-Ai, @louie-tsai, @simondanielsson, @maxyanghu, @dmai-afk, @KurodaKanbei, @ziqifan617, @bastefaniak, @ECMGit, @haregali, @cmiyai, @fede-kamel, @drakosha, @vineethsaivs, @zcxGGmu, @TQCB, @skysnow2001, @shenoyvvarun, @karen-sy, @fattchris, @RyanJHamby, @shikamd123, @namgyu-youn, @zzt93, @abmfy, @reidliu41, @Rapisurazurite, @tandixit95, @mganczarenko, @yimdev, @anujbolewar, @LiuYinfeng01, @lk-chen, @NVShreyas, @huangzhilin-hzl, @varoudis, @Yejing-Lai, @mkhazraee, @jzakrzew, @TrainToGPB, @waynehacking8, @zixi-qi, @Sundaresan-G, @mindungil, @bitborne, @Wauplin, @jacobzhang22, @zhewenl, @bnellnm, @pisceskkk, @Lin-z-w, @gabriel-peracio, @SilenNaihin, @baodii, @YunzhuLu, @xwu-intel, @BWAAEEEK, @thisjiang, @maobaolong, @anhtra3889, @JaredforReal, @lvhan028, @xiaolong-intel, @andyxning, @cleonard530, @gnovack, @MatthewBonanni, @wangxian001, @lengrongfu, @Tejas-Raj01, @simon-mo, @vitamin-chaos, @arpera, @jairitAge, @jimmy-adams, @ILikeIneine, @woosebastian, @haic0, @edwinlim0919, @fcui-amd, @jhu960213, @jinzhen-lin, @coltonottley, @walterbm, @meenchen, @matteso1, @djramic, @gchinora, @davidjpyu, @tianmu-li, @xiaopusun, @majunze2001, @Vegetog, @puririshi98, @janeyx99, @RobbieJ, @oonyshch, @thegoldenflow, @Srinivasoo7, @fatday, @acheamponge, @efschu, @rajfirke, @fanxingran, @xudonlyu, @lcskrishna, @xijiaat, @GirasoleY, @d4l3k, @samuelkim7, @tarukumar, @acmore, @theminghuang, @khushali9, @wzhao18, @Priyjain-amd, @yiz-liu, @lkm2835, @dmholtz, @Dao007forever, @liushujia122, @LopezCastroRoberto, @UgaTheDev, @tuukkjs, @aditi-amd, @guan404ming, @yiliu30, @zou3519, @Luosuu, @JoursBleu, @varun-sundar-rabindranath, @mpashkovskii, @yu-xin-c, @WillZZZy, @vrdn-23, @xyang16, @ccrhx4, @tanpinsiang, @russellb, @fxfxfxfxfxfxfxfx, @afriedri, @yifjiang, @Akashcodes732, @HF-001, @ovidiusm, @arthurgao2003, @TomerBN-Nvidia, @hotTea123, @vx120, @bohnstingl, @qwerqwerqwe8688-jpg, @jasonozuzu-cohere, @vineetatiwari27, @ruirui6946, @linitra24, @syedalijaseem, @nickus, @yzong-rh, @s3woz, @jhaotingc, @lukealonso, @Jie-Fang, @kzwrime, @xianbaoqian, @velonica0, @ccaadaro, @yisustc, @fangchenli, @iwannagotobed, @zobinHuang, @rchalamala, @shanjiaz, @jamesETsmith, @stacyroberts, @guanxingithub, @biswapanda, @shanewidanagama, @UranusSeven, @hsusul, @tobymao, @mispa-ms, @jeffreywang88, @SayHelloToWorld, @jyan-R, @oops-oom, @shantipriya-amd, @andakai, @akii96, @shen-shanshan, @Kaif10, @yitingdc, @positive666, @pavelzak, @SubSir, @ywang96
@@ -22037,6 +22389,7 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 * **Kernels**: fused embedding kernel (#53677), FA4 re-enabled for head_size=256 on Blackwell (#52980), vectorized sparse MLA mask loads (#52217), masked MHA prefill for GLM-5 head dimensions (#53785), GLM-5.2 sparse MLA Q concatenation fused with head padding (#53878), fused QK-norm + partial MRoPE + gate for Qwen3.6 (#52676), FlashInfer CuTeDSL BF16 low-latency GEMM as opt-in `--linear-backend flashinfer_cutedsl` (#50572), replicated embedding and norm fusion for DSV3 flat models (#48484), standardized fused shared-expert selection (#51695), GPT-OSS MoE topk metadata reuse (#45457), tuned cooperative topk (#53382), and tuned FP8 fused_moe for Qwen3.5 on L40S (+7%, #53819).
 * **Robustness**: KV cache layout standardized under a `KVCacheLayout` enum (#51718), JIT warmup provider registry (#50174), `--cpu-offload-params` now reaches vision/audio towers (#53120), attention backend probe failures no longer crash init (#51703), FlashInfer XQA falls back on unsupported head_dim (#53111), FlashInfer prefill LSE normalized before merging to fix prefix-cache logits divergence (#52796), seed preserved when a batch mixes seeded and unseeded requests (#51866), startup thread allocation accounts for local DP workers (#52385), int32 overflow fixes in fused SiLU block quant (#53409) and LoRA kernels (#53034), a shared-memory race in fused groupwise RMSNorm quantization (#54111), BLHNC addressing for FlashInfer sparse MLA (#54465), Mamba state copy race (#50729), and a `start_profile` no-op after auto-stop (#51839).
 
+```
 ## Hardware & Performance
 * **NVIDIA**: DeepSeek V3.2 / GLM-5.2 DSA routed to the optimized CUDA path on all GPUs (#52861), PCP for DSv3.2 sparse MLA (#52046), cuBLAS out_dtype router GEMM on all archs including GB10 (#54048), FlashInfer all-reduce tuning on SM103 (#53318, #53606), FA4 hdim256 on SM100 (#52980), SM120 sparse MLA fixes (#51395, #53574), DeepSeek V3.2 fused kernel grids hardened for 65k+ token launches (#52381), FlashMLA sparse decode workspace fix (#53755), MNNVL Lamport corruption fix (#53000), and opt-in Rubin Docker builds for CUDA 13.4/13.5 (#53443).
 * **AMD ROCm**: dual-stream decode with hipgraphs (#52033), W4A4 preshuffled asm GEMM by default (+15% throughput on Llama-3.3-70B MXFP4, #53141), ROCr/CLR update fixing graph replay segfaults with up to about 20% TPOT improvement (#53712), fused KDA decode on MI325X (#52293), FULL cudagraphs for AITER MLA spec decode (#51171), FP8 asm MLA prefill for non-divisor head counts (#51040), DCP causal multi-token verification (#51705) and prefix cache hits for Kimi-K3 (#53598), AITER PA gluon decode for MiniMax-M3 (#52849), DeepSeek-V4 fusions for mHC/RMSNorm (#52737), C4A top-k (#52882), C4 compressor GEMMs (#53838) and SWA q/kv norm + FP8 quant (#53540), fused shared experts for block-FP8 (#53097), CPU offload on ROCm 7.13+ (#43018), TheRock 7.14 preview docker (#49925), int4/int8 quantization fixes (#52112, #48998, #51632, #53110), CUDA graphs captured on the current stream (#53818), AITER metadata preserved across graph replay (#53821), and improved ROCm detection under WSL (#38434).
@@ -22050,6 +22403,7 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 * **KV connectors**: Mooncake Store decode KV saving via `save_decode_cache` (#52466) and hybrid DCP prefix caching (#53324), externally transferable KV cache group identification (#53779), async KV loads deferred past forward launch (#53333), `kv_transfer_params` for `/inference/v1/generate` (#42644), MoRIIO shared KV region registration after the layout refactor (#53698), and Mamba fixes for Mooncake (#51362, #51358, #53663) and NIXL (#53523).
 * **KV offloading**: EC offloading connector driven by CUDA events (#49994), ownership in KV cache events (#52067, #52068), P2P tier request-level offload (#52912) and abort handling (#52571), `/dev/shm` leak on crash fixed (#52596), CPU->GPU loads ordered against compute stream (#50696), `store_threshold` counting fixed (#52227), in-flight primary keys cascaded (#53329), and padded GPU cache storage handled (#54021).
 * **Data/pipeline parallel**: PP silent corruption fix (#54962, #49274), DP coordinator wake handling (#51481), device sync on pause (#52914), TCPStore port fixes for Ray (#53666, #50969), DP supervisor inheriting the uvicorn config (#52473), EPD encoder round-robin fix (#52491), and producer-only EC config normalization (#53656).
+```
 
 ## Quantization
 * **New backends**: FlashInfer TRT-LLM MXFP8 linear (#52204), b12x FP4 MoE for SM120/SM121 (#52018), AutoRound block-wise FP8 (#47434), Humming MoE with MXFP4 weights + block-FP8 activations (#51332), and Humming for compressed-tensors WNA16 MoE (#48918).
@@ -22088,6 +22442,7 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 * `VLLM_TEST_FORCE_FP8_MARLIN` removed in favor of `--linear-backend` / `--moe-backend` (#52182); `VLLM_ROCM_USE_AITER_FP4_ASM_GEMM` removed (#53141); dead `--attention-config.use_prefill_decode_attention` removed (#52557); other long-deprecated parameters cleaned up (#53559).
 
 ## New Contributors
+```
 * @030611 made their first contribution in https://github.com/vllm-project/vllm/pull/51823
 * @92hyungjun made their first contribution in https://github.com/vllm-project/vllm/pull/47272
 * @ActiveSky made their first contribution in https://github.com/vllm-project/vllm/pull/52692
@@ -22179,6 +22534,7 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 * @Zhou248 made their first contribution in https://github.com/vllm-project/vllm/pull/52560
 * @zllion made their first contribution in https://github.com/vllm-project/vllm/pull/46701
 * @zwischenraum made their first contribution in https://github.com/vllm-project/vllm/pull/50272
+```
 
 ## Contributors
 @AndreasKaratzas, @khluu, @mgoin, @taneem-ibrahim, @yewentao256, @njhill, @BugenZhao, @hmellor, @GirasoleY, @DarkLight1337, @mayuyuace, @WoosukKwon, @jeejeelee, @noooop, @jperezdealgaba, @LucasWilkinson, @wzhao18, @stefankoncarevic, @gau-nernst, @okorzh-amd, @ZJY0516, @HollowMan6, @connorcarpenter15, @gcanlin, @aoshen02, @linitra24, @mhuzaifa3, @Isotr0py, @Etelis, @MatthewBonanni, @TheEpicDolphin, @zupengwang, @atalman, @NickLucche, @rasmith, @elvircrn, @JasonKeyiL, @Hotragn, @waizuichougou, @pmanczak, @divakar-amd, @he-yufeng, @xuebwang-amd, @qgallouedec, @esmeetu, @ZeldaHuang, @Prudhvivuda, @chaunceyjiang, @zxd1997066, @louie-tsai, @andyxning, @pisceskkk, @tjtanaa, @qli88, @tlrmchlsmth, @LopezCastroRoberto, @micah-wil, @hongxiayang, @BabyDrangoner, @yimdev, @mganczarenko, @SageMoore, @biswapanda, @sfeng33, @russellb, @itayalroy, @bigPYJ1151, @drakosha, @qwerqwerqwe8688-jpg, @akii96, @shen-shanshan, @meiyeh123, @reidliu41, @yma11, @frgossen, @lukealonso, @tanchao, @Fangzhou-Ai, @vllm-agent, @djramic, @andrewbcohere, @zyongye, @gty111, @ShuoleiWang, @ZHIHANCHEN03, @KurodaKanbei, @alexeldeib, @khushali9, @xiaohuguo2023, @hungnnvidia, @thisjiang, @arpera, @ShengleiFu, @zhenwei-intel, @jungjiyu, @yzong-rh, @charlifu, @hclsys, @Ronald1995, @mkhazraee, @YukioZzz, @theamalsebastian, @030611, @cr-zhao, @jbyczkow, @tommy-asai-sonarsource, @jikunshang, @bobboli, @LH-and-FPGA, @SayHelloToWorld, @kkt-cohere, @floatlibai, @rajathpi, @lxy-alexander, @gangula-karthik, @ActiveSky, @fxmarty-amd, @sstamenk, @mpashkovskii, @LiuYinfeng01, @chaojun-zhang, @Oxygen56, @daviswer, @vineethsaivs, @Agoni-02, @Andy365-365, @wangxiyuan, @haoyangqian, @Naveassaf, @eilamc14, @sseanliu, @y0hnn, @dineshchitlangia, @yiliu30, @Lossfull, @lxyxinyi, @vanshbhatia-amd, @jcotant-inferact, @chengy-sysu, @92hyungjun, @xyang16, @AmitMY, @zllion, @AnkitNakhawa, @dmvevents, @lengrongfu, @JC-ut0, @Eoin-Houstoun, @sagearc, @wjabbour, @sandeep-maddipatla, @seonjinn, @Yiqin-17, @kyleliang-nv, @thanhpt1110, @MKQuantum, @matthewkotila, @vhagor, @tthakkal, @ShuaiShao93, @hagaikwa-redhat, @shijuzhao, @elwhyjay, @Gregory-Pereira, @ErenAta16, @morrison-turnansky, @DCoEngine, @SoluMilken, @xianbaoqian, @kliuae, @nascheme, @waynehacking8, @stecasta, @vMaroon, @zwischenraum, @Rohan138, @Zhou248, @brianosaurus, @anmolgupt, @wyettzeng, @hao-aaron, @frank-suwen, @danisereb, @fuzzifikation, @KernelClint, @thunguo, @studioego, @shipiyouniao, @cjackal, @LioEinaudi, @guan404ming, @libinta, @mhoqueanik, @minjang, @Edge-Explorer, @shepark, @JiataiWang, @jiahaoliang, @therealnaveenkamal, @ColinZ22, @tolleybot, @almogtavor, @simon-veitner-redhat, @hyeongyun0916, @nicholaskh-ai, @mawong-amd, @adisivaprasad, @ray24777, @robertgshaw2-redhat, @new-TonyWang, @oliverholworthy, @fanxingran, @lucianommartins, @hallerite, @avininjamay8, @VBS2004, @omerpaz95, @Sunt-ing, @Hert4, @wangshangsam, @cogniera, @jeffreywang88, @Xarbirus, @fynnsu, @jiahanc, @zixi-qi, @prakharPant, @haic0, @maobaolong, @xinyu-intel, @CHIPMUNK-T0T, @hangy-amd, @afriedri, @canlahlah, @Alnusjaponica, @ukannika, @pranavthakur0-0, @zzaebok, @Xuan-1998, @JulianZJN, @roachsinai, @ivanium, @CalvinXKY, @yu-xin-c, @rchalamala, @QwertyJack, @Kaif10, @yudigege86, @yiz-liu, @dkrisman, @simondanielsson, @machero, @CherryLemon, @ima-helikoptaaa, @RookieCoder-Camera, @LironKesem, @peakcrosser7, @eligotts, @foraxe, @zufangzhu, @tianmu-li, @jl9876, @lucifer1004, @liranschour, @maithilijoshi20, @li-ukumar, @andyluo7, @Zhenzhong1, @faaany, @joerowell, @juhi10071998, @ganeshr10, @Priyjain-amd, @SubSir, @luyixiao95, @djw8605, @codex
@@ -22192,6 +22548,7 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 
 This release features 762 commits from 315 contributors (104 new)!
 
+```
 * **New models**: DeepSeek-V4.1-Flash (#56214, #56228, #56208) with the whole KV stored in MXFP8 through the FlashMLA V4.1 record on SM100 (#56893), DeepGEMM Mega-mHC (#56962), and async Engram prefetch with Engram DP sharding (#56512); DeepSeek-V4-Flash-Vision-Exp (#54566), also on ROCm (#55107) and with LoRA (#55897); GLM-5.3-Flash (#53906) with EPLB (#55119); K2-Horizon (#55063); Cohere Compass (#54774); Bailing V3 VL (#55921); Nanbeige4.2 via the Transformers backend (#56071); and a DeepSeek-V4 CPU backend with AVX512/AMX sparse MLA, indexer, mHC and compressor kernels (#55355).
 * **Fast Start**: a persistent per-GPU weight-cache daemon holds post-quantized, TP-sharded weights in GPU memory so restarting engines map them over CUDA IPC with `--load-format ipc_cache` instead of reloading from disk (#54921), now covering FP4 checkpoints (#55465) and multi-node TP (#55468).
 * **Watermarking**: Gumbel-max watermarked generation and detection with a keyed PRF, per-request opt-out and an example detection endpoint (#54053); dual-key Gumbel-max makes it compatible with speculative decoding (#56122); the Rust frontend forwards the per-request controls (#56338).
@@ -22202,6 +22559,7 @@ This release features 762 commits from 315 contributors (104 new)!
 * **Large scale serving**: PCP+DCP on sparse-MLA models (#56157), PCP with single-module MTP and replicated DSpark (#56107) and decode-only FULL CUDA graphs (#53867), Elastic EP reusing CUDA graphs across reconfiguration (#54985), an opt-in FlashInfer PCIe IPC all-reduce for NVLink-less boxes (#53576), DeepEP v2 async finalize overlapping shared experts with combine (#52781), Mooncake Store heterogeneous TP sharing (#53129), a KVCR secondary-tier adapter (#53624), and encoder-cache sharing over NIXL (#47941) and Mooncake (#41567).
 * **Quantization**: targeted online quantization through `quantization_config.targets` (#51285) and on partially pre-quantized checkpoints from any quant method (#51392), W4A16 DSA with the `nvfp4_fp8_ds_mla` KV cache (#51724), FlashInfer CuTeDSL NVFP4 W4A16 default over Marlin on SM100/103 (#53014), NVFP4 in the torch linear backend (#53319), per-quantization linear backend overrides (#51204), AutoRound 2/3/5/6/7-bit on CUDA (#52890), and DeepSelect top-k for the DSA sparse indexer (#56464).
 * **Breaking changes**: scale-out endpoints are opt-in on plain `vllm serve` via `--enable-scale-out`, replacing `VLLM_ENABLE_SCALE_OUT_ENDPOINTS` (#54579, #55176); GPTQ activation ordering (`g_idx`) removed (#54809); items deprecated for 0.29 removed, including the `VLLM_PREFIX_CACHE_RETENTION_INTERVAL` and `VLLM_MM_HASHER_ALGORITHM` env vars (#55353); the `all` Mamba cache mode deprecated (#55041); `python -m vllm.entrypoints.grpc_server` deprecated in favor of `vllm serve --grpc` (#56746); YaRN aligned with Transformers so vendor YaRN aliases no longer re-scale `max_model_len` (#56446).
+```
 
 ## Release Artifacts
 
@@ -22236,6 +22594,7 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 - XPU Python wheel for x86_64
 
 ## Model Support
+```
 * **New models**: DeepSeek-V4.1-Flash (#56214, #56228, #56208), DeepSeek-V4-Flash-Vision-Exp (#54566) with ROCm support (#55107) and LoRA (#55897), GLM-5.3-Flash (#53906), K2-Horizon with its reasoning and tool parsers (#55063), Cohere Compass (#54774, #55949), Bailing V3 VL with MTP (#55921), Nanbeige4.2 via the Transformers backend (#56071), and a DeepSeek-V4 CPU backend (#55355).
 * **DeepSeek-V4.1-Flash**: whole KV in MXFP8 through the FlashMLA V4.1 record on SM100 (#56893), Mega-mHC from the DeepGEMM fork (#56962), mHC post block folded into the delayed pre projection (#56633), Triton-fused input metadata preparation (#56562), async prefetch for CPU-offloaded Engram lookups and Engram DP sharding (#56512), DSpark draft states collapsed before the SP all-gather (#56903), DSpark drafter no longer inheriting uninitialized EPLB state (#56387), XGrammar V4.1 schema constraints for strict tool parameters (#56408), Responses text parts (#56299), and image sentinel padding scoped to the Vision-Exp checkpoint (#56554).
 * **DeepSeek V4**: plain RoPE without YaRN on sparse SWA layers (#54815), `--kv-cache-dtype auto` resolving to `fp8_ds_mla` with FlashMLA (#45091), prefill sparse index workspace sentinel seeded (#55299), dequant gather grid sized by rows (#55061), optional Q-norm in the fused MLA epilogue and group_size=32 packed FP8 quant (#56215), sparse settings read from the text config for composite models (#56160), MegaMoE startup without EP fixed (#55914), and a Triton iHC pre/post fallback for HY V4 (#55059).
@@ -22247,8 +22606,10 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 * **Multimodal**: torchcodec audio decoding and a selectable `audio_backend` in `--media-io-kwargs` (#51826) with automatic decoding kept soundfile-first (#55642), torchaudio as the default resampler (#52598), `media_io_kwargs` in multimodal hashes (#54241), cache hash kwargs scoped by modality (#54918), empty video URLs with multimodal UUIDs (#54220), cached audio inputs with UUIDs (#56310), encoder CUDA graphs for MiniCPM-V 2.5/2.6/4.0 (#42785), Voxtral Realtime with `FULL_DECODE_ONLY` graphs (#51167), Triton/FlashInfer composite attention for multimodal prefixes (#56305), pruned sliding-window tiles for Gemma 4 multimodal prompts (up to 3-4x E2E, #53147), SDPA for BLIP-2 Q-Former (#55285), baddbmm Conformer scores (#55062), fused DeepEncoder relative bias (#55629), Gemma3n sparse GELU Triton kernel (#48498), and no duplicate text embedding in Qwen2.5-Omni (#55415).
 * **Correctness**: Gemma 4 / Gemma 3n fine-tuned checkpoints without KV projections on shared layers (#54917, #55864), Gemma4 video preprocessing without image kwargs (#56652) and unified audio profiling (#56721), MiniCPM-V 4.6 loading (#49417) and video embeds (#54633), InternVL video parser (#55779), Nano-Nemotron precomputed embeddings (#56398), OpenPangu multimodal merge (#55941) and sleep mode (#53696), Qwen3-VL and Cosmos3-Edge under CPU and PP (#53699, #43272), Qwen VL processors without a tokenizer (#54886), Molmo2 fps guard (#55893), CohereASR audio-token estimate (#53829), double BOS in `LLM.chat()` for multimodal models (#55288), decoded frame lists parsed as one video (#55326), swapped H/W in dummy video profiling (#56385), base64 video validation (#54323), Sentence Transformers 5.4+ configs (#54533), ColQwen3.5 pooler projector (#54847), torch.compile enabled for StableLM (#54969) and Sarvam MLA (#55817), and Nemotron latent-MoE skipping a redundant all-reduce at TP>1 (about 13% decode win, #52301).
 * **LoRA**: rsLoRA scaling in MoE expert packing (#55548), a log line when an adapter applies no weights (#55310), and `--lora-modules name=path` with `=` in the path (#53353).
+```
 
 ## Engine Core
+```
 * **Model Runner V2**: DBO in eager mode (#50945) and with FULL CUDA graphs (#51700), MTP (#46994) and EAGLE3-style drafts (#50514) under pipeline parallelism, adaptive verification for all draft-model speculators (#52228), gc frozen during capture (#54646), GPU-compacted sampling masks (#54901), UVA-backed `apply_write` (#55819), fast-prefill support (#56145), DP sync skipped for all speculator uniform decodes (#54856), prompt embeddings in decoder pooling (#56639), pooling post-processing on non-final PP ranks (#56666), kernels warmed before graph capture (#55341), `CUDAGraphStat` (#52358), Proton CUDA graph attribution (#51084), platforms without pinned memory such as WSL (#56908), draft `moe_backend` (#54788) and `attention_backend` (#54826) overrides honored, DCP metadata initialized after batch partitioning (#55212), and a `record_stream` fix in the PP draft broadcast (#55745). The MRV2-specific Triton JIT warmup migration was reverted (#56654).
 * **Speculative decoding**: opt-in `disable_eagle_block_drop` (#53388), adaptive verification on `FLASHINFER_MLA_SPARSE_DSV4` (#52724) and deferred until after kernel warmup (#55455), full-vocab EAGLE3 drafters skipping vocab remapping (#53458), DSpark preserving the target DCP config (#55472), DFlash drafters dropping FlashAttention's AOT schedule (#54374), DP token padding excluded from draft metadata (#55458, #56181), fastsafetensors deadlock avoided for PP drafts (#54416), Mamba state cached at the EAGLE resume position (#53945) and preserved for padded prompt tails (#55178), resumed requests padded in P/D (#55126), and warmup device selection (#55245).
 * **Prefix caching and scheduling**: both replay boundaries retained so an EAGLE resend of a block-aligned prompt still hits (#54713), zero-progress preemption cascades stopped for deferred KV frees (#49675), SWA layers taking the primary block size to avoid inflating the KV block LCM (#53007), align-mode Mamba states retired across null gaps (#55450), the `all` Mamba cache mode deprecated with MRV1 fallback (#55041), and `vllm:request_num_preemptions` histogram (#49984).
@@ -22258,7 +22619,9 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 * **Watermarking**: Gumbel-max watermarked generation and detection (#54053) and dual-key Gumbel-max for speculative decoding with `allow_target_only_watermarking` and context deduplication (#56122).
 * **Sleep and RL**: NCCL communicator memory released in sleep mode (#51485), DP state synced on the first step of a wave so pause and sleep stop burning 32 dummy forwards per rank (#52957), pre-shared `ncclUniqueId` rendezvous for torch-free trainers (#53784), stale HPC QK-norm weights after refit fixed (#56706), and `session_id` on GPU `BlockStored` events (#51381).
 * **Robustness**: attention implementations must explicitly declare DCP support (#55780), unavailable piecewise CUDA graphs raise instead of producing garbled output (#54782), non-compiled models fall back to `FULL_DECODE_ONLY` graphs (#55095), MRV1 breakable graphs scoped to the piecewise path (#56312), sync checks cover paged async copies (#53491) and torch.compile (#56904), more H2D copies pinned (#54660, #55202, #56138), GDN capture metadata built without a device sync (#55404), queued work carried over when materializing the dedicated stream (#56382), FlexAttention recompiles avoided (#55888), persistent top-k falling back on low-shared-memory GPUs (#54110), KV page size scaled for hidden-state extraction with TP (#50894), out-of-bounds access in SM90 sparse MLA mixed batches (#56969), sparse-MLA piecewise capture crash (#56825), TRT-LLM ragged prefill regression (#55499), MoE fused sum int32 overflow (#50220), odd-row per-token-group quant cliff (#56478), dummy-load re-initialization (#56682, #56688), `warning_once` retaining the LLM instance (#54098), DSpark cache-group capability under `python -O` (#55234), sparse-MLA DCP stabilized for GLM PCP configurations (#55879), DeepGEMM FP8 warmup coverage (#56452), Triton autotune inspection skipped without Triton (#56676), `mm_device_do_normalize` under encoder CUDA graphs (#55370), VidCom2 frame budgets read once (#55331), the CUDA profiler start fix (#55237), FlashInfer all-reduce workspace failures logged as errors (#55127), and backend-neutral KV cache and MFU log lines (#55650).
+```
 
+```
 ## Hardware & Performance
 * **NVIDIA**: FlashInfer PCIe IPC all-reduce (#53576), DeepGEMM pinned to the vLLM fork 2.8.0 with SM120 and SM90 paged-MQA ports (#56876), public CUDA 13.4 Rubin build path (#54640, #56545), SM12x blockwise FP8 CTA raster swizzle for GB10/DGX Spark (#55180), W4A4 NVFP4 preferred on SM120/121 (#55170), H20 block-FP8 MoE tuning (+21%, #54668), an A100 PCIe fused-MoE config for Qwen3.5-122B TP2 (#55511), ReLU2 fused with static FP8 quant for Nemotron-H (#53793), and NVFP4 KV cache FMHA sped up (#55031).
 * **AMD ROCm**: TheRock base bumped to ROCm 10.0 (#55246) with nightly TheRock images (#55014), AITER 0.1.21.post2 (#52826, #55968), AITER custom AG/RS on the DP group (about 3% TPOT, #48247), multi-stream performance and rocprofiler fixes (#55099, #56098), bpreshuffled blockscaled FP8 GEMM (+4-8% QPS on DSv3, #51692), low-M FP32 router GEMM on gfx950 (#54845), DeepSeek V4 FHMoE shared-expert fusion (#53161), CSA multi-stream overlap (#51794), AITER OPUS for large sparse prefill (#54855), DSv4.1 mHC through AITER (#56503, #56513), MXFP8 dequant-once (#56560), strided DSA decode mask (#56628) and K=512 top-k tuning (#56743), MiniMax-M3 indexer and top-k work (#54682, #52664, #55235, #56170) with fused allreduce+GemmaRMSNorm (#54787), Kimi-K3 fused KDA prefill relanded (#54038) and fused MLA norms (#52494), GLM-5.2 kept on MRV1 (#53155), GLM-5.3-Flash MTP through ragged sparse MLA (#55239), W4A16 packed zero-points (-26% TPOT on Gemma 4 AWQ, #54965), Triton W4A16 GEMM as a custom op (#51453), split AITER CK/Triton MXFP4 backends (#50622, #54773), RDNA3 W4A16 MoE on the oracle path (#55522), Quark per-block FP8 MoE (#52263), KV connectors with `ROCM_AITER_UNIFIED_ATTN` (#53695), MoRI-IO SWA+HMA (#53721), attention sinks in AITER sparse MLA (#54404), non-causal DSpark drafts in AITER MLA decode (#55966), shared KV prefill (#55887), V-cache padding masked (#53856), elastic EP deadlock (#56610), profiler fixes (#54171, #56190), breakable CUDA graphs auto-enabled for DeepSeek-V4.1 (#56349), the AITER paged-MQA outputs guard removed for DeepSeek-V4 (#55808), DSV4 indexer gather cold-compile churn removed (#56153), PDL JIT warmup skipped where unsupported (#56035), Kimi-K3 fused prefill state_indices crash (#56526), Ray NIXL agents for sharded RDT (#56687), Qwen3-Omni audio encoder TP with non-divisible heads (#45900), Quark MXFP4 Qwen3.8-Flash-Next shared experts on gfx950 (#55213), AITER preshuffled FP8 block-scale kernel (#56433), linear biases with `requires_grad=False` (#56161), a clearer unsupported KV dtype error (#55236), Mooncake in the ROCm image (#55002), and AINIC pins (#54112, #56459).
@@ -22271,6 +22634,7 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 * **KV connectors**: Mooncake Store heterogeneous TP sharing (#53129), heterogeneous PP completion (#56033), replicated GQA heads (#52516), physical-block transfer length (#54272), producer partial Mamba tails (#52832), hybrid-model finish-time saves (#54643), failed remote loads reported to the scheduler (#50984), QSA ring groups excluded (#55027); NIXL per-region transfer geometry (#53780), int32 indices (#51952), multi-handle race (#56104), no eviction mid-transfer (#54689), full prefix hits reported finished (#56640), notification-only requests (#57570), and double cleanup (#54518); DecodeBench HMA, DCP, prefix and circular-buffer fixes (#54647, #54679, #54878, #54879); connector block tables resolved for every scheduled request (#54853), hybrid KV load failures (#50388), and `lmcache_mp_connector` state transitions guarded (#47505); HiSparse per-layer offsets (#57027), P/D region-mapped pulls (#57077) and NIXL full-block imports (#57049); NixlPush remote-agent reads guarded (#56317).
 * **KV offloading**: KVCR secondary-tier adapter (#53624), P2P tier `unbound_store_timeout_s` and late-fetch rejection (#53453), OffloadingConnector retention interval (#51886) and offload hits under MTP/EAGLE (#52771), SimpleCPUOffload fine-grained hybrid prefix hits (#54736), eager registration and final flush (#53532), `BlockStored` metadata (#54325), mixed page sizes for DSA models (#54756), prefix-cache bypass (#54998), no-forward-step stores (#56621); UniformTypeKVCacheSpecs portability (#51690) and DCP scaling (#50883); and fixes for async lookups (#54872, #55075, #55823), SWA reachability and coverage (#54362, #55712, #56486), final-token slot (#54288), oversized offers (#54759), ARC fallback (#55461), disk alignment (#55424), DiskBackend buffer race (#51667), offload key ordering (#52923), prefetch slot ownership (#54975), load boundaries (#52807), and tiering shutdown (#52290).
 * **Encoder cache and EPD**: P2P NIXL + CPU EC connector (#47941), ECMooncakeConnector (#41567), embedding inputs auto-enabled on EC/KV consumers (#56379), GPU NVDEC for encoder-only instances (#53675), lightweight multimodal metadata from render (#54659) as JSON arrays (#56090), reduced proxy serialization overhead (#56657), media options and UUIDs preserved (#56786, #56432), per-item EC checks (#56070), ECCPUWorker backend extension points (#54033), and fixes for old kernels (#53190), remote encoding failures (#55290), and TP>1 load devices (#40416).
+```
 
 ## Quantization
 * **New capabilities**: targeted online quantization (#51285) and online quantization of partially pre-quantized checkpoints (#51392), W4A16 DSA (#51724, #55538), FlashInfer CuTeDSL NVFP4 W4A16 (#53014), NVFP4 torch backend (#53319), `linear_backend_per_quant` (#51204), AutoRound 2/3/5/6/7-bit (#52890), TRT-LLM FP8 block-scale MoE with SwiGLU clamp (#55069), and Quark per-block FP8 MoE on ROCm (#52263).
@@ -22286,10 +22650,12 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 * **CLI and benchmarks**: `vllm bench serve` accounts for client queue time (#54136) with consistent streaming TTFT/E2E accounting (#55508), non-positive `--max-concurrency` rejected (#54887), `mm-processor` crash fixed (#56300), complete pooling responses measured (#56760), explicit empty and zero arguments honored in `vllm chat`/`complete` (#55710), `vllm launch render` shutdown hang fixed (#54913), double `/stop_profile` crash fixed (#51678), and remaining non-OpenAI content moved out of the openai folder (#56369).
 
 ## Security
+```
 * Validation-error response bodies bounded, closing an about 5,300x response amplification (#54684); client-supplied sparse embeddings bounded before densification (#54632).
 * Request-controlled video sampling capped for GLMGA (#54935) and Qwen-VL (#56729) backends.
 * `cache_salt` validated before reaching LMCache so one request cannot take down the engine (#51444); scale-out multimodal features validated before engine handoff (#51898); late-interaction query caches keyed by server-generated ids instead of `X-Request-Id` (#51445).
 * Credentials redacted from benchmark logs (#56662); Rust frontend HTTP method labels normalized to prevent unbounded Prometheus series (#56058).
+```
 
 ## Dependencies
 * CUTLASS 4.7.1 (#54190) and CUTLASS DSL 4.7 (#54927), Transformers 5.16.1 (#53905), tpu-inference v0.29.0 (#56388), `openai >= 2.25.0` (#49104), `huggingface_hub >= 1.31.0` with httpx imported through it (#56460).
@@ -22312,6 +22678,7 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 * New defaults: FlashInfer CuTeDSL NVFP4 W4A16 over Marlin on SM100/103 (#53014), W4A4 NVFP4 over weight-only kernels on SM120/121 (#55170), BF16x3 router GEMM on SM100 (#55899), DeepEP v2 combine overlap on with `VLLM_DEEPEP_V2_COMBINE_OVERLAP=0` to disable (#52781), AITER custom AG/RS on for DP attention + TP experts with `VLLM_ROCM_USE_AITER_CUSTOM_AR=0` to disable (#48247), native CUDA AttnRes for Kimi-K3 on SM100 (#54261), and `VLLM_USE_BREAKABLE_CUDAGRAPH=1` no longer overriding FULL graphs on MRV1 (#56312).
 
 ## New Contributors
+```
 * @100milliongold made their first contribution in https://github.com/vllm-project/vllm/pull/56017
 * @404mario made their first contribution in https://github.com/vllm-project/vllm/pull/52781
 * @982945902 made their first contribution in https://github.com/vllm-project/vllm/pull/52923
@@ -22416,6 +22783,7 @@ Pre-built release artifacts are available in the **Assets** section at the botto
 * @zqlcode made their first contribution in https://github.com/vllm-project/vllm/pull/56071
 * @zvier made their first contribution in https://github.com/vllm-project/vllm/pull/56103
 * @zwang86 made their first contribution in https://github.com/vllm-project/vllm/pull/54098
+```
 
 ## Contributors
 @khluu, @AndreasKaratzas, @taneem-ibrahim, @BugenZhao, @yewentao256, @njhill, @NickLucche, @aoshen02, @LopezCastroRoberto, @WoosukKwon, @LucasWilkinson, @zyongye, @hmellor, @Fangzhou-Ai, @sfeng33, @Isotr0py, @gau-nernst, @JaredforReal, @wzhao18, @fxmarty-amd, @stefankoncarevic, @Alex-ai-future, @mgoin, @micah-wil, @mayuyuace, @djramic, @ZJY0516, @mawong-amd, @Rohan138, @sychen52, @waizuichougou, @chaunceyjiang, @simondanielsson, @KernelClint, @AdaAibaby, @gty111, @zhenwei-intel, @zxd1997066, @majunze2001, @divakar-amd, @zhewenl, @giuseppegrossi, @Levius-Fubuki, @gcanlin, @jperezdealgaba, @bigPYJ1151, @stecasta, @linitra24, @chaojun-zhang, @shaohuaxi, @reidliu41, @atalman, @mfylcek, @lucifer1004, @ZeldaHuang, @askliar, @peakcrosser7, @yzeyu71, @hungnnvidia, @zupengwang, @TheEpicDolphin, @hlin99, @liusy58, @jyizheng, @jimmy-adams, @lucamotz, @jeejeelee, @shen-shanshan, @MatthewBonanni, @cjackal, @aarushjain29, @noooop, @Juntian777, @FeathBow, @Hotragn, @Jankwi, @lzhan011, @subhashpolisetti, @maithilijoshi20, @ilmarkov, @lukealonso, @mingg26, @franciscojavierarceo, @mevince, @zdtsw, @bnellnm, @omerpaz95, @jikunshang, @rbrugaro-amd, @bohnstingl, @specture724, @afierka-intel, @mohit-sarvam, @andylolu2, @pisceskkk, @starkwj, @wangyicong52, @eastwood-c, @wuhangxian, @yzong-rh, @yma11, @TQCB, @Sy0307, @jbyczkow, @itayalroy, @xiaguan, @alec-flowers, @ayush1399, @orestis-z, @mobicham, @ArcheyChen, @Zhenzhong1, @ZhengGong-amd, @jorge-menjivar, @IwakuraRein, @linamy85, @wentian-byte, @afriedri, @dharak-cohere, @DarkLight1337, @lvliang-intel, @zigzagcai, @harjothkhara, @bojiang3, @maireneu, @z-zanez, @JaynouOliver, @pra2107tham, @jdebache, @aijanai, @Dao007forever, @juhi10071998, @odashi, @Etelis, @fjosw, @jackLei0901, @tarukumar, @positive666, @tzielinski-habana, @drakosha, @iyastreb, @Harry-Chen, @sheralskumar, @ccrhx4, @aaab8b, @982945902, @tanyuqian, @DebugSy, @jasonozuzu-cohere, @byshiue, @yifjiang, @BolinSNLHM, @wseaton, @Yuzu23, @andyxning, @andy-neuma, @foraxe, @xuhuan51, @AnshulDesai, @luyixiao95, @null-Exception1, @yiz-liu, @zhang-keliang, @erdholion, @happyyzy, @GirasoleY, @SubSir, @natsala13, @yongqinwang-cmd, @StevenWang-CY, @LauraGPT, @wei-core, @zhejiangxiaomai, @bakiburakogun, @Whamp, @almogtavor, @zhouyou9505, @jschmied, @wenhuach21, @Big2Wheel, @vhagor, @frankie-ys, @zufangzhu, @stmatengss, @seanwestfall, @kamb-code, @somuai, @Josephasafg, @Aj2280, @am-cohere, @Sip4818, @liuyao0322, @heliubj18, @krsish, @Oskii, @xijiaat, @benenzhu, @tdoublep, @akshaver, @SherifWaly, @TensorRaya, @shikamd123, @Roderick-Wu, @lcskrishna, @BANANASJIM, @soodoshll, @mlazos, @Akine-Ko, @miyakido, @meena-at-work, @nikhilkulkarni1755, @jcayab, @wincent8, @abrahamzewoudie, @ronensc, @haic0, @gc-fu, @ykamiset, @Xarbirus, @zvier, @avininjamay8, @ColinZ22, @YunzhuLu, @jiacao-amd, @kliuae, @tobymao, @zexplorerhj, @ywang96, @YoavMiron, @xonder, @bjf-frz, @cenab, @josiahdavis, @juliendenize, @JiataiWang, @colinmcnamara, @tlrmchlsmth, @LearningMachine621, @jamesETsmith, @YukioZzz, @kushaldabbe, @lzzzzzc, @SalikovAlex, @pmanczak, @fadara01, @JulienDarve, @nicole-lihui, @zRzRzRzRzRzRzR, @100milliongold, @labAxiaoming, @GuyStone, @Wauplin, @SorenDreano, @chengchengpei, @circlepen, @amd-xavierwang, @tahsintunan, @biswapanda, @junuxyz, @walterbm, @arcusbuilds, @JartX, @arpera, @jcotant-inferact, @PatrykSaffer, @maeehart, @surajm20061998, @Woolgathererer, @kebe7jun, @ShengleiFu, @pavelzak, @stu-cao, @CedricHwong, @lxy-alexander, @BWAAEEEK, @Chinmay-Kulkarni-AMD, @mgehre-amd, @BruceLoveDecimal, @hickeyma, @jiangkuaixue123, @xiaozhenbi, @ganeshr10, @Ronald1995, @arkohut, @russellb, @zqlcode, @tomasruizt, @thillai-c, @samnordmann, @Ianniu123, @Luosuu, @netanel-haber, @MicheleCampi, @zhaoguochun1995, @JohnQinAMD, @liranschour, @jacklin78911-collab, @migarci2, @404mario, @ItsRoy69, @mkhazraee, @Ubospica, @Thangnguyenvn98, @YeonwooSung, @alexliluz, @ECMGit, @luoyuctl, @averma12, @drslark, @ppalanga, @zwang86, @wangshangsam, @jiahanc, @vllm-agent, @connorcarpenter15

@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:11:01Z",
- "finished_at": "2026-09-23T04:11:01Z",
- "duration_seconds": 1.6,
- "attempts": 1,
+ "finished_at": "2026-09-24T18:51:20Z",
+ "duration_seconds": 1.3,
+ "attempts": 2,
  "channels": {
   "hf_41a28395": {
    "type": "hf",

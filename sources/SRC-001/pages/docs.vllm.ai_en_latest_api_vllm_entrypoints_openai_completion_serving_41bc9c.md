@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/openai/completion/serving/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class OpenAIServingCompletion(GenerateBaseServing):
 def __init__(
@@ -54,9 +54,7 @@ raw_request: Request | None = None,
 """Completion API similar to OpenAI's API.
 See https://platform.openai.com/docs/api-reference/completions/create
 for the API specification. This API mimics the OpenAI Completion API.
-NOTE: Currently we do not support the following feature:
-- suffix (the language models we currently support do not support
-suffix)
+NOTE: suffix is only supported by models that implement FIM rendering.
 """
 return await self._with_kv_transfer_rejection_cleanup(
 self._create_completion(request, raw_request), request, raw_request

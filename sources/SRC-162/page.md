@@ -1,5 +1,3 @@
-# Optuna
-
 source: https://optuna.readthedocs.io/en/stable/
 
 # Optuna: A hyperparameter optimization framework[](https://optuna.readthedocs.io#optuna-a-hyperparameter-optimization-framework)

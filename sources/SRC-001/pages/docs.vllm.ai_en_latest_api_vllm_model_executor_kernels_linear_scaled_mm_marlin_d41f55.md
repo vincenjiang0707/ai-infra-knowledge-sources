@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/scaled_mm/marlin/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MarlinFP8ScaledMMLinearKernel(FP8ScaledMMLinearKernel):
 """FP8 Marlin kernel for GPUs that lack FP8 hardware support.

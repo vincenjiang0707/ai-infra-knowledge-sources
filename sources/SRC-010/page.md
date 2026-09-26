@@ -1,5 +1,3 @@
-# LMDeploy
-
 source: https://github.com/InternLM/lmdeploy/releases
 
 # Releases: InternLM/lmdeploy

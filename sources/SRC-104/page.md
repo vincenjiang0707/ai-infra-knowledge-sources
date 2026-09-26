@@ -1,5 +1,3 @@
-# ROCm rocprofiler-
-
 source: https://github.com/ROCm/rocprofiler-sdk/releases
 
 There was an error while loading. Please reload this page.

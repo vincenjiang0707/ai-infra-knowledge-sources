@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:48:53Z",
- "finished_at": "2026-09-23T03:48:53Z",
- "duration_seconds": 109.6,
- "attempts": 1,
+ "finished_at": "2026-09-25T02:17:40Z",
+ "duration_seconds": 77.6,
+ "attempts": 3,
  "channels": {
   "gh_7f67186a": {
    "type": "github_repo",
@@ -20,16 +20,16 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
-    "count": 122
+    "count": 123
    },
    "changelog": {
     "status": "ok",
@@ -52,12 +52,12 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
@@ -78,43 +78,43 @@
   "ref_27398fc3": {
    "type": "reference",
    "url": "https://github.com/Dao-AILab/flash-attention/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 966
   },
   "ref_b519a467": {
    "type": "reference",
    "url": "https://github.com/Dao-AILab/flash-attention/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 5299
+   "mode": "page",
+   "chars": 5428
   },
   "ref_970a16f4": {
    "type": "reference",
    "url": "https://github.com/Dao-AILab/flash-attention/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 10449
+   "mode": "page",
+   "chars": 11120
   }
  },
  "cursor": {
   "gh_7f67186a:issues": {
-   "last_updated_at": "2026-09-21T20:48:27Z"
+   "last_updated_at": "2026-09-24T23:06:42Z"
   },
   "gh_7f67186a:pulls": {
-   "last_updated_at": "2026-09-23T00:20:37Z"
+   "last_updated_at": "2026-09-24T23:14:00Z"
   },
   "gh_7f67186a:releases": {
-   "last_id": 389743210
+   "last_id": 394439454
   },
   "gh_bfb54282:issues": {
-   "last_updated_at": "2026-09-23T03:35:10Z"
+   "last_updated_at": "2026-09-25T02:16:46Z"
   },
   "gh_bfb54282:pulls": {
-   "last_updated_at": "2026-09-23T03:47:15Z"
+   "last_updated_at": "2026-09-25T02:16:50Z"
   },
   "gh_bfb54282:releases": {
    "last_id": 393391756

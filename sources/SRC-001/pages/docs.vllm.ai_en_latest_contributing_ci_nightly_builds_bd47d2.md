@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/contributing/ci/nightly_builds/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Nightly Builds of vLLM Wheels[¶](https://docs.vllm.ai#nightly-builds-of-vllm-wheels)
 

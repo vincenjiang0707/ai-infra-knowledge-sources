@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/scale_out/token_in_token_out/serving/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class ServingTokens(GenerateBaseServing):
 """Provides Tokens IN <> Tokens OUT functionality to vLLM API."""
@@ -469,7 +469,10 @@ for i, (token_id, logprob) in enumerate(
 step_top_logprobs.items()
 )
 if num_output_top_logprobs is not None
-and i < max(num_output_top_logprobs, 1)
+and (
+num_output_top_logprobs == -1
+or i < max(num_output_top_logprobs, 1)
+)
 ],
 )
 )

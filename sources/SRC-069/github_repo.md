@@ -1,12 +1,12 @@
 # deepseek-ai/DeepGEMM
 
-- stars: 7858
-- forks: 1275
-- open_issues: 149
+- stars: 7867
+- forks: 1276
+- open_issues: 147
 - default_branch: main
 - archived: False
 - license: MIT
-- pushed_at: 2026-09-14T05:46:03Z
+- pushed_at: 2026-09-24T05:26:51Z
 - homepage: 
 
 ## README

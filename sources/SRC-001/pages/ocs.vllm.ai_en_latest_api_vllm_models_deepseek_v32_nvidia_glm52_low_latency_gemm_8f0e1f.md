@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v32/nvidia/glm52_low_latency_gemm/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 

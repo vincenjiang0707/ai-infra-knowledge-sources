@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:56:15Z",
- "finished_at": "2026-09-23T03:56:15Z",
- "duration_seconds": 68.4,
- "attempts": 1,
+ "finished_at": "2026-09-25T19:24:12Z",
+ "duration_seconds": 547.0,
+ "attempts": 3,
  "channels": {
   "gh_6f701904": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 95,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -46,33 +56,33 @@
   "ref_b9847959": {
    "type": "reference",
    "url": "https://github.com/mlcommons/inference/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 881
   },
   "ref_a99c3e99": {
    "type": "reference",
    "url": "https://github.com/mlcommons/inference/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 5082
+   "mode": "page",
+   "chars": 5207
   },
   "ref_af9e1f60": {
    "type": "reference",
    "url": "https://github.com/mlcommons/inference/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 29048
   },
   "acad_c7db633d": {
    "type": "academic",
    "url": "https://docs.mlcommons.org/inference/submission/",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 9371
   }
  },
@@ -85,6 +95,36 @@
   },
   "gh_6f701904:releases": {
    "last_id": 272352597
+  },
+  "acad_c7db633d:menu": {
+   "visited": [
+    "https://docs.mlcommons.org/inference/",
+    "https://docs.mlcommons.org/inference/benchmarks/automotive/3d_object_detection/pointpainting/",
+    "https://docs.mlcommons.org/inference/benchmarks/graph/rgat/",
+    "https://docs.mlcommons.org/inference/benchmarks/image_classification/resnet50/",
+    "https://docs.mlcommons.org/inference/benchmarks/language/bert/",
+    "https://docs.mlcommons.org/inference/benchmarks/language/deepseek-r1/",
+    "https://docs.mlcommons.org/inference/benchmarks/language/gpt-j/",
+    "https://docs.mlcommons.org/inference/benchmarks/language/llama2-70b/",
+    "https://docs.mlcommons.org/inference/benchmarks/language/llama3_1-8b/",
+    "https://docs.mlcommons.org/inference/benchmarks/language/mixtral-8x7b/",
+    "https://docs.mlcommons.org/inference/benchmarks/medical_imaging/3d-unet/",
+    "https://docs.mlcommons.org/inference/benchmarks/object_detection/retinanet/",
+    "https://docs.mlcommons.org/inference/benchmarks/object_detection/yolo/",
+    "https://docs.mlcommons.org/inference/benchmarks/recommendation/dlrm-v2/",
+    "https://docs.mlcommons.org/inference/benchmarks/speech_to_text/whisper/",
+    "https://docs.mlcommons.org/inference/benchmarks/text_to_image/sdxl/",
+    "https://docs.mlcommons.org/inference/changelog/",
+    "https://docs.mlcommons.org/inference/changelog/changelog/",
+    "https://docs.mlcommons.org/inference/index_gh/",
+    "https://docs.mlcommons.org/inference/inference/install/",
+    "https://docs.mlcommons.org/inference/install/",
+    "https://docs.mlcommons.org/inference/power/",
+    "https://docs.mlcommons.org/inference/submission/",
+    "https://docs.mlcommons.org/inference/submission/submission-cli/",
+    "https://docs.mlcommons.org/inference/system-info/",
+    "https://docs.mlcommons.org/mlcflow"
+   ]
   }
  },
  "notes": ""

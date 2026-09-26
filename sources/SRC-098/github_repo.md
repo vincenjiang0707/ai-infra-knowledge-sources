@@ -1,8 +1,8 @@
 # NVIDIA/nccl-tests
 
-- stars: 1664
-- forks: 407
-- open_issues: 166
+- stars: 1667
+- forks: 409
+- open_issues: 167
 - default_branch: master
 - archived: False
 - license: BSD-3-Clause

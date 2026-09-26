@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:24:10Z",
- "finished_at": "2026-09-23T03:24:10Z",
- "duration_seconds": 56.2,
- "attempts": 1,
+ "finished_at": "2026-09-25T03:43:58Z",
+ "duration_seconds": 131.1,
+ "attempts": 4,
  "channels": {
   "gh_d68c1947": {
    "type": "github_repo",
@@ -20,12 +20,17 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 11,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -46,34 +51,34 @@
   "ref_206d8952": {
    "type": "reference",
    "url": "https://github.com/mlc-ai/mlc-llm/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 3528
+   "mode": "page",
+   "chars": 3777
   },
   "ref_b56c79be": {
    "type": "reference",
    "url": "https://github.com/mlc-ai/mlc-llm/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 5158
+   "mode": "page",
+   "chars": 5270
   },
   "ref_cf6ca3f3": {
    "type": "reference",
    "url": "https://github.com/mlc-ai/mlc-llm/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 356
   }
  },
  "cursor": {
   "gh_d68c1947:issues": {
-   "last_updated_at": "2026-09-19T01:23:25Z"
+   "last_updated_at": "2026-09-23T20:38:47Z"
   },
   "gh_d68c1947:pulls": {
-   "last_updated_at": "2026-09-18T18:42:57Z"
+   "last_updated_at": "2026-09-24T16:58:59Z"
   },
   "gh_d68c1947:releases": {
    "last_id": 101356901

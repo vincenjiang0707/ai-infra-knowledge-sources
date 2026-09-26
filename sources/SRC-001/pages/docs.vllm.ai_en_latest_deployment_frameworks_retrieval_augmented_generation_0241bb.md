@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/frameworks/retrieval_augmented_generation/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Retrieval-Augmented Generation[¶](https://docs.vllm.ai#retrieval-augmented-generation)
 
@@ -45,10 +45,12 @@ Run the script
 Set up the vLLM and llamaindex environment:
 
 pip install vllm \
+```bash
 llama-index llama-index-readers-web \
 llama-index-llms-openai-like \
 llama-index-embeddings-openai-like \
 llama-index-vector-stores-milvus \
+```
 
 
 ### Deploy[¶](https://docs.vllm.ai#deploy_1)

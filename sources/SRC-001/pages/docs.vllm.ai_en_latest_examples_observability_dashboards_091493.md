@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/observability/dashboards/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Monitoring Dashboards[¶](https://docs.vllm.ai#monitoring-dashboards)
 
@@ -129,6 +129,7 @@ Then apply to your cluster:
 
 ## grafana/performance_statistics.json
 
+```json
 {
 "annotations": {
 "list": [
@@ -1534,10 +1535,12 @@ Then apply to your cluster:
 "version": 40,
 "weekStart": ""
 }
+```
 
 
 ## grafana/query_statistics.json
 
+```json
 {
 "annotations": {
 "list": [
@@ -2297,6 +2300,7 @@ Then apply to your cluster:
 "version": 2,
 "weekStart": ""
 }
+```
 
 
 ## perses/README.md

@@ -1,0 +1,95 @@
+source: https://github.com/trust-center?locale=pt-br
+
+We enable developers and organizations to maximize their potential by prioritizing security, privacy, compliance, and transparency as we develop and iterate on GitHub Copilot.
+
+# Trust at GitHub
+
+Develop, scale, and innovate securely with GitHub.
+
+## Learn about our products
+
+### GitHub Enterprise Cloud FAQ
+
+A scalable and secure cloud-based unified software development platform that meets the demands of the world’s leading organizations.
+
+### Let's build together more securely
+
+The world’s most adopted AI-powered developer platform
+
+[Explore GitHub Enterprise](http://www.github.com/enterprise)
+
+[Contact sales](https://github.com/enterprise/contact?locale=pt-BR)
+
+## Additional resources
+
+[GitHub Advisory Database](https://github.com/advisories?locale=pt-BR)
+
+Boost your software security with access to GitHub's comprehensive vulnerability database.
+
+[Found means fixed](https://github.com/security/advanced-security?locale=pt-BR)
+
+Fix security vulnerabilities 7x faster than the industry average with GitHub Advanced Security.
+
+[GitHub Security Lab](https://securitylab.github.com/enterprise/)
+
+Learn about new vulnerabilities, insecure patterns, and security practices from our experts.
+
+### Frequently Asked Questions
+
+#### What is GitHub's commitment to AI?
+
+
+GitHub is committed to the advancement of safe, secure, and trustworthy AI. We believe in the power of AI to enhance efficiency and innovation across the software development life cycle to increase developer happiness. From GitHub Copilot to hosting open source models, GitHub continues to ensure that AI advancements are accessible and beneficial to all.
+
+#### What standard does GitHub follow for AI?
+
+
+GitHub follows Microsoft's Responsible AI Standard in designing, building, and testing its AI systems in our products. The Microsoft RAI Standard has six principles–accountability, transparency, fairness, reliability & safety, privacy & security, and inclusiveness–that product teams consider in order to responsibly develop and deploy generative AI systems. These principles align with our commitment to develop safe, secure, and trustworthy AI systems. Furthermore, the implementation of these six principles align with the National Institute for Standards and Technology (NIST) AI Risk Management Framework (RMF) – govern, map, measure, and manage.
+
+#### How does GitHub drive Responsible AI practices within its organization?
+
+
+Within GitHub, our Responsible AI Champions help map, measure, and manage risks associated with using generative AI in coding.
+
+#### What assessments and reviews has GitHub completed for its AI systems?
+
+
+GitHub has completed a Responsible AI Impact Assessment as well as security and privacy reviews to map different risks associated with its AI products.
+
+#### Where can I learn more about GitHub's responsible principles in AI development?
+
+
+You can learn more by reading the Responsible AI Transparency Report. The report includes a case study on how GitHub mapped and managed key risks and measured the effectiveness of GitHub Copilot and Copilot Chat on developer productivity.
+
+#### What are GitHub's privacy principles?
+
+
+At the heart of our work is a deep respect for your privacy, guiding the decisions we make. We prioritize your trust, control, and the context of your data to ensure your rights are always protected. GitHub has four privacy principles:
+
+Privacy Protects People.
+
+Privacy requires Trust, Control, and Transparency.
+
+Privacy is Contextual.
+
+Privacy is the Expectation.
+
+#### How does GitHub protect privacy?
+
+
+GitHub is dedicated to safeguarding your right to privacy by ensuring all employees uphold privacy standards and address any misuse of personal information.
+
+#### How does GitHub ensure trust, control, and transparency with user data?
+
+
+GitHub provides clear tools and choices to give you control over your privacy, is transparent about data usage, and uses your data to enhance your experience.
+
+#### How does GitHub handle data in different contexts?
+
+
+GitHub processes information based on its context, respecting local privacy laws and advocating for your privacy rights.
+
+#### How is privacy integrated into GitHub's operations?
+
+
+Privacy is built into everything GitHub does from the start, fostering trust with users, customers, and partners through a strong commitment to privacy.

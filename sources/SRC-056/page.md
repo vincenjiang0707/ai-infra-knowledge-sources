@@ -1,5 +1,3 @@
-# MiniMax 官⽅组
-
 source: https://github.com/MiniMax-AI
 
 # MiniMax
@@ -10,11 +8,11 @@ source: https://github.com/MiniMax-AI
 
 -
 -
--
 [MiniMax-Code-MiniApps](https://github.com/MiniMax-AI/MiniMax-Code-MiniApps)Public -
--
 [MiniMax-Provider-Verifier](https://github.com/MiniMax-AI/MiniMax-Provider-Verifier)PublicMiniMax-Provider-Verifier offers a rigorous, vendor-agnostic way to verify whether third-party deployments of the Minimax M2 model are correct and reliable.
 
+-
+-
 -
 [MiniMax-MCP-JS](https://github.com/MiniMax-AI/MiniMax-MCP-JS)PublicOfficial MiniMax Model Context Protocol (MCP) JavaScript implementation that provides seamless integration with MiniMax's powerful AI capabilities including image generation, video generation, text-to-speech, and voice cloning APIs.
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/trtllm_mxfp4_moe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class TrtLlmMxfp4ExpertsModular(TrtLlmMxfp4ExpertsBase, mk.FusedMoEExpertsModular):
 """Modular version of the MXFP4 TRTLLM kernel (just the experts).

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/rl/skip_loading_weights_in_engine_init/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Skip Loading Weights In Engine Init[¶](https://docs.vllm.ai#skip-loading-weights-in-engine-init)
 

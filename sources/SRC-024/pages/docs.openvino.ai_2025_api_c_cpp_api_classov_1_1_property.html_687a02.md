@@ -1,0 +1,4 @@
+source: https://docs.openvino.ai/2025/api/c_cpp_api/classov_1_1_property.html
+lastmod: 
+
+Class ov::Property# template<typename T, PropertyMutability mutability_ = PropertyMutability::RW>class Property : public util::BaseProperty<T, PropertyMutability::RW># This class is used to bind property name with value type. Template Parameters: T – type of value used to set or get property Public Functions template<typename ...Args>inline std::pair<std::string, Any> operator()(Args&&... args) const# Constructs property. Template Parameters: Args – property constructor arguments types Parameters: args – property constructor arguments Returns: Pair of name and type erased value.

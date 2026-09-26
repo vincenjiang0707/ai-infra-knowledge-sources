@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/configuration/env_vars/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Environment Variables[¶](https://docs.vllm.ai#environment-variables)
 
@@ -1599,10 +1599,6 @@ int(os.getenv("VLLM_ELASTIC_EP_DRAIN_REQUESTS", "0"))
 # memory allocation. Enabled by default as of v0.21.0
 "VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS": lambda: bool(
 int(os.getenv("VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS", "1"))
-),
-# Whether enable XPU graph on Intel GPU
-"VLLM_XPU_ENABLE_XPU_GRAPH": lambda: bool(
-int(os.getenv("VLLM_XPU_ENABLE_XPU_GRAPH", "0"))
 ),
 # Force N-contiguous weight layout for all XPU unquantized linears.
 "VLLM_XPU_FORCE_N_CONTIG_WEIGHT": lambda: bool(

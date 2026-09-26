@@ -1,8 +1,8 @@
 # ScalingIntelligence/KernelBench
 
-- stars: 1254
+- stars: 1258
 - forks: 192
-- open_issues: 46
+- open_issues: 47
 - default_branch: main
 - archived: False
 - license: NOASSERTION

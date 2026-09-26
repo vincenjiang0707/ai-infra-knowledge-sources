@@ -1,0 +1,3 @@
+source: https://rocm.docs.amd.com/en/docs-7.2.4/reference/rocm-tools.html
+
+ROCm tools, compilers, and runtime API# 2026-03-10 1 min read time Applies to Linux System Management AMD SMI ROCm Data Center Tool rocminfo ROCm SMI ROCm Validation Suite Performance ROCm Bandwidth Test ROCm Compute Profiler ROCm Systems Profiler ROCProfiler ROCprofiler-SDK ROCTracer Development ROCm CMake HIPIFY ROCdbgapi ROCm Debugger (ROCgdb) ROCr Debug Agent Compilers ROCm Compilers HIPCC FLANG Runtime API HIP

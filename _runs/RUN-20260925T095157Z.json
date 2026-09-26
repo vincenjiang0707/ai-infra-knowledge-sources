@@ -1,0 +1,22 @@
+{
+ "run_id": "2026-09-25T09:51:57Z",
+ "scope": "SRC-006",
+ "registry_size": 1,
+ "srcs_ran": 1,
+ "summary": {
+  "new_posts_total": 0,
+  "srcs_no_update": 1
+ },
+ "srcs": [
+  {
+   "src_id": "SRC-006",
+   "status": "success",
+   "duration": 586.0,
+   "skipped": false,
+   "new_posts": 0,
+   "head_check": false,
+   "total_posts": 0,
+   "outcome": "no_update"
+  }
+ ]
+}

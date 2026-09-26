@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/passes/ir/inplace_functionalization/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Bases: [VllmInductorPass](../../vllm_inductor_pass/#vllm.compilation.passes.vllm_inductor_pass.VllmInductorPass)
 

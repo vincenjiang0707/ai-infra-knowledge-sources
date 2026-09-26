@@ -1,5 +1,3 @@
-# SGLang 学习资
-
 source: https://github.com/sgl-project/sglang/releases
 
 # Releases: sgl-project/sglang

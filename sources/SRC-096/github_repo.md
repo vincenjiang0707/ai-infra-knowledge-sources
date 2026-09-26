@@ -1,12 +1,12 @@
 # openucx/ucx
 
 - stars: 1715
-- forks: 602
-- open_issues: 887
+- forks: 604
+- open_issues: 884
 - default_branch: master
 - archived: False
 - license: NOASSERTION
-- pushed_at: 2026-09-22T21:38:59Z
+- pushed_at: 2026-09-23T14:51:07Z
 - homepage: http://www.openucx.org
 
 ## README

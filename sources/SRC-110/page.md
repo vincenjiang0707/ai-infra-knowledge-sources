@@ -1,5 +1,3 @@
-# EvalScope
-
 source: https://github.com/modelscope/evalscope/releases
 
 # Releases: modelscope/evalscope

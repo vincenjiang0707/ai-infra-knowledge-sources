@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/input_quant_fp8/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 @CustomOp.register("quant_fp8")
 class QuantFP8(CustomOp):

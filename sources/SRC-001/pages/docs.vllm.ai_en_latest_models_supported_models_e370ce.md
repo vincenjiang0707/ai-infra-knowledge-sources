@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/models/supported_models/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Supported Models[¶](https://docs.vllm.ai#supported-models)
 
@@ -260,8 +260,9 @@ to your model's config class:
 
 ## configuration_my_model.py
 
-from transformers import PretrainedConfig
-class MyConfig(PretrainedConfig):
+```bash
+from transformers import PreTrainedConfig
+class MyConfig(PreTrainedConfig):
 base_model_tp_plan = {
 "layers.*.self_attn.k_proj": "colwise",
 "layers.*.self_attn.v_proj": "colwise",
@@ -275,6 +276,7 @@ base_model_pp_plan = {
 "layers": (["hidden_states", "attention_mask"], ["hidden_states"]),
 "norm": (["hidden_states"], ["hidden_states"]),
 }
+```
 
 
 `base_model_tp_plan`
@@ -1293,7 +1295,11 @@ E++ VE+`nvidia/Cosmos3-Edge`
 
 +`deepseek-ai/DeepSeek-V4-Flash-Vision-Exp`
 
-`Eagle2_5_VLForConditionalGeneration`
+`DiffusionGemmaForBlockDiffusion`
+
+++ V+`google/diffusiongemma-26B-A4B-it`
+
+, etc.`Eagle2_5_VLForConditionalGeneration`
 
 E+`nvidia/Eagle2.5-8B`
 

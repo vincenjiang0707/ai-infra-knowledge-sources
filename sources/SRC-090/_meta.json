@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:55:10Z",
- "finished_at": "2026-09-23T03:55:10Z",
- "duration_seconds": 94.4,
- "attempts": 1,
+ "finished_at": "2026-09-24T18:00:10Z",
+ "duration_seconds": 3476.9,
+ "attempts": 2,
  "channels": {
   "gh_638891b9": {
    "type": "github_repo",
@@ -20,12 +20,12 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
@@ -46,45 +46,51 @@
   "ref_4629c13c": {
    "type": "reference",
    "url": "https://github.com/ai-dynamo/dynamo/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 11960
+   "mode": "page",
+   "chars": 11896
   },
   "ref_b32e053c": {
    "type": "reference",
    "url": "https://github.com/ai-dynamo/dynamo/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 17458
+   "mode": "page",
+   "chars": 6522
   },
   "ref_248ba71c": {
    "type": "reference",
    "url": "https://github.com/ai-dynamo/dynamo/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 66076
   },
   "site_a36abf9a": {
-   "type": "site",
+   "type": "sitemap",
    "url": "https://docs.nvidia.com/dynamo/dev/agent-skills/optimization",
-   "mode": "page",
+   "mode": "sitemap.xml",
+   "pages_total": 1832,
    "status": "ok",
-   "output": "page.md",
-   "chars": 1122
+   "pages_fetched": 1811,
+   "pages_failed": 21,
+   "output_dir": "pages/",
+   "cap": 2000
   }
  },
  "cursor": {
   "gh_638891b9:issues": {
-   "last_updated_at": "2026-09-23T02:45:33Z"
+   "last_updated_at": "2026-09-24T15:01:50Z"
   },
   "gh_638891b9:pulls": {
-   "last_updated_at": "2026-09-23T03:53:37Z"
+   "last_updated_at": "2026-09-24T16:58:23Z"
   },
   "gh_638891b9:releases": {
    "last_id": 391808455
+  },
+  "site_a36abf9a:sitemap": {
+   "lastmod": "2026-09-24T00:15:31.517Z"
   }
  },
  "notes": ""

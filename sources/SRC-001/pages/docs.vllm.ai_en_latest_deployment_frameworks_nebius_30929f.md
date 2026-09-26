@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/frameworks/nebius/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Nebius Serverless AI[¶](https://docs.vllm.ai#nebius-serverless-ai)
 
@@ -36,6 +36,7 @@ The commands below were tested with Nebius CLI `0.12.265`
 
 . Set your project and subnet IDs explicitly. Use the same CLI profile throughout the guide.
 
+```bash
 export PROJECT_ID="<project-id>"
 export SUBNET_ID="<subnet-id>"
 export ENDPOINT_NAME="vllm-qwen-$(openssl rand -hex 6)"
@@ -58,6 +59,7 @@ nebius ai endpoint create \
 --disk-size 250Gi --shm-size 16Gi \
 --public=false --preemptible=false \
 --retries 1
+```
 
 
 The image and model revisions are pinned for reproducibility. When changing the image, check its CUDA/driver requirements against the selected Nebius platform. The model downloads into the container disk on startup; this example does not configure persistent model storage.
@@ -113,6 +115,7 @@ before sending a chat request. While waiting, inspect logs instead of creating a
 
 ## Send a chat request[¶](https://docs.vllm.ai#send-a-chat-request)
 
+```bash
 curl --fail-with-body --silent --show-error --max-time 120 \
 "$ENDPOINT_URL/v1/chat/completions" \
 -H "Authorization: Bearer $AUTH_TOKEN" \
@@ -124,6 +127,7 @@ curl --fail-with-body --silent --show-error --max-time 120 \
 "temperature": 0,
 "chat_template_kwargs": {"enable_thinking": false}
 }' | jq
+```
 
 
 Expect a chat completion containing an assistant message. The Qwen-specific template option disables thinking for this short example; it is not a universal option for other models.

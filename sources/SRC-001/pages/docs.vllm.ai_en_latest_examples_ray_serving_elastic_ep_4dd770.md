@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/ray_serving/elastic_ep/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Elastic Ep[¶](https://docs.vllm.ai#elastic-ep)
 
@@ -107,6 +107,7 @@ main()
 
 ## Serve Deepseek V2[¶](https://docs.vllm.ai#serve-deepseek-v2)
 
+```bash
 #!/bin/bash
 HOST="0.0.0.0"
 PORT=8006
@@ -173,3 +174,4 @@ vllm serve "$MODEL_NAME" \
 --trust-remote-code \
 --host "$HOST" \
 --port "$PORT"
+```

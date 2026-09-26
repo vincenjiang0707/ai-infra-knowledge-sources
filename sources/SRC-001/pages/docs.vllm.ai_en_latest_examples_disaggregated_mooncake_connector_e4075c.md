@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/disaggregated/mooncake_connector/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Mooncake Connector[¶](https://docs.vllm.ai#mooncake-connector)
 

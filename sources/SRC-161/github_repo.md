@@ -1,7 +1,7 @@
 # flashinfer-ai/flashinfer-bench
 
-- stars: 282
-- forks: 50
+- stars: 284
+- forks: 51
 - open_issues: 77
 - default_branch: main
 - archived: False

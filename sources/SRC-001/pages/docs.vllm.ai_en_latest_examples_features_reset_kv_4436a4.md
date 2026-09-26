@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/features/reset_kv/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Reset Kv[¶](https://docs.vllm.ai#reset-kv)
 

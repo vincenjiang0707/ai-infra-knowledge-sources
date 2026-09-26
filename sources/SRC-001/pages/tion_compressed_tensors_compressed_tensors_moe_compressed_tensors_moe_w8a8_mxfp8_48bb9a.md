@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe_w8a8_mxfp8/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class CompressedTensorsW8A8Mxfp8MoEMethod(CompressedTensorsMoEMethod):
 """Compressed-tensors MoE method for pre-quantized MXFP8 (W8A8) checkpoints.

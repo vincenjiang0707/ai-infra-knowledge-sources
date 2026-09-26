@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/hy_v4/nvidia/flashmla_sparse/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class HYV4FlashMLASparseImpl(FlashMLASparseImpl):
 """FlashMLA sparse impl that applies HY V4's per-head learnable sink.

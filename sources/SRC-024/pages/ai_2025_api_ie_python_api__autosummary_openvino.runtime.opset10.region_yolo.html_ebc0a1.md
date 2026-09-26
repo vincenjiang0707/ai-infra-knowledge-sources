@@ -1,0 +1,14 @@
+source: https://docs.openvino.ai/2025/api/ie_python_api/_autosummary/openvino.runtime.opset10.region_yolo.html
+lastmod: 
+
+# openvino.runtime.opset10.region_yolo[#](https://docs.openvino.ai#openvino-runtime-opset10-region-yolo)
+
+-
+openvino.runtime.opset10.region_yolo(
+*input:*,[Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*coords: int*,*classes: int*,*num: int*,*do_softmax: bool*,*mask: list[int]*,*axis: int*,*end_axis: int*,*anchors: list[float] | None = None*,*name: str | None = None*)[Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.opset10.region_yolo) Return a node which produces the RegionYolo operation.
+
+- Parameters:
+**input**– Input data**coords**– Number of coordinates for each region**classes**– Number of classes for each region**num**– Number of regions**do_softmax**– Compute softmax**mask**– Mask**axis**– Axis to begin softmax on**end_axis**– Axis to end softmax on**anchors**– A flattened list of pairs [width, height] that describes prior box sizes**name**– Optional name for output node.
+
+- Returns:
+RegionYolo node

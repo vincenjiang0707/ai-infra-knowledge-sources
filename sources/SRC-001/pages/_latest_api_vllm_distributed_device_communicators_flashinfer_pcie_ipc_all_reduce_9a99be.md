@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/device_communicators/flashinfer_pcie_ipc_all_reduce/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class FlashInferPcieIpcAllReduce:
 """vLLM lifecycle wrapper for FlashInfer's PCIe IPC all-reduce."""

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/interns1/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 @MULTIMODAL_REGISTRY.register_processor(
 InternS1MultiModalProcessor,
@@ -62,7 +62,7 @@ self.language_model.make_empty_intermediate_tensors
 )
 def _init_vision_model(
 self,
-config: PretrainedConfig,
+config: PreTrainedConfig,
 quant_config: QuantizationConfig | None,
 *,
 prefix: str,
@@ -74,7 +74,7 @@ quant_config=quant_config,
 num_hidden_layers_override=num_hidden_layers,
 prefix=prefix,
 )
-def _init_mlp1(self, config: PretrainedConfig) -> nn.Module:
+def _init_mlp1(self, config: PreTrainedConfig) -> nn.Module:
 return InternS1MultiModalProjector(config)
 def pixel_shuffle(self, x, scale_factor=0.5):
 n, w, h, c = x.size()

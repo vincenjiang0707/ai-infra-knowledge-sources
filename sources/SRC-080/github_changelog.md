@@ -1,2023 +1,847 @@
 # Changelog (aggregated from releases.body)
 
-> releases: 33
-
-## 0.1.0 (2024-08-12)
-
-## What's Changed
-* Address Test Failures by @Satrat in https://github.com/vllm-project/llm-compressor/pull/1
-* Remove SparseZoo Usage by @Satrat in https://github.com/vllm-project/llm-compressor/pull/2
-* SparseML Cleanup by @markurtz in https://github.com/vllm-project/llm-compressor/pull/6
-* Remove all references to Neural Magic copyright within LLM Compressor by @markurtz in https://github.com/vllm-project/llm-compressor/pull/7
-* Add FP8 Support by @Satrat in https://github.com/vllm-project/llm-compressor/pull/4
-* Fix Weekly Test Failure by @Satrat in https://github.com/vllm-project/llm-compressor/pull/8
-* Add Scheme UX for QuantizationModifier by @Satrat in https://github.com/vllm-project/llm-compressor/pull/9
-* Add Group Quantization Test Case by @Satrat in https://github.com/vllm-project/llm-compressor/pull/10
-* Loguru logging standardization for LLM Compressor by @markurtz in https://github.com/vllm-project/llm-compressor/pull/11
-* Clarify Function Names for Logging by @Satrat in https://github.com/vllm-project/llm-compressor/pull/12
-* [ Examples ] E2E Examples by @robertgshaw2-neuralmagic in https://github.com/vllm-project/llm-compressor/pull/5
-* Update setup.py by @robertgshaw2-neuralmagic in https://github.com/vllm-project/llm-compressor/pull/15
-* SmoothQuant Mapping Defaults by @Satrat in https://github.com/vllm-project/llm-compressor/pull/13
-* Initial README by @bfineran in https://github.com/vllm-project/llm-compressor/pull/3
-* [Bug] Fix validation errors for smoothquant modifier + update examples by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/19
-* [MOE Quantization] Warn against "undercalibrated" modules  by @dbogunowicz in https://github.com/vllm-project/llm-compressor/pull/20
-* Port SparseML Remote Code Fix by @Satrat in https://github.com/vllm-project/llm-compressor/pull/21
-* Update Quantization Save Defaults by @Satrat in https://github.com/vllm-project/llm-compressor/pull/22
-* [Bugfix] Add fix to preserve modifier order when passed as a list by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/26
-* GPTQ - move calibration of quantiztion params to after hessian calibration by @bfineran in https://github.com/vllm-project/llm-compressor/pull/25
-* Fix typos by @eldarkurtic in https://github.com/vllm-project/llm-compressor/pull/31
-* Remove ceiling from `datasets` dep by @mgoin in https://github.com/vllm-project/llm-compressor/pull/27
-* Revert naive compression format by @Satrat in https://github.com/vllm-project/llm-compressor/pull/32
-* Fix layerwise targets by @Satrat in https://github.com/vllm-project/llm-compressor/pull/36
-* Move Weight Update Out Of Loop by @Satrat in https://github.com/vllm-project/llm-compressor/pull/40
-* Fix End Epoch Default by @Satrat in https://github.com/vllm-project/llm-compressor/pull/39
-* Fix typos in example for w8a8 quant by @eldarkurtic in https://github.com/vllm-project/llm-compressor/pull/38
-* Model Offloading Support Pt 2 by @Satrat in https://github.com/vllm-project/llm-compressor/pull/34
-* set version to 1.0.0 for release by @bfineran in https://github.com/vllm-project/llm-compressor/pull/44
-* Update version for first release by @markurtz in https://github.com/vllm-project/llm-compressor/pull/50
-* BugFix: Update TRL example scripts to point to the right SFTTrainer by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/51
-* Update examples/quantization_24_sparse_w4a16 README by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/52
-* Fix Failing Transformers Tests by @Satrat in https://github.com/vllm-project/llm-compressor/pull/53
-* Offloading Bug Fix by @Satrat in https://github.com/vllm-project/llm-compressor/pull/58
-
-## New Contributors
-* @markurtz made their first contribution in https://github.com/vllm-project/llm-compressor/pull/6
-* @bfineran made their first contribution in https://github.com/vllm-project/llm-compressor/pull/3
-* @dbogunowicz made their first contribution in https://github.com/vllm-project/llm-compressor/pull/20
-* @eldarkurtic made their first contribution in https://github.com/vllm-project/llm-compressor/pull/31
-* @mgoin made their first contribution in https://github.com/vllm-project/llm-compressor/pull/27
-* @dbarbuzzi made their first contribution in https://github.com/vllm-project/llm-compressor/pull/52
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/commits/0.1.0
-
-## 0.2.0 (2024-09-23)
-
-## What's Changed
-* Correct Typo in SparseAutoModelForCausalLM docstring by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/56
-* Disable Default Bitmask Compression by @Satrat in https://github.com/vllm-project/llm-compressor/pull/60
-* TRL Example fix by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/59
-* Fix typo by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/63
-* Correct typo by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/61
-* correct import in README.md by @zzc0430 in https://github.com/vllm-project/llm-compressor/pull/66
-* Fix for issue #43 -- starcoder model by @horheynm in https://github.com/vllm-project/llm-compressor/pull/71
-* Update README.md by @robertgshaw2-neuralmagic in https://github.com/vllm-project/llm-compressor/pull/74
-* Layer by Layer Sequential GPTQ Updates by @Satrat in https://github.com/vllm-project/llm-compressor/pull/47
-* [ Docs ] Update main readme by @robertgshaw2-neuralmagic in https://github.com/vllm-project/llm-compressor/pull/77
-* [ Docs ] `gemma2` examples by @robertgshaw2-neuralmagic in https://github.com/vllm-project/llm-compressor/pull/78
-* [ Docs ] Update `FP8` example to use dynamic per token by @robertgshaw2-neuralmagic in https://github.com/vllm-project/llm-compressor/pull/75
-* [ Docs ] Overhaul `accelerate` user guide by @robertgshaw2-neuralmagic in https://github.com/vllm-project/llm-compressor/pull/76
-* Support `kv_cache_scheme` for quantizing KV Cache by @mgoin in https://github.com/vllm-project/llm-compressor/pull/88
-* Propagate `trust_remote_code` Argument by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/90
-* Fix for issue #81 by @horheynm in https://github.com/vllm-project/llm-compressor/pull/84
-* Fix for issue 83 by @horheynm in https://github.com/vllm-project/llm-compressor/pull/85
-* [ DOC ] Big Model Example by @robertgshaw2-neuralmagic in https://github.com/vllm-project/llm-compressor/pull/99
-* Enable obcq/finetune integration tests with `commit` cadence by @dsikka in https://github.com/vllm-project/llm-compressor/pull/101
-* metric logging on GPTQ path by @horheynm in https://github.com/vllm-project/llm-compressor/pull/65
-* Update test config files by @dsikka in https://github.com/vllm-project/llm-compressor/pull/97
-* remove workflows + update runners by @dsikka in https://github.com/vllm-project/llm-compressor/pull/103
-* metrics by @horheynm in https://github.com/vllm-project/llm-compressor/pull/104
-* add debug by @horheynm in https://github.com/vllm-project/llm-compressor/pull/108
-* Add FP8 KV Cache quant example by @mgoin in https://github.com/vllm-project/llm-compressor/pull/113
-* Add vLLM e2e tests by @dsikka in https://github.com/vllm-project/llm-compressor/pull/117
-* Fix style, fix noqa by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/123
-* GPTQ Algorithm Cleanup by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/120
-* GPTQ Activation Ordering by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/94
-* demote recipe string initialization to debug and make more descriptive by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/116
-* compressed-tensors main dependency for base-tests by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/125
-* Set `ready` label for transformer tests; add message reminder on PR opened by @dsikka in https://github.com/vllm-project/llm-compressor/pull/126
-* Fix markdown check test by @dsikka in https://github.com/vllm-project/llm-compressor/pull/127
-* Naive Run Compressed Pt. 2 by @Satrat in https://github.com/vllm-project/llm-compressor/pull/62
-* Fix transformer test conditions by @dsikka in https://github.com/vllm-project/llm-compressor/pull/131
-* Run Compressed Tests by @Satrat in https://github.com/vllm-project/llm-compressor/pull/132
-* Correct typo by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/124
-* Activation Ordering Strategies by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/121
-* Fix README Issue by @robertgshaw2-neuralmagic in https://github.com/vllm-project/llm-compressor/pull/139
-* update by @dsikka in https://github.com/vllm-project/llm-compressor/pull/143
-* Update finetune and oneshot tests by @dsikka in https://github.com/vllm-project/llm-compressor/pull/114
-* Validate Recipe Parsing Output by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/100
-* fix build error for nightly by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/145
-* Fix recipe nested in configs by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/140
-* MOE example with warning by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/87
-* Bug Fix: recipe stages were not being concatenated by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/150
-* fix package name bug for nightly by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/155
-* Add descriptions for pytest marks by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/156
-* Fix Sparsity Unit Test by @Satrat in https://github.com/vllm-project/llm-compressor/pull/153
-* Fix: Error during model saving with shared tensors by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/158
-* Update 2:4 Examples by @dsikka in https://github.com/vllm-project/llm-compressor/pull/161
-* DeepSeek: Fix Hessian Estimation by @Satrat in https://github.com/vllm-project/llm-compressor/pull/157
-* bump up main to 0.2.0 by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/163
-* Fix help dialogue by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/151
-* Add MoE and Compressed Inference Examples by @Satrat in https://github.com/vllm-project/llm-compressor/pull/160
-* Separate `trust_remote_code` args by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/152
-* Enable a skipped finetune test by @dsikka in https://github.com/vllm-project/llm-compressor/pull/169
-* Fix filename in example command by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/173
-* Add DeepSeek V2.5 Example by @dsikka in https://github.com/vllm-project/llm-compressor/pull/171
-* fix quality by @dsikka in https://github.com/vllm-project/llm-compressor/pull/176
-* Patch log function name in gptq by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/168
-* README for Modifiers by @Satrat in https://github.com/vllm-project/llm-compressor/pull/165
-* Fix default for sequential updates by @dsikka in https://github.com/vllm-project/llm-compressor/pull/186
-* fix default test case by @dsikka in https://github.com/vllm-project/llm-compressor/pull/193
-* Fix Initalize typo by @Imss27 in https://github.com/vllm-project/llm-compressor/pull/190
-* Update MoE examples by @mgoin in https://github.com/vllm-project/llm-compressor/pull/192
-
-## New Contributors
-* @zzc0430 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/66
-* @horheynm made their first contribution in https://github.com/vllm-project/llm-compressor/pull/71
-* @dsikka made their first contribution in https://github.com/vllm-project/llm-compressor/pull/101
-* @dhuangnm made their first contribution in https://github.com/vllm-project/llm-compressor/pull/145
-* @Imss27 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/190
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.1.0...0.2.0
-
-## 0.3.0 (2024-11-13)
-
-## What's New in v0.3.0
-
-### Key Features and Improvements
-- **GPTQ Quantized-weight Sequential Updating** ([#177](https://github.com/vllm-project/llm-compressor/pull/177)): Introduced an efficient sequential updating mechanism for GPTQ quantization, improving model compression performance and compatibility.
-- **Auto-Infer Mappings for SmoothQuantModifier** ([#119](https://github.com/vllm-project/llm-compressor/pull/119)): Automatically infers `mappings` based on model architecture, making SmoothQuant easier to apply across various models.
-- **Improved Sparse Compression Usability** ([#191](https://github.com/vllm-project/llm-compressor/pull/191)): Added support for targeted sparse compression with specific ignore rules during inference, allowing for more flexible model configurations.
-- **Generic Wrapper for Any Hugging Face Model** ([#185](https://github.com/vllm-project/llm-compressor/pull/185)): Added `wrap_hf_model_class` utility, enabling better support and integration for Hugging Face models i.e. not based on `AutoModelForCausalLM`.
-- **Observer Restructure** ([#837](https://github.com/vllm-project/llm-compressor/pull/837)): Introduced calibration and frozen steps within `QuantizationModifier`, moving Observers from compressed-tensors to llm-compressor.
-
-### Bug Fixes
-- **Fix Tied Tensors Bug** ([#659](https://github.com/vllm-project/llm-compressor/pull/659))
-- **Observer Initialization in GPTQ Wrapper** ([#883](https://github.com/vllm-project/llm-compressor/pull/883))
-- **Sparsity Reload Testing** ([#882](https://github.com/vllm-project/llm-compressor/pull/882))
-
-### Documentation
-- **Updated SmoothQuant Tutorial** ([#115](https://github.com/vllm-project/llm-compressor/pull/115)): Expanded SmoothQuant documentation to include detailed mappings for easier implementation.
-
-
-## What's Changed
-* Fix compresed typo by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/188
-* GPTQ Quantized-weight Sequential Updating by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/177
-* Add: targets and ignore inference for sparse compression by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/191
-* switch tests from weekly to nightly by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/658
-* Compression wrapper abstract methods by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/170
-* Explicitly set sequential_update in examples by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/187
-* Increase Sparsity Threshold for compressors by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/679
-* Add a generic `wrap_hf_model_class` utility to support VLMs by @mgoin in https://github.com/vllm-project/llm-compressor/pull/185
-* Add tests for examples by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/149
-* Rename to quantization config by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/730
-* Implement Missing Modifier Methods by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/166
-* Fix 2/4 GPTQ Model Tests by @dsikka in https://github.com/vllm-project/llm-compressor/pull/769
-* SmoothQuant mappings tutorial by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/115
-* Fix import of `ModelCompressor` by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/776
-* update test by @dsikka in https://github.com/vllm-project/llm-compressor/pull/773
-* [Bugfix] Fix saving offloaded state dict by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/172
-* Auto-Infer `mappings` Argument for `SmoothQuantModifier` Based on Model Architecture by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/119
-* Update workflows/actions by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/774
-* [Bugfix] Prepare KD Models when Saving by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/174
-* Set Sparse compression to save_compressed by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/821
-* Install compressed-tensors after llm-compressor by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/825
-* Fix test typo by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/828
-* Add `AutoModelForCausalLM` example by @dsikka in https://github.com/vllm-project/llm-compressor/pull/698
-* [Bugfix] Workaround tied tensors bug by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/659
-* Only untie word embeddings by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/839
-* Check for config hidden size by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/840
-* Use float32 for Hessian dtype by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/847
-* GPTQ: Depreciate non-sequential update option by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/762
-* Typehint nits by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/826
-* [ DOC ] Remove version restrictions in W8A8 exmaple by @miaojinc in https://github.com/vllm-project/llm-compressor/pull/849
-* Fix inconsistence in example config of 2:4 sparse quantization by @yzlnew in https://github.com/vllm-project/llm-compressor/pull/80
-* Fix forward function pass call by @dsikka in https://github.com/vllm-project/llm-compressor/pull/845
-* [Bugfix] Use weight parameter of linear layer by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/836
-* [Bugfix] Rename files to remove colons by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/846
-* cover all 3.9-3.12 in commit testing by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/864
-* Add marlin-24 recipe/configs for e2e testing by @dsikka in https://github.com/vllm-project/llm-compressor/pull/866
-* [Bugfix] onload during sparsity calculation by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/862
-* Fix HFTrainer overloads by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/869
-* Support Model Offloading Tied Tensors Patch by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/872
-* Add advice about dealing with non-invertable hessians by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/875
-* seed commit workflow by @andy-neuma in https://github.com/vllm-project/llm-compressor/pull/877
-* [Observer Restructure]: Add Observers; Add `calibration` and `frozen` steps to `QuantizationModifier` by @dsikka in https://github.com/vllm-project/llm-compressor/pull/837
-* Bugfix observer initialization in `gptq_wrapper` by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/883
-* BugFix: Fix Sparsity Reload Testing by @dsikka in https://github.com/vllm-project/llm-compressor/pull/882
-* Use custom unique test names for e2e tests by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/892
-* Revert "Use custom unique test names for e2e tests (#892)" by @dsikka in https://github.com/vllm-project/llm-compressor/pull/893
-* Move config["testconfig_path"] assignment by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/895
-* Cap accelerate version to avoid bug by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/897
-* Fix observing offloaded weight by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/896
-* Update image in README.md by @mgoin in https://github.com/vllm-project/llm-compressor/pull/861
-* update accelerate version by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/899
-* [GPTQ] Iterative Parameter Updating by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/863
-* Small fixes for release by @dsikka in https://github.com/vllm-project/llm-compressor/pull/901
-* use smaller portion of dataset by @dsikka in https://github.com/vllm-project/llm-compressor/pull/902
-* Update example to not fail hessian inversion by @dsikka in https://github.com/vllm-project/llm-compressor/pull/904
-* Bump version to 0.3.0 by @dsikka in https://github.com/vllm-project/llm-compressor/pull/907
-
-## New Contributors
-* @miaojinc made their first contribution in https://github.com/vllm-project/llm-compressor/pull/849
-* @yzlnew made their first contribution in https://github.com/vllm-project/llm-compressor/pull/80
-* @andy-neuma made their first contribution in https://github.com/vllm-project/llm-compressor/pull/877
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.2.0...0.3.0
-
-## 0.3.1 (2024-12-12)
-
-## What's Changed
-* BLOOM Default Smoothquant Mappings by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/906
-* [SparseAutoModelForCausalLM Deprecation] Feature change by @horheynm in https://github.com/vllm-project/llm-compressor/pull/881
-* Correct "dyanmic" typo by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/888
-* Explicit defaults for QuantizationModifier targets by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/889
-* [SparseAutoModelForCausalLM Deprecation] Update examples  by @horheynm in https://github.com/vllm-project/llm-compressor/pull/880
-* Support pack_quantized format for nonuniform mixed-precision by @mgoin in https://github.com/vllm-project/llm-compressor/pull/913
-* Actually make the `run_compressed` test useful by @dsikka in https://github.com/vllm-project/llm-compressor/pull/920
-* Fix for e2e tests by @horheynm in https://github.com/vllm-project/llm-compressor/pull/927
-* [Bugfix] Correct metrics calculations by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/878
-* Update kv_cache example by @dsikka in https://github.com/vllm-project/llm-compressor/pull/921
-* [1/2] Expand e2e testing to prepare for lm-eval by @dsikka in https://github.com/vllm-project/llm-compressor/pull/922
-* Update pytest command to capture results to file by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/932
-* [Bugfix] DisableKVCache Context by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/834
-* Add helpful info to the marlin-24 example  by @dsikka in https://github.com/vllm-project/llm-compressor/pull/946
-* Remove requires_torch by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/949
-* Remove unused sparseml.export utilities by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/950
-* Implement HooksMixin by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/917
-* Add LM Eval Testing by @dsikka in https://github.com/vllm-project/llm-compressor/pull/945
-* update version by @dsikka in https://github.com/vllm-project/llm-compressor/pull/969
-
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.3.0...0.3.1
-
-## 0.4.0 (2025-01-16)
-
-## What's Changed
-* Record config file name as test suite property by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/947
-* Update setup.py by @dsikka in https://github.com/vllm-project/llm-compressor/pull/975
-* Depreciate OBCQ Helpers by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/977
-* KV Cache, E2E Tests by @horheynm in https://github.com/vllm-project/llm-compressor/pull/742
-* Use 1 GPU for offloading examples by @dsikka in https://github.com/vllm-project/llm-compressor/pull/979
-* Replace tokenizer with processor by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/955
-* Revert "KV Cache, E2E Tests (#742)" by @dsikka in https://github.com/vllm-project/llm-compressor/pull/989
-* Fix SmoothQuant offload bug by @dsikka in https://github.com/vllm-project/llm-compressor/pull/978
-* Add LM Eval Configs by @dsikka in https://github.com/vllm-project/llm-compressor/pull/980
-* Fix `test_model_reload` test by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1005
-* Calibration and Compression Contexts by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/998
-* Add info for clarity by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1009
-* [Bugfix] Pass `trust_remote_code_model=True` for deepseek examples by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1012
-* Vision Datasets by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/943
-* Add example for fp8 kv cache of phi3.5 and gemma2 by @mgoin in https://github.com/vllm-project/llm-compressor/pull/991
-* Update ReadMe and test for cpu_offloading by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1013
-* Adding amdsmi for AMD gpus by @citrix123 in https://github.com/vllm-project/llm-compressor/pull/1018
-* CompressionLogger add time units by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1026
-* patch_tied_tensors_bug: support malformed model definitions by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1014
-* Add: 2of4 example with/without fp8 quantization by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1033
-* Remove unccessary step in 2of4 Example by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1034
-* Remove Neural Magic copyright from files by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/992
-* VLM Support via GPTQ Hooks and Data Pipelines by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/914
-* [E2E Testing] KV-Cache by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1004
-* [E2E Testing] Add recipe check vllm e2e by @horheynm in https://github.com/vllm-project/llm-compressor/pull/929
-* [MoE] GPTQ compress using callback not hook by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1049
-* Explicit dataset tokenizer `text` kwarg by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1031
-* Fix smoothquant ignore, Fix typing, Add glm mappings by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1015
-* [Test Fix] Quant model reload by @horheynm in https://github.com/vllm-project/llm-compressor/pull/974
-* Remove old examples by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1062
-* VLM: Fix typo bug in TraceableLlavaForConditionalGeneration by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1065
-* Add tests for "examples/sparse_2of4_[...]" by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/1067
-* VLM Image Examples by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1064
-* Add quick warning for DeepSeek with transformers 4.48.0 by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1066
-* [KV Cache] kv-cache end to end unit tests by @horheynm in https://github.com/vllm-project/llm-compressor/pull/141
-* [E2E Testing] Fix HF upload by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1061
-* [Test Fix] Fix/update test_run_compressed by @horheynm in https://github.com/vllm-project/llm-compressor/pull/970
-* Revert "[Test Fix] Fix/update test_run_compressed" by @mgoin in https://github.com/vllm-project/llm-compressor/pull/1071
-* Sparse 2:4 + FP8 Quantization e2e vLLM tests by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1073
-* [Test Patch] Remove redundant code for "Fix/update test_run_compressed" by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1072
-* bump; set ct version by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1076
-
-## New Contributors
-* @citrix123 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1018
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.3.1...0.4.0
-
-## 0.4.1 (2025-02-20)
-
-## What's Changed
-* Remove version by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1077
-* Require 'ready' label for transformers tests by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/1079
-* GPTQModifier Nits and Code Clarity by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1068
-* Also run on pushes to `main` by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/1083
-* VLM: Phi3 Vision Example by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1032
-* VLM: Qwen2_VL Example by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1027
-* Composability with sparse and quantization compressors by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/948
-* Remove `TraceableMistralForCausalLM` by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1052
-* [Fix Test Failure]: Propagate name change to test by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1088
-* [Audio] Support Audio Datasets by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1085
-* [Test Fix] Add Quantization then finetune tests  by @horheynm in https://github.com/vllm-project/llm-compressor/pull/964
-* [Smoothquant] Phi3 Vision Mappings by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1089
-* [VLM] Multimodal Data Collator by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1087
-* VLM: Model Tracing Guide by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1030
-* Turn off 2:4 sparse compression until supported in vllm by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1092
-* [Test Fix] Fix Consecutive oneshot by @horheynm in https://github.com/vllm-project/llm-compressor/pull/971
-* [Bug Fix] Fix test that requre GPU by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1096
-* Add Idefics3/SmolVLM quant support via traceable class by @leon-seidel in https://github.com/vllm-project/llm-compressor/pull/1095
-* Traceability Guide: Clarity and typo by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1099
-* [VLM] Examples README by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1057
-* Raise warning for 24 compressed sparse-only models by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1107
-* Remove log_model_load by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1016
-* Return empty sparsity config if targets and ignores are empty by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1115
-* Remove uses of get_observer by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/939
-* FSDP utils cleanup by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/854
-* Update maintainers, add notice by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1091
-* Replace readme paths with urls by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1097
-* GPTQ add Arkiv link, move file location by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1100
-* Extend `remove_hooks` to remove subsets by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1021
-* [Audio] Whisper Example and Readme by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1106
-* [Audio] Add whisper fp8 dynamic example by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1111
-* [VLM] Update pixtral data collator to reflect latest transformers changes by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1116
-* Use unique test names in `TestvLLM` by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/1124
-* Remove smoothquant from examples by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1121
-* Extend `disable_hooks` to keep subsets by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1023
-* Unpin `pynvml` to fix e2e test failures with vLLM by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1125
-* Replace LayerCompressor with HooksMixin by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1038
-* [Oneshot Refactor] Rename get_shared_processor_src to get_processor_name_from_model by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1108
-* Allow Shortcutting Min-max Observer by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/887
-* [Polish] Remove unused code by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1128
-* Properly restore training mode with `eval_context` by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1126
-* SQ and QM: Remove `torch.cuda.empty_cache`, use `calibration_forward_context` by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1114
-* [Oneshot Refactor] dataclass Arguments by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1103
-* [Bugfix] SparseGPT, Pipelines by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1130
-* [Oneshot refactor] Refactor initialize_model_from_path by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1109
-* [e2e] Update vllm tests with additional datasets by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1131
-* Update: SparseGPT recipes by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1142
-* Add timer support for testing by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1137
-* [Audio] Support Whisper V3 by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1147
-* Fix: Re-enable Sparse Compression for 2of4 Examples by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1153
-* [VLM] Add caption to flickr dataset by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1138
-* [VLM] Update mllama traceable definition by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1140
-* Fix CPU Offloading  by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1159
-* [TRL_SFT_Trainer] Fix and Update Examples code by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1161
-* [TRL_SFT_Trainer] Fix TRL-SFT Distillation Training by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1163
-* Bump version for patch release by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1166
-* Update DeepSeek Examples  by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1175
-* Update gemma2 examples with a note about sample generation by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1176
-
-## New Contributors
-* @leon-seidel made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1095
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.4.0...0.4.1
-
-## 0.5.0 (2025-04-03)
-
-## What's Changed
-* re-add vllm e2e test now that bug is fixed by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1162
-* Fix Readme Imports by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1165
-* Remove event_called by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1155
-* Update: Test name by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1172
-* Remove lifecycle initialized_structure attribute by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1156
-* [VLM] Qwen 2.5 VL by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1113
-* Revert bump by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1178
-* Remove CLI by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1144
-* Add group act order case to lm_eval test by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1080
-* Update e2e test timings ouputs by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1179
-* [Oneshot Refactor] Main refactor by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1110
-* [StageRunner Removal] Remove Evalulate / validate pathway by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1145
-* [StageRemoval] Remove Predict pathway by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1146
-* Fix 2of4 Apply Example by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1181
-* Fix Sparse2of4 Example by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1182
-* Add qwen moe w4a16 example by @mgoin in https://github.com/vllm-project/llm-compressor/pull/1186
-* [Callbacks] Consolidate Saving Methods by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1168
-* lmeval tests multimodal by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1150
-* [Dataset Performance] Add num workers on dataset processing - labels, tokenization by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1189
-* Fix a minor typo by @eldarkurtic in https://github.com/vllm-project/llm-compressor/pull/1191
-* [Callbacks] Remove pre_initialize_structure by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1160
-* Make `transformers-tests` job conditional on files changed by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/1197
-* Update finetune tests to decrease execution time by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1208
-* Update transformers tests to speed-up execution by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1211
-* Fix logging bug in oneshot.py by @aman2304 in https://github.com/vllm-project/llm-compressor/pull/1213
-* [Training] Decouple Argument parser by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1207
-* Remove MonkeyPatch for GPUs by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1227
-* [Cosmetic] Rename data_args to dataset_args by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1206
-* [Training] Datasets - update Module by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1209
-* [BugFix] Fix logging disabling bug and add tests by @aman2304 in https://github.com/vllm-project/llm-compressor/pull/1218
-* [Training] Unifying Preprocess + Postprocessing logic for Train/Oneshot by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1212
-* [Docs] Add info on when to use which PTQ/Sparsification by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1157
-* [Callbacks] Remove `MagnitudePruningModifier.leave_enabled` by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1198
-* Replace Xenova model stub with nm-testing model stub by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1239
-* Offload Cache Support torch.dtype by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1141
-* Remove unused/duplicated/non-applicable utils from pytorch/utils/helpers by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1174
-* [Bugfix] Staged 2of4 example by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1238
-* wandb/tensorboard loggers set default init to False by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1235
-* fixing reproducibility of lmeval tests by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1220
-* [Audio] People's Speech dataset and tracer tool by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1086
-* Use KV cache constant names provided by compressed tensors  by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1200
-* [Bugfix] Raise error for processor remote code by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1184
-* Remove missing weights silencers in favor of HFQuantizer solution by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1017
-* Fix run_compressed tests by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1246
-* [Train] Training Pipeline by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1214
-* [Tests] Increase maximum quantization error by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1245
-* [Callbacks] Remove EventLifecycle and on_start event by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1170
-* [Bugfix] Disable generation of deepseek models with transformers>=4.48 by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1259
-* Remove clear_ml by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1261
-* [Tests] Remove clear_ml test from GHA by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1265
-* Remove click by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1262
-* [Bugfix] Remove constant pruning from 2of4 examples by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1267
-* Addback: ConstantPruningModifier for finetuning cases by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1272
-* Remove docker by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1255
-* move failing mulitmodal lmeval tests to skipped folder by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1273
-* Replace tj-action/changed-files by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/1270
-* [BugFix]: Sparse2of4 example sparsity-only case by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1282
-* Revert "update" by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1296
-* Fix Multi-Context Manager Syntax for Python 3.9 Compatibility by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1287
-* Revert "Fix Multi-Context Manager Syntax for Python 3.9 Compatibility… by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1300
-* [StageRunner] Stage Runner entrypoint and pipeline by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1202
-* Bump: Min python version to 3.9 by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1288
-* Keep quantization enabled during calibration by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1299
-* [BugFix] TRL distillation bug fix by @horheynm in https://github.com/vllm-project/llm-compressor/pull/1278
-* Update: Readme for fp8 support by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1304
-* [GPTQ] Add inversion fallback by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1283
-* fix typo by @eldarkurtic in https://github.com/vllm-project/llm-compressor/pull/1290
-* [Tests] Fix oneshot + finetune test by passing splits to oneshot by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1316
-* [Tests] Remove the `compress` entrypoint by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1317
-* Fix Multi-Context Manager Syntax for Python 3.9 Compatibility by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1313
-* [BugFix] Directly Convert Modifiers to Recipe Instance by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1271
-* bump version, tag ct by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1318
-
-## New Contributors
-* @aman2304 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1213
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.4.1...0.5.0
-
-## 0.5.1 (2025-04-29)
-
-## What's Changed
-* Update nm-actions/changed-files to v1.16.0 by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/1311
-* docs: fix missing git clone command and repo name typos in DEVELOPING.md by @gattshjott in https://github.com/vllm-project/llm-compressor/pull/1325
-* Update e2e/lm-eval test infrastructure by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/1323
-* fix(logger): normalize log_file_level input for consistency by @gattshjott in https://github.com/vllm-project/llm-compressor/pull/1324
-* [Utils] Replace `preserve_attr` with `patch_attr` by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1187
-* Fix cut off log in entrypoints/utils.py `post_process()` by @mgoin in https://github.com/vllm-project/llm-compressor/pull/1336
-* [Tests] Update condition for sparsity check to be more robust by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1337
-* [Utils] Add `skip_weights_download` for developers and testing by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1334
-* replace custom version handling with setuptools-scm by @dhellmann in https://github.com/vllm-project/llm-compressor/pull/1322
-* [Compression] Update sparsity calculation lifecycle when fetching the compressor by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1332
-* [Sequential] Support models with nested `_no_split_modules`  by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1329
-* [Tracing] Remove `TraceableWhisperForConditionalGeneration` by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1310
-* Add torch device to list of offloadable types by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1348
-* Reduce SmoothQuant Repr by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1289
-* Use `align_module_device` util by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1298
-* Fix project URL in setup.py by @tiran in https://github.com/vllm-project/llm-compressor/pull/1353
-* Update trigger on PR comment workflow by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/1357
-* Add timing functionality to lm-eval tests by @ved1beta in https://github.com/vllm-project/llm-compressor/pull/1346
-* [Callbacks][Docs] Add docstrings to saving functions by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1201
-* Move: recipe parsing test from `e2e/` to main test suite by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1360
-* Smoothquant typehinting by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1285
-* AWQ Modifier by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1177
-* [Tests] Update transformers tests to run kv_cache tests by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1364
-* [Transformers] Support latest transformers by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1352
-* Update test_consecutive_runs.py by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1366
-* [Docs] Mention AWQ, some clean-up by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1367
-* Fix versioning for source installs by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/1370
-* [Testing] Reduce error verbosity of cleanup by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1365
-* Update test_oneshot_and_finetune.py to use pytest.approx by @markurtz in https://github.com/vllm-project/llm-compressor/pull/1339
-* [Tracing] Better runtime error messages by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1307
-* [Tests] Fix test case; update structure by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1375
-* fix: Make Recipe.model_dump() output compatible with model_validate() by @ved1beta in https://github.com/vllm-project/llm-compressor/pull/1328
-* Add: documentation for enhanced `save_pretrained` parameters by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1377
-* Revert "fix: Make Recipe.model_dump() output compatible .... by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1378
-* AWQ resolved mappings -- ensure shapes align by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1372
-* Update w4a16_actorder_weight.yaml lmeval config by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/1380
-* [WIP] Add AWQ Asym e2e test case by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1374
-* Bump version; set ct version by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1381
-* bugfix AWQ with Llama models and python 3.9 by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1384
-* awq -- hotfix to missing kwargs by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1395
-
-## New Contributors
-* @gattshjott made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1325
-* @dhellmann made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1322
-* @tiran made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1353
-* @ved1beta made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1346
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.5.0...0.5.1
-
-## 0.5.2 (2025-06-24)
-
-## What's Changed
-* Exclude images from package by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1397
-* [Tracing] Skip non-ancestors of sequential targets by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1389
-* Consolidate build config by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/1398
-* [Tests] Disable silently failing kv cache test by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1371
-* Drop `flash_attn` skip for quantizing_moe example tests by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/1396
-* [VLM] Fix mllama targets by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1402
-* [Tests] Use requires_gpu, fix missing gpu test skip, add explicit test for gpu from gha by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1264
-* Implement `QuantizationMixin` by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1351
-* Add new-features section by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1408
-* [Tracing] Support tracing of Gemma3 [#1248] by @kelkelcheng in https://github.com/vllm-project/llm-compressor/pull/1373
-* bugfix kv cache quantization with ignored layers by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1312
-* AWQ sanitize_kwargs minor cleanup by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1405
-* [Tracing][Testing] Add tracing tests by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1335
-* fix lm eval test reproducibility issues by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1260
-* Pipeline Extraction by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1279
-* Add `pull_request` trigger to base tests workflow by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/1417
-* removing RecipeMetadata and references by @shanjiaz in https://github.com/vllm-project/llm-compressor/pull/1414
-* Update examples to only load required number of samples from dataset by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1118
-* [Tracing] Reinstate ignore functionality by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1423
-* [Typo] overriden by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1420
-* Rename SparsityModifierMixin to SparsityModifierBase by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1416
-* Remove RecipeArgs class & its references by @shanjiaz in https://github.com/vllm-project/llm-compressor/pull/1429
-* [Examples] Standardize AWQ example by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1412
-* [Logging] Support logging once by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1431
-* Add: deepseekv2 smoothquant mappings by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1433
-* AWQ QuantizationMixin + SequentialPipeline by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1426
-* patch awq tests/readme after QuantizationMixin refactor by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1439
-* Added more tests for Quantization24SparseW4A16 by @shanjiaz in https://github.com/vllm-project/llm-compressor/pull/1434
-* [GPTQ] Add `actorder` option to modifier by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1424
-* [Bugfix][Tracing] Fix qwen2_5_vl by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1448
-* [Tests] Use proper offloading utils in `test_compress_tensor_utils` by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1449
-* [Tracing] Fix Traceable Imports by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1452
-* [NVFP4] Enable FP4 Weight-Only Quantization by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1309
-* Pin transformers to <4.52.0 by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1459
-* AWQ Apply Scales Bugfix when smooth layer output length doesn't match balance layer input length by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1451
-* Fix #1344 Extend e2e tests to add asym support for W8A8-Int8  by @ved1beta in https://github.com/vllm-project/llm-compressor/pull/1345
-* [Tests] Fix activation recipe for w8a8 asym by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1461
-* AWQ Qwen and Phi mappings by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1440
-* [Observer] Optimize mse observer  by @shanjiaz in https://github.com/vllm-project/llm-compressor/pull/1450
-* Fix: Improve `SmoothQuant` Support for Mixture of Experts (MoE) Models by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1455
-* [Tests] Add nvfp4a16 e2e test case  by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1463
-* [Docs] Update README to list fp4 by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1462
-* Remove duplicate model id var from awq example recipe by @AndrewMead10 in https://github.com/vllm-project/llm-compressor/pull/1467
-* Added observer type for test_min_max by @shanjiaz in https://github.com/vllm-project/llm-compressor/pull/1466
-* Disable kernels during calibration (and tracing) by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1454
-* [GPTQ] Fix actorder resolution, add sentinel by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1453
-* Set `show_progress` to True by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1471
-* Remove `compress` by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1470
-* raise error if block quantization is used, as it is not yet supported by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1476
-* [Tests] Increase max seq length for tracing tests by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1478
-* [Tests] Fix dynamic field to be a bool, not string by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1480
-* [Examples] Fix qwen vision examples by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1481
-* [NVFP4] Update to use `tensor_group` strategy; update observers by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1484
-* loosen lmeval assertions to upper or lower bound by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1477
-* Revert "expand observers to calculate gparams, add example for activa… by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1486
-* fix rest of the minmax tests by @shanjiaz in https://github.com/vllm-project/llm-compressor/pull/1469
-* Add warning for non-divisible group quantization by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1401
-* [AWQ] Support accumulation for reduced memory usage by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1435
-* [Tracing] Code AutoWrapper by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1411
-* Removed RecipeTuple & RecipeContainer class by @shanjiaz in https://github.com/vllm-project/llm-compressor/pull/1460
-* Unpin to support `transformers==4.52.3` by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1479
-* [Tests] GPTQ Actorder Resolution Tests by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1468
-* [Testing] Skip FP4 Test by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1499
-* [Bugfix] Remove tracing imports from tests by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1498
-* [Testing] Use a slightly larger model that works with group_size 128 by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1502
-* skip tracing tests if token unavailable by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1493
-* Fix missing logs when calling oneshot by @kelkelcheng in https://github.com/vllm-project/llm-compressor/pull/1446
-* [NVFP4] Expand observers to calculate gparam, support NVFP4 Activations by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1487
-* [Tests] Remove duplicate test by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1500
-* [Model] Mistral3 example and test by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1490
-* [NVFP4] Use observers to generate global weight scales  by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1504
-* Revert "[NVFP4] Use observers to generate global weight scales " by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1507
-* [NVFP4] Update global scale generation by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1508
-* [NVFP4] Fix onloading of fused layers by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1512
-* Pin pandas to <2.3 by @dbarbuzzi in https://github.com/vllm-project/llm-compressor/pull/1515
-* AWQModifier fast resolve mappings, better logging, MoE support by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1444
-* Update setup.py by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1516
-* Use model compression pathways by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1419
-* [Example] [Bugfix] Fix Gemma3 Generation by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1517
-* [Docs] Update ReadME details for FP4 by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1519
-* [Examples] [Bugfix] Perform sample generation before saving as compressed by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1530
-* Add citation information both in README as well as native GitHub file support by @markurtz in https://github.com/vllm-project/llm-compressor/pull/1527
-* update compressed-tensors version requirement by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/1534
-
-## New Contributors
-* @kelkelcheng made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1373
-* @AndrewMead10 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1467
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.5.1...0.5.2
-
-## 0.6.0 (2025-06-24)
-
-## What's Changed
-* [Experimental] Mistral-format FP8 quantization by @mgoin in https://github.com/vllm-project/llm-compressor/pull/1359
-* [Examples] [Bugfix] skip sparsity stats when saving checkpoints by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1528
-* [Examples] [Bugfix] Fix debug message by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1529
-* [Tests][NVFP4] No longer skip NVFP4A16 e2e test by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1538
-* [AWQ] Support for Calibration Datasets of varying feature dimension by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1536
-* fix qwen 2.5 VL multimodal example by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1541
-* [Example] [Bugfix] Fix Gemma ignore list by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1531
-* [Tests][NVFP4] Add e2e nvfp4 test by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1543
-* [Examples] Use more robust splits by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1544
-* [Bugfix] [Autowrapper] Fix visit_Delete by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1532
-* [Example] Fix Qwen VL ignore list by @arunmadhusud in https://github.com/vllm-project/llm-compressor/pull/1545
-* [Tests] Fix `Qwen2.5-VL-7B-Instruct` Recipe by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1548
-* [Bugfix] Fix gemma2 generation by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1552
-* fix skipif check on tests involving gated HF models by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1553
-* [NVFP4] Fix global scale update when dealing with offloaded layers by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1554
-* oneshot entrypoint update by @ved1beta in https://github.com/vllm-project/llm-compressor/pull/1445
-* LM Eval tests -- ignore vision tower for VL fp8 test by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/1562
-* [Performance] Sequential onloading by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1263
-* [BugFix] Explicitly set gpu_memory_utilization by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1560
-* Add Axolotl blog link by @rahul-tuli in https://github.com/vllm-project/llm-compressor/pull/1563
-* [Bugfix] Fix multigpu `dispatch_for_generation` by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1567
-* [Testing] Set `VLLM_WORKER_MULTIPROC_METHOD` for e2e testing by @dsikka in https://github.com/vllm-project/llm-compressor/pull/1569
-* [BugFix] Fix quantizaiton_2of4_sparse_w4a16 example  by @shanjiaz in https://github.com/vllm-project/llm-compressor/pull/1565
-* [Pipelines] infer model device with optional override by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1572
-* bump up requirement for compressed-tensors to 0.10.2 by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/1581
-
-## New Contributors
-* @arunmadhusud made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1545
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.5.2...0.6.0
-
-## 0.6.0.1 (2025-07-28)
-
-## What's Changed
-* Cap transformers version for hotfix 0.6.0.1 by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/1671
-
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.6.0...0.6.0.1
-
-## 0.7.0 (2025-08-20)
-
-<img width="1536" height="1024" alt="lc" src="https://github.com/user-attachments/assets/5a444678-2171-4712-867f-319f3d807316" />
-
-
-# LLM Compressor v0.7.0 release notes
-
-This LLM Compressor v0.7.0 release introduces the following new features and enhancements:
-* Transforms support, including QuIP and SpinQuant algorithms
-* Apply multiple compressors to a single model for mixed-precision quantization
-* Support for DeepSeekV3-style block FP8 quantization
-* Expanded Mixture of Experts (MoE) calibration support, including support with NVFP4 quantization
-* Llama4 quantization support with vLLM compatibility
-* Configurable observer arguments 
-* Simplified and unified Recipe classes for easier usage and debugging
-
-## Introducing Transforms :sparkles: 
-
-LLM Compressor now supports transforms. With transforms, you can inject additional matrix operations within a model for the purposes of increasing the accuracy recovery as a result of quantization. Transforms allow rotating weights or activations into spaces with smaller dynamic ranges, reducing quantization error.
-
-Two algorithms are supported in this release:
-* **QuIP transforms** inject transforms before and after weights to assist with weight-only quantization
-* **SpinQuant transforms** inject transforms whose inverses span across multiple weights, assisting in both weight and activation quantization. In this release, fused R1 and R2 (i.e. offline)  transforms are available. The full lifecycle has been validated to confirm that the models produced by LLM Compressor match the performance outlined in the original [SpinQuant paper](https://arxiv.org/abs/2405.16406). Learned rotations and online R3 and R4 rotations will be added in a future release.
-
-The functionality for both algorithms available through the new `QuIPModifier` and `SpinQuantModifier` classes.
-
-## Applying multiple compressors to a single model
-
-LLM Compressor now supports applying multiple compressors to a single model. This extends support for non-uniform quantization recipes, such as combining NVFP4 and FP8 quantization. This provides finer control over per-layer quantization, allowing more precise handling of layers that are especially sensitive to certain quantization types.
-
-Models with more than one compressor applied have their format set to `mixed-precision` in the `config.json` file. Additionally, each `config_group` now includes a format key that specifies the format used for the layers targeted by that group.
-
-## Support for DeepSeekV3-style block FP8 quantization
-
-You can now apply DeepSeekV3-style block FP8 quantization during model compression, a technique designed to further compress large language models for more efficient inference. The changes encompass the fundamental implementation of block-wise quantization, robust handling of quantization parameters, updated documentation, and a practical example to guide users in applying this new compression scheme.
-
-## Mixture of Experts support
-
-LLM Compressor now includes enhanced general Mixture of Experts (MoE) calibration support, including support for MoEs with NVFP4 quantization. Forward passes of the MoE models can be controlled during calibration by adding custom modules to the `replace_modules_for_calibration` function which permanently changes the MoE module or `moe_calibration_context` function to temporarily update modules during calibration.
-
-## Llama4 quantization
-
-LLama4 quantization is now supported in LLM Compressor. To be quantized and runnable in vLLM, `Llama4TextMoe` modules are permanently replaced using the `replace_modules_for_calibration` method which linearizes the modules. This allows the model to be quantized to schemes including WN16 with GPTQ and NVFP4.
-
-## Simplified and updated Recipe classes
-
-Recipe classes have been updated with the following features:
-
-* Merged multiple recipe-related classes into a single, unified `Recipe` class
-* Simplified modifier creation, lifecycle management, and parsing logic
-* Improved serialization and deserialization for clarity and maintainability
-* Reduced redundant stages and arguments handling for easier debugging and usage
-
-## Configurable Observer arguments
-
-Observer arguments can now be configured as a dict through the `observer_kwargs` quantization argument, which can be set through oneshot recipes.
-
-## 0.7.1 (2025-08-21)
-
-## What's Changed
-* [Examples] Create qwen_2_5_vl_example.py by @Zhao-Dongyu in https://github.com/vllm-project/llm-compressor/pull/1752
-* [fix] Fix visual layer ignore pattern for Qwen2.5-VL models by @Zhao-Dongyu in https://github.com/vllm-project/llm-compressor/pull/1766
-* [Transform] Fix QuIP targets by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/1770
-
-## New Contributors
-* @Zhao-Dongyu made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1752
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.7.0...0.7.1
-
-## 0.8.0 (2025-10-03)
-
-<img width="1536" height="1024" alt="0 8 0" src="https://github.com/user-attachments/assets/e7f1840f-fd6c-4dd7-a876-3b44b3c8bd29" />
-
-# LLM Compressor v0.8.0 release notes
-
-This LLM Compressor v0.8.0 release introduces the following new features and enhancements:
-
-* Support for multiple modifiers in oneshot compression runs
-* Quantization and calibration support for Qwen3 models including FP8 quantization support for Qwen3 VL MoE models
-* Transforms support for non-full-size rotation sizes
-* Improved accuracy recovery by updating W4A16 schemes to use `actorder` "weight" by default
-
-## Support for multiple modifiers in oneshot compression runs ✨
-<!-- https://issues.redhat.com/browse/INFERENG-1439 -->
-
-LLM Compressor now supports using multiple modifiers in oneshot compression runs.
-
-You can apply multiple modifiers across model layers. This includes applying different modifiers, such as AWQ and GPTQ, to specific submodules for W4A16 quantization all within a single oneshot call and with only pass-through calibration data.
-
-Using multiple modifiers improves non-uniform model quantization, addressing issues such as varying layer sensitivity.
-
-For more information, see [Non-uniform quantization](https://github.com/vllm-project/llm-compressor/tree/main/examples/quantization_non_uniform).
-
-## Quantization and calibration support for Qwen3 models
-<!-- https://issues.redhat.com/browse/INFERENG-2363 -->
-
-Quantization and calibration support for Qwen3 models has been added to LLM Compressor.
-
-An updated `Qwen3NextSparseMoeBlock` modeling definition has been added to temporarily update the MoE block during calibration in order to ensure that all the experts see data and are calibrated appropriately. This allows all experts to have calibrated scales while ensuring only the gated activation values are used.
-
-FP8 and NVFP4 quantization examples have been added for the Qwen3-Next-80B-A3B-Instruct model. For more information see:
-
-- [examples/quantization_w8a8_fp8/qwen3_next_example.py](https://github.com/vllm-project/llm-compressor/blob/main/examples/quantization_w8a8_fp8/qwen3_next_example.py)
-- [examples/quantization_w4a4_fp4/qwen3_next_example.py](https://github.com/vllm-project/llm-compressor/blob/main/examples/quantization_w4a4_fp4/qwen3_next_example.py)
-
-### FP8 quantization support for Qwen3 VL MoE models
-<!-- https://issues.redhat.com/browse/INFERENG-2364 -->
-
-LLM Compressor now supports quantization for Qwen3 VL MoE models. You can now use data-free pathways such as FP8 channel-wise and block-wise quantization. Pathways requiring data such W4A16 and NVFP4 are planned for a future release.
-
-Examples have been added for FP8 quantization for the Qwen/Qwen3-VL-235B-A22B-Instruct model. 
-For more information see:
-
-- [examples/quantization_w8a8_fp8/qwen3_vl_moe_fp8_example.py](https://github.com/vllm-project/llm-compressor/blob/main/examples/quantization_w8a8_fp8/qwen3_vl_moe_fp8_example.py)
-
-An updated definition has been added for `Qwen3VLMoeTextSparseMoeBlock` which replaces all the MoE blocks with a linearized model definition such that a list of layers is used as opposed to a 3D parameter. This model definition enables quantization and is runnable in vLLM.
-
-## Transforms support for non-full-size rotation sizes
-<!-- https://issues.redhat.com/browse/INFERENG-1882 -->
-
-You can now set a `transform_block_size` field in the Transform-based modifier classes `SpinQuantModifier` and `QuIPModifier`. You can configure transforms of variable size with this field, and you no longer need to restrict hadamards to match the size of the weight.
-
-It is typically beneficial to set the hadamard block size to match the quantization group size. Examples have been updated to show how to use this field when applying the QuIP Modifier. 
-
-For more information, see:
-
-- [quip_example.py](https://github.com/vllm-project/llm-compressor/blob/main/examples/transform/quip_example.py)
-- [spinquant_example.py](https://github.com/vllm-project/llm-compressor/blob/main/examples/transform/spinquant_example.py)
-
-To efficiently run QuIP-style rotations using the hadacore kernels in vLLM, see [examples/transform/README.md](https://github.com/vllm-project/llm-compressor/blob/main/examples/transform/README.md).
-
-## Improved accuracy recovery by updating W4A16 schemes to use actorder "weight" by default
-
-<!-- https://issues.redhat.com/browse/INFERENG-102 -->
-
-The `GPTQModifier` class now uses "weight" activation ordering by default. Weight or "static" activation ordering has been shown to significantly improve accuracy recovery with no additional cost at runtime.
-
-For more information and benchmarks, see [vllm/pull/8135](https://github.com/vllm-project/vllm/pull/8135)
-
-## Updates and deprecations
-
-### Support for R4 spinquant-style transforms
-
-<!-- https://issues.redhat.com/browse/INFERENG-1142 -->
-
-Support for R4 spinquant-style transforms has been added, which allows quantization of the `down_proj` layer with increased accuracy recovery. You can use this transform by specifying `SpinQuantModifier(rotations=["R4"])` in the oneshot recipe.
-
-### Re-enabled support for W8A8 INT8 decompression
-<!-- https://issues.redhat.com/browse/INFERENG-601 -->
-
-W8A8 INT8 decompression and model generation has been re-enabled in LLM Compressor.
-
-The following changes have been made:
-
-- The `ModelCompressor` class has been updated to support compressing models initialized on the meta device.
-- The `SparseCompressor` and `QuantizationCompressor` classes have been modified to be compatible with meta devices.
-- The `compress_weight()` function has been modified across sparse compressors to accept module input, enabling correct behavior for meta-initialized shells.
-- Decompression and offload device detection has been updated to handle meta modules and empty modules gracefully.
-
-### Updated ignore lists in example recipes to capture all vision components
-
-Ignore lists in example recipes were updated to correctly capture all vision components. Previously, some vision components like `model.vision_tower` were not being caught, causing downstream issues when serving models with vLLM.
-
-### Deprecated and removed unittest.TestCase
-<!-- https://issues.redhat.com/browse/INFERENG-1877 -->
-
-The `unittest.TestCase` test case has been deprecated and removed and has been replaced with standardized `pytest` test definitions.
-
-## 0.8.1 (2025-10-08)
-
-## What's Changed
-* Pick up compressed-tensors 0.12.2 for patch release by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/1904
-
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.8.0...0.8.1
-
-## 0.9.0 (2025-12-17)
-
-<img width="1247" height="745" alt="lc0 9 0" src="https://github.com/user-attachments/assets/b84bc562-c603-4390-9a71-8fc8b6823a7e" />
-
-# LLM Compressor v0.9.0 Release Notes
-
-While working on this release, LLM Compressor reached over 100 contributors. Thank you to everyone for your contributions!
-
-This LLM Compressor v0.9.0 release adds:
-
-- Extended KV cache and attention quantization support
-- Batched calibration support
-- A new `model_free_ptq` pathway
-- A new _AutoRound_ modifier
-- Experimental support for MXFP4 quantization
-
-Additionally, this release finalizes the initial support work for SpinQuant R3 style transforms.
-This release also updates AWQ support to be further simplified and generic to quantization schemes beyond W4A16.
-
-<!-- https://issues.redhat.com/browse/INFERENG-2911 -->
-## Updated support for KV Cache and attention quantization ✨
-
-KV cache quantization has been refactored to address limitations in supported schemes and lifecycle-related bugs.
-The implementation has moved to compressed tensors, with new support for attention quantization.
-
-This refactoring enables the following updates:
-- Quantization of KV cache and attention using any scheme, including the new per-head strategy.
-- Running KV/attention quantization experiments within Hugging Face for research and accuracy validation.
-- Full compatibility with attention rotation via transforms.
-
-These changes lay the groundwork for future work in creating and researching advanced attention and KV-cache quantized models.
-
-<!-- https://issues.redhat.com/browse/INFERENG-3135 -->
-<!-- https://issues.redhat.com/browse/INFERENG-3136 -->
-## Added model-free post-training quantization ✨
-
-Model-free post-training quantization (PTQ) enables quantization by directly operating on safetensors files.
-This is particularly useful for models without a `transformers` model definition, such as some Mistral models.
-
-> [!NOTE]
-> Model-free PTQ currently supports data-free methods only, specifically FP8 quantization. 
-> Model-free PTQ was used to quantize the [Mistral Large 3](https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512) model.
-
-See the [model_free_ptq](https://github.com/vllm-project/llm-compressor/tree/main/examples/model_free_ptq) usage examples for more information.
-
-## Added AutoRound modifier
-
-Added [AutoRoundModifier](https://github.com/vllm-project/llm-compressor/blob/main/examples/autoround/llama3_example.py) for quantization that uses [AutoRound](https://aclanthology.org/2024.findings-emnlp.662.pdf), an advanced post-training algorithm that optimizes rounding and clipping ranges through sign-gradient descent.
-This approach combines the efficiency of post-training quantization with the adaptability of parameter tuning, delivering robust compression for large language models while maintaining strong performance.
-
-<!-- https://issues.redhat.com/browse/INFERENG-2542 -->
-## Calibration performance improvements
-
-LLM Compressor now supports batched calibration for quantization and sparsification.
-
-You can pass in `batch_size` and `data_collator` arguments to the `oneshot` compression entrypoint for improved calibration throughput. For built-in collation strategies, pass `"padding"` or `"truncation"` as string values for `data_collator`. The default collator from the `DefaultDataCollator` class is now `"truncation"`. The default value for `shuffle_calibration_samples` is now `False`.
-
-<!-- https://issues.redhat.com/browse/INFERENG-2543 -->
-<!-- https://issues.redhat.com/browse/INFERENG-3572 -->
-## AWQ modifier updates
-
-AWQ has been generalized to support more quantization types.
-The previous implementation used one-off quantization logic that limited supported configurations.
-By adopting existing LLM Compressor abstractions, the code is now simpler and supports new quantization schemes including INT8, FP8, and mixed schemes within a single model.
-
-AWQ and SmoothQuant PTQ implementations previously used a suboptimal mapping-matching logic.
-SmoothQuant couldn't handle MoE models, AWQ had buggy skip-layer logic, and neither could support certain parent contexts.
-
-The `match_module_set` helper has been updated to handle all necessary situations, and both techniques now use this shared helper.
-This enables SmoothQuant and AWQ support for MoE models, improves code maintainability, and eliminates several potential sources of bugs.
-
-<!-- https://issues.redhat.com/browse/INFERENG-2661 -->
-<!-- https://issues.redhat.com/browse/INFERENG-2662 -->
-## Refactored observer functionality
-
-Observer functionality has been refactored for simplicity, with several new observers introduced:
-
-- `memoryless_minmax`: Computes min/max values in real time using dynamic quantization style. Recommended for PTQ weight quantization.
-- `static_minmax`: Computes absolute min/max values across all observations.
-Recommended for PTQ activation quantization.
-- `memoryless_mse`: Computes optimal quantization parameters by minimizing MSE loss for each observation.
-Recommended for PTQ weight quantization.
-
-> [!IMPORTANT]
-> `static_minmax` is now the default for NVFP4 activation quantization.
-> Future releases will standardize on `memoryless_minmax` for weight quantization and `static_minmax` for activation quantization.
-
-<!-- https://issues.redhat.com/browse/INFERENG-2365 -->
-## Updated MoE calibration support with a new MoECalibrationModule class
-
-An updated MoE calibration context that enables correct calibration of expert layers in MoE models has been added.
-See the [moe_context.py#L29](https://github.com/vllm-project/llm-compressor/blob/main/src/llmcompressor/modeling/moe_context.py#L29) implementation for details.
-
-The calibration context can be used to temporarily or permanently update MoE module definitions during calibration, ensuring all expert models receive data during forward passes.
-This enables quantization support for Qwen3 VL and Qwen3 MoE models by using data-dependent schemes such as NVFP4, W4A16, and static activation quantization.
-
-<!-- https://issues.redhat.com/browse/INFERENG-2164 -->
-## Extended LLM Compressor activation quantization support
-
-LLM Compressor now supports dynamic, group, and channel activation quantization for models.
-
-<!-- https://issues.redhat.com/browse/INFERENG-1889 -->
-<!-- https://issues.redhat.com/browse/INFERENG-1890 -->
-## Added experimental support for MXFP4 quantization
-
-LLM Compressor and compressed-tensors now support MXFP4 quantization and calibration of MXFP4 scales.
-To use MXFP4 quantization, quantize models with the new MXFP4 preset scheme.
-The `MXFP4PackedCompressor` class compresses and saves the model, packing both weights and scales as uint8 integers.
-
-> [!NOTE]
-> MXFP4 quantization is an experimental feature that is pending validation with vLLM.
-
-### QuantizationArgs updates
-
-Two new fields, `scale_dtype` and `zp_dtype`, have been added to the `QuantizationArgs` class:
-
-- `scale_dtype`: When set to `None`, scales are saved using the default dense data type.
-When specified, scales are compressed using the provided data type.
-For example, NVFP4 saves scales as FP8, while MXFP4 saves them as uint8.
-This data type is reflected in the model config.
-- `zp_dtype`: Set to `None` for symmetric models.
-For asymmetric models, this specifies the data type used to save zero-point values.
-
-See the [quant_args.py#L157](https://github.com/vllm-project/compressed-tensors/blob/797d3019ef6867362796f412980547c74551f369/src/compressed_tensors/quantization/quant_args.py#L157) implementation for details.
-
-<!-- https://issues.redhat.com/browse/INFERENG-2163 -->
-## Added experimental R3 transforms support
-
-LLM Compressor now has experimental support for applying transforms to attention in the style of the R3 rotation used in SpinQuant models.
-R3 transforms can potentially increase accuracy recovery for extreme attention quantization.
-R3 rotations are not yet supported in vLLM.
-
-See the [llama3_attention_r3_nvfp4.py](https://github.com/vllm-project/llm-compressor/blob/main/examples/experimental/attention/llama3_attention_r3_nvfp4.py) example for details.
-
-## Breaking changes
-
-<!-- https://issues.redhat.com/browse/INFERENG-2422 -->
-### Removed all training support APIs and functionality
-
-Training support has been removed from LLM Compressor.
-The `finetune` entrypoint and distillation modifier are no longer available.
-
-For training workflows, use the LLM Compressor Axolotl integration.
-See the [quantization_2of4_sparse_w4a16](https://github.com/vllm-project/llm-compressor/tree/main/examples/quantization_2of4_sparse_w4a16) examples for details.
-
-<!-- https://issues.redhat.com/browse/INFERENG-2426 -->
-### Removed support for Python 3.9
-
-LLM Compressor v0.9.0 requires Python 3.10 or later.
-LLM Compressor v0.8.0 is the last version to support Python 3.9.
-
-## New Contributors
-* @lkm2835 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1911
-* @jessiewiswjc made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1923
-* @toncao made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1925
-* @siddhaka made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1934
-* @cajeonrh made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1896
-* @ojeda-e made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1951
-* @JartX made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1947
-* @zhanglei1172 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1942
-* @ralphbean made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1954
-* @sairampillai made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1851
-* @stzoozz made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1982
-* @HDCharles made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1963
-* @sugatmahanti made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1965
-* @mratsim made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2011
-* @yiliu30 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/1994
-* @BigFaceBoy made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2028
-* @mutichung made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2047
-* @GOavi101 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2093
-* @jaeminSon made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2115
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.8.1...0.9.0
-
-## 0.9.0.1 (2026-01-21)
-
-## What's Changed
-* [v0.9.0.1 Fix] Make AutoRound Optional by @dsikka in https://github.com/vllm-project/llm-compressor/pull/2266
-
-## Release Notes
-
-### AutoRound installation change
-AutoRound is no longer installed by default. It is now available as an optional dependency via llmcompressor[autoround]. Due to a known [upstream issue](https://github.com/intel/auto-round/issues/1296), AutoRound is currently supported only on x86_64 systems.
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.9.0...0.9.0.1
-
-## 0.9.0.2 (2026-02-13)
-
-## What's Changed
-* [Release 0.9.0.2] bump up pillow upper bound to 12.1.1 by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/2364
-
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.9.0.1...0.9.0.2
-
-## 0.10.0 (2026-03-02)
-
-<img width="1536" height="1024" alt="header_v10_rel" src="https://github.com/user-attachments/assets/7af195ab-704d-45ab-9d7e-1653059cc9b3" />
-
-# LLM Compressor v0.10.0
-
-We're excited to announce LLM Compressor v0.10.0! This release brings significant performance improvements, updated quantization capabilities, and enhanced model offloading support.
-
-**Highlights:**
-- Distributed GPTQ with major performance improvements
-- Enhanced compressed-tensors offloading (disk and distributed)
-- Migration from accelerate to compressed-tensors offloading
-- GPTQ support for FP4 microscale schemes (NVFP4, MXFP4)
-- MXFP4 accuracy improvements
-
-
-## Distributed Data Parallel (DDP) GPTQ Support ✨
-
-GPTQ now supports fully distributed functionality, resulting in **significant speedups across the board**.
-
-### Performance Benchmarks
-
-| model_id | world_size | max_time | max_memory | save_time | flex_extract | eval_time |
-|----------|------------|----------|------------|-----------|--------------|-----------|
-| Meta-Llama-3-8B-Instruct | 1 | 745.03 | 5.82 | 19.57 | 0.7066 | 95.28 |
-| Meta-Llama-3-8B-Instruct | 2 | 372.20 | 5.57 | 49.10 | 0.7089 | 95.24 |
-| Meta-Llama-3-8B-Instruct | 4 | 264.07 | 5.82 | 52.50 | 0.7180 | 96.74 |
-| Qwen3-30B-A3B | 1 | 14207.53 | 6.56 | 748.23 | 0.8704 | 209.93 |
-| Qwen3-30B-A3B | 2 | 7018.25 | 6.36 | 696.65 | 0.8810 | 205.89 |
-| Qwen3-30B-A3B | 4 | 3694.46 | 6.36 | 723.05 | 0.8832 | 217.62 |
-
-GPTQ takes advantage of the underlying DDP improvements for calibration and adds on weight parallel compression. We also improved non-DDP GPTQ to be more accurate, resulting in a **free 5% GSM8K accuracy improvement** for Meta-Llama-3-8B-Instruct.
-
-An example leveraging DDP with GPTQ can be found [here](https://github.com/vllm-project/llm-compressor/blob/main/examples/quantization_w4a16/llama3_ddp_example.py) and can be run using the following command, if running with 2 GPUs. 
-
-```bash 
-torchrun --nproc_per_node=2 llama3_ddp_example.py 
-``` 
-
-## Enhanced Compressed-Tensors Offloading ✨
-
-<img width="1536" height="1024" alt="offload" src="https://github.com/user-attachments/assets/5cf921f2-ae64-4f0a-9b53-bc3c04cfb9f0" />
-
-Compressed-tensors now supports loading transformers models that are **offloaded to disk** and/or **offloaded across distributed process ranks**.
-
-### Disk Offloading
-
-Disk offloading allows users to load and compress very large models which normally would not fit in CPU memory.
-
-**Usage:**
-```python
-from compressed_tensors.offload import offloaded_model
-
-with offloaded_model():
-    AutoModelForCausalLM.from_pretrained(
-        model_id,
-        device_map="auto_offload",
-        offload_folder="./offload_folder",
-    )
-```
-
-**Examples**: 
-- [Kimi-K2 with NVFP4](https://github.com/vllm-project/llm-compressor/blob/main/examples/disk_offloading/kimi_k2_example.py)
-
-### Distributed Offloading
-
-When loading offloaded models across distributed process ranks, `offloaded_model` ensures that the offloaded model memory is shared between ranks.
-
-**Usage:**
-```python
-from compressed_tensors.offload import dist_init, offloaded_model
-
-dist_init()  # initialize distributed process group
-with offloaded_model():  # enables CT offloading
-    AutoModelForCausalLM.from_pretrained(
-        model_id,
-        device_map="auto_offload",  # set device map
-        offload_folder="./offload_folder",
-    )
-
-# (optional) partition dataset so don't have to load full dataset into cpu for each rank
-ds = load_dataset(
-    DATASET_ID,
-    split=get_rank_partition(DATASET_SPLIT, NUM_CALIBRATION_SAMPLES)
-)
-# note: oneshot will also do partitioning if it detects DDP + all ranks have same data
-
-# rest of flow is unchanged, set up modifiers and call oneshot, etc
-```
-
-Invoke the script with:
-```bash
-torchrun --nproc_per_node=<num_threads> script.py
-```
-
-### Offload Options Reference
-
-**Non-Distributed Mode:**
-
-| device_map | "auto" | "cuda" | "cpu" | "auto_offload" |
-|------------|--------|--------|-------|----------------|
-| offloaded_model required? | No | No | No | Yes |
-| Behavior | Try to load model onto all visible cuda devices. Fallback to cpu and disk if model too large | Try to load model onto first cuda device only. Error if model is too large | Try to load model onto cpu. Error if the model is too large | Try to load model onto cpu. Fallback to disk if model is too large |
-| LLM Compressor Use Case | Recommended for "basic" pipeline | | | Recommended for "sequential" pipeline |
-
-**Distributed Mode:**
-
-| device_map | "auto" | "cuda" | "cpu" | "auto_offload" |
-|------------|--------|--------|-------|----------------|
-| offloaded_model required? | Yes | Yes | Yes | Yes |
-| Behavior | Try to load model onto device 0, then broadcast replicas to other devices. Fallback to cpu and disk if model too large | Try to load model onto device 0 only, then broadcast replicas to other devices. Error if model is too large | Try to load model onto cpu. Error if the model is too large | Try to load model onto cpu. Fallback to disk if model is too large |
-| LLM Compressor Use Case | Recommended for "basic" pipeline | | | Recommended for "sequential" pipeline |
-
-For more information regarding the behavior and options for loading offloaded models, see the [compressed-tensors PR #572](https://github.com/vllm-project/compressed-tensors/pull/572).
-
-
-## Migration from Accelerate to Compressed-Tensors Offloading
-
-**Important:** LLM Compressor v0.10 will no longer utilize offloading logic provided by huggingface's `accelerate` library, instead opting to integrate with model offloading provided by `compressed-tensors`.
-
-### Benefits of Compressed-Tensors Offloading
-
-The `compressed-tensors` offloading implementation provides many practical benefits over the `accelerate` library:
-
-1. **Built for dynamic workloads** - CT offloading was designed for use cases like LLM Compressor's, where parameters are added and removed to modules, and module offloads can dynamically change.
-
-2. **Universal model compatibility** - The architecture of accelerate offloading meant that many transformer models did not fully support it. Adding support often required changes and patches to the model definition. By contrast, CT offloading does not require any modifications to model definitions and works with full transparency across all transformer model definitions we've tested.
-
-3. **Better performance** - CT offloading is often faster and requires lower peak memory than accelerate offloading due to its lazily loading implementation whereby individual parameters are only onloaded when required.
-
-4. **Distributed support** - CT offloading supports distributed offloads coordinated between process ranks, allowing for models to be offloaded across ranks for parallelized workloads.
-
-Models such as **qwen2_audio**, **whisper**, and others are now supported without requiring patches to the model definition.
-
-### For further details on DDP and offloading support, see the [Big Models and Distributed Support guide](https://docs.vllm.ai/projects/llm-compressor/en/latest/guides/big_models_and_distributed/model_loading/)
-
-## GPTQ FP4 Microscale Schemes Support
-
-GPTQ now supports FP4 microscale schemes including **NVFP4** and **MXFP4**. Applying GPTQ to these schemes can result in improved recovery and overall quantization accuracy.
-
-**Examples:**
-- [MXFP4 Llama3 Example](https://github.com/vllm-project/llm-compressor/blob/main/examples/quantization_w4a16_fp4/mxfp4/llama3_example.py)
-- [W4A4 FP4 GPTQ Example](https://github.com/vllm-project/llm-compressor/blob/main/examples/quantization_w4a4_fp4/llama3_gptq_example.py)
-
-
-## MXFP4 Accuracy Improvements
-
-MXFP4 support has been updated with accuracy improvements for its weight scale generation. The updated models can now be validated in vLLM using the marlin kernel when doing weight-only quantization (MXFP4A16).
-
-This is supported as of vLLM v0.14.0: [compressed_tensors_w4a16_mxfp4.py](https://github.com/vllm-project/vllm/blob/main/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_w4a16_mxfp4.py)
-
-**Note: MXFP4 with activation qauntization is not yet enabled in vLLM for compressed-tensors models.**
-
-## AWQ Performance Improvements
-
-Large scale refactor and optimization of AWQ resulted in:
-- **5-10% speedup** on dense models
-- **1-5% speedup** on MoE models
-
-## Package Updates
-- AutoRound is now a required package 
-- An optional extra `qwen` has been added for pre-processing utilities (e.g qwen_vl_utils) that can be used for Qwen VL examples, such as https://github.com/vllm-project/llm-compressor/blob/main/examples/multimodal_vision/qwen3_vl_example.py
-
-## New Contributors
-* @aaarrvind made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2121
-* @isharif168 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2113
-* @jangel97 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2109
-* @JasonZhao47 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2182
-* @antbob made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2175
-* @majiayu000 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2184
-* @pdaxt made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2185
-* @mengniwang95 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2100
-* @ishrith-gowda made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2174
-* @ZewenShen-Cohere made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2189
-* @Monishver11 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2214
-* @jwpark33 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2204
-* @xin3he made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2169
-* @menogrey made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2200
-* @maliktafheem made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2229
-* @mergify[bot] made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2241
-* @Felixqaq made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2244
-* @Etelis made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2246
-* @phaelon74 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2170
-* @gDINESH13 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2223
-* @saurabhaloneai made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2321
-* @colldata79 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2325
-* @LudovicoYIN made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2322
-* @bartowski1182 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2316
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.9.0.2...0.10.0
-
-## 0.7.1.1 (2026-03-04)
-
-## What's Changed
-* Update pillow upper bound to 12.1.1 for 0.7.1.n release by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/2429
-
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.7.1...0.7.1.1
-
-## 0.10.0.1 (2026-03-13)
-
-## What's Changed
-* [Patch Release] Update compressed-tensors version in setup.py by @dsikka in https://github.com/vllm-project/llm-compressor/pull/2466
-
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.10.0...0.10.0.1
-
-## 0.10.0.2 (2026-05-01)
-
-## What's Changed
-* [For 0.10.0.2] Update pillow to fix security issue for release by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/2661
-
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.10.0.1...0.10.0.2
-
-## 0.9.0.3 (2026-05-05)
-
-## What's Changed
-* [For 0.9.0.3] Update pillow to fix security issue for release 0.9.0.3 by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/2660
-
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.9.0.2...0.9.0.3
-
-## 0.7.1.2 (2026-05-06)
-
-## What's Changed
-* [For 0.7.1.2] Update pillow version to fix security issue by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/2683
-
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.7.1.1...0.7.1.2
-
-## 0.11.0 (2026-06-02)
-
-<img width="1536" height="1024" alt="ChatGPT Image Jun 2, 2026, 12_11_13 PM" src="https://github.com/user-attachments/assets/db6a6bf6-0ae3-4170-bf4b-e55ea8a3bd21" />
-
-# LLM Compressor v0.11.0  
-
-This release focuses on distributed computing enhancements, quantization lifecycle improvements, and expanded model support. Major highlights include DDP support for AWQ and SmoothQuant with significant speedups (up to 3.2x), a comprehensive refactor of the Compressed Tensors API, and observer/lifecycle refactors that simplify quantization workflows. New model support includes Qwen 3.5/3.6, Gemma 4, Kimi K2.6, and experimental DeepSeek-V4 support along with quantized checkpoints.
-
-> Note: LLM Compressor v0.11.0 removes support for Sparse24 quantization formats and sparse model compression. This decision was made based upon lack of community interest and maintainability concerns. Support for sparse compression may be re-introduced as part of a future release. For Sparse24 compression support, please use LLM Compressor v0.10.0.2.
-
-## Key Highlights  ✨
-
-- **DDP Performance**: AWQ and SmoothQuant now support DDP with 2.9-3.2x speedups and up to 51% memory reduction per GPU (with 4 GPUs).
-- **Compressed Tensors Refactor**: Simplified API with clear entrypoints, removed sparsity support, streamlined compressor architecture
-- **Quantization Lifecycle**: Unified calibration timing (now at epoch end), decoupled observation from qparam calculation
-- **Extended Quantization Support**: GPTQ actorder now works across all weight strategies, AWQ refactored for NVFP4 compatibility
-- **Converter Entrypoint**: New tool and framework for converting from AutoAWQ and ModelOpt NVFP4 to Compressed-Tensors, as well as decompressing Compressed-Tensors checkpoints
-- **Large Model Support**: DDP+GPTQ+disk offloading fixes for models like Qwen3-VL-235B-A22B
-
-## DDP and Lifecycle Updates
-
-- **AWQ DDP Support**: Added DDP (Distributed Data Parallel) functionality for AWQ resulting in significant speedups and reduced GPU memory usage:
-
-  | Model | Single-GPU Time | DDP Time (4 GPUs) | Speedup | Single-GPU Memory | DDP Memory | Memory Reduction |
-  |-------|-----------------|-------------------|---------|-------------------|------------|------------------|
-  | Llama-3-8B | 7.02 min | 2.40 min | 2.9x | 10.20 GB | 4.99 GB | 51% |
-  | Llama-3-8B (masked) | 8.13 min | 2.67 min | 3.0x | 10.14 GB | 4.98 GB | 51% |
-  | Qwen3-30B-A3B | 459.65 min | 143.90 min | 3.2x | 4.13 GB | 3.36 GB | 19% |
-  
-  Accuracy metrics remain comparable between DDP and single-GPU approaches.
-
-- **SmoothQuant DDP Support**: Added DDP support for SmoothQuant resulting in significant speedups:
-
-  | GPUs | Total Time | Peak GPU Mem | Speedup |
-  |------|------------|--------------|---------|
-  | 1 GPU | 94.1 min | 8.93 GB | 1.00x |
-  | 2 GPU | 58.7 min | 7.06 GB | 1.60x |
-  | 4 GPU | 28.7 min | 7.06 GB | 3.28x |
-
-Special thanks to @dzhengAP for their excellent contributions to the SmoothQuantModifier!
-
-- **Observer Refactor**: Decoupled observation from quantization parameter calculation, allowing natural separation of responsibilities where `observer.forward()` records statistics about observed tensors while `get_qparams()` performs qparam calculation. This simplifies design and expands the types of observers supported. Key changes:
-  - Observers now have `update_statistics_from_observed()` for forward pass and `get_qparams()` for parameter calculation
-  - Global scale logic now entirely contained in observers (observers have references to fused weight observers for global_scale calculation)
-  - Removed module references from observers, simplified observer utilities
-  - Fixed imatrix observer synchronization in DDP and imatrix+global_scale bug
-  - Consolidated synchronization logic with new `activation_statistics` concept for activation observers and one weight observer
-
-- **DDP Support for Activation Quantization**: Added DDP support for quantization schemes with activation quantization. Extended QuantizationModifier to support distributed activation calibration via PR #2391 (merged Mar 27, 2026).
-  
-  **Implementation**: At `SEQUENTIAL_EPOCH_END` and `CALIBRATION_EPOCH_END`, activation observer min/max values are all-reduced across ranks. Scale/zero-point are then recomputed from the global statistics so all ranks have identical quantization parameters.
-  
-  **Key Changes**:
-  - Added `synchronize()`, `recompute_qparams()`, `recompute_global_scale()` to Observer base class
-  - Added `sync_activation_observers()` to QuantizationMixin (shared by QuantizationModifier and GPTQModifier)
-  - Batch all async `dist.all_reduce` operations and wait once, matching GPTQ DDP pattern
-
-- **DDP+GPTQ+Disk Offloading for Large Models**: Added fixes and features to enable DDP+GPTQ+disk offloading to work for very large models (e.g., Qwen3-VL-235B-A22B). Key improvements include:
-  - Reduced shared memory overload and mmap issues for big models with DDP + CPU/disk offloading
-  - Fixed MoE calibration context to use same offloading as original module (previously reverted to CPU offloading causing issues)
-  - Only store original modules when needed to avoid mmap issues
-  - Added synchronization steps during model saving to prevent thread timeout issues
-  - Added sync points for MoE calibration context to handle NCCL timeout when different threads take varying time on large models
-  - Fixed NVFP4 DDP support on A100 (NCCL broadcast workaround for FP8)
-  - Reduced memory requirements of `moe_calibration_context` by removing retained module references after replacement
-
-- **Distributed Model Compression**: Accelerate the model compression step (bit packing) by assigning modules across ranks and compressing them in parallel, greatly reducing runtime for large models, scaling linearly with the number of GPUs available.
-
-- **Quantization Lifecycle Refactor**: Altered quantization lifecycle so weight and activation calibration both now happen on epoch end (previously weight calibration happened at start for QuantizationModifier but end for other modifiers). Benefits include simpler code, faster runtime due to reduced on/offloading during quantization, and quantization now disabled across the board during calibration (previously modifier-dependent).
-
-- **Microscale Calibration Refactor**: Refactored microscale formats which require fused `global_scale` calculation. Rather than treating global scale as a generic qparam in the observer with additional post-modifications, the observer is now entirely responsible for `global_scale`. Observers are now fused (made aware of other observers with which they share a global_scale) so they can calculate a joint global_scale. Note: this requires that all fused observers have generated statistics through their forward method. This massively simplifies global_scale handling while maintaining accuracy.
-
-## New Model Support
-
-- **Qwen 3.5 and Qwen 3.6**: Calibration support has been added as part of this release with instructions summarized in the documentation for [Qwen3.5](https://docs.vllm.ai/projects/llm-compressor/en/latest/key-models/qwen3.5/) and [Qwen3.6](https://docs.vllm.ai/projects/llm-compressor/en/latest/key-models/qwen3.6/). Several quantized checkpoints have also been released, including:
-  - [RedHatAI/Qwen3.6-35B-A3B-NVFP4](https://huggingface.co/RedHatAI/Qwen3.6-35B-A3B-NVFP4)
-  - [RedHatAI/Qwen3.6-35B-A3B-FP8-dynamic](https://huggingface.co/RedHatAI/Qwen3.6-35B-A3B-FP8-dynamic)
-
-- **Gemma 4**: Calibration support has been added with details listed in the documentation for [Gemma 4](https://docs.vllm.ai/projects/llm-compressor/en/latest/key-models/gemma4/). Several quantized checkpoints have also been released, including:
-  - [RedHatAI/gemma-4-31B-it-NVFP4](https://huggingface.co/RedHatAI/gemma-4-31B-it-NVFP4)
-  - [RedHatAI/gemma-4-31B-it-FP8-block](https://huggingface.co/RedHatAI/gemma-4-31B-it-FP8-block)
-  - [RedHatAI/gemma-4-31B-it-FP8-Dynamic](https://huggingface.co/RedHatAI/gemma-4-31B-it-FP8-Dynamic)
-  - [RedHatAI/gemma-4-26B-A4B-it-NVFP4](https://huggingface.co/RedHatAI/gemma-4-26B-A4B-it-NVFP4)
-  - [RedHatAI/gemma-4-26B-A4B-it-FP8-Dynamic](https://huggingface.co/RedHatAI/gemma-4-26B-A4B-it-FP8-Dynamic)
-
-- **Kimi K2.6**: This model was originally released in W4A16 packed quantized format. Decompression support has been enabled through the converters entrypoint and calibration support has also been added with details listed in the documentation for [Kimi K2.6](https://docs.vllm.ai/projects/llm-compressor/en/latest/key-models/kimi-k26/). Quantized checkpoints have also been released:
-  - [RedHatAI/Kimi-K2.6-NVFP4](https://huggingface.co/RedHatAI/Kimi-K2.6-NVFP4)
-  - [RedHatAI/Kimi-K2.6-FP8-BLOCK](https://huggingface.co/RedHatAI/Kimi-K2.6-FP8-BLOCK)
-
-- **DeepSeek-V4**: Support for quantization of DeepSeekV4 Flash and Pro models. These features are currently available via experimental branches, but are planned for integration as part of the next release of LLM Compressor. More details can be found [here](https://docs.vllm.ai/projects/llm-compressor/en/latest/key-models/deepseek-v4/). Sample checkpoint:
-  - [RedHatAI/DeepSeek-V4-Flash-NVFP4-FP8](https://huggingface.co/RedHatAI/DeepSeek-V4-Flash-NVFP4-FP8)
-
-## Converter Entrypoint (Compressed-Tensors)
-
-- **Model Format Conversion**: Added [`Converter`](https://github.com/vllm-project/compressed-tensors/blob/main/src/compressed_tensors/entrypoints/convert/converters/base.py#L19) entrypoint to enable decompression and conversion of models from various packed quantized formats to Compressed-Tensors format. Currently supports:
-  - AutoAWQ to CT conversion
-  - Compressed-Tensors Decompression
-  - ModelOpt NVFP4 to CT Conversion
-  - FP8 Block Decompression (popularized by DeepSeek)
-
-  
-  More details: https://docs.vllm.ai/projects/llm-compressor/en/latest/guides/entrypoints/convert/
-
-## Compressed Tensors
-
-- **Compressed Tensors Refactor**: Major simplification of compression API and architecture to reduce complexity, define easy-to-use APIs for module and state dict compression/decompression, and prepare for distributed parallel compression.
-
-
-
-  **Architectural Changes**:
-  - Simplified compressors: Removed separate "quantization" and "sparsity" compressors and hierarchy. Each format now has exactly one compressor. Compressors define which quantization schemes they support, modules compressed using whichever compressor supports them in priority order
-  - Module compression API: Each `Compressor` class implements `Compressor.can_compress()`, `Compressor.compress()`, and `Compressor.decompress()` methods. You can use top-level `compress_module()` and `decompress_module()` to automatically infer which compressor to use to compress a module. 
-  - Removed `CompressedLinear` wrapper class: ModelCompressor now adds `pre_forward` hook that triggers decompression on first forward pass.
-  - Added `QuantizationStatus.DECOMPRESSED` state: weight already been qdqed permanently (distinct from `FROZEN` which still performs weight qdq during forward pass for emulation)
-
-  **Breaking Changes**:
-  - Removed all sparsity compressors and deprecated sparsity-related config arguments
-  - Removed `CompressedLinear` class
-  - `marlin24` sparsity no longer supported
-
-
-## AWQ Refactor
-
-- **Transform-Based Modifier**: Refactored AWQ to be a transform-based modifier (a modifier that modifies weights in place without applying quantization) as part of an ongoing effort to make AWQ compatible with more quantization formats, including NVFP4. This keeps AWQ separate from static activation calibration and makes for a cleaner implementation.
-
-## GPTQ ActOrder Support
-
-- **Extended Activation Ordering**: Extended GPTQ activation ordering (actorder) support beyond the original GROUP-only strategy to work across all weight quantization strategies: GROUP, TENSOR_GROUP, CHANNEL, TENSOR, and BLOCK.
-
-  | Strategy | Modifier-level actorder (before) | After |
-  |----------|----------------------------------|-------|
-  | GROUP | propagated | propagated |
-  | TENSOR_GROUP | silently ignored | propagated |
-  | CHANNEL | silently ignored | propagated; GROUP → fallback |
-  | TENSOR | silently ignored | propagated; GROUP → fallback |
-  | BLOCK | silently ignored | propagated; GROUP → fallback |
-
-## MXFP4 Linear Quantization
-
-- **FlashInfer Backend Support**: Enabled MXFP4 Linear Quantization support in vLLM using the FlashInfer backend, allowing end-to-end support for MXFP4 checkpoints beyond Marlin. Benchmark results on Meta-Llama-3-8B-Instruct (gsm8k_cot_llama):
-
-  | Backend | Flexible-Extract | Strict-Match |
-  |---------|------------------|--------------|
-  | FlashInfer | 0.6892 ± 0.0127 | 0.6846 ± 0.0128 |
-  | Marlin (VLLM_MXFP4_USE_MARLIN=1) | 0.7604 ± 0.0118 | 0.7551 ± 0.0118 |
-  | Dense (meta-llama/Meta-Llama-3-8B-Instruct) | 0.7998 ± 0.0110 | 0.7991 ± 0.0110 |
-
-## Model Saving
-
-- **MTP Layer Saving**: Fixed issue where models with MTP (multi-token prediction) layers were not including MTP layers in final checkpoints due to MTP layers not being loaded through the AutoModel pathway. Updated model saving to detect presence of MTP layers and update the safetensors in the final checkpoint accordingly.
-
-## New Contributors
-* @dik654 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2368
-* @Yatimai made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2418
-* @omkar-334 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2414
-* @JinRiYao2001 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2443
-* @rtj1 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2330
-* @2imi9 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2467
-* @dzhengAP made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2471
-* @markypizz made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2503
-* @changjonathanc made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2477
-* @zeel2104 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2533
-* @wiliyam made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2556
-* @vkduy made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2567
-* @xingzihai made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2555
-* @liwei109 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2464
-* @aayush7511 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2493
-* @sakunkun made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2597
-* @Nottlespike made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2547
-* @Alone-wl made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2634
-* @elwhyjay made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2609
-* @jayakumarpujar made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2639
-* @prdeepakbabu made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2644
-* @rk119 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2616
-* @changwangss made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2688
-* @juju812 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2635
-* @dshane1903 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2704
-* @AsadShahid04 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2719
-* @orestis-z made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2725
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.10.0...0.11.0
-
-## 0.12.0 (2026-06-15)
-
-<img width="1536" height="1024" alt="c6eabd02-d5f3-47ce-ac77-a7fb0ad7cac9" src="https://github.com/user-attachments/assets/bc5ba00d-a719-4cea-9845-42b236fbe115" />
-
-
-# LLM Compressor v0.12.0 Release Notes
-
-This release upgrades to Transformers v5 with improved MoE support, streamlines the dataset interface, and adds multi-GPU acceleration for model-free PTQ. Major highlights include comprehensive Transformers v5 integration with refactored MoE linearization, a simplified dataset split API that removes legacy multi-stage logic, multi-GPU distribution for model-free PTQ workflows, and expanded model coverage with Nemotron Ultra FP8 examples.
-
-This release contains changes to example scripts with backwards compatibility with previous examples and scripts. Please read [Transformers v5](#transformers-v5) for more information.
-
-## Key Highlights ✨
-- Transformers v5 Upgrade (#2647): Full integration with Transformers v5, including refactored MoE linearization with `load_context` for efficient loading, updated model structure handling, and improved tied embeddings support. Maintains LM eval performance across the transition. Note: **LLM Compressor no longer supports installation with `transformers<5.0.0`**.
-- Simplified Dataset Interface (#2551): Removed legacy multi-split logic, replacing `splits={"calibration": "train[:100]"}` with cleaner `split="train[:100]"` API. Legacy argument usage is deprecated and will be removed in a future release.
-- Multi-GPU Model-Free PTQ (#2773): Added support to distribute model-free PTQ jobs across multiple GPUs for significant parallelization and speedup for quantization workflows.
-- Nemotron Ultra Support (#2803): Added FP8 quantization example for Nemotron Ultra models in the model-free PTQ examples.
-
-
-# Transformers v5 #
-
-## Examples and Model Loading ##
-
-* Example regexes and recipes have been updated to reflect new model structures introduced by Transformers v5
-
-
-* Examples which utilize disk offloading or mixture-of-experts (MoE) calibration now load models with `load_context` provided by `llmcompressor.utils`. This context is a catch-all context and should be used in all scripts for efficient model loading.
-
-```python
-- from compressed_tensors.offload import load_offloaded_model
-- from llmcompressor.modeling.moe.linearize import load_quantizable_moe
-- 
-- with load_offloaded_model(), load_quantizable_moe():
--     model = AutoModelForCausalLM.from_pretrained(model_id)
-
-+ from llmcompressor.utils import load_context
-+ 
-+ with load_context():
-+     model = AutoModelForCausalLM.from_pretrained(model_id)
-```
-
-* `dtype` now defaults to `"auto"`, so this explicit argument has been removed to reduce verbosity
-
-```diff
-- model = AutoModelForCausalLM.from_pretrained(model_id, dtype=”auto”)
-+ model = AutoModelForCausalLM.from_pretrained(model_id)
-```
-
-* `from_pretrained` no longer supports `use_auth_token`. This argument has been removed from `oneshot`
-
-## Expanded and Refactored MoE Support ##
-Applying quantization to Mixture-of-Experts (MoE) models requires explicit linearization and class overriding in order to efficiently calibrate experts. This logic has been implemented by LLM Compressor through two pathways:
-`llmcompressor.modeling.moe.linearize::linearize_moe` which replaces experts modules with linearized and calibration-friendly classes AFTER weights have already been loaded
-`llmcompressor.modeling.moe.linearize::load_quantizable_moe` which replaces experts modules with linearized and calibration-friendly classes BEFORE weights have been loaded. This context is more efficient and reduces runtime during model loading.
-
-Both of these pathways are called as needed by `llmcompressor.utils::load_context`. These implementations are capable of automatically handling >90% of all model definitions provided by `transformers`. For unconventional or custom model definitions, see [Adding MoE Calibration Support for a New Model]( https://docs.vllm.ai/projects/llm-compressor/en/latest/developer-tutorials/add-moe-support)
-
-## Multi-GPU Model-Free PTQ
-
-Model-free PTQ now supports distributing quantization jobs across multiple GPUs when available. This feature automatically detects available GPUs and parallelizes the quantization workflow, significantly reducing processing time for large models.
-
-## Simplified Dataset Interface
-  
-The dataset split interface has been refactored to remove legacy multi-stage logic that previously supported separate datasets for training, oneshot, and eval in a single command. Since training and eval tasks are no longer supported in the same command, the API has been simplified.
- 
-Old interface:
-```python
-oneshot(
-  model,
-  dataset="ultrachat",
-  splits={"calibration": "train_sft[:100]"}
-)
-```
-New interface:
-```python
-oneshot(
-  model,
-  dataset="ultrachat",
-  split="train_sft[:100]"
-) 
-```
-  
-The new API is backwards compatible and will issue warnings when using the old dictionary-based splits argument.
-
-## Nemotron 3 Ultra Examples
-
-This release adds model-free PTQ examples for NVIDIA's Nemotron-3-Ultra-550B model.
-Pre-quantized FP8 checkpoints are available on HuggingFace:
-
-- [NVIDIA-Nemotron-3-Ultra-550B-A55B-FP8-dynamic](https://huggingface.co/RedHatAI/NVIDIA-Nemotron-3-Ultra-550B-A55B-FP8-dynamic)
-- [NVIDIA-Nemotron-3-Ultra-550B-A55B-FP8-block](https://huggingface.co/RedHatAI/NVIDIA-Nemotron-3-Ultra-550B-A55B-FP8-block)
-- See the model-free [PTQ examples](https://github.com/vllm-project/llm-compressor/tree/main/examples/model_free_ptq) for usage details.
-
-## Breaking Changes
-- The minimum transformers version has been bumped up to v5.9
-
-## New Contributors
-* @JINO-ROHIT made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2773
-* @u7k4rs6 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2779
-* @soyr-redhat made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2794
-* @arpitkh101 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2589
-* @Priya95715 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2768
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.11.0...0.12.0
-
-## 0.7.1.3 (2026-06-26)
-
-## What's Changed
-* Allow requests 2.32.5+ versions by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/2859
-
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.7.1.2...0.7.1.3
-
-## 0.7.1.4 (2026-07-27)
-
-## What's Changed
-* [release-0.7.1] bump up pillow upper bound by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/2954
-
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.7.1.3...0.7.1.4
-
-## 0.9.0.4 (2026-07-27)
-
-## What's Changed
-* [release-0.9.0] bump up pillow and requests upper bounds by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/2955
-
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.9.0.3...0.9.0.4
-
-## 0.10.0.3 (2026-07-28)
-
-## What's Changed
-* [Deprecation] Remove Sparse24 e2e tests from release-0.10.0 by @deepak-kumar-neu in https://github.com/vllm-project/llm-compressor/pull/2720
-* [release-0.10.0] bump up pillow and requests upper bound by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/2959
-
+> releases: 50
 
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.10.0.2...0.10.0.3
+## 0.23.0 (2025-01-29)
 
-## 0.12.0.1 (2026-07-31)
+**Backward Breaking Changes**
 
-## What's Changed
-* [release-0.12.0] update pillow upper bound by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/2961
-
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.12.0...0.12.0.1
-
-## 0.13.0 (2026-08-11)
-
-<img width="1536" height="1024" alt="ab6cbf09-a397-40d4-82da-b790a4b0fb39" src="https://github.com/user-attachments/assets/83fa02ea-f410-4cff-9e5d-f0cf77599152" />
+- Nvidia TensorRT Model Optimizer has changed its LICENSE from NVIDIA Proprietary (library wheel) and MIT (examples) to Apache 2.0 in this first full OSS release.
+- Deprecate Python 3.8, Torch 2.0, and Cuda 11.x support.
+- ONNX Runtime dependency upgraded to 1.20 which no longer supports Python 3.9.
+- In the Huggingface examples, the ``trust_remote_code`` is by default set to false and require users to explicitly turning it on with ``--trust_remote_code`` flag.
 
-# Key Highlights
-
-- **REAP Expert Pruning** — [#2864](https://github.com/vllm-project/llm-compressor/pull/2864): New modifier for structurally pruning Mixture-of-Experts (MoE) models by removing individual experts based on calibration-based saliency scores. Based on the [REAP the Experts paper](https://arxiv.org/pdf/2510.13999).
-- **Arbitrary Bit-Width Quantization (Humming)** — [ct#732](https://github.com/vllm-project/compressed-tensors/pull/732), [ct#785](https://github.com/vllm-project/compressed-tensors/pull/785): Dense packing for non-power-of-2 bit widths (3, 5, 6, 7) with no wasted bits, plus 16 new WxAy presets covering W2–W8 weights with A4, A8, or A16 activations.
-- **Observer Fusion and Deletion** — [#2865](https://github.com/vllm-project/llm-compressor/pull/2865): Refactored observer lifecycle and significantly reduced memory usage for large models due to observer statistics persisting after calibration.
-- **Expanded MoE Architecture Support** — [#2847](https://github.com/vllm-project/llm-compressor/pull/2847): Extended MoE linearization to support a broader range of architectures, including Transformers v5.13.0 models.
-- **Improved XPU Compatibility** — [#2776](https://github.com/vllm-project/llm-compressor/pull/2776), [#2884](https://github.com/vllm-project/llm-compressor/pull/2884): Migrated `torch.cuda` calls to `torch.accelerator` for Intel XPU support.
-- **AutoRound Sub-Bit Quantization** — [#2895](https://github.com/vllm-project/llm-compressor/pull/2895): Added sub-bit quantization, including W2A16 attention / W4A16 MLP mixed precision.
-- **Pre-Quantized Model Support** — [#2909](https://github.com/vllm-project/llm-compressor/pull/2909): `oneshot` now provides experimental support for pre-quantized models, provided the targeted layers have not been previously quantized.
-
-## REAP Expert Pruning
-
-**REAP (Router-weighted Expert Activation Pruning)** structurally compresses MoE models by permanently removing individual experts based on saliency scores computed during calibration. The algorithm is introduced in the [REAP the Experts: Why Pruning Prevails for One-Shot MoE Compression](https://arxiv.org/pdf/2510.13999) paper.
-
-REAP can be combined with quantization modifiers. For example, users can prune low-saliency experts first and then quantize the remaining model to **FP8** or **NVFP4**.
-
-## Arbitrary Bit-Width Quantization (Humming)
-
-### Dense Packing for Non-Standard Bit Widths
-
-The `pack_quantized` compressor in `compressed-tensors` now uses dense cross-element packing ([ct#732](https://github.com/vllm-project/compressed-tensors/pull/732)). Previously, 3-, 5-, 6-, and 7-bit formats used padded packing that wasted bits.
-
-The new implementation:
-
-- Packs 32 consecutive `intB` elements into exactly `num_bits` `int32` words.
-- Uses no wasted bits and splits elements across `int32` boundaries when needed.
-- Supports activation quantization in addition to weight-only schemes.
-
-### Expanded WxAy Quantization Presets
-
-A new `_int_wnam()` helper generates valid integer WxAy combinations ([ct#785](https://github.com/vllm-project/compressed-tensors/pull/785)), adding **16 presets** covering W2–W8 weights with A4, A8, or A16 activations, including W3A8, W5A16, and W6A8.
-
-All presets use **group-128 symmetric weights** and **token-wise dynamic symmetric activations** and are supported in vLLM as of [vllm#46390](https://github.com/vllm-project/vllm/pull/46390).
-
-W2–W7 weight-only (A16) schemes were also added as standalone presets ([ct#760](https://github.com/vllm-project/compressed-tensors/pull/760)), extending the previous W4A16 and W8A16 presets.
-
-## Observer Fusion and Deletion
-
-Observer lifecycle management was refactored to fix a memory leak where statistics persisted after calibration ([#2865](https://github.com/vllm-project/llm-compressor/pull/2865)):
-
-- A dedicated `fusion_handler` manages fused observer groups.
-- Statistics are deleted only after the full fusion group completes.
-- Weight observers skip redundant observation when statistics already exist, reducing recomputation for AWQ/GPTQ workflows.
-
-## Expanded MoE Support
-
-MoE linearization now supports a broader range of architectures, including models introduced in Transformers v5.13.0 ([#2847](https://github.com/vllm-project/llm-compressor/pull/2847)). Import patterns were also refactored for backwards compatibility.
-
-**Cohere2MoE SpinQuant** support was added ([#2867](https://github.com/vllm-project/llm-compressor/pull/2867)), including special handling for its parallel transformer block where one `input_layernorm` feeds attention, MLP, and the router.
-
-## Lifecycle Improvements
-
-### Calibration Events
-
-Calibration events are now first-class lifecycle hooks ([#2783](https://github.com/vllm-project/llm-compressor/pull/2783), [#2784](https://github.com/vllm-project/llm-compressor/pull/2784)):
-
-- Added `on_calibration_start`, `on_sequential_epoch_end`, and `on_calibration_end`.
-- Calibration start/end logic is handled by the `Modifier` base class.
-- Renamed `calibration_epoch_start/end` to `calibration_start/end`.
-
-### Calibration Requirement Check
-
-Each modifier now declares `requires_calibration_data()` ([#2947](https://github.com/vllm-project/llm-compressor/pull/2947)), replacing the hardcoded pipeline registry list. GPTQ, AutoRound, SparseGPT, Wanda, SmoothQuant, AWQ, and REAP explicitly require calibration.
-
-### Pipeline Device Movement
-
-Device movement logic has been removed from pipelines ([#2846](https://github.com/vllm-project/llm-compressor/pull/2846)). `load_offloaded_model` now handles distributed dispatch and disk offloading, simplifying pipeline logic.
-
-## Distributed Improvements
-
-- **Module Parallel Calibration** — [#2785](https://github.com/vllm-project/llm-compressor/pull/2785): Weight calibration can run in parallel across distributed workers.
-- **Suspend Distributed Timeout** — [#2868](https://github.com/vllm-project/llm-compressor/pull/2868): Supports saving very large or disk-offloaded models taking more than 10 minutes.
-- **AutoRound DDP** — [#2844](https://github.com/vllm-project/llm-compressor/pull/2844), [#2934](https://github.com/vllm-project/llm-compressor/pull/2934): Added Qwen MoE DDP example and fixed rank-local device placement.
-- **DDP Smoke Tests** — [#2769](https://github.com/vllm-project/llm-compressor/pull/2769): Added comprehensive DDP tests with subsequent stability fixes in [#2840](https://github.com/vllm-project/llm-compressor/pull/2840), [#2857](https://github.com/vllm-project/llm-compressor/pull/2857), [#2863](https://github.com/vllm-project/llm-compressor/pull/2863), and [#2943](https://github.com/vllm-project/llm-compressor/pull/2943).
-
-## Performance
-
-- **`torch.compile` for MSE Observer** — [#2384](https://github.com/vllm-project/llm-compressor/pull/2384): Added chunked execution support for `torch.compile`, with significant speedups for activation quantization. Pass `enable_compile=True` to `oneshot` to enable.
-- **`IntermediatesCache` `pin_memory` Fix** — [#2813](https://github.com/vllm-project/llm-compressor/pull/2813): Fixed a CUDA OOM issue with nested dispatchers.
-- **Reduced Default Save Shard Size** — [#2927](https://github.com/vllm-project/llm-compressor/pull/2927): Reduced the default shard size to **20 GB** for improved network transfer performance.
-
-## XPU Compatibility
-
-All main-path `torch.cuda` calls have been migrated to `torch.accelerator` ([#2884](https://github.com/vllm-project/llm-compressor/pull/2884)). A `torch.cuda` linter was added to CI ([#2776](https://github.com/vllm-project/llm-compressor/pull/2776)), along with XPU Docker and testing infrastructure ([#2945](https://github.com/vllm-project/llm-compressor/pull/2945)).
-
-## New Model Support
-
-- **DeepSeek V4 Pro** — [#2858](https://github.com/vllm-project/llm-compressor/pull/2858), with automatic MTP weight copying ([#2951](https://github.com/vllm-project/llm-compressor/pull/2951)).
-- **GLM 5.2** — [#2869](https://github.com/vllm-project/llm-compressor/pull/2869)
-- **GLM 4.6** — [#2343](https://github.com/vllm-project/llm-compressor/pull/2343)
-- **HunyuanMoE V3** — [#2928](https://github.com/vllm-project/llm-compressor/pull/2928)
-- **Gemma 4** — [#2816](https://github.com/vllm-project/llm-compressor/pull/2816)
-- **Mellum2** — [#2832](https://github.com/vllm-project/llm-compressor/pull/2832)
-- **Cohere2MoE SpinQuant + NVFP4** — [#2867](https://github.com/vllm-project/llm-compressor/pull/2867)
-- **Input Embedding Quantization example** — [#2830](https://github.com/vllm-project/llm-compressor/pull/2830)
-- **New AWQ/SmoothQuant mappings** for Step3p5 ([#2770](https://github.com/vllm-project/llm-compressor/pull/2770)), Granite ([#2797](https://github.com/vllm-project/llm-compressor/pull/2797)), Nanbeige ([#2966](https://github.com/vllm-project/llm-compressor/pull/2966)), and Qwen3.5 MoE ([#2718](https://github.com/vllm-project/llm-compressor/pull/2718), [#2727](https://github.com/vllm-project/llm-compressor/pull/2727)).
-
-## Breaking Changes
-
-- Removed sparsity-preserving logic from GPTQ — [#2860](https://github.com/vllm-project/llm-compressor/pull/2860)
-- Removed `IMatrixGatherer`; functionality consolidated into observers — [#2920](https://github.com/vllm-project/llm-compressor/pull/2920)
-- Deprecated `GPTQ actorder=group` — [#2893](https://github.com/vllm-project/llm-compressor/pull/2893)
-- Deprecated `reindex_fused_weights` — [#2737](https://github.com/vllm-project/llm-compressor/pull/2737)
-- QuIP now defaults to input (`v`) rotations only — [#2815](https://github.com/vllm-project/llm-compressor/pull/2815)
-
-## New Contributors
-* @KKothuri made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2830
-* @EdalatiAli made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2798
-* @zhangxin81 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2718
-* @Bias92 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2384
-* @LeonEricsson made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2833
-* @wanadzhar913 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2770
-* @jethac made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2845
-* @krishnateja95 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2832
-* @Ryfernandes made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2864
-* @suluner made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2884
-* @Pruthvi226 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2870
-* @HumphreySun98 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2797
-* @chiptoe-svg made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2917
-* @w3lld1 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2909
-* @f-baig made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2966
-* @arijitroy003 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2958
-* @Roderick-Wu made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2920
-* @chensuyue made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2945
-* @latent-9 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2989
-* @qubeena07 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2987
-
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.12.0...0.13.0
-
-## 0.14.0 (2026-09-22)
-
-<img width="1536" height="1024" alt="llmc_v14" src="https://github.com/user-attachments/assets/cddb93c4-8746-4aff-9e57-83fc9fbd45b2" />
-
-# LLM-Compressor v0.14.0
-
-## Key Highlights ✨
-
-- **GPTQ Performance Improvements #3128**
-  - GPTQ now ships a Triton-based quantization kernel, approximately **15× faster end-to-end** than the previous implementation.
-  - Layers that share the same shape can now be batched, achieving approximately **30× faster end-to-end performance** on some MoE workloads.
-  - Hessian offloading has been removed.
-  - The remaining eager path was independently sped up by **1.5–2×**.
-
-- **Expanded MSE/iMatrix Observers #2950, #3076**
-  - Added functionality to expand the grid search for iMatrix and MSE observers.
-  - Enables identification of better local scales for NVFP4.
-  - The expanded search space is a superset of the Fourosix-style quantization strategy.
-
-- **MSE Observer Performance Improvements #2991**
-  - Added a new Triton kernel for grid search, improving observation time by approximately **10×**.
-  - Reaches bitwise parity with the eager path under full evaluation.
-
-- **REAP DDP + e-Score Correction #3045, #3101**
-  - REAP expert pruning now supports distributed DDP runs.
-  - Added optional e-score correction bias.
-  - Added a new HY3 example.
-
-- **Model-Free PTQ Improvements #2976, #3053, #2935, #3158**
-  - Replaced static round-robin GPU assignment with a dynamic, memory-aware scheduler.
-  - Added mixed-precision and KV-cache quantization support.
-  - Unified the entry point into a single `ModelFreePtqConverter` class.
-  - Added profiler-based memory estimates.
-
-- **Expanded MoE Machinery #3080, #3017, #3173, #3100**
-  - Added `patch_moe_mappings()` for overriding 2D load mappings per checkpoint.
-  - Added `repack_moe()` for restoring native fused 3D expert modules after linearization.
-  - Added fast loading for `nemotron_h` (Nemotron 3 Ultra).
-  - Added GPT-OSS expert linearization.
-
-## GPTQ
-
-The GPTQ modifier received its largest performance upgrade since launch in **#3128**:
-
-- **New Triton GPTQ kernel:** Approximately **15× faster** than the previous eager implementation.
-- **Layer batching:** Layers sharing the same shape can be quantized together, achieving approximately **1.67× higher throughput per batch** and up to **30× end-to-end speedups** on MoE workloads with many shared shapes.
-- **Simplified Hessian handling:** Removed Hessian offloading.
-- **Faster eager path:** Independently improved by approximately **1.5–2×**.
-- **Hessian loop optimization:** Hoisted loop invariants out of the per-column quantization loop (#3097).
-- **RTN fallback reporting:** Added an end-of-run summary for modules that fall back to RTN (#3098).
-- **A100 FP8 support:** Fixed GPTQ FP8 handling with a supported Triton FP8 cast (#3181).
-
-## Observers
-
-### NVFP4 and MSE/iMatrix
-
-- **Expanded grid search:** MSE and iMatrix observers now support an expansion factor, making their search space a superset of the Fourosix strategy (#2950).
-- **NVFP4 quality:** The new expanded MSE observer outperforms GPTQ for NVFP4 on average across internal perplexity benchmarks.
-- **Triton MSE grid search:** Added a Triton kernel for scale grid search with buffered per-qparam patience and adaptive 512-value tiling (#2991).
-- **Bitwise parity:** The Triton MSE implementation reaches bitwise parity with the eager path under full evaluation.
-- **Format coverage:** Supports INT, FP4, FP8, and FP16/BF16 with E8M0 scales.
-- **Triton error buffer:** Added `triton_error_buffer` to enable approximate congruence between eager and Triton patience behavior.
-- **Observer resolution:** Quantization-argument resolution and observer defaulting moved from `compressed-tensors` into LLM-Compressor (#3091).
-- **Validation:** `MovingAverageMSEObserver` now validates `expand >= 1.0` (#3095).
-
-## Model-Free PTQ
-
-- **Dynamic GPU scheduling:** Replaced static round-robin assignment with a capacity-first, memory-aware scheduler that queries available GPU memory before each job and tracks reservations (#2976).
-- **Reliable fallback:** Insufficient capacity now triggers an explicit fallback instead of silently dropping work.
-- **Mixed precision:** Added mixed-precision quantization support (#3053).
-- **KV-cache quantization:** Added KV-cache quantization support.
-- **Unified API:** Consolidated model-free PTQ into `ModelFreePtqConverter` (#2935).
-- **Memory estimation:** Added profiler-based memory estimates (#3158).
-
-## REAP
-
-- **Distributed support:** REAP expert pruning now supports DDP.
-  - Saliency statistics are reduced across ranks.
-  - Statistics are computed on rank 0.
-  - Results are broadcast back to workers (#3045).
-- **e-Score correction:** Added an optional e-score correction bias (#3101).
-- **New example:** Added an HY3 REAP example.
-
-## MoE
-
-Expanded MoE support includes:
-
-- `patch_moe_mappings()` — Override 2D load mappings on a per-checkpoint basis through a load context (#3080).
-- `repack_moe()` — Restore native fused 3D expert modules so `save_pretrained()` writes Hugging Face-native keys (#3017).
-- **Nemotron 3 Ultra:** Added fast-loading support and 2D conversion mappings for `nemotron_h` (#3173).
-- **GPT-OSS:** Added expert linearization support (#3100).
-- **Performance:** Experts are no longer onloaded when checking `FusedExpertsProtocol` (#3039).
-- **Cleanup:** Removed `GraniteMoeLinearExperts` (#2885).
-
-## New Model Support
-
-- **GLM 5.3 / GLM 5.3 Flash** (#3164)
-- **Kimi-K3**
-  - Added native `KimiK3ForConditionalGeneration`.
-  - Added quantization examples.
-  - Added upfront model decompression.
-  - #2994, #3184
-- **Qwen3.8**
-  - Added examples.
-  - Updated AWQ/SmoothQuant mappings.
-  - #3043, #3041
-- **Muse Glimmer** — Added AWQ mappings (#3124)
-- **Cohere2MoE** — Added AWQ and SmoothQuant support (#2938)
-- **DeepSeekV2** — Added AWQ support (#2938)
-- **Nanbeige** — Added AWQ/SmoothQuant mappings (#3073)
-- **Glm4MoeLite** — Added AWQ/SmoothQuant mappings (#3072)
-- **OlmoForCausalLM v1/v2**
-  - Added AWQ/SmoothQuant mappings using the Exaone4-style mapping.
-  - #2802
-
-## New Examples
-
-- **MR-GPTQ:** QuIP + GPTQ + NVFP4A16 (#2751)
-- **FP8 Attention + AutoRound:** Qwen3 dense and MoE (#3092)
-- **Mixed W2A16 / W4A16 MoE** (#2940)
-- **GLM-5.2 MXFP4 × MXFP8** (#3048)
-- **DeepSeek V4 MXFP4–MXFP8** (#2897)
-- **GLM-5.3 MXFP4** (#3163)
-- **Llama 3.3 70B MXFP8 + FP8 Attention** (#3160)
-- **Qwen3 MoE** (#2946)
-- **Agent skills**
-  - Added a shared quantization skill for AWQ, SmoothQuant, GPTQ, and `QuantizationModifier`.
-  - Added FP8/NVFP4 skill updates.
-  - Added prebaked-dataset selection.
-  - #2971
-
-## Performance
-
-- **GPTQ:** New Triton kernel and layer batching (#3128).
-- **Subgraph tracing:** O(1) node-membership lookups (#2992, #2999).
-- **AutoRound VRAM:** Calibration inputs can be offloaded to CPU for large `N` (#3055).
-- **AutoRound memory:** Prevented `input_capture_hook` from accumulating GPU memory during optimization (#3024).
+**New Features**
+
+- Added OCP Microscaling Formats (MX) for fake quantization support, including FP8 (E5M2, E4M3), FP6 (E3M2, E2M3), FP4, INT8.
+- Added NVFP4 quantization support for NVIDIA Blackwell GPUs along with updated examples.
+- Allows export lm_head quantized TensorRT-LLM checkpoint. Quantize lm_head could benefit smaller sized models at a potential cost of additional accuracy loss.
+- TensorRT-LLM now supports Moe FP8 and w4a8_awq inference on SM89 (Ada) GPUs.
+- New models support in the ``llm_ptq`` example: Llama 3.3, Phi 4.
+- Added Minitron pruning support for NeMo 2.0 GPT models.
+- Exclude modules in TensorRT-LLM export configs are now wildcards
+- The unified llama3.1 FP8 huggingface checkpoints can be deployed on [SGLang](https://github.com/sgl-project/sglang/pull/2535).
+
+## 0.23.1 (2025-02-14)
+
+**Bug Fixes**
+
+- Set `torch.load(..., weights_only=False)` where Model Optimizer state is restored since torch 2.6 makes the default value to `True`
+- Other minor fixes
+
+## 0.23.2 (2025-02-19)
+
+Fix export for Nvidia NeMo models
+
+## 0.25.0 (2025-03-03)
+
+### Deprecations
+
+- Deprecate Torch 2.1 support.
+- Deprecate `humaneval` benchmark in `llm_eval` examples. Please use the newly added `simple_eval` instead.
+- Deprecate `fp8_naive` quantization format in `llm_ptq` examples. Please use `fp8` instead.
+
+### New Features
+
+- Support fast hadamard transform in `TensorQuantizer` class (`modelopt.torch.quantization.nn.modules.TensorQuantizer`).
+  It can be used for rotation based quantization methods, e.g. QuaRot. Users need to install the package [fast_hadamard_transfrom](https://github.com/Dao-AILab/fast-hadamard-transform) to use this feature.
+- Add affine quantization support for the KV cache, resolving the low accuracy issue in models such as Qwen2.5 and Phi-3/3.5.
+- Add FSDP2 support. FSDP2 can now be used for QAT.
+- Add [LiveCodeBench](https://livecodebench.github.io/) and [Simple Evals](https://github.com/openai/simple-evals) to the `llm_eval` examples.
+- Disabled saving modelopt state in unified hf export APIs by default, i.e., added `save_modelopt_state` flag in `export_hf_checkpoint` API and by default set to False.
+- Add FP8 and NVFP4 real quantization support with LLM QLoRA example.
+- The `modelopt.deploy.llm.LLM` class now support use the `tensorrt_llm._torch.LLM` backend for the quantized HuggingFace checkpoints.
+- Add [NVFP4 PTQ example for DeepSeek-R1](https://github.com/NVIDIA/TensorRT-Model-Optimizer/tree/main/examples/deepseek).
+- Add end-to-end [AutoDeploy example for AutoQuant LLM models](https://github.com/NVIDIA/TensorRT-Model-Optimizer/tree/main/examples/llm_autodeploy).
+
+## 0.27.0 (2025-04-03)
+
+**Deprecations**
+
+- Deprecate real quantization configs, please use `mtq.compress <modelopt.torch.quantization.compress>` API for model compression after quantization.
+
+**New Features**
+
+- New model support in the ``llm_ptq`` example: OpenAI Whisper.
+- Blockwise FP8 quantization support in unified model export.
+- Add quantization support to the Transformer Engine Linear module.
+- Add support for SVDQuant. Currently, only simulation is available; real deployment (for example, TensorRT deployment) support is coming soon.
+- To support distributed checkpoint resume expert-parallel (EP), ``modelopt_state`` in Megatron Core distributed checkpoint (used in NeMo and Megatron-LM) is stored differently. The legacy ``modelopt_state`` in the distributed checkpoint generated by previous modelopt version can still be loaded in 0.27 and 0.29 but will need to be stored in the new format.
+- Add triton-based NVFP4 quantization kernel that delivers approximately 40% performance improvement over the previous implementation.
+- Add a new API `mtq.compress <modelopt.torch.quantization.compress>` for model compression for weights after quantization.
+- Add option to simplify ONNX model before quantization is performed.
+- (Experimental) Improve support for ONNX models with custom TensorRT op:
+   - Add support for ``--calibration_shapes`` flag.
+   - Add automatic type and shape tensor propagation for full ORT support with TensorRT EP.
+
+**Known Issues**
+
+- Quantization of T5 models is broken. Please use ``nvidia-modelopt==0.25.0`` with ``transformers<4.50`` meanwhile.
+
+## 0.27.1 (2025-04-15)
+
+Add experimental quantization support for Llama4, QwQ and Qwen MOE models.
+
+## 0.29.0 (2025-05-09)
+
+**Backward Breaking Changes**
+
+- Refactor ``SequentialQuantizer`` to improve its implementation and maintainability while preserving its functionality.
+
+**Deprecations**
+
+- Deprecate ``torch<2.4`` support.
+
+**New Features**
+
+- Upgrade LLM examples to use TensorRT-LLM 0.18.
+- Add new model support in the ``llm_ptq`` example: Gemma-3, Llama-Nemotron.
+- Add INT8 real quantization support.
+- Add an FP8 GEMM per-tensor quantization kernel for real quantization. After PTQ, you can leverage the `mtq.compress <modelopt.torch.quantization.compress>` API to accelerate evaluation of quantized models.
+- Use the shape of Pytorch parameters and buffers of `TensorQuantizer <modelopt.torch.quantization.nn.modules.TensorQuantizer>` to initialize them during restore. This makes quantized model restoring more robust.
+- Support adding new custom quantization calibration algorithms. Please refer to `mtq.calibrate <modelopt.torch.quantization.model_quant.calibrate>` or [custom calibration algorithm doc](https://nvidia.github.io/TensorRT-Model-Optimizer/guides/_pytorch_quantization.html#custom-calibration-algorithm) for more details.
+- Add EAGLE3 (``LlamaForCausalLMEagle3``) training and unified ModelOpt checkpoint export support for Megatron-LM.
+- Add support for ``--override_shapes`` flag to ONNX quantization.
+   - ``--calibration_shapes`` is reserved for the input shapes used for calibration process.
+   - ``--override_shapes`` is used to override the input shapes of the model with static shapes.
+- Add support for UNet ONNX quantization.
+- Enable ``concat_elimination`` pass by default to improve the performance of quantized ONNX models.
+- Enable Redundant Cast elimination pass by default in `moq.quantize <modelopt.onnx.quantization.quantize>`.
+- Add new attribute ``parallel_state`` to `DynamicModule <modelopt.torch.opt.dynamic.DynamicModule>` to support distributed parallelism such as data parallel and tensor parallel.
+- Add MXFP8, NVFP4 quantized ONNX export support.
+- Add new example for torch quantization to ONNX for MXFP8, NVFP4 precision.
+
+## 0.31.0 (2025-06-05)
+
+**Backward Breaking Changes**
+
+- NeMo and Megatron-LM distributed checkpoint (``torch-dist``) stored with legacy version can no longer be loaded. The remedy is to load the legacy distributed checkpoint with 0.29 and store a ``torch`` checkpoint and resume with 0.31 to convert to a new format. The following changes only apply to storing and resuming distributed checkpoint.
+    - ``quantizer_state`` of :class:`TensorQuantizer <modelopt.torch.quantization.nn.modules.TensorQuantizer>` is now stored in ``extra_state`` of :class:`QuantModule <modelopt.torch.quantization.nn.module.QuantModule>` where it used to be stored in the sharded ``modelopt_state``.
+    - The dtype and shape of ``amax`` and ``pre_quant_scale`` stored in the distributed checkpoint are now retored. Some dtype and shape are previously changed to make all decoder layers to have homogeneous structure in the checkpoint.
+    - Togather with megatron.core-0.13, quantized model will store and resume distributed checkpoint in a heterogenous format.
+- auto_quantize API now accepts a list of quantization config dicts as the list of quantization choices.
+    - This API previously accepts a list of strings of quantization format names. It was therefore limited to only pre-defined quantization formats unless through some hacks.
+    - With this change, now user can easily use their own custom quantization formats for auto_quantize.
+    - In addition, the ``quantization_formats`` now exclude ``None`` (indicating "do not quantize") as a valid format because the auto_quantize internally always add "do not quantize" as an option anyway.
+- Model export config is refactored. The quant config in ``hf_quant_config.json`` is converted and saved to ``config.json``. ``hf_quant_config.json`` will be deprecated soon.
+
+
+**Deprecations**
+
+- Deprecate ``Python 3.9`` support.
+
+**New Features**
+
+- Upgrade LLM examples to use TensorRT-LLM 0.19.
+- Add new model support in the ``llm_ptq`` example: Qwen3 MoE.
+- ModelOpt now supports advanced quantization algorithms such as AWQ, SVDQuant and SmoothQuant for cpu-offloaded Huggingface models.
+- Add AutoCast tool to convert ONNX models to FP16 or BF16.
+- Add ``--low_memory_mode`` flag in the llm_ptq example support to initialize HF models with compressed weights and reduce peak memory of PTQ and quantized checkpoint export.
+
+## 0.33.0 (2025-07-14)
+
+**Backward Breaking Changes**
+
+- PyTorch dependencies for ``modelopt.torch`` features are no longer optional and ``pip install nvidia-modelopt`` is now same as ``pip install nvidia-modelopt[torch]``.
+
+**New Features**
+
+- Upgrade TensorRT-LLM dependency to 0.20.
+- Add new CNN QAT example to demonstrate how to use ModelOpt for QAT.
+- Add support for ONNX models with custom TensorRT ops in Autocast.
+- Add quantization aware distillation (QAD) support in ``llm_qat`` example.
+- Add support for BF16 in ONNX quantization.
+- Add per node calibration support in ONNX quantization.
+- ModelOpt now supports quantization of tensor-parallel sharded Huggingface transformer models. This requires ``transformers>=4.52.0``.
+- Support quantization of FSDP2 wrapped models and add FSDP2 support in the ``llm_qat`` example.
+- Add NeMo 2 Simplified Flow examples for quantization aware training/distillation (QAT/QAD), speculative decoding, pruning & distillation.
+
+## 0.33.1 (2025-08-12)
+
+**Bug Fixes**
+
+- Fix a Qwen3 MOE model export issue.
+
+## 0.35.0 (2025-09-04)
+
+**Deprecations**
+
+- Deprecate ``torch<2.6`` support.
+- Deprecate NeMo 1.0 model support.
+
+**Bug Fixes**
+
+- Fix attention head ranking logic for pruning Megatron Core GPT models.
+
+**New Features**
+
+- ModelOpt now supports PTQ and QAT for GPT-OSS models. See ``examples/gpt_oss`` for end-to-end PTQ/QAT example.
+- Add support for QAT with HuggingFace + DeepSpeed. See ``examples/gpt_oss`` for an example.
+- Add support for QAT with LoRA. The LoRA adapters can be folded into the base model after QAT and deployed just like a regular PTQ model. See ``examples/gpt_oss`` for an example.
+- ModelOpt provides convenient trainers such as :class:`QATTrainer`, :class:`QADTrainer`, :class:`KDTrainer`, :class:`QATSFTTrainer` which inherits from Huggingface trainers.
+  ModelOpt trainers can be used as drop in replacement of the corresponding Huggingface trainer. See usage examples in ``examples/gpt_oss``, ``examples/llm_qat`` or ``examples/llm_distill``.
+- (Experimental) Add quantization support for custom TensorRT op in ONNX models.
+- Add support for Minifinetuning (MFT; https://arxiv.org/abs/2506.15702) self-corrective distillation, which enables training on small datasets with severely mitigated catastrophic forgetting.
+- Add tree decoding support for Megatron Eagle models.
+- For most VLMs, we now explicitly disable quant on the vision part so we add them to the excluded_modules during HF export.
+- Add support for ``mamba_num_heads``, ``mamba_head_dim``, ``hidden_size`` and ``num_layers`` pruning for Megatron Core Mamba or Hybrid Transformer Mamba models in ``mcore_minitron`` (previously ``mcore_gpt_minitron``) mode.
+- Add example for QAT/QAD training with `LLaMA Factory <https://github.com/hiyouga/LLaMA-Factory/tree/main>`_. See ``examples/llm_qat/llama_factory`` for more details.
+- Upgrade TensorRT-LLM dependency to 1.0.0rc6.
+- Add unified HuggingFace model export support for quantized NVFP4 GPT-OSS models.
+
+## 0.35.1 (2025-09-20)
+
+- Import fixes
+
+## 0.37.0 (2025-10-08)
+
+### Deprecations
+
+- Deprecated ModelOpt's custom docker images. Please use the PyTorch, TensorRT-LLM, or TensorRT docker image directly or refer to the [installation guide](https://nvidia.github.io/TensorRT-Model-Optimizer/getting_started/2_installation.html) for more details.
+- Deprecated `quantize_mode` argument in [`examples/onnx_ptq/evaluate.py`](https://github.com/NVIDIA/TensorRT-Model-Optimizer/blob/main/examples/onnx_ptq/evaluate.py) to support strong typing. Use `engine_precision` instead.
+- Deprecated TRT-LLM's TRT backend in [`examples/llm_ptq`](https://github.com/NVIDIA/TensorRT-Model-Optimizer/blob/main/examples/llm_ptq) and [`examples/vlm_ptq`](https://github.com/NVIDIA/TensorRT-Model-Optimizer/blob/main/examples/vlm_ptq). Tasks `build` and `benchmark` support are removed and replaced with `quant`. `engine_dir` is replaced with `checkpoint_dir` in [`examples/llm_ptq`](https://github.com/NVIDIA/TensorRT-Model-Optimizer/blob/main/examples/llm_ptq) and [`examples/vlm_ptq`](https://github.com/NVIDIA/TensorRT-Model-Optimizer/blob/main/examples/vlm_ptq). For performance evaluation, please use `trtllm-bench` directly.
+- The `--export_fmt` flag in [`examples/llm_ptq`](https://github.com/NVIDIA/TensorRT-Model-Optimizer/blob/main/examples/llm_ptq) is removed. By default, we export to the unified Hugging Face checkpoint format.
+- Deprecated [`examples/vlm_eval`](https://github.com/NVIDIA/TensorRT-Model-Optimizer/blob/main/examples/vlm_eval) as it depends on the deprecated TRT-LLM's TRT backend.
+
+### New Features
+
+- `high_precision_dtype` defaults to fp16 in ONNX quantization, i.e., quantized output model weights are now FP16 by default.
+- Upgraded TensorRT-LLM dependency to 1.1.0rc2.
+- Support for Phi-4-multimodal and Qwen2.5-VL quantized HF checkpoint export in [`examples/vlm_ptq`](https://github.com/NVIDIA/TensorRT-Model-Optimizer/blob/main/examples/vlm_ptq).
+- Support storing and restoring Minitron pruning activations and scores for re-pruning without running the forward loop again.
+- Added Minitron pruning example for the Megatron-LM framework. See [`examples/megatron-lm`](https://github.com/NVIDIA/TensorRT-Model-Optimizer/blob/main/examples/megatron-lm) for more details.
+
+
+
+## 0.39.0 (2025-11-13)
+
+## Deprecations
+
+- Deprecated `modelopt.torch._deploy.utils.get_onnx_bytes` API. Please use `modelopt.torch._deploy.utils.get_onnx_bytes_and_metadata` instead to access the ONNX model bytes with external data. See [examples/onnx_ptq/download_example_onnx.py](https://github.com/NVIDIA/TensorRT-Model-Optimizer/tree/main/examples/onnx_ptq/download_example_onnx.py) for example usage.
+
+## New Features
+
+- Added flag `op_types_to_exclude_fp16` in ONNX quantization to exclude ops from being converted to FP16/BF16. Alternatively, for custom TensorRT ops, this can also be done by indicating `'fp32'` precision in `trt_plugins_precision`.
+- Added LoRA mode support for MCore in a new peft submodule: `modelopt.torch.peft.update_model(model, LORA_CFG)`.
+- Supported PTQ and fakequant in vLLM for fast evaluation of arbitrary quantization formats. See `examples/vllm_serve` for more details.
+- Added support for `nemotron-post-training-dataset-v2` and `nemotron-post-training-dataset-v1` in `examples/llm_ptq`. Defaults to a mix of `cnn_dailymail` and `nemotron-post-training-dataset-v2` (gated dataset accessed using the `HF_TOKEN` environment variable) if no dataset is specified.
+- Allows specifying `calib_seq` in `examples/llm_ptq` to set the maximum sequence length for calibration.
+- Added support for MCore MoE PTQ/QAT/QAD.
+- Added support for multi-node PTQ and export with FSDP2 in `examples/llm_ptq/multinode_ptq.py`. See [examples/llm_ptq/README.md](https://github.com/NVIDIA/TensorRT-Model-Optimizer/tree/main/examples/llm_ptq#multi-node-post-training-quantization-with-fsdp2) for more details.
+- Added support for Nemotron Nano VL v1 & v2 models in FP8/NVFP4 PTQ workflow.
+- Added flags `nodes_to_include` and `op_types_to_include` in AutoCast to force-include nodes in low precision, even if they would otherwise be excluded by other rules.
+- Added support for `torch.compile` and benchmarking in `examples/diffusers/quantization/diffusion_trt.py`.
+- Enabled native ModelOpt quantization support for FP8 and NVFP4 formats in SGLang. See [SGLang quantization documentation](https://github.com/sgl-project/sglang/blob/main/docs/advanced_features/quantization.md#using-nvidia-modelopt) for more details.
+- Added ModelOpt quantized checkpoints in vLLM/SGLang CI/CD pipelines (PRs are under review).
+- Added support for exporting QLoRA checkpoints finetuned using ModelOpt.
+
+## Documentation
+
+- Added general guidelines for Minitron pruning and distillation. See [examples/pruning/README.md](https://github.com/NVIDIA/TensorRT-Model-Optimizer/tree/main/examples/pruning#pruning-guidelines) for more details.
+- Added example for exporting QLoRA checkpoints for vLLM deployment. Refer to [examples/llm_qat/README.md](https://github.com/NVIDIA/TensorRT-Model-Optimizer/blob/79ef31bc7269ba4da0cfab446da5b64509cbfcef/examples/llm_qat/README.md#qlora-deployment) for more details.
+
+## Additional Announcements
+
+- ModelOpt will change its versioning from odd minor versions to all consecutive versions from next release. This means next release will be named `0.40.0` instead of `0.41.0`
+
+## 0.40.0 (2025-12-12)
 
 ## Bug Fixes
 
-- Upfront model decompression for Kimi-K3 (#3184)
-- Distributed hang caused by incorrectly shaped `weight_global_scale` writeback (#3185)
-- GPTQ FP8 handling on A100 (#3181)
-- Prevent recursion into container modules in `observe/update_qparams` (#2990)
-- Dtype serialization (#3152)
-- `polynomial_decay` pruning scheduler for even exponents (#3096)
-- Global scale shape (#3191)
-- Qwen2.5-VL AWQ mapping for vision towers (#3169)
-- Python 3.14 compatibility issues in `Recipe.dict()` and dataset split help text (#2778, #2871, #3140)
-- `collect_env` crash on Apple Silicon/MPS (#3068)
-- Decorated forwards without `functools.wraps` in `autowrap_forward` (#3058)
-- `llmcompressor.trace` boolean flags now toggle correctly (#3070)
-- Runtime issues in recipe validation, AutoRound, and AWQ (#2973)
-- Weightless modules in distributed greedy bin packing (#3113)
+- Fix a bug in FastNAS pruning (computer vision models) where the model parameters were sorted twice, messing up the ordering.
+- Fix Q/DQ/Cast node placements in 'FP32 required' tensors in custom ops in the ONNX quantization workflow.
 
-## Refactoring & Breaking Changes
+## New Features
 
-- Removed deprecated GPTQ Group/Dynamic Activation Ordering (#3038).
-- Removed `GraniteMoeLinearExperts` (#2885).
-- Moved observer resolution/defaulting into LLM-Compressor (#3091).
-- Unified model-free PTQ under `ModelFreePtqConverter` (#2935).
-- `TensorProfiler` is now imported from `compressed-tensors` (#3203).
-- `exec_jobs_dynamic` was ported to `compressed-tensors` (#3075).
+- Add MoE (e.g. Qwen3-30B-A3B, gpt-oss-20b) pruning support for `num_moe_experts`, `moe_ffn_hidden_size`, and `moe_shared_expert_intermediate_size` parameters in Minitron pruning (`mcore_minitron`).
+- Add `specdec_bench` example to benchmark speculative decoding performance. See [examples/specdec_bench/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/specdec_bench#speculative-decoding-benchmark) for more details.
+- Add FP8/NVFP4 KV cache quantization support for Megatron Core models.
+- Add KL Divergence loss-based auto_quantize method. See [auto_quantize API docs](https://nvidia.github.io/Model-Optimizer/reference/generated/modelopt.torch.quantization.model_quant.html#modelopt.torch.quantization.model_quant.auto_quantize) for more details.
+- Add support for saving and resuming auto_quantize search state. This speeds up the auto_quantize process by skipping the score estimation step if the search state is provided.
+- Add flag `trt_plugins_precision` in ONNX autocast to indicate custom ops precision. This is similar to the flag already existing in the quantization workflow.
+- Add support for PyTorch Geometric quantization.
+- Add per tensor and per channel MSE calibrator support.
+- Added support for PTQ/QAT checkpoint export and loading for running fakequant evaluation in vLLM. See [examples/vllm_serve/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/vllm_serve#load-qatptq-model-and-serve-in-vllm-wip) for more details.
 
-## Datasets & Miscellaneous
+## Documentation
 
-- Added the `perfectblend` prebaked dataset and `ultrachat` alias (#3060).
-- Replaced example datasets with prebaked `perfectblend`/`flickr30k` datasets (#3062).
-- Changed the default for `pad_to_max_length` (#3180).
-- Added `resave_config` to preserve the original model configuration on save (#3147).
-- Sequential onloading now supports frozen dataclasses (#2016).
-- Modernized type hints across logger, datasets, and observers (#2960).
+- Deprecate `examples/megatron-lm` in favor of more detailed documentation in [Megatron-LM/examples/post_training/modelopt](https://github.com/NVIDIA/Megatron-LM/tree/main/examples/post_training/modelopt).
 
-## Dependencies & Infrastructure
+## Misc
 
-- **`compressed-tensors`:** Bumped to **0.19.0** (#3213).
-- **`accelerate`:** Minimum version raised to **>=1.15.0** for full-disk offloading (#3176).
-- **Transformers:** Updated the supported version range (#3122).
-- **Pre-commit:** Added hooks mirroring `make quality` (#3120).
+- NVIDIA TensorRT Model Optimizer is now officially rebranded as NVIDIA Model Optimizer. GitHub will automatically redirect the old repository path (`NVIDIA/TensorRT-Model-Optimizer`) to the new one (`NVIDIA/Model-Optimizer`). Documentation URL is also changed to [nvidia.github.io/Model-Optimizer](https://nvidia.github.io/Model-Optimizer).
+- Bump TensorRT-LLM test docker to 1.2.0rc4.
+- Bump minimum recommended transformers version to 4.53.
+- Replace ONNX simplification package from `onnxsim` to `onnxslim`.
+
+## 0.41.0rc1 (2026-01-05)
+
+0.41.0rc1
+
+## 0.41.0rc2 (2026-01-14)
+
+ 0.41.0rc2
+
+## 0.41.0rc3 (2026-01-20)
+
+0.41.0rc3
+
+## 0.41.0 (2026-01-20)
+
+### Bug Fixes
+
+- Fix Megatron KV Cache quantization checkpoint restore for QAT/QAD (device placement, amax sync across DP/TP, flash_decode compatibility).
+
+### New Features
+
+- Add support for Transformer Engine quantization for Megatron Core models.
+- Add support for Qwen3-Next model quantization.
+- Add support for dynamically linked TensorRT plugins in the ONNX quantization workflow.
+- Add support for KV Cache Quantization for vLLM FakeQuant PTQ script. See [examples/vllm_serve/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/vllm_serve#Calibrate-and-serve-fake-quant-model-in-vLLM) for more details.
+- Add support for subgraphs in ONNX autocast.
+- Add support for parallel draft heads in Eagle speculative decoding.
+- Add support to enable custom emulated quantization backend. See [`register_quant_backend`](modelopt.torch.quantization.nn.modules.tensor_quantizer.register_quant_backend) for more details. See an example in `tests/unit/torch/quantization/test_custom_backend.py`.
+- Add `examples/llm_qad` for QAD training with Megatron-LM.
+
+### Deprecations
+
+- Deprecate `num_query_groups` parameter in Minitron pruning (`mcore_minitron`). You can use ModelOpt 0.40.0 or earlier instead if you need to prune it.
+
+### Backward Breaking Changes
+
+- Remove `torchprofile` as a default dependency from ModelOpt as it's used only for flops-based FastNAS pruning (computer vision models). It can be installed separately if needed.
+
+## 0.42.0rc0 (2026-02-04)
+
+Install the `0.42.0rc0` pre-release version using 
+
+```
+pip install nvidia-modelopt==0.42.0rc0 --extra-index-url https://pypi.nvidia.com
+```
+
+## 0.42.0rc1 (2026-02-21)
+
+Install the `0.42.0rc1` pre-release version using 
+
+```
+pip install nvidia-modelopt==0.42.0rc1 --extra-index-url https://pypi.nvidia.com
+```
+
+## 0.42.0rc2 (2026-02-28)
+
+Install the `0.42.0rc2` pre-release version using 
+
+```
+pip install nvidia-modelopt[all]==0.42.0rc2 --extra-index-url https://pypi.nvidia.com
+```
+
+## 0.42.0 (2026-03-09)
+
+### Bug Fixes
+
+- Fix calibration data generation with multiple samples in the ONNX workflow.
+
+### New Features
+
+- Added a standalone type inference option (`--use_standalone_type_inference`) to ONNX AutoCast as an experimental alternative to ONNX's `infer_shapes`. This option performs type-only inference without shape inference, which can help when shape inference fails or when you want to avoid extra shape inference overhead.
+- Added quantization support for the Kimi K2 Thinking model from the original int4 checkpoint.
+- Introduced support for **params constraint-based automatic neural architecture search** in Minitron pruning (`mcore_minitron`) as an alternative to manual pruning with `export_config`. See [examples/pruning/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/pruning) for more details.
+- Example added for Minitron pruning using the Megatron-Bridge framework, including advanced pruning usage with params-constraint-based pruning and a new distillation example. See [examples/megatron_bridge/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/megatron_bridge).
+- Supported calibration data with multiple samples in `.npz` format in the ONNX Autocast workflow.
+- Added the `--opset` option to the ONNX quantization CLI to specify the target opset version for the quantized model.
+- Enabled support for context parallelism in Eagle speculative decoding for both HuggingFace and Megatron Core models.
+- Added unified Hugging Face export support for diffusers pipelines/components.
+- Added support for LTX-2 and Wan2.2 (T2V) in the diffusers quantization workflow.
+- Provided PTQ support for GLM-4.7, including loading MTP layer weights from a separate `mtp.safetensors` file and supporting export as-is.
+- Added support for image-text data calibration in PTQ for Nemotron VL models.
+- Enabled advanced weight scale search for NVFP4 quantization and its export pathway.
+- Provided PTQ support for Nemotron Parse.
+- Added distillation support for LTX-2. See [examples/diffusers/distillation/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/diffusers/distillation) for more details.
+
+## 0.43.0rc0 (2026-03-17)
+
+Install the `0.43.0rc0` pre-release version using 
+
+```
+pip install nvidia-modelopt[all]==0.43.0rc0 --extra-index-url https://pypi.nvidia.com
+```
+
+## 0.43.0rc1 (2026-03-17)
+
+Install the `0.43.0rc1` pre-release version using 
+
+```
+pip install nvidia-modelopt==0.43.0rc1 --extra-index-url https://pypi.nvidia.com
+```
+
+## 0.43.0rc2 (2026-03-29)
+
+Install the `0.43.0rc2` pre-release version using 
+
+```
+pip install nvidia-modelopt==0.43.0rc2 --extra-index-url https://pypi.nvidia.com
+```
+
+## 0.43.0rc3 (2026-04-06)
+
+Install the `0.43.0rc3` pre-release version using 
+
+```
+pip install nvidia-modelopt==0.43.0rc3 --extra-index-url https://pypi.nvidia.com
+```
+
+## 0.43.0rc4 (2026-04-13)
+
+Install the `0.43.0rc4` pre-release version using 
+
+```
+pip install nvidia-modelopt==0.43.0rc4 --extra-index-url https://pypi.nvidia.com
+```
+
+## 0.43.0 (2026-04-16)
+
+### Bug Fixes
+
+- ONNX Runtime dependency upgraded to 1.24 to solve missing graph outputs when using the TensorRT Execution Provider.
+
+### Backward Breaking Changes
+
+- Default `--kv_cache_qformat` in `hf_ptq.py` changed from `fp8` to `fp8_cast`. Existing scripts that rely on the default will now skip KV cache calibration and use a constant amax instead. To restore the previous calibrated behavior, explicitly pass `--kv_cache_qformat fp8`.
+- Removed KV cache scale clamping (`clamp_(min=1.0)`) in the HF checkpoint export path. Calibrated KV cache scales below 1.0 are now exported as-is. If you observe accuracy degradation with calibrated KV cache (`--kv_cache_qformat fp8` or `nvfp4`), consider using the casting methods (`fp8_cast` or `nvfp4_cast`) instead.
+
+### New Features
+
+- Add `fp8_cast` and `nvfp4_cast` modes for `--kv_cache_qformat` in `hf_ptq.py`. These use a constant amax (FP8 E4M3 max, 448.0) without data-driven calibration, since the downstream engine uses FP8 attention math for both FP8 and NVFP4 quantization. A new `use_constant_amax` field in [`QuantizerAttributeConfig`](modelopt.torch.quantization.config.QuantizerAttributeConfig) controls this behavior.
+- User does not need to manually register MOE modules to cover experts calibration coverage in PTQ workflow.
+- `hf_ptq.py` now saves the quantization summary and moe expert token count table to the export directory.
+- Add `--moe_calib_experts_ratio` flag in `hf_ptq.py` to specify the ratio of experts to calibrate during forward pass to improve expert coverage during calibration. Default to None (not enabled).
+- Add sparse attention optimization for transformer models (`modelopt.torch.sparsity.attention_sparsity`). This reduces computational cost by skipping attention computation. Supports calibration for threshold selection on HuggingFace models. See [examples/llm_sparsity/attention_sparsity/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/llm_sparsity/attention_sparsity) for usage.
+- Add support for rotating the input before quantization for RHT.
+- Add support for advanced weight scale search for NVFP4 quantization and its export path.
+- Enable PTQ workflow for Qwen3.5 MoE models.
+- Enable PTQ workflow for the Kimi-K2.5 model.
+- Add `nvfp4_omlp_only` quantization format for NVFP4 quantization. This is similar to `nvfp4_mlp_only` but also quantizes the output projection layer in attention.
+- Add `nvfp4_experts_only` quantization config that targets only MoE routed expert layers (excluding shared) with NVFP4 quantization.
+- `pass_through_bwd` in the quantization config is now default to True. Please set it to False if you want to use STE with zeroed outlier gradients for potentially better QAT accuracy.
+- Add [`compute_quantization_mse`](modelopt.torch.quantization.model_quant.compute_quantization_mse) API to measure per-quantizer mean-squared quantization error, with flexible wildcard and callable filtering.
+- **Autotune**: New tool for automated Q/DQ (Quantize/Dequantize) placement optimization for ONNX models. Uses TensorRT latency measurements to choose insertion schemes that minimize inference time. Discovers regions automatically, groups them by structural pattern, and tests multiple Q/DQ schemes per pattern. Supports INT8 and FP8 quantization, pattern cache for warm-start on similar models, checkpoint/resume, and importing patterns from an existing QDQ baseline. CLI: `python -m modelopt.onnx.quantization.autotune`. See the Autotune guide in the documentation.
+- Add `get_auto_quantize_config` API to extract a flat quantization config from `auto_quantize` search results, enabling re-quantization at different effective bit targets without re-running calibration.
+- Improve `auto_quantize` checkpoint/resume: calibration state is now saved and restored across runs, avoiding redundant calibration when resuming a search.
+- Add support for Nemotron-3 (NemotronHForCausalLM) model quantization and support for NemotronH MoE expert support in `auto_quantize` grouping and scoring rules.
+- Add support for block-granular RHT for non-power-of-2 dimensions.
+- Replace modelopt FP8 QDQ nodes with native ONNX QDQ nodes.
+
+### Deprecations
+
+- Removed MT-Bench (FastChat) support from `examples/llm_eval`. The `run_fastchat.sh` and `gen_model_answer.py` scripts have been deleted, and the `mtbench` task has been removed from the `llm_ptq` example scripts.
+- Remove deprecated NeMo-2.0 Framework references.
+
+### Misc
+
+- Migrated project metadata from `setup.py` to a fully declarative `pyproject.toml`.
+- Enable experimental Python 3.13 wheel support and unit tests in CI/CD.
 
 
-## Full Changelog
-* Revise README for new Muse-Glimmer-30B checkpoints by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3019
-* Update review rules by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3026
-* load_quantizable_moe with new transformers version by @Roderick-Wu in https://github.com/vllm-project/llm-compressor/pull/3016
-* [transformers] Update tests to use new compressed-tensors api, pin transformers by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3021
-* [MTP] Update to work with Qwen 3.8 by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3033
-* [Performance] [MoE] Don't onload weights when checking FusedExpertsProtocol by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3039
-* Update docs for LLM Compressor v0.13.0 by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3036
-* Add OlmoForCausalLM (v1/v2) AWQ mapping using exaone4-style by @HumphreySun98 in https://github.com/vllm-project/llm-compressor/pull/2802
-* [Examples] Add qwen3_moe example by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/2946
-* [Docs] Minor fixes for sequential onloading docs by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/2771
-* Add e2e sanity prompts to tiny model finetune dataset by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3047
-* Update What's New with Nemotron 3.5 Lightning and Kimi-K3 checkpoints by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3034
-* feat: dynamic memory-aware GPU scheduling for model-free PTQ by @rohan9446 in https://github.com/vllm-project/llm-compressor/pull/2976
-* fix: runtime bugs in recipe validation, autoround, and awq by @soyr-redhat in https://github.com/vllm-project/llm-compressor/pull/2973
-* [Sequential Onloading] Support onloading and offloading frozen dataclasses by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/2016
-* [Autowrapper] Skip dead branches when tracking local names by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3046
-* INFERENG-9489: Simplify Transformers tests detection using Buildkite `if_changed` by @rashmigottipati in https://github.com/vllm-project/llm-compressor/pull/2983
-* [Examples] remove gpt oss example by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/2742
-* [example]Add Mixed MXFP4-MXFP8 DS V4 by @yiliu30 in https://github.com/vllm-project/llm-compressor/pull/2897
-* fix(autoround): prevent input_capture_hook from accumulating GPU memory during optimization by @xesdiny in https://github.com/vllm-project/llm-compressor/pull/3024
-* [AWQ] [gemma3] remove input layernorm mapping by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/2571
-* Add config filter flag to test runner script by @HDCharles in https://github.com/vllm-project/llm-compressor/pull/3027
-* [Performance] Speed up subgraph tracing by @YingqiDuan in https://github.com/vllm-project/llm-compressor/pull/2992
-* [debugging] update awq to work with qwen3.8 by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3041
-* [ModelFreePTQ] Support quantization configs by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3053
-* [Qwen3.8] Add qwen3_8 examples by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3043
-* [Bugfix] Increase version requirement for skipped kv tests by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3056
-* [REAP] DDP Support by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3045
-* MSE Observer Enhancement by @Roderick-Wu in https://github.com/vllm-project/llm-compressor/pull/2950
-* [Examples] Glm5.2 MXFP4xMXFP8 by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3048
-* Remove GraniteMoeLinearExperts by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/2885
-* [REAP] Replace Kimi-K3-0.40B with Qwen3.8-1.0B-A0.6B in DDP test by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3067
-* Add "perfectblend" prebaked dataset and "ultrachat" alias by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3060
-* disable moe_calibrate_all_experts for Autoround example. by @changwangss in https://github.com/vllm-project/llm-compressor/pull/2877
-* Add Glm4MoeLiteForCausalLM to SmoothQuant MAPPINGS_REGISTRY by @robertlangdonn in https://github.com/vllm-project/llm-compressor/pull/3072
-* docs: link FAQ from README by @Karunasagar12 in https://github.com/vllm-project/llm-compressor/pull/2913
-* [Bugfix] Resolve decorated forwards without functools.wraps in autowrap_forward by @malaiwah in https://github.com/vllm-project/llm-compressor/pull/3058
-* [Performance] Speed up subgraph tracing - add direct dict lookup for O(1) node membership checks by @wanadzhar913 in https://github.com/vllm-project/llm-compressor/pull/2999
-* fix: use forward globals when autowrapping by @mikemikimike in https://github.com/vllm-project/llm-compressor/pull/3079
-* [Tests] Nightly lmeval tests by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3004
-* Update What's New with Qwen.3.8 by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3087
-* docs: update Granite 4 fp8 guide for automatic MoE expert linearization by @devangpratap in https://github.com/vllm-project/llm-compressor/pull/3093
-* Fix collect_env crash on Apple Silicon by @Isitthakkar11 in https://github.com/vllm-project/llm-compressor/pull/3068
-* Skip compute-capability tests on backends without get_device_capability by @Isitthakkar11 in https://github.com/vllm-project/llm-compressor/pull/3084
-* Remove GPTQ Group/Dynamic Activation Ordering by @Roderick-Wu in https://github.com/vllm-project/llm-compressor/pull/3038
-* fix(trace): make llmcompressor.trace boolean flags actually toggleable by @Anai-Guo in https://github.com/vllm-project/llm-compressor/pull/3070
-* Replace example datasets with prebaked "perfectblend" and "flickr30k" by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3062
-* imatrix expansion, add fouroversix observer by @Roderick-Wu in https://github.com/vllm-project/llm-compressor/pull/3076
-* [GPTQ] Emit an end-of-run summary when modules fall back to RTN by @rishabhsinha17 in https://github.com/vllm-project/llm-compressor/pull/3098
-* Enable applying AWQ and SmoothQuant with GPTQ and the QuantizationModifier by @dsikka in https://github.com/vllm-project/llm-compressor/pull/2971
-* [Example] Update recipe by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3035
-* refactor: port exec_jobs_dynamic to compressed-tensors by @soyr-redhat in https://github.com/vllm-project/llm-compressor/pull/3075
-* [REAP] Support e-score correction bias, add HY3 example by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3101
-* [Bugfix] Fix polynomial_decay pruning scheduler for even exponents by @winklemad in https://github.com/vllm-project/llm-compressor/pull/3096
-* feat(moe): add patch_moe_mappings to override 2D load mappings per checkpoint by @Anai-Guo in https://github.com/vllm-project/llm-compressor/pull/3080
-* [Fix] Recipe.dict() shadows builtin dict — unimportable on Python 3.14 (#2778) by @yushuosun in https://github.com/vllm-project/llm-compressor/pull/2871
-* Add Cohere2MoE mappings (AWQ + SmoothQuant) and DeepseekV2 AWQ registration by @robertlangdonn in https://github.com/vllm-project/llm-compressor/pull/2938
-* [Examples] Add MR-GPTQ (QuIP + GPTQ + NVFP4A16) example by @Yatimai in https://github.com/vllm-project/llm-compressor/pull/2751
-* Explain calibration levers in the sequential OOM message by @rishabhsinha17 in https://github.com/vllm-project/llm-compressor/pull/3012
-* [AutoRound] Offload calibration inputs to CPU to prevent VRAM OOM with large N by @xesdiny in https://github.com/vllm-project/llm-compressor/pull/3055
-* [Example] Add Mixed W2A16 and W4A16 MoE Example by @yiliu30 in https://github.com/vllm-project/llm-compressor/pull/2940
-* Move Observer Resolution and Defaulting to LLM-Compressor by @Roderick-Wu in https://github.com/vllm-project/llm-compressor/pull/3091
-* [AWQ] Muse Glimmer Mappings by @brian-dellabetta in https://github.com/vllm-project/llm-compressor/pull/3124
-* Update README with new model features and links by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3110
-* [LM Eval] Enable multiple cadence for lm-eval by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3115
-* [Tests] Use prebaked "perfectblend" as default calibration dataset for tests by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3063
-* refactor: unify model-free ptq into ModelFreePtqConverter class by @soyr-redhat in https://github.com/vllm-project/llm-compressor/pull/2935
-* remove bad four over six by @HDCharles in https://github.com/vllm-project/llm-compressor/pull/3125
-* Fix noisy GPT-OSS linearize test by @PranjalAdhikari in https://github.com/vllm-project/llm-compressor/pull/3123
-* Register GptOssLinearExperts for gpt-oss expert linearization by @ganeshr10 in https://github.com/vllm-project/llm-compressor/pull/3100
-* fix(args): escape '%' in DatasetArguments.splits help so argparse builds on Python 3.14 by @Anai-Guo in https://github.com/vllm-project/llm-compressor/pull/3140
-* Update transformers to supported range by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/3122
-* [Examples] [Tests] Add download limit for perfect blend by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3141
-* [Tests] Fix reap ddp vs single comparison test by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3142
-* feat: add FP8 attention and Autoround examples by @wimCCC in https://github.com/vllm-project/llm-compressor/pull/3092
-* [Bugfix] Validate expand >= 1.0 in MovingAverageMSEObserver by @winklemad in https://github.com/vllm-project/llm-compressor/pull/3095
-* [Tests] Fix ddp smoke tests by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3146
-* ci: add pre-commit hooks mirroring make quality by @orestis-z in https://github.com/vllm-project/llm-compressor/pull/3120
-* Add resave_config to preserve original model config on save by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3147
-* Add NanbeigeForCausalLM to SmoothQuant MAPPINGS_REGISTRY by @robertlangdonn in https://github.com/vllm-project/llm-compressor/pull/3073
-* Update CODEOWNERS by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3155
-* [Bugfix] Fix serialization of dtype by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3152
-* [Bugfix] Fix reap test by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3153
-* feat: add Kimi-K3 model definition and quantization example by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/2994
-* Add GLM 5.3 MXFp4 example by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3163
-* examples: add Llama 3.3 70B MXFP8 and FP8 attention example by @changwangss in https://github.com/vllm-project/llm-compressor/pull/3160
-* fix: Skip weightless modules in distributed greedy bin packing by @Asthenia0412 in https://github.com/vllm-project/llm-compressor/pull/3113
-* [GPTQ] Hoist loop invariants out of the per-column quantization loop by @rishabhsinha17 in https://github.com/vllm-project/llm-compressor/pull/3097
-* [Typing] Modernize type hints in logger, datasets, and observers by @arijitroy003 in https://github.com/vllm-project/llm-compressor/pull/2960
-* [Tests] [Bugfix] Fix kwargs for prebaked datasets by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3167
-* [Tests] Reduce linearize test noise by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3166
-* [Tests] Weekly lm eval tests by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3022
-* [MFPTQ] Implement profiler-based memory estimates by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3158
-* [Tests] Fix perplexity test by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3168
-* [Tests] [Bugfix] Default to unset max_model_len by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3170
-* [Agents] Migrate .claude to .agents by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3172
-* Add batched GPTQ quantization with actorder support by @HDCharles in https://github.com/vllm-project/llm-compressor/pull/3128
-* [Offloading] Bump required accelerate version by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3176
-* [Agents] Save multimodal processor for create-tiny-model skill by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3175
-* [MoE] Add nemotron_h fast loading support by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3173
-* Add explicit LinearExperts2D -> 3D MoE repack for HF-native saves by @GOavi101 in https://github.com/vllm-project/llm-compressor/pull/3017
-* [Tracing] [Tests] Parameterize model tracing tests with tiny models collection by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3174
-* Add GLM-5.3-MXFP4 checkpoint to What's New section by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3179
-* [AWQ] Fix Qwen2.5-VL mapping registry entry (vision tower collapses MLP mapping) by @AbigaleD in https://github.com/vllm-project/llm-compressor/pull/3169
-* Update dependency versions by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/3182
-* [Datasets] Change `pad_to_max_length` default by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3180
-* [Model] GLM 5.3 Flash by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3164
-* [Bugfix] Do not recurse into container modules in observe/update_qparams by @Ar4ikov in https://github.com/vllm-project/llm-compressor/pull/2990
-* [GPTQ] Fix FP8 handling on A100 and disable failing tests on A100 by @HDCharles in https://github.com/vllm-project/llm-compressor/pull/3181
-* Skip CUDA compute-capability tests on XPU by @HDCharles in https://github.com/vllm-project/llm-compressor/pull/3187
-* [Bugfix] Fix glm53 dequant example by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3189
-* [Bugfix] Fix distributed hang from mis-shaped weight_global_scale writeback by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3185
-* [AutoRound] Pad captured inputs to a common sequence length by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3190
-* [Observer] Triton grid search for the MSE observer by @Bias92 in https://github.com/vllm-project/llm-compressor/pull/2991
-* [bugfix] fix global scale shape by @HDCharles in https://github.com/vllm-project/llm-compressor/pull/3191
-* [Tests] Lower w4a4_nvfp4 recovery threshold to 0.94 by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3186
-* use load_context in llm-compressor by @HDCharles in https://github.com/vllm-project/llm-compressor/pull/3201
-* [Tests] Catch upload failures for e2e tests by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3197
-* [Tests] Increase test consistency, reduce noise thresholds for unit tests by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3198
-* [Bugfix] [Tests] Add version gate to `test_model_trace` by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3195
-* refactor: import TensorProfiler from compressed-tensors as opposed to inline by @soyr-redhat in https://github.com/vllm-project/llm-compressor/pull/3203
-* [Bugfix] Support upfront model decompression, Kimi-K3 by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3184
-* Update What's New with recent RedHatAI model checkpoints by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3205
-* [Tests] Add kimi-k3 dependencies by @kylesayrs in https://github.com/vllm-project/llm-compressor/pull/3207
-* bump up compressed-tensors version by @dhuangnm in https://github.com/vllm-project/llm-compressor/pull/3213
-* Update merge protections to remove maintainer review by @dsikka in https://github.com/vllm-project/llm-compressor/pull/3212
-* Update CODEOWNERS to include Roderick-Wu by @Roderick-Wu in https://github.com/vllm-project/llm-compressor/pull/3215
-* Update README with improved FP4 observer details by @Roderick-Wu in https://github.com/vllm-project/llm-compressor/pull/3219
-* docs updates by @HDCharles in https://github.com/vllm-project/llm-compressor/pull/3214
+## 0.44.0rc0 (2026-04-19)
 
-## New Contributors
-* @rohan9446 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2976
-* @rashmigottipati made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2983
-* @xesdiny made their first contribution in https://github.com/vllm-project/llm-compressor/pull/3024
-* @YingqiDuan made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2992
-* @robertlangdonn made their first contribution in https://github.com/vllm-project/llm-compressor/pull/3072
-* @Karunasagar12 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2913
-* @malaiwah made their first contribution in https://github.com/vllm-project/llm-compressor/pull/3058
-* @mikemikimike made their first contribution in https://github.com/vllm-project/llm-compressor/pull/3079
-* @devangpratap made their first contribution in https://github.com/vllm-project/llm-compressor/pull/3093
-* @Isitthakkar11 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/3068
-* @Anai-Guo made their first contribution in https://github.com/vllm-project/llm-compressor/pull/3070
-* @rishabhsinha17 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/3098
-* @winklemad made their first contribution in https://github.com/vllm-project/llm-compressor/pull/3096
-* @yushuosun made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2871
-* @PranjalAdhikari made their first contribution in https://github.com/vllm-project/llm-compressor/pull/3123
-* @ganeshr10 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/3100
-* @wimCCC made their first contribution in https://github.com/vllm-project/llm-compressor/pull/3092
-* @Asthenia0412 made their first contribution in https://github.com/vllm-project/llm-compressor/pull/3113
-* @AbigaleD made their first contribution in https://github.com/vllm-project/llm-compressor/pull/3169
-* @Ar4ikov made their first contribution in https://github.com/vllm-project/llm-compressor/pull/2990
+Install the `0.44.0rc0` pre-release version using 
 
-**Full Changelog**: https://github.com/vllm-project/llm-compressor/compare/0.13.0...0.14.0
+```
+pip install nvidia-modelopt==0.44.0rc0 --extra-index-url https://pypi.nvidia.com
+```
+
+## 0.44.0rc1 (2026-04-20)
+
+Install the `0.44.0rc1` pre-release version using 
+
+```
+pip install nvidia-modelopt==0.44.0rc1 --extra-index-url https://pypi.nvidia.com
+```
+
+## 0.44.0rc2 (2026-05-05)
+
+Install the `0.44.0rc2` pre-release version using 
+
+```
+pip install nvidia-modelopt==0.44.0rc2 --extra-index-url https://pypi.nvidia.com
+```
+
+## 0.44.0rc3 (2026-05-11)
+
+0.44.0rc3
+
+## 0.44.0rc4 (2026-05-12)
+
+(empty body)
+
+## 0.44.0rc5 (2026-05-13)
+
+(empty body)
+
+## 0.44.0 (2026-05-13)
+
+## New Features
+
+- Support full Transformer Engine spec for Minitron pruning (`mcore_minitron`). Now we no longer need to use custom ModelOpt spec. Note that this does not affect the usage of the pruning workflow but makes pruning slightly faster and may result in slightly different pruned model because of different kernel and numerics.
+- Add end-to-end tutorial for Minitron pruning + distillation + quantization + evaluation + vLLM deployment for Nemotron-Nano-9B-v2 → Pruned 7B along with data blend preparation steps (and ablation study). See [examples/pruning/minitron/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/pruning/minitron/) for details.
+- Add Puzzletron - a new algorithm for heterogeneous pruning of LLM and VLM models. See [examples/puzzletron/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/puzzletron) for more details.
+- Added iterator interface using CalibrationDataReader in ONNX quantization workflow.
+- Add N:M sparse softmax support to the Triton flash attention kernel (`modelopt.torch.kernels.common.attention.triton_fa`). See [examples/llm_sparsity/attention_sparsity/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/llm_sparsity/attention_sparsity) for usage.
+- Add skip-softmax skipping to the Triton flash attention kernel (`modelopt.torch.kernels.common.attention.triton_fa`). See [examples/llm_sparsity/attention_sparsity/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/llm_sparsity/attention_sparsity) for usage.
+- Add Video Sparse Attention (VSA) method for video diffusion models (`modelopt.torch.sparsity.attention_sparsity`). VSA uses 3D block tiling with a two-branch architecture for attention speedup.
+- Enable PTQ workflow for the Step3.5-Flash MoE model with NVFP4 W4A4 + FP8 KV cache quantization. See [modelopt_recipes/models/Step3.5-Flash/nvfp4-mlp-only.yaml](https://github.com/NVIDIA/Model-Optimizer/blob/main/modelopt_recipes/models/Step3.5-Flash/nvfp4-mlp-only.yaml) for more details.
+- Add support for vLLM fakequant reload using ModelOpt state for HF models. See [examples/vllm_serve/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/vllm_serve#load-qatptq-model-and-serve-in-vllm-wip) for more details.
+- [Early Testing] Add Claude Code PTQ skill (`.claude/skills/ptq/`) for agent-assisted post-training quantization. The skill guides the agent through environment detection, model support checking, format selection, and execution via the launcher or manual SLURM/Docker/bare GPU paths. Includes handling for unlisted models with custom module patching. This feature is in early testing — use with caution.
+- [Early Testing] Polish Claude Code evaluation skill (`.claude/skills/evaluation/`) for agent-assisted LLM accuracy benchmarking via NeMo Evaluator Launcher. Adds two companion skills vendored verbatim from [NVIDIA-NeMo/Evaluator](https://github.com/NVIDIA-NeMo/Evaluator): `launching-evals` (run/check/debug/analyze NEL evaluations) and `accessing-mlflow` (query MLflow runs, compare metrics, fetch artifacts). Re-sync at a pinned upstream SHA via `.claude/scripts/sync-upstream-skills.sh`. Also adds a shared `skills/common/credentials.md` covering HF / NGC / Docker token setup referenced by multiple skills. This feature is in early testing — use with caution.
+- Add performant layerwise calibration for large models that don't fit on GPU (e.g. DeepSeek-R1, Kimi-K2). See [modelopt_recipes/general/ptq/nvfp4_experts_only-kv_fp8_layerwise.yaml](https://github.com/NVIDIA/Model-Optimizer/blob/main/modelopt_recipes/general/ptq/nvfp4_experts_only-kv_fp8_layerwise.yaml) for usage. Layerwise calibration also supports PTQ with intermediate progress saving — useful when long PTQ runs get hit with Slurm timeouts. See [modelopt_recipes/general/ptq/nvfp4_default-kv_none-gptq.yaml](https://github.com/NVIDIA/Model-Optimizer/blob/main/modelopt_recipes/general/ptq/nvfp4_default-kv_none-gptq.yaml) for usage.
+- Add implicit GEMM CUDA kernel for Conv3D with fused NVFP4 fake quantization (`modelopt.torch.quantization.src.conv`). When NVFP4 quantization is applied to an `nn.Conv3d` layer via ModelOpt PTQ, the implicit GEMM path is used automatically instead of cuDNN. Uses BF16 WMMA tensor cores (SM80+) with FP32 accumulation and in-kernel FP4 (E2M1) activation quantization. Grouped convolution (`groups > 1`) falls back to the default cuDNN path. Inference only — training mode falls back to cuDNN with a warning.
+- Add FP8 MHA quantization support for vision transformers. Adds an attention-aware ONNX post-processing pass (scale Mul / K-transpose move before Q, Q→DQ insertion on softmax output) in `FP8QuantExporter` (`modelopt.onnx.export.fp8_exporter.FP8QuantExporter`), per-instance nested-attention-wrapper skipping in the HF plugin, and `nn.LayerNorm` registration in `QuantModuleRegistry` so BMM input quantizers and LayerNorm output quantizers defined in FP8_DEFAULT_CFG are honored end-to-end. See [examples/torch_onnx/torch_quant_to_onnx.py](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/torch_onnx/torch_quant_to_onnx.py) for the general timm-model quantize→ONNX workflow.
+
+## Backward Breaking Changes
+
+- The `quant_cfg` field in quantization configs is now an **ordered list** of `QuantizerCfgEntry` dicts instead of a flat dictionary. Each entry specifies a `quantizer_name` wildcard, an optional `parent_class` filter, a `cfg` dict of quantizer attributes, and/or an `enable` flag. Entries are applied in list order with later entries overriding earlier ones. The old dict-based format is still accepted and automatically converted via `normalize_quant_cfg_list()`, but now emits a `DeprecationWarning`; new code should use the list format. All built-in configs (e.g. `FP8_DEFAULT_CFG`, `INT4_AWQ_CFG`, `NVFP4_DEFAULT_CFG`), examples, and YAML recipes have been updated. See the `quant-cfg` documentation for the new format reference and migration guide.
+- Deprecated Mllama (Llama 3.2 Vision) support in the `llm_ptq` and `vlm_ptq` examples. The `model_type == "mllama"` branches and `MllamaImageProcessor` usage have been removed from `hf_ptq.py` and `example_utils.py`. For image-text calibration of VLMs, use `--calib_with_images` with a supported VLM (see Nemotron VL section in `examples/llm_ptq/README.md`).
+
+## Bug Fixes
+
+- Fix Megatron utility functions for generation (with pipeline parallelism) and ~10x speedup in MMLU score evaluation (by batching prefill passes).
+- Fix Minitron pruning (`mcore_minitron`) for MoE models. Importance estimation hooks were incorrectly registered for MoE modules and NAS step was hanging before this.
+- Fix TRT support for remote autotuning in ONNX Autotune from 10.16+ to 10.15+ and fix TRT versioning check to the `trtexec` version instead of the TRT Python API when using `trtexec` backend.
+- Exclude MatMul/Gemm nodes with K or N < 16 from ONNX INT8 and FP8 quantization. Such small-dimension GEMMs cannot efficiently use INT8/FP8 Tensor Cores and the added Q/DQ layers cause perf regressions in TensorRT. Honors Gemm `transB` when deriving K.
+- Fix `nvfp4_awq` export `AssertionError: Modules have different quantization formats` for MoE models (e.g. Qwen3-30B-A3B) when some experts are not exercised by the calibration data. `awq_lite` now applies a neutral all-ones `pre_quant_scale` to any expert that ends up disabled (no cache-pass tokens, NaN scales, or no search-pass tokens) so its format remains `nvfp4_awq`, consistent with the rest of the MoE block. A warning is emitted whenever this fallback fires.
+
+## Misc
+
+- [Security] Changed the default of `weights_only` to `True` in `torch.load` for secure checkpoint loading. If you need to load a checkpoint that requires unpickling arbitrary objects, first register the class in `torch.serialization.add_safe_globals([cls])` before loading. Added `safe_save` (`modelopt.torch.utils.serialization.safe_save`) and `safe_load` (`modelopt.torch.utils.serialization.safe_load`) API to save and load checkpoints securely.
+- Bump minimum required PyTorch version to 2.8.
+- [Experimental] Add support for transformers>=5.0, including generic PTQ and unified HF checkpoint export for fused MoE expert modules (Mixtral, Qwen2-MoE, Qwen3-MoE, Qwen3.5-MoE, DeepSeek-V3, Jamba, OLMoE, etc.).
+- Improve `megatron_preprocess_data`: add `--reasoning_content` support for Nemotron v3 datasets, eliminate intermediate JSONL for HuggingFace datasets, return output file prefixes from the Python API, add gzip input support (`.jsonl.gz`), add `--strip_newlines` flag for plain-text pretraining data, add `--hf_streaming` for very large datasets (only consumed rows downloaded), and auto-shuffle when `--hf_max_samples_per_split` is set to avoid biased sampling.
+- Add installation support for Python 3.14. Only basic unit tests are verified for now. Production usage still defaults to Python 3.12. Python 3.10 support will be dropped in the next release.
+
+## 0.45.0rc0 (2026-06-07)
+
+Install the `0.45.0rc0` pre-release version using 
+
+```
+pip install nvidia-modelopt==0.45.0rc0 --extra-index-url https://pypi.nvidia.com
+```
+
+## 0.45.0rc1 (2026-06-23)
+
+Install the `0.45.0rc1` pre-release version using 
+
+```
+pip install nvidia-modelopt==0.45.0rc1 --extra-index-url https://pypi.nvidia.com
+```
+
+## 0.45.0rc2 (2026-07-02)
+
+Install the `0.45.0rc2` pre-release version using 
+
+```
+pip install nvidia-modelopt==0.45.0rc2 --extra-index-url https://pypi.nvidia.com
+```
+
+## 0.45.0rc3 (2026-07-03)
+
+Install the `0.45.0rc3` pre-release version using 
+
+```
+pip install nvidia-modelopt==0.45.0rc3 --extra-index-url https://pypi.nvidia.com
+```
+
+## 0.45.0 (2026-07-06)
+
+## New Features
+
+### Quantization
+
+- Add NVFP4 W4A16 weight-only quantization (`w4a16_nvfp4`): FP4 weights with group_size=16, BF16 activations, no calibration forward pass required. Use `mtq.W4A16_NVFP4_CFG` or `--qformat w4a16_nvfp4` in `hf_ptq.py`. vLLM deployment support is in progress.
+- Add `--cast_mxfp4_to_nvfp4` flag to `examples/llm_ptq/hf_ptq.py` for closed-form, bit-exact MXFP4 → NVFP4 weight conversion. Supports the GPT-OSS family (`openai/gpt-oss-20b`, `openai/gpt-oss-120b`). See [examples/llm_ptq/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/llm_ptq#mxfp4--nvfp4-cast-for-gpt-oss) for usage.
+- Add `--cast_mxfp4_to_nvfp4` flag to `examples/deepseek/deepseek_v4/quantize_to_nvfp4.py` for closed-form, bit-exact MXFP4 → NVFP4 conversion of DeepSeek V4 routed-expert weights (mirrors the GPT-OSS cast; w1/w3 share one per-tensor `scale_2` for the fused GEMM1). Activation `input_scale` still comes from `--amax_path` calibration.
+- DeepSeek PTQ (`examples/deepseek/ptq.py`) now defaults to native top-k calibration with post-hoc per-layer peer-max sync of expert `input_quantizer.amax`; the all-experts path is preserved behind `--calib_all_experts`.
+- Add active-MoE cost accounting for `mtq.auto_quantize` effective-bits search. Set `constraints={"effective_bits": ..., "cost_model": "active_moe", "cost": {"active_moe_expert_ratio": ...}}` to weight routed MoE expert costs by active experts per token while keeping shared experts fully counted. The `hf_ptq.py` AutoQuant path exposes this via `--auto_quantize_cost_model active_moe` and `--auto_quantize_active_moe_expert_ratio`.
+- Add quantized `nn.Embedding` support. `nn.Embedding` is now registered in `QuantModuleRegistry` and exposes `weight_quantizer` (embedding table), `output_quantizer` (lookup activations), and a permanently disabled `input_quantizer` placeholder — embedding inputs are integer indices and cannot be fake-quantized, so direct `enable*()` calls raise. `export_hf_checkpoint` packs quantized embedding weights alongside Linear layers. Embedding quantizers are opt-in (`parent_class: nn.Embedding` disabled by default).
+- Add composable `$import` system for recipe YAML configs, enabling reusable config snippets referenced via `{$import: name}` markers. All built-in PTQ recipes converted to use imports with shared snippets under `modelopt_recipes/configs/` (numeric formats, quant_cfg building blocks, presets). See composable-imports docs.
+- The PTQ example scripts `examples/llm_ptq/hf_ptq.py`, `examples/llm_ptq/multinode_ptq.py` and `examples/megatron_bridge/quantize.py` now derive their `--qformat` / `--kv_cache_qformat` (`--quant_cfg` / `--kv_cache_quant` for Megatron-Bridge) CLI vocabularies by discovering the YAML presets under `modelopt_recipes/configs/ptq/presets/{model,kv}/` rather than carrying hardcoded `QUANT_CFG_CHOICES` / `KV_QUANT_CFG_CHOICES` tables. The discovery helper, alias table and ready-built `QUANT_CFG_CHOICES` / `KV_QUANT_CFG_CHOICES` mappings now live in `modelopt.recipe.presets` and are shared by all three scripts. Presets are loaded eagerly into a plain dict at import. Adding a new preset YAML makes it available on the CLI of all three with no script change — note this means each script now accepts every preset under those directories, not just a previously curated subset. All previously-supported short names (`int8_sq`, `nvfp4_awq`, `fp8_pb_wo`, `nvfp4_mse`, `w4a8_awq`, `nvfp4_local_hessian`, `fp8_pc_pt`, `int8_wo`) keep working via a small deprecation alias table; new formats should be exposed as preset YAMLs (or, longer term, as full `--recipe` recipes).
+- Add `configs/ptq/presets/kv/fp8_cast.yaml` and `configs/ptq/presets/kv/nvfp4_cast.yaml`, promoting `fp8_cast` / `nvfp4_cast` to first-class KV presets composed from the existing `kv_fp8_cast` / `kv_nvfp4_cast` unit fragments. The previous runtime `use_constant_amax` post-edit in `hf_ptq.py` is removed; `use_constant_amax: true` now lives in the YAML and is therefore authoritative. **Custom (out-of-tree) recipes that target a cast KV format must set `use_constant_amax: true` themselves on the `[kv]_bmm_quantizer` config** — in-tree recipes already do via the `kv_*_cast` units.
+- Add FP8 KV-cache cast variants for the partial-NVFP4 and weight-only general PTQ recipes: `general/ptq/nvfp4_mlp_only-kv_fp8_cast`, `general/ptq/nvfp4_experts_only-kv_fp8_cast`, `general/ptq/nvfp4_omlp_only-kv_fp8_cast`, and `general/ptq/nvfp4_weight_only-kv_fp8_cast`. These compose the same model-quant configs as their `-kv_fp8` siblings with the `kv_fp8_cast` unit (constant-amax FP8 KV cache, no KV calibration forward pass).
+- Add Nemotron-3-Super-120B-A12B PTQ recipes `modelopt_recipes/models/Nemotron-3-Super-120B-A12B/super-nvfp4.yaml` (MSE-mixed) and `super-nvfp4-max-calib.yaml` (max-calib mixed): NVFP4 W4A4 routed experts + FP8 per-tensor shared experts / Mamba in/out_proj + FP8 KV cache.
+- Group layerwise calibration options under a nested `LayerwiseConfig` and add two knobs: `get_qdq_activations_from_prev_layer` (correct GPTQ-Hessian vs max-calib activation semantics — defaults to True for GPTQ, False for max/mse/local_hessian) and `save_every` (gate per-window `next_inputs.pt` activation-cache writes). Legacy bool `layerwise` and flat `layerwise_checkpoint_dir` keys still work; the bool form emits a `DeprecationWarning`.
+- Add `examples/alpamayo` showing FP8, NVFP4, and AutoQuantize (mixed-precision) quantization of the Alpamayo (formerly Alpamayo-R1) ~10B vision-language-action model, with a joint VLM + diffusion calibration loop and both fake-quant and `--real-quant` packed-checkpoint export. See [examples/alpamayo/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/alpamayo) for details.
+- Refactor `llm_qat` example with unified YAML-based configuration and flexible dataset blending. `ModelOptArgParser` adds `--config` YAML support with CLI overrides and auto-generates `ARGUMENTS.md` from dataclass definitions. Dataset blending (`configs/dataset/blend.yaml`) supports HuggingFace datasets, local JSON/JSONL/Parquet files, and weighted multi-source blends. The legacy FSDP1 accelerate config is removed; `llm_qat` now documents FSDP2, DeepSpeed, and DDP backends.
+
+### Megatron Framework (M-LM / M-Bridge)
+
+- Add quantization examples for the Megatron-Bridge framework (`examples/megatron_bridge/`): post-training quantization ([quantize.py](https://github.com/NVIDIA/Model-Optimizer/blob/main/examples/megatron_bridge/quantize.py) calibrates an HF model via `--quant_cfg` alias / full config name or a `--recipe` YAML, with optional KV-cache quant, weight-only, compression, and MoE expert-ratio calibration, and saves a Megatron checkpoint with tensor / pipeline / expert parallelism), export to a deployable HuggingFace (unified) checkpoint for TensorRT-LLM / vLLM / SGLang ([export.py](https://github.com/NVIDIA/Model-Optimizer/blob/main/examples/megatron_bridge/export.py)), and Quantization Aware Distillation (extend existing [distill.py](https://github.com/NVIDIA/Model-Optimizer/blob/main/examples/megatron_bridge/distill.py)). See [examples/megatron_bridge/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/megatron_bridge) for details.
+- Add Megatron Core export/import mapping for Qwen3-VL (`Qwen3VLForConditionalGeneration`) vision-language models. The mapping handles the `model.language_model.` weight prefix used by Qwen3-VL.
+- Add shared Megatron-Core calibration forward loop: `modelopt.torch.utils.plugins.megatron_calibration.get_megatron_calibration_forward_loop` produces the `forward_loop` callable expected by `mtq.quantize` / `mtp.prune`. Replaces the bespoke calibration loops in Megatron-LM and Megatron-Bridge for quantization and pruning with a single canonical implementation.
+- Support Megatron-Core checkpoint restore and export for MSE `NVFP4StaticQuantizer`.
+- Add mixed-precision FP8 + NVFP4 export for Megatron-Core: per-layer `quant_algo` recorded under `quantized_layers` in `hf_quant_config.json`, PP-aware `kv_cache_dtype` gather, fused-QKV exclude split into per-HF-name `q/k/v_proj` entries.
+- Add support for `active_params` (for MoE models) and `memory_mb` constraints in Minitron pruning on top of existing `params` constraint. You can also provide multiple constraints. See [examples/pruning/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/pruning) for more details. The underlying utility functions `mcore_param_count`, `mcore_memory_footprint_mb`, and `print_mcore_model_stats` in `modelopt.torch.nas.plugins.megatron_model_stats` are also available for standalone use to compute parameter counts and memory footprints (weights + KV-cache + Mamba state) for any Megatron-Core model.
+- Add Minitron pruning support for Megatron-Bridge Gemma3 models.
+- Add end-to-end optimization tutorial for Minitron pruning + two-phase distillation (80B @ 8K + 20B @ 32K long-context = 100B tokens) + FP8 PTQ + vLLM deployment for Nemotron-3-Nano-30B-A3B-BF16 (MoE + Mamba-Transformer hybrid) → Pruned 22B/A3.0B active params, along with data blend preparation steps (with tool-calling data) and detailed pruning / data-blend / long-context ablations. See [examples/megatron_bridge/tutorials/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/megatron_bridge/tutorials/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16/) for details.
+
+### Datasets & Calibration
+
+- Add `DATASET_COMBOS` to `modelopt.torch.utils.dataset_utils` — single `--dataset` tokens that fan out to multiple registered datasets; per-entry `num_samples` is split evenly across the members. Initial combos: `cnn_nemotron_v2_mix` (`cnn_dailymail` + `nemotron-post-training-dataset-v2`, used by `hf_ptq.py` when no `--dataset` is provided) and `nemotron-post-training-v3` (the seven `nvidia/Nemotron-*` SFT datasets added in #1498, mirroring the [nemotron-post-training-v3 collection](https://huggingface.co/collections/nvidia/nemotron-post-training-v3)). Combo names are listed by `get_supported_datasets()` and surfaced in `--dataset` help. `get_dataset_dataloader` rejects inputs that mix a combo with one of its member datasets (e.g. `cnn_dailymail,cnn_nemotron_v2_mix`) to avoid double-sampling, and `get_dataset_samples` rejects combo names so callers route through the dataloader. `hf_ptq.py` default `--calib_size` is bumped from `512` to `1024` so the total calibration sample count under the new default combo matches the previous two-dataset fallback.
+- The `nemotron-sft-agentic-v2` registered dataset (added in #1498) now uses only the `search` split. The previously configured `interactive_agent` and `tool_calling` splits contain content-level defects (heterogeneous schema and a malformed JSON row, respectively) that cause pyarrow's streaming JSON reader to fail deterministically.
+- Add `pack=True` mode to `get_dataset_dataloader` (Megatron-LM pretraining-style global-stream document packing): all raw samples concatenated EOS-separated into one token stream, sliced into uniform `max_sample_length` rows. Used by the shared megatron calibration loop.
+
+### Misc
+
+- Add offline DFlash speculative decoding training. Train the draft module from pre-computed base-model hidden states dumped by `examples/speculative_decoding/collect_hidden_states/compute_hidden_states_hf.py`; base-model transformer layers are deleted after conversion to save memory. Controlled by the auto-derived `dflash_offline` flag on `DFlashConfig` (derived from `data_args.offline_data_path`). The dump scripts now share `collect_hidden_states/common.py` for aux-layer selection (`--aux-layers eagle|dflash|<list>`) and optional assistant-token `loss_mask` for answer-only-loss training.
+- Add `mtsa.config.SKIP_SOFTMAX_TRITON_CALIB` for skip-softmax attention-sparsity calibration through the fused Triton `attention_calibrate` kernel (HF `modelopt_triton` backend), measuring multi-threshold tile-skip statistics the way the Triton inference kernel actually skips tiles for both prefill and decode. Exposed as `--sparse_attn_cfg skip_softmax_triton_calib` in `examples/llm_sparsity/attention_sparsity/hf_sa.py` (with a new `--calib_data_dir` flag for RULER calibration data).
+- Add DMD2 distillation for few-step diffusion models in `examples/diffusers/fastgen/`: distill Qwen-Image into a 4/8-step student via Distribution Matching Distillation. See [examples/diffusers/fastgen/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/diffusers/fastgen) for details.
+- Make `.agents/skills/` the canonical location for agent skills; agent-specific directories (`.claude/skills/`, etc.) are now relative symlinks into `.agents/`, so one skill suite serves multiple coding agents (Claude Code, Codex). See `.agents/README.md`.
+- Extend Claude Code agent skills for PTQ, deployment, evaluation, monitoring, and baseline-vs-quantized result comparison. Adds evaluation task references for additional benchmarks, stronger PTQ checkpoint validation gates, and session-scoped workspace/job tracking.
+- Add SLURM Quality of Service (QoS) support to the ModelOpt launcher. Users can set QoS via `slurm_config.qos` or `SLURM_QOS` and the value is forwarded to `nemo_run.SlurmExecutor`.
+
+## Backward Breaking Changes
+
+- `KDTrainer` / `QADTrainer` evaluation now reports KD as the primary `eval_loss` and CE as `eval_ce_loss`; the previous secondary `eval_kd_loss` metric is removed.
+- Reorganize custom CUDA / Triton kernels under `modelopt.torch.kernels` into `common/attention`, `quantization/{conv,gemm}`, and `sparsity/attention`. High-level APIs (`mtq.quantize`, `mtsa.sparsify`, etc.) are unchanged, but **any code importing directly from the kernel subpackages must be updated**: there is no backwards-compatibility shim; the old import paths will raise `ImportError` / `ModuleNotFoundError`. Migration table:
+  - `from modelopt.torch.kernels import IS_AVAILABLE, attention, attention_calibrate, register_triton_attention` → `from modelopt.torch.kernels.common.attention import ...`
+  - `from modelopt.torch.kernels.triton_fa import ...` → `from modelopt.torch.kernels.common.attention.triton_fa import ...`
+  - `from modelopt.torch.kernels.hf_triton_attention import ...` → `from modelopt.torch.kernels.common.attention.hf_triton_attention import ...`
+  - `from modelopt.torch.quantization.triton import ...` → `from modelopt.torch.kernels.quantization.gemm import ...`
+  - `from modelopt.torch.quantization.src.conv.implicit_gemm_cuda import ...` → `from modelopt.torch.kernels.quantization.conv.implicit_gemm_cuda import ...`
+  - `from modelopt.torch.sparsity.attention_sparsity.kernels import ...` → `from modelopt.torch.kernels.sparsity.attention import ...`
+- Deprecated GradNAS pruning algorithm as it is not actively maintained and supports very limited and old models. It is recommended to use Minitron or Puzzletron pruning for LLM models. Also deprecates related `examples/chained_optimizations` directory.
+- Model-specific PTQ `quant_cfg` adjustments previously hardcoded in `examples/llm_ptq/` (`build_quant_cfg` / `mono_quantize`) for gemma, mpt, phi4mm, and Nemotron VL are now opt-in **model-specific recipes** under `modelopt_recipes/huggingface/<model_type>/ptq/`. Any adjustment specific to a model type or instance must live in that model's recipe; the bare `--qformat` path produces only the generic numerics. Pass `--recipe huggingface/<model_type>/ptq/<recipe>` to apply the model's recipe. Covers gemma/mpt `w4a8_awq` (`awq_lite` `alpha_step=1`), gemma `int8_sq` (SmoothQuant `alpha=0.5`), phi4mm speech/audio/image/vision exclusions, and Nemotron VL vision-branch exclusions. All shipped recipes also enable FP8 KV-cache cast. MTP dynamic layer exclusion and `is_nemotron_vl` detection remain in Python.
+- The Step3.5-Flash recipe moved from `modelopt_recipes/models/Step3.5-Flash/nvfp4-mlp-only.yaml` (0.44) to `modelopt_recipes/huggingface/step3p5/Step3.5-Flash/ptq/nvfp4-mlp-only.yaml` to match the `huggingface/<model_type>/ptq/` layout convention. Update `--recipe` paths accordingly.
+
+## Deprecations
+
+- Deprecate the public `QuantizationArgumentsWithConfig` name in `modelopt.torch.quantization.plugins.transformers_trainer`; it now aliases `QuantizationArguments` and will be removed in a future release.
+- Deprecate the `examples/diffusers/eval` image-quality evaluation example (ImageReward / CLIP-IQA / CLIP metrics); it is no longer maintained and will be removed in the next release.
+- Deprecate `examples/llm_autodeploy`. The AutoQuant + TensorRT-LLM AutoDeploy workflow it demonstrates will be removed in a future release; use TensorRT-LLM's [AutoDeploy](https://github.com/NVIDIA/TensorRT-LLM/tree/main/examples/auto_deploy) directly together with ModelOpt PTQ in `examples/llm_ptq`.
+
+## Bug Fixes
+
+- Fix `ShapeInferenceError` during ONNX INT8 + FP16 quantization (`--high_precision_dtype fp16`) of weakly-typed models (e.g. TensorFlow exports) that carry stale rank-0 `graph.output` shapes or ops such as `TopK` that ONNX's static shape inference cannot resolve. `clear_stale_value_info` now reconciles stale output shapes via symbolic shape inference (keeping every output's shape field populated), and AutoCast runs ONNX shape inference in strict mode and falls back to schema-based standalone type inference when it fails, so unresolved ops no longer leave tensors untyped.
+- Always list unquantized MoE routers/gates in the exported `exclude_modules` (NVBug 5718750). `get_quant_config` only recorded modules that carry a quantizer, but on `transformers>=5.0` MoE routers are no longer `nn.Linear` (e.g. `TopKRouter`) and never receive one, so the BF16 router weight was written to the checkpoint yet omitted from `exclude_modules`. vLLM / SGLang then treated it as quantized and failed to load (e.g. Qwen3-30B-A3B NVFP4: `AssertionError: Tried to load weights of size [128, 2048] to a parameter of size [128, 1024]`). Routers are now detected structurally (an MoE block with an `experts` container plus a weight-bearing `gate` / `router` / `shared_expert_gate` submodule) and recorded as unquantized regardless of quantizer attachment.
+- In Megatron-Core only do EP amax sync for routed expert weights if `sync_expert_weight_amax=True`. Previously EP amax sync would sync routed expert weights across EP ranks even when `sync_expert_weight_amax` was False.
+- Fix Megatron-Core HF importer to load fused `TELayerNormColumnParallelLinear.layer_norm_weight` from HF for GPT-family models (Qwen3 etc.) under `--export-default-te-spec`. Importer now prefers per-context keys `fused_input_layernorm` / `fused_pre_mlp_layernorm` (fallback `fused_norm` for Nemotron-H backward compatibility); `mcore_qwen.py` provides the new rules. Without this fix, post-prune MMLU sat at chance.
+- Fix ONNX AutoCast `keep_io_types=True` sanity-check failure (`Unexpected type in I/O tensor ...`) when a network input/output is an empty tensor (a dimension of size 0). Such tensors were "fake-cast" (retyped in place) to the low precision type; because the value-info map aliases the `graph.input`/`graph.output` `ValueInfoProto`, this silently changed the model's I/O type. AutoCast now inserts a real `Cast` for protected I/O tensors instead.
+- Fix INT8 entropy calibration of fp16 ONNX models raising `ValueError: Too many bins for data range` on numpy >= 2.0. `_collect_value` in `modelopt.onnx.quantization.ort_patching` now casts the histogram range endpoints to Python float so bin edges are computed in float64, instead of inheriting the fp16 dtype of an activation tensor with a small range (which collapsed the 128-bin linspace under NEP-50 promotion).
+- Fix the GPT-OSS MXFP4 → NVFP4 PTQ path in `examples/llm_ptq/hf_ptq.py` (used with `--cast_mxfp4_to_nvfp4`). `get_model` now loads native MXFP4 checkpoints (`openai/gpt-oss-*`) dequantized to BF16 `GptOssExperts` via `Mxfp4Config(dequantize=True)` on a sequential device map. This fixes a CUDA illegal-memory access during the multi-GPU dequant load and the `NotImplementedError` for experts type `Mxfp4GptOssExperts` during unified HF export (the packed-kernel experts wrapper, used when the optional `kernels` package is installed, is unsupported by export); `kernels` is no longer required. The `--cast_mxfp4_to_nvfp4` step now also resolves a HF Hub ID `--pyt_ckpt_path` to its local snapshot directory instead of failing with `FileNotFoundError`.
+- Fix `_QuantGptOssExperts` / `_QuantLlama4TextExperts` static-block NVFP4 weight calibration raising `ValueError: Input shape has changed` during the calibration forward. These experts quantize their weights transposed (`_transposed_quantize`); `iter_weights_for_calibration` now yields the same transposed view so weight-only calibration and the forward agree on the block-quant shape (and the export `_amax` orientation).
+- Fix unified HF checkpoint export for Llama4 MoE models. The uncalibrated-experts input-quantizer `amax` fallback in `_export_transformers_checkpoint` special-cased only `QuantGptOssExperts`; `QuantLlama4TextExperts` uses the same fused `gate_up_proj` / `down_proj` layout and is now handled by the same branch, fixing the export failure.
+- Fix `NotImplementedError: "max_all_cuda" not implemented for 'Float8_e4m3fn'` during quantization calibration of models with natively FP8 (`float8_e4m3fn` / `float8_e5m2`) weights, such as DeepSeek-V3. FP8 dtypes implement no reduction (`max`/`amax`), `abs`, or elementwise `maximum` kernels, so `reduce_amax` now upcasts FP8 inputs to the default float dtype before reducing; the upcast is lossless and only affects the FP8 path.
+
+
+## 0.46.0rc0 (2026-07-26)
+
+Install this pre-release version using 
+```
+pip install "nvidia-modelopt[all] @ https://github.com/NVIDIA/Model-Optimizer/releases/download/0.46.0rc0/nvidia_modelopt-0.46.0rc0-py3-none-any.whl"
+```
+
+## 0.46.0rc1 (2026-08-05)
+
+Install this pre-release version using:
+```
+pip install "nvidia-modelopt[all] @ https://github.com/NVIDIA/Model-Optimizer/releases/download/0.46.0rc1/nvidia_modelopt-0.46.0rc1-py3-none-any.whl"
+```
+
+
+## 0.46.0rc2 (2026-08-15)
+
+Install this pre-release version using:
+```
+pip install "nvidia-modelopt[all] @ https://github.com/NVIDIA/Model-Optimizer/releases/download/0.46.0rc2/nvidia_modelopt-0.46.0rc2-py3-none-any.whl"
+```
+
+
+## 0.46.0 (2026-08-18)
+
+## New Features
+
+### Quantization
+
+- Add NVFP4 and FP8 PTQ recipes with projection-output quantizers for Llama-Nemotron embedding and reranking models (`modelopt_recipes/huggingface/nemotron_llama/`) and an end-to-end HF embedding/reranking quantize-to-ONNX example (`examples/torch_onnx/hf_embedding_quant_to_onnx.py`). Quantizing the projection-Linear outputs keeps TensorRT inter-layer activations in FP4, roughly halving engine activation memory versus the plain `nvfp4` preset. NVFP4/MXFP8 output quantizers now export through the dynamic quantize path. `examples/torch_onnx/torch_quant_to_onnx.py` also gains a `--recipe` flag to load quantization configs from YAML recipes instead of the removed `mtq.*_CFG` module-constant table.
+- Add an end-to-end FAR3D ONNX PTQ example with calibration data generation, INT8 and FP8 quantization, TensorRT engine building, and Argoverse 2 accuracy evaluation. See [examples/onnx_ptq/far3d/README.md](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/onnx_ptq/far3d) for details.
+- Add Learned Scale Quantization (LSQ) and Dual-LSQ support for quantization-aware distillation, including learnable `amax` parameters, tied-scale and pre-scale options, focused NVFP4 recipes, and scale-only training.
+- Add a fused Triton fast path for the `local_hessian` NVFP4 weight-scale search, roughly **34x** faster than the Python reference sweep on a single 8192x4096 weight and bit-exact with it for fp32/fp16 weights. Used automatically during `local_hessian` calibration for both dense and fused-MoE expert weights; falls back to the reference sweep on CPU, when Triton is unavailable, or via `MODELOPT_NVFP4_TRITON_SWEEP=0`.
+- Add NVFP4 Four-Over-Six (4/6) weight quantization (`mtq.NVFP4_FOUR_OVER_SIX_CFG`): MSE weight calibration picks, per block, between an M=6 and an M=4 dynamic range (the choice is folded into the FP8 per-block scales), with the `four_over_six: true` flag normalizing those scales by 256 (vs 448) for M=4 headroom. Supported via `mtq.quantize` and HF / Megatron export only -- **not** `mtq.compress`, which does not preserve the per-block M=4/M=6 choice.
+- Add dLLM (tied-weight PTQ and HF-checkpoint export) support for diffusion-based encoder-decoder LLMs (e.g. DiffusionGemma) whose encoder/decoder stacks share parameters via HF `_tied_weights_keys`. Modules sharing a source weight are deduplicated at export (~42% storage reduction on `nvfp4_experts_only` for tied 26B MoE checkpoints), a new `sync_tied_input_amax` helper max-merges per-side `input_quantizer.amax` across tied modules so single-backbone consumers don't clip either side, and the exported state dict is reordered so the canonical-side keys win the dedup. Ships a DiffusionGemma recipe under `modelopt_recipes/huggingface/diffusion_gemma/ptq/`. Non-tied models see no behavioral change.
+- Add Torch-TensorRT FP8 deployment example for HuggingFace ViT (`examples/torch_trt/`): `torch_tensorrt_ptq.py` covers `mtq.quantize` → `torch_tensorrt.compile(ir="dynamo")`, and `torch_tensorrt_accuracy.py` reports the compiled model's ImageNet-1k top-1/top-5 accuracy (the unquantized baseline is Torch-TensorRT-compiled too, for an apples-to-apples comparison). Ships a ViT-tuned FP8 PTQ recipe under `modelopt_recipes/huggingface/vit/ptq/fp8.yaml` that quantizes the encoder Linears, patch-embed `nn.Conv2d`, `classifier`, per-block LayerNorm inputs, and the attention Q/K/V BMMs and softmax. Verified on `google/vit-base-patch16-224`: FP8 stays within 0.13 pp Top-1 of the FP16 baseline.
+- Add **AutoQuantize recipe** support: `mtq.auto_quantize` can be driven declaratively from a YAML recipe (`RecipeType.AUTO_QUANTIZE` / `AutoQuantizeConfig`) specifying candidate formats, the `effective_bits` target, cost model (incl. `active_moe` and `excluded_module_name_patterns`), scoring method, and disabled layers. Adds an `effective_bits` cost-model override on `QuantizeConfig` / `QuantizerAttributeConfig` (block-scale-accurate NVFP4 = 4.5 via `configs/numerics/nvfp4`). Shipped recipes live under `modelopt_recipes/general/auto_quantize/` and model-specific ones under `modelopt_recipes/huggingface/<model>/auto_quantize/`.
+- Add module-specific AutoQuantize search spaces through `mtq.auto_quantize(..., module_search_spaces=...)` and recipe-level `auto_quantize.module_search_spaces`. Glob-matched decision groups can override the global candidate formats and control whether BF16/no-quant is solver-selectable with `allow_no_quant`. A recipe can instead reuse a normal PTQ `quantize` config as the fixed baseline and list only the genuinely searched modules; fixed and searched groups stay in one calibration, scoring, effective-bits, checkpoint, and export flow.
+- Add `rotate.mode` to torch quantizer configs. The default `"rotate"` keeps the existing rotate-before-quantize behavior; `"rotate_back"` enables fake-quant rotate → quantize → rotate-back for TensorQuantizer.
+- Add a `constant_amax` `QuantizerAttributeConfig` field that pins a quantizer's `amax` to a fixed value and skips activation calibration. Unlike `use_constant_amax` (which hardcodes 448.0 for KV-cache cast math and registers no buffer), `constant_amax` stores the constant on the `_amax` buffer so it is used by both the fake-quant forward and the exported scaling factor — for NVFP4 activations, `constant_amax: 2688.0` yields `input_scale == 1.0`. Ships `modelopt_recipes/general/ptq/nvfp4_experts_only_input_scale1-kv_fp8_cast.yaml`, which applies this to the MoE expert activation quantizers.
+- Add `MaxCalibConfig.skip_forward_without_activation_calib` (opt-in, default `False`): max calibration skips the `forward_loop` when no enabled quantizer needs data-driven activation statistics — e.g. an experts-only recipe using `constant_amax` / `use_constant_amax`, or dynamic / MX quantization. Weight calibration still runs on the weight tensors directly, so quantized weights are unchanged. It is opt-in because the `forward_loop` can carry caller-side effects (notably materializing sharded parameters under DeepSpeed ZeRO-3). Enabled by the `nvfp4_experts_only_input_scale1-kv_fp8_cast` recipe.
+- Add `examples/minimax_m3/hf_ptq_mixed_mxfp8_nvfp4.py` for streaming MiniMax-M3 export and a model-specific `hf_ptq.py` recipe that produces an MXFP8 language-model base with MSE-calibrated NVFP4 routed experts directly from BF16. The NVFP4 expert `input_scale` is fixed to 1.0.
+
+### Speculative Decoding
+
+- Add the **D-PACE** loss objective for DFlash speculative-decoding training ([arXiv:2605.18810](https://arxiv.org/abs/2605.18810)) and make it the default (`dflash_loss_objective: dpace`). It replaces the static exponential position decay with dynamic, confidence-derived per-position weights that adapt to whichever block positions currently limit acceptance. Smoothing is controlled by `dflash_dpace_alpha` (default 0.5); set `dflash_loss_objective: decay` to restore the previous static schedule. Training-only and detached from the gradient (no architecture or inference change).
+- Add **streaming** speculative-decoding training (EAGLE3 / DFlash): the draft trains on base-model hidden states produced on the fly by a co-located `vllm serve` (no disk dump), moved trainer-side over NIXL RDMA, scaling to multi-node (dedicated serve replicas + DDP trainers). New launcher examples for NVFP4 Kimi-K2.5 / K2.6 on GB200/aarch64 under `tools/launcher/examples/moonshotai/`.
+- Add **Domino** speculative-decoding training: the parallel DFlash draft backbone plus a lightweight GRU causal correction head, selected via `dflash_architecture_config.projector_type=domino`. Trained with a base/final dual loss whose `dflash_lambda_base_start`/`dflash_lambda_base_decay_ratio` curriculum decays the base-loss weight 1→0. Exports in the z-lab drafter format; recipe at `modelopt_recipes/general/speculative_decoding/domino.yaml`. Training only — the inference path is not wired up yet.
+
+### Megatron Framework (M-LM / M-Bridge)
+
+- Add Minitron pruning support for Megatron-Core models with the following new attention and MoE variants. For these, only `hidden_size` is pruned (alongside the usual `ffn_hidden_size` / `num_layers` / MoE dimensions); the variant-internal dimensions noted below are not pruned:
+
+  - **GatedDeltaNet** (linear attention) and **gated attention** (`attention_output_gate`), such as Qwen3.5 (hybrid GatedDeltaNet + gated-attention) language models, including MoE variants — attention / linear-attention heads are not pruned.
+  - **Multi-Latent Attention (MLA)**, such as DeepSeek — MLA latent ranks are not pruned.
+  - **Latent MoE**, such as Nemotron-3-Super — `hidden_size` pruning resizes the latent projections while the MoE latent dim itself is not pruned.
+- Optimize Minitron pruning support for MoE models using the fused **grouped GEMM** experts (`TEGroupedMLP`) in addition to the existing `SequentialMLP` path. `examples/megatron_bridge/prune_minitron.py` now uses grouped GEMM by default (pass `--no_moe_grouped_gemm` to fall back to `TESequentialMLP`).
+- Add Minitron pruning support for the language model part of vision-language models (e.g. Qwen3.5-VL, Gemma3-VL) via `examples/megatron_bridge/prune_minitron.py`. The language model is pruned while the vision tower is left intact and the full VLM is saved back; `hidden_size` is not pruned if it is shared with the vision projector. Pruning importance is estimated from image-text calibration (the full VLM forward over vision-conditioned activations) by default, or from a text dataset for text-only ablations.
+- Add PTQ support for the language model part of vision-language models (e.g. Qwen3.5-VL, Gemma3-VL) via `examples/megatron_bridge/quantize.py`. Only the language model is quantized (vision tower + projector left in full precision) and the full VLM is saved as a Megatron checkpoint. The calibration modality is inferred from `--calib_dataset_name`: an image-text dataset drives the full VLM forward (vision-conditioned activations), while a text dataset runs text-only calibration of the language model. Image-text calibration shards across data-parallel ranks (context parallelism is supported only for text-only calibration). HuggingFace unified export of a quantized VLM is not yet supported.
+- Add Megatron-Bridge distillation and Quantization-Aware Distillation (QAD) support for the language model part of vision-language models (e.g. Qwen3.5-VL, Gemma3-VL) via `examples/megatron_bridge/distill.py`.
+- Add **context-parallel (CP)** and **data-parallel (DP)** support to the shared Megatron-Core inference/calibration utilities. Under CP, `get_megatron_calibration_forward_loop` and `megatron_mmlu` partition each sequence across CP ranks (zigzag load-balanced) and MMLU gathers per-rank logits back to the full sequence for last-token scoring. Under DP, calibration shards the dataset across data-parallel ranks (amax is max-reduced across the DP group inside `mtq`) and `megatron_mmlu` shards whole batches and all-reduces the per-subject counts. DP is implicit (`world_size / (tp * pp * cp)`); `examples/megatron_bridge/quantize.py` gains a `--cp_size` flag.
+- Add support for retaining all Megatron-Bridge distillation checkpoints via `distill.py --checkpoint_keep_last -1` and exporting all or selected iterations with `export_distilled_megatron_to_hf.py --export_iterations`.
+- Add the `prepare_megatron_data_blend` utility to prepare weighted Megatron data blends from YAML configs, including optional token-budgeted subsets for distillation workflows. See the [Megatron data preparation guide](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/dataset/MEGATRON_DATA_PREP.md#prepare-token-budgeted-data-blends).
+
+### Misc
+
+- Add the `day0-release` agent skill, a deterministic end-to-end driver that chains the PTQ → evaluation → comparison skills with an enforced gate after each stage (validating checkpoint coverage, evaluation-run completeness, and the baseline-vs-candidate accuracy threshold) and returns a publish decision (ACCEPT / REGRESSION / ANOMALOUS / INFEASIBLE). v1 reports and stops on regression; the recipe-search loop is deferred.
+- Add support for ONNX Q/DQ node placement for DLA via the new flag `--target_dla`.
+- (Experimental) Add pruning examples for Qwen3.5-9B and Nemotron3-Nano using the [new experimental puzzletron branch](https://github.com/NVIDIA/Model-Optimizer/blob/puzzletron_v2/examples/puzzletron/README.md#end-to-end-tested-models), this branch uses [AutoModel](https://github.com/NVIDIA-NeMo/Automodel) for better parallelization and efficiency.
+
+## Backward Breaking Changes
+
+- Remove the `examples/diffusers/eval` image-quality evaluation example (ImageReward / CLIP-IQA / CLIP metrics) and its references in `examples/diffusers/README.md`. The example was deprecated in 0.45 and is no longer maintained.
+- Remove the deprecated `examples/llm_autodeploy` example (deprecated in 0.45). Use TensorRT-LLM's [AutoDeploy](https://github.com/NVIDIA/TensorRT-LLM/tree/main/examples/auto_deploy) directly together with ModelOpt PTQ in `examples/hf_ptq`.
+- Remove the deprecated `examples/llm_qad` Megatron-LM QAD example (deprecated in 0.45). Use the [megatron_bridge QAD example](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/megatron_bridge#quantization-aware-distillation-qad) instead, which provides a simpler Python-based interface and better model coverage.
+- Dropped VILA / NVILA vision-language model support in `examples/hf_ptq`. VILA's modeling code requires `[transformers](=4.50.0`, which conflicts with ModelOpt's minimum supported `transformers` version. The VILA-specific bootstrap (repo clone, `requirements-vila.txt`) and loading paths in `example_utils.py` have been removed.
+- Dropped **Phi-4-multimodal** and **Phi-3-vision** PTQ support in `examples/hf_ptq`. Phi-4-multimodal's bundled remote code needs `transformers<4.52`, below ModelOpt's minimum of `4.57`; Phi-3-vision, the superseded predecessor in the same family, is dropped alongside it and is likewise broken on Transformers 5.x. The support-matrix row, the `phi4mm` model type, the multimodal-detection heuristics that only ever matched these two, the `Phi3Image` / `PhiImage` embedding-export exclusions, and the `modelopt_recipes/huggingface/phi4mm/` recipes have been removed. Text-only Phi-3/Phi-4 and Phi-3.5-MoE are unaffected.
+
+## Deprecations
+
+- `examples/hf_ptq` AutoQuantize is now driven by an **AutoQuantize recipe** (`--recipe`). The `--auto_quantize_bits`, `--auto_quantize_method`, `--auto_quantize_score_size`, `--auto_quantize_cost_model`, and `--auto_quantize_active_moe_expert_ratio` flags are **deprecated** but still work: they are converted into an `AutoQuantizeConfig` on the fly (emitting a `DeprecationWarning`) and will be removed in a future release. Prefer a recipe under `modelopt_recipes/general/auto_quantize/`. See `examples/hf_ptq/README.md`.
+- Renamed `examples/llm_ptq` to `examples/hf_ptq` to reflect that it covers Hugging Face LLM **and** VLM PTQ. A relative symlink `examples/llm_ptq` to `hf_ptq` keeps existing paths and commands working; it will be removed in a future release. Please update references to the new `examples/hf_ptq` path.
+- Consolidated `examples/vlm_ptq` into `examples/hf_ptq`. Vision-language model PTQ now shares the `hf_ptq.py` entry point and `scripts/huggingface_example.sh`; pass `--vlm` to run the TensorRT-LLM multimodal quickstart smoke test. The `examples/vlm_ptq/scripts/huggingface_example.sh` entry point is deprecated: it now prints a warning and forwards to the `hf_ptq` script with `--vlm`, and will be removed in a future release. See `examples/hf_ptq/README.md <https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/hf_ptq#vlm-quantization).
+- Bump minimum transformers version to `4.57` instead of `4.56`. Transformers 4.x support will be dropped in a future release.
+- Bump minimum nemo container requirement to `nemo:26.04` (recommended `nemo:26.06`) for Megatron-Bridge / Megatron-LM optimization features.
+- Python 3.10 support will be dropped in the next release as it is reaching EOL.
+
+## Bug Fixes
+
+- Fix NemotronH dense MLP quantization with the `nvfp4_mlp_only` and `nvfp4_omlp_only` recipe families. NemotronH registers these projections as `mixer.up_proj` / `mixer.down_proj`, which the previous `*mlp*` selector missed, producing checkpoints with a null `quant_algo`.
+- Fix `ShapeInferenceError` during ONNX INT8 + FP16 quantization (`--high_precision_dtype fp16`) of weakly-typed models (e.g. TensorFlow exports) that carry stale rank-0 `graph.output` shapes or ops such as `TopK` that ONNX's static shape inference cannot resolve. Stale output shapes are now reconciled via symbolic shape inference, and AutoCast falls back to schema-based type inference so unresolved ops no longer leave tensors untyped.
+- Fix fused MoE expert auto-detection (`register_fused_experts_on_the_fly`) skipping modules without an `act_fn` attribute. Modules applying a custom gated activation between the two `F.linear` calls (e.g. `MiniMaxM3VLExperts`) were silently skipped, leaving routed experts unquantized and failing HF export. Enables NVFP4/FP8 quantization and export for MiniMax-M2 / MiniMax-M3.
+- Fix unified HF export emitting transformers' *in-memory* (post-`conversion_mapping`) tensor names instead of the original model-hub names, breaking the unified-checkpoint contract (observed on MiniMax-M3). A new quant-aware reverse conversion derives the rename/split rules from the model's conversion mapping and carries each weight's companion scale tensors through the renames and un-fusions, so quantized exports round-trip to the hub names. Mapping ops that cannot be reversed quant-aware yet (e.g. still-stacked fused experts) fall back to the in-memory names instead of aborting the export.
+- Fix unified HF export of already-compressed NVFP4 weights, i.e. `mtq.compress` and `hf_ptq.py --low_memory_mode`, writing a `weight_scale` of half the required size with meaningless values (the per-block scale cannot be recomputed from packed nibbles). The export now reuses the per-block scale captured at compression time. The internal `_scale` / `_double_scale` quantizer buffers are also removed after use; they previously leaked into the checkpoint and made downstream loaders (vLLM, TensorRT-LLM PyTorch backend) fail with `KeyError`.
+- Fix ONNX FP16/BF16 conversion (`--high_precision_dtype fp16`) producing inconsistent tensor types on models with control-flow subgraphs. Subgraph nodes now only run in low precision when all their float inputs are subgraph initializers, outer-scope captures and precision boundaries are reconciled with `Cast` nodes, and `Constant` folding refreshes `value_info` so strongly-typed parsers (TensorRT) no longer reject the model. Behavioral change: a weight inside a branch that also reads an outer-scope FP32 activation now stays FP32 instead of being converted.
+- Nested submodel reverse mappings are now scoped against registered model namespaces, preventing text-only mappings from capturing an already nested VLM's `model.visual.*` namespace or double-prefixing `model.language_model.*` (observed on Qwen3.5).
+- Fix vLLM 0.24+ support, where `FusedMoE` became a factory function and the expert weights moved onto a `RoutedExperts` submodule, breaking every `QuantModuleRegistry` lookup with `TypeError: issubclass() arg 2 must be a class`. The plugin now registers whichever fused-MoE module class the installed release provides. The registry key moves `vllm_FusedMoE` to `vllm_RoutedExperts` and quantizer paths gain `.routed_experts`, so an older `modelopt_state` does not restore onto 0.24+ as-is.
+- Fix `examples/vllm_serve` serving shared experts uncalibrated: their `gate_proj`/`up_proj` quantizer keys were not merged into `gate_up_proj` on reload, so they matched no module and were dropped.
+- Fix Qwen3-VL MoE PTQ failing on `transformers>=5.12` with `AttributeError: 'QuantQwen3VLMoeTextExperts' object has no attribute 'hidden_size'`. transformers 5.12 moved `Qwen3VLMoeTextExperts` onto the standard fused-experts layout, but the legacy static wrapper shadowed on-the-fly detection. The new layout is now claimed by `register_fused_experts_on_the_fly`; the legacy wrapper is still registered on `transformers<5.12`, whose `torch.bmm`-based forward the generic wrapper cannot intercept.
+- Fix `examples/hf_ptq` multi-node FSDP2 export (`--use_fsdp2`) failing with `RuntimeError: Cannot set version_counter for inference tensor`. `export_quantized` now runs under `torch.no_grad()` instead of `torch.inference_mode()`, so the gathered full params stay normal tensors.
+- Fix HF checkpoint export failing with `AttributeError: 'list' object has no attribute 'keys'` for models whose modeling code still declares tied weights in the `transformers<5` list format (common among `trust_remote_code` checkpoints, e.g. `stepfun-ai/Step-3.7-Flash`). Such models load fine but died at the end of PTQ, after calibration. ModelOpt's `save_pretrained` patch now normalizes a list-style declaration to the equivalent dict for the duration of the save.
+- Fix unified HF export of multimodal models whose vision tower carries its own `PrefixChange` conversion (`LlavaForConditionalGeneration` and `Gemma3ForConditionalGeneration` on `transformers>=5.12`). The quant-aware reverse conversion ignored transformers' `scope_prefix`, so the vision tower's prefix rule was applied to *every* key in the state dict and vLLM rejected the checkpoint with `ValueError: There is no module or parameter named 'vision_model'`. Reverse rename rules now carry their scope and are applied only to keys under it.
+- Fix QLoRA export in `examples/llm_qat/export.py` failing with `AssertionError: Model already has modelopt state!`: `enable_huggingface_checkpointing` already restores the quantized base model's state, so the export now restores only when the model is not already converted. Two further breakages on the same path are also fixed: `_restore_qtensor_wrappers` matched no modules because PEFT re-parents the quantized linear as `<name>.base_layer`, and `postprocess_state_dict` silently dropped every `base_layer.*` key missing from a hand-maintained rename map (losing the NVFP4 `weight_scale_2` global scale and any linear `bias`) — the rename is now a generic `.base_layer.` strip.
+- Fix `--use_fsdp2` PTQ (`examples/hf_ptq`) failing on models that hold a few parameters in a dtype other than the model's own, with `AssertionError: FSDP expects uniform original parameter dtype` on the first calibration forward. Nemotron-3-Nano is one such model: its MoE router gates are declared `float32` while the rest of the checkpoint is bfloat16, so each decoder layer's FSDP2 shard group mixed dtypes. `fsdp2_wrap` now passes those off-dtype parameters to `fully_shard(ignored_params=...)`, leaving them replicated in their original dtype instead of casting them, and warns with their names and their share of the model.
+- Fix `--use_fsdp2` HF export making no progress for hours on large MoE checkpoints. `create_fsdp_param_mapping` resolved each `FSDPParam`'s module by scanning every `model.named_parameters()`, and export calls it once per quantized module, so the cost was quadratic in (parameters x modules): harmless for dense models, intractable for a MoE with many experts. Exporting Nemotron-3-Nano-30B-A3B (6,243 parameter tensors, 6,004 quantized modules) spent an estimated 1.9 hours there with every GPU idle. The parameter index is now built once per mapping instead of once per `FSDPParam` (1151 ms -> 5.1 ms per call), preserving the previous `named_parameters()``-order resolution for tied weights.
+
+
+## 0.47.0rc0 (2026-08-28)
+
+Install this pre-release version using
+```
+pip install "nvidia-modelopt[all] @ https://github.com/NVIDIA/Model-Optimizer/releases/download/0.47.0rc0/nvidia_modelopt-0.47.0rc0-py3-none-any.whl"
+```
+
+_Published by Chad's Agent._
+
+## 0.46.1 (2026-09-09)
+
+## WoA (Windows) Support
+
+Add opt-in TensorRT-RTX ABI Execution Provider support for ONNX calibration on Windows arm64. Select it with ``--calibration_eps=NvTensorRtRtx --trt_rtx_backend=abi``; the legacy backend remains the default.
+
+## 0.47.0rc1 (2026-09-09)
+
+Install this pre-release version using:
+
+pip install "nvidia-modelopt[all] @ https://github.com/NVIDIA/Model-Optimizer/releases/download/0.47.0rc1/nvidia_modelopt-0.47.0rc1-py3-none-any.whl"
+
+## 0.47.0rc2 (2026-09-22)
+
+Install this pre-release version using:
+
+```bash
+pip install "nvidia-modelopt[all] @ https://github.com/NVIDIA/Model-Optimizer/releases/download/0.47.0rc2/nvidia_modelopt-0.47.0rc2-py3-none-any.whl"
+```
+
+## 0.47.0 (2026-09-23)
+
+### New Features
+
+#### Quantization
+
+- ONNX quantization with Autotune now benchmarks placements in the requested runtime precision and retains calibrated INT8/FP8 Q/DQ only when it meets the configured TensorRT speedup threshold (1.02x by default); otherwise it saves the high-precision no-Q/DQ model.
+- Add a Muse Glimmer AutoQuantize recipe that searches language-model MLP projections, self-attention projections, and `lm_head` over W4A16 NVFP4 Four-Over-Six, FP8, and BF16 fallback at 5.5 effective bits while leaving the vision tower unquantized.
+- Add `examples/alpamayo/qad.py`, which runs quantization-aware distillation on the quantized Alpamayo checkpoint produced by `examples/alpamayo/quantize.py`. It distills the quantized VLM against the original FP16 VLM with `QADTrainer`, supports FSDP2 for multi-GPU runs, and `--export` reassembles the trained VLM into a full AlpamayoR1 checkpoint that `AlpamayoR1.from_pretrained` can reload.
+- Add a calibration-free streaming Kimi-K3 converter and checkpoint-mirror recipe for NVFP4 routed experts with `input_scale=1.0` and 128x128 block-FP8 KDA/MLA attention weights. The converter operates shard-by-shard on the source checkpoint's packed MXFP4 experts instead of loading the 2.8T model through the in-memory `hf_ptq.py` path.
+- Add end-to-end PETRv1 and PETRv2 ONNX PTQ examples covering calibration, INT8 and FP8 VoVNet backbone quantization, TensorRT deployment, and accuracy evaluation.
+- Add opt-in FP8 Vision Encoder recipes under the `qwen3_vl` and `qwen3_5` model types. The vision-only recipe keeps the language model and KV cache in high precision; the joint recipe quantizes Vision Encoder and language-model Linears and uses FP8 KV-cache cast. Both quantize primary and deepstack merger Linears where present, while leaving patch embedding and vision-attention BMMs in high precision. Exported checkpoints require an inference runtime that supports quantized Vision Encoder Linears.
+- Add `mtq.temporarily_fold_weights` for repeated frozen-weight inference and `mtq.preserve_quantizer_attributes_context` for restoring temporary quantizer property and type changes. Temporary folding snapshots affected fake-quant weights on a configurable device and restores them with their quantizer state; retained pre-quant scales are inactive, while shared weights, shared quantizers, and `SequentialQuantizer` weights are unsupported.
+- Add the `nvfp4_act_headroom` calibration algorithm for NVFP4 **activation** global scales. Instead of setting the global scale from the largest per-block amax seen during calibration (plain `max`, which leaves no room above it so any larger activation saturates), it anchors the scale to a low percentile of the per-block amax distribution, leaving the rest of the FP8 block-scale range as headroom: `amax = max(rho * anchor, upper)`, where `anchor` and `upper` are the per-block amaxes at `anchor_percentile` (default 1) and `upper_percentile` (default 99.99; set to 100 to never clip calibration data), and `rho` (default 16384) is the headroom factor. Applies only to NVFP4 dynamic-block input quantizers; `SequentialQuantizer` activation quantizers raise. Weight scales are an orthogonal axis selected by a nested `weight_scale_algorithm` (`max` by default, or `mse` / `local_hessian`), so one recipe can combine a weight calibration with this activation policy in a single pass. Ships `modelopt_recipes/general/ptq/nvfp4_act_headroom-kv_fp8_cast.yaml`, which mirrors `nvfp4_default-kv_fp8_cast` with only the calibration algorithm swapped and exports a standard NVFP4 checkpoint.
+
+- Add PTQ support for Step-3.7 (`stepfun-ai/Step-3.7-Flash`), whose routed experts were previously left unquantized. Quantize with the new `huggingface/step3p7/ptq/nvfp4_experts_only-kv_fp8_cast` or `huggingface/step3p7/ptq/nvfp4_mlp_only-kv_fp8` recipes rather than the general ones, which select experts by module names Step does not use.
+
+#### Megatron Framework (M-LM / M-Bridge)
+
+- Add `clamp_kv_cache_scales` to `export_mcore_gpt_to_hf`. Set it to `False` when exporting a QAT Megatron-Core model to preserve its learned FP8 KV-cache scales; the default retains the existing minimum scale of 1.0.
+- Add SFT-masked data support to `examples/megatron_bridge/distill.py`: `--sft --sft_dataset_root <dir>` distills on raw prompt-completion JSONL (`{"input", "output"}` records) with the loss masked to the response tokens, using Megatron-Bridge's `FinetuningDatasetConfig` and the model's own HuggingFace tokenizer instead of the pretraining `GPTDataset` and `NullTokenizer`.
+- Add per-expert weight quantization for Transformer Engine `TEGroupedLinear` (fused MoE experts): each expert now has its own `weight_quantizer` (a `GroupedQuantizer` holding one `TensorQuantizer` per expert) with an independent `amax`, instead of a single shared `amax` across all experts. Applies to `mtq.quantize` calibration, HF / Megatron export, and QAD.
+- Add opt-in `torch.compile` execution for Transformer Engine grouped-linear per-expert weight quantizers while preserving their native checkpoint amax shapes. Set `MODELOPT_TEGROUPED_COMPILE_WEIGHT_LOOP=1` before quantized-module conversion; the default path remains eager.
+- Add HuggingFace unified export of quantized Qwen3-VL and Qwen3.5-VL checkpoints (PTQ or QAD) via `examples/megatron_bridge/export_quantized_megatron_to_hf.py`, Qwen3.5-VL additionally covering GatedDeltaNet linear-attention layers and MoE shared experts. Only the language model is quantized; the vision tower is copied from the source HuggingFace checkpoint.
+- Megatron-Bridge scripts now choose the MoE expert layout automatically from the model config: the faster fused `TEGroupedMLP` (grouped GEMM) unless the architecture cannot export it to HuggingFace, in which case `SequentialMLP` keeps the checkpoint exportable and `--no_moe_grouped_gemm` forces it explicitly. For the affected architectures this changes MoE activation scales from one shared scale to per-expert.
+
+#### Misc
+
+- Add `modelopt.torch.utils.mlflow.MlflowRunLogger` for recording a script run on an MLflow tracking server: the invocation, the ModelOpt version, the run log (captured by teeing `stdout`/`stderr`) and any caller-supplied artifacts, with configuration as searchable params. `mlflow` is an optional dependency, imported only when tracking is enabled.
+- Add `--mlflow <tracking-uri>` to `examples/hf_ptq/hf_ptq.py` (MLflow's own `MLFLOW_TRACKING_URI` is honoured too). A tracked run records the invocation, the resolved recipe (`$import`s expanded), the run log and the quantization summaries, with every command-line argument as a searchable param; failed runs are recorded with their traceback. The experiment defaults to `$USER/hf_ptq/<checkpoint basename>-<recipe name or --qformat>` and can be overridden with `--mlflow_experiment` / `--mlflow_run_name`.
+- Add `--mlflow <tracking-uri>` to `examples/vllm_serve/vllm_serve_fakequant.py` (MLflow's own `MLFLOW_TRACKING_URI` is honoured too), so a fake-quant serve records what it quantized and an evaluation of that endpoint can be traced back to a recipe. A tracked run uploads the launcher command, the resolved `RECIPE_PATH` (or the merged `QUANT_CFG`/`KV_QUANT_CFG` when presets are used), the worker log and the quantizer summary; the experiment defaults to `$USER/vllm_serve_fakequant/<model basename>-<recipe name or quantization config>` and can be overridden with `--mlflow-experiment` / `--mlflow-run-name`.
+
+### Backward Breaking Changes
+
+- Migrate the FAR3D ONNX PTQ example to the shared evaluator and ModelOpt containers and `quantize_vovnet.py`. Only the encoder supports INT8 and FP8; decoder calibration, quantization, and related CLI flags are removed, and the decoder remains in its exported mixed FP16/FP32 precision.
+- Image-text calibration with `--calib_with_images` now forwards multimodal batches through the complete VLM for all VLM families, so existing non-Nemotron commands may produce different language-model activation ranges and output scales. Recipe-based VLM PTQ also targets the complete VLM: vision modules stay in high precision by default and are quantized only when a model-specific recipe enables them, so custom recipes must explicitly exclude vision modules when required.
+- Move the checkpoint-mirror recipe tier from `huggingface/models/<org>/<checkpoint>/` to the top-level `models/<org>/<model_id>/`, keyed by each recipe's canonical Hugging Face Hub id — so the Step 3.5 Flash recipe moves to `models/stepfun-ai/Step-3.5-Flash/ptq/` and the NVIDIA Nemotron recipes gain the `NVIDIA-` prefix (e.g. `models/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16/ptq/nvfp4-mse`). Update any saved `--recipe` paths for these checkpoint recipes accordingly; the per-`model_type` recipes under `huggingface/` are unchanged.
+- Move the Mistral Medium 3.5 checkpoint-mirror recipe from `huggingface/models/nvidia/Mistral-Medium-3.5-128B-NVFP4/ptq/nvfp4-max-calib` to `models/mistralai/Mistral-Medium-3.5-128B/ptq/nvfp4-max-calib`, keying it by the canonical Hugging Face base model. Update any saved `--recipe` paths to the new location.
+- Remove the `--auto_quantize_bits`, `--auto_quantize_method`, `--auto_quantize_score_size`, `--auto_quantize_cost_model` and `--auto_quantize_active_moe_expert_ratio` flags from `examples/hf_ptq` (deprecated in 0.46). Use an AutoQuantize `--recipe` from `modelopt_recipes/general/auto_quantize/` instead. Those recipes now also splice in the shared base `cost_excluded_layers` unit, which the removed CLI applied unconditionally, so a VL model keeps its vision tower and MTP layers out of the effective-bits denominator. On a VL model this changes the per-layer cost weights, so an existing `--auto_quantize_checkpoint` from an earlier release is rejected with "Use a different checkpoint path"; delete or repoint it to re-run the search.
+- Remove the `examples/llm_ptq` symlink and the `examples/vlm_ptq` forwarder (both deprecated in 0.46). Use `examples/hf_ptq`, passing `--vlm` for vision-language models.
+- Remove the backward-compat `--qformat` / `--quant_cfg` short names `int8_sq`, `int8_wo`, `w4a8_awq`, `nvfp4_awq`, `nvfp4_mse`, `nvfp4_local_hessian`, `fp8_pb_wo` and `fp8_pc_pt` (deprecated in 0.45). Use the preset basename under `modelopt_recipes/configs/ptq/presets/model/` instead: `int8_smoothquant`, `int8_weight_only`, `w4a8_awq_beta`, `nvfp4_awq_lite`, `nvfp4_w4a4_weight_mse_fp8_sweep`, `nvfp4_w4a4_weight_local_hessian`, `fp8_2d_blockwise_weight_only` and `fp8_per_channel_per_token`. The `modelopt.recipe.presets.QFORMAT_ALIASES` table and the `aliases` argument of `load_quant_cfg_choices()` are removed along with them.
+- Remove the legacy `layerwise` bool form, its `use_sequential` alias, and the top-level `layerwise_checkpoint_dir` key from calibration algorithm configs (deprecated in 0.45). Use the nested form, e.g. `layerwise: {enable: true, checkpoint_dir: /path}`. A pre-0.45 `modelopt_state` carrying either legacy key now fails validation on restore instead of being migrated; re-save it with a 0.45/0.46 release first.
+- Remove in-trainer quantization via `QuantizationArguments.quant_cfg` / `--quant_cfg` (deprecated in 0.45); use `--recipe`. New recipes `general/ptq/mxfp4_mlp_weight_only` and `general/ptq/nvfp4_mlp_weight_only` replace `MXFP4_MLP_WEIGHT_ONLY_CFG` / `NVFP4_MLP_WEIGHT_ONLY_CFG` in the `examples/gpt-oss` QAT flow.
+- Remove the `QuantizationArgumentsWithConfig` alias in `modelopt.torch.quantization.plugins.transformers_trainer` (deprecated in 0.45). Use `QuantizationArguments`.
+- Transformer Engine `TEGroupedLinear` (fused MoE experts) now uses **per-expert** weight quantization (one `amax` per expert) instead of a single shared `amax`, so ModelOpt checkpoints containing quantized `TEGroupedLinear` modules saved before 0.47 are **not compatible** with 0.47. Re-run PTQ to regenerate compatible checkpoints.
+- `mtq.quantize` now raises when a config asks for weight quantization but none of its weight-quantizer patterns match the model, instead of calibrating and exporting a silently unquantized checkpoint (`"quant_algo": null`). Configs that quantize activations or the KV cache only are unaffected, as are patterns that match and are then disabled by a later entry. If this fires, use the recipe for that architecture under `modelopt_recipes/huggingface/<model_type>/` or fix the module patterns. Set `MODELOPT_SKIP_WEIGHT_QUANT_CHECK=1` to disable the check process-wide, e.g. for a pipeline-parallel rank whose local stage legitimately has none of the targeted modules.
+
+### Deprecations
+
+- Remove `examples/llm_eval/lm_eval_tensorrt_llm.py` (the `trt-llm` model) in favor of the TensorRT-LLM backend shipped by lm-evaluation-harness itself (registered as `trtllm`, also supports `loglikelihood_rolling` and pipeline parallelism); `lm_eval` is pinned to `>=0.4.12,<0.5`. Replace `python lm_eval_tensorrt_llm.py --model trt-llm --model_args tokenizer=<tok>,checkpoint_dir=<ckpt>` with `python lm_eval_trtllm.py --model trtllm --model_args model=<ckpt>,tokenizer=<tok>`, and set `tensor_parallel_size` and `max_input_len` explicitly — they default to 1 and 2048, and longer prompts are silently truncated. Use `lm_eval_trtllm.py` rather than the plain `lm_eval` CLI: it patches an off-by-one in the backend's `_parse_logprobs` that otherwise raises `KeyError` on every loglikelihood task. Loglikelihood tasks additionally require **TensorRT-LLM >= 1.3.0rc11**; generative tasks are unaffected. `examples/hf_ptq/scripts/huggingface_example.sh` gains `--input` (`BUILD_MAX_INPUT_LEN`, default 4096) to size the evaluation engine's context, and honours a preset `LM_EVAL_TP` to override the tensor-parallel size.
+- Bump minimum container requirement to `nemo:26.08` for the Megatron-Bridge / Megatron-LM optimization features. Megatron-LM quantization still works on `nemo:26.06` but will be dropped in a future release.
+
+### Bug Fixes
+
+- Fix shared ONNX export metadata and Diffusers attention policy: every `NVFP4QuantExporter` post-process now upgrades the default-domain opset to at least 23, all FP8 custom-op exports re-run ONNX shape/type inference after setting output metadata, and quantized SDPA derives FP8 MHA enablement from the live Q/K/V quantizers instead of honoring a caller-set `_disable_fp8_mha` attribute.
+- Fix ONNX FP16 conversion failing to preserve public output types when type inference changes a graph output declaration before output casts are inserted.
+- Fix HuggingFace checkpoint export failing with `activation scaling factor 0.0 not positive` when a dynamic-block quantizer (such as an NVFP4 input quantizer) ends calibration with an amax of zero because the calibration data never activated that layer or expert. Such a quantizer now exports a positive fallback scale and warns instead of crashing, matching what static quantizers already did; if you see the warning, check whether the layer is expected to be inactive and consider a larger calibration size.
+- Fix ONNX AutoCast failing on models with external initializers larger than 2 GiB.
+- Avoid querying CUDA/Blackwell capability when `NVFP4QTensor.quantize` uses its CPU path or has the optional TensorRT-LLM fast path disabled.
+- Fix NVFP4 ONNX export to quantize FP4 weights with the published FP8 block scales, matching eager ModelOpt packed weights. Block scales below `2**-9` are now clamped to that minimum, and non-finite or negative scales raise an error.
+- Fix FP8 ONNX export of BF16 models during real-weight compression.
+- Fix Megatron-Bridge Quantization Aware Distillation of a vision-language model silently discarding the ModelOpt state, so the distilled checkpoint restored no quantizers and exported as an unquantized model. Re-run QAD to regenerate any affected checkpoint.
+- Fix Megatron-Core HuggingFace export silently omitting fused (grouped GEMM) MoE experts for architectures without an `experts.linear_fc1` rule (e.g. `Qwen3MoeForCausalLM`), which produced a valid-looking checkpoint containing no expert weights. The exporter now raises instead of writing that checkpoint; the scripts also avoid the situation by selecting `SequentialMLP` for those architectures.
+- Fix GatedDeltaNet (Qwen3.5) quantizer exclusions on Megatron-Core: the recipe patterns name the HuggingFace `linear_attn` module, so the `conv1d` was calibrated and the alpha / beta gate projections were exported in FP8. `conv1d` now has a `self_attention` alias in the default disabled-quantizer units, and the alpha / beta projections are exported in BF16 (they share Megatron's fused `in_proj` quantizer and cannot be disabled by name).
+- Fix quantizing a Megatron-Core GPT `output_layer` (HuggingFace `lm_head`) failing to checkpoint: megatron-core drops `output_layer._extra_state`, where ModelOpt keeps quantizer state, so saving raised and loading silently restored the layer unquantized. ModelOpt now retains that entry for every Megatron model, and disables the workaround once megatron-core keeps it itself.
+- Fix Megatron-Core HuggingFace export writing Qwen3.5 / Qwen3.6 MoE routed experts as one packed tensor per layer, which vLLM cannot load (`Layer ... has no parameter 'w2_weight_weight_scale_2'`). Quantized exports now write one entry per expert with `gate_proj` / `up_proj` split, matching the released NVFP4 checkpoints.
+- Megatron-Core HuggingFace export now names unquantized grouped-GEMM MoE experts in `exclude_modules` instead of omitting them, so a mixed-precision checkpoint tells the runtime what is not quantized. This adds one `hf_quant_config.json` entry per expert per layer for grouped-expert architectures such as `NemotronHForCausalLM`; the served numerics are unchanged.
+- Remove `--moe_calib_experts_ratio` from `examples/megatron_bridge/quantize.py`. It was accepted but had no effect there: the option is implemented only for HuggingFace MoE modules, so Megatron models silently ignored it. It remains available in `examples/hf_ptq/hf_ptq.py`, where it works.
+- Fix image-text (VLM) calibration hanging on multi-GPU: the per-subset sample budget used truncating division, so the stream supplied fewer samples than requested (1023 for `--calib_num_samples 1024` over 3 subsets) and the strided data-parallel sharder left the trailing rank one sample short, deadlocking calibration until a 30-minute NCCL/gloo timeout. Subset budgets now sum exactly, and the sharder truncates every rank to the same count.
+- Fix Megatron-Core quantized KV-cache scales being dropped when a Qwen checkpoint is exported to HuggingFace: `k_scale` / `v_scale` were omitted and `kv_cache_quant_algo` left unset for every Qwen architecture, so a checkpoint calibrated with an FP8 or NVFP4 KV cache silently served an unquantized one.
+- Megatron-Core HuggingFace export now verifies its own output: if the exported checkpoint is missing tensors the source checkpoint has (an architecture whose module has no export rule), it raises instead of writing a valid-looking checkpoint. Depth-pruned models and tied embeddings are accounted for.
+- Loading a Megatron checkpoint that holds quantizer tensors but no restorable ModelOpt state now raises instead of silently loading the model unquantized.
+- Fix image-text calibration for non-Nemotron VLMs by forwarding multimodal batches through the complete VLM.
+- Update HuggingFace checkpoint export to use name-based tied-weight deduplication instead of the previous address-based approach. The address-based deduplication could incorrectly drop an untied weight that happened to share memory with a tied one, producing an incomplete checkpoint (observed as a false positive on MiniMax-M2.7).
+- Fix EAGLE-3 training with context parallelism (`--cp_size > 1` in `examples/speculative_decoding`), which failed to start on `accelerate >= 1.13` and then raised `got mixed torch.Tensor and DTensor`.
+- Polygraphy minimum dependency upgraded to `0.53.4` to solve ONNX AutoCast failures when marking optional graph outputs.
+- Fix `--kv_cache_free_gpu_memory_fraction` having no effect on the `lm_eval` task of `examples/hf_ptq/scripts/huggingface_example.sh`, where the KV cache always took TensorRT-LLM's default 90% of free GPU memory and evaluation could run out of memory. `examples/llm_eval/lm_eval_trtllm.py` now takes `kv_cache_free_gpu_memory_fraction` in `--model_args`, defaulting to 0.8.
+

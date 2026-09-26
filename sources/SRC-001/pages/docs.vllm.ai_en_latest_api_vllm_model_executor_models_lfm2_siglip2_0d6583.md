@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/lfm2_siglip2/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -63,7 +63,7 @@ Parameters:
 
 [¶](https://docs.vllm.ai#vllm.model_executor.models.lfm2_siglip2.Siglip2Encoder(config))`Siglip2VisionConfig`
 
-) –PretrainedConfig
+) –PreTrainedConfig
 
 
 ## Source code in `vllm/model_executor/models/lfm2_siglip2.py`

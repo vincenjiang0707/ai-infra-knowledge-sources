@@ -1,0 +1,3 @@
+source: https://rocm.docs.amd.com/en/latest/reference/gpu-arch/gcn-vega.html
+
+AMD GCN and Vega architectures# This page collects instruction set architecture (ISA) references for the AMD GCN and Vega GPU architectures. Detailed microarchitecture documentation for these architectures is coming soon. ISA references# AMD Vega 7nm (Instinct MI50) ISA reference AMD Vega (Instinct MI25) ISA reference AMD GCN 3 ISA reference

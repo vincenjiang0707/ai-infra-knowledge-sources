@@ -1,12 +1,12 @@
 # ray-project/kuberay
 
-- stars: 2704
-- forks: 868
-- open_issues: 795
+- stars: 2707
+- forks: 873
+- open_issues: 789
 - default_branch: master
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-22T22:44:16Z
+- pushed_at: 2026-09-25T01:39:07Z
 - homepage: 
 
 ## README

@@ -1,21 +1,45 @@
 source: https://huggingface.co/papers
 
-Submitted by Michaelqaz 17 GAE: Learning a Geometry-Native Latent Space for 3D-Consistent World Generation ARC Lab, Tencent 120 2
+Submitted by HaoboZheng 76 SpeakerMem-R1: Speaker-Centered Dual-Track Memory for Multi-Party Dialogue Zhejiang University 70 3
 
-Submitted by Bang-UdeM-Mila 15 Circuit Hypernetworks for Quantum-Augmented Diffusion Language Models Université de Montréal 1
+Submitted by zwq2018 41 Spatial-Interactor: Learning Spatial Reasoning through Interaction with the Observable Physical World ZJU-OmniAI 45 3
 
-Submitted by GMLHUHE 10 From Pattern Recognizers to Personalized Companions: A Survey of Large Language Models in Mental Health · 11 authors 126 1
+Submitted by Harold328 35 The Past Frames the Future: Memory for Autoregressive Video Generation · 25 authors 50 1
 
-Submitted by mukul54 10 Flash-dLLM: IO-Aware KV Caching and Parallel Decoding for Fast, Memory-Efficient Diffusion LLMs Mohamed Bin Zayed University of Artificial Intelligence 2 1
+Submitted by yli-ml 31 Just-in-Time Memory: Learning to Curate Task-Adaptive Memory for LLM Agents Salesforce AI Research 1
 
-Submitted by taesiri 9 Ovis-Embedding: Pushing the Frontiers of Universal Omni-Modal Embeddings · 1 authors 19
+Submitted by EddieYang428 20 RewardVerse: Rubric-Guided Policy Optimization for Video Reward Modeling Tencent 4 1
 
-Submitted by Yesianrohn 8 All-in-One Multilingual Scene Text Recognition with Script-aware Mixture-of-Experts Fudan University 2 1
+Submitted by Silin-Chen 14 Schrödinger's Code Repository: Have LLMs Learned SWE-bench or Memorized It? Shanghai Jiao Tong University 5 1
 
-Submitted by Changqian 5 StableVQ: Practical Guidelines for Stable Vector-Quantized Tokenizer Training Kolors Team, Kuaishou Technology 1
+Submitted by ammarali32 10 GeoPair: Geometry-Preserving Cross-Layer Factorization for Training-Free Transformer Compression MWS AI 1
 
-Submitted by imsuperkong 1 Geometric and Semantic Coupling for Interaction Understanding in 3D Scenes · 2 authors 1 1
+Submitted by donghao-zhou 10 PackLab: A Comprehensive Framework for Developing, Training, and Evaluating MLLMs in Robotic Bin Packing The Chinese University of Hong Kong 8 1
 
-Submitted by wenbopan - The Tasteful Agent: Measuring and Improving Taste in Long-Horizon Tasks Microsoft 1
+Submitted by soujanyaporia 8 MemBodied: Recurrent Associative Memory for Vision-Language-Action Models · 7 authors 9 1
 
-Submitted by NJ50 - ALPINE: Adaptive Localization for Parameter- and Sample-Efficient Few-Shot Learning · 1 authors 0 1
+Submitted by ethanning 8 WhatWorkedBench: Benchmarking Experimental Understanding in AI Agents Carnegie Mellon University 2 1
+
+Submitted by taesiri 6 Verifiable Hidden Dynamics Play: Generating Agentic RL Environments from Solved Mechanisms Qwen
+
+Submitted by ohad204 5 All modalities are equal, but video is more equal: Closing the Cross-Attention Gap in Joint Video Generation Bar-Ilan University 0 1
+
+Submitted by taesiri 4 InternW0: A Foundational Physical World Model for Efficient Real-World Interactions · 26 authors
+
+Submitted by rasgaard 2 Six Layers Less: Encoder Pruning for Whisper with Label-Free Recovery · 2 authors 0 2
+
+Submitted by zeyush 2 EmbodiedSWE: Coding Agents for Long Horizon Dexterous Robotics · 19 authors 36 1
+
+Submitted by alexmartin1722 1 Knowledge Pull Requests for Continual Document Authoring · 2 authors 0 1
+
+Submitted by Xiaoyuluoit97 1 Capable yet Parsimonious: Extracting and Characterizing Hidden Chain-of-Thought in Frontier Models Sea-Fill 1
+
+Submitted by wisdompan 1 X-Planner: Event-Structured Task Planning for Embodied Intelligence · 32 authors 100 1
+
+Submitted by Alexiush 1 FLEET: From Logits Entropy to Enhanced Trajectories in Text Generation · 2 authors 0 1
+
+Submitted by leehenry 1 MemoryAthena: Adaptive Routing over Latent and Generated Memories Omni Language AI Research 0 1
+
+Submitted by cgnorthcutt 1 StudentBench: AI and human tutoring yield equivalent GRE learning gains Handshake AI Research 1 5
+
+Submitted by 1zeryu - Uranus: Building the Next-Generation Simulation Infrastructure for Embodied AI D-Robotics 4 1

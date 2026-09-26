@@ -5,48 +5,21 @@
  "priority": "扩",
  "scrape_type": "github_repo",
  "blocked_reason": null,
- "status": "success",
+ "status": "not_fetched",
  "started_at": "2026-09-23T03:21:26Z",
- "finished_at": "2026-09-23T03:21:26Z",
- "duration_seconds": 19.8,
- "attempts": 1,
+ "finished_at": "2026-09-25T15:30:14Z",
+ "duration_seconds": 251.2,
+ "attempts": 4,
  "channels": {
   "gh_e0b89e7b": {
    "type": "github_repo",
-   "url": "https://github.com/bitsandbytes-foundation/bitsandbytes",
-   "readme": "embedded",
-   "status": "ok",
-   "output": "github_repo.md",
-   "issues": {
-    "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at"
-   },
-   "pulls": {
-    "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at"
-   },
-   "releases": {
-    "status": "ok",
-    "count": 36
-   },
-   "changelog": {
-    "status": "ok",
-    "output": "github_changelog.md",
-    "from": "CHANGELOG.md",
-    "probed": [
-     "CHANGELOG.md",
-     "CHANGES.md",
-     "HISTORY.md",
-     "NEWS.md"
-    ]
-   }
+   "status": "error",
+   "error": "BrokenPipeError(32, 'Broken pipe')"
   }
  },
  "cursor": {
   "gh_e0b89e7b:issues": {
-   "last_updated_at": "2026-09-15T12:48:13Z"
+   "last_updated_at": "2026-09-23T21:39:55Z"
   },
   "gh_e0b89e7b:pulls": {
    "last_updated_at": "2026-09-23T07:07:21Z"

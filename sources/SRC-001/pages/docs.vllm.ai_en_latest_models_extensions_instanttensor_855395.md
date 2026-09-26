@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/models/extensions/instanttensor/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Loading Model Weights with InstantTensor[¶](https://docs.vllm.ai#loading-model-weights-with-instanttensor)
 

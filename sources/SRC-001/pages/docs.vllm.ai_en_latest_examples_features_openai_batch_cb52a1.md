@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/features/openai_batch/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Offline Inference with the OpenAI Batch file format[¶](https://docs.vllm.ai#offline-inference-with-the-openai-batch-file-format)
 
@@ -54,10 +54,12 @@ The batch running tool is designed to be used from the command line.
 You can run the batch with the following command, which will write its results to a file called `results.jsonl`
 
 
+```bash
 python -m vllm.entrypoints.launchers.run_batch \
 -i examples/features/openai_batch/openai_example_batch.jsonl \
 -o results.jsonl \
 --model meta-llama/Meta-Llama-3-8B-Instruct
+```
 
 
 or use command-line:
@@ -88,10 +90,12 @@ For example, to run against our example input file located at `https://raw.githu
 
 , you can run
 
+```bash
 python -m vllm.entrypoints.launchers.run_batch \
 -i https://raw.githubusercontent.com/vllm-project/vllm/main/examples/features/openai_batch/openai_example_batch.jsonl \
 -o results.jsonl \
 --model meta-llama/Meta-Llama-3-8B-Instruct
+```
 
 
 or use command-line:
@@ -200,10 +204,12 @@ output_url='https://s3.us-west-2.amazonaws.com/MY_BUCKET/MY_OUTPUT_FILE.jsonl?AW
 
 You can now run the batch runner, using the urls generated in the previous section.
 
+```bash
 python -m vllm.entrypoints.launchers.run_batch \
 -i "https://s3.us-west-2.amazonaws.com/MY_BUCKET/MY_INPUT_FILE.jsonl?AWSAccessKeyId=ABCDEFGHIJKLMNOPQRST&Signature=abcdefghijklmnopqrstuvwxyz12345&Expires=1715800091" \
 -o "https://s3.us-west-2.amazonaws.com/MY_BUCKET/MY_OUTPUT_FILE.jsonl?AWSAccessKeyId=ABCDEFGHIJKLMNOPQRST&Signature=abcdefghijklmnopqrstuvwxyz12345&Expires=1715800091" \
 --model meta-llama/Meta-Llama-3-8B-Instruct
+```
 
 
 or use command-line:

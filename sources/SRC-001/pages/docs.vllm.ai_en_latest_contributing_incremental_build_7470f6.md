@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/contributing/incremental_build/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Incremental Compilation Workflow[¶](https://docs.vllm.ai#incremental-compilation-workflow)
 
@@ -94,6 +94,7 @@ Below is an example of what the generated `CMakeUserPresets.json`
 
 might look like. The script will tailor these values based on your system and any input you provide.
 
+```json
 {
 "version": 6,
 "cmakeMinimumRequired": {
@@ -128,6 +129,7 @@ might look like. The script will tailor these values based on your system and an
 }
 ]
 }
+```
 
 
 **What do the various configurations mean?**

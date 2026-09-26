@@ -1,6 +1,6 @@
 # triton-inference-server/perf_analyzer
 
-- stars: 160
+- stars: 161
 - forks: 51
 - open_issues: 52
 - default_branch: main

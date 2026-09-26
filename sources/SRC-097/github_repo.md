@@ -1,12 +1,12 @@
 # ai-dynamo/nixl
 
-- stars: 1266
-- forks: 452
-- open_issues: 288
+- stars: 1272
+- forks: 455
+- open_issues: 286
 - default_branch: main
 - archived: False
 - license: NOASSERTION
-- pushed_at: 2026-09-23T02:36:37Z
+- pushed_at: 2026-09-25T16:41:36Z
 - homepage: 
 
 ## README

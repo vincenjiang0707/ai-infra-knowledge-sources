@@ -9,6 +9,14 @@
    "site_ddde0c76": {
     "type": "site",
     "url": "https://docs.vllm.ai/en/latest/"
+   },
+   "site_7c6687ed": {
+    "type": "site",
+    "url": "https://docs.vllm.ai/en/latest/configuration/optimization/"
+   },
+   "site_5405c34f": {
+    "type": "site",
+    "url": "https://docs.vllm.ai/projects/recipes/en/stable/"
    }
   },
   "status": "success",
@@ -16,7 +24,7 @@
   "finished_at": "2026-09-23T04:53:57Z",
   "duration_seconds": 2839.1,
   "attempts": 1,
-  "channel_count": 1,
+  "channel_count": 3,
   "channels_ok": 1,
   "channel_types": [
    "site"
@@ -638,8 +646,17 @@
   "scrape_type": "site",
   "channels": {
    "site_c26a2db8": {
-    "type": "site",
-    "url": "https://rocm.blogs.amd.com/"
+    "type": "blog",
+    "url": "https://rocm.blogs.amd.com/",
+    "index_urls": [
+     "https://rocm.blogs.amd.com/index.html",
+     "https://rocm.blogs.amd.com/ai.html",
+     "https://rocm.blogs.amd.com/hpc.html",
+     "https://rocm.blogs.amd.com/data-science.html",
+     "https://rocm.blogs.amd.com/systems.html",
+     "https://rocm.blogs.amd.com/developers.html",
+     "https://rocm.blogs.amd.com/robotics.html"
+    ]
    }
   },
   "status": "success",
@@ -650,7 +667,7 @@
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "blog"
   ],
   "notes": ""
  },
@@ -3866,7 +3883,7 @@
   "scrape_type": "site",
   "channels": {
    "site_f61f6e52": {
-    "type": "site",
+    "type": "blog",
     "url": "https://pytorch.org/blog/"
    }
   },
@@ -3878,7 +3895,7 @@
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "blog"
   ],
   "notes": ""
  },
@@ -3914,7 +3931,7 @@
   "scrape_type": "site",
   "channels": {
    "site_b68cfc03": {
-    "type": "js",
+    "type": "blog",
     "url": "https://www.baseten.co/blog/"
    }
   },
@@ -3962,7 +3979,7 @@
   "scrape_type": "site",
   "channels": {
    "site_4e3ee560": {
-    "type": "site",
+    "type": "blog",
     "url": "https://www.together.ai/blog"
    }
   },
@@ -3974,7 +3991,7 @@
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "blog"
   ],
   "notes": ""
  },
@@ -3986,7 +4003,7 @@
   "scrape_type": "site",
   "channels": {
    "site_943ea1df": {
-    "type": "js",
+    "type": "blog",
     "url": "https://fireworks.ai/blog"
    }
   },
@@ -4010,7 +4027,7 @@
   "scrape_type": "site",
   "channels": {
    "site_11c7c0f2": {
-    "type": "site",
+    "type": "blog",
     "url": "https://modal.com/blog"
    }
   },
@@ -4022,7 +4039,7 @@
   "channel_count": 1,
   "channels_ok": 1,
   "channel_types": [
-   "site"
+   "blog"
   ],
   "notes": ""
  },
@@ -4034,7 +4051,7 @@
   "scrape_type": "site",
   "channels": {
    "site_1550f989": {
-    "type": "js",
+    "type": "blog",
     "url": "https://www.anyscale.com/blog"
    }
   },
@@ -4082,7 +4099,7 @@
   "scrape_type": "site",
   "channels": {
    "site_64d7727e": {
-    "type": "js",
+    "type": "blog",
     "url": "https://cloud.google.com/blog/products/ai-machine-learning"
    }
   },
@@ -4250,7 +4267,7 @@
   "scrape_type": "site",
   "channels": {
    "site_1fd10d56": {
-    "type": "site",
+    "type": "blog",
     "url": "https://leimao.github.io/blog/"
    }
   },
@@ -4984,14 +5001,6 @@
    "ref_3c0bf8d0": {
     "type": "reference",
     "url": "https://github.com/DefTruth/Awesome-LLM-Inference/releases"
-   },
-   "site_7c6687ed": {
-    "type": "site",
-    "url": "https://docs.vllm.ai/en/latest/configuration/optimization/"
-   },
-   "site_5405c34f": {
-    "type": "site",
-    "url": "https://docs.vllm.ai/projects/recipes/en/stable/"
    }
   },
   "status": "success",
@@ -4999,12 +5008,11 @@
   "finished_at": "2026-09-23T03:57:10Z",
   "duration_seconds": 66.6,
   "attempts": 1,
-  "channel_count": 6,
+  "channel_count": 4,
   "channels_ok": 6,
   "channel_types": [
    "github_repo",
-   "reference",
-   "site"
+   "reference"
   ],
   "notes": ""
  },

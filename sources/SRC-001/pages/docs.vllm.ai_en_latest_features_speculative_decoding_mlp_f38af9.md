@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/speculative_decoding/mlp/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # MLP Draft Models[¶](https://docs.vllm.ai#mlp-draft-models)
 

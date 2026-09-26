@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/interns1_pro/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 @MULTIMODAL_REGISTRY.register_processor(
 Qwen3VLMultiModalProcessor,
@@ -27,7 +27,7 @@ orig_to_new_prefix={
 )
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
 super(Qwen3VLForConditionalGeneration, self).__init__()
-config: PretrainedConfig = vllm_config.model_config.hf_config
+config: PreTrainedConfig = vllm_config.model_config.hf_config
 multimodal_config = vllm_config.model_config.get_multimodal_config()
 self.config = config
 self.multimodal_config = multimodal_config

@@ -1,12 +1,12 @@
 # LMCache/LMCache
 
-- stars: 11891
-- forks: 1940
-- open_issues: 780
+- stars: 11908
+- forks: 1954
+- open_issues: 752
 - default_branch: dev
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-23T03:22:26Z
+- pushed_at: 2026-09-25T10:05:00Z
 - homepage: https://lmcache.ai/
 
 ## README

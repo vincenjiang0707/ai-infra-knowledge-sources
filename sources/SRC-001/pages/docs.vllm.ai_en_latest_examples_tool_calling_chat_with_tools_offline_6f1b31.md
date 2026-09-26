@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/tool_calling/chat_with_tools_offline/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Chat With Tools Offline[¶](https://docs.vllm.ai#chat-with-tools-offline)
 

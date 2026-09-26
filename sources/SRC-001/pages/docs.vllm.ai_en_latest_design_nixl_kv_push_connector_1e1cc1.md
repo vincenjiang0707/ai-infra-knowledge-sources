@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/nixl_kv_push_connector/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # NIXL push-mode KV transfer[¶](https://docs.vllm.ai#nixl-push-mode-kv-transfer)
 

@@ -7,20 +7,17 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T08:12:04Z",
- "finished_at": "2026-09-23T08:12:04Z",
- "duration_seconds": 21.1,
- "attempts": 1,
+ "finished_at": "2026-09-24T18:51:04Z",
+ "duration_seconds": 2.3,
+ "attempts": 2,
  "channels": {
   "site_485c3425": {
-   "type": "menu",
+   "type": "site",
    "url": "https://docs.mthreads.com/musa-deploy/musa-deploy-doc-online/introduction/",
-   "mode": "menu_bfs",
    "status": "ok",
-   "pages_fetched": 63,
-   "pages_failed": 0,
-   "md_written": 61,
-   "output_dir": "pages/",
-   "cap": 200
+   "output": "page.md",
+   "mode": "page",
+   "chars": 308
   }
  },
  "cursor": {

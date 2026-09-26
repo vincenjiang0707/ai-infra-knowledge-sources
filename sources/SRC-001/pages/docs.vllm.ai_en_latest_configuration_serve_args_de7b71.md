@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/configuration/serve_args/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Server Arguments[¶](https://docs.vllm.ai#server-arguments)
 

@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:37:30Z",
- "finished_at": "2026-09-23T03:37:30Z",
- "duration_seconds": 60.7,
- "attempts": 1,
+ "finished_at": "2026-09-25T19:42:48Z",
+ "duration_seconds": 436.1,
+ "attempts": 4,
  "channels": {
   "gh_8a240e31": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 29,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 21,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -46,25 +56,25 @@
   "ref_e3528ce5": {
    "type": "reference",
    "url": "https://github.com/flashinfer-ai/flashinfer-bench/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 1183
   },
   "ref_684ca02b": {
    "type": "reference",
    "url": "https://github.com/flashinfer-ai/flashinfer-bench/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 5350
+   "mode": "page",
+   "chars": 5529
   },
   "ref_fe7870c4": {
    "type": "reference",
    "url": "https://github.com/flashinfer-ai/flashinfer-bench/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 11325
   }
  },

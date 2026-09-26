@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:54:01Z",
- "finished_at": "2026-09-23T03:54:01Z",
- "duration_seconds": 108.2,
- "attempts": 1,
+ "finished_at": "2026-09-25T02:25:19Z",
+ "duration_seconds": 75.9,
+ "attempts": 3,
  "channels": {
   "gh_745a5b99": {
    "type": "github_repo",
@@ -20,12 +20,12 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
@@ -52,12 +52,12 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
@@ -78,34 +78,34 @@
   "ref_f11474b0": {
    "type": "reference",
    "url": "https://github.com/vllm-project/llm-compressor/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 6213
   },
   "ref_6d0aa5cb": {
    "type": "reference",
    "url": "https://github.com/vllm-project/llm-compressor/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 5294
+   "mode": "page",
+   "chars": 5589
   },
   "ref_3e271fb0": {
    "type": "reference",
    "url": "https://github.com/vllm-project/llm-compressor/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 40207
   }
  },
  "cursor": {
   "gh_745a5b99:issues": {
-   "last_updated_at": "2026-09-23T02:29:33Z"
+   "last_updated_at": "2026-09-24T20:20:26Z"
   },
   "gh_745a5b99:pulls": {
-   "last_updated_at": "2026-09-23T03:49:20Z"
+   "last_updated_at": "2026-09-24T21:21:04Z"
   },
   "gh_745a5b99:releases": {
    "last_id": 394028438
@@ -114,7 +114,7 @@
    "last_updated_at": "2026-09-07T08:13:33Z"
   },
   "gh_f7eb06cb:pulls": {
-   "last_updated_at": "2026-09-22T09:33:00Z"
+   "last_updated_at": "2026-09-25T01:56:21Z"
   },
   "gh_f7eb06cb:releases": {
    "last_id": 388827104

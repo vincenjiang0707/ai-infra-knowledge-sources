@@ -1,5 +1,3 @@
-# FlashInfer
-
 source: https://github.com/Dao-AILab/flash-attention/releases
 
 # Releases: Dao-AILab/flash-attention
@@ -7,6 +5,25 @@ source: https://github.com/Dao-AILab/flash-attention/releases
 Releases · Dao-AILab/flash-attention
 
 ## Release list
+
+## fa4-v4.0.0.beta32
+
+## What's Changed
+
+- [CuTe, SM100] Sparse MLA bwd: in-kernel recompute-P + token-chunked backward by
+[@abcdabcd987](https://github.com/abcdabcd987)in[#2816](https://github.com/Dao-AILab/flash-attention/pull/2816) - Build CUDA extension with C++20 on PyTorch 2.13+ by
+[@zhang-keliang](https://github.com/zhang-keliang)in[#2879](https://github.com/Dao-AILab/flash-attention/pull/2879) - ci: add PyTorch 2.14 to the wheel build matrix by
+[@Johnsonms](https://github.com/Johnsonms)in[#2892](https://github.com/Dao-AILab/flash-attention/pull/2892) - ci: registry-free GPU job (runner-local SIF) + verify the provisioned overlay from a fresh session by
+[@Johnsonms](https://github.com/Johnsonms)in[#2894](https://github.com/Dao-AILab/flash-attention/pull/2894) - Compile with c++20 for pytorch 2.13+ by
+[@cih9088](https://github.com/cih9088)in[#2899](https://github.com/Dao-AILab/flash-attention/pull/2899) - [ROCM] add FLASH_ATTENTION_USE_SYSTEM_AITER flag and commit bump by
+[@micmelesse](https://github.com/micmelesse)in[#2900](https://github.com/Dao-AILab/flash-attention/pull/2900) - [CuTe, SM100] Support 1..128 Q heads in sparse MLA via in-kernel TMA padding by
+[@drisspg](https://github.com/drisspg)in[#2883](https://github.com/Dao-AILab/flash-attention/pull/2883)
+
+## New Contributors
+
+[@zhang-keliang](https://github.com/zhang-keliang)made their first contribution in[#2879](https://github.com/Dao-AILab/flash-attention/pull/2879)[@cih9088](https://github.com/cih9088)made their first contribution in[#2899](https://github.com/Dao-AILab/flash-attention/pull/2899)
+
+**Full Changelog**: `fa4-v4.0.0.beta31...fa4-v4.0.0.beta32`
 
 ## fa4-v4.0.0.beta31
 
@@ -115,19 +132,3 @@ treating a window bound of 0 as unbounded (sliding window) by[@lollinng](https:/
 [@yunweili3](https://github.com/yunweili3)in[#2717](https://github.com/Dao-AILab/flash-attention/pull/2717)
 
 **Full Changelog**: `fa4-v4.0.0.beta22...fa4-v4.0.0.beta23`
-
-## fa4-v4.0.0.beta22
-
-## What's Changed
-
-- add tcgen.ld.red support to sm103a arch by
-[@drisspg](https://github.com/drisspg)in[#2696](https://github.com/Dao-AILab/flash-attention/pull/2696) - [CuTe, Bwd] Fix backward compile key churn due to pickling, max_seqlen is a tensor by
-[@michaelxu-msft](https://github.com/michaelxu-msft)in[#2507](https://github.com/Dao-AILab/flash-attention/pull/2507) - hopper/setup.py: harden tarfile extraction against path traversal and symlink escape by
-[@aryanputta](https://github.com/aryanputta)in[#2702](https://github.com/Dao-AILab/flash-attention/pull/2702) - Enable 2CTA for SM100 block-sparse backward by
-[@drisspg](https://github.com/drisspg)in[#2661](https://github.com/Dao-AILab/flash-attention/pull/2661)
-
-## New Contributors
-
-[@michaelxu-msft](https://github.com/michaelxu-msft)made their first contribution in[#2507](https://github.com/Dao-AILab/flash-attention/pull/2507)
-
-**Full Changelog**: `fa4-v4.0.0.beta21...fa4-v4.0.0.beta22`

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-24T09:53:11Z",
+ "generated_at": "2026-09-26T01:05:10Z",
  "source_count": 170,
  "sources": [
   {
@@ -17,7 +17,7 @@
     },
     {
      "path": "sources/SRC-001/pages/",
-     "label": "pages/ (1991 files)"
+     "label": "pages/ (2050 files)"
     }
    ],
    "_meta": "sources/SRC-001/_meta.json"
@@ -61,7 +61,7 @@
     },
     {
      "path": "sources/SRC-003/github_details/",
-     "label": "github_details/ (298 files)"
+     "label": "github_details/ (471 files)"
     },
     {
      "path": "sources/SRC-003/github_issues.jsonl",
@@ -101,7 +101,7 @@
     },
     {
      "path": "sources/SRC-004/github_details/",
-     "label": "github_details/ (395 files)"
+     "label": "github_details/ (400 files)"
     },
     {
      "path": "sources/SRC-004/github_issues.jsonl",
@@ -145,7 +145,7 @@
     },
     {
      "path": "sources/SRC-005/github_details/",
-     "label": "github_details/ (252 files)"
+     "label": "github_details/ (277 files)"
     },
     {
      "path": "sources/SRC-005/github_issues.jsonl",
@@ -185,7 +185,7 @@
     },
     {
      "path": "sources/SRC-006/github_details/",
-     "label": "github_details/ (73 files)"
+     "label": "github_details/ (255 files)"
     },
     {
      "path": "sources/SRC-006/github_issues.jsonl",
@@ -229,7 +229,7 @@
     },
     {
      "path": "sources/SRC-007/github_details/",
-     "label": "github_details/ (2 files)"
+     "label": "github_details/ (25 files)"
     },
     {
      "path": "sources/SRC-007/github_issues.jsonl",
@@ -269,7 +269,7 @@
     },
     {
      "path": "sources/SRC-008/github_details/",
-     "label": "github_details/ (177 files)"
+     "label": "github_details/ (186 files)"
     },
     {
      "path": "sources/SRC-008/github_issues.jsonl",
@@ -309,7 +309,7 @@
     },
     {
      "path": "sources/SRC-009/github_details/",
-     "label": "github_details/ (154 files)"
+     "label": "github_details/ (351 files)"
     },
     {
      "path": "sources/SRC-009/github_issues.jsonl",
@@ -353,7 +353,7 @@
     },
     {
      "path": "sources/SRC-010/github_details/",
-     "label": "github_details/ (134 files)"
+     "label": "github_details/ (178 files)"
     },
     {
      "path": "sources/SRC-010/github_issues.jsonl",
@@ -397,7 +397,7 @@
     },
     {
      "path": "sources/SRC-011/github_details/",
-     "label": "github_details/ (64 files)"
+     "label": "github_details/ (63 files)"
     },
     {
      "path": "sources/SRC-011/github_issues.jsonl",
@@ -440,6 +440,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-012/github_details/",
+     "label": "github_details/ (11 files)"
+    },
+    {
      "path": "sources/SRC-012/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -478,6 +482,10 @@
     {
      "path": "sources/SRC-013/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-013/github_details/",
+     "label": "github_details/ (182 files)"
     },
     {
      "path": "sources/SRC-013/github_issues.jsonl",
@@ -538,6 +546,10 @@
     {
      "path": "sources/SRC-015/page.md",
      "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-015/pages/",
+     "label": "pages/ (214 files)"
     }
    ],
    "_meta": "sources/SRC-015/_meta.json"
@@ -558,6 +570,10 @@
     {
      "path": "sources/SRC-016/page.md",
      "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-016/pages/",
+     "label": "pages/ (894 files)"
     }
    ],
    "_meta": "sources/SRC-016/_meta.json"
@@ -578,6 +594,10 @@
     {
      "path": "sources/SRC-017/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-017/github_details/",
+     "label": "github_details/ (194 files)"
     },
     {
      "path": "sources/SRC-017/github_issues.jsonl",
@@ -618,6 +638,10 @@
     {
      "path": "sources/SRC-018/page.md",
      "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-018/pages/",
+     "label": "pages/ (318 files)"
     }
    ],
    "_meta": "sources/SRC-018/_meta.json"
@@ -658,6 +682,10 @@
     {
      "path": "sources/SRC-020/page.md",
      "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-020/pages/",
+     "label": "pages/ (255 files)"
     }
    ],
    "_meta": "sources/SRC-020/_meta.json"
@@ -668,7 +696,7 @@
    "category": "NVIDIA、AMD 与通⽤芯⽚软件栈",
    "status": "success",
    "scrape_type": "site",
-   "channel_type": "site",
+   "channel_type": "blog",
    "url": "https://rocm.blogs.amd.com/",
    "files": [
     {
@@ -681,7 +709,7 @@
     },
     {
      "path": "sources/SRC-021/posts/",
-     "label": "posts/ (20 files)"
+     "label": "posts/ (37 files)"
     }
    ],
    "_meta": "sources/SRC-021/_meta.json"
@@ -702,6 +730,10 @@
     {
      "path": "sources/SRC-022/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-022/github_details/",
+     "label": "github_details/ (180 files)"
     },
     {
      "path": "sources/SRC-022/github_issues.jsonl",
@@ -744,6 +776,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-023/github_details/",
+     "label": "github_details/ (133 files)"
+    },
+    {
      "path": "sources/SRC-023/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -780,6 +816,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-024/github_details/",
+     "label": "github_details/ (133 files)"
+    },
+    {
      "path": "sources/SRC-024/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -798,6 +838,10 @@
     {
      "path": "sources/SRC-024/page.md",
      "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-024/pages/",
+     "label": "pages/ (1954 files)"
     }
    ],
    "_meta": "sources/SRC-024/_meta.json"
@@ -860,6 +904,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-027/github_details/",
+     "label": "github_details/ (132 files)"
+    },
+    {
      "path": "sources/SRC-027/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -894,6 +942,10 @@
     {
      "path": "sources/SRC-028/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-028/github_details/",
+     "label": "github_details/ (288 files)"
     },
     {
      "path": "sources/SRC-028/github_issues.jsonl",
@@ -934,6 +986,10 @@
     {
      "path": "sources/SRC-029/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-029/github_details/",
+     "label": "github_details/ (115 files)"
     },
     {
      "path": "sources/SRC-029/github_issues.jsonl",
@@ -1016,6 +1072,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-032/github_details/",
+     "label": "github_details/ (114 files)"
+    },
+    {
      "path": "sources/SRC-032/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -1046,6 +1106,10 @@
     {
      "path": "sources/SRC-033/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-033/github_details/",
+     "label": "github_details/ (129 files)"
     },
     {
      "path": "sources/SRC-033/github_issues.jsonl",
@@ -1084,6 +1148,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-034/github_details/",
+     "label": "github_details/ (16 files)"
+    },
+    {
      "path": "sources/SRC-034/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -1120,6 +1188,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-035/github_details/",
+     "label": "github_details/ (1 files)"
+    },
+    {
      "path": "sources/SRC-035/github_pulls.jsonl",
      "label": "github_pulls.jsonl"
     },
@@ -1150,6 +1222,10 @@
     {
      "path": "sources/SRC-036/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-036/github_details/",
+     "label": "github_details/ (1 files)"
     },
     {
      "path": "sources/SRC-036/github_pulls.jsonl",
@@ -1184,6 +1260,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-037/github_details/",
+     "label": "github_details/ (1 files)"
+    },
+    {
      "path": "sources/SRC-037/github_pulls.jsonl",
      "label": "github_pulls.jsonl"
     },
@@ -1214,6 +1294,10 @@
     {
      "path": "sources/SRC-038/page.md",
      "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-038/pages/",
+     "label": "pages/ (266 files)"
     }
    ],
    "_meta": "sources/SRC-038/_meta.json"
@@ -1234,6 +1318,10 @@
     {
      "path": "sources/SRC-039/page.md",
      "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-039/pages/",
+     "label": "pages/ (55 files)"
     }
    ],
    "_meta": "sources/SRC-039/_meta.json"
@@ -1250,6 +1338,10 @@
     {
      "path": "sources/SRC-040/_meta.json",
      "label": "_meta.json"
+    },
+    {
+     "path": "sources/SRC-040/page.md",
+     "label": "page.md"
     },
     {
      "path": "sources/SRC-040/pages/",
@@ -1286,7 +1378,12 @@
    "scrape_type": "site",
    "channel_type": "",
    "url": "",
-   "files": [],
+   "files": [
+    {
+     "path": "sources/SRC-042/_meta.json",
+     "label": "_meta.json"
+    }
+   ],
    "_meta": "sources/SRC-042/_meta.json"
   },
   {
@@ -1347,6 +1444,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-045/github_details/",
+     "label": "github_details/ (13 files)"
+    },
+    {
      "path": "sources/SRC-045/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -1381,6 +1482,10 @@
     {
      "path": "sources/SRC-046/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-046/github_details/",
+     "label": "github_details/ (163 files)"
     },
     {
      "path": "sources/SRC-046/github_issues.jsonl",
@@ -1663,6 +1768,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-059/github_details/",
+     "label": "github_details/ (178 files)"
+    },
+    {
      "path": "sources/SRC-059/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -1697,6 +1806,10 @@
     {
      "path": "sources/SRC-060/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-060/github_details/",
+     "label": "github_details/ (178 files)"
     },
     {
      "path": "sources/SRC-060/github_issues.jsonl",
@@ -1780,7 +1893,7 @@
     },
     {
      "path": "sources/SRC-063/posts/",
-     "label": "posts/ (179 files)"
+     "label": "posts/ (262 files)"
     }
    ],
    "_meta": "sources/SRC-063/_meta.json"
@@ -1804,7 +1917,7 @@
     },
     {
      "path": "sources/SRC-064/posts/",
-     "label": "posts/ (51 files)"
+     "label": "posts/ (67 files)"
     }
    ],
    "_meta": "sources/SRC-064/_meta.json"
@@ -1825,6 +1938,10 @@
     {
      "path": "sources/SRC-065/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-065/github_details/",
+     "label": "github_details/ (158 files)"
     },
     {
      "path": "sources/SRC-065/github_issues.jsonl",
@@ -1867,6 +1984,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-066/github_details/",
+     "label": "github_details/ (189 files)"
+    },
+    {
      "path": "sources/SRC-066/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -1907,6 +2028,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-067/github_details/",
+     "label": "github_details/ (174 files)"
+    },
+    {
      "path": "sources/SRC-067/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -1941,6 +2066,10 @@
     {
      "path": "sources/SRC-068/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-068/github_details/",
+     "label": "github_details/ (305 files)"
     },
     {
      "path": "sources/SRC-068/github_issues.jsonl",
@@ -1983,6 +2112,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-069/github_details/",
+     "label": "github_details/ (254 files)"
+    },
+    {
      "path": "sources/SRC-069/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -2021,6 +2154,10 @@
     {
      "path": "sources/SRC-070/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-070/github_details/",
+     "label": "github_details/ (220 files)"
     },
     {
      "path": "sources/SRC-070/github_issues.jsonl",
@@ -2063,6 +2200,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-071/github_details/",
+     "label": "github_details/ (136 files)"
+    },
+    {
      "path": "sources/SRC-071/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -2101,6 +2242,10 @@
     {
      "path": "sources/SRC-072/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-072/github_details/",
+     "label": "github_details/ (125 files)"
     },
     {
      "path": "sources/SRC-072/github_issues.jsonl",
@@ -2143,6 +2288,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-073/github_details/",
+     "label": "github_details/ (138 files)"
+    },
+    {
      "path": "sources/SRC-073/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -2177,6 +2326,10 @@
     {
      "path": "sources/SRC-074/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-074/github_details/",
+     "label": "github_details/ (149 files)"
     },
     {
      "path": "sources/SRC-074/github_issues.jsonl",
@@ -2219,6 +2372,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-075/github_details/",
+     "label": "github_details/ (118 files)"
+    },
+    {
      "path": "sources/SRC-075/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -2249,6 +2406,10 @@
     {
      "path": "sources/SRC-076/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-076/github_details/",
+     "label": "github_details/ (219 files)"
     },
     {
      "path": "sources/SRC-076/github_issues.jsonl",
@@ -2287,6 +2448,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-077/github_details/",
+     "label": "github_details/ (208 files)"
+    },
+    {
      "path": "sources/SRC-077/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -2321,6 +2486,10 @@
     {
      "path": "sources/SRC-078/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-078/github_details/",
+     "label": "github_details/ (129 files)"
     },
     {
      "path": "sources/SRC-078/github_issues.jsonl",
@@ -2359,6 +2528,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-079/github_details/",
+     "label": "github_details/ (184 files)"
+    },
+    {
      "path": "sources/SRC-079/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -2393,6 +2566,10 @@
     {
      "path": "sources/SRC-080/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-080/github_details/",
+     "label": "github_details/ (264 files)"
     },
     {
      "path": "sources/SRC-080/github_issues.jsonl",
@@ -2435,6 +2612,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-081/github_details/",
+     "label": "github_details/ (185 files)"
+    },
+    {
      "path": "sources/SRC-081/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -2473,6 +2654,10 @@
     {
      "path": "sources/SRC-082/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-082/github_details/",
+     "label": "github_details/ (139 files)"
     },
     {
      "path": "sources/SRC-082/github_issues.jsonl",
@@ -2515,6 +2700,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-083/github_details/",
+     "label": "github_details/ (94 files)"
+    },
+    {
      "path": "sources/SRC-083/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -2549,6 +2738,10 @@
     {
      "path": "sources/SRC-084/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-084/github_details/",
+     "label": "github_details/ (15 files)"
     },
     {
      "path": "sources/SRC-084/github_issues.jsonl",
@@ -2591,6 +2784,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-085/github_details/",
+     "label": "github_details/ (144 files)"
+    },
+    {
      "path": "sources/SRC-085/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -2625,6 +2822,10 @@
     {
      "path": "sources/SRC-086/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-086/github_details/",
+     "label": "github_details/ (96 files)"
     },
     {
      "path": "sources/SRC-086/github_issues.jsonl",
@@ -2667,6 +2868,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-087/github_details/",
+     "label": "github_details/ (172 files)"
+    },
+    {
      "path": "sources/SRC-087/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -2701,6 +2906,10 @@
     {
      "path": "sources/SRC-088/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-088/github_details/",
+     "label": "github_details/ (239 files)"
     },
     {
      "path": "sources/SRC-088/github_issues.jsonl",
@@ -2743,6 +2952,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-089/github_details/",
+     "label": "github_details/ (159 files)"
+    },
+    {
      "path": "sources/SRC-089/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -2779,6 +2992,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-090/github_details/",
+     "label": "github_details/ (159 files)"
+    },
+    {
      "path": "sources/SRC-090/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -2797,6 +3014,10 @@
     {
      "path": "sources/SRC-090/page.md",
      "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-090/pages/",
+     "label": "pages/ (1813 files)"
     }
    ],
    "_meta": "sources/SRC-090/_meta.json"
@@ -2817,6 +3038,10 @@
     {
      "path": "sources/SRC-091/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-091/github_details/",
+     "label": "github_details/ (11 files)"
     },
     {
      "path": "sources/SRC-091/github_issues.jsonl",
@@ -2859,6 +3084,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-092/github_details/",
+     "label": "github_details/ (193 files)"
+    },
+    {
      "path": "sources/SRC-092/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -2897,6 +3126,10 @@
     {
      "path": "sources/SRC-093/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-093/github_details/",
+     "label": "github_details/ (187 files)"
     },
     {
      "path": "sources/SRC-093/github_issues.jsonl",
@@ -2959,6 +3192,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-095/github_details/",
+     "label": "github_details/ (197 files)"
+    },
+    {
      "path": "sources/SRC-095/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -2997,6 +3234,10 @@
     {
      "path": "sources/SRC-096/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-096/github_details/",
+     "label": "github_details/ (163 files)"
     },
     {
      "path": "sources/SRC-096/github_issues.jsonl",
@@ -3039,6 +3280,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-097/github_details/",
+     "label": "github_details/ (172 files)"
+    },
+    {
      "path": "sources/SRC-097/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -3077,6 +3322,10 @@
     {
      "path": "sources/SRC-098/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-098/github_details/",
+     "label": "github_details/ (142 files)"
     },
     {
      "path": "sources/SRC-098/github_issues.jsonl",
@@ -3173,6 +3422,10 @@
     {
      "path": "sources/SRC-102/page.md",
      "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-102/pages/",
+     "label": "pages/ (75 files)"
     }
    ],
    "_meta": "sources/SRC-102/_meta.json"
@@ -3193,6 +3446,10 @@
     {
      "path": "sources/SRC-103/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-103/github_details/",
+     "label": "github_details/ (151 files)"
     },
     {
      "path": "sources/SRC-103/github_issues.jsonl",
@@ -3229,6 +3486,10 @@
     {
      "path": "sources/SRC-104/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-104/github_details/",
+     "label": "github_details/ (309 files)"
     },
     {
      "path": "sources/SRC-104/github_issues.jsonl",
@@ -3271,6 +3532,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-105/github_details/",
+     "label": "github_details/ (19 files)"
+    },
+    {
      "path": "sources/SRC-105/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -3309,6 +3574,10 @@
     {
      "path": "sources/SRC-106/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-106/github_details/",
+     "label": "github_details/ (156 files)"
     },
     {
      "path": "sources/SRC-106/github_issues.jsonl",
@@ -3391,6 +3660,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-109/github_details/",
+     "label": "github_details/ (149 files)"
+    },
+    {
      "path": "sources/SRC-109/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -3425,6 +3698,10 @@
     {
      "path": "sources/SRC-110/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-110/github_details/",
+     "label": "github_details/ (160 files)"
     },
     {
      "path": "sources/SRC-110/github_issues.jsonl",
@@ -3467,6 +3744,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-111/github_details/",
+     "label": "github_details/ (161 files)"
+    },
+    {
      "path": "sources/SRC-111/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -3485,6 +3766,10 @@
     {
      "path": "sources/SRC-111/page.md",
      "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-111/pages/",
+     "label": "pages/ (3522 files)"
     }
    ],
    "_meta": "sources/SRC-111/_meta.json"
@@ -3505,6 +3790,10 @@
     {
      "path": "sources/SRC-112/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-112/github_details/",
+     "label": "github_details/ (155 files)"
     },
     {
      "path": "sources/SRC-112/github_issues.jsonl",
@@ -3547,6 +3836,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-113/github_details/",
+     "label": "github_details/ (195 files)"
+    },
+    {
      "path": "sources/SRC-113/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -3583,6 +3876,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-114/github_details/",
+     "label": "github_details/ (195 files)"
+    },
+    {
      "path": "sources/SRC-114/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -3601,6 +3898,10 @@
     {
      "path": "sources/SRC-114/page.md",
      "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-114/pages/",
+     "label": "pages/ (25 files)"
     }
    ],
    "_meta": "sources/SRC-114/_meta.json"
@@ -3673,7 +3974,12 @@
    "scrape_type": "academic",
    "channel_type": "",
    "url": "",
-   "files": [],
+   "files": [
+    {
+     "path": "sources/SRC-118/_meta.json",
+     "label": "_meta.json"
+    }
+   ],
    "_meta": "sources/SRC-118/_meta.json"
   },
   {
@@ -3714,6 +4020,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-120/github_details/",
+     "label": "github_details/ (65 files)"
+    },
+    {
      "path": "sources/SRC-120/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -3744,6 +4054,10 @@
     {
      "path": "sources/SRC-121/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-121/github_details/",
+     "label": "github_details/ (65 files)"
     },
     {
      "path": "sources/SRC-121/github_issues.jsonl",
@@ -3814,7 +4128,7 @@
    "category": "⼀⼿⼯程博客与服务商经验",
    "status": "success",
    "scrape_type": "site",
-   "channel_type": "site",
+   "channel_type": "blog",
    "url": "https://pytorch.org/blog/",
    "files": [
     {
@@ -3827,7 +4141,7 @@
     },
     {
      "path": "sources/SRC-124/posts/",
-     "label": "posts/ (38 files)"
+     "label": "posts/ (29 files)"
     }
    ],
    "_meta": "sources/SRC-124/_meta.json"
@@ -3851,7 +4165,7 @@
     },
     {
      "path": "sources/SRC-125/posts/",
-     "label": "posts/ (50 files)"
+     "label": "posts/ (70 files)"
     }
    ],
    "_meta": "sources/SRC-125/_meta.json"
@@ -3862,7 +4176,7 @@
    "category": "⼀⼿⼯程博客与服务商经验",
    "status": "success",
    "scrape_type": "site",
-   "channel_type": "js",
+   "channel_type": "blog",
    "url": "https://www.baseten.co/blog/",
    "files": [
     {
@@ -3875,7 +4189,7 @@
     },
     {
      "path": "sources/SRC-126/posts/",
-     "label": "posts/ (24 files)"
+     "label": "posts/ (12 files)"
     }
    ],
    "_meta": "sources/SRC-126/_meta.json"
@@ -3906,7 +4220,7 @@
    "category": "⼀⼿⼯程博客与服务商经验",
    "status": "success",
    "scrape_type": "site",
-   "channel_type": "site",
+   "channel_type": "blog",
    "url": "https://www.together.ai/blog",
    "files": [
     {
@@ -3919,7 +4233,7 @@
     },
     {
      "path": "sources/SRC-128/posts/",
-     "label": "posts/ (99 files)"
+     "label": "posts/ (102 files)"
     }
    ],
    "_meta": "sources/SRC-128/_meta.json"
@@ -3930,7 +4244,7 @@
    "category": "⼀⼿⼯程博客与服务商经验",
    "status": "success",
    "scrape_type": "site",
-   "channel_type": "js",
+   "channel_type": "blog",
    "url": "https://fireworks.ai/blog",
    "files": [
     {
@@ -3954,7 +4268,7 @@
    "category": "⼀⼿⼯程博客与服务商经验",
    "status": "success",
    "scrape_type": "site",
-   "channel_type": "site",
+   "channel_type": "blog",
    "url": "https://modal.com/blog",
    "files": [
     {
@@ -3967,7 +4281,7 @@
     },
     {
      "path": "sources/SRC-130/posts/",
-     "label": "posts/ (133 files)"
+     "label": "posts/ (134 files)"
     }
    ],
    "_meta": "sources/SRC-130/_meta.json"
@@ -3978,7 +4292,7 @@
    "category": "⼀⼿⼯程博客与服务商经验",
    "status": "success",
    "scrape_type": "site",
-   "channel_type": "js",
+   "channel_type": "blog",
    "url": "https://www.anyscale.com/blog",
    "files": [
     {
@@ -4015,7 +4329,7 @@
     },
     {
      "path": "sources/SRC-132/posts/",
-     "label": "posts/ (22 files)"
+     "label": "posts/ (31 files)"
     }
    ],
    "_meta": "sources/SRC-132/_meta.json"
@@ -4026,7 +4340,7 @@
    "category": "⼀⼿⼯程博客与服务商经验",
    "status": "success",
    "scrape_type": "site",
-   "channel_type": "js",
+   "channel_type": "blog",
    "url": "https://cloud.google.com/blog/products/ai-machine-learning",
    "files": [
     {
@@ -4174,7 +4488,7 @@
    "category": "精选作者、专业社区与新来源发现",
    "status": "partial",
    "scrape_type": "site",
-   "channel_type": "site",
+   "channel_type": "blog",
    "url": "https://leimao.github.io/blog/",
    "files": [
     {
@@ -4187,7 +4501,7 @@
     },
     {
      "path": "sources/SRC-140/posts/",
-     "label": "posts/ (62 files)"
+     "label": "posts/ (61 files)"
     }
    ],
    "_meta": "sources/SRC-140/_meta.json"
@@ -4388,7 +4702,12 @@
    "scrape_type": "site",
    "channel_type": "",
    "url": "",
-   "files": [],
+   "files": [
+    {
+     "path": "sources/SRC-150/_meta.json",
+     "label": "_meta.json"
+    }
+   ],
    "_meta": "sources/SRC-150/_meta.json"
   },
   {
@@ -4470,7 +4789,7 @@
     },
     {
      "path": "sources/SRC-154/posts/",
-     "label": "posts/ (26 files)"
+     "label": "posts/ (56 files)"
     }
    ],
    "_meta": "sources/SRC-154/_meta.json"
@@ -4491,6 +4810,10 @@
     {
      "path": "sources/SRC-155/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-155/github_details/",
+     "label": "github_details/ (6 files)"
     },
     {
      "path": "sources/SRC-155/github_issues.jsonl",
@@ -4529,6 +4852,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-156/github_details/",
+     "label": "github_details/ (13 files)"
+    },
+    {
      "path": "sources/SRC-156/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -4559,6 +4886,10 @@
     {
      "path": "sources/SRC-157/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-157/github_details/",
+     "label": "github_details/ (15 files)"
     },
     {
      "path": "sources/SRC-157/github_issues.jsonl",
@@ -4615,6 +4946,10 @@
     {
      "path": "sources/SRC-159/page.md",
      "label": "page.md"
+    },
+    {
+     "path": "sources/SRC-159/pages/",
+     "label": "pages/ (309 files)"
     }
    ],
    "_meta": "sources/SRC-159/_meta.json"
@@ -4627,7 +4962,12 @@
    "scrape_type": "site",
    "channel_type": "",
    "url": "",
-   "files": [],
+   "files": [
+    {
+     "path": "sources/SRC-160/_meta.json",
+     "label": "_meta.json"
+    }
+   ],
    "_meta": "sources/SRC-160/_meta.json"
   },
   {
@@ -4646,6 +4986,10 @@
     {
      "path": "sources/SRC-161/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-161/github_details/",
+     "label": "github_details/ (121 files)"
     },
     {
      "path": "sources/SRC-161/github_issues.jsonl",
@@ -4708,6 +5052,10 @@
      "label": "github_changelog.md"
     },
     {
+     "path": "sources/SRC-163/github_details/",
+     "label": "github_details/ (52 files)"
+    },
+    {
      "path": "sources/SRC-163/github_issues.jsonl",
      "label": "github_issues.jsonl"
     },
@@ -4765,7 +5113,7 @@
     },
     {
      "path": "sources/SRC-165/posts/",
-     "label": "posts/ (150 files)"
+     "label": "posts/ (100 files)"
     }
    ],
    "_meta": "sources/SRC-165/_meta.json"
@@ -4798,7 +5146,12 @@
    "scrape_type": "site",
    "channel_type": "",
    "url": "",
-   "files": [],
+   "files": [
+    {
+     "path": "sources/SRC-167/_meta.json",
+     "label": "_meta.json"
+    }
+   ],
    "_meta": "sources/SRC-167/_meta.json"
   },
   {
@@ -4817,6 +5170,18 @@
     {
      "path": "sources/SRC-168/github_changelog.md",
      "label": "github_changelog.md"
+    },
+    {
+     "path": "sources/SRC-168/github_details/",
+     "label": "github_details/ (112 files)"
+    },
+    {
+     "path": "sources/SRC-168/github_issues.jsonl",
+     "label": "github_issues.jsonl"
+    },
+    {
+     "path": "sources/SRC-168/github_pulls.jsonl",
+     "label": "github_pulls.jsonl"
     },
     {
      "path": "sources/SRC-168/github_repo.md",

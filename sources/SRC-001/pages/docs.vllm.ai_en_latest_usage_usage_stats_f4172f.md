@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/usage/usage_stats/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Usage Stats Collection[¶](https://docs.vllm.ai#usage-stats-collection)
 
@@ -16,6 +16,7 @@ Here is an example as of v0.4.0:
 ## Output
 
 {
+```json
 "uuid": "fbe880e9-084d-4cab-a395-8984c50f1109",
 "provider": "GCP",
 "num_cpu": 24,
@@ -43,6 +44,7 @@ Here is an example as of v0.4.0:
 "enforce_eager": false,
 "disable_custom_all_reduce": true
 }
+```
 
 
 You can preview the collected data by running the following command:

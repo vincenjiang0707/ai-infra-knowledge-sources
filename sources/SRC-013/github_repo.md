@@ -1,22 +1,24 @@
 # llm-d/llm-d
 
-- stars: 4630
-- forks: 786
-- open_issues: 222
+- stars: 4651
+- forks: 789
+- open_issues: 213
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-23T03:05:13Z
+- pushed_at: 2026-09-24T23:53:27Z
 - homepage: https://www.llm-d.ai
 
 ## README
 
 <p align="center">
+```html
   <picture>
     <source media="(prefers-color-scheme: dark)">
     <img alt="llm-d Logo" src="./docs/assets/images/llm-d-logo.png" width=37%>
   </picture>
 </p>
+```
 
 <h2 align="center">
 Achieve SOTA Inference Performance On Any Accelerator
@@ -79,11 +81,13 @@ Ready to achieve SOTA performance? Follow our [Quickstart Guide](https://llm-d.a
 llm-d accelerates distributed inference by integrating industry-standard open technologies like vLLM and Kubernetes. For more details, see our full [Architecture Documentation](https://llm-d.ai/docs/architecture).
 
 <p align="center">
+```html
   <picture>
     <source media="(prefers-color-scheme: dark)">
     <img alt="llm-d Arch" src="./docs/assets/images/llm-d-arch.svg">
   </picture>
 </p>
+```
 
 ## 📦 Releases
 

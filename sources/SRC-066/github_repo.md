@@ -1,12 +1,12 @@
 # NVIDIA/cutlass
 
-- stars: 10467
-- forks: 2098
-- open_issues: 749
+- stars: 10492
+- forks: 2101
+- open_issues: 756
 - default_branch: main
 - archived: False
 - license: NOASSERTION
-- pushed_at: 2026-09-23T02:55:18Z
+- pushed_at: 2026-09-23T08:49:11Z
 - homepage: https://docs.nvidia.com/cutlass/index.html
 
 ## README

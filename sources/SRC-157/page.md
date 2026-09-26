@@ -1,5 +1,3 @@
-# ncu-report-skill
-
 source: https://github.com/mit-han-lab/ncu-report-skill/releases
 
 # Releases: mit-han-lab/ncu-report-skill

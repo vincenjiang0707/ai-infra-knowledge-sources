@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:02:41Z",
- "finished_at": "2026-09-23T04:02:41Z",
- "duration_seconds": 104.5,
- "attempts": 1,
+ "finished_at": "2026-09-24T18:11:28Z",
+ "duration_seconds": 63.7,
+ "attempts": 2,
  "channels": {
   "gh_a9cbc32e": {
    "type": "github_repo",
@@ -19,13 +19,13 @@
    "output": "github_repo.md",
    "issues": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "pulls": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -51,13 +51,13 @@
    "output": "github_repo.md",
    "issues": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "pulls": {
     "status": "ok",
-    "count": 65,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -78,49 +78,49 @@
   "ref_4f5da57e": {
    "type": "reference",
    "url": "https://github.com/ROCm/rocprofiler-compute/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 791
   },
   "ref_5a15b658": {
    "type": "reference",
    "url": "https://github.com/ROCm/rocprofiler-compute/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 2722
+   "mode": "page",
+   "chars": 2736
   },
   "ref_da2020ab": {
    "type": "reference",
    "url": "https://github.com/ROCm/rocprofiler-compute/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 500
   },
   "ref_4446d9bc": {
    "type": "reference",
    "url": "https://github.com/NVIDIA/DCGM/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 757
   },
   "ref_60df6a91": {
    "type": "reference",
    "url": "https://github.com/NVIDIA/DCGM/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 4442
+   "mode": "page",
+   "chars": 4464
   },
   "ref_33ebfea2": {
    "type": "reference",
    "url": "https://github.com/NVIDIA/DCGM/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 576
   }
  },

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/serve/exception_handling/handlers/vllm_error/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 

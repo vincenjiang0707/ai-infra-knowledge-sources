@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/common/ops/fused_layout/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 

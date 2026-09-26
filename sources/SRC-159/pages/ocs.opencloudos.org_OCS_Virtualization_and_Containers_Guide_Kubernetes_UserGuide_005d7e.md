@@ -1,0 +1,319 @@
+source: https://docs.opencloudos.org/OCS/Virtualization_and_Containers_Guide/Kubernetes_UserGuide/
+
+# 1.简介
+
+Kubernetes是CNCF基金会开源的一个容器编排引擎，它支持自动化部署、大规模可伸缩、应用容器化管理。在生产环境中部署一个应用程序时，通常要部署该应用的多个实例以便对应用请求进行负载均衡。在Kubernetes中，我们可以创建多个容器，每个容器里面运行一个应用实例，然后通过内置的负载均衡策略，实现对这一组应用实例的管理、发现、访问，而这些细节都不需要运维人员去进行复杂的手工配置和处理。
+
+本文简要介绍通过kubeadm在本系统上面部署kubernetes集群的过程。
+
+# 2.环境准备
+
+vitual box虚拟机2台，os版本如下：
+
+```
+[root@kube-master ~]# cat /etc/os-release
+NAME="OpenCloudOS Stream"
+VERSION="23"
+ID="opencloudos"
+ID_LIKE="opencloudos"
+VERSION_ID="23"
+PLATFORM_ID="platform:ocs23"
+PRETTY_NAME="OpenCloudOS Stream 23"
+ANSI_COLOR="0;31"
+CPE_NAME="cpe:/o:opencloudos:opencloudos:23"
+HOME_URL="https://www.opencloudos.org/"
+BUG_REPORT_URL="https://bugs.opencloudos.tech/"
+```
+
+
+| 主机名 | IP | 节点类型 | CPU | 内存 | 磁盘 |
+|---|---|---|---|---|---|
+| kube-master | 10.0.2.6 | master | 4vCPU | 8G | 20G |
+| kube-node | 10.0.2.5 | node | 4vCPU | 8G | 20G |
+
+注意：所有节点均可访问k8s默认的镜像仓库，否则需要提前下载好镜像并修改相关配置，本文不展开讲述。
+
+# 3.系统设置
+
+- 设置主机名 master节点：
+
+```
+hostnamectl set-hostname kube-master
+```
+
+
+```
+hostnamectl set-hostname kube-node
+```
+
+
+```
+[root@kube-master ~]# cat /etc/hosts
+127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1 localhost localhost.localdomain localhost6 localhost6.localdomain6
+10.0.2.6 kube-master
+10.0.2.5 kube-node
+```
+
+
+```
+systemctl stop firewalld
+systemctl disable firewalld
+```
+
+
+```
+sed -i 's/enforcing/disabled/' /etc/selinux/config
+setenforce 0
+# sed -ri 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config # 永久关闭
+```
+
+
+```
+#swap开启会影响k8s编排和调度应用程序运行的效果，会降低性能
+swapoff -a # 临时关闭
+#永久关闭swap分区可以编辑/etc/fstab，注释掉swap分区挂载，然后重启
+```
+
+
+```
+cat >/etc/sysctl.d/k8s.conf <<EOF
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv4.ip_forward = 1
+vm.swappiness = 0
+EOF
+sysctl --system
+```
+
+
+```
+modprobe br_netfilter
+lsmod | grep br_netfilter
+br_netfilter 22256 0
+bridge 151336 1 br_netfilter
+```
+
+
+```
+yum -y install ipset ipvsadm
+cat > /etc/sysconfig/modules/ipvs.modules <<EOF
+#!/bin/bash
+modprobe -- ip_vs
+modprobe -- ip_vs_rr
+modprobe -- ip_vs_wrr
+modprobe -- ip_vs_sh
+modprobe -- nf_conntrack
+EOF
+chmod 755 /etc/sysconfig/modules/ipvs.modules && bash /etc/sysconfig/modules/ipvs.modules
+```
+
+
+```
+yum install chrony -y
+systemctl restart chronyd
+timedatectl set-ntp true
+timedatectl set-timezone Asia/Shanghai
+```
+
+
+```
+yum install ipvsadm ipset jq iptables curl sysstat libseccomp net-tools iproute lrzsz \
+bridge-utils unzip bind-utils gcc
+```
+
+
+# 4.安装k8s及容器运行时
+
+- ocs23镜像源的kubernetes包集合了k8s基本组件，直接安装即可：
+
+```
+yum install kubernetes
+systemctl enable kubelet
+cat >/etc/sysconfig/kubelet.conf <<EOF
+KUBELET_EXTRA_ARGS="--cgroup-driver=systemd"
+EOF
+#查看版本信息
+kubectl version --output json
+{
+"clientVersion": {
+"major": "1",
+"minor": "24",
+"gitVersion": "v1.24.4",
+"gitCommit": "95ee5ab382d64cfe6c28967f36b53970b8374491",
+"gitTreeState": "archive",
+"buildDate": "2023-04-28T11:31:18Z",
+"goVersion": "go1.19",
+"compiler": "gc",
+"platform": "linux/amd64"
+},
+"kustomizeVersion": "v4.5.4",
+"serverVersion": {
+"major": "1",
+"minor": "24",
+"gitVersion": "v1.24.4",
+"gitCommit": "95ee5ab382d64cfe6c28967f36b53970b8374491",
+"gitTreeState": "clean",
+"buildDate": "2022-08-17T18:47:37Z",
+"goVersion": "go1.18.5",
+"compiler": "gc",
+"platform": "linux/amd64"
+}
+}
+```
+
+
+```
+yum install containerd runc -y
+```
+
+
+```
+systemctl stop docker && systemctl disable docker
+systemctl stop docker.socket
+```
+
+
+```
+containerd config default > /etc/containerd/config.toml
+```
+
+
+```
+systemctl deamon-reload
+systemctl enable containerd && systemctl start containerd
+```
+
+
+```
+alias crictl='crictl -i unix:///run/containerd/containerd.sock -r unix:///run/containerd/containerd.sock'
+```
+
+
+```
+yum install containernetworking-plugins -y
+cp /usr/libexec/cni/* /opt/cni/bin/.
+```
+
+
+```
+kubeadm init --kubernetes-version=v1.24.4 --pod-network-cidr=10.224.0.0/16 --apiserver-advertise-address=10.0.2.6 --cri-socket unix:///var/run/containerd/containerd.sock
+```
+
+
+--pod-network-cidr 指定pod网络地址
+
+--apiserver-advertise-address apiserver的监听地址，设置为master当前IP
+
+--cri-socket 指定容器运行时socket，containerd的socket是var/run/containerd/containerd.sock
+
+也可以导出默认的init-config文件进行执行，此时需要进入文件修改以上选项对应的值
+
+```
+kubeadm config print init-defaults
+kubeadm init --config kubeadm-config.yaml
+```
+
+
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+export KUBECONFIG=/etc/kubernetes/admin.conf
+```
+
+
+```
+kubeadm join 10.0.2.6:6443 --token scf3d2.qfewv9mjvpdx5o59 \
+--discovery-token-ca-cert-hash sha256:661cca7503c83249a7960e3162030edde9b6e3acd5c68bcd3b807413d899f1fb
+```
+
+
+```
+kubeadm token create --print-join-command
+```
+
+
+```
+[root@kube-master ~]# kubectl get pods -A
+NAMESPACE NAME READY STATUS RESTARTS AGE
+kube-system coredns-6d4b75cb6d-5fg49 0/1 Pending 0 5h26m
+kube-system coredns-6d4b75cb6d-kv9c8 0/1 Pending 0 5h26m
+kube-system etcd-kube-master 1/1 Running 11 5h26m
+kube-system kube-apiserver-kube-master 1/1 Running 11 5h26m
+kube-system kube-controller-manager-kube-master 1/1 Running 11 5h26m
+kube-system kube-proxy-fh4h8 1/1 Running 0 5h26m
+kube-system kube-proxy-jtkkg 1/1 Running 56 5h26m
+kube-system kube-scheduler-kube-master 1/1 Running 11 5h26m
+```
+
+
+```
+[root@kube-master ~]# kubectl get nodes
+NAME STATUS ROLES AGE VERSION
+kube-master NotReady control-plane 5h30m v1.24.4
+kube-node NotReady <none> 5h30m v1.24.4
+```
+
+
+# 5.安装flannel网络插件
+
+k8s的有多种网络方案，比较知名的网络方案有flannel，calico，cilium，具体的介绍可以查看[k8s网络方案介绍](https://kubernetes.io/docs/concepts/cluster-administration/addons/)
+
+我们选取flannel网络方案进行部署。flannel是一种overlay三层网络方案，可以以UDP、vxlan、VPC等作为backend
+
+- 获取最新的flannel部署yaml文件并执行：
+
+```
+wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+kubectl apply -f kube-flannel.yml
+```
+
+
+```
+[root@kube-master ~]# kubectl get pods -A
+NAMESPACE NAME READY STATUS RESTARTS AGE
+kube-flannel kube-flannel-ds-2gt9r 1/1 Running 0 30s
+kube-flannel kube-flannel-ds-zkgdq 1/1 Running 0 30s
+kube-system coredns-6d4b75cb6d-5fg49 1/1 Running 0 5h53m
+kube-system coredns-6d4b75cb6d-kv9c8 1/1 Running 0 5h53m
+kube-system etcd-kube-master 1/1 Running 0 5h53m
+kube-system kube-apiserver-kube-master 1/1 Running 0 5h53m
+kube-system kube-controller-manager-kube-master 1/1 Running 0 5h53m
+kube-system kube-proxy-fh4h8 1/1 Running 0 5h53m
+kube-system kube-proxy-jtkkg 1/1 Running 0 5h53m
+kube-system kube-scheduler-kube-master 1/1 Running 0 5h53m
+```
+
+
+```
+[root@kube-master ~]# kubectl get nodes
+NAME STATUS ROLES AGE VERSION
+kube-master Ready control-plane 6h3m v1.24.4
+kube-node Ready <none> 6h3m v1.24.4
+```
+
+
+```
+[root@kube-master ~]# kubectl describe pod kube-proxy-jtkkg -n kube-system
+Events:
+Type Reason Age From Message
+---- ------ ---- ---- -------
+Normal Killing 43m (x55 over 5h57m) kubelet Stopping container kube-proxy
+Warning BackOff 38m (x1266 over 5h56m) kubelet Back-off restarting failed container
+Normal SandboxChanged 29m (x3 over 31m) kubelet Pod sandbox changed, it will be killed and re-created.
+Normal Created 28m (x4 over 33m) kubelet Created container kube-proxy
+Normal Started 28m (x4 over 33m) kubelet Started container kube-proxy
+Normal Killing 18m (x7 over 31m) kubelet Stopping container kube-proxy
+Normal Pulled 13m (x8 over 33m) kubelet Container image "k8s.gcr.io/kube-proxy:v1.24.4" already present on machine
+Warning BackOff 3m15s (x97 over 30m) kubelet Back-off restarting failed container
+```
+
+
+```
+kubectl delete -f kube-flannel.yml //重置网络方案
+kubeadm reset -f // 重置k8s基础组件
+rm -rf /etc/cni/net.d //删除网络插件配置
+iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X //重置iptable规则
+ipvsadm -C //重置ipvs规则
+```

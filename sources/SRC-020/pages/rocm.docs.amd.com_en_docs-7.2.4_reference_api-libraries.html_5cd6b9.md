@@ -1,0 +1,3 @@
+source: https://rocm.docs.amd.com/en/docs-7.2.4/reference/api-libraries.html
+
+ROCm libraries# 2026-02-19 1 min read time Applies to Linux and Windows Machine Learning and Computer Vision Composable Kernel MIGraphX MIOpen MIVisionX rocAL rocDecode rocPyDecode rocJPEG ROCm Performance Primitives (RPP) Primitives hipCUB hipTensor rocPRIM rocThrust Communication RCCL rocSHMEM Math half hipBLAS / rocBLAS hipBLASLt hipFFT / rocFFT hipfort hipRAND / rocRAND hipSOLVER / rocSOLVER hipSPARSE / rocSPARSE hipSPARSELt rocALUTION rocWMMA Tensile

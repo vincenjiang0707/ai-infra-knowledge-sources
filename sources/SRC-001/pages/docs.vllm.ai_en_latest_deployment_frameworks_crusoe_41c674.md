@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/frameworks/crusoe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Crusoe[¶](https://docs.vllm.ai#crusoe)
 

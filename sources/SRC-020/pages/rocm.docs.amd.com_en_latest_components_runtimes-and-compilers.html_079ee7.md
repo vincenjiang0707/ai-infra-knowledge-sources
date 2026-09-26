@@ -1,0 +1,7 @@
+source: https://rocm.docs.amd.com/en/latest/components/runtimes-and-compilers.html
+
+# ROCm runtimes and compilers[#](https://rocm.docs.amd.com#rocm-runtimes-and-compilers)
+
+ROCm runtimes and compilers provide the core execution environment and programming tools for GPU application development on AMD hardware.
+
+[HIP 10.0.0](https://rocm.docs.amd.com/projects/HIP/en/docs-10.0.0/)– A C++ runtime API and kernel programming language designed for AMD GPUs. By providing an interface closely aligned with NVIDIA CUDA, HIP allows developers to write portable applications and efficiently migrate existing CUDA code to AMD platforms.[HIPIFY 10.0.0](https://rocm.docs.amd.com/projects/HIPIFY/en/docs-10.0.0/)– Translates CUDA source code into portable HIP C++.[LLVM 24.0.0](https://rocm.docs.amd.com/projects/llvm-project/en/docs-10.0.0/)– AMD’s LLVM-based compiler infrastructure, including the ROCm device compiler (amdclang), which compiles HIP and OpenCL code for AMD GPUs.[ROCr Runtime 1.21.0](https://rocm.docs.amd.com/projects/ROCR-Runtime/en/docs-10.0.0/)– AMD’s implementation of the HSA (Heterogeneous System Architecture) runtime, providing the foundation for GPU execution and management in the ROCm software stack.[SPIRV-LLVM-Translator 24.0.0](https://github.com/ROCm/SPIRV-LLVM-Translator/tree/therock-10.0)– Library and tool for bidirectional translation between SPIR-V and LLVM.

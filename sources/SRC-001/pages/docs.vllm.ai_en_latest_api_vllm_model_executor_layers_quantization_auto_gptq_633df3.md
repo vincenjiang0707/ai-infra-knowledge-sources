@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/auto_gptq/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class AutoGPTQMoEMethod(FusedMoEMethodBase):
 """MoE Marlin method with quantization."""

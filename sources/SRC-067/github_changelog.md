@@ -1,6 +1,6 @@
 # Changelog (aggregated from releases.body)
 
-> releases: 122
+> releases: 123
 
 ## v0.2.1 (2022-11-21)
 
@@ -1050,3 +1050,20 @@
 * @SuperGoodGame made their first contribution in https://github.com/Dao-AILab/flash-attention/pull/2888
 
 **Full Changelog**: https://github.com/Dao-AILab/flash-attention/compare/fa4-v4.0.0.beta30...fa4-v4.0.0.beta31
+
+## fa4-v4.0.0.beta32 (2026-09-23)
+
+## What's Changed
+* [CuTe, SM100] Sparse MLA bwd: in-kernel recompute-P + token-chunked backward by @abcdabcd987 in https://github.com/Dao-AILab/flash-attention/pull/2816
+* Build CUDA extension with C++20 on PyTorch 2.13+ by @zhang-keliang in https://github.com/Dao-AILab/flash-attention/pull/2879
+* ci: add PyTorch 2.14 to the wheel build matrix by @Johnsonms in https://github.com/Dao-AILab/flash-attention/pull/2892
+* ci: registry-free GPU job (runner-local SIF) + verify the provisioned overlay from a fresh session by @Johnsonms in https://github.com/Dao-AILab/flash-attention/pull/2894
+* Compile with c++20 for pytorch 2.13+ by @cih9088 in https://github.com/Dao-AILab/flash-attention/pull/2899
+* [ROCM] add FLASH_ATTENTION_USE_SYSTEM_AITER flag and commit bump by @micmelesse in https://github.com/Dao-AILab/flash-attention/pull/2900
+* [CuTe, SM100] Support 1..128 Q heads in sparse MLA via in-kernel TMA padding by @drisspg in https://github.com/Dao-AILab/flash-attention/pull/2883
+
+## New Contributors
+* @zhang-keliang made their first contribution in https://github.com/Dao-AILab/flash-attention/pull/2879
+* @cih9088 made their first contribution in https://github.com/Dao-AILab/flash-attention/pull/2899
+
+**Full Changelog**: https://github.com/Dao-AILab/flash-attention/compare/fa4-v4.0.0.beta31...fa4-v4.0.0.beta32

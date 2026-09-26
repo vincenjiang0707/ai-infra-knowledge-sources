@@ -1,6 +1,6 @@
 # gpu-mode/lectures
 
-- stars: 6641
+- stars: 6654
 - forks: 666
 - open_issues: 4
 - default_branch: main

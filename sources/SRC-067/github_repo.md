@@ -1,12 +1,12 @@
 # Dao-AILab/flash-attention
 
-- stars: 25001
-- forks: 3094
-- open_issues: 1316
+- stars: 25009
+- forks: 3100
+- open_issues: 1310
 - default_branch: main
 - archived: False
 - license: BSD-3-Clause
-- pushed_at: 2026-09-22T20:40:34Z
+- pushed_at: 2026-09-24T22:50:08Z
 - homepage: 
 
 ## README

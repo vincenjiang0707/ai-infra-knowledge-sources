@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/inc/schemes/inc_w4a8_linear/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class INCXPUW4A8LinearMethod(INCXPULinearMethod):
 """XPU linear method for INC int4 weights with dynamic int8 activations.

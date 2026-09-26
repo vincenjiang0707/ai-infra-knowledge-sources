@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/speculative_decoding/eagle/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # EAGLE Draft Models[¶](https://docs.vllm.ai#eagle-draft-models)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/contributing/editing-agent-instructions/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Editing Agent Instructions[¶](https://docs.vllm.ai#editing-agent-instructions)
 

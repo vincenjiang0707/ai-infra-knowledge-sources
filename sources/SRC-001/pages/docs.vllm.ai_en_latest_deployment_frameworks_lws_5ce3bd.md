@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/frameworks/lws/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # LWS[¶](https://docs.vllm.ai#lws)
 
@@ -224,6 +224,7 @@ The output should be similar to the following:
 
 Open another terminal and send a request
 
+```bash
 curl http://localhost:8080/v1/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -232,12 +233,14 @@ curl http://localhost:8080/v1/completions \
 "max_tokens": 7,
 "temperature": 0
 }'
+```
 
 
 The output should be similar to the following
 
 ## Output
 
+```json
 {
 "id": "cmpl-1bb34faba88b43f9862cfbfb2200949d",
 "object": "text_completion",
@@ -258,3 +261,4 @@ The output should be similar to the following
 "completion_tokens": 7
 }
 }
+```

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/frameworks/litellm/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # LiteLLM[¶](https://docs.vllm.ai#litellm)
 

@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:33:49Z",
- "finished_at": "2026-09-23T03:33:49Z",
- "duration_seconds": 72.0,
- "attempts": 1,
+ "finished_at": "2026-09-25T17:45:56Z",
+ "duration_seconds": 654.9,
+ "attempts": 4,
  "channels": {
   "gh_0f28514b": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 72,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -46,34 +56,34 @@
   "ref_a23af9dc": {
    "type": "reference",
    "url": "https://github.com/ai-dynamo/nixl/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 1466
   },
   "ref_109ad538": {
    "type": "reference",
    "url": "https://github.com/ai-dynamo/nixl/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 11546
+   "mode": "page",
+   "chars": 5892
   },
   "ref_747d72e6": {
    "type": "reference",
    "url": "https://github.com/ai-dynamo/nixl/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 62355
   }
  },
  "cursor": {
   "gh_0f28514b:issues": {
-   "last_updated_at": "2026-09-23T02:36:35Z"
+   "last_updated_at": "2026-09-25T09:59:10Z"
   },
   "gh_0f28514b:pulls": {
-   "last_updated_at": "2026-09-23T02:36:34Z"
+   "last_updated_at": "2026-09-25T17:25:42Z"
   },
   "gh_0f28514b:releases": {
    "last_id": 380893506

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/models/generative_models/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Generative Models[¶](https://docs.vllm.ai#generative-models)
 
@@ -33,6 +33,7 @@ The [LLM](https://docs.vllm.ai/api/vllm/#vllm.LLM) class provides various method
 
 The [generate](https://docs.vllm.ai/api/vllm/#vllm.LLM.generate) method is available to all generative models in vLLM. It is similar to [its counterpart in HF Transformers](https://huggingface.co/docs/transformers/main/en/main_classes/text_generation#transformers.GenerationMixin.generate), except that tokenization and detokenization are also performed automatically.
 
+```bash
 from vllm import LLM
 llm = LLM(model="facebook/opt-125m")
 outputs = llm.generate("Hello, my name is")
@@ -40,12 +41,14 @@ for output in outputs:
 prompt = output.prompt
 generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+```
 
 
 You can optionally control the language generation by passing [SamplingParams](https://docs.vllm.ai/api/vllm/#vllm.SamplingParams). For example, you can use greedy sampling by setting `temperature=0`
 
 :
 
+```bash
 from vllm import LLM, SamplingParams
 llm = LLM(model="facebook/opt-125m")
 params = SamplingParams(temperature=0)
@@ -54,6 +57,7 @@ for output in outputs:
 prompt = output.prompt
 generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+```
 
 
 Important
@@ -74,6 +78,7 @@ A code example can be found here: [ examples/basic/offline_inference/basic.py](h
 
 The [beam_search](https://docs.vllm.ai/api/vllm/entrypoints/generate/beam_search/offline/#vllm.entrypoints.generate.beam_search.offline.BeamSearchOfflineMixin.beam_search) method implements [beam search](https://huggingface.co/docs/transformers/en/generation_strategies#beam-search) on top of [generate](https://docs.vllm.ai/api/vllm/#vllm.LLM.generate). For example, to search using 5 beams and output at most 50 tokens:
 
+```bash
 from vllm import LLM
 from vllm.sampling_params import BeamSearchParams
 llm = LLM(model="facebook/opt-125m")
@@ -82,6 +87,7 @@ outputs = llm.beam_search([{"prompt": "Hello, my name is "}], params)
 for output in outputs:
 generated_text = output.sequences[0].text
 print(f"Generated text: {generated_text!r}")
+```
 
 
 `LLM.chat`
@@ -96,6 +102,7 @@ In general, only instruction-tuned models have a chat template. Base models may 
 
 ## Code
 
+```bash
 from vllm import LLM
 llm = LLM(model="meta-llama/Meta-Llama-3-8B-Instruct")
 conversation = [
@@ -121,6 +128,7 @@ for output in outputs:
 prompt = output.prompt
 generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+```
 
 
 A code example can be found here: [ examples/basic/offline_inference/chat.py](https://github.com/vllm-project/vllm/blob/main/examples/basic/offline_inference/chat.py)

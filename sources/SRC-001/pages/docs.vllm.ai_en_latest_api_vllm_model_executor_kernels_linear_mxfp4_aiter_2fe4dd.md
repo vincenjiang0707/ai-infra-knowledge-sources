@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp4/aiter/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class AiterMxfp4LinearKernel(MxFp4LinearKernel):
 """AITER-based native MXFP4 GEMM kernel for ROCm."""

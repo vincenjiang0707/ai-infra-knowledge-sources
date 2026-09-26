@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/nvidia/ops/dequant_gather_k_cutedsl/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Skip to content
 vLLM
@@ -2403,6 +2403,7 @@ deepseek_v32
 deepseek_v41
 gemma4
 glm47_moe
+granite
 harmony
 inkling
 kimi_k2
@@ -2556,7 +2557,7 @@ glm47_moe_tool_parser
 gptoss_tool_parser
 granite4_tool_parser
 granite_20b_fc_tool_parser
-granite_tool_parser
+granite_engine_tool_parser
 hermes_tool_parser
 hunyuan_a13b_tool_parser
 hy_v3_tool_parser
@@ -2702,6 +2703,7 @@ triton_flash_attn
 triton_flashinfer
 turboquant_attn
 utils
+zentorch_sdpa
 mla
 mla
 aiter_triton_mla

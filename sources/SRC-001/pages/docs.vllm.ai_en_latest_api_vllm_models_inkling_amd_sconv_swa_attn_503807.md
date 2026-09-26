@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/inkling/amd/sconv_swa_attn/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Inkling short-conv state managed as a sliding-window KV cache.
 

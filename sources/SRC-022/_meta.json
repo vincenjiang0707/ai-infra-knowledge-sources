@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:27:47Z",
- "finished_at": "2026-09-23T03:27:47Z",
- "duration_seconds": 65.5,
- "attempts": 1,
+ "finished_at": "2026-09-25T04:53:47Z",
+ "duration_seconds": 64.9,
+ "attempts": 7,
  "channels": {
   "gh_5a0488ee": {
    "type": "github_repo",
@@ -19,13 +19,13 @@
    "output": "github_repo.md",
    "issues": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "pulls": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -46,25 +46,25 @@
   "ref_bbf0dc6e": {
    "type": "reference",
    "url": "https://github.com/ROCm/rccl/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 461
   },
   "ref_bd44a921": {
    "type": "reference",
    "url": "https://github.com/ROCm/rccl/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 3615
+   "mode": "page",
+   "chars": 3669
   },
   "ref_53c23b14": {
    "type": "reference",
    "url": "https://github.com/ROCm/rccl/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 2447
   }
  },

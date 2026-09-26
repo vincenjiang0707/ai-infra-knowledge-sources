@@ -1,8 +1,8 @@
 # bitsandbytes-foundation/bitsandbytes
 
-- stars: 8500
-- forks: 931
-- open_issues: 92
+- stars: 8499
+- forks: 934
+- open_issues: 93
 - default_branch: main
 - archived: False
 - license: MIT

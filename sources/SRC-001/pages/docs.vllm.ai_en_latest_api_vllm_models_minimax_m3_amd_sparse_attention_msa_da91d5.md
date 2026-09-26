@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/minimax_m3/amd/sparse_attention_msa/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MiniMaxM3SparseAiterPAImpl(MiniMaxM3SparseImpl):
 """ROCm AITER page-16 SHUFFLE sparse paged attention."""

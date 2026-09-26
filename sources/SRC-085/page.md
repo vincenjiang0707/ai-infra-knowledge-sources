@@ -1,5 +1,3 @@
-# EAGLE
-
 source: https://github.com/SafeAILab/EAGLE/releases
 
 # Releases: SafeAILab/EAGLE

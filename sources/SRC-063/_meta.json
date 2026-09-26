@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:12:02Z",
- "finished_at": "2026-09-23T05:03:07Z",
- "duration_seconds": 334.4,
- "attempts": 2,
+ "finished_at": "2026-09-24T18:51:55Z",
+ "duration_seconds": 0.9,
+ "attempts": 5,
  "channels": {
   "hf_74810d24": {
    "type": "hf",
@@ -17,15 +17,16 @@
    "mode": "rss",
    "status": "ok",
    "output": "feed_meta.json",
-   "entries": 866,
-   "posts_fetched": 179,
-   "posts_failed": 321,
-   "output_dir": "posts/"
+   "entries": 868,
+   "posts_fetched": 0,
+   "posts_failed": 0,
+   "output_dir": "posts/",
+   "head_check": "no_update"
   }
  },
  "cursor": {
   "hf_74810d24:rss": {
-   "last_entry_published": "Wed, 31 Jul 2024 00:00:00 GMT"
+   "last_entry_published": "Wed, 31 May 2023 00:00:00 GMT"
   }
  },
  "notes": ""

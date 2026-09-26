@@ -1,5 +1,3 @@
-# Triton
-
 source: https://github.com/triton-lang/triton/releases
 
 # Releases: triton-lang/triton

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/nvidia/ops/mega_mhc/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 

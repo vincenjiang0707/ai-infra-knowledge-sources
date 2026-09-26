@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/basic/offline_inference/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Offline Inference[¶](https://docs.vllm.ai#offline-inference)
 

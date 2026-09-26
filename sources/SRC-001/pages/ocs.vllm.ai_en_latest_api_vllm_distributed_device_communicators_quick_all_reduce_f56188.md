@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/device_communicators/quick_all_reduce/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class QuickAllReduce:
 _SUPPORTED_WORLD_SIZES = [2, 4, 8]

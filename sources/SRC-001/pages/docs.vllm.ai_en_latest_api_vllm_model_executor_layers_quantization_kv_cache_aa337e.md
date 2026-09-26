@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/kv_cache/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class BaseKVCacheMethod(QuantizeMethodBase):
 """Quant method that adds `_k_scale` and `_v_scale` attributes to the

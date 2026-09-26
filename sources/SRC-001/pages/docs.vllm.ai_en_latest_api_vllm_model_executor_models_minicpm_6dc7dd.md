@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/minicpm/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MiniCPMMoE(nn.Module):
 """A tensor-parallel MoE implementation that shards each expert
@@ -27,12 +27,10 @@ self.intermediate_size = intermediate_size // self.tp_size
 if params_dtype is None:
 params_dtype = torch.get_default_dtype()
 self.params_dtype = params_dtype
-self.gate = ReplicatedLinear(
+self.gate = GateLinear(
 self.hidden_size,
 self.num_total_experts,
-bias=False,
 params_dtype=self.params_dtype,
-quant_config=None,
 prefix=f"{prefix}.gate",
 )
 self.ws = nn.Parameter(

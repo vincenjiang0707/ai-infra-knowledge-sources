@@ -1,12 +1,12 @@
 # tile-ai/tilelang
 
-- stars: 7468
-- forks: 750
-- open_issues: 315
+- stars: 7483
+- forks: 752
+- open_issues: 313
 - default_branch: main
 - archived: False
 - license: NOASSERTION
-- pushed_at: 2026-09-22T11:36:44Z
+- pushed_at: 2026-09-25T06:17:22Z
 - homepage: https://tilelang.com/
 
 ## README

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/ops/triton_ops/lora_shrink_op/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 @torch.inference_mode()
 def _lora_shrink(

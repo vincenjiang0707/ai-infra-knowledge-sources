@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/nvidia/flash_mla_mega_attn/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class DeepseekV4MegaAttnAttention(DeepseekV4FlashMLAAttention):
 """FlashMLA mega-attention layer for DeepSeek V4.1 (SM100)."""

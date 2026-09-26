@@ -1,0 +1,99 @@
+source: https://github.com/vllm-project/guidellm/pull/593
+
+# Bump pillow from 12.0.0 to 12.1.1 - #593
+
+Merged
+
+Merged
+
+## Conversation
+
+
+[dependabot](https://github.com/apps/dependabot)Bot added
+
+[dependencies](https://github.com/vllm-project/guidellm/issues?q=state%3Aopen%20label%3Adependencies)
+
+[python:uv](https://github.com/vllm-project/guidellm/issues?q=state%3Aopen%20label%3Apython%3Auv)
+
+Feb 11, 2026
+
+Collaborator
+
+|
+|
+
+Bumps [pillow]([https://github.com/python-pillow/Pillow]) from 12.0.0 to 12.1.1. - [Release notes]([https://github.com/python-pillow/Pillow/releases]) - [Changelog]([https://github.com/python-pillow/Pillow/blob/main/CHANGES.rst]) - [Commits]([python-pillow/Pillow@]) --- updated-dependencies: - dependency-name: pillow dependency-version: 12.1.1 dependency-type: direct:production ... Signed-off-by: dependabot[bot] <support@github.com>12.0.0...12.1.1
+
+[dependabot](https://github.com/apps/dependabot)Bot
+
+[force-pushed](https://github.com/vllm-project/guidellm/compare/fec3f44400b23a81f03785a5d181874cab15c2d3..cdb13ffdccaf75c77afa1ea68cb3ea0c58717c84)the dependabot/uv/pillow-12.1.1 branch from
+
+[to](https://github.com/vllm-project/guidellm/commit/fec3f44400b23a81f03785a5d181874cab15c2d3)
+
+`fec3f44`
+
+
+`cdb13ff`
+
+[Compare](https://github.com/vllm-project/guidellm/compare/fec3f44400b23a81f03785a5d181874cab15c2d3..cdb13ffdccaf75c77afa1ea68cb3ea0c58717c84)
+
+February 11, 2026 20:11
+
+
+**approved these changes**
+
+[sjmonson](https://github.com/sjmonson)Feb 11, 2026
+
+This file contains hidden or bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
+
+[Learn more about bidirectional Unicode characters](https://github.co/hiddenchars)Add this suggestion to a batch that can be applied as a single commit.This suggestion is invalid because no changes were made to the code.Suggestions cannot be applied while the pull request is closed.Suggestions cannot be applied while viewing a subset of changes.Only one suggestion per line can be applied in a batch.Add this suggestion to a batch that can be applied as a single commit.Applying suggestions on deleted lines is not supported.You must change the existing code in this line in order to create a valid suggestion.Outdated suggestions cannot be applied.This suggestion has been applied or marked resolved.Suggestions cannot be applied from pending reviews.Suggestions cannot be applied on multi-line comments.Suggestions cannot be applied while the pull request is queued to merge.Suggestion cannot be applied right now. Please check back later.
+
+Bumps pillow from 12.0.0 to 12.1.1.
+
+## Release notes
+
+Sourced from pillow's releases.... (truncated)
+
+## Commits
+
+`5158d98`
+
+12.1.1 version bump`9000313`
+
+Fix OOB Write with invalid tile extents (#9427)`cd01118`
+
+Patch libavif for svt-av1 4.0 compatibility`46f45f6`
+
+12.1.0 version bump`c9ac097`
+
+Simplify band splitting (#9291)`3baedf2`
+
+Deprecate getdata(), in favour of new get_flattened_data() (#9292)`b51a036`
+
+Specify APNG duration type when opening (#9368)`8d08e31`
+
+Add release notes for #9348 (#9369)`432707e`
+
+Added release notes for #9348`2d58910`
+
+Specify APNG duration type when openingDependabot will resolve any conflicts with this PR as long as you don't alter it yourself. You can also trigger a rebase manually by commenting
+
+`@dependabot rebase`
+
+.## Dependabot commands and options
+
+You can trigger Dependabot actions by commenting on this PR:
+
+`@dependabot rebase`
+
+will rebase this PR`@dependabot recreate`
+
+will recreate this PR, overwriting any edits that have been made to it`@dependabot show <dependency name> ignore conditions`
+
+will show all of the ignore conditions of the specified dependency`@dependabot ignore this major version`
+
+will close this PR and stop Dependabot creating any more for this major version (unless you reopen the PR or upgrade to it yourself)`@dependabot ignore this minor version`
+
+will close this PR and stop Dependabot creating any more for this minor version (unless you reopen the PR or upgrade to it yourself)`@dependabot ignore this dependency`
+
+will close this PR and stop Dependabot creating any more for this dependency (unless you reopen the PR or upgrade to it yourself)You can disable automated security fix PRs for this repo from the Security Alerts page.

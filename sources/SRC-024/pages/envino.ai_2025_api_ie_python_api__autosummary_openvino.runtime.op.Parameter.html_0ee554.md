@@ -1,0 +1,901 @@
+source: https://docs.openvino.ai/2025/api/ie_python_api/_autosummary/openvino.runtime.op.Parameter.html
+lastmod: 
+
+# openvino.runtime.op.Parameter[#](https://docs.openvino.ai#openvino-runtime-op-parameter)
+
+-
+*class*openvino.runtime.op.Parameter[#](https://docs.openvino.ai#openvino.runtime.op.Parameter) Bases:
+
+`Node`
+
+openvino.op.Parameter wraps ov::op::v0::Parameter
+
+-
+__init__(
+**args*,***kwargs*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__init__) Overloaded function.
+
+__init__(self: openvino._pyopenvino.op.Parameter, arg0: openvino._pyopenvino.Type, arg1: openvino._pyopenvino.Shape) -> None
+
+__init__(self: openvino._pyopenvino.op.Parameter, arg0: openvino._pyopenvino.Type, arg1: openvino._pyopenvino.PartialShape) -> None
+
+
+
+Methods
+
+(self, right)`__add__`
+
+Return node which applies f(A,B) = A+B to the input nodes element-wise.
+
+(self, arg0, arg1, *args, ...)`__array_ufunc__`
+
+(name, /)`__delattr__`
+
+Implement delattr(self, name).
+
+()`__dir__`
+
+Default dir() implementation.
+
+(value, /)`__eq__`
+
+Return self==value.
+
+(format_spec, /)`__format__`
+
+Default object formatter.
+
+(value, /)`__ge__`
+
+Return self>=value.
+
+(self, arg0)`__getattr__`
+
+(name, /)`__getattribute__`
+
+Return getattr(self, name).
+
+Helper for pickle.
+
+(value, /)`__gt__`
+
+Return self>value.
+
+()`__hash__`
+
+Return hash(self).
+
+(*args, **kwargs)`__init__`
+
+Overloaded function.
+
+This method is called when a class is subclassed.
+
+(value, /)`__le__`
+
+Return self<=value.
+
+(value, /)`__lt__`
+
+Return self<value.
+
+(self, right)`__mul__`
+
+Return node which applies f(A,B) = A*B to the input nodes element-wise.
+
+(value, /)`__ne__`
+
+Return self!=value.
+
+(**kwargs)`__new__`
+
+(self, arg0)`__radd__`
+
+Helper for pickle.
+
+(protocol, /)`__reduce_ex__`
+
+Helper for pickle.
+
+(*args, **kwargs)`__repr__`
+
+Overloaded function.
+
+(self, arg0)`__rmul__`
+
+(self, arg0)`__rsub__`
+
+(self, arg0)`__rtruediv__`
+
+(name, value, /)`__setattr__`
+
+Implement setattr(self, name, value).
+
+Size of object in memory, in bytes.
+
+()`__str__`
+
+Return str(self).
+
+(self, right)`__sub__`
+
+Return node which applies f(A,B) = A-B to the input nodes element-wise.
+
+Abstract classes can override this to customize issubclass().
+
+(self, right)`__truediv__`
+
+Return node which applies f(A,B) = A/B to the input nodes element-wise.
+
+(*args, **kwargs)`evaluate`
+
+Overloaded function.
+
+(self)`get_attributes`
+
+(self)`get_element_type`
+
+(self)`get_friendly_name`
+
+Gets the friendly name for a node.
+
+(self, index)`get_input_element_type`
+
+Returns the element type for input index
+
+(self, index)`get_input_partial_shape`
+
+Returns the partial shape for input index
+
+(self, index)`get_input_shape`
+
+Returns the shape for input index
+
+(self)`get_input_size`
+
+Returns the number of inputs to the node.
+
+(self, index)`get_input_tensor`
+
+Returns the tensor for the node's input with index i
+
+(self)`get_instance_id`
+
+Returns id of the node.
+
+(self)`get_layout`
+
+(self)`get_name`
+
+Get the unique name of the node
+
+(self, index)`get_output_element_type`
+
+Returns the element type for output index
+
+(self, index)`get_output_partial_shape`
+
+Returns the partial shape for output index
+
+(self, index)`get_output_shape`
+
+Returns the shape for output index
+
+(self)`get_output_size`
+
+Returns the number of outputs from the node.
+
+(self, index)`get_output_tensor`
+
+Returns the tensor for output index
+
+(*args, **kwargs)`get_partial_shape`
+
+Overloaded function.
+
+(self)`get_rt_info`
+
+Returns RTMap which is a dictionary of user defined runtime info.
+
+(self)`get_type_info`
+
+(self)`get_type_name`
+
+Returns Type's name from the node.
+
+(self, input_index)`input`
+
+A handle to the input_index input of this node.
+
+(self, index)`input_value`
+
+Returns input of the node with index i
+
+(self)`input_values`
+
+Returns list of node's inputs, in order.
+
+(self)`inputs`
+
+A list containing a handle for each of this node's inputs, in order.
+
+(self, output_index)`output`
+
+A handle to the output_index output of this node.
+
+(self)`outputs`
+
+A list containing a handle for each of this node's outputs, in order.
+
+(self, arg0, arg1)`set_argument`
+
+(*args, **kwargs)`set_arguments`
+
+Overloaded function.
+
+(self, arg0, arg1)`set_attribute`
+
+(self, element_type)`set_element_type`
+
+(self, name)`set_friendly_name`
+
+Sets a friendly name for a node.
+
+(self, layout)`set_layout`
+
+(self, size)`set_output_size`
+
+Sets the number of outputs
+
+(self, index, element_type, shape)`set_output_type`
+
+Sets output's element type and shape.
+
+(self, partial_shape)`set_partial_shape`
+
+(self, value, key)`set_rt_info`
+
+Add a value to the runtime info.
+
+(self)`validate_and_infer_types`
+
+Verifies that attributes and inputs are consistent and computes output shapes and element types.
+
+(self, arg0)`visit_attributes`
+
+Attributes
+
+-
+__add__(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*right:*)[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| SupportsInt | SupportsFloat | numpy.ndarray[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__add__) Return node which applies f(A,B) = A+B to the input nodes element-wise.
+
+- Parameters:
+**right**(*Union**[**openvino.Node**,**int**,**float**,**numpy.ndarray**]*) – The right operand.- Returns:
+The node performing element-wise addition.
+
+- Return type:
+
+
+-
+__annotations__
+*= {}*[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__annotations__)
+
+-
+__array_ufunc__(
+*self: object*,*arg0: object*,*arg1: str*,**args*,***kwargs*) object[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__array_ufunc__)
+
+-
+__class__
+[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__class__) alias of
+
+`pybind11_type`
+
+
+-
+__delattr__(
+*name*,*/*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__delattr__) Implement delattr(self, name).
+
+
+-
+__dir__()
+[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__dir__) Default dir() implementation.
+
+
+-
+__eq__(
+*value*,*/*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__eq__) Return self==value.
+
+
+-
+__format__(
+*format_spec*,*/*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__format__) Default object formatter.
+
+Return str(self) if format_spec is empty. Raise TypeError otherwise.
+
+
+-
+__ge__(
+*value*,*/*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__ge__) Return self>=value.
+
+
+-
+__getattr__(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*arg0: str*) collections.abc.Callable[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__getattr__)
+
+-
+__getattribute__(
+*name*,*/*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__getattribute__) Return getattr(self, name).
+
+
+-
+__getstate__()
+[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__getstate__) Helper for pickle.
+
+
+-
+__gt__(
+*value*,*/*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__gt__) Return self>value.
+
+
+-
+__hash__()
+[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__hash__) Return hash(self).
+
+
+-
+__init__(
+**args*,***kwargs*)[#](https://docs.openvino.ai#id0) Overloaded function.
+
+__init__(self: openvino._pyopenvino.op.Parameter, arg0: openvino._pyopenvino.Type, arg1: openvino._pyopenvino.Shape) -> None
+
+__init__(self: openvino._pyopenvino.op.Parameter, arg0: openvino._pyopenvino.Type, arg1: openvino._pyopenvino.PartialShape) -> None
+
+
+
+-
+__init_subclass__()
+[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__init_subclass__) This method is called when a class is subclassed.
+
+The default implementation does nothing. It may be overridden to extend subclasses.
+
+
+-
+__le__(
+*value*,*/*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__le__) Return self<=value.
+
+
+-
+__lt__(
+*value*,*/*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__lt__) Return self<value.
+
+
+-
+__mul__(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*right:*)[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| SupportsInt | SupportsFloat | numpy.ndarray[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__mul__) Return node which applies f(A,B) = A*B to the input nodes element-wise.
+
+- Parameters:
+**right**(*Union**[**openvino.Node**,**int**,**float**,**numpy.ndarray**]*) – The right operand.- Returns:
+The node performing element-wise multiplication.
+
+- Return type:
+
+
+-
+__ne__(
+*value*,*/*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__ne__) Return self!=value.
+
+
+-
+__new__(
+***kwargs*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__new__)
+
+-
+__radd__(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*arg0:*)[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| SupportsInt | SupportsFloat | numpy.ndarray[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__radd__)
+
+-
+__reduce__()
+[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__reduce__) Helper for pickle.
+
+
+-
+__reduce_ex__(
+*protocol*,*/*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__reduce_ex__) Helper for pickle.
+
+
+-
+__repr__(
+**args*,***kwargs*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__repr__) Overloaded function.
+
+__repr__(self: openvino._pyopenvino.Node) -> str
+
+__repr__(self: openvino._pyopenvino.op.Parameter) -> str
+
+
+
+-
+__rmul__(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*arg0:*)[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| SupportsInt | SupportsFloat | numpy.ndarray[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__rmul__)
+
+-
+__rsub__(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*arg0:*)[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| SupportsInt | SupportsFloat | numpy.ndarray[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__rsub__)
+
+-
+__rtruediv__(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*arg0:*)[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| SupportsInt | SupportsFloat | numpy.ndarray[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__rtruediv__)
+
+-
+__setattr__(
+*name*,*value*,*/*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__setattr__) Implement setattr(self, name, value).
+
+
+-
+__sizeof__()
+[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__sizeof__) Size of object in memory, in bytes.
+
+
+-
+__str__()
+[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__str__) Return str(self).
+
+
+-
+__sub__(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*right:*)[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| SupportsInt | SupportsFloat | numpy.ndarray[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__sub__) Return node which applies f(A,B) = A-B to the input nodes element-wise.
+
+- Parameters:
+**right**(*Union**[**openvino.Node**,**int**,**float**,**numpy.ndarray**]*) – The right operand.- Returns:
+The node performing element-wise subtraction.
+
+- Return type:
+
+
+-
+__subclasshook__()
+[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__subclasshook__) Abstract classes can override this to customize issubclass().
+
+This is invoked early on by abc.ABCMeta.__subclasscheck__(). It should return True, False or NotImplemented. If it returns NotImplemented, the normal algorithm is used. Otherwise, it overrides the normal algorithm (and the outcome is cached).
+
+
+-
+__truediv__(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*right:*)[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| SupportsInt | SupportsFloat | numpy.ndarray[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.__truediv__) Return node which applies f(A,B) = A/B to the input nodes element-wise.
+
+- Parameters:
+**right**(*Union**[**openvino.Node**,**int**,**float**,**numpy.ndarray**]*) – The right operand.- Returns:
+The node performing element-wise division.
+
+- Return type:
+
+
+-
+_pybind11_conduit_v1_()
+[#](https://docs.openvino.ai#openvino.runtime.op.Parameter._pybind11_conduit_v1_)
+
+-
+constructor_validate_and_infer_types(
+*self:*) None[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.constructor_validate_and_infer_types)
+
+-
+*property*element_type[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.element_type)
+
+-
+evaluate(
+**args*,***kwargs*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.evaluate) Overloaded function.
+
+evaluate(self: openvino._pyopenvino.Node, output_values: openvino._pyopenvino.TensorVector, input_values: openvino._pyopenvino.TensorVector, evaluationContext: openvino._pyopenvino.RTMap = <RTMap>) -> bool
+
+Evaluate the node on inputs, putting results in outputs
+
+- param output_tensors:
+Tensors for the outputs to compute. One for each result.
+
+- type output_tensors:
+openvino.TensorVector
+
+- param input_tensors:
+Tensors for the inputs. One for each inputs.
+
+- type input_tensors:
+openvino.TensorVector
+
+- param evaluation_context:
+Storage of additional settings and attributes that can be used
+
+
+when evaluating the function. This additional information can be shared across nodes. :type evaluation_context: openvino.RTMap :rtype: bool
+
+evaluate(self: openvino._pyopenvino.Node, output_values: list, input_values: list, evaluationContext: openvino._pyopenvino.RTMap = <RTMap>) -> bool
+
+Evaluate the node on inputs, putting results in outputs
+
+- param output_tensors:
+Tensors for the outputs to compute. One for each result.
+
+- type output_tensors:
+openvino.TensorVector
+
+- param input_tensors:
+Tensors for the inputs. One for each inputs.
+
+- type input_tensors:
+openvino.TensorVector
+
+- param evaluation_context:
+Storage of additional settings and attributes that can be used
+
+
+when evaluating the function. This additional information can be shared across nodes. :type evaluation_context: openvino.RTMap :rtype: bool
+
+
+
+-
+*property*friendly_name[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.friendly_name)
+
+-
+get_attributes(
+*self:*) dict[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_attributes)
+
+-
+get_element_type(
+*self:*)[openvino._pyopenvino.op.Parameter](https://docs.openvino.ai#openvino.runtime.op.Parameter)[openvino._pyopenvino.Type](https://docs.openvino.ai/openvino.Type.html#openvino.Type)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_element_type)
+
+-
+get_friendly_name(
+*self:*) str[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_friendly_name) Gets the friendly name for a node. If no friendly name has been set via set_friendly_name then the node’s unique name is returned.
+
+- Returns:
+Friendly name of the node.
+
+- Return type:
+str
+
+
+
+-
+get_input_element_type(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*index: SupportsInt*)[openvino._pyopenvino.Type](https://docs.openvino.ai/openvino.Type.html#openvino.Type)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_input_element_type) Returns the element type for input index
+
+- Parameters:
+**index**(*int*) – Index of the input.- Returns:
+Type of the input index
+
+- Return type:
+
+
+-
+get_input_partial_shape(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*index: SupportsInt*)[openvino._pyopenvino.PartialShape](https://docs.openvino.ai/openvino.PartialShape.html#openvino.PartialShape)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_input_partial_shape) Returns the partial shape for input index
+
+- Parameters:
+**index**(*int*) – Index of the input.- Returns:
+PartialShape of the input index
+
+- Return type:
+
+
+-
+get_input_shape(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*index: SupportsInt*)[openvino._pyopenvino.Shape](https://docs.openvino.ai/openvino.Shape.html#openvino.Shape)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_input_shape) Returns the shape for input index
+
+- Parameters:
+**index**(*int*) – Index of the input.- Returns:
+Shape of the input index
+
+- Return type:
+
+
+-
+get_input_size(
+*self:*) int[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_input_size) Returns the number of inputs to the node.
+
+- Returns:
+Number of inputs.
+
+- Return type:
+int
+
+
+
+-
+get_input_tensor(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*index: SupportsInt*) openvino._pyopenvino.DescriptorTensor[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_input_tensor) Returns the tensor for the node’s input with index i
+
+- Parameters:
+**index**(*int*) – Index of Input.- Returns:
+Tensor of the input index
+
+- Return type:
+openvino._pyopenvino.DescriptorTensor
+
+
+
+-
+get_instance_id(
+*self:*) int[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_instance_id) Returns id of the node. May be used to compare nodes if they are same instances.
+
+- Returns:
+id of the node.
+
+- Return type:
+int
+
+
+
+-
+get_layout(
+*self:*)[openvino._pyopenvino.op.Parameter](https://docs.openvino.ai#openvino.runtime.op.Parameter)[openvino._pyopenvino.Layout](https://docs.openvino.ai/openvino.Layout.html#openvino.Layout)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_layout)
+
+-
+get_name(
+*self:*) str[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_name) Get the unique name of the node
+
+- Returns:
+Unique name of the node.
+
+- Return type:
+str
+
+
+
+-
+get_output_element_type(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*index: SupportsInt*)[openvino._pyopenvino.Type](https://docs.openvino.ai/openvino.Type.html#openvino.Type)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_output_element_type) Returns the element type for output index
+
+- Parameters:
+**index**(*int*) – Index of the output.- Returns:
+Type of the output index
+
+- Return type:
+
+
+-
+get_output_partial_shape(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*index: SupportsInt*)[openvino._pyopenvino.PartialShape](https://docs.openvino.ai/openvino.PartialShape.html#openvino.PartialShape)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_output_partial_shape) Returns the partial shape for output index
+
+- Parameters:
+**index**(*int*) – Index of the output.- Returns:
+PartialShape of the output index
+
+- Return type:
+
+
+-
+get_output_shape(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*index: SupportsInt*)[openvino._pyopenvino.Shape](https://docs.openvino.ai/openvino.Shape.html#openvino.Shape)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_output_shape) Returns the shape for output index
+
+- Parameters:
+**index**(*int*) – Index of the output.- Returns:
+Shape of the output index
+
+- Return type:
+
+
+-
+get_output_size(
+*self:*) int[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_output_size) Returns the number of outputs from the node.
+
+- Returns:
+Number of outputs.
+
+- Return type:
+int
+
+
+
+-
+get_output_tensor(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*index: SupportsInt*) openvino._pyopenvino.DescriptorTensor[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_output_tensor) Returns the tensor for output index
+
+- Parameters:
+**index**(*int*) – Index of the output.- Returns:
+Tensor of the output index
+
+- Return type:
+openvino._pyopenvino.DescriptorTensor
+
+
+
+-
+get_partial_shape(
+**args*,***kwargs*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_partial_shape) Overloaded function.
+
+get_partial_shape(self: openvino._pyopenvino.op.Parameter) -> openvino._pyopenvino.PartialShape
+
+get_partial_shape(self: openvino._pyopenvino.op.Parameter) -> openvino._pyopenvino.PartialShape
+
+
+
+-
+get_rt_info(
+*self:*)[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[openvino._pyopenvino.RTMap](https://docs.openvino.ai/openvino.RTMap.html#openvino.RTMap)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_rt_info) Returns RTMap which is a dictionary of user defined runtime info.
+
+- Returns:
+A dictionary of user defined data.
+
+- Return type:
+
+
+-
+get_type_info(
+*self:*)[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[openvino._pyopenvino.DiscreteTypeInfo](https://docs.openvino.ai/openvino.DiscreteTypeInfo.html#openvino.DiscreteTypeInfo)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_type_info)
+
+-
+get_type_name(
+*self:*) str[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.get_type_name) Returns Type’s name from the node.
+
+- Returns:
+String representing Type’s name.
+
+- Return type:
+str
+
+
+
+-
+input(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*input_index: SupportsInt*)[openvino._pyopenvino.Input](https://docs.openvino.ai/openvino.Input.html#openvino.Input)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.input) A handle to the input_index input of this node.
+
+- Parameters:
+**input_index**(*int*) – Index of Input.- Returns:
+Input of this node.
+
+- Return type:
+
+
+-
+input_value(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*index: SupportsInt*)[openvino._pyopenvino.Output](https://docs.openvino.ai/openvino.Output.html#openvino.Output)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.input_value) Returns input of the node with index i
+
+- Parameters:
+**index**(*int*) – Index of Input.- Returns:
+Input of this node.
+
+- Return type:
+
+
+-
+input_values(
+*self:*) list[[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[openvino._pyopenvino.Output](https://docs.openvino.ai/openvino.Output.html#openvino.Output)][#](https://docs.openvino.ai#openvino.runtime.op.Parameter.input_values) Returns list of node’s inputs, in order.
+
+- Returns:
+list of node’s inputs
+
+- Return type:
+list[
+
+[openvino.Input](https://docs.openvino.ai/openvino.Input.html#openvino.Input)]
+
+
+-
+inputs(
+*self:*) list[[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[openvino._pyopenvino.Input](https://docs.openvino.ai/openvino.Input.html#openvino.Input)][#](https://docs.openvino.ai#openvino.runtime.op.Parameter.inputs) A list containing a handle for each of this node’s inputs, in order.
+
+- Returns:
+list of node’s inputs.
+
+- Return type:
+list[
+
+[openvino.Input](https://docs.openvino.ai/openvino.Input.html#openvino.Input)]
+
+
+-
+*property*layout[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.layout)
+
+-
+*property*name[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.name)
+
+-
+output(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*output_index: SupportsInt*)[openvino._pyopenvino.Output](https://docs.openvino.ai/openvino.Output.html#openvino.Output)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.output) A handle to the output_index output of this node.
+
+- Parameters:
+**output_index**(*int*) – Index of Output.- Returns:
+Output of this node.
+
+- Return type:
+
+
+-
+outputs(
+*self:*) list[[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[openvino._pyopenvino.Output](https://docs.openvino.ai/openvino.Output.html#openvino.Output)][#](https://docs.openvino.ai#openvino.runtime.op.Parameter.outputs) A list containing a handle for each of this node’s outputs, in order.
+
+- Returns:
+list of node’s outputs.
+
+- Return type:
+list[
+
+[openvino.Output](https://docs.openvino.ai/openvino.Output.html#openvino.Output)]
+
+
+-
+*property*partial_shape[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.partial_shape)
+
+-
+*property*rt_info[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.rt_info)
+
+-
+set_argument(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*arg0: SupportsInt*,*arg1:*) None[openvino._pyopenvino.Output](https://docs.openvino.ai/openvino.Output.html#openvino.Output)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.set_argument)
+
+-
+set_arguments(
+**args*,***kwargs*)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.set_arguments) Overloaded function.
+
+set_arguments(self: openvino._pyopenvino.Node, arg0: collections.abc.Sequence[openvino._pyopenvino.Node]) -> None
+
+set_arguments(self: openvino._pyopenvino.Node, arg0: collections.abc.Sequence[openvino._pyopenvino.Output]) -> None
+
+
+
+-
+set_attribute(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*arg0: str*,*arg1: object*) None[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.set_attribute)
+
+-
+set_element_type(
+*self:*,[openvino._pyopenvino.op.Parameter](https://docs.openvino.ai#openvino.runtime.op.Parameter)*element_type:*) None[openvino._pyopenvino.Type](https://docs.openvino.ai/openvino.Type.html#openvino.Type)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.set_element_type)
+
+-
+set_friendly_name(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*name: str*) None[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.set_friendly_name) Sets a friendly name for a node. This does not overwrite the unique name of the node and is retrieved via get_friendly_name(). Used mainly for debugging. The friendly name may be set exactly once.
+
+- Parameters:
+**name**(*str*) – Friendly name to set.
+
+
+-
+set_layout(
+*self:*,[openvino._pyopenvino.op.Parameter](https://docs.openvino.ai#openvino.runtime.op.Parameter)*layout:*) None[openvino._pyopenvino.Layout](https://docs.openvino.ai/openvino.Layout.html#openvino.Layout)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.set_layout)
+
+-
+set_output_size(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*size: SupportsInt*) None[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.set_output_size) Sets the number of outputs
+
+- Parameters:
+**size**(*int*) – number of outputs.
+
+
+-
+set_output_type(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*index: SupportsInt*,*element_type:*,[openvino._pyopenvino.Type](https://docs.openvino.ai/openvino.Type.html#openvino.Type)*shape:*) None[openvino._pyopenvino.PartialShape](https://docs.openvino.ai/openvino.PartialShape.html#openvino.PartialShape)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.set_output_type) Sets output’s element type and shape.
+
+- Parameters:
+**index**(*int*) – Index of the output.**element_type**() – Element type of the output.*openvino.Type***shape**() – Shape of the output.*openvino.PartialShape*
+
+
+
+-
+set_partial_shape(
+*self:*,[openvino._pyopenvino.op.Parameter](https://docs.openvino.ai#openvino.runtime.op.Parameter)*partial_shape:*) None[openvino._pyopenvino.PartialShape](https://docs.openvino.ai/openvino.PartialShape.html#openvino.PartialShape)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.set_partial_shape)
+
+-
+set_rt_info(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*value: object*,*key: str*) None[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.set_rt_info) Add a value to the runtime info.
+
+- Parameters:
+**value**(*Any*) – Value for the runtime info.**key**(*str*) – String that defines a key in the runtime info dictionary.
+
+
+
+-
+*property*shape[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.shape)
+
+-
+*property*type_info[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.type_info)
+
+-
+validate_and_infer_types(
+*self:*) None[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.validate_and_infer_types) Verifies that attributes and inputs are consistent and computes output shapes and element types. Must be implemented by concrete child classes so that it can be run any number of times.
+
+Throws if the node is invalid.
+
+
+-
+visit_attributes(
+*self:*,[openvino._pyopenvino.Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)*arg0: openvino._pyopenvino.AttributeVisitor*) bool[#](https://docs.openvino.ai#openvino.runtime.op.Parameter.visit_attributes)
+
+-
+__init__(

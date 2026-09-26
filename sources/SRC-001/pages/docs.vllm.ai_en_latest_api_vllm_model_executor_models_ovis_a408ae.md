@@ -1,10 +1,10 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/ovis/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class VisualTokenizer(torch.nn.Module):
 def __init__(
 self,
-config: PretrainedConfig,
+config: PreTrainedConfig,
 quant_config: QuantizationConfig | None = None,
 prefix: str = "",
 ):
@@ -30,7 +30,7 @@ torch.nn.LayerNorm(head_dim),
 )
 def _init_backbone(
 self,
-config: PretrainedConfig,
+config: PreTrainedConfig,
 quant_config: QuantizationConfig | None = None,
 prefix: str = "",
 ) -> nn.Module:

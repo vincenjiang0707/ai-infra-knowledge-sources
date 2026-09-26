@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/cli/bench/sweep/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # vllm bench sweep[¶](https://docs.vllm.ai#vllm-bench-sweep)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/cute_utils/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 def simple_tma_copy(atom, src, dst, mbar=None, cache_policy=None):
 """A simple helper that wraps group_modes() and tma_partition()

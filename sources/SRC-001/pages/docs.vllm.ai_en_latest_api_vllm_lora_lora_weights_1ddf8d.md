@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/lora_weights/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class PackedLoRALayerWeights(LoRALayerWeights):
 """LoRA used for packed layers (eg. qkv_proj)."""

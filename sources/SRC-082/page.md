@@ -1,5 +1,3 @@
-# AWQ
-
 source: https://github.com/mit-han-lab/llm-awq/releases
 
 # Releases: mit-han-lab/llm-awq

@@ -7,11 +7,12 @@
 
 | 项 | 值 |
 |---|---|
-| 抓取快照日期 | 2026-09-24 |
+| 抓取快照日期 | 2026-09-26 |
 | 来源数 | 170（success 162 / partial 3 / blocked 5，SRC-043 寒武纪 forum 504 partial、SRC-132 AWS ML blog SPA lazy 2 posts partial、SRC-140 Lei Mao networkidle 62 posts partial）|
-| 文件总数 | ~5200 |
-| 总体积 | ~220 MB |
+| 文件总数 | ~26000 |
+| 总体积 | ~500 MB |
 | 来源类型 | GitHub 80 · Blog 14 · HF 8 · 学术 5 · Sitemap/Docs 12 · 论坛/国产社区 9 · 其他 |
+| GitHub 详情 | 33 SRC 批量补抓 `github_details/`（2026-09-25/26）；fork 仓库自动回退上游（SRC-168 从 xlite-dev/Awesome-LLM-Inference 补 12 issue + 100 PR 详情）|
 
 ## 按抓取类型分组
 
@@ -36,6 +37,8 @@
 ├── SCRAPE_REPORT.md            抓取逻辑、状态机、性能与已知边界
 ├── _registry.json              170 SRC 元数据（含 status / channel 状态）
 ├── _summary/                   汇总报告（index / fetched / partial / not_fetched / blocked）
+├── _runs/                      每次抓取的运行日志（RUN-*.json / DAY-*.json）
+├── scrape/                     抓取与维护脚本（见下方"更新方式"）
 └── sources/
     └── SRC-XXX/
         ├── _meta.json              状态/游标/渠道结果
@@ -79,14 +82,22 @@
 
 ## 更新方式
 
-抓取脚本（`scrape/incremental_gh.py` / `detail_fetcher.py` / `summary_gen.py`）未在本仓发布；如需更新快照请回 `chaoyuan` 主仓运行。
+抓取与维护脚本已随仓发布于 `scrape/`，全部**幂等**设计（head-check + cursor，跳过已抓且未过期条目）：
 
-抓取脚本行为：增量 + 详情抓取都是**幂等**设计，跳过已抓且未过期条目，不会重抓全量。
+| 脚本 | 用途 |
+|---|---|
+| `scrape.py` | 主流程：按 SRC 跑各通道（github_repo / site / blog / js / hf / reference），`python3 scrape/scrape.py SRC-001` |
+| `incremental_gh.py` | 全量 SRC 增量刷新 |
+| `fetch_missing_details.py` | 补抓含 github 通道但缺 `github_details/` 的 SRC；判定含"issues.status=ok 即完成"，count=0 仓库不会每批重跑 |
+| `fetch_details_watchdog.sh` | fetch_missing 看门狗：进程不在则拉起；日志出现 `err: timeout` 则杀掉（含子进程）等 30s 重启；`FETCH_ARGS` / `POLL_SEC` / `RESTART_SEC` 可配 |
+| `fence_md.py` | 未包裹代码块识别与 ` ``` ` 修复：五通道判定（marker/shell 形态/强码率/语言结构特征/yaml KV）+ 断点集合（标题/引用/表格/setext/页面元数据行）+ 邻接放宽重试；增量状态 `scrape/.fence_md_done.json`（`--force` 全量），`--dry-run` / `--review` / `--stats` |
+| `build_index.py` | 重新生成 `index.html` + `_index.json` |
 
 ## Changelog
 
 | 版本 | 日期 | 说明 |
 |---|---|---|
+| v1.8 | 2026-09-26 | GitHub **fork 上游回退**：fork 仓库 issues/PRs 均空时自动改抓根仓库（`data.source`），`_meta` 记 `issues.from`/`pulls.from`，支持 `upstream_override` 手工指定；SRC-168 从上游 xlite-dev/Awesome-LLM-Inference 补 12 issue + 100 PR 详情。33 SRC 批量补抓 github_details。`fence_md.py` 定位精度重写（五通道 + 断点集合 + 元数据行过滤 + REPL/yaml 识别 + CRLF 保留，17k 文件 dry-run 验证：清理旧误报 4.5k、挽回漏报 1.6k，含 16 项回归测试）。`fetch_missing_details.py` 防死循环判定。新增看门狗 `fetch_details_watchdog.sh`。SRC-168 误挂的两个 vllm docs sitemap 通道迁回 SRC-001（59 页） |
 | v1.2 | 2026-09-23 | SRC-XXX 移入 sources/ 子目录，减少顶层目录噪声 |
 | v1.7 | 2026-09-24 | 生成静态索引：`scrape/build_index.py` 读 `_registry.json` + filesystem 扫描，产出 `index.html`（按 category 分组的可折叠目录 + status 筛选 + SRC 子文件清单）与 `_index.json`（skill 友好的 SRC + 文件路径 JSON，170 项） |
 | v1.6 | 2026-09-24 | blog 通道批量补抓 SRC-125 NVIDIA 50 篇、SRC-126 Baseten 25 篇、SRC-129 Fireworks 23 篇、SRC-131 Anyscale 18 篇、SRC-132 AWS ML 2 篇（partial，JS lazy）、SRC-133 Google Cloud 48 篇、SRC-140 Lei Mao 52→62 篇（partial，networkidle timeout）；修复 batch2 跳过 error 状态的 bug |
@@ -104,6 +115,7 @@
 - **sitemap.xml 缺失站点**：走 menu BFS fallback（深度3、每 SRC ≤200 页），可能漏深层子菜单
 - **多仓 SRC（如 SRC-004 vLLM + sglang docs）**：增量时合并刷新（每仓 ≤3 页）
 - **详情抓取中 PR reviews 与 comments 是两个端点**：缺一会漏 claude[bot] 类自动审查
+- **fork 仓库上游回退**：issues 与 pulls 均为 0 且 repo 标记为 fork 时，自动改抓根仓库（API `source` 字段），`_meta` 中 `issues.from` / `pulls.from` 标注真实来源，cursor 带 `from` 保证增量 head-check 指向上游；README/releases/changelog 仍用 fork 自身。手工指定上游：通道字段 `upstream_override`
 - **公网版权**：raw HTML→markdown 二次发布仅限个人研究，引用请回原链接
 
 详见 [SCRAPE_REPORT.md](./SCRAPE_REPORT.md)。

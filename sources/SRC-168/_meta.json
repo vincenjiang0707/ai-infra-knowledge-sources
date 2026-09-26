@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:57:10Z",
- "finished_at": "2026-09-23T03:57:10Z",
- "duration_seconds": 66.6,
- "attempts": 1,
+ "finished_at": "2026-09-25T23:49:35Z",
+ "duration_seconds": 625.4,
+ "attempts": 117,
  "channels": {
   "gh_c44348ad": {
    "type": "github_repo",
@@ -19,13 +19,25 @@
    "output": "github_repo.md",
    "issues": {
     "status": "ok",
-    "count": 0,
-    "note": "top-100 by updated_at"
+    "count": 12,
+    "note": "top-100 by updated_at desc (web default)",
+    "from": "xlite-dev/Awesome-LLM-Inference",
+    "details": {
+     "fetched": 12,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
-    "count": 0,
-    "note": "top-100 by updated_at"
+    "count": 100,
+    "note": "top-100 by updated_at desc (web default)",
+    "from": "xlite-dev/Awesome-LLM-Inference",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -46,44 +58,37 @@
   "ref_e41c2821": {
    "type": "reference",
    "url": "https://github.com/DefTruth/Awesome-LLM-Inference/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 2527
   },
   "ref_41936760": {
    "type": "reference",
    "url": "https://github.com/DefTruth/Awesome-LLM-Inference/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 491
+   "mode": "page",
+   "chars": 726
   },
   "ref_3c0bf8d0": {
    "type": "reference",
    "url": "https://github.com/DefTruth/Awesome-LLM-Inference/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 367
-  },
-  "site_7c6687ed": {
-   "type": "site",
-   "url": "https://docs.vllm.ai/en/latest/configuration/optimization/",
-   "mode": "page",
-   "status": "ok",
-   "output": "page.md",
-   "chars": 25347
-  },
-  "site_5405c34f": {
-   "type": "site",
-   "url": "https://docs.vllm.ai/projects/recipes/en/stable/",
-   "mode": "page",
-   "status": "ok",
-   "output": "page.md",
-   "chars": 2311
   }
  },
- "cursor": {},
+ "cursor": {
+  "gh_c44348ad:issues": {
+   "last_updated_at": "2026-09-20T02:22:05Z",
+   "from": "xlite-dev/Awesome-LLM-Inference"
+  },
+  "gh_c44348ad:pulls": {
+   "last_updated_at": "2026-09-24T05:49:52Z",
+   "from": "xlite-dev/Awesome-LLM-Inference"
+  }
+ },
  "notes": ""
 }

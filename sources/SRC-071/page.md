@@ -1,5 +1,3 @@
-# TileLang
-
 source: https://github.com/tile-ai/tilelang/releases
 
 # Releases: tile-ai/tilelang

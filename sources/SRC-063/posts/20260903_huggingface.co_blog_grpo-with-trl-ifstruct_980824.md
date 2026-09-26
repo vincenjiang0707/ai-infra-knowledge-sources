@@ -99,6 +99,7 @@ to offload all layers to the GPU when available`-np 4`
 Once the server is running, we can run the full benchmark with 2000 samples:
 
 ```
+```bash
 uv run ifstruct-eval \
 --model LiquidAI/LFM2.5-350M \
 --base-url http://localhost:8080/v1 \
@@ -108,6 +109,7 @@ uv run ifstruct-eval \
 --n-threads 4 \
 --max-tokens 2048 \
 -v
+```
 ```
 
 
@@ -322,6 +324,7 @@ llama-server \
 Then, we will run the full IFStruct evaluation again with the fine-tuned model:
 
 ```
+```bash
 uv run ifstruct-eval \
 --model lfm25-350m-grpo-structured-output \
 --base-url http://localhost:8081/v1 \
@@ -331,6 +334,7 @@ uv run ifstruct-eval \
 --n-threads 4 \
 --max-tokens 2048 \
 -v
+```
 ```
 
 

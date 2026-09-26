@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/models/pooling_models/embed/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Embedding Usages[¶](https://docs.vllm.ai#embedding-usages)
 
@@ -620,10 +620,12 @@ in the request. Refer to the examples below for illustration.
 
 To serve the model:
 
+```bash
 vllm serve TIGER-Lab/VLM2Vec-Full --runner pooling \
 --trust-remote-code \
 --max-model-len 4096 \
 --chat-template examples/pooling/embed/template/vlm2vec_phi3v.jinja
+```
 
 
 Important
@@ -665,10 +667,12 @@ print("Image embedding output:", response.data[0].embedding)
 
 To serve the model:
 
+```bash
 vllm serve MrLight/dse-qwen2-2b-mrl-v1 --runner pooling \
 --trust-remote-code \
 --max-model-len 8192 \
 --chat-template examples/pooling/embed/template/dse_qwen2_vl.jinja
+```
 
 
 Important
@@ -708,6 +712,7 @@ Our API is also compatible with [Cohere's Embed v2 API](https://docs.cohere.com/
 
 #### Text embedding[¶](https://docs.vllm.ai#text-embedding)
 
+```bash
 curl -X POST "http://localhost:8000/v2/embed" \
 -H "Content-Type: application/json" \
 -d '{
@@ -716,6 +721,7 @@ curl -X POST "http://localhost:8000/v2/embed" \
 "texts": ["Hello world", "How are you?"],
 "embedding_types": ["float"]
 }'
+```
 
 
 ## Response
@@ -726,6 +732,7 @@ For multimodal models, you can embed images by passing base64 data URIs. The `in
 
 field accepts a list of objects with mixed text and image content:
 
+```
 curl -X POST "http://localhost:8000/v2/embed" \
 -H "Content-Type: application/json" \
 -d '{
@@ -740,6 +747,7 @@ curl -X POST "http://localhost:8000/v2/embed" \
 ],
 "embedding_types": ["float"]
 }'
+```
 
 
 #### Embedding types[¶](https://docs.vllm.ai#embedding-types)
@@ -755,6 +763,7 @@ parameter controls the output format. Multiple types can be requested in a singl
 `ubinary` | Bit-packed unsigned binary |
 `base64` | Little-endian float32 encoded as base64 |
 
+```bash
 curl -X POST "http://localhost:8000/v2/embed" \
 -H "Content-Type: application/json" \
 -d '{
@@ -763,6 +772,7 @@ curl -X POST "http://localhost:8000/v2/embed" \
 "texts": ["What is machine learning?"],
 "embedding_types": ["float", "binary"]
 }'
+```
 
 
 ## Response
@@ -888,6 +898,7 @@ Use the following command to start the vLLM server.
 
 You can change the output dimensions of embedding models that support Matryoshka Embeddings by using the dimensions parameter.
 
+```bash
 curl http://127.0.0.1:8000/v1/embeddings \
 -H 'accept: application/json' \
 -H 'Content-Type: application/json' \
@@ -897,6 +908,7 @@ curl http://127.0.0.1:8000/v1/embeddings \
 "encoding_format": "float",
 "dimensions": 32
 }'
+```
 
 
 Expected output:

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/deployment/chart-helm/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Helm Charts[¶](https://docs.vllm.ai#helm-charts)
 
@@ -807,6 +807,7 @@ release: qwen-serving
 
 ## values.schema.json
 
+```json
 {
 "$schema": "http://json-schema.org/schema#",
 "type": "object",
@@ -1139,6 +1140,7 @@ release: qwen-serving
 "servicePort"
 ]
 }
+```
 
 
 ## values.yaml

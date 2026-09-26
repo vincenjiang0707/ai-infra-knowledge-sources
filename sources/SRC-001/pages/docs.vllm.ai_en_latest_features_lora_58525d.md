@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/lora/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # LoRA Adapters[¶](https://docs.vllm.ai#lora-adapters)
 
@@ -81,6 +81,7 @@ is set high enough).
 
 The following is an example request
 
+```bash
 curl http://localhost:8000/v1/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -89,6 +90,7 @@ curl http://localhost:8000/v1/completions \
 "max_tokens": 7,
 "temperature": 0
 }' | jq
+```
 
 
 ## Dynamically serving LoRA Adapters[¶](https://docs.vllm.ai#dynamically-serving-lora-adapters)
@@ -115,12 +117,14 @@ endpoint with the necessary details of the adapter to be loaded. The request pay
 
 Example request to load a LoRA adapter:
 
+```bash
 curl -X POST http://localhost:8000/v1/load_lora_adapter \
 -H "Content-Type: application/json" \
 -d '{
 "lora_name": "sql_adapter",
 "lora_path": "/path/to/sql-lora-adapter"
 }'
+```
 
 
 Upon a successful request, the API will respond with a `200 OK`
@@ -151,11 +155,13 @@ returns the response body: `Success: LoRA adapter 'sql_adapter' removed successf
 
 Example request to unload a LoRA adapter:
 
+```bash
 curl -X POST http://localhost:8000/v1/unload_lora_adapter \
 -H "Content-Type: application/json" \
 -d '{
 "lora_name": "sql_adapter"
 }'
+```
 
 
 ### Using Plugins[¶](https://docs.vllm.ai#using-plugins)
@@ -226,6 +232,7 @@ When `load_inplace=True`
 
 Example request to load or replace a LoRA adapter with the same name:
 
+```bash
 curl -X POST http://localhost:8000/v1/load_lora_adapter \
 -H "Content-Type: application/json" \
 -d '{
@@ -233,6 +240,7 @@ curl -X POST http://localhost:8000/v1/load_lora_adapter \
 "lora_path": "/path/to/adapter/v2",
 "load_inplace": true
 }'
+```
 
 
 ## New format for `--lora-modules`
@@ -284,6 +292,7 @@ Dynamic load via `/v1/load_lora_adapter`
 
 :
 
+```bash
 curl -X POST http://localhost:8000/v1/load_lora_adapter \
 -H "Content-Type: application/json" \
 -d '{
@@ -291,6 +300,7 @@ curl -X POST http://localhost:8000/v1/load_lora_adapter \
 "lora_path": "/path/to/3d-format-lora",
 "is_3d_lora_weight": true
 }'
+```
 
 
 You must know your adapter's layout
@@ -345,6 +355,7 @@ field points to the artifact location of the lora adapter.
 
 ## Command output
 
+```json
 $ curl http://localhost:8000/v1/models
 {
 "object": "list",
@@ -377,6 +388,7 @@ $ curl http://localhost:8000/v1/models
 }
 ]
 }
+```
 
 
 ## LoRA Support for Tower and Connector of Multi-Modal Model[¶](https://docs.vllm.ai#lora-support-for-tower-and-connector-of-multi-modal-model)
@@ -440,11 +452,13 @@ You can also pass a json dictionary of `--default-mm-loras`
 
 mapping modalities to LoRA model IDs. For example, when starting the server:
 
+```bash
 vllm serve ibm-granite/granite-speech-3.3-2b \
 --max-model-len 2048 \
 --enable-lora \
 --default-mm-loras '{"audio":"ibm-granite/granite-speech-3.3-2b"}' \
 --max-lora-rank 64
+```
 
 
 Note: Default multimodal LoRAs are currently only available for `.generate`

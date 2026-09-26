@@ -1,0 +1,125 @@
+source: https://docs.nvidia.com/dynamo/dev/recipes/nemotron-3-ultra
+lastmod: 2026-09-24T19:58:16.636Z
+
+Nemotron-3-Ultra
+
+
+Nemotron-3-Ultra
+
+Serve Nemotron-3-Ultra with optimized Dynamo 1.4.0 and vLLM profiles on B200, GB200, and H200.
+
+The Nemotron-3-Ultra recipe serves
+`nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-NVFP4`
+
+with optimized aggregated and
+disaggregated Dynamo profiles. The model’s native context length is 256K. The 1M profiles are an
+explicit long-context enablement that overrides the serving framework’s model-length guardrail;
+they do not change the model’s native context length in `config.json`
+
+. The qualified 1M settings
+are carried in separate manifests.
+
+All profiles use the released public `vllm-runtime:1.4.0`
+
+image pinned by digest. No NGC image pull
+secret is required.
+
+## Profiles
+
+The aggregated profiles run two workers behind KV-aware routing. Aggregated 256K profiles use five-token MTP; aggregated 1M profiles run without speculative decoding. Disaggregated profiles split prefill and decode, use NIXL/UCX over the qualified RDMA path, and run without MTP.
+
+All profiles enable prefix caching, asynchronous scheduling, FP8 KV cache, BF16 Mamba state, and hybrid KV cache management with Expert Parallelism disabled.
+
+The B200 and GB200 256K disaggregated profiles use FlashInfer attention; the H200 256K profile uses
+FlashAttention. B200 and H200 use UCX/RDMA with `rdma/ib`
+
+resources. GB200 uses GKE multi-network
+MRDMA and its four qualified RDMA interfaces.
+
+## Prerequisites
+
+- A Kubernetes cluster with the Dynamo Platform installed and the DGD CRDs available.
+- Enough GPUs for the selected profile: 8 B200/GB200 or 16 H200 for aggregated profiles; 12 B200/GB200 or 24 H200 for 256K disaggregated profiles; 8 B200/GB200 or 16 H200 for 1M disaggregated profiles.
+- A
+`shared-model-cache`
+
+PVC containing the Ultra model view, or permission to create the approximately 1200 GiB PVC and populate it. - A Hugging Face token with access to the checkpoint when populating the model cache.
+
+Create the namespace and Hugging Face secret when the model must be downloaded:
+
+Review the namespace, storage class, node selectors, tolerations, and cluster-specific RDMA placement before applying a manifest.
+
+## Prepare the model cache
+
+Create and populate the model cache, then validate the model view before deployment:
+
+The runtime image and model weights are decoupled. The download Job writes the checkpoint to the PVC; the deployment pods mount that validated model view.
+
+## Deploy
+
+Deploy an aggregated profile:
+
+Deploy the selected disaggregated profile. The qualified 256K topology is 1P2D; the qualified 1M topology is 1P1D:
+
+Monitor the resulting deployment:
+
+## Smoke test
+
+Forward the selected deployment’s frontend service. For example:
+
+Verify model discovery and chat completions:
+
+## Benchmark
+
+All profiles share one AIPerf Job and runner. Edit the Job environment for the selected DGD, frontend endpoint, context, reference concurrency, GPU count, and worker count before applying it:
+
+The runner uses AIPerf 0.12.0 and the complete 15% agentic Moontrace replay with streaming chat,
+server token counts, seed 42, and `ignore_eos:true`
+
+. Benchmark artifacts are written to the
+`shared-model-cache`
+
+PVC.
+
+See the [benchmark asset guide](https://github.com/ai-dynamo/dynamo/blob/main/recipes/nemotron-3-ultra/perf/README.md)
+for the source files. Performance and release-review evidence are maintained outside the recipe
+source tree.
+
+## Known limitations
+
+- Reasoning is controlled per request with
+`chat_template_kwargs`
+
+(`enable_thinking`
+
+and`force_nonempty_content`
+
+) and`nvext.max_thinking_tokens`
+
+. Do not send`force_nonempty_content`
+
+as a top-level request parameter. - With the OSS vLLM version bundled in Dynamo 1.4.0, reasoning-enabled requests using
+`response_format`
+
+with`json_object`
+
+or`json_schema`
+
+may return malformed JSON with HTTP 200. The fix is available upstream in[vLLM PR #44993](https://github.com/vllm-project/vllm/pull/44993)but is not included in the pinned runtime. Disable thinking for constrained output when appropriate and validate structured output before consuming the response. - The same bundled OSS vLLM limitation affects reasoning-enabled requests using
+`tool_choice: "required"`
+
+or a named tool choice: the response may contain plain`content`
+
+with`finish_reason: "stop"`
+
+instead of structured`tool_calls`
+
+. Disable thinking for constrained tool calls when appropriate and validate`tool_calls`
+
+before consuming the response. - Raw Moontrace replay includes over-context and pathological long-generation rows. Preserve them as HTTP/error evidence rather than dropping them silently.
+- Tool calling uses the
+`qwen3_coder`
+
+parser. Reasoning parsing uses the model-local`ultra_v3_reasoning_parser.py`
+
+, which the model-validation Job checks before deployment.

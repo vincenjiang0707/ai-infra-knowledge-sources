@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/nemotron_vl/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 @MULTIMODAL_REGISTRY.register_processor(
 BaseInternVLMultiModalProcessor[NemotronVLProcessingInfo],
@@ -53,7 +53,7 @@ self.make_empty_intermediate_tensors = (
 self.language_model.make_empty_intermediate_tensors
 )
 def _patch_quant_config(
-self, config: PretrainedConfig, quant_config: QuantizationConfig | None
+self, config: PreTrainedConfig, quant_config: QuantizationConfig | None
 ):
 # the awq models from OpenGVLab missing `modules_to_not_convert`
 # patch the quant_config to add `modules_to_not_convert` back
@@ -66,7 +66,7 @@ llm_quant_config is not None
 quant_config.modules_to_not_convert.append("vision_model")
 def _init_vision_model(
 self,
-config: PretrainedConfig,
+config: PreTrainedConfig,
 quant_config: QuantizationConfig | None,
 *,
 prefix: str,
@@ -77,7 +77,7 @@ trust_remote_code=self.model_config.trust_remote_code,
 )
 def _init_mlp1(
 self,
-config: PretrainedConfig,
+config: PreTrainedConfig,
 vit_hidden_size: int | None = None,
 vision_projection_hidden_size: int | None = None,
 ) -> nn.Module:

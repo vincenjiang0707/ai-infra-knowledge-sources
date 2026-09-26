@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/dots3_note/common/processor/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class Dots3NoteProcessor:
 """Small HF-like processor used by vLLM's multimodal frontend."""

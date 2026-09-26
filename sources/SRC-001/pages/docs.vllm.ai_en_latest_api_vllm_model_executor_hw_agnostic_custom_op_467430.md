@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/hw_agnostic/custom_op/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class CustomOp(nn.Module):
 """Base class for custom ops.

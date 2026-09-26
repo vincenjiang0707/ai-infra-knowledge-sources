@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/nvidia/model_state/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class DeepseekV41ModelState(DefaultModelState):
 """DefaultModelState plus the engram lookback window and SWA bounded replay.

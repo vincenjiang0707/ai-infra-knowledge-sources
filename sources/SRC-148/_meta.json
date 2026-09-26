@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:22:57Z",
- "finished_at": "2026-09-23T05:05:02Z",
- "duration_seconds": 5.1,
- "attempts": 2,
+ "finished_at": "2026-09-24T18:57:36Z",
+ "duration_seconds": 5.3,
+ "attempts": 3,
  "channels": {
   "hf_37827b74": {
    "type": "hf",
@@ -17,7 +17,7 @@
    "status": "ok",
    "output": "page.md",
    "mode": "page",
-   "chars": 1317
+   "chars": 2765
   }
  },
  "cursor": {},

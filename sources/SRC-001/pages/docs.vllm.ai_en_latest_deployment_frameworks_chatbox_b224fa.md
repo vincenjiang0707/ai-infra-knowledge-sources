@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/frameworks/chatbox/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Chatbox[¶](https://docs.vllm.ai#chatbox)
 

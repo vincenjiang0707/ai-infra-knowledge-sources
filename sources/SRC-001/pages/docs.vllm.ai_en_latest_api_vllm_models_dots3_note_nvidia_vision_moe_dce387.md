@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/dots3_note/nvidia/vision_moe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 def note_vision_fused_moe_fp8(
 hidden_states: torch.Tensor,

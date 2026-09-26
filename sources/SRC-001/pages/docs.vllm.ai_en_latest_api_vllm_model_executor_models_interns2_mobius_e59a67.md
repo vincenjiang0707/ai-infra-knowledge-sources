@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/interns2_mobius/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class InternS2MobiusMetaMoeBlock(nn.Module):
 """A routed MoE bank shared by multiple decoder layers."""
@@ -24,11 +24,9 @@ self.n_logical_experts = self.n_routed_experts
 self.n_redundant_experts = eplb_config.num_redundant_experts
 self.n_physical_experts = self.n_logical_experts + self.n_redundant_experts
 self.n_local_physical_experts = self.n_physical_experts // self.ep_size
-self.gate = ReplicatedLinear(
+self.gate = GateLinear(
 config.hidden_size,
 config.num_experts,
-bias=False,
-quant_config=None,
 prefix=f"{prefix}.gate",
 )
 self.experts = FusedMoEFactory(

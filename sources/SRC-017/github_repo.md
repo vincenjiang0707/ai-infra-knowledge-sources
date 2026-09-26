@@ -1,12 +1,12 @@
 # NVIDIA/nccl
 
-- stars: 5109
+- stars: 5117
 - forks: 1426
-- open_issues: 444
+- open_issues: 448
 - default_branch: master
 - archived: False
 - license: NOASSERTION
-- pushed_at: 2026-09-17T22:26:32Z
+- pushed_at: 2026-09-24T18:46:24Z
 - homepage: https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/index.html
 
 ## README

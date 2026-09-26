@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:46:34Z",
- "finished_at": "2026-09-23T03:46:34Z",
- "duration_seconds": 55.0,
- "attempts": 1,
+ "finished_at": "2026-09-25T10:46:05Z",
+ "duration_seconds": 40.6,
+ "attempts": 5,
  "channels": {
   "gh_3698df73": {
    "type": "github_repo",
@@ -20,12 +20,17 @@
    "issues": {
     "status": "ok",
     "count": 0,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 1,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 1,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -46,33 +51,33 @@
   "ref_f20cbb4f": {
    "type": "reference",
    "url": "https://github.com/Ascend/MindSpeed/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 2486
   },
   "ref_6406df5a": {
    "type": "reference",
    "url": "https://github.com/Ascend/MindSpeed/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 2661
+   "mode": "page",
+   "chars": 2671
   },
   "ref_4c8f93d1": {
    "type": "reference",
    "url": "https://github.com/Ascend/MindSpeed/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 339
   },
   "site_7301faf0": {
    "type": "site",
    "url": "https://developer.mthreads.com/sdk/musa",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 3068
   }
  },

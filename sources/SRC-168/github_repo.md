@@ -8,6 +8,7 @@
 - license: GPL-3.0
 - pushed_at: 2025-03-30T02:18:08Z
 - homepage: 
+- forked from: xlite-dev/Awesome-LLM-Inference (issues/PRs 从上游获取)
 
 ## README
 

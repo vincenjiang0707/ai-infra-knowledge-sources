@@ -1,5 +1,3 @@
-# InferenceX
-
 source: https://github.com/SemiAnalysisAI/InferenceX/releases
 
 # Releases: SemiAnalysisAI/InferenceX

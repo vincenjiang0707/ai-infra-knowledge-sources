@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/cohere/serving/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class CohereServingChatV2(OpenAIServingChat):
 """Handler for the Cohere Chat v2 API (``POST /cohere/v2/chat``).

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/common/ops/fused_allreduce_rms_norm/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 All-reduce + add residual + (standard) RMSNorm, fused via flashinfer.
 

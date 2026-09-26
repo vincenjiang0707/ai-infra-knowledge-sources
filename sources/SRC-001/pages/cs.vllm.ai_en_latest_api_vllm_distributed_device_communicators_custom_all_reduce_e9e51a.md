@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/device_communicators/custom_all_reduce/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class CustomAllreduce:
 _SUPPORTED_WORLD_SIZES = [2, 4, 6, 8, 16]

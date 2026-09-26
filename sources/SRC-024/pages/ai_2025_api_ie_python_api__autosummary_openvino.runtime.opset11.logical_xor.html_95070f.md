@@ -1,0 +1,14 @@
+source: https://docs.openvino.ai/2025/api/ie_python_api/_autosummary/openvino.runtime.opset11.logical_xor.html
+lastmod: 
+
+# openvino.runtime.opset11.logical_xor[#](https://docs.openvino.ai#openvino-runtime-opset11-logical-xor)
+
+-
+openvino.runtime.opset11.logical_xor(
+*left_node:*,[Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| int | float | ndarray*right_node:*,[Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| int | float | ndarray*auto_broadcast: str = 'NUMPY'*,*name: str | None = None*)[Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.opset11.logical_xor) Return node which performs logical XOR operation on input nodes element-wise.
+
+- Parameters:
+**left_node**– The first input node providing data.**right_node**– The second input node providing data.**auto_broadcast**– The type of broadcasting that specifies mapping of input tensor axes to output shape axes. Range of values: numpy, explicit.**name**– The optional new name for output node.
+
+- Returns:
+The node performing logical or operation on input nodes corresponding elements.

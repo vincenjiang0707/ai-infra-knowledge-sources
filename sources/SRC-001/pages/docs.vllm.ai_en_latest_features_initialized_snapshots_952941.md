@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/initialized_snapshots/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Initialized engine snapshots[¶](https://docs.vllm.ai#initialized-engine-snapshots)
 
@@ -57,6 +57,7 @@ and root ownership. The model downloads in its own step so the captured tree hol
 
 namespace stable for the lifetime of the artifact:
 
+```bash
 sudo sysctl kernel.io_uring_disabled=2
 snapshot_root="$(pwd)/vllm-snapshots"
 sudo install -d -m 0700 -o root -g root "${snapshot_root}"
@@ -79,6 +80,7 @@ docker exec -e HF_HUB_OFFLINE=1 vllm-snapshot vllm snapshot create Qwen/Qwen3-0.
 docker exec vllm-snapshot vllm snapshot inspect /snapshots/qwen3-0.6b
 docker exec vllm-snapshot vllm snapshot restore \
 /snapshots/qwen3-0.6b --host 0.0.0.0 --port 8000
+```
 
 
 Keep that container and its mounts available while the snapshot is in use. Stop and remove it only after the restored API server is no longer needed.

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/training/rlhf/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Reinforcement Learning from Human Feedback[¶](https://docs.vllm.ai#reinforcement-learning-from-human-feedback)
 

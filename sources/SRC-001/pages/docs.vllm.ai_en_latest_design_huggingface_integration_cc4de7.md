@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/huggingface_integration/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Integration with Hugging Face[¶](https://docs.vllm.ai#integration-with-hugging-face)
 

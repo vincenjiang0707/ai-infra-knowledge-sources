@@ -7,17 +7,27 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:22:18Z",
- "finished_at": "2026-09-23T04:22:18Z",
- "duration_seconds": 6.7,
- "attempts": 2,
+ "finished_at": "2026-09-24T18:57:06Z",
+ "duration_seconds": 11.7,
+ "attempts": 3,
  "channels": {
   "site_ea93237f": {
    "type": "blog",
    "url": "https://salykova.github.io/",
+   "index_urls": [
+    "https://salykova.github.io/"
+   ],
    "status": "ok",
    "mode": "blog",
    "posts": [],
-   "total_chars": 0
+   "total_chars": 0,
+   "post_urls": {
+    "https://salykova.github.io/gemm-cpu": "20240801_salykova.github.io_gemm-cpu_76a0ca.md",
+    "https://salykova.github.io/gemm-gpu": "20250112_salykova.github.io_gemm-gpu_adc352.md",
+    "https://salykova.github.io/matmul-cpu": "20250112_salykova.github.io_matmul-cpu_45369d.md",
+    "https://salykova.github.io/sgemm-gpu": "20250112_salykova.github.io_sgemm-gpu_14344d.md",
+    "https://salykova.github.io/matrix-cores-cdna": "20250930_salykova.github.io_matrix-cores-cdna_4cb0a0.md"
+   }
   }
  },
  "cursor": {

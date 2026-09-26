@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/cpu/model/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class DeepseekV4ForCausalLM(nn.Module, SupportsPP, SupportsEagle3):
 model_cls = DeepseekV4Model

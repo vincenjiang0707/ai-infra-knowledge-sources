@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/glm5next/common/multimodal/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class Glm5NextVisionTransformer(nn.Module):
 # Stacked-weight remap for the GLM-OCR/GLM-4V vision checkpoint layout.

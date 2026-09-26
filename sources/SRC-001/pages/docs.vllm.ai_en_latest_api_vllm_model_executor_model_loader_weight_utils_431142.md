@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/model_loader/weight_utils/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -36,6 +36,9 @@ Functions:
 –[filter_files_not_needed_for_inference](https://docs.vllm.ai#vllm.model_executor.model_loader.weight_utils.filter_files_not_needed_for_inference)Exclude files that are not needed for inference.
 
 -
+–[filter_mm_encoder_only_safetensors_files](https://docs.vllm.ai#vllm.model_executor.model_loader.weight_utils.filter_mm_encoder_only_safetensors_files)Drop safetensors shards that only contain language-model weights.
+
+-
 –[instanttensor_weights_iterator](https://docs.vllm.ai#vllm.model_executor.model_loader.weight_utils.instanttensor_weights_iterator)Iterate over the weights in the model safetensor files
 
 -
@@ -63,6 +66,11 @@ Functions:
 –[remap_moe_expert_weights](https://docs.vllm.ai#vllm.model_executor.model_loader.weight_utils.remap_moe_expert_weights)Remap MoE expert parameter names for backward compatibility.
 
 -
+–[resolve_mm_encoder_only_lm_prefixes](https://docs.vllm.ai#vllm.model_executor.model_loader.weight_utils.resolve_mm_encoder_only_lm_prefixes)Resolve vLLM LM
+
+*module*prefixes for`--mm-encoder-only`
+
+shard skip. -
 –[row_parallel_weight_loader](https://docs.vllm.ai#vllm.model_executor.model_loader.weight_utils.row_parallel_weight_loader)Load weights that are row-parallelized.
 
 -
@@ -107,6 +115,19 @@ Get the filesystem type of the first file in *files* (Linux only).
 
 ##
 
+`_mapped_weight_name(weights_mapper, key)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.model_loader.weight_utils._mapped_weight_name)
+
+Apply `WeightsMapper.map_name`
+
+when present; else identity.
+
+## Source code in `vllm/model_executor/model_loader/weight_utils.py`
+
+
+##
+
 `_natural_sort_key(filepath)`
 
 [¶](https://docs.vllm.ai#vllm.model_executor.model_loader.weight_utils._natural_sort_key)
@@ -136,6 +157,27 @@ Start prefetching checkpoint files into page cache in a background thread.
 Prefetch a checkpoint file into the OS page cache.
 
 Reads the file in blocks so the kernel caches its pages before workers load the same file.
+
+## Source code in `vllm/model_executor/model_loader/weight_utils.py`
+
+
+##
+
+`_shared_hf_root_module_prefixes(lm_module_prefixes, weights_mapper)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.model_loader.weight_utils._shared_hf_root_module_prefixes)
+
+Module prefixes that are also an HF root for non-LM weights.
+
+E.g. Molmo/Phi-4-MM/Muse mark LM as `model`
+
+while vision HF keys stay under `model.vision_*`
+
+/ `model.embed_tokens_extend.*`
+
+. Detected via `WeightsMapper.orig_to_new_prefix`
+
+(no hard-coded name list).
 
 ## Source code in `vllm/model_executor/model_loader/weight_utils.py`
 
@@ -385,6 +427,33 @@ See https://github.com/huggingface/transformers/blob/v4.34.0/src/transformers/tr
 
 ##
 
+`filter_mm_encoder_only_safetensors_files(hf_weights_files, hf_folder, index_file, language_model_prefixes, *, weights_mapper=None)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.model_loader.weight_utils.filter_mm_encoder_only_safetensors_files)
+
+Drop safetensors shards that only contain language-model weights.
+
+Used with `--mm-encoder-only`
+
+so Encoder-only EPD instances avoid reading pure LM shards from disk/DRAM.
+
+Each HF index key is classified by mapping through `weights_mapper`
+
+(when provided) and testing the *vLLM* name against `language_model_prefixes`
+
+. Without a mapper, HF names are compared directly (identity checkpoint layout, e.g. Kimi `language_model.*`
+
+).
+
+A shard is kept if it contains any non-LM key. Without an index file, returns `hf_weights_files`
+
+unchanged.
+
+## Source code in `vllm/model_executor/model_loader/weight_utils.py`
+
+
+##
+
 `instanttensor_weights_iterator(hf_weights_files, use_tqdm_on_load)`
 
 [¶](https://docs.vllm.ai#vllm.model_executor.model_loader.weight_utils.instanttensor_weights_iterator)
@@ -582,6 +651,33 @@ Parameters:
 
 
 Yields:
+
+## Source code in `vllm/model_executor/model_loader/weight_utils.py`
+
+
+##
+
+`resolve_mm_encoder_only_lm_prefixes(language_model_names, *, weights_mapper=None)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.model_loader.weight_utils.resolve_mm_encoder_only_lm_prefixes)
+
+Resolve vLLM LM *module* prefixes for `--mm-encoder-only`
+
+shard skip.
+
+Prefixes come from `_language_model_names`
+
+. Classification of HF index keys is done later via optional `weights_mapper`
+
+(see `filter_mm_encoder_only_safetensors_files`
+
+), so this helper does **not** hard-code Qwen/HF nest lists.
+
+Returns `None`
+
+(leave the safetensors file list unchanged) when `_language_model_names`
+
+is empty/missing, or when a module prefix is a shared HF checkpoint root for both LM and non-LM weights — fail-closed so Molmo / Phi-4-MM / Muse cannot under-load the encoder.
 
 ## Source code in `vllm/model_executor/model_loader/weight_utils.py`
 

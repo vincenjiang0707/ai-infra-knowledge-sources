@@ -1,0 +1,23 @@
+source: https://docs.nvidia.com/nsight-visual-studio-edition/archives/index.html
+
+# Archives[#](https://docs.nvidia.com#archives)
+
+Find documentation for previous versions of NVIDIA Nsight Visual Studio Edition.
+
+## NVIDIA Nsight Visual Studio Edition Archives[#](https://docs.nvidia.com#nvidia-nsight-visual-studio-edition-archives)
+
+Below, you can find the current and past release information for NVIDIA Nsight™ VSE.
+
+**Available Documentation**
+
+Notices
+
+Notice
+
+ALL NVIDIA DESIGN SPECIFICATIONS, REFERENCE BOARDS, FILES, DRAWINGS, DIAGNOSTICS, LISTS, AND OTHER DOCUMENTS (TOGETHER AND SEPARATELY, “MATERIALS”) ARE BEING PROVIDED “AS IS.” NVIDIA MAKES NO WARRANTIES, EXPRESSED, IMPLIED, STATUTORY, OR OTHERWISE WITH RESPECT TO THE MATERIALS, AND EXPRESSLY DISCLAIMS ALL IMPLIED WARRANTIES OF NONINFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A PARTICULAR PURPOSE.
+
+Information furnished is believed to be accurate and reliable. However, NVIDIA Corporation assumes no responsibility for the consequences of use of such information or for any infringement of patents or other rights of third parties that may result from its use. No license is granted by implication of otherwise under any patent rights of NVIDIA Corporation. Specifications mentioned in this publication are subject to change without notice. This publication supersedes and replaces all other information previously supplied. NVIDIA Corporation products are not authorized as critical components in life support devices or systems without express written approval of NVIDIA Corporation.
+
+Trademarks
+
+NVIDIA and the NVIDIA logo are trademarks or registered trademarks of NVIDIA Corporation in the U.S. and other countries. Other company and product names may be trademarks of the respective companies with which they are associated.

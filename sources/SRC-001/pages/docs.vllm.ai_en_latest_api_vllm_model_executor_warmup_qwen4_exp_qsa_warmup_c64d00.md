@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/warmup/qwen4_exp_qsa_warmup/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Warm every reachable QSA specialization: indexer decode-query-length profiles plus the sparse attention split-K/merge configs.
 

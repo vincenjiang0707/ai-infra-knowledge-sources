@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:53:35Z",
- "finished_at": "2026-09-23T03:53:35Z",
- "duration_seconds": 110.7,
- "attempts": 1,
+ "finished_at": "2026-09-25T02:24:03Z",
+ "duration_seconds": 82.3,
+ "attempts": 3,
  "channels": {
   "gh_9fbd6344": {
    "type": "github_repo",
@@ -20,16 +20,16 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
-    "count": 49
+    "count": 50
    },
    "changelog": {
     "status": "ok",
@@ -52,12 +52,12 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
@@ -78,43 +78,43 @@
   "ref_1586595f": {
    "type": "reference",
    "url": "https://github.com/NVIDIA/Model-Optimizer/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 3764
+   "mode": "page",
+   "chars": 3699
   },
   "ref_78d673fd": {
    "type": "reference",
    "url": "https://github.com/NVIDIA/Model-Optimizer/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 5273
+   "mode": "page",
+   "chars": 5523
   },
   "ref_09126f8a": {
    "type": "reference",
    "url": "https://github.com/NVIDIA/Model-Optimizer/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 22186
+   "mode": "page",
+   "chars": 32160
   }
  },
  "cursor": {
   "gh_9fbd6344:issues": {
-   "last_updated_at": "2026-09-23T03:09:01Z"
+   "last_updated_at": "2026-09-23T19:45:47Z"
   },
   "gh_9fbd6344:pulls": {
-   "last_updated_at": "2026-09-23T03:30:50Z"
+   "last_updated_at": "2026-09-25T02:21:11Z"
   },
   "gh_9fbd6344:releases": {
-   "last_id": 394139232
+   "last_id": 394951510
   },
   "gh_745a5b99:issues": {
-   "last_updated_at": "2026-09-23T02:29:33Z"
+   "last_updated_at": "2026-09-24T20:20:26Z"
   },
   "gh_745a5b99:pulls": {
-   "last_updated_at": "2026-09-23T03:49:20Z"
+   "last_updated_at": "2026-09-24T21:21:04Z"
   },
   "gh_745a5b99:releases": {
    "last_id": 394028438

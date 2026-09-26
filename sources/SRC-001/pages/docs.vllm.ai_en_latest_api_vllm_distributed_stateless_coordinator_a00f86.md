@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/stateless_coordinator/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class StatelessGroupCoordinator(GroupCoordinator):
 """A stateless version of the GroupCoordinator class in parallel_state,

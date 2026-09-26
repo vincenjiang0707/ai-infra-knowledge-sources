@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:29:58Z",
- "finished_at": "2026-09-23T03:29:58Z",
- "duration_seconds": 48.2,
- "attempts": 1,
+ "finished_at": "2026-09-25T15:46:51Z",
+ "duration_seconds": 527.1,
+ "attempts": 4,
  "channels": {
   "gh_046db901": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 90,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 54,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 54,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -46,25 +56,25 @@
   "ref_5f5a07b8": {
    "type": "reference",
    "url": "https://github.com/SafeAILab/EAGLE/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 813
   },
   "ref_0ea52dcd": {
    "type": "reference",
    "url": "https://github.com/SafeAILab/EAGLE/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 3801
+   "mode": "page",
+   "chars": 3836
   },
   "ref_2747d008": {
    "type": "reference",
    "url": "https://github.com/SafeAILab/EAGLE/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 584
   }
  },

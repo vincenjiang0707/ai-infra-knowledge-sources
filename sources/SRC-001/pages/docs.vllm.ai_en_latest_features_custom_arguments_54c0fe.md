@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/custom_arguments/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Custom Arguments[¶](https://docs.vllm.ai#custom-arguments)
 
@@ -35,6 +35,7 @@ endpoint allow custom arguments to be passed to the vLLM server via `vllm_xargs`
 
 . The example below integrates custom arguments into a vLLM REST API request:
 
+```bash
 curl http://localhost:8000/v1/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -42,6 +43,7 @@ curl http://localhost:8000/v1/completions \
 ...
 "vllm_xargs": {"your_custom_arg": 67}
 }'
+```
 
 
 Furthermore, OpenAI SDK users can access `vllm_xargs`

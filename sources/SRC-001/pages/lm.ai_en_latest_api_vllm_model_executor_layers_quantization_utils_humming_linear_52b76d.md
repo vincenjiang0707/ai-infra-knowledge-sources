@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/utils/humming/linear/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Rename/reshape a linear layer's quantized params (the canonical MPLinear layout: `weight_packed`
 

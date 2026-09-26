@@ -1,0 +1,473 @@
+source: https://github.com/openshift-psap/serveit-studio
+
+**Automated LLM inference optimization for Kubernetes**
+
+Find the optimal vLLM configuration for your hardware, model, and workload — automatically.
+
+ServeIt Studio deploys real vLLM instances on your cluster, sweeps configurations across aggregated, prefill/decode disaggregated (PD), and expert parallel (EP) architectures, tunes engine parameters from first principles, and returns the optimal setup — ranked by TTFT, throughput, or both.
+
+[Screenshots](https://github.com#screenshots)[How It Works](https://github.com#how-it-works)[Workload Configuration](https://github.com#workload-configuration)[Prerequisites](https://github.com#prerequisites)[Deployment](https://github.com#deployment)[AI-Assisted Deployment](https://github.com#ai-assisted-deployment)[Network Types & Prerequisites](https://github.com#network-types--prerequisites)[Metrics](https://github.com#metrics)[Project Structure](https://github.com#project-structure)[License](https://github.com#license)
+
+Manage multiple clusters and optimization instances from a single dashboard. Each cluster shows GPU nodes, VRAM, RDMA capability, and running instances.
+
+Deploy a new optimization instance to any cluster. Select GPU count, storage class, and pin to specific nodes.
+
+Select from response time, throughput, balanced, or architecture-specific strategies. Each goal tests different architectures and applies different optimization heuristics.
+
+Browse and select from popular open-source LLM models. Filter by size category, architecture (Dense, MoE, Code, Speculative), and quantization format.
+
+Review your full configuration summary — deployment, workload, and tuning settings — then start the automated optimization pipeline. Live console output shows progress in real time.
+
+Interactive scatter plot showing every tested configuration. Bubble size represents GPU count. The ideal configuration is in the top-left corner (low latency + high throughput). Hover over any bubble to see the exact configuration details.
+
+TTFT, throughput, and inter-token latency (ITL) across all tested prefill/decode splits. The green dot marks the best TTFT, the pink diamond marks the best throughput. Aggregated baseline shown as dashed reference lines.
+
+Before running full benchmarks, the optimizer sweeps all valid Tensor Parallelism values to find which TP works best for each role. Lower TP means fewer GPUs per pod — allowing more replicas and higher total throughput. Higher TP reduces latency for large models but uses more GPUs per pod. The decode sweep measures tokens/s/GPU efficiency and inter-token latency (ITL), while the prefill sweep measures tokens/s/GPU and time-to-first-token (TTFT). The optimal TP for each role is selected from these results and used for all subsequent tests.
+
+Estimate how many GPUs you need for a different workload without re-running tests. Adjust concurrency, ISL/OSL, and set a latency SLA — the estimator scales your tested results and shows which configurations meet the target and how many GPUs each would need.
+
+ServeIt Studio supports three inference architectures:
+
+| Architecture | Description | Optimizes For |
+|---|---|---|
+Aggregated |
+Single vLLM deployment (baseline) | Simplicity |
+Prefill/Decode (PD) |
+Separate prefill and decode pods with KV cache transfer via NIXL/RDMA | Response time (TTFT) |
+Expert Parallelism (EP) |
+PD disaggregation with expert-parallel flags for MoE models | Throughput |
+
+The optimizer selects which architectures to test based on the goal:
+
+**Response Time**— Aggregated vs PD**Throughput**— Aggregated vs EP**Balanced**— All three**Aggregated Only / PD Only / EP Only**— Test a single architecture
+
+| Mode | Config Value | Description |
+|---|---|---|
+| Response Time | `ttft` |
+Optimize for lowest TTFT. Tests Aggregated vs PD. |
+| Throughput | `throughput` |
+Optimize for max req/s. Tests Aggregated vs EP. |
+| Full Coverage | `balanced` |
+Test all architectures, find best for both metrics. |
+| Aggregated Only | `aggregated_only` |
+Only test aggregated configs. |
+| PD Only | `pd_only` |
+Only test prefill/decode disaggregated configs. |
+| EP Only | `ep_only` |
+Only test expert parallel configs (MoE models). |
+| Single Test | `single_test` |
+Run one exact user-specified config (architecture, TP, pods). |
+
+**Prerequisite Infrastructure**— Deploy gateway, EPP, RBAC, RDMA discovery**Decode TP Sweep**— Deploy aggregated vLLM at each TP (1, 2, 4, 8), measure decode TPSG**Prefill TP Sweep**— Same for prefill workloads (often different optimal TP)**Cluster Capacity Analysis**— Calculate GPU cost per request, sustainable throughput**GPU Sizing & Feasible Splits**— Enumerate valid P/D GPU divisions respecting TP constraints**Aggregated Configuration Search**— Test all aggregated configs (TP1×16R, TP2×8R, etc.)**P/D / EP Split Optimization**— Test selected splits, find Pareto front (or best throughput for EP)**Architecture Comparison**— Compare best PD/EP vs best Aggregated (no new tests)**EPP Tuning**— Smart EPP weight derivation from Prometheus metrics (optional)**Latency-Bounded Throughput**— Binary search for max throughput under latency SLA (optional)**Calibrated Load Validation**— Re-test at sustainable QPS computed via Little's Law (optional)
+
+Steps 2-3 and 6-11 deploy real workloads. Steps 4-5 are pure math.
+
+**Additional steps (after the main pipeline):**
+
+**Concurrency Sweep**— Re-test top configs at multiple concurrency levels (e.g., 20, 30, 40, 60, 80) to map the performance curve. Shows exactly where each config starts to degrade.**Cache Hit Sweep**— Test different prefix cache hit ratios on best configs (optional).**EPP Smart Tuning**— Derive optimal routing weights from measured metrics (optional).
+
+**Config from HuggingFace**— Reads`config.json`
+
+for model size, dtype, MoE detection, hybrid attention, FP8 compatibility. Handles multimodal nested configs, interleaved MoE layers, and compressed-tensors quantization**Per-role min TP**— Computes minimum TP separately for prefill and decode from model weights + overhead + KV cache, with quantization-aware weight multipliers**TP compatibility filters**— Auto-excludes invalid TP values based on model architecture: attention head divisibility, Mamba SSM group count (`n_groups`
+
+), FP8 block quantization shard size, and NVFP4 Marlin kernel alignment**Kernel compatibility**— Detects quantization strategy (per-channel vs per-tensor FP8) and configures compute kernels accordingly**Hybrid attention detection**— Detects hybrid architectures (Mamba-transformer, sliding window) and configures KV cache management for PD mode**Auto-disable flags**— Automatically disables model-specific flags (expert parallelism, tool-call parsers) when the model doesn't support them
+
+**gpu_memory_utilization**— Profiled from actual VRAM usage after model load, or estimated from model size and GPU capacity. Always computed and passed (even when auto-tune is off) to prevent OOM from template defaults**max_num_seqs**— Multi-factor formula:`min(S_activation, S_kv, S_concurrency, 512)`
+
+— adapts per model architecture and quantization**max_num_batched_tokens**— Computed from measured prefill TPSG × target batch latency**block_size**— Auto-tuned from sequence length:`next_power_of_2(sqrt(ISL+OSL))`
+
+, min 128 for PD (KV block transfer)**moe_dp_chunk_size**— Smart formula for EP decode:`min(S_seq, S_expert_capacity, S_dispatch, 512)`
+
+**kv_cache_memory_bytes**— Profiled decode KV cache budget from calibration memory data**DBO threshold**— Scaled by expert count: 32 for 128+ experts, 48 for 32+, 64 for smaller MoE
+
+**Adaptive PD Search**— Tests the calibration-based ideal split first, then uses live vLLM metrics (per-pod`num_requests_waiting`
+
+ratio) to iteratively rebalance prefill/decode pod counts. Converges in 1-4 tests per TP pair instead of testing 5+ precomputed splits blindly**Smart EPP weights**— Two-pass refinement: start from preset, adjust ±1 based on Prometheus metrics (prefix cache hit rate, queue depth, KV utilization), then refine with A/B guardrail**Pareto front**— Identifies configurations where no other config has both lower TTFT AND higher throughput**Calibrated load**— Per-architecture concurrency computed via Little's Law from measured throughput and response time**Latency-bounded search**— Binary search for maximum throughput under a TTFT SLA constraint**Asymmetric TP**— Prefill and decode can use different TP sizes in both directions (e.g., Prefill TP8 / Decode TP4 or vice versa). Disabled by default to reduce search space; enable via the "Allow Asymmetric TP" toggle**Cache hit sweep**— Tests performance at multiple prefix cache hit ratios (0-100%) on the best configs. Supports Identical, Shared Prefix, and Multi-Group cache modes. Optional calibrated concurrency
+
+**MultiConnector**— Wraps NixlConnector (P/D KV transfer) + OffloadingConnector (CPU/disk offload) for disaggregated serving with KV cache offloading. Prefill uses`kv_producer`
+
+, decode uses`kv_consumer`
+
+.**CPU KV cache offload**— Offload KV cache to CPU DRAM via OffloadingConnector with`lazy_offload`
+
+. Extends cacheable working set beyond GPU HBM for long agentic sessions.**Disk KV cache offload**— Offload KV cache to local NVMe via TieringOffloadingSpec. Uses hostPath volume when local disk is available.**Bidirectional KV transfer**— Enable bidirectional KV transfer for models that benefit from it (e.g., agentic serving with long context reuse).
+
+**Disagg-aware profiles**— Separate prefill and decode scheduling profiles with independent scorer chains. Prefill profile uses`token-load-scorer`
+
++`prefix-cache-affinity-filter`
+
+, decode profile uses`active-request-scorer`
+
+.**Preset + Custom**— Choose from presets (`balanced`
+
+,`cache_optimized`
+
+,`queue_balanced`
+
+,`latency_aware`
+
+) or configure individual plugin weights.**New plugins**—`token-load-scorer`
+
+,`prefix-cache-affinity-filter`
+
+(with`peakPrefillThroughput`
+
+),`inflight-load-producer`
+
+,`active-request-scorer`
+
+.
+
+**Multi-cluster launcher**— Manage optimization instances across multiple Kubernetes/OpenShift clusters from a single dashboard**Resume**— Resume interrupted runs from the last completed test. Per-architecture resume skips completed architectures, not the entire step**Artifact management**— Download raw test artifacts (guidellm JSON, Prometheus metrics, manifests, configs) per test**Database persistence**— All results, configs, and metrics stored in SQLite with full run history. Resume, compare, and reuse across sessions**GPU Estimator**— Scale tested results to different workloads (ISL, OSL, concurrency, turns) without re-running tests. Shows GPU requirements for SLA targets**Report analytics**— Interactive Plotly charts: Pareto front, PD configuration sweep with ITL subplot, throughput vs latency scatter, GPU efficiency, TP calibration, calibrated load analysis, EPP weight comparison, run comparison**MLflow integration**— Export test results to MLflow with params, metrics, and artifacts. Per-user workspace targeting, descriptive run names, and tags for model, llm-d version, architecture, and cluster**Downloadable reports**— HTML and raw artifact download for offline analysis and sharing**Prefix cache simulation**— Generate multi-group prefix cache datasets with configurable hit rate, group count, and seed for reproducible workloads**Wide-EP support**— Dynamic multi-port targetPorts on InferencePool, data-parallel sidecar and vLLM ports, supervisor port for DP > 1**Pod error detection**— Auto-detects OOM, CUDA errors, and crash loops during tests; KV transfer errors logged as warnings (non-critical). Stops on critical errors, preserves pods for investigation**Guidellm retry**— Retries guidellm up to 3 times on 2-4% error rate while pods are still running, avoiding expensive redeploy cycles. Stops with actionable guidance on >2% overload (503s)**Speculative decoding**— Auto-detects MTP-capable models and compares performance with and without speculative decoding**Stop at any time**— Stop checks at every stage of test execution (before deploy, after deploy, during model load, before benchmark)**Vanilla Kubernetes support**— Prometheus auto-discovery via in-cluster DNS (no OpenShift required). Automatic port-forward fallback for external access.**Container image management**— Direct image inputs for engine, EPP router, and routing sidecar. Fetch tags from any registry. Quick buttons for upstream vLLM versions.**Block size control**— Three modes: Auto (ServeIt computed), Default (vLLM auto-detection), Custom.**Turn dataset generator**— Pre-generates multi-turn conversation datasets using guidellm's SyntheticTextDataset for consistent, reusable workloads across tests.
+
+ServeIt Studio supports guidellm's full synthetic workload configuration:
+
+| Parameter | Description |
+|---|---|
+| ISL / OSL | Average input/output sequence length (tokens) |
+| ISL/OSL stdev | Standard deviation for lognormal distribution |
+| ISL/OSL min/max | Hard token count limits |
+| Turns | Multi-turn conversations (1 = single-turn) |
+| First Prompt Tokens | Override first turn prompt length (e.g., 160K for agentic repo context) |
+| Prefix Tokens | Shared system prompt (cached across conversations) |
+| Prefix Count | Number of unique prefixes (1 = max cache reuse) |
+| Inter-Turn Delay | Tool call latency simulation (mean/stdev/min/max seconds) |
+| Concurrency | Number of concurrent users/sessions |
+
+GuideLLM accumulates conversation history across turns — each turn sends all previous prompts and responses as context. Combined with `first_prompt_tokens`
+
+for large initial context and `turn_delay`
+
+for tool call pauses, this simulates real agentic workloads:
+
+```
+Turn 1: [3K prefix] + [160K first_prompt] → heavy prefill
+Turn 2: [3K prefix] + [160K] + [425 response] + [1500 new prompt] → cached context reuse
+Turn N: accumulated history grows ~1925 tokens/turn
+```
+
+
+Replicating the llm-d Nemotron agentic serving benchmark:
+
+```
+{
+"isl": 1500, "osl": 425,
+"first_prompt_tokens": 160000,
+"prefix_tokens": 3000, "prefix_count": 1,
+"turns": 540,
+"turn_delay": 15, "turn_delay_stdev": 55, "turn_delay_min": 1, "turn_delay_max": 100
+}
+```
+
+- Kubernetes or OpenShift cluster with NVIDIA GPUs
+[LeaderWorkerSet](https://github.com/kubernetes-sigs/lws)CRD installed- Gateway API CRDs + a gateway provider (
+[Istio](https://istio.io/), Cilium Gateway, or similar) `kubectl`
+
+(or`oc`
+
+) CLI configured- Optional: Prometheus (auto-discovered for vLLM/DCGM metrics collection)
+- Optional: HuggingFace token (for gated models)
+
+```
+# 1. Create the namespace
+kubectl create namespace serveit
+# 2. Deploy ServeIt Studio (launcher mode)
+python3 deployment/deploy.py --mode launcher --storage-class <your-class> -n serveit
+# 3. Access the UI
+python3 deployment/deploy.py --port-forward -n serveit
+# Opens http://localhost:8080
+```
+
+On OpenShift, a Route is created automatically:
+
+`oc get route -n serveit`
+
+| Mode | Command | Description |
+|---|---|---|
+Launcher (default) |
+`--mode launcher` |
+Multi-user dashboard. Create instances per cluster, each with its own optimization environment |
+Standalone |
+`--mode local` |
+Single-instance deployment. Direct access to the optimization wizard |
+
+```
+# Deploy with an existing PVC (skip PVC creation)
+python3 deployment/deploy.py --pvc-name my-existing-pvc -n serveit
+# Sync code to all running pods (after git pull)
+python3 deployment/deploy.py --sync-all -n serveit
+# Restart the server process
+python3 deployment/deploy.py --restart-server -n serveit
+# Generate YAML without deploying (for review or GitOps)
+python3 deployment/deploy.py --just-yaml --storage-class <your-class> -n serveit
+```
+
+The launcher supports optimizing models on remote clusters. When creating a new instance, upload a kubeconfig for the target cluster. ServeIt Studio will:
+
+- Validate connectivity to the remote cluster
+- Store the kubeconfig as a Kubernetes Secret
+- Deploy workload pods (vLLM, guidellm, EPP) on the remote cluster
+- Collect results back to the launcher's database
+
+The wizard pod runs on the launcher cluster; only the inference workload runs remotely.
+
+ServeIt Studio includes skills for **Claude Code** and **Cursor** that automate the entire deployment and optimization flow through a guided conversation. The AI assistant walks you through cluster setup, model selection, workload configuration, and monitors the optimization — no need to memorize CLI flags or API calls.
+
+**Claude Code:**
+
+```
+# Copy the skill to your Claude Code skills directory
+cp -r AI-assistance/serveit-run ~/.claude/skills/serveit-run
+# Then invoke it in Claude Code
+/serveit-run
+```
+
+The AI assistant guides you through:
+
+**Deployment mode**— choose between local (single instance) or launcher (multi-tenant with backup/restore, resource limits, multi-cluster)**Cluster scanning**— auto-detects GPUs, RDMA, storage classes, networking, and installed infrastructure**Model selection**— helps choose from the 700+ model gallery based on your use case, or validates a specific model**Workload configuration**— explains ISL/OSL in plain language with real-world examples, prefix caching modes, and concurrency**Advanced tuning**— search depth, latency SLAs, production load analysis, EPP routing, vLLM engine settings**Infrastructure**— auto-detects networking (DRA, SR-IOV, NAD), storage (hostpath-nvme, NFS, block), container images**Execution**— saves config, locks UI, starts optimization via REST API, monitors progress**Results**— fetches best configs, presents summary, offers manifest downloads
+
+All operations use the REST API (`docs/api-reference.md`
+
+) — no Socket.IO dependency for the AI-driven flow.
+
+Full REST API documentation is available at [ docs/api-reference.md](https://github.com/openshift-psap/serveit-studio/blob/main/docs/api-reference.md), covering:
+
+- Cluster scanning, storage setup, optimization lifecycle
+- Config lock/unlock for API-driven workflows
+- Run management, chart data, manifest downloads
+- MLflow export, database backup/restore
+
+ServeIt Studio supports five network types for GPU-to-GPU communication. The wizard auto-detects available types and lets you choose. Each type has different cluster prerequisites:
+
+Standard Kubernetes pod networking. No RDMA — uses TCP for all GPU communication. Works everywhere but significantly slower for multi-node inference.
+
+**Prerequisites:** None. Always available.
+
+Network Attachment Definitions via [Multus CNI](https://github.com/k8snetworkplumbingwg/multus-cni). Supports host-device, macvlan, and SR-IOV plugins for RDMA.
+
+**Prerequisites:**
+
+- Multus CNI installed (
+`k8s.cni.cncf.io`
+
+API group available) - NetworkAttachmentDefinition CRs created in the workload namespace
+- For SR-IOV:
+[SR-IOV Network Operator](https://github.com/k8snetworkplumbingwg/sriov-network-operator)installed with:`SriovNetworkNodePolicy`
+
+configured by admin (VFs on physical NICs)`SriovNetwork`
+
+CR targeting the workload namespace (ServeIt Studio can create this)
+
+
+[Dynamic Resource Allocation](https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/) with GPU+NIC PCIe affinity. Automatically pairs each GPU with its closest network interface.
+
+**Prerequisites:**
+
+- Kubernetes 1.31+ with DRA feature gate enabled
+[DRANET](https://github.com/kubernetes-sigs/dranet)device classes deployed`dra.llm-d.io/gpu-nic-pair`
+
+or`gpu.nvidia.com`
+
+device classes available
+
+RDMA via [NVIDIA Network Operator](https://docs.nvidia.com/networking/display/cokan10/network+operator) device plugin. Pods request RDMA resources directly in `limits`
+
+— no Multus annotations or CRDs needed.
+
+**Prerequisites:**
+
+- NVIDIA Network Operator (NNO) installed
+- NicClusterPolicy configured with
+`rdmaSharedDevicePlugin`
+
+- RDMA resources visible in node allocatable (e.g.,
+`rdma/roce_gdr`
+
+,`nvidia.com/roce`
+
+,`rdma/ib`
+
+) - MOFED drivers loaded on GPU nodes
+
+RoCE RDMA via SR-IOV Virtual Functions. Each pod gets dedicated network interfaces for GPU-aware RDMA routing. Supports both [multi-nic-cni](https://github.com/foundation-model-stack/multi-nic-cni) (auto-creates NADs per namespace) and manual SR-IOV operator setup.
+
+**Prerequisites:**
+
+[SR-IOV Network Operator](https://github.com/k8snetworkplumbingwg/sriov-network-operator)installed`SriovNetworkNodePolicy`
+
+configured by admin (creates VFs on physical NICs)- One of:
+**multi-nic-cni operator**installed → auto-creates`multi-nic-inference`
+
+/`multi-nic-compute`
+
+NADs in every namespace**Manual setup**→`SriovNetwork`
+
+CR created per NIC targeting the workload namespace (ServeIt Studio can create these via the wizard)
+
+`rdma/roce_gdr`
+
+or similar RDMA resources in node allocatable
+
+The wizard scans the cluster and shows available network types as cards. When SR-IOV or NAD is selected:
+
+**NAD dropdown**— pick which NetworkAttachmentDefinition to attach to pods**SR-IOV policy checkboxes**— select which NICs to use (each creates a separate interface)
+
+When Shared Device Plugin is selected:
+
+**RDMA resource dropdown**— pick which device plugin resource to request (e.g.,`rdma/roce_gdr`
+
+vs`nvidia.com/roce`
+
+)
+
+HTTPS proxy is supported for clusters behind corporate firewalls — configure it when adding the cluster in the launcher.
+
+**Client-side** (via [guidellm](https://github.com/vllm-project/guidellm)):
+
+- TTFT (p50, p90, p95, p99)
+- Inter-token latency (ITL)
+- Throughput (requests/sec)
+- TPOT (time per output token)
+
+**Server-side** (via Prometheus/Thanos):
+
+- vLLM TTFT, ITL, E2E latency percentiles
+- Token throughput, request queue depth, KV cache utilization
+- Prefix cache hit rate, preemption rate, request success rate
+
+Results are stored in SQLite at `/mnt/storage/serveit.db`
+
+.
+
+```
+core/ # Optimization engine
+├── recipe_optimizer.py # Re-export shim (backward compat)
+├── optimization_strategies.py # Goal strategies: TTFT, Throughput, Balanced, EP-only
+├── optimizer/ # Pipeline steps
+│ ├── pipeline.py # Main orchestrator, resume, network/RDMA detection
+│ ├── config_builder.py # Auto-tune vLLM params (gmu, max_num_seqs, EP memory)
+│ ├── config.py # RecipeOptimizerConfig dataclass
+│ ├── tp_calibration.py # Steps 2-3: TP sweep
+│ ├── pd_search.py # Steps 4-7: Smart PD split search, Pareto front
+│ ├── epp_tuning.py # Step 9: Smart EPP weight derivation
+│ ├── latency_search.py # Step 10: Binary search under latency SLA
+│ ├── cache_sweep.py # Step 11: Prefix cache % sweep
+│ ├── speculative.py # Step 12: MTP/speculative decoding comparison
+│ └── dataset.py # Prefix cache dataset generation
+├── orchestrator/ # Test execution
+│ ├── runner.py # Deploy → wait → benchmark → collect → cleanup
+│ ├── guidellm.py # guidellm CLI wrapper
+│ ├── parser.py # Parse guidellm JSON + Prometheus metrics
+│ └── result.py # TestResult dataclass
+├── templates/ # Jinja2 K8s manifests
+│ ├── aggregated/ # Single-pool LWS + service
+│ ├── pd/ # Prefill + Decode LWS + services
+│ ├── prereq/ # Gateway, EPP, model download, RBAC, SCC
+│ └── benchmark/ # guidellm job + pod
+├── networking/ # Network type detection + template value computation
+│ ├── base.py # Base class + eth0
+│ ├── dra.py # DRA (Dynamic Resource Allocation)
+│ ├── nad.py # Network Attachment Definitions (Multus)
+│ ├── shared_device.py # RDMA shared device plugin
+│ └── sriov.py # SR-IOV network
+├── providers/ # Cloud provider adapters
+│ ├── aws/ # AWS (EKS)
+│ ├── azure/ # Azure (AKS)
+│ ├── baremetal/ # Bare metal / on-prem
+│ ├── coreweave/ # CoreWeave
+│ ├── gcp/ # GCP (GKE)
+│ └── ibm_cloud/ # IBM Cloud (RHOAI)
+├── system_scanner.py # Cluster scan: GPUs, RDMA, nodes, storage, DRA
+├── config_generator.py # TestConfig dataclass + config generation
+├── template_manager.py # Render templates with network/role-aware vars
+├── database_manager.py # SQLite persistence for runs and test results
+├── report_analysis.py # Build report data from DB (recommendations, charts)
+├── report_data.py # Report data model + SQL queries
+├── report_generator.py # HTML report generation
+├── report_renderer.py # Plotly chart rendering for reports
+├── metrics_collector.py # Prometheus/Thanos metric collection
+├── metrics_analyzer.py # Post-collection metric analysis
+├── prereq_manager.py # EPP configmap + gateway + model download
+├── resource_calculator.py # GPU memory + resource estimation
+├── progress_tracker.py # Progress bar + formatting utilities
+├── cleanup_manager.py # Resource cleanup (LWS, services, pods)
+├── mlflow_exporter.py # Export results to MLflow
+├── deployment_manager.py # LWS apply/delete/wait
+├── pod_error_scanner.py # Detect OOM, CUDA errors, crash loops in pod logs
+├── cloud_constraints.py # Cloud-specific TP/PD constraints
+├── user_defined_tuning.py # User-defined vLLM parameter overrides
+├── version_scanner.py # Detect llm-d / vLLM image versions
+├── web_deployer.py # Network integrator for web UI
+├── utils.py # Shared utilities (Architecture enum, math helpers)
+└── k8s_utils.py # KubectlRunner, cloud detection
+web/ # Flask + SocketIO web UI (wizard)
+├── server.py # App factory + startup
+├── app_context.py # Flask app + SocketIO initialization
+├── optimization.py # Background optimization runner + UI logging
+├── routes_api.py # REST API (runs, configs, manifests, reports)
+├── realtime.py # SocketIO event handlers (scan, config, storage)
+├── database.py # Web UI SQLite (config, state)
+├── auth.py # Web UI authentication
+├── data/models.json # Model gallery catalog
+├── static/js/
+│ ├── app.js # Main app entry point
+│ ├── report-download.js # Report download handler
+│ └── modules/ # Frontend JS modules
+│ ├── charts.js # Plotly chart rendering (all report tabs)
+│ ├── config.js # Config save/load, wizard state
+│ ├── report.js # Report page orchestration
+│ ├── settings.js # Advanced vLLM + EPP settings UI
+│ ├── wizard.js # Step navigation, model gallery
+│ ├── mlflow.js # MLflow export dialog
+│ ├── socket.js # SocketIO client + API control takeover
+│ ├── cluster.js # Cluster scan results display
+│ ├── console.js # Live log console
+│ ├── resume.js # Run resume logic
+│ ├── navigation.js # Page navigation
+│ └── ui-helpers.js # Shared UI utilities
+├── templates/
+│ ├── index.html # Main wizard page
+│ ├── login.html # Login page
+│ ├── setup.html # Initial setup page
+│ └── partials/ # Wizard step fragments
+│ ├── step1-step7.html # Wizard steps
+│ ├── console.html # Log console panel
+│ ├── modals.html # Dialog modals
+│ └── overlays.html # Loading overlays
+└── static/css/style.css # Main stylesheet
+launcher/ # Multi-user launcher dashboard
+├── app.py # Flask API + dashboard routes
+├── instance_manager.py # Instance CRUD, cluster CRUD, proxy, kubeconfig
+├── cluster_scanner.py # Scan remote clusters via kubeconfig
+├── database.py # Launcher SQLite (users, clusters, instances)
+├── auth.py # Authentication + session management
+├── templates/
+│ ├── dashboard.html # Launcher single-page dashboard
+│ └── login.html # Launcher login page
+└── static/js/cluster-viz.js # Cluster visualization
+cli/
+└── inftune.py # CLI interface (serveit run, cluster add/scan)
+deployment/
+├── deploy.py # Deploy, sync, port-forward CLI
+└── templates/ # Helm-style templates
+├── deployment.yaml.j2 # Local mode deployment
+├── instance-deployment.yaml.j2 # Launcher instance deployment
+├── pvc.yaml.j2 # PersistentVolumeClaim
+├── service.yaml.j2 # Service
+├── rbac.yaml.j2 # Local mode RBAC (Role + ClusterRole)
+└── rbac-launcher.yaml.j2 # Launcher mode RBAC
+docker/
+├── Dockerfile.server # Server image (web UI + optimizer)
+├── Dockerfile.workload # Workload image (guidellm benchmarks)
+├── Dockerfile # Base/dev Dockerfile
+└── entrypoint.sh # Container entrypoint
+AI-assistance/ # AI coding assistant skills
+└── serveit-run/ # Unified skill (SKILL.md + run.py)
+tests/
+├── test_imports.py # Import validation for all 66 modules
+└── __init__.py
+docs/
+└── api-reference.md # REST + Socket.IO + CLI API reference
+.github/workflows/ci.yml # CI: ruff lint + pytest on push/PR
+ruff.toml # Ruff linter configuration
+```

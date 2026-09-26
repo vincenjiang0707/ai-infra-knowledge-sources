@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/runner/moe_runner/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MoERunner(MoERunnerInterface):
 """Standard MoE runner implementation for executing Mixture of Experts layers.
@@ -378,7 +378,11 @@ returns a no-op context.
 """
 ctx = get_forward_context()
 return (
-ctx.dp_metadata.sp_local_sizes(self.moe_config.sp_size)
+ctx.dp_metadata.sp_local_sizes(
+self.moe_config.sp_size,
+pcp_size=self.moe_config.pcp_size,
+use_ep=self.moe_config.use_ep,
+)
 if ctx.dp_metadata
 else nullcontext()
 )

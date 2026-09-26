@@ -1,0 +1,10 @@
+source: https://docs.openvino.ai/2025/api/c_cpp_api/classov_1_1pass_1_1low__precision_1_1_reduce_base_transformation.html
+lastmod: 
+
+# Class ov::pass::low_precision::ReduceBaseTransformation[#](https://docs.openvino.ai#class-ov-pass-low-precision-reducebasetransformation)
+
+-
+class ReduceBaseTransformation : public
+[ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[pass](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4passE)::[low_precision](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4pass13low_precisionE)::[LayerTransformation](https://docs.openvino.ai/classov_1_1pass_1_1low__precision_1_1_layer_transformation.html#_CPPv4N2ov4pass13low_precision19LayerTransformationE)[#](https://docs.openvino.ai#_CPPv4N2ov4pass13low_precision24ReduceBaseTransformationE) [ReduceBaseTransformation](https://docs.openvino.ai/group__ov__dev__exec__model.html#classov_1_1pass_1_1low__precision_1_1_reduce_base_transformation): base class for Reduce*Transformation, detects dequantization operations in front of the Reduce* operation and propagates them through the Reduce* if possible.Subclassed by
+
+[ov::pass::low_precision::ReduceMaxTransformation](https://docs.openvino.ai/group__ov__dev__exec__model.html#classov_1_1pass_1_1low__precision_1_1_reduce_max_transformation),[ov::pass::low_precision::ReduceMeanTransformation](https://docs.openvino.ai/group__ov__dev__exec__model.html#classov_1_1pass_1_1low__precision_1_1_reduce_mean_transformation),[ov::pass::low_precision::ReduceMinTransformation](https://docs.openvino.ai/group__ov__dev__exec__model.html#classov_1_1pass_1_1low__precision_1_1_reduce_min_transformation),[ov::pass::low_precision::ReduceSumTransformation](https://docs.openvino.ai/group__ov__dev__exec__model.html#classov_1_1pass_1_1low__precision_1_1_reduce_sum_transformation)

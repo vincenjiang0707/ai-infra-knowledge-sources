@@ -1,12 +1,12 @@
 # pytorch/pytorch
 
-- stars: 103183
-- forks: 30030
-- open_issues: 17565
+- stars: 103294
+- forks: 30392
+- open_issues: 17605
 - default_branch: main
 - archived: False
 - license: NOASSERTION
-- pushed_at: 2026-09-23T03:08:35Z
+- pushed_at: 2026-09-25T12:48:49Z
 - homepage: https://pytorch.org
 
 ## README

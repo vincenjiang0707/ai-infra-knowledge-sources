@@ -5949,6 +5949,7 @@ See the full [documentation](https://github.com/pytorch/pytorch/blob/master/docs
 
 The `align_corner` parameter was added in this release; the behavior in the previous release was equivalent to setting the parameter to `True`.  This is also the current default value but it will be changed to `False` from 1.4 release. Note that using the default will trigger a warning as demonstrated below; set the value explicitly to remove the warning. 
 
+```bash
     >>> torch.nn.functional.affine_grid(torch.randn(1,2,3),
                                         (1,3,2,2))
     UserWarning: Default grid_sample and affine_grid behavior will be changed
@@ -5961,6 +5962,7 @@ The `align_corner` parameter was added in this release; the behavior in the prev
                                         align_corners=True)
     # NO WARNING!
     ...
+```
 
 ### [C++] Deprecate `torch::Tensor::data<T>()` in favor of `torch::Tensor::data_ptr<T>()` ([24847](https://github.com/pytorch/pytorch/pull/24847), [24886](https://github.com/pytorch/pytorch/pull/24886)).
 
@@ -7579,6 +7581,7 @@ However, if you do have `ninja` installed, it is possible that this change will 
 Method 1: If a previously succeeding `python setup.py install` now fails, try setting the `MAX_JOBS` environment variable.
 
 <p align="center">
+```html
   <table align="center">
     <tr><th>Version 1.4.0</th><th>Version 1.5.0</th></tr>
     <tr valign="top">
@@ -7591,6 +7594,7 @@ MAX_JOBS=2 python setup.py install
     </tr>
   </table>
 </p>
+```
 
 Method 2: Switch back to the old `distutils` backend inside your `setup.py`
 
@@ -15702,11 +15706,13 @@ This fixes the `has_torch_function*()` checks throughout `torch.nn.functional` t
 import torch
 import torch.nn.functional as F
 class TestTensor(object):
+```python
     def __init__(self, weight):
         self.weight = weight
     def __torch_function__(self, func, _, args=(), kwargs=None):
         print(func)
         print(func == F.group_norm)
+```
 # Call F.group_norm with a custom Tensor as the non-optional arg 'features'
 features = TestTensor(torch.randn(3,3))
 F.group_norm(features, 3)
@@ -15722,11 +15728,13 @@ F.group_norm(features, 3, weight=weight)
 import torch
 import torch.nn.functional as F
 class TestTensor(object):
+```python
     def __init__(self, weight):
         self.weight = weight
     def __torch_function__(self, func, _, args=(), kwargs=None):
         print(func)
         print(func == F.group_norm)
+```
 # Call F.group_norm with a custom Tensor as the non-optional arg 'features'
 features = TestTensor(torch.randn(3,3))
 F.group_norm(features, 3)
@@ -15830,18 +15838,22 @@ print(m.code)
     <tr valign="top">
       <td><sub><pre lang="python">
 def forward(self, x):
+```bash
     x_activation_post_process_0 = self.x_activation_post_process_0(x); x = None
     maxpool2d = self.maxpool2d(x_activation_post_process_0); x_activation_post_process_0 = None
     return maxpool2d
       </pre></sub></td>
       <td><sub><pre lang="python">
+```
 def forward(self, x):
+```bash
     x_activation_post_process_0 = self.x_activation_post_process_0(x); x = None
     maxpool2d = self.maxpool2d(x_activation_post_process_0); x_activation_post_process_0 = None
     maxpool2d_activation_post_process_0 = self.maxpool2d_activation_post_process_0(maxpool2d); maxpool2d = None
     return maxpool2d_activation_post_process_0
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -16961,6 +16973,7 @@ and should be replaced with:
       <td><sub><pre lang="python">
 from torch.ao.quantization.quantize_fx import convert_fx, prepare_fx
 class M(torch.nn.Module):
+```python
     def __init__(self):
         super().__init__()
         self.linear = torch.nn.Linear(5, 5)
@@ -16968,6 +16981,7 @@ class M(torch.nn.Module):
         x = self.linear(x)
         y = torch.stack([x], 0)
         return y[0]
+```
 m = M().eval()
 m = prepare_fx(m, {"": torch.ao.quantization.default_qconfig})
 m = convert_fx(m)
@@ -16993,6 +17007,7 @@ print(m)
       <td><sub><pre lang="python">
 from torch.ao.quantization.quantize_fx import convert_fx, prepare_fx
 class M(torch.nn.Module):
+```python
     def __init__(self):
         super().__init__()
         self.linear = torch.nn.Linear(5, 5)
@@ -17000,6 +17015,7 @@ class M(torch.nn.Module):
         x = self.linear(x)
         y = torch.stack([x], 0)
         return y[0]
+```
 m = M().eval()
 m = prepare_fx(m, {"": torch.ao.quantization.default_qconfig})
 m = convert_fx(m)
@@ -17043,12 +17059,14 @@ Previously, `fuse_module` used to support both cases and distinguished PTQ/QAT f
 import torch
 from torch.ao.quantization import fuse_modules
 class M(torch.nn.Module):
+```python
     def __init__(self):
         super().__init__()
         self.conv = torch.nn.Conv2d(3, 3, 3)
         self.bn = torch.nn.BatchNorm2d(3)
     def forward(self, x):
         return self.bn(self.conv(x))
+```
 m = M().train()
 m = fuse_modules(m, ["conv", "bn"])
 print(type(m.conv))
@@ -17062,12 +17080,14 @@ print(type(m.conv))
 import torch
 from torch.ao.quantization import fuse_modules
 class M(torch.nn.Module):
+```python
     def __init__(self):
         super().__init__()
         self.conv = torch.nn.Conv2d(3, 3, 3)
         self.bn = torch.nn.BatchNorm2d(3)
     def forward(self, x):
         return self.bn(self.conv(x))
+```
 m = M().train()
 # For Quantization Aware Training, use fuse_modules_qat()
 m = fuse_modules_qat(m, ["conv", "bn"])
@@ -21961,6 +21981,7 @@ Summary:
 - New prototype features and technologies across TensorParallel, DTensor, 2D parallel, TorchDynamo, AOTAutograd, PrimTorch and TorchInductor.
 
 <table>
+```html
   <tr>
    <td>
 <strong>Stable</strong>
@@ -22051,6 +22072,7 @@ Summary:
    </td>
   </tr>
 </table>
+```
 
 \*To see a full list of public 2.0, 1.13 and 1.12 feature submissions click[ here](https://docs.google.com/spreadsheets/d/1H3jazwO8BBCwK8JwLNYspLiHfUrzshEtyqjL-X93I9g/edit#gid=790902532)
 
@@ -22069,12 +22091,14 @@ This PR updates the minimum CUDA version to 11.0. See the [getting-started](http
 This changes the default behavior of `zero_grad()` to zero out the grads by setting them to `None` instead of zero tensors. In other words, the `set_to_none` kwarg is now `True` by default instead of `False`. Setting grads to `None` reduces peak memory usage and increases performance. This will break code that directly accesses data or does computation on the grads after calling `zero_grad()` as they will now be `None`. To revert to the old behavior, pass in `zero_grad(set_to_none=False)`.
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 >>> import torch
@@ -22121,12 +22145,14 @@ TypeError: unsupported operand type(s) for +:
 Any attribute stored on `torch.tensor` and `torch.nn.Parameter` will now be serialized. This aligns the serialization behavior of `torch.nn.Parameter`, `torch.Tensor` and other tensor subclasses
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 # torch.Tensor behavior
@@ -22254,12 +22280,14 @@ We’ve changed the behavior so that providing one of the tied weights in the pa
 Please also see the related deprecation section "torch.nn.stateless.functional_call in favor of torch.func.functional_call".
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 >>> class Foo(nn.Module):
@@ -22310,12 +22338,14 @@ Please also see the related deprecation section "torch.nn.stateless.functional_c
 `torch.stft` takes an optional return_complex parameter that indicates whether the output should be a floating point tensor or a complex tensor. `return_complex` previously defaulted to False for real input tensors. This PR removes the default and makes `return_complex` a required argument for real inputs. However, complex inputs will continue to default to `return_complex=True`.
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 >>> a = torch.rand(1024)
@@ -22341,12 +22371,14 @@ with shape `(..., 2)` to mimic complex tensors. Instead, convert
 inputs to a complex tensor first before calling `torch.istft`.
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 >>> t = torch.rand(65, 33, 2)
@@ -22374,12 +22406,14 @@ tensor matching the output from stft with return_complex=True.
 We now disable the costly component verification of torch.sparse_coo/csr/csc/bsr/bsc/compressed_tensor by default. The user can use the new `check_invariants` flag or `torch.sparse.check_sparse_tensor_invariants` to locally enable component verification. This allows users to constrain these costly checks to specific regions of their code and enables better overall performance. Previously users had no access to public constructors that disable these checks.
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 >>> i = [[0, 1, 1],
@@ -22464,12 +22498,14 @@ torch.autograd.backward(b.clone(), inputs=(a,))  # hook fire
 In FSDP, we used to have an API `params_with_grad` for users to get parameters which have gradients from the FSDP module. We decided not to expose this helper because it is not a common paradigm.
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 m = FullyShardedDataParallel(module)
@@ -22495,12 +22531,14 @@ m.params_with_grad()  # Runtime error thrown
 Users could previously import both public and non-public symbols:
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 from torch.distributed.fsdp.fully_sharded_data_parallel import *
@@ -22531,12 +22569,14 @@ FullyShardedDataParallel(module, sharding_strategy=ShardingStrategy.FULL_SHARD)
 ### **Signature of FSDP `auto_wrap_policy `related APIs were changed in (#88450).**
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 lambda_auto_wrap_policy(m, unwrapped_params=...)
@@ -22562,12 +22602,14 @@ size_based_auto_wrap_policy(m, nonwrapped_numel=...)
 The keyword argument names have been changed.
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 alltoall(output=..., input=...)
@@ -22604,12 +22646,14 @@ This pattern format also complicates the signatures of the user specified "fuser
 the patterns:
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 import torch as nn
@@ -22670,12 +22714,14 @@ backend_config.configs  # returns List[BackendPatternConfig]
 If users were using any of the AO private APIs then these would have to be accessed with a preceding `_` to conform with the guidelines.
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 get_observer_dict()
@@ -22748,12 +22794,14 @@ The following APIs that were mistakenly public under the `torch.ao.quantization.
 - `get_pattern_to_quantize_handlers`
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 from torch.ao.quantization.fx.backend_config_utils import (
@@ -22793,12 +22841,14 @@ all_quant_patterns = _get_pattern_to_quantize_handlers(
 These operators are primarily used by the [functionalization pass](https://dev-discuss.pytorch.org/t/functionalization-in-pytorch-everything-you-wanted-to-know/965), used in AOTAutograd. Previously, they would always return contiguous tensors. Now, they return a tensor with the same striding as their first argument.
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 >>> x = torch.ones(2, 2, 2)
@@ -22885,12 +22935,14 @@ We are no longer supporting functorch.compile (also known as AOTAutograd) as a f
 Typed storages have been removed from the C++ side and torch.UntypedStorage is used in place. The use of torch.TypedStorage and all of its subclasses is now deprecated.
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 tensor.storage()
@@ -22918,12 +22970,14 @@ torch.tensor(storage, dtype=...)
 ### **Deprecate `tensor.mT`,`tensor.T`,`tensor.mH`,`tensor.H` on 0D-tensors (#92143)**
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 >>> a = torch.tensor(10)
@@ -22955,12 +23009,14 @@ Consider using x.conj().
 Decorating classes with `torch.no_grad` is now deprecated. You should be decorating its functions or methods instead. To preserve the current behavior of class decoration, you can directly decorate the `__init__` method and nothing else.
 
 <table>
+```html
 <tr>
 <th>1.13</th>
 <th>2.0</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 @torch.no_grad()
@@ -24136,10 +24192,12 @@ Summary:
 </tr>
 
 <tr>
+```html
    </td>
    <td>
    </td>
    <td>torch.compile + NumPy
+```
 
    </td>
    <td>semi-structured (2:4) sparsity
@@ -24150,10 +24208,12 @@ Summary:
 </tr>
 
 <tr>
+```html
    </td>
    <td>
    </td>
    <td>torch.compile + Python 3.11
+```
 
    </td>
    <td>cpp_wrapper for torchinductor
@@ -24164,6 +24224,7 @@ Summary:
 </tr>
 
 <tr>
+```html
    <td>
    </td>
    <td>torch.compile + autograd.Function
@@ -24171,22 +24232,27 @@ Summary:
    <td>
    </td>
    <td>
+```
 
 </tr>
 
 </tr>
+```html
    </td>
    <td>
    </td>
    <td>third-party device integration: PrivateUse1
+```
 
    </td>
+```html
    <td>
    </td>
    <td>
    </td>
 </tr>
 </table>
+```
 
 *To see a full list of public 2.1, 2.0, and 1.13 feature submissions click [here](https://docs.google.com/spreadsheets/d/1TzGkWuUMF1yTe88adz1dt2mzbIsZLd3PBasy588VWgk/edit?usp=sharing).
 
@@ -26138,6 +26204,7 @@ Summary:
 
 
 <table>
+```html
   <tr>
    <td>
 <strong>Stable</strong>
@@ -26201,6 +26268,7 @@ Summary:
    </td>
   </tr>
 </table>
+```
 
 \*To see a full list of public 2.2 - 1.12 feature submissions click [here](https://docs.google.com/spreadsheets/d/1TzGkWuUMF1yTe88adz1dt2mzbIsZLd3PBasy588VWgk/edit?usp=sharing).
 
@@ -26304,12 +26372,14 @@ Before this PR, `UntypedStorage.resize_` would move data to the current CUDA dev
 Now, `UntypedStorage.resize_()` keeps the data on the same device index that it was on before, regardless of the current device index.
 
 <table>
+```html
 <tr>
 <th>2.1</th>
 <th>2.2</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 >>> import torch
@@ -26345,12 +26415,14 @@ cuda:1
 This bc-breaking change fixes some unexpected behavior when `set_grad_enabled` is used as a decorator.
 
 <table>
+```html
 <tr>
 <th>2.1</th>
 <th>2.2</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 >>> import torch
@@ -26385,12 +26457,14 @@ As part of our decision to move towards a consolidated logging system, we are de
 If you would like to print the learning rate during execution, please use `get_last_lr()`
 
 <table>
+```html
 <tr>
 <th>2.1</th>
 <th>2.2</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 optimizer = torch.optim.SGD(model.parameters(), lr=0.1, momentum=0.9)
@@ -26466,12 +26540,14 @@ In PyTorch 2.2, these APIs are removed because PyTorch Distributed's preferred p
 The torch.onnx.dynamo_export’s output was renamed from torch.onnx.ExportOutput to torch.onnx.ONNXProgram to better align with torch.export.export API terminology which returns a torch.export.ExportedProgram. With this change, any ambiguity that could arise with either API is eliminated.
 
 <table>
+```html
 <tr>
 <th>2.1</th>
 <th>2.2</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 export_output: torch.onnx.ExportOutput = torch.onnx.dynamo(...)
@@ -26503,12 +26579,14 @@ The `use_reentrant` parameter should be passed explicitly. In version 2.4 we wil
 Note that not passing `use_reentrant` kwarg to `torch.utils.checkpoint.checkpoint` has been previously deprecated in a previous release.
 
 <table>
+```html
 <tr>
 <th>2.1</th>
 <th>2.2</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 a = torch.randn(3, requires_grad=True)
@@ -26558,6 +26636,7 @@ x = torch.randn(3, requires_grad=True)
 y = torch.ops.mylibrary.sin(x)
 y.sum().backward()
 ```
+```html
 <table>
 <tr>
 <th>2.1</th>
@@ -26565,6 +26644,7 @@ y.sum().backward()
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
@@ -26597,12 +26677,14 @@ Neural Network Compiler (NNC) has replaced NVFuser as the default GPU fuser for 
 `SparseAdam` is now consistent with the rest of our optimizers and only accepts containers instead of individual Tensors/Parameters/param groups.
 
 <table>
+```html
 <tr>
 <th>2.1</th>
 <th>2.2</th>
 </tr>
 <tr>
 <td>
+```
 
 ```Python
 import torch
@@ -27754,6 +27836,7 @@ This release is composed of 3393 commits and 426 contributors since PyTorch 2.2.
 
 
    </td>
+```html
   </tr>
   <tr>
    <td>
@@ -27786,6 +27869,7 @@ This release is composed of 3393 commits and 426 contributors since PyTorch 2.2.
    </td>
   </tr>
 </table>
+```
 
 
 *To see a full list of public feature submissions click [here](https://docs.google.com/spreadsheets/d/1TzGkWuUMF1yTe88adz1dt2mzbIsZLd3PBasy588VWgk/edit?usp=sharing).
@@ -29761,6 +29845,7 @@ improve 2.4. More information about how to get started with the PyTorch 2-series
 
 
 <table>
+```html
   <tr>
    <td>Beta
    </td>
@@ -29810,6 +29895,7 @@ improve 2.4. More information about how to get started with the PyTorch 2-series
    </td>
   </tr>
 </table>
+```
 
 *To see a full list of public feature submissions click [here](https://docs.google.com/spreadsheets/d/1TzGkWuUMF1yTe88adz1dt2mzbIsZLd3PBasy588VWgk/edit?usp=sharing).
 
@@ -32918,6 +33004,7 @@ This release is composed of 3892 commits from 520 contributors since PyTorch 2.5
 
 
 <table>
+```html
   <tr>
    <td>Beta
    </td>
@@ -32967,6 +33054,7 @@ This release is composed of 3892 commits from 520 contributors since PyTorch 2.5
    </td>
   </tr>
 </table>
+```
 
 
 *To see a full list of public feature submissions click [here](https://docs.google.com/spreadsheets/d/1TzGkWuUMF1yTe88adz1dt2mzbIsZLd3PBasy588VWgk/edit?usp=sharing).
@@ -34309,6 +34397,7 @@ We improved the existing `torch.library` APIs and added new ones.
 - [Developers](#developers)
 
 # Highlights
+```html
 <table>
   <tr>
    <td><strong>Beta</strong>
@@ -34365,6 +34454,7 @@ We improved the existing `torch.library` APIs and added new ones.
    </td>
   </tr>
 </table>
+```
 
 For more details about these highlighted features, you can look at the [release blogpost](https://pytorch.org/blog/pytorch2-7/).
 Below are the full release notes for this release.
@@ -35485,6 +35575,7 @@ Fix segfault in profiler with Python 3.13 ([#153848](https://github.com/pytorch/
 
 
 # Highlights
+```html
 <table>
   <tr>
    <td><strong>Unstable</strong></td>
@@ -35523,6 +35614,7 @@ Fix segfault in profiler with Python 3.13 ([#153848](https://github.com/pytorch/
    <td>Intel GPU distributed backend (XCCL) support</td>
   </tr>
 </table>
+```
 
 For more details about these highlighted features, you can look at the [release blogpost](https://pytorch.org/blog/pytorch-2-8/).
 Below are the full release notes for this release.
@@ -36515,6 +36607,7 @@ inputs, max pooling, multi-dimensional reductions, and non-vectorized elementwis
 # Highlights
 
 <table>
+```html
   <tr>
    <td><strong>Unstable (API-Unstable)</strong></td>
   </tr>
@@ -36543,6 +36636,7 @@ inputs, max pooling, multi-dimensional reductions, and non-vectorized elementwis
    <td>Enablement of Linux aarch64 binary wheel builds across all supported CUDA versions</td>
   </tr>
 </table>
+```
 
 For more details about these highlighted features, you can look at the [release blogpost](https://pytorch.org/blog/pytorch-2-9/). Below are the full release notes for this release.
 
@@ -37470,6 +37564,7 @@ Fix image display on pypi project description section ([#166404](https://github.
 # Highlights
 
 <table>
+```html
   <tr>
     <td>
       <strong>Python 3.14</strong> support for <code>torch.compile()</code>. Python 3.14t (freethreaded build) is experimentally supported as well.
@@ -37494,6 +37589,7 @@ Fix image display on pypi project description section ([#166404](https://github.
     <td> <strong>Intel GPUs support:</strong>  Expand PyTorch support to the latest Panther Lake on Windows and Linux by enabling FP8 (core ops and scaled matmul) and complex MatMul support, and extending SYCL support in the C++ Extension API for Windows custom ops. </td>
   <tr>
 </table>
+```
 
 For more details about these highlighted features, you can look at the [release blogpost](https://pytorch.org/blog/pytorch-2-10-release-blog/). Below are the full release notes for this release.
 
@@ -39317,6 +39413,7 @@ further execution (#173957).
 # Highlights
 
 <table>
+```html
   <tr><td><strong>Batched linalg.eigh on CUDA</strong> is up to 100x faster due to updated cuSolver backend selection.</td></tr>
   <tr><td>New <strong>torch.accelerator.Graph</strong> API unifies graph capture and replay across CUDA, XPU, and out-of-tree backends.</td></tr>
   <tr><td><strong>torch.export.save</strong> now supports Microscaling (MX) quantization formats, enabling full export of aggressively compressed models.</td></tr>
@@ -39324,6 +39421,7 @@ further execution (#173957).
   <tr><td><strong>torch.cond</strong> control flow can now be captured and replayed inside CUDA Graphs.</td></tr>
   <tr><td><strong>ROCm</strong> users gain expandable memory segments, rocSHMEM symmetric memory collectives, and FlexAttention pipelining.</td></tr>
 </table>
+```
 
 For more details about these highlighted features, you can look at the release blogpost. Below are the full release notes for this release.
 
@@ -40599,6 +40697,7 @@ This release is meant to fix the following regressions and silent correctness is
 # Highlights
 
 <table>
+```html
   <tr><td><strong>FlexAttention</strong> lands on Apple Silicon (MPS), with up to ~12x speedup over SDPA on sparse patterns, and gains a deterministic backward path on CUDA for reproducible gradient computation.</td></tr>
   <tr><td><strong>CuTeDSL "Native DSL" backend</strong> gives Inductor a second high-performance code path (alongside Triton) for key GPU operations, with faster compilation. [Prototype]</td></tr>
   <tr><td><strong><code>nn.LinearCrossEntropyLoss</code></strong> combines the final prediction and loss computation to cut peak GPU memory by up to 4x for large-vocabulary language model training.</td></tr>
@@ -40607,6 +40706,7 @@ This release is meant to fix the following regressions and silent correctness is
   <tr><td><strong>Python 3.15 wheel support</strong> for PyTorch on Linux via the pytorch repository index, including builds compatible with free-threaded 3.15t.</td></tr>
   <tr><td><strong>Broader platform support</strong>: ROCm gains AOTriton 0.12b with native HIP CMake, Arm adds Armv9-A <code>torch.compile</code> targeting, and Intel XPU exposes new device telemetry APIs.</td></tr>
 </table>
+```
 
 For more details about these highlighted features, you can look at the release blogpost. Below are the full release notes for this release.
 
@@ -41881,6 +41981,7 @@ Workaround: run the `+rocm` wheel on a ROCm image, or install a standard CPU/CUD
 # Highlights
 
 <table>
+```html
   <tr><td><strong>NVGEMM</strong> brings CuTeDSL-generated CUTLASS kernels to Inductor, with epilogue fusion, scaled and NVFP4 GEMM, and grouped-reduction epilogues autotuned alongside Triton and ATen</td></tr>
   <tr><td><strong><code>torch.switch</code></strong> generalizes <code>torch.cond</code> to multi-way branching, and <code>torch.while_loop</code> can now be captured in a CUDA graph</td></tr>
   <tr><td><strong>Declarative dynamic shapes via <code>@dynamic_spec</code></strong>, shared across <code>torch.compile</code>, <code>torch.export</code> and <code>make_fx</code></td></tr>
@@ -41890,6 +41991,7 @@ Workaround: run the `+rocm` wheel on a ROCm image, or install a standard CPU/CUD
   <tr><td><strong>Apple Silicon gains native linear algebra</strong>, including Jacobi-kernel SVD, <code>eigh</code>, QR and Cholesky, alongside a five-part reduction rewrite and a further MPSGraph to Metal kernel migration</td></tr>
   <tr><td><strong>Broader platform support</strong>: ROCm 7.14 wheels are produced from the TheRock pip SDK, Intel XPU adds native graph capture, and Inductor targets Rubin (<code>sm_107</code>)</td></tr>
 </table>
+```
 
 For more details about these highlighted features, you can look at the release blogpost. Below are the full release notes for this release.
 

@@ -2,11 +2,11 @@
 
 - stars: 134
 - forks: 66
-- open_issues: 28
+- open_issues: 29
 - default_branch: amd-mainline
 - archived: False
 - license: MIT
-- pushed_at: 2026-05-28T18:52:30Z
+- pushed_at: 2026-09-24T19:44:33Z
 - homepage: https://rocm.docs.amd.com/projects/amdsmi/en/latest
 
 ## README

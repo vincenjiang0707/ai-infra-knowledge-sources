@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/disaggregated/disaggregated_encoder/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Disaggregated Encoder[¶](https://docs.vllm.ai#disaggregated-encoder)
 
@@ -167,12 +167,14 @@ always requires an available `prefill`
 
 After each instance is ready, the launcher registers its reachable HTTP URL:
 
+```bash
 curl --fail-with-body http://proxy-host:8000/instances \
 -H "X-API-Key: $ADMIN_API_KEY" -H 'Content-Type: application/json' \
 -d '{"role":"encode","url":"http://e-host:8001"}'
 curl --fail-with-body http://proxy-host:8000/instances \
 -H "X-API-Key: $ADMIN_API_KEY" -H 'Content-Type: application/json' \
 -d '{"role":"prefill_decode","url":"http://pd-host:8002"}'
+```
 
 
 For E+P+D, register P with `role: "prefill"`
@@ -198,11 +200,13 @@ uses `ec_port + r * tensor_parallel_size`
 :
 
 {
+```json
 "role": "prefill_decode",
 "url": "http://pd-host:8002",
 "dp_size": 2,
 "ec_zmq_addrs": ["tcp://pd-host:19019", "tcp://pd-host:19021"]
 }
+```
 
 
 The proxy selects one consumer replica and uses it for both the encoder push and the consumer HTTP request. Standalone D does not need EC control addresses. Port allocation and avoiding collisions remain the launcher's responsibility.
@@ -255,10 +259,12 @@ no higher than the smallest encoder image limit. For example, for encoders confi
 
 :
 
+```bash
 ENCODER_MAX_BATCH_SIZE=2 python disagg_epd_proxy.py \
 --encode-servers-urls "http://e1:8001,http://e2:8002" \
 --prefill-servers-urls disable \
 --decode-servers-urls "http://pd1:8003"
+```
 
 
 Example usage: For E + PD setup:

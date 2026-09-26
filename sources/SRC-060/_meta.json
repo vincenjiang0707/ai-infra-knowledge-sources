@@ -7,16 +7,16 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:47:41Z",
- "finished_at": "2026-09-23T03:47:41Z",
- "duration_seconds": 66.7,
- "attempts": 1,
+ "finished_at": "2026-09-25T11:10:56Z",
+ "duration_seconds": 518.7,
+ "attempts": 4,
  "channels": {
   "github_org_f25c077f": {
    "type": "github_org",
    "url": "https://github.com/Tencent-Hunyuan",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 704
   },
   "gh_7abc41b7": {
@@ -28,12 +28,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 78,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -54,25 +64,25 @@
   "ref_d9c85037": {
    "type": "reference",
    "url": "https://github.com/PaddlePaddle/ERNIE/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 948
   },
   "ref_dfd5b839": {
    "type": "reference",
    "url": "https://github.com/PaddlePaddle/ERNIE/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 2877
+   "mode": "page",
+   "chars": 4821
   },
   "ref_c33d7bc6": {
    "type": "reference",
    "url": "https://github.com/PaddlePaddle/ERNIE/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 3336
   }
  },

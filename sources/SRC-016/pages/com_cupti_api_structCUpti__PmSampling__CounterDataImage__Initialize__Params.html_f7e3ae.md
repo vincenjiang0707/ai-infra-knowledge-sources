@@ -1,0 +1,3 @@
+source: https://docs.nvidia.com/cupti/api/structCUpti__PmSampling__CounterDataImage__Initialize__Params.html
+
+7.155. CUpti_PmSampling_CounterDataImage_Initialize_Params# struct CUpti_PmSampling_CounterDataImage_Initialize_Params# Params for cuptiPmSamplingCounterDataImageInitialize. Public Members size_t structSize# [in] Size of the data structure. void *pPriv# [in] Set to NULL. CUpti_PmSampling_Object *pPmSamplingObject# [in] PM sampling object. size_t counterDataSize# [in] Size of the counter data image. uint8_t *pCounterData# [in] Counter data image.

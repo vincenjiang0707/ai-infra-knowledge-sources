@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/frameworks/skypilot/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # SkyPilot[¶](https://docs.vllm.ai#skypilot)
 
@@ -64,11 +64,13 @@ Check the output of the command. There will be a shareable gradio link (like the
 
 **Optional**: Serve the 70B model instead of the default 8B and use more GPU:
 
+```bash
 HF_TOKEN="your-huggingface-token" \
 sky launch serving.yaml \
 --gpus A100:8 \
 --env HF_TOKEN \
 --env MODEL_NAME=meta-llama/Meta-Llama-3-70B-Instruct
+```
 
 
 ## Scale up to multiple replicas[¶](https://docs.vllm.ai#scale-up-to-multiple-replicas)
@@ -136,6 +138,7 @@ After the service is READY, you can find a single endpoint for the service and a
 
 ## Commands
 
+```
 ENDPOINT=$(sky serve status --endpoint 8081 vllm)
 curl -L http://$ENDPOINT/v1/chat/completions \
 -H "Content-Type: application/json" \
@@ -153,6 +156,7 @@ curl -L http://$ENDPOINT/v1/chat/completions \
 ],
 "stop_token_ids": [128009, 128001]
 }'
+```
 
 
 To enable autoscaling, you could replace the `replicas`

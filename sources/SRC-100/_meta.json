@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:13:19Z",
- "finished_at": "2026-09-23T05:06:46Z",
- "duration_seconds": 15.4,
- "attempts": 3,
+ "finished_at": "2026-09-25T02:03:08Z",
+ "duration_seconds": 17.9,
+ "attempts": 5,
  "channels": {
   "site_608433fd": {
    "type": "sitemap",
@@ -17,10 +17,11 @@
    "mode": "sitemap.xml",
    "pages_total": 1,
    "status": "ok",
-   "pages_fetched": 1,
+   "pages_fetched": 0,
    "pages_failed": 0,
    "output_dir": "pages/",
-   "cap": 2000
+   "cap": 2000,
+   "head_check": "no_update"
   }
  },
  "cursor": {

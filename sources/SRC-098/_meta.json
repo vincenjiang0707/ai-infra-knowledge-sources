@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:34:17Z",
- "finished_at": "2026-09-23T03:34:17Z",
- "duration_seconds": 60.7,
- "attempts": 1,
+ "finished_at": "2026-09-25T17:53:21Z",
+ "duration_seconds": 445.1,
+ "attempts": 4,
  "channels": {
   "gh_8aeb2d85": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 80,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
-    "count": 61,
-    "note": "top-100 by updated_at"
+    "count": 62,
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 62,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -46,25 +56,25 @@
   "ref_9d07a90f": {
    "type": "reference",
    "url": "https://github.com/NVIDIA/nccl-tests/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 841
   },
   "ref_a89199fd": {
    "type": "reference",
    "url": "https://github.com/NVIDIA/nccl-tests/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 4341
+   "mode": "page",
+   "chars": 4460
   },
   "ref_977d458f": {
    "type": "reference",
    "url": "https://github.com/NVIDIA/nccl-tests/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 341
   }
  },
@@ -73,7 +83,7 @@
    "last_updated_at": "2026-09-10T15:52:58Z"
   },
   "gh_8aeb2d85:pulls": {
-   "last_updated_at": "2026-09-19T15:35:32Z"
+   "last_updated_at": "2026-09-25T09:20:30Z"
   }
  },
  "notes": ""

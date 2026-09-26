@@ -1,0 +1,55 @@
+# Introducing the Palmyra-mini family: Powerful, lightweight, and ready to reason!
+
+source: https://huggingface.co/blog/Writer/announcing-palmyra-mini
+published: Thu, 11 Sep 2025 20:04:44 GMT
+
+Text Generation • 2B • Updated • 306 • 31
+
+#
+[
+](https://huggingface.co#introducing-the-palmyra-mini-family-powerful-lightweight-and-ready-to-reason)
+Introducing the Palmyra-mini family: Powerful, lightweight, and ready to reason!
+
+[Enterprise Article](https://huggingface.co/blog)
+
+The team at WRITER is thrilled to announce the release of three new open models in the Palmyra-mini family. These models are designed to be powerful, lightweight, and highly performant for their size (1.5B to 1.7B), making them ideal for a wide range of applications with efficient inference.
+
+[palmyra-mini](https://huggingface.co/Writer/palmyra-mini): A powerful, lightweight non-thinking base model.[palmyra-mini-thinking-a](https://huggingface.co/Writer/palmyra-mini-thinking-a): A specialized variant optimized for complex reasoning and logic.[palmyra-mini-thinking-b](https://huggingface.co/Writer/palmyra-mini-thinking-b): Another specialized variant that excels at mathematical equations and reasoning.
+
+The "thinking" models have been trained with a Chain of Thought (CoT) approach, which improves their reasoning abilities. We're excited to see what the community will build with these new models!
+
+GGUF and MLX quantizations are also available for your convenience:
+
+##
+[
+](https://huggingface.co#benchmark-highlights)
+Benchmark Highlights:
+
+palmyra-mini: Our non-reasoning improved base model, delivering a score of 52.6% on Big Bench Hard (get-answer)(exact_match), making it a fantastic all-rounder for a wide variety of generative tasks.
+
+palmyra-mini-thinking-a: This variant is your go-to for complex logical challenges. Trained with a Chain of Thought (CoT) approach, it achieves an impressive 82.87% on GSM8K (strict match), demonstrating its powerful reasoning capabilities. It has the highest overall average score on benchmarks relative to other models in the release.
+
+palmyra-mini-thinking-b: Pushing the boundaries of problem-solving, this model scores a solid 92.5% on AMC23. It's a great choice when you need a model that can "think" its way through demanding tasks. This has the highest average benchmark scores in the benchmarks AIME24,AIME25, GPQA, HMMT25, HLE, MMLU_PRO,MATH500, LCB relative to the other models in the release.
+
+
+##
+[
+](https://huggingface.co#benchmark-note)
+Benchmark Note:
+
+We're releasing both pass@1(avg-of-1) and pass@1(avg-of-64) results. Benchmarking methodology (sampling parameters: temperature 0.6, top_p 0.95): Pass@1(avg-of-1) scores:
+
+GSM8K through MBPP: collected using lm_eval framework. AIME24 through HMMT25: collected using lighteval framework.
+
+Pass@1(avg-of-64) scores: collected using nemoskills framework.
+
+##
+[
+](https://huggingface.co#footnotes)
+Footnotes:
+
+Since all the base models are Qwen architecture the inference should be runnable on popular inference frameworks such as vLLM, SGLang, TRTLLM, TGI.
+
+For palmyra-thinking-b the base model was [https://huggingface.co/nvidia/OpenReasoning-Nemotron-1.5B](https://huggingface.co/nvidia/OpenReasoning-Nemotron-1.5B). We ran RL fine tuning and observed that it's capable of improving performance. While Reinforcement learning improved single-shot accuracy (pass@1), it reduced sampling diversity, leading to a drop in majority@64 performance compared to the SFT base model. This highlights a trade-off between accuracy and diversity, and we believe transparency around these findings will spark further research along mode collapse, small model performance and other areas.
+
+Through this work, we've tried to push the boundaries of what's achievable with small parameter models, and we're excited to see how the community will continue advancing inference efficiency without sacrificing performance quality.

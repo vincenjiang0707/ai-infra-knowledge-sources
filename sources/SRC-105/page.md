@@ -1,5 +1,3 @@
-# DCGM
-
 source: https://github.com/NVIDIA/DCGM/releases
 
 # Releases: NVIDIA/DCGM

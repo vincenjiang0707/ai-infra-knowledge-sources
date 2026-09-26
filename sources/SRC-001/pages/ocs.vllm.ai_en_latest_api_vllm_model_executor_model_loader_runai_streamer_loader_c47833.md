@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/model_loader/runai_streamer_loader/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class RunaiModelStreamerLoader(BaseModelLoader):
 """Model loader that can load safetensors
@@ -60,6 +60,10 @@ is_object_storage_path = is_runai_obj_uri(model_name_or_path)
 is_local = os.path.isdir(model_name_or_path)
 safetensors_pattern = "*.safetensors"
 index_file = SAFE_WEIGHTS_INDEX_NAME
+if not is_local and not is_object_storage_path:
+# `model_weights` can point to another repo than the one `revision` was
+# resolved for, which does not pin this one.
+revision = resolve_revision(model_name_or_path, revision)
 hf_folder = (
 model_name_or_path
 if (is_local or is_object_storage_path)

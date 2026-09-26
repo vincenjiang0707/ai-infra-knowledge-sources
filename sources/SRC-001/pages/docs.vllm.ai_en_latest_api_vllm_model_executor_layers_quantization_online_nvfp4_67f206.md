@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/online/nvfp4/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class Nvfp4OnlineMoEMethod(OnlineMoEMethodBase):
 """Online NVFP4 MoE quantization with per-token activation scales.
@@ -20,7 +20,7 @@ super().__init__(moe)
 self.nvfp4_backend, self.experts_cls = select_nvfp4_moe_backend(
 config=self.moe,
 weight_key=kNvfp4Static,
-activation_key=kNvfp4Dynamic,
+activation_key=kNvfp4DynamicToken,
 )
 def process_weights_after_loading(self, layer: Module) -> None:
 if getattr(layer, "_already_called_process_weights_after_loading", False):

@@ -1,12 +1,12 @@
 # AI-Hypercomputer/maxtext
 
 - stars: 2428
-- forks: 614
-- open_issues: 317
+- forks: 613
+- open_issues: 320
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-23T03:18:12Z
+- pushed_at: 2026-09-25T03:43:01Z
 - homepage: https://maxtext.readthedocs.io
 
 ## README

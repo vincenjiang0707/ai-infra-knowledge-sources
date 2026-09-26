@@ -1,5 +1,3 @@
-# CUTLASS
-
 source: https://github.com/NVIDIA/cutlass/releases
 
 # Releases: NVIDIA/cutlass

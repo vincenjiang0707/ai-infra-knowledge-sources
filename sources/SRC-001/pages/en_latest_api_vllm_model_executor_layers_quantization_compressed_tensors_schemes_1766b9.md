@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/schemes/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -13,10 +13,10 @@ Modules:
 –[compressed_tensors_scheme](https://docs.vllm.ai/compressed_tensors_scheme/#vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_scheme) -
 –[compressed_tensors_w4a4_mxfp4](https://docs.vllm.ai/compressed_tensors_w4a4_mxfp4/#vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_w4a4_mxfp4) -
 –[compressed_tensors_w8a8_mxfp8](https://docs.vllm.ai/compressed_tensors_w8a8_mxfp8/#vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_w8a8_mxfp8) -
-–[compressed_tensors_wNa4](https://docs.vllm.ai/compressed_tensors_wNa4/#vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_wNa4)Weight N-bit INT scheme with symmetric INT4 activation quant via Humming.
+–[compressed_tensors_wNa4](https://docs.vllm.ai/compressed_tensors_wNa4/#vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_wNa4)Weight N-bit INT scheme with INT4 activation quant via Humming.
 
 -
-–[compressed_tensors_wNa8](https://docs.vllm.ai/compressed_tensors_wNa8/#vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_wNa8)Weight N-bit INT scheme with symmetric INT8 activation quant via Humming.
+–[compressed_tensors_wNa8](https://docs.vllm.ai/compressed_tensors_wNa8/#vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_wNa8)Weight N-bit INT scheme with INT8 activation quant via Humming.
 
 -
 –[compressed_tensors_wNa8o8](https://docs.vllm.ai/compressed_tensors_wNa8o8/#vllm.model_executor.layers.quantization.compressed_tensors.schemes.compressed_tensors_wNa8o8)Weight N-bit INT scheme with static INT8 input/output activation quant.

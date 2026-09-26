@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:34:37Z",
- "finished_at": "2026-09-23T03:34:37Z",
- "duration_seconds": 47.4,
- "attempts": 1,
+ "finished_at": "2026-09-25T18:27:45Z",
+ "duration_seconds": 604.6,
+ "attempts": 4,
  "channels": {
   "gh_5bcb9aae": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 69,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 56,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -46,25 +56,25 @@
   "ref_5d96373a": {
    "type": "reference",
    "url": "https://github.com/ROCm/amdsmi/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 926
   },
   "ref_96c2fc03": {
    "type": "reference",
    "url": "https://github.com/ROCm/amdsmi/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 4160
+   "mode": "page",
+   "chars": 4300
   },
   "ref_23aa4ff9": {
    "type": "reference",
    "url": "https://github.com/ROCm/amdsmi/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 333
   }
  },
@@ -73,7 +83,7 @@
    "last_updated_at": "2026-09-21T13:31:06Z"
   },
   "gh_5bcb9aae:pulls": {
-   "last_updated_at": "2026-08-27T17:29:22Z"
+   "last_updated_at": "2026-09-24T19:46:35Z"
   },
   "gh_5bcb9aae:releases": {
    "last_id": 317826924

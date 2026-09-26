@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/per_request_metrics/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Per-Request Metrics[¶](https://docs.vllm.ai#per-request-metrics)
 
@@ -26,6 +26,7 @@ When per-request metrics are enabled, the response includes a `metrics`
 object:
 
 {
+```json
 "id": "chatcmpl-abc123",
 "object": "chat.completion",
 "model": "meta-llama/Llama-3.1-8B-Instruct",
@@ -43,6 +44,7 @@ object:
 "tokens_per_second": 103.2
 }
 }
+```
 
 
 | Field | Description |

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/online/mxfp4/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class Mxfp4OnlineMoEMethod(OnlineMoEMethodBase):
 """MoE method for online MXFP4 (block) quantization."""

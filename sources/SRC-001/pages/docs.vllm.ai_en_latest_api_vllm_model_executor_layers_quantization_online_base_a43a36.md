@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/online/base/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class OnlineQuantizationConfig(QuantizationConfig):
 """Model-level config for online quantization (quantize fp16/bf16 weights

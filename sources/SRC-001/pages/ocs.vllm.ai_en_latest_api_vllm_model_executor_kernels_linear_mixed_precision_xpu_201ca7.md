@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mixed_precision/xpu/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class XPUW4A8IntLinearKernel(MPLinearKernel):
 """XPU kernel for W4A8 integer quantization using oneDNN int4_gemm_w4a8.

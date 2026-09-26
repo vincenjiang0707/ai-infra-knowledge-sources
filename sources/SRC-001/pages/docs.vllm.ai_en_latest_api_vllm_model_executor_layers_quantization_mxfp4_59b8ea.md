@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/mxfp4/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class Mxfp4MoEMethod(FusedMoEMethodBase):
 """MXFP4 MoE quantization method."""

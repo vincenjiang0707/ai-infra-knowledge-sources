@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/glm_ocr_mtp/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class GlmOcrMTP(nn.Module, SupportsPP):
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):

@@ -1,0 +1,4 @@
+source: https://docs.openvino.ai/2025/api/c_cpp_api/classov_1_1op_1_1v7_1_1_d_f_t.html
+lastmod: 
+
+Class ov::op::v7::DFT# class DFT : public ov::op::util::FFTBase# An operation DFT that computes the discrete Fourier transformation. Public Functions DFT(const Output<Node> &data, const Output<Node> &axes)# Constructs a DFT operation. DFT is performed for full size axes. Parameters: data – Input data axes – Axes to perform DFT DFT(const Output<Node> &data, const Output<Node> &axes, const Output<Node> &signal_size)# Constructs a DFT operation. Parameters: data – Input data axes – Axes to perform DFT signal_size – Signal sizes for ‘axes’

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/xpu/xpu_sparse_decode_fp8/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 def xpu_sparse_decode_fp8(
 q: torch.Tensor, # [num_tokens, num_heads, head_dim]

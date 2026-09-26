@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/integrations/kaito/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # KAITO[¶](https://docs.vllm.ai#kaito)
 

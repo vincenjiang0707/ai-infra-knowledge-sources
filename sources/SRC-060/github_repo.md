@@ -1,6 +1,6 @@
 # PaddlePaddle/ERNIE
 
-- stars: 7737
+- stars: 7736
 - forks: 1446
 - open_issues: 83
 - default_branch: release/v1.5

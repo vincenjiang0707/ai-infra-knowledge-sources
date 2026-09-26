@@ -1,0 +1,22 @@
+{
+ "src_id": "SRC-150",
+ "name": "知乎",
+ "category": "精选作者、专业社区与新来源发现",
+ "priority": "扩展",
+ "scrape_type": "site",
+ "blocked_reason": "PDF 标登录拦截（知乎）",
+ "status": "blocked",
+ "started_at": "2026-09-24T18:11:59Z",
+ "finished_at": "2026-09-24T18:11:59Z",
+ "duration_seconds": 0.0,
+ "attempts": 1,
+ "channels": {
+  "pdf_flag": {
+   "type": "none",
+   "status": "blocked",
+   "reason": "PDF 标登录拦截（知乎）"
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

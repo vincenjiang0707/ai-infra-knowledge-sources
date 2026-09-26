@@ -1,16 +1,17 @@
 # vllm-project/vllm
 
-- stars: 92458
-- forks: 22536
-- open_issues: 8314
+- stars: 92645
+- forks: 22639
+- open_issues: 8376
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-23T03:11:56Z
+- pushed_at: 2026-09-25T03:27:21Z
 - homepage: https://vllm.ai
 
 ## README
 
+```html
 <!-- markdownlint-disable MD001 MD041 -->
 <p align="center">
   <picture>
@@ -18,17 +19,20 @@
     <img alt="vLLM" src="https://raw.githubusercontent.com/vllm-project/vllm/main/docs/assets/logos/vllm-logo-text-light.png" width=55%>
   </picture>
 </p>
+```
 
 <h3 align="center">
 Easy, fast, and cheap LLM serving for everyone
 </h3>
 
 <p align="center">
+```
 | <a href="https://docs.vllm.ai"><b>Documentation</b></a> | <a href="https://blog.vllm.ai/"><b>Blog</b></a> | <a href="https://arxiv.org/abs/2309.06180"><b>Paper</b></a> | <a href="https://x.com/vllm_project"><b>Twitter/X</b></a> | <a href="https://discuss.vllm.ai"><b>User Forum</b></a> | <a href="https://slack.vllm.ai"><b>Developer Slack</b></a> |
 </p>
 
 🔥 We have built a vLLM website to help you get started with vLLM. Please visit [vllm.ai](https://vllm.ai) to learn more.
 For events, please visit [vllm.ai/events](https://vllm.ai/events) to join us.
+```
 
 ---
 
@@ -65,12 +69,14 @@ vLLM is flexible and easy to use with:
 
 vLLM seamlessly supports 200+ model architectures on Hugging Face, including:
 
+```
 - Decoder-only LLMs (e.g., Llama, Qwen, Gemma)
 - Mixture-of-Expert LLMs (e.g., Mixtral, DeepSeek-V3, Qwen-MoE, GPT-OSS)
 - Hybrid attention and state-space models (e.g., Mamba, Qwen3.5)
 - Multi-modal models (e.g., LLaVA, Qwen-VL, Pixtral)
 - Embedding and retrieval models (e.g., E5-Mistral, GTE, ColBERT)
 - Reward and classification models (e.g., Qwen-Math)
+```
 
 Find the full list of supported models [here](https://docs.vllm.ai/en/latest/models/supported_models.html).
 
@@ -86,9 +92,11 @@ Or [build from source](https://docs.vllm.ai/en/latest/getting_started/installati
 
 Visit our [documentation](https://docs.vllm.ai/en/latest/) to learn more.
 
+```
 - [Installation](https://docs.vllm.ai/en/latest/getting_started/installation.html)
 - [Quickstart](https://docs.vllm.ai/en/latest/getting_started/quickstart.html)
 - [List of Supported Models](https://docs.vllm.ai/en/latest/models/supported_models.html)
+```
 
 ## Contributing
 
@@ -110,6 +118,7 @@ If you use vLLM for your research, please cite our [paper](https://arxiv.org/abs
 
 ## Contact Us
 
+```html
 <!-- --8<-- [start:contact-us] -->
 - For technical questions and feature requests, please use GitHub [Issues](https://github.com/vllm-project/vllm/issues)
 - For discussing with fellow users, please use the [vLLM Forum](https://discuss.vllm.ai)
@@ -117,6 +126,7 @@ If you use vLLM for your research, please cite our [paper](https://arxiv.org/abs
 - For security disclosures, please use GitHub's [Security Advisories](https://github.com/vllm-project/vllm/security/advisories) feature
 - For collaborations and partnerships, please contact us at [collaboration@vllm.ai](mailto:collaboration@vllm.ai)
 <!-- --8<-- [end:contact-us] -->
+```
 
 ## Media Kit
 

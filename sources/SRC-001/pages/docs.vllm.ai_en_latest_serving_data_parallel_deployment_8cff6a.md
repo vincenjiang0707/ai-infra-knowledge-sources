@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/serving/data_parallel_deployment/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Data Parallel Deployment[¶](https://docs.vllm.ai#data-parallel-deployment)
 
@@ -148,11 +148,13 @@ We support an equivalent topology for MoE DP+EP which can be configured via the 
 If DP ranks are co-located (same node / ip address), a default RPC port is used, but a different HTTP server port must be specified for each rank:
 
 # Rank 0
+```bash
 CUDA_VISIBLE_DEVICES=0 vllm serve $MODEL --data-parallel-size 2 --data-parallel-rank 0 \
 --port 8000
 # Rank 1
 CUDA_VISIBLE_DEVICES=1 vllm serve $MODEL --data-parallel-size 2 --data-parallel-rank 1 \
 --port 8001
+```
 
 
 For multi-node cases, the address/port of rank 0 must also be specified:

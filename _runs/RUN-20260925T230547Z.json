@@ -1,0 +1,22 @@
+{
+ "run_id": "2026-09-25T23:05:47Z",
+ "scope": "SRC-168",
+ "registry_size": 1,
+ "srcs_ran": 1,
+ "summary": {
+  "new_posts_total": 0,
+  "srcs_no_update": 1
+ },
+ "srcs": [
+  {
+   "src_id": "SRC-168",
+   "status": "success",
+   "duration": 59.3,
+   "skipped": false,
+   "new_posts": 0,
+   "head_check": true,
+   "total_posts": 0,
+   "outcome": "no_update"
+  }
+ ]
+}

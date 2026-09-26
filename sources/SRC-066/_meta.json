@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:28:35Z",
- "finished_at": "2026-09-23T03:28:35Z",
- "duration_seconds": 48.4,
- "attempts": 1,
+ "finished_at": "2026-09-25T11:27:59Z",
+ "duration_seconds": 518.5,
+ "attempts": 4,
  "channels": {
   "gh_0642a9fc": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 89,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -46,34 +56,34 @@
   "ref_e86df800": {
    "type": "reference",
    "url": "https://github.com/NVIDIA/cutlass/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 2169
+   "mode": "page",
+   "chars": 2173
   },
   "ref_bb839310": {
    "type": "reference",
    "url": "https://github.com/NVIDIA/cutlass/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 5479
+   "mode": "page",
+   "chars": 5549
   },
   "ref_d00eaa02": {
    "type": "reference",
    "url": "https://github.com/NVIDIA/cutlass/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 34111
   }
  },
  "cursor": {
   "gh_0642a9fc:issues": {
-   "last_updated_at": "2026-09-22T21:13:10Z"
+   "last_updated_at": "2026-09-24T22:21:19Z"
   },
   "gh_0642a9fc:pulls": {
-   "last_updated_at": "2026-09-23T02:55:18Z"
+   "last_updated_at": "2026-09-25T10:26:18Z"
   },
   "gh_0642a9fc:releases": {
    "last_id": 393438317

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/passes/fusion/qk_norm_rope_kvcache_fusion/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class QkNormRopeKvCachePattern:
 """Match the unfused sequence:
@@ -35,16 +35,24 @@ self.head_size_v = layer.head_size_v
 self.eps = eps
 self.is_neox = is_neox
 self.quant_query = quant_query
+self.encoded_layer_name = _encode_layer_name(self.layer_name)
+self.query_quant_group_shape = (
+layer.query_quant.group_shape
+if layer.query_quant is not None
+else GroupShape.PER_TENSOR
+)
 self.q_size = self.num_heads * self.head_size
 self.k_size = self.num_kv_heads * self.head_size
 self.v_size = self.num_kv_heads * self.head_size_v
-self.rope_matcher = MatcherRotaryEmbedding(
+self.rope_matcher: MatcherRotaryEmbedding | MatcherMRotaryEmbedding = (
+MatcherRotaryEmbedding(
 is_neox=is_neox,
 head_size=self.head_size,
 num_heads=self.num_heads,
 num_kv_heads=self.num_kv_heads,
 )
-def get_inputs(self) -> list[torch.Tensor]:
+)
+def get_inputs(self) -> list:
 T = 5
 L = 4096
 qkv = empty_bf16(T, self.q_size + self.k_size + self.v_size)
@@ -56,7 +64,11 @@ inputs = [qkv, positions, q_weight, k_weight, cos_sin_cache]
 if self.quant_query:
 q_scale = empty_fp32(1)
 inputs += [q_scale]
+if _USE_LAYERNAME:
+inputs.append(self.encoded_layer_name)
 return inputs
+def _get_layer_name(self, layer_name: LayerNameType | None) -> LayerNameType:
+return self.encoded_layer_name if layer_name is None else layer_name
 def pattern_non_fp8_quant_query(
 self,
 qkv: torch.Tensor,
@@ -64,6 +76,7 @@ positions: torch.Tensor,
 q_weight: torch.Tensor,
 k_weight: torch.Tensor,
 cos_sin_cache: torch.Tensor,
+layer_name: LayerNameType | None = None,
 ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
 q, k, v = qkv.split([self.q_size, self.k_size, self.v_size], dim=-1)
 q_by_head = q.view(-1, self.q_size // self.head_size, self.head_size)
@@ -76,7 +89,9 @@ q_rope, k_rope = self.rope_matcher(positions, q_flat, k_flat, cos_sin_cache)
 q_rope = q_rope.view(-1, self.num_heads, self.head_size)
 k_rope = k_rope.view(-1, self.num_kv_heads, self.head_size)
 v = v.view(-1, self.num_kv_heads, self.head_size_v)
-dummy = torch.ops.vllm.unified_kv_cache_update(k_rope, v, self.layer_name)
+dummy = torch.ops.vllm.unified_kv_cache_update(
+k_rope, v, self._get_layer_name(layer_name)
+)
 return dummy, q_rope, k_rope, v
 def replacement_non_fp8_quant_query(
 self,
@@ -85,6 +100,7 @@ positions: torch.Tensor,
 q_weight: torch.Tensor,
 k_weight: torch.Tensor,
 cos_sin_cache: torch.Tensor,
+layer_name: LayerNameType | None = None,
 ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
 q_out = torch.empty(
 qkv.shape[0],
@@ -113,9 +129,46 @@ k_weight=k_weight,
 rms_norm_eps=self.eps,
 cos_sin_cache=cos_sin_cache,
 is_neox=self.is_neox,
-layer_name=self.layer_name,
+layer_name=self._get_layer_name(layer_name),
 )
 return results[0], results[1], results[2], v
+def _quantize_query(
+self,
+query: torch.Tensor,
+q_scale: torch.Tensor,
+) -> tuple[torch.Tensor, torch.Tensor | None]:
+if self.query_quant_group_shape.is_per_tensor():
+q_out = torch.empty_like(query, dtype=current_platform.fp8_dtype())
+q_quant = auto_functionalized(
+torch.ops.vllm.rocm_aiter_per_tensor_quant.default,
+out=q_out,
+x=query,
+scale=q_scale,
+is_dynamic=False,
+)
+# The AITER op's schema marks scale mutable, so preserve its
+# functionalized write-back as an output of the matched region.
+return q_quant[1], q_quant[2]
+# QuantFP8.forward_hip falls back to the generic static op for the
+# historical per-head shape (-1, block_size). This also covers the
+# degenerate one-local-KV-head case where a scalar scale is represented
+# as (-1, q_size), rather than changing Attention's classification.
+q_out = torch.empty(
+query.shape,
+device=query.device,
+dtype=current_platform.fp8_dtype(),
+)
+q_quant = auto_functionalized(
+torch.ops._C.static_scaled_fp8_quant.default,
+result=q_out,
+input=query,
+scale=q_scale,
+group_shape=[
+self.query_quant_group_shape.row,
+self.query_quant_group_shape.col,
+],
+)
+return q_quant[1], None
 def pattern_fp8_quant_query(
 self,
 qkv: torch.Tensor,
@@ -124,7 +177,8 @@ q_weight: torch.Tensor,
 k_weight: torch.Tensor,
 cos_sin_cache: torch.Tensor,
 q_scale: torch.Tensor,
-) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+layer_name: LayerNameType | None = None,
+) -> tuple[torch.Tensor, ...]:
 q, k, v = qkv.split([self.q_size, self.k_size, self.v_size], dim=-1)
 q_by_head = q.view(-1, self.q_size // self.head_size, self.head_size)
 q_normed = vllm.ir.ops.rms_norm(q_by_head, q_weight, self.eps)
@@ -133,23 +187,14 @@ k_by_head = k.view(-1, self.k_size // self.head_size, self.head_size)
 k_normed = vllm.ir.ops.rms_norm(k_by_head, k_weight, self.eps)
 k_flat = k_normed.view(-1, self.k_size)
 q_rope, k_rope = self.rope_matcher(positions, q_flat, k_flat, cos_sin_cache)
-# Match the quant-query op Attention.forward inserts (fp8 KV + UNIFIED).
-# Explicit auto_functionalized (out=[1]) keeps the quant node in the pattern.
-q_out = torch.empty_like(q_rope, dtype=current_platform.fp8_dtype())
-q_quant = auto_functionalized(
-torch.ops.vllm.rocm_aiter_per_tensor_quant.default,
-out=q_out,
-x=q_rope,
-scale=q_scale,
-is_dynamic=False,
-)
-# `scale` is mutable: its copy_ write-back to _q_scale bumps the mutation
-# region, so keep q flat (a reshape lands past the barrier and won't match).
-q_rope_fp8 = q_quant[1]
-q_scale_out = q_quant[2]
+q_rope_fp8, q_scale_out = self._quantize_query(q_rope, q_scale)
 k_rope = k_rope.view(-1, self.num_kv_heads, self.head_size)
 v = v.view(-1, self.num_kv_heads, self.head_size_v)
-dummy = torch.ops.vllm.unified_kv_cache_update(k_rope, v, self.layer_name)
+dummy = torch.ops.vllm.unified_kv_cache_update(
+k_rope, v, self._get_layer_name(layer_name)
+)
+if q_scale_out is None:
+return dummy, q_rope_fp8, k_rope, v
 return dummy, q_rope_fp8, k_rope, v, q_scale_out
 def replacement_fp8_quant_query(
 self,
@@ -159,7 +204,8 @@ q_weight: torch.Tensor,
 k_weight: torch.Tensor,
 cos_sin_cache: torch.Tensor,
 q_scale: torch.Tensor,
-) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+layer_name: LayerNameType | None = None,
+) -> tuple[torch.Tensor, ...]:
 q_out = torch.empty(
 qkv.shape[0],
 self.num_heads,
@@ -187,22 +233,14 @@ k_weight=k_weight,
 rms_norm_eps=self.eps,
 cos_sin_cache=cos_sin_cache,
 is_neox=self.is_neox,
-layer_name=self.layer_name,
+layer_name=self._get_layer_name(layer_name),
 )
-# Re-apply the quant on the kernel's bf16 q_out; fused op does not quant q.
-# Same explicit auto_functionalized form as the pattern: [1] = quantized
-# q, [2] = scale (returned so the buffer-writeback use is preserved).
+# Re-apply the same quant form on the kernel's bf16 q_out; the fused
+# operation does not quantize Q.
 q_fp8_flat = results[1].view(-1, self.q_size)
-q_fp8_out = torch.empty_like(q_fp8_flat, dtype=current_platform.fp8_dtype())
-q_requant = auto_functionalized(
-torch.ops.vllm.rocm_aiter_per_tensor_quant.default,
-out=q_fp8_out,
-x=q_fp8_flat,
-scale=q_scale,
-is_dynamic=False,
-)
-q_fp8 = q_requant[1] # flat to mirror the pattern (see note above)
-q_scale_out = q_requant[2]
+q_fp8, q_scale_out = self._quantize_query(q_fp8_flat, q_scale)
+if q_scale_out is None:
+return results[0], q_fp8, results[2], v
 return results[0], q_fp8, results[2], v, q_scale_out
 @staticmethod
 def wrap_trace_fn(
@@ -219,6 +257,8 @@ return wrapped
 def fx_view_to_reshape(gm: torch.fx.GraphModule) -> None:
 from torch._inductor.fx_passes.post_grad import view_to_reshape
 view_to_reshape(gm)
+def _extra_check(self, match: pm.Match) -> bool:
+return True
 def _register(self, pattern, replacement, pm_pass) -> None:
 trace_fn = QkNormRopeKvCachePattern.wrap_trace_fn(
 pm.fwd_only,
@@ -242,30 +282,118 @@ replacement,
 inputs,
 trace_fn,
 pm_pass,
+extra_check=self._extra_check,
 search_fn_pattern=search_fn_pattern,
 )
 def register(self, pm_pass: PatternMatcherPass) -> None:
 # make_fx counts `self` in bound-method code params; wrap as plain fns.
-# Distinct names per branch so mypy doesn't see one name, two signatures.
 if self.quant_query:
-def pattern_q(qkv, positions, q_weight, k_weight, cos_sin_cache, q_scale):
+if _USE_LAYERNAME:
+def pattern_q_with_layer(
+qkv,
+positions,
+q_weight,
+k_weight,
+cos_sin_cache,
+q_scale,
+layer_name,
+):
+return self.pattern_fp8_quant_query(
+qkv,
+positions,
+q_weight,
+k_weight,
+cos_sin_cache,
+q_scale,
+layer_name,
+)
+def replacement_q_with_layer(
+qkv,
+positions,
+q_weight,
+k_weight,
+cos_sin_cache,
+q_scale,
+layer_name,
+):
+return self.replacement_fp8_quant_query(
+qkv,
+positions,
+q_weight,
+k_weight,
+cos_sin_cache,
+q_scale,
+layer_name,
+)
+self._register(pattern_q_with_layer, replacement_q_with_layer, pm_pass)
+else:
+def pattern_q_without_layer(
+qkv, positions, q_weight, k_weight, cos_sin_cache, q_scale
+):
 return self.pattern_fp8_quant_query(
 qkv, positions, q_weight, k_weight, cos_sin_cache, q_scale
 )
-def replacement_q(
+def replacement_q_without_layer(
 qkv, positions, q_weight, k_weight, cos_sin_cache, q_scale
 ):
 return self.replacement_fp8_quant_query(
 qkv, positions, q_weight, k_weight, cos_sin_cache, q_scale
 )
-self._register(pattern_q, replacement_q, pm_pass)
+self._register(
+pattern_q_without_layer, replacement_q_without_layer, pm_pass
+)
 else:
-def pattern_noq(qkv, positions, q_weight, k_weight, cos_sin_cache):
+if _USE_LAYERNAME:
+def pattern_noq_with_layer(
+qkv,
+positions,
+q_weight,
+k_weight,
+cos_sin_cache,
+layer_name,
+):
+return self.pattern_non_fp8_quant_query(
+qkv,
+positions,
+q_weight,
+k_weight,
+cos_sin_cache,
+layer_name,
+)
+def replacement_noq_with_layer(
+qkv,
+positions,
+q_weight,
+k_weight,
+cos_sin_cache,
+layer_name,
+):
+return self.replacement_non_fp8_quant_query(
+qkv,
+positions,
+q_weight,
+k_weight,
+cos_sin_cache,
+layer_name,
+)
+self._register(
+pattern_noq_with_layer, replacement_noq_with_layer, pm_pass
+)
+else:
+def pattern_noq_without_layer(
+qkv, positions, q_weight, k_weight, cos_sin_cache
+):
 return self.pattern_non_fp8_quant_query(
 qkv, positions, q_weight, k_weight, cos_sin_cache
 )
-def replacement_noq(qkv, positions, q_weight, k_weight, cos_sin_cache):
+def replacement_noq_without_layer(
+qkv, positions, q_weight, k_weight, cos_sin_cache
+):
 return self.replacement_non_fp8_quant_query(
 qkv, positions, q_weight, k_weight, cos_sin_cache
 )
-self._register(pattern_noq, replacement_noq, pm_pass)
+self._register(
+pattern_noq_without_layer,
+replacement_noq_without_layer,
+pm_pass,
+)

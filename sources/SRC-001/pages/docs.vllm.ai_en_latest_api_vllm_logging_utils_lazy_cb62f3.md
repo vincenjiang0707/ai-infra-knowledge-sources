@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/logging_utils/lazy/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Wrap a zero-argument callable evaluated only during log formatting.
 

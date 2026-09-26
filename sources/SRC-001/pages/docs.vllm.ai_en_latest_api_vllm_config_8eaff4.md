@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/config/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -4649,7 +4649,7 @@ Attributes:
 ) –[dtype](https://pytorch.org/docs/stable/tensor_attributes.html#torch.dtype)The "head" refers to the last Linear layer(s) of an LLM,
 
 -
-([hf_config](https://docs.vllm.ai#vllm.config.ModelConfig.hf_config)`PretrainedConfig`
+([hf_config](https://docs.vllm.ai#vllm.config.ModelConfig.hf_config)`PreTrainedConfig`
 
 ) –The Hugging Face config of the model.
 
@@ -4664,7 +4664,7 @@ Attributes:
 ) –If a dictionary, contains arguments to be forwarded to the Hugging Face
 
 -
-([hf_text_config](https://docs.vllm.ai#vllm.config.ModelConfig.hf_text_config)`PretrainedConfig`
+([hf_text_config](https://docs.vllm.ai#vllm.config.ModelConfig.hf_text_config)`PreTrainedConfig`
 
 ) –The Hugging Face config of the text model (same as hf_config for text models).
 
@@ -5637,7 +5637,6 @@ Tokenizer mode:
 `mistral_common`
 
 for Mistral models if available, otherwise it will use the "hf" tokenizer. - "hf" will use the fast tokenizer if available.
-- "slow" will always use the slow tokenizer.
 - "mistral" will always use the tokenizer from
 `mistral_common`
 
@@ -8624,7 +8623,7 @@ Attributes:
 -
 ([fuse_qk_norm_rope_kvcache](https://docs.vllm.ai#vllm.config.PassConfig.fuse_qk_norm_rope_kvcache)
 
-) –[bool](https://docs.python.org/3/builtins/functions.html#bool)Fuse QK RMSNorm + RoPE + KV cache update into a single AITER HIP
+) –[bool](https://docs.python.org/3/builtins/functions.html#bool)Fuse QK RMSNorm + RoPE/MRoPE + KV cache update into an AITER HIP
 
 -
 ([fuse_rope_kvcache](https://docs.vllm.ai#vllm.config.PassConfig.fuse_rope_kvcache)
@@ -8795,7 +8794,7 @@ Fuse the custom RMSNorm + quant ops.
 
 [¶](https://docs.vllm.ai#vllm.config.PassConfig.fuse_qk_norm_rope_kvcache)
 
-Fuse QK RMSNorm + RoPE + KV cache update into a single AITER HIP kernel. Supersedes both enable_qk_norm_rope_fusion and fuse_rope_kvcache for layers that support it. Auto-enabled at O1+ on ROCm for models with QK-norm (e.g. Qwen3-MoE).
+Fuse QK RMSNorm + RoPE/MRoPE + KV cache update into an AITER HIP kernel. Supersedes both enable_qk_norm_rope_fusion and fuse_rope_kvcache for layers that support it. Auto-enabled at O2+ on ROCm for models with QK-norm (e.g. Qwen3-MoE and Qwen3-VL-class architectures).
 
 ###
 
@@ -8831,7 +8830,7 @@ Enable fused MLA KV cache update with RoPE.
 
 [¶](https://docs.vllm.ai#vllm.config.PassConfig.rope_kvcache_fusion_max_token_num)
 
-The threshold for ROCm AITER RoPE+KVCache fusion e.g. for small batch decode. Larger batch sizes e.g. during prefill will use the unfused kernels. Also applies to the fused QK-Norm+RoPE+KVCache pass.
+The threshold for ROCm AITER RoPE+KVCache fusion e.g. for small batch decode. Larger batch sizes e.g. during prefill will use the unfused kernels. Also applies to the fused QK-Norm+RoPE/MRoPE+KVCache pass.
 
 ###
 
@@ -10070,6 +10069,11 @@ Attributes:
 ) –[int](https://docs.python.org/3/builtins/functions.html#int)For chunked prefill, a request is considered long if the prompt is
 
 -
+([long_prefill_token_threshold_adaptive](https://docs.vllm.ai#vllm.config.SchedulerConfig.long_prefill_token_threshold_adaptive)
+
+) –[bool](https://docs.python.org/3/builtins/functions.html#bool)Floor the effective long prefill token threshold at a fair share of
+
+-
 ([max_num_active_seqs](https://docs.vllm.ai#vllm.config.SchedulerConfig.max_num_active_seqs)
 
 ) –[int](https://docs.python.org/3/builtins/functions.html#int)| NoneMaximum number of requests the scheduler admits into RUNNING.
@@ -10239,6 +10243,18 @@ True if the model is multimodal.
 For chunked prefill, a request is considered long if the prompt is longer than this number of tokens. 0 disables the cap (default).
 
 The cap is not applied when the request is the only one in the batch, since there is no other request for it to starve.
+
+###
+
+`long_prefill_token_threshold_adaptive = Field(default=False)`
+
+`class-attribute`
+
+`instance-attribute`
+
+[¶](https://docs.vllm.ai#vllm.config.SchedulerConfig.long_prefill_token_threshold_adaptive)
+
+Floor the effective long prefill token threshold at a fair share of the token budget: max_num_batched_tokens divided by the number of queued and running requests. Only applies when long_prefill_token_threshold is nonzero.
 
 ###
 
@@ -11295,7 +11311,7 @@ Parameters:
 
 (`draft_hf_config`
 
-[¶](https://docs.vllm.ai#vllm.config.SpeculativeConfig._maybe_override_draft_max_position_embeddings(draft_hf_config))`PretrainedConfig`
+[¶](https://docs.vllm.ai#vllm.config.SpeculativeConfig._maybe_override_draft_max_position_embeddings(draft_hf_config))`PreTrainedConfig`
 
 ) –The draft model's HF config, mutated in place.
 
@@ -12858,6 +12874,17 @@ not be used.
 [¶](https://docs.vllm.ai#vllm.config.VllmConfig._set_max_num_scheduled_tokens)
 
 In most cases, the scheduler may schedule a batch with as many tokens as the worker is configured to handle.
+
+## Source code in `vllm/config/vllm.py`
+
+
+###
+
+`_uses_breakable_cudagraph_for_batch_invariance()`
+
+[¶](https://docs.vllm.ai#vllm.config.VllmConfig._uses_breakable_cudagraph_for_batch_invariance)
+
+Avoid freezing runtime-M tile lookup in compiled forward (#54243). Breakable graphs look up tuned bf16, unquantized qkv/o/gate_up/down tiles at capture; lm_head runs outside compiled forward and does not benefit.
 
 ## Source code in `vllm/config/vllm.py`
 

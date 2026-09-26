@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/nvidia/fi_moe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class DeepseekV4MegaMoEExpertsFI(DeepseekV4MegaMoEExperts):
 """Same weight layout/loader as the native mega experts, FI compute path."""

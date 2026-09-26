@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/transformers/base/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class Base(
 nn.Module,
@@ -287,9 +287,9 @@ if not self.pp_group.is_last_rank:
 attrsetter(name)(module, PPMissingLayer())
 def _vocab_embeddings(self) -> set[nn.Embedding]:
 """The `nn.Embedding`s in `self.model` which hold a vocab table."""
-def vocab_sizes(config: PretrainedConfig):
+def vocab_sizes(config: PreTrainedConfig):
 for key, value in vars(config).items():
-if isinstance(value, PretrainedConfig):
+if isinstance(value, PreTrainedConfig):
 yield from vocab_sizes(value)
 elif "vocab_size" in key and isinstance(value, int):
 yield value

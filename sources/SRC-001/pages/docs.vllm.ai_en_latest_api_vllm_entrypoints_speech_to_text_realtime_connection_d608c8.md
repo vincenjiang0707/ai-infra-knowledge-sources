@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/speech_to_text/realtime/connection/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class RealtimeConnection:
 """Manages WebSocket lifecycle and state for realtime transcription.

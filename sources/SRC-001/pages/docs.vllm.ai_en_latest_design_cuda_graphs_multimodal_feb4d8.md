@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/cuda_graphs_multimodal/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Vision Encoder (ViT) CUDA Graphs[¶](https://docs.vllm.ai#vision-encoder-vit-cuda-graphs)
 
@@ -468,6 +468,7 @@ Model: `Qwen/Qwen3-VL-30B-A3B-Instruct`
 
 To reproduce:
 
+```bash
 vllm bench mm-processor \
 --model Qwen/Qwen3-VL-30B-A3B-Instruct \
 --dataset-name hf --dataset-path lmarena-ai/VisionArena-Chat \
@@ -475,6 +476,7 @@ vllm bench mm-processor \
 --max-model-len 32768 --seed 42 \
 --mm-encoder-attn-backend FLASH_ATTN \
 --compilation-config '{"cudagraph_mm_encoder": true, "encoder_cudagraph_token_budgets": [512, 1024, 1536, 2048, 2560, 3072, 3584, 4096, 4864], "encoder_cudagraph_max_vision_items_per_batch": 8}'
+```
 
 
 ### Multi-GPU (4x GB200, TP=4, DP=4)[¶](https://docs.vllm.ai#multi-gpu-4x-gb200-tp4-dp4)
@@ -494,6 +496,7 @@ Model: `Qwen/Qwen3-VL-32B-Instruct`
 
 To reproduce:
 
+```bash
 vllm bench mm-processor \
 --model Qwen/Qwen3-VL-32B-Instruct \
 --dataset-name random-mm \
@@ -505,6 +508,7 @@ vllm bench mm-processor \
 --mm-encoder-attn-backend FLASHINFER \
 --tensor-parallel-size 4 --mm-encoder-tp-mode data \
 --compilation-config '{"cudagraph_mm_encoder": true, "encoder_cudagraph_token_budgets": [512, 1024, 1536, 2048, 2560, 3072, 3584, 4096, 4864], "encoder_cudagraph_max_vision_items_per_batch": 8}'
+```
 
 
 Note

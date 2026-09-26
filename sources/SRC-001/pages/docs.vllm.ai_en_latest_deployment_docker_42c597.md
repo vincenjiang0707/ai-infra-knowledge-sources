@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/docker/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Using Docker[¶](https://docs.vllm.ai#using-docker)
 
@@ -7,6 +7,7 @@ lastmod: 2026-09-23
 
 vLLM offers an official Docker image for deployment. The image can be used to run OpenAI compatible server and is available on Docker Hub as [vllm/vllm-openai](https://hub.docker.com/r/vllm/vllm-openai/tags).
 
+```bash
 docker run --runtime nvidia --gpus all \
 -v ~/.cache/huggingface:/root/.cache/huggingface \
 --env "HF_TOKEN=$HF_TOKEN" \
@@ -14,10 +15,12 @@ docker run --runtime nvidia --gpus all \
 --ipc=host \
 vllm/vllm-openai:latest \
 --model Qwen/Qwen3-0.6B
+```
 
 
 This image can also be used with other container engines such as [Podman](https://podman.io/).
 
+```bash
 podman run --device nvidia.com/gpu=all \
 -v ~/.cache/huggingface:/root/.cache/huggingface \
 --env "HF_TOKEN=$HF_TOKEN" \
@@ -25,6 +28,7 @@ podman run --device nvidia.com/gpu=all \
 --ipc=host \
 docker.io/vllm/vllm-openai:latest \
 --model Qwen/Qwen3-0.6B
+```
 
 
 You can add any other [engine-args](https://docs.vllm.ai/configuration/engine_args/) you need after the image tag (`vllm/vllm-openai:latest`
@@ -67,12 +71,14 @@ or `true`
 
 when running the container:
 
+```bash
 docker run --runtime nvidia --gpus all \
 -v ~/.cache/huggingface:/root/.cache/huggingface \
 -p 8000:8000 \
 --env "HF_TOKEN=<secret>" \
 --env "VLLM_ENABLE_CUDA_COMPATIBILITY=1" \
 vllm/vllm-openai <args...>
+```
 
 
 This will automatically configure `LD_LIBRARY_PATH`
@@ -88,6 +94,7 @@ vLLM offers official Docker images for deployment. The images can be used to run
 — preview build from the latest development branch, use this if you want the latest features and fixes
 
 docker run --rm \
+```bash
 --group-add=video \
 --cap-add=SYS_PTRACE \
 --security-opt seccomp=unconfined \
@@ -99,12 +106,14 @@ docker run --rm \
 --ipc=host \
 vllm/vllm-openai-rocm:<tag> \
 --model Qwen/Qwen3-0.6B
+```
 
 
 To use the docker image as base for development, you can launch it in interactive session through overriding the entrypoint.
 
 ## Commands
 
+```bash
 docker run --rm -it \
 --group-add=video \
 --cap-add=SYS_PTRACE \
@@ -117,6 +126,7 @@ docker run --rm -it \
 --ipc=host \
 --entrypoint /bin/bash \
 vllm/vllm-openai-rocm:<tag>
+```
 
 
 #### Use AMD's Docker Images (Deprecated)[¶](https://docs.vllm.ai#use-amds-docker-images-deprecated)
@@ -173,6 +183,7 @@ For Docker, mount both files and source `env.sh`
 
 inside the container before starting vLLM:
 
+```bash
 docker run --rm --gpus all \
 -v ~/.cache/huggingface:/root/.cache/huggingface \
 -v "$PWD/config.yaml:/recipe/config.yaml:ro" \
@@ -182,6 +193,7 @@ docker run --rm --gpus all \
 --entrypoint /bin/bash \
 vllm/vllm-openai:latest \
 -lc 'source /recipe/env.sh && exec vllm serve --config /recipe/config.yaml'
+```
 
 
 ## Persist the compile cache across containers[¶](https://docs.vllm.ai#persist-the-compile-cache-across-containers)
@@ -317,6 +329,7 @@ to get the most benefits. Keep an eye on memory usage with parallel jobs as it c
 
 ## Command
 
+```bash
 # Example of building on Nvidia GH200 server. (Memory usage: ~15GB, Build time: ~1475s / ~25 min, Image size: 6.93GB)
 DOCKER_BUILDKIT=1 docker build . \
 --file docker/Dockerfile \
@@ -327,12 +340,14 @@ DOCKER_BUILDKIT=1 docker build . \
 --build-arg nvcc_threads=2 \
 --build-arg BUILD_BASE_IMAGE=pytorch/manylinuxaarch64-builder:cuda13.0-78e737ad29420ffc4800e677c51e2a852caf8359 \
 --build-arg torch_cuda_arch_list="9.0 10.0+PTX"
+```
 
 
 For (G)B300, we recommend using CUDA 13, as shown in the following command.
 
 ## Command
 
+```bash
 DOCKER_BUILDKIT=1 docker build \
 --build-arg CUDA_VERSION=13.0.2 \
 --build-arg BUILD_BASE_IMAGE=pytorch/manylinuxaarch64-builder:cuda13.0-78e737ad29420ffc4800e677c51e2a852caf8359 \
@@ -344,6 +359,7 @@ DOCKER_BUILDKIT=1 docker build \
 --target vllm-openai \
 -f docker/Dockerfile \
 .
+```
 
 
 Note
@@ -396,6 +412,7 @@ for ARM64/AArch64 CPUs.
 
 ## ARM64/AArch64 build command
 
+```bash
 docker buildx build --progress=plain --load \
 --file docker/Dockerfile \
 --target vllm-openai \
@@ -411,10 +428,12 @@ docker buildx build --progress=plain --load \
 --build-arg BUILD_BASE_IMAGE="pytorch/manylinuxaarch64-builder:cuda13.4" \
 --build-arg FINAL_BASE_IMAGE="nvcr.io/nvidia/cuda-dl-base:26.08-cuda13.4-devel-ubuntu24.04" \
 .
+```
 
 
 ## x86_64 build command
 
+```bash
 docker buildx build --progress=plain --load \
 --file docker/Dockerfile \
 --target vllm-openai \
@@ -430,6 +449,7 @@ docker buildx build --progress=plain --load \
 --build-arg BUILD_BASE_IMAGE="pytorch/manylinux2_28-builder:cuda13.4" \
 --build-arg FINAL_BASE_IMAGE="nvcr.io/nvidia/cuda-dl-base:26.08-cuda13.4-devel-ubuntu24.04" \
 .
+```
 
 
 Note
@@ -452,11 +472,13 @@ disables only the PyPI publication-size guard for this private staging image.
 
 To run vLLM with the custom-built Docker image:
 
+```bash
 docker run --runtime nvidia --gpus all \
 -v ~/.cache/huggingface:/root/.cache/huggingface \
 -p 8000:8000 \
 --env "HF_TOKEN=<secret>" \
 vllm/vllm-openai <args...>
+```
 
 
 The argument `vllm/vllm-openai`
@@ -517,6 +539,7 @@ as entrypoint):
 To run vLLM with the custom-built Docker image:
 
 docker run --rm \
+```bash
 --group-add=video \
 --cap-add=SYS_PTRACE \
 --security-opt seccomp=unconfined \
@@ -527,6 +550,7 @@ docker run --rm \
 -p 8000:8000 \
 --ipc=host \
 vllm/vllm-openai-rocm <args...>
+```
 
 
 The argument `vllm/vllm-openai-rocm`

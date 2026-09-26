@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/benchmarking/
-lastmod: 2026-09-22
+lastmod: 2026-09-24
 
 # Benchmark Suites[¶](https://docs.vllm.ai#benchmark-suites)
 

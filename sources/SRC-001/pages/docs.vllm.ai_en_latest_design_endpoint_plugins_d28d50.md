@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/endpoint_plugins/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Endpoint Plugins[¶](https://docs.vllm.ai#endpoint-plugins)
 
@@ -139,6 +139,7 @@ the way `tests/plugins/vllm_add_dummy_endpoint_plugin`
 
 does before shipping it:
 
+```bash
 from fastapi import FastAPI, Request
 class MyAdminEndpointPlugin:
 name = "my_admin_endpoint_plugin"
@@ -151,6 +152,7 @@ results = await engine_client.collective_rpc("get_scheduler_config")
 return {"scheduler_config": results}
 async def init_state(self, engine_client, state, args) -> None:
 state.my_engine_client = engine_client
+```
 
 
 A complete and tested version of this example is in-repo as `tests/plugins/vllm_add_dummy_endpoint_plugin`

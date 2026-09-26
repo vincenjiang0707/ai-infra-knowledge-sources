@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/aiter_mxfp4_w4a8_moe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class AiterW4A8ExpertsMonolithic(mk.FusedMoEExpertsMonolithic):
 """Monolithic MXFP4 W4A8 expert using AITER triton kernels.

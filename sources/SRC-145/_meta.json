@@ -7,17 +7,17 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:22:42Z",
- "finished_at": "2026-09-23T04:22:42Z",
- "duration_seconds": 9.2,
- "attempts": 1,
+ "finished_at": "2026-09-24T18:57:24Z",
+ "duration_seconds": 10.4,
+ "attempts": 2,
  "channels": {
   "site_f1638ef3": {
    "type": "site",
    "url": "https://dev-discuss.pytorch.org/",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 190
+   "mode": "page",
+   "chars": 631
   }
  },
  "cursor": {},

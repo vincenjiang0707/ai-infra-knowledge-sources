@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:43:17Z",
- "finished_at": "2026-09-23T03:43:17Z",
- "duration_seconds": 124.8,
- "attempts": 1,
+ "finished_at": "2026-09-25T10:25:56Z",
+ "duration_seconds": 717.9,
+ "attempts": 4,
  "channels": {
   "gh_ddc6f33e": {
    "type": "github_repo",
@@ -20,16 +20,26 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 40,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 1,
+     "appended": 2,
+     "skipped": 67
+    }
    },
    "releases": {
     "status": "ok",
-    "count": 24
+    "count": 25
    },
    "changelog": {
     "status": "ok",
@@ -52,12 +62,22 @@
    "issues": {
     "status": "ok",
     "count": 30,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 15,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -78,37 +98,37 @@
   "ref_bb01c71a": {
    "type": "reference",
    "url": "https://github.com/AI-Hypercomputer/maxtext/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 2084
+   "mode": "page",
+   "chars": 1774
   },
   "ref_32343f60": {
    "type": "reference",
    "url": "https://github.com/AI-Hypercomputer/maxtext/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 7581
+   "mode": "page",
+   "chars": 5733
   },
   "ref_be9a98cb": {
    "type": "reference",
    "url": "https://github.com/AI-Hypercomputer/maxtext/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 20101
+   "mode": "page",
+   "chars": 20093
   }
  },
  "cursor": {
   "gh_ddc6f33e:issues": {
-   "last_updated_at": "2026-09-23T02:09:59Z"
+   "last_updated_at": "2026-09-25T01:57:25Z"
   },
   "gh_ddc6f33e:pulls": {
-   "last_updated_at": "2026-09-23T03:41:09Z"
+   "last_updated_at": "2026-09-25T07:45:02Z"
   },
   "gh_ddc6f33e:releases": {
-   "last_id": 394160905
+   "last_id": 396066825
   },
   "gh_2d4350d3:issues": {
    "last_updated_at": "2025-08-12T16:11:10Z"

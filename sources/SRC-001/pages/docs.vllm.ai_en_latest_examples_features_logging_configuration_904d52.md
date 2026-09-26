@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/features/logging_configuration/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Logging Configuration[¶](https://docs.vllm.ai#logging-configuration)
 
@@ -89,6 +89,7 @@ For this example, we will customize the vLLM root logger to use [ python-json-lo
 
 ## /path/to/logging_config.json
 
+```json
 {
 "formatters": {
 "json": {
@@ -112,6 +113,7 @@ For this example, we will customize the vLLM root logger to use [ python-json-lo
 },
 "version": 1
 }
+```
 
 
 Finally, run vLLM with the `VLLM_LOGGING_CONFIG_PATH`
@@ -132,6 +134,7 @@ First, create an appropriate JSON logging configuration file that includes confi
 
 ## /path/to/logging_config.json
 
+```json
 {
 "formatters": {
 "vllm": {
@@ -160,6 +163,7 @@ First, create an appropriate JSON logging configuration file that includes confi
 },
 "version": 1
 }
+```
 
 
 Finally, run vLLM with the `VLLM_LOGGING_CONFIG_PATH`

@@ -1,12 +1,12 @@
 # ROCm/aiter
 
-- stars: 565
-- forks: 589
-- open_issues: 1014
+- stars: 569
+- forks: 594
+- open_issues: 1030
 - default_branch: main
 - archived: False
 - license: MIT
-- pushed_at: 2026-09-23T03:26:47Z
+- pushed_at: 2026-09-25T02:47:17Z
 - homepage: https://rocm.github.io/aiter/
 
 ## README

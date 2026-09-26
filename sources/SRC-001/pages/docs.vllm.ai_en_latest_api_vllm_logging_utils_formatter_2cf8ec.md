@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/logging_utils/formatter/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Bases: [NewLineFormatter](#vllm.logging_utils.formatter.NewLineFormatter)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/prepare_finalize/batched/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class BatchedPrepareAndFinalize(mk.FusedMoEPrepareAndFinalizeModular):
 """A reference prepare/finalize class that reorganizes the tokens into

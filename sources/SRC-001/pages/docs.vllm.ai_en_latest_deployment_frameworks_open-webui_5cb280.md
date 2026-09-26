@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/frameworks/open-webui/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Open WebUI[¶](https://docs.vllm.ai#open-webui)
 

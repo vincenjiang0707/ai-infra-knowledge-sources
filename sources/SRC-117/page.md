@@ -1,5 +1,3 @@
-# USENIX
-
 source: https://www.usenix.org/publications/proceedings
 
 Donate

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/utils/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -214,6 +214,12 @@ Methods:
 s by merging their mappings. -
 –[get_rename_mapper](https://docs.vllm.ai#vllm.model_executor.models.utils.WeightsMapper.get_rename_mapper)Mapper variant keeping only the renames.
 
+-
+–[map_name](https://docs.vllm.ai#vllm.model_executor.models.utils.WeightsMapper.map_name)Map a weight name; returns
+
+`None`
+
+if the weight should be ignored.
 
 ## Source code in `vllm/model_executor/models/utils.py`
 
@@ -239,8 +245,6 @@ s by merging their mappings.
 `_map_name(key)`
 
 [¶](https://docs.vllm.ai#vllm.model_executor.models.utils.WeightsMapper._map_name)
-
-Map a weight name (backward-compatible wrapper that discards shard_id).
 
 ###
 
@@ -288,6 +292,16 @@ are dropped because "do not load this weight" is meaningless to such a consumer,
 
 ## Source code in `vllm/model_executor/models/utils.py`
 
+
+###
+
+`map_name(key)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.models.utils.WeightsMapper.map_name)
+
+Map a weight name; returns `None`
+
+if the weight should be ignored.
 
 ##
 

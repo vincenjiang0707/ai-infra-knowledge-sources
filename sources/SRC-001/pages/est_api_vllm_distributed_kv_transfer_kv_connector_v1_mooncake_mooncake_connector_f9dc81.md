@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/mooncake_connector/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MooncakeConnectorWorker:
 """Implementation of Worker side methods."""
@@ -109,15 +109,9 @@ self.finished_sending_reqs: set[ReqId] = set()
 self.finished_recving_reqs: set[ReqId] = set()
 # Written from the receiver loop, drained from the worker thread.
 self._invalid_block_ids: queue.Queue[set[int]] = queue.Queue()
-self._is_hma_required = (
-not vllm_config.scheduler_config.disable_hybrid_kv_cache_manager
-and any(
-not isinstance(g.kv_cache_spec, FullAttentionSpec)
-for g in kv_cache_config.transfer_groups
-)
-)
-# Block IDs are only unique within a group; with HMA the scheduler
-# tracks a single merged group, so failures are reported per request.
+self._is_hma_required = len(kv_cache_config.kv_cache_groups) > 1
+# Block IDs are only unique within a group, so with multiple groups
+# load failures are reported per request instead.
 self._failed_recv_reqs: queue.Queue[ReqId] = queue.Queue()
 self.xfer_stats = MooncakeKVConnectorStats()
 self.block_size = vllm_config.cache_config.block_size

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/usage/security/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Security[¶](https://docs.vllm.ai#security)
 
@@ -908,6 +908,7 @@ extra_body={
 
 #### Usage with a raw request[¶](https://docs.vllm.ai#usage-with-a-raw-request)
 
+```json
 {
 "model": "meta-llama/Llama-3-8b",
 "messages": [
@@ -915,6 +916,7 @@ extra_body={
 ],
 "cache_salt": "per-user-or-per-tenant-secret"
 }
+```
 
 
 ### How to choose a salt value[¶](https://docs.vllm.ai#how-to-choose-a-salt-value)

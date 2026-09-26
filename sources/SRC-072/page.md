@@ -1,5 +1,3 @@
-# TVM
-
 source: https://github.com/apache/tvm/releases
 
 # Releases: apache/tvm

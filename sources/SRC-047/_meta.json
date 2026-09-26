@@ -7,16 +7,16 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:10:59Z",
- "finished_at": "2026-09-23T04:10:59Z",
- "duration_seconds": 5.2,
- "attempts": 1,
+ "finished_at": "2026-09-24T18:51:19Z",
+ "duration_seconds": 6.7,
+ "attempts": 2,
  "channels": {
   "github_org_5b9b0166": {
    "type": "github_org",
    "url": "https://github.com/QwenLM",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 810
   }
  },

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/configuration/conserving_memory/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Conserving Memory[¶](https://docs.vllm.ai#conserving-memory)
 

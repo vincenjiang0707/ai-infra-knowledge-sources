@@ -1,5 +1,3 @@
-# Medusa
-
 source: https://github.com/FasterDecoding/Medusa/releases
 
 # Releases: FasterDecoding/Medusa

@@ -1,6 +1,6 @@
 # mit-han-lab/ncu-report-skill
 
-- stars: 232
+- stars: 234
 - forks: 36
 - open_issues: 2
 - default_branch: main

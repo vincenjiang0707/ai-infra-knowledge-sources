@@ -1,6 +1,6 @@
 # mit-han-lab/KernelWiki
 
-- stars: 461
+- stars: 467
 - forks: 57
 - open_issues: 2
 - default_branch: master

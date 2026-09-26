@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/serve/middleware/x_request_id/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Middleware the set's the X-Request-Id header for each response to a random uuid4 (hex) value if the header isn't already present in the request, otherwise use the provided request id.
 

@@ -7,21 +7,36 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:22:11Z",
- "finished_at": "2026-09-23T04:22:11Z",
- "duration_seconds": 24.7,
- "attempts": 2,
+ "finished_at": "2026-09-24T18:57:07Z",
+ "duration_seconds": 13.0,
+ "attempts": 3,
  "channels": {
   "site_a06873af": {
    "type": "blog",
    "url": "https://research.colfax-intl.com/",
+   "index_urls": [
+    "https://research.colfax-intl.com/"
+   ],
    "status": "ok",
    "mode": "blog",
-   "posts": [
-    "01_blog.md",
-    "02_article.md",
-    "03_blog.md"
-   ],
-   "total_chars": 19863
+   "posts": [],
+   "total_chars": 0,
+   "post_urls": {
+    "https://research.colfax-intl.com/blog/": "01_blog.md",
+    "https://research.colfax-intl.com/category/article/": "02_article.md",
+    "https://research.colfax-intl.com/category/blog/": "03_blog.md",
+    "https://research.colfax-intl.com/a-users-guide-to-flexattention-in-flash-attention-cute-dsl/": "20251115_earch.colfax-intl.com_a-users-guide-to-flexattention-in-flash-attention-cute-dsl_d45b95.md",
+    "https://research.colfax-intl.com/cutlass-tutorial-hardware-supported-block-scaling-with-nvidia-blackwell-gpus/": "20260305_com_cutlass-tutorial-hardware-supported-block-scaling-with-nvidia-blackwell-gpus_030eac.md",
+    "https://research.colfax-intl.com/flashattention-4-algorithm-and-kernel-pipelining-co-design-for-asymmetric-hardware-scaling/": "20260305_tion-4-algorithm-and-kernel-pipelining-co-design-for-asymmetric-hardware-scaling_559646.md",
+    "https://research.colfax-intl.com/flexattention-flashattention-4-fast-and-flexible-external/": "20260311_search.colfax-intl.com_flexattention-flashattention-4-fast-and-flexible-external_609d5f.md",
+    "https://research.colfax-intl.com/gpu-mode-fundamentals-of-cute-layout-algebra-and-category-theoretic-interpretation/": "20260420_u-mode-fundamentals-of-cute-layout-algebra-and-category-theoretic-interpretation_041d91.md",
+    "https://research.colfax-intl.com/dynamic-persistent-tile-scheduling-with-cluster-launch-control-clc-on-nvidia-blackwell-gpus/": "20260509_sistent-tile-scheduling-with-cluster-launch-control-clc-on-nvidia-blackwell-gpus_69cb8b.md",
+    "https://research.colfax-intl.com/cutlass-tutorial-nvfp4-blockscaled-gemm-on-nvidia-rtx-pro-blackwell-gpus-sm12x/": "20260620_m_cutlass-tutorial-nvfp4-blockscaled-gemm-on-nvidia-rtx-pro-blackwell-gpus-sm12x_1ef10e.md",
+    "https://research.colfax-intl.com/optimizing-an-nvfp4-blockscaled-gemm-on-rtx-pro-6000-blackwell-gpu-sm120/": "20260809_ntl.com_optimizing-an-nvfp4-blockscaled-gemm-on-rtx-pro-6000-blackwell-gpu-sm120_3858d6.md",
+    "https://research.colfax-intl.com/optimization-diaries-improving-flashattention-4-backward-for-head-dimension-64/": "20260906_m_optimization-diaries-improving-flashattention-4-backward-for-head-dimension-64_b30c80.md",
+    "https://research.colfax-intl.com/optimization-diaries-s-p-ping-pong-for-flashattention-4-decode/": "20260907_h.colfax-intl.com_optimization-diaries-s-p-ping-pong-for-flashattention-4-decode_642c25.md"
+   },
+   "head_check": "no_update"
   }
  },
  "cursor": {

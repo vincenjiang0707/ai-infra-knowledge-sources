@@ -1,10 +1,12 @@
-# JetStream
-
 source: https://github.com/AI-Hypercomputer/maxtext/releases
 
 # Releases: AI-Hypercomputer/maxtext
 
 ## Release list
+
+## mlperf6.1-dsv3-v4.0
+
+mlperf6.1-dsv3-v4.0
 
 ## mlperf6.1-dsv3-v3.0
 
@@ -218,7 +220,3 @@ for post training dependency installation is deprecated in favor of[pip installa
 ## maxtext-tutorial-v1.5.0
 
 Merge pull request #2898 from AI-Hypercomputer:tests_docker_image PiperOrigin-RevId: 850456883
-
-## maxtext-tutorial-v1.4.0
-
-maxtext-tutorial-v1.4.0

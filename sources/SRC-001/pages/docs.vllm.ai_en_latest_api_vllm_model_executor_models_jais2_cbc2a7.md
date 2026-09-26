@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/jais2/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class Jais2DecoderLayer(nn.Module):
 def __init__(

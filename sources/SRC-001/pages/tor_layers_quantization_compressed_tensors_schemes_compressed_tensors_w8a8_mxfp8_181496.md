@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_mxfp8/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class CompressedTensorsW8A8Mxfp8(CompressedTensorsScheme):
 """Compressed tensors scheme for MXFP8 quantization (W8A8).

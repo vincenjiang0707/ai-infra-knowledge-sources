@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/model_loader/default_loader/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class DefaultModelLoader(BaseModelLoader):
 """Model loader that can load different file types from disk."""
@@ -25,6 +25,9 @@ counter_after_loading_weights: float = 0.0
 def __init__(self, load_config: LoadConfig):
 super().__init__(load_config)
 self.local_expert_ids: set[int] | None = None
+# Set in load_weights when --mm-encoder-only; used to drop LM-only shards.
+self._encoder_only_lm_prefixes: tuple[str, ...] | None = None
+self._encoder_only_weights_mapper: WeightsMapper | None = None
 extra_config = load_config.model_loader_extra_config
 if not isinstance(extra_config, dict):
 raise ValueError(
@@ -77,7 +80,7 @@ subfolder: str | None,
 revision: str | None,
 fall_back_to_pt: bool,
 allow_patterns_overrides: list[str] | None,
-) -> tuple[str, list[str], bool]:
+) -> tuple[str, list[str], bool, str]:
 """Prepare weights for the model.
 If the model is not local, it will be downloaded."""
 model_name_or_path = (
@@ -172,18 +175,38 @@ if len(hf_weights_files) == 0:
 raise RuntimeError(
 f"Cannot find any model weights with `{model_name_or_path}`"
 )
-return hf_folder, hf_weights_files, use_safetensors
+return hf_folder, hf_weights_files, use_safetensors, index_file
 def _get_weights_iterator(
-self, source: "Source"
+self, source: Source
 ) -> Generator[tuple[str, torch.Tensor], None, None]:
 """Get an iterator for the model weights based on the load format."""
 extra_config = self.load_config.model_loader_extra_config
-hf_folder, hf_weights_files, use_safetensors = self._prepare_weights(
+hf_folder, hf_weights_files, use_safetensors, index_file = (
+self._prepare_weights(
 source.model_or_path,
 source.subfolder,
 source.revision,
 source.fall_back_to_pt,
 source.allow_patterns_overrides,
+)
+)
+if (
+self._encoder_only_lm_prefixes is not None
+and use_safetensors
+and hf_weights_files
+):
+hf_weights_files = filter_mm_encoder_only_safetensors_files(
+hf_weights_files,
+hf_folder,
+index_file,
+self._encoder_only_lm_prefixes,
+weights_mapper=self._encoder_only_weights_mapper,
+)
+if not hf_weights_files:
+raise RuntimeError(
+"mm-encoder-only shard filter removed all weight files for "
+f"`{source.model_or_path}`; check language_model prefixes "
+f"{self._encoder_only_lm_prefixes}"
 )
 if self.load_config.load_format == "npcache":
 # Currently np_cache only support *.bin checkpoints
@@ -275,6 +298,27 @@ revision=model_config.revision,
 fall_back_to_pt=True,
 allow_patterns_overrides=None,
 )
+def _init_mm_encoder_only_weight_filter(
+self, model: nn.Module, model_config: ModelConfig
+) -> None:
+"""Skip pure language-model safetensors shards under --mm-encoder-only."""
+mm_config = model_config.multimodal_config
+if mm_config is None or not mm_config.mm_encoder_only:
+self._encoder_only_lm_prefixes = None
+self._encoder_only_weights_mapper = None
+return
+# Derive from _language_model_names; fail-closed on shared HF roots
+# (Molmo/Phi-4-MM/Muse). Qwen nested/flat keys classified via mapper.
+weights_mapper = cast(
+"WeightsMapper | None", getattr(model, "hf_to_vllm_mapper", None)
+)
+self._encoder_only_lm_prefixes = resolve_mm_encoder_only_lm_prefixes(
+getattr(model, "_language_model_names", None),
+weights_mapper=weights_mapper,
+)
+self._encoder_only_weights_mapper = (
+weights_mapper if self._encoder_only_lm_prefixes is not None else None
+)
 def _init_ep_weight_filter(self, model_config: ModelConfig) -> None:
 """Compute local expert ids for EP weight filtering.
 When expert parallelism is active, each rank only needs a subset of
@@ -340,6 +384,7 @@ and torchao_version_at_least("0.15.0")
 ):
 self.load_config.safetensors_load_strategy = "torchao"
 self._init_ep_weight_filter(model_config)
+self._init_mm_encoder_only_weight_filter(model, model_config)
 loaded_weights = model.load_weights(self.get_all_weights(model_config, model))
 self.counter_after_loading_weights = time.perf_counter()
 logger.info_once(

@@ -1,5 +1,3 @@
-# GPU MODE
-
 source: https://github.com/meta-pytorch/KernelAgent/releases
 
 # Releases: meta-pytorch/KernelAgent

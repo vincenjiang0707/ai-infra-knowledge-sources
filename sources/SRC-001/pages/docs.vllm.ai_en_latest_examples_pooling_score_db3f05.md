@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/pooling/score/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Score[¶](https://docs.vllm.ai#score)
 
@@ -1019,6 +1019,7 @@ passage:{{ (messages | selectattr("role", "eq", "document") | first).content }}
 
 ## Template - Nemotron-Vl-Rerank[¶](https://docs.vllm.ai#template-nemotron-vl-rerank)
 
+```
 {%- set query_msg = (messages | selectattr('role', 'equalto', 'query') | list | first) -%}
 {%- set doc_msg = (messages | selectattr('role', 'equalto', 'document') | list | first) -%}
 {%- set q = query_msg['content'] -%}
@@ -1031,6 +1032,7 @@ passage:{{ (messages | selectattr("role", "eq", "document") | first).content }}
 question:{{ q_clean }}{{ " " }}
 {{ " " }}
 {{ " " }}passage:{{ d_clean }}
+```
 
 
 ## Template - Qwen3 Reranker[¶](https://docs.vllm.ai#template-qwen3-reranker)

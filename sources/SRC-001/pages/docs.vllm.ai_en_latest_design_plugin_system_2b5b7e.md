@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/plugin_system/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Plugin System[¶](https://docs.vllm.ai#plugin-system)
 

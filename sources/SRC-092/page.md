@@ -1,5 +1,3 @@
-# Mooncake
-
 source: https://github.com/kvcache-ai/Mooncake/releases
 
 # Releases: kvcache-ai/Mooncake

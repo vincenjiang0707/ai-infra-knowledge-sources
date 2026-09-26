@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/minimax_m3/common/mm_preprocess/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MiniMaxM3VLProcessingInfo(BaseProcessingInfo):
 IMAGE_TOKEN = "]<]image[>["

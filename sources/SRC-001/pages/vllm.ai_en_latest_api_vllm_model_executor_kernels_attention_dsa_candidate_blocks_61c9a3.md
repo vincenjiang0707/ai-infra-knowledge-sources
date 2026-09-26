@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/attention/dsa/candidate_blocks/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/inc/schemes/inc_mxfp4_scheme/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Bases: [INCScheme](../inc_scheme/#vllm.model_executor.layers.quantization.inc.schemes.inc_scheme.INCScheme)
 

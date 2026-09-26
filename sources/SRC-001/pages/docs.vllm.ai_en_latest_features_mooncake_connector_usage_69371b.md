@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/mooncake_connector_usage/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # MooncakeConnector Usage Guide[¶](https://docs.vllm.ai#mooncakeconnector-usage-guide)
 

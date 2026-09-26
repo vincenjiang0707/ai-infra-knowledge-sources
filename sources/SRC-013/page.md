@@ -1,5 +1,3 @@
-# llm-d
-
 source: https://github.com/llm-d/llm-d/releases
 
 # Releases: llm-d/llm-d

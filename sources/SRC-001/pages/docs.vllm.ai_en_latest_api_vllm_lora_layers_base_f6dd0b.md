@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/layers/base/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class BaseLayerWithLoRA(nn.Module):
 def __getattr__(self, name):
@@ -54,7 +54,7 @@ def create_lora_weights(
 self,
 max_loras: int,
 lora_config: LoRAConfig,
-model_config: PretrainedConfig | None = None,
+model_config: PreTrainedConfig | None = None,
 ) -> None:
 """Initializes lora matrices."""
 ...
@@ -80,7 +80,7 @@ cls,
 source_layer: nn.Module,
 lora_config: LoRAConfig,
 packed_modules_list: list,
-model_config: PretrainedConfig | None = None,
+model_config: PreTrainedConfig | None = None,
 ) -> bool:
 """Returns True if the layer can be replaced by this LoRA layer."""
 raise NotImplementedError

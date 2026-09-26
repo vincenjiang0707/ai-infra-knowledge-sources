@@ -1,0 +1,29 @@
+source: https://github.com/vllm-project/vllm-omni/issues
+
+-
+[Notifications](https://github.com/login?return_to=%2Fvllm-project%2Fvllm-omni)You must be signed in to change notification settings -
+[Fork 1.8k](https://github.com/login?return_to=%2Fvllm-project%2Fvllm-omni)
+
+# All issues
+
+Issue creation is restricted in this repository
+
+- #7380 ·
+[princepride](https://github.com/princepride)openedon Sep 10, 2026 29 - #5700 ·
+[david6666666](https://github.com/david6666666)openedon Aug 3, 2026 41 - #4901 ·
+[hsliuustc0106](https://github.com/hsliuustc0106)openedon Jul 5, 2026 8
+
+## Issues
+
+is:issue state:open
+
+is:issue state:open
+
+## Search results
+
+[[Bug][A100]:release CI, tests/e2e/online_serving/test_minicpmo_4_5_duplex_expansion.py::test_duplex_soft_interrupt[three-stage-single-gpu], AssertionError: assert False is True](https://github.com/vllm-project/vllm-omni/issues/8123)[bugSomething isn't working](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug)Something isn't working[ci-failureCI failure issues, expected to be solved asap](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3Aci-failure)CI failure issues, expected to be solved asap[low prioritylow priority issue](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22low%20priority%22)low priority issueStatus: Open.#8123 In vllm-project/vllm-omni;- Status: Open.#8119 In vllm-project/vllm-omni;
+[[Bug][NPU]: Nightly / CI failed - tests/e2e/accuracy/omni_duplex_eval/test_omni_duplex_eval_ci.py::test_omni_duplex_eval_ci[three-stage-single-gpu] - RuntimeError: Judge server failed to become healthy at http://127.0...](https://github.com/vllm-project/vllm-omni/issues/8115)[bugSomething isn't working](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug)Something isn't working[ci-failureCI failure issues, expected to be solved asap](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3Aci-failure)CI failure issues, expected to be solved asap[high priorityhigh priority issue, needs to be done asap](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22high%20priority%22)high priority issue, needs to be done asapStatus: Open.#8115 In vllm-project/vllm-omni;[[Bug][A100]: release CI, tests/e2e/online_serving/test_qwen_image_expansion.py::test_qwen_image[vae_patch_parallel_2], AssertionError: auto_functionalized_v2 was not removed](https://github.com/vllm-project/vllm-omni/issues/8109)[bugSomething isn't working](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug)Something isn't working[ci-failureCI failure issues, expected to be solved asap](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3Aci-failure)CI failure issues, expected to be solved asap[low prioritylow priority issue](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22low%20priority%22)low priority issueStatus: Open.#8109 In vllm-project/vllm-omni;- Status: Open.#8100 In vllm-project/vllm-omni;
+- Status: Open.#8096 In vllm-project/vllm-omni;
+[[Bug][B200][A100]: release CI, tests/e2e/online_serving/test_qwen3_tts_base_expansion.py::test_voice_clone_streaming_001[no_async_chunk], AssertionError: Transcript doesn't match input: similarity=0.02, transcript=' Finnickin' a wee, nacky wolf, not a roar....](https://github.com/vllm-project/vllm-omni/issues/8091)[bugSomething isn't working](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug)Something isn't working[ci-failureCI failure issues, expected to be solved asap](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3Aci-failure)CI failure issues, expected to be solved asap[high priorityhigh priority issue, needs to be done asap](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22high%20priority%22)high priority issue, needs to be done asapStatus: Open.#8091 In vllm-project/vllm-omni;[[Bug][B200][A100]: release CI, Omni · MiniCPM-o 4.5 · Accuracy Test, [Seed-TTS] seed_tts_content_error_mean (WER)=0.073070 > --max-seed-tts-mean-wer=0.05](https://github.com/vllm-project/vllm-omni/issues/8089)[bugSomething isn't working](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug)Something isn't working[ci-failureCI failure issues, expected to be solved asap](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3Aci-failure)CI failure issues, expected to be solved asap[low prioritylow priority issue](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22low%20priority%22)low priority issueStatus: Open.#8089 In vllm-project/vllm-omni;[[Bug][B200][A100]: Release CI, tests/e2e/accuracy/test_qwen_image.py::test_qwen_image_matches_diffusers, ValueError: FLASH_ATTN_3_HUB was explicitly selected but its current kernels require a Hopper GPU with compute capability 9.x. Select a compatible backend.](https://github.com/vllm-project/vllm-omni/issues/8087)[bugSomething isn't working](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug)Something isn't working[ci-failureCI failure issues, expected to be solved asap](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3Aci-failure)CI failure issues, expected to be solved asap[low prioritylow priority issue](https://github.com/vllm-project/vllm-omni/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22low%20priority%22)low priority issueStatus: Open.#8087 In vllm-project/vllm-omni;- Status: Open.#8085 In vllm-project/vllm-omni;
+- Status: Open.#8081 In vllm-project/vllm-omni;
+- Status: Open.#8076 In vllm-project/vllm-omni;

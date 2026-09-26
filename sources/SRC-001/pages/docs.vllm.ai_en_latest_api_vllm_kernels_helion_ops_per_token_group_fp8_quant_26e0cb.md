@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/kernels/helion/ops/per_token_group_fp8_quant/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 def pick_config(args: tuple[Any, ...], config_keys: list[CaseKey]) -> CaseKey | None:
 """Pick the best pre-tuned config for the given input shape.

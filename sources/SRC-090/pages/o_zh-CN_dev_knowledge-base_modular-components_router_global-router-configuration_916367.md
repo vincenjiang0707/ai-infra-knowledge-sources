@@ -1,0 +1,553 @@
+source: https://docs.nvidia.com/dynamo/zh-CN/dev/knowledge-base/modular-components/router/global-router-configuration
+lastmod: 2026-09-23T23:30:39.914Z
+
+# Global Router Configuration
+
+The Global Router (`python -m dynamo.global_router`
+
+) is the cross-pool request routing component of a [GlobalPlanner single-endpoint multi-pool deployment](https://docs.nvidia.com/dynamo/dev/knowledge-base/modular-components/planner/global-planner-guide). It sits in the control DGD alongside a Frontend and GlobalPlanner, receives inference requests from the Frontend, and routes each one to the appropriate private prefill or decode pool. It is deployed only in raw DGD topologies — there is no DGDR surface for it.
+
+Its configuration has two parts:
+
+**CLI flags**— identity, addressing, and default SLA fallbacks. Defined in.`backend_args.py`
+
+**JSON config file**— pool namespaces and SLA-to-pool routing grids. The schema is thedataclass in`GlobalRouterConfig`
+
+`pool_selection.py`
+
+. Its path is supplied via`--config`
+
+.
+
+## How the config is loaded
+
+The Global Router reads a JSON file at the path given to `--config`
+
+. There is no operator-managed surface for this file — you create it as a Kubernetes ConfigMap, mount it into the GlobalRouter container as a volume, and point `--config`
+
+at the mount path.
+
+## Command-line flags
+
+`--config`
+
+and `--model-name`
+
+are required. Every flag also has an environment variable fallback; the CLI value takes precedence when both are set.
+
+Path to the JSON configuration file defining pool namespaces and selection strategy. Must be set via CLI or environment variable; startup fails if unset or empty.
+
+Environment variable: `DYN_GLOBAL_ROUTER_CONFIG`
+
+
+Model name for router registration. Must match the model name used by the pool workers. Must be set via CLI or environment variable; startup fails if unset or empty.
+
+Environment variable: `DYN_GLOBAL_ROUTER_MODEL_NAME`
+
+
+Dynamo namespace the Global Router registers under. Must match the namespace used by the control DGD Frontend so that the Frontend can discover the router.
+
+Environment variable: `DYN_NAMESPACE`
+
+
+Component name for the Global Router’s Dynamo service registration.
+
+Environment variable: `DYN_GLOBAL_ROUTER_COMPONENT_NAME`
+
+
+Default TTFT target in milliseconds for prefill pool selection. Applied to requests that carry no `ttft_target`
+
+in the typed `router`
+
+field, which the frontend derives from `nvext.router`
+
+. When unset, the prefill selection strategy falls back to the midpoint of its configured TTFT range. Replaces the deprecated `--default-ttft-target`
+
+flag.
+
+Environment variable: `DYN_GLOBAL_ROUTER_DEFAULT_TTFT_TARGET_MS`
+
+
+Default ITL target in milliseconds for decode pool selection. Applied to requests that carry no `itl_target`
+
+in the typed `router`
+
+field, which the frontend derives from `nvext.router`
+
+. When unset, the decode selection strategy falls back to the midpoint of its configured ITL range. Replaces the deprecated `--default-itl-target`
+
+flag.
+
+Environment variable: `DYN_GLOBAL_ROUTER_DEFAULT_ITL_TARGET_MS`
+
+
+## JSON configuration
+
+The file passed to `--config`
+
+is a JSON object matching the `GlobalRouterConfig`
+
+schema. Two modes are supported:
+
+(default): separate prefill and decode pools. Prefill routing uses the grid`disagg`
+
+`(ISL, TTFT target) → prefill pool index`
+
+; decode routing currently uses`(request token count, ITL target) → decode pool index`
+
+through the strategy’s`context_length_*`
+
+fields.: unified pools handling both prefill and decode. Routing uses`agg`
+
+`(TTFT target, ITL target) → agg pool index`
+
+, optionally extended with ISL as the leading dimension.
+
+Both modes support optional priority-based pool overrides and priority retry.
+
+### Common fields
+
+Operating mode. Determines which pool fields are required and which selection grid is active.
+
+Allowed values: disagg aggWhen `true`
+
+, if a pool attempt raises an exception before producing its first streamed output, the router retries through progressively faster pools (lower `*_pool_priorities`
+
+values), from slowest to fastest. Once an attempt has streamed output, later failures are returned without retry. When `false`
+
+, only the grid-selected pool is attempted.
+
+In disaggregated mode, the router can attempt decode retries, but current Dynamo backends do not support them safely: a failed decode attempt may already have caused the prefill engine to retire or drop that request’s KV cache.
+
+### Disaggregated mode fields
+
+The following fields are required when `mode`
+
+is `"disagg"`
+
+and are ignored in `"agg"`
+
+mode.
+
+Number of prefill pools. Must equal the length of `prefill_pool_dynamo_namespaces`
+
+. Required for `disagg`
+
+mode.
+
+Number of decode pools. Must equal the length of `decode_pool_dynamo_namespaces`
+
+. Required for `disagg`
+
+mode.
+
+Ordered list of Dynamo namespaces for the prefill pool LocalRouters. Index `i`
+
+corresponds to pool `i`
+
+. Length must equal `num_prefill_pools`
+
+. Required for `disagg`
+
+mode.
+
+Ordered list of Dynamo namespaces for the decode pool LocalRouters. Index `i`
+
+corresponds to pool `i`
+
+. Length must equal `num_decode_pools`
+
+. Required for `disagg`
+
+mode.
+
+Priority value for each prefill pool, parallel to `prefill_pool_dynamo_namespaces`
+
+. Lower values indicate faster pools (higher priority). Length must equal `num_prefill_pools`
+
+. When omitted, defaults to pool order: pool 0 gets priority 0, pool 1 gets priority 1, and so on. Used by `enable_priority_retry`
+
+to build the retry order.
+
+Priority value for each decode pool. Same semantics as `prefill_pool_priorities`
+
+. Defaults to pool order when omitted.
+
+Grid mapping `(ISL, TTFT target)`
+
+to a prefill pool index. Required for `disagg`
+
+mode. See [PrefillPoolSelectionStrategy](https://docs.nvidia.com/dynamo/dev/knowledge-base/modular-components/router/global-router-configuration#prefillpoolselectionstrategy).
+
+Grid mapping `(request token count, ITL target)`
+
+to a decode pool index. Required for `disagg`
+
+mode. See [DecodePoolSelectionStrategy](https://docs.nvidia.com/dynamo/dev/knowledge-base/modular-components/router/global-router-configuration#decodepoolselectionstrategy).
+
+### Aggregated mode fields
+
+The following fields are required when `mode`
+
+is `"agg"`
+
+and are ignored in `"disagg"`
+
+mode.
+
+Number of aggregated pools. Must equal the length of `agg_pool_dynamo_namespaces`
+
+. Required for `agg`
+
+mode.
+
+Ordered list of Dynamo namespaces for the aggregated pool LocalRouters. Index `i`
+
+corresponds to pool `i`
+
+. Length must equal `num_agg_pools`
+
+. Required for `agg`
+
+mode.
+
+Priority value for each agg pool. Same semantics as `prefill_pool_priorities`
+
+. Defaults to pool order when omitted.
+
+Grid mapping `(TTFT target, ITL target)`
+
+to an agg pool index, or `(ISL, TTFT target, ITL target)`
+
+when all three optional `isl_*`
+
+fields are set. Required for `agg`
+
+mode. See [AggPoolSelectionStrategy](https://docs.nvidia.com/dynamo/dev/knowledge-base/modular-components/router/global-router-configuration#aggpoolselectionstrategy).
+
+## Additional types
+
+Nested object types referenced by the JSON configuration fields above.
+
+### PrefillPoolSelectionStrategy
+
+Routes a request to a prefill pool based on its input sequence length (ISL) and TTFT target. The routing space is a 2D grid of `isl_resolution × ttft_resolution`
+
+cells. At routing time the router computes `isl_idx`
+
+and `ttft_idx`
+
+by mapping the request’s ISL and TTFT target into the grid (with clamping at the boundaries), then reads `prefill_pool_mapping[isl_idx][ttft_idx]`
+
+to get the pool index.
+
+Lower bound of the TTFT target range, in milliseconds. Requests with a TTFT target below this value are clamped to the first TTFT column of the grid. Also accepts the deprecated key `ttft_min`
+
+(no `_ms`
+
+suffix); use `ttft_min_ms`
+
+in new configurations.
+
+Upper bound of the TTFT target range, in milliseconds. Must be strictly greater than `ttft_min_ms`
+
+. Also accepts the deprecated key `ttft_max`
+
+.
+
+Number of TTFT grid columns (the second dimension of `prefill_pool_mapping`
+
+). Must be a positive integer. Each row of `prefill_pool_mapping`
+
+must have exactly `ttft_resolution`
+
+entries.
+
+Lower bound of the ISL range (input tokens). Requests with fewer tokens are clamped to the first ISL row of the grid.
+
+Upper bound of the ISL range (input tokens). Must be strictly greater than `isl_min`
+
+.
+
+Number of ISL grid rows (the first dimension of `prefill_pool_mapping`
+
+). Must be a positive integer. `prefill_pool_mapping`
+
+must have exactly `isl_resolution`
+
+rows.
+
+2D array of pool indices with shape `[isl_resolution][ttft_resolution]`
+
+. Each entry is a zero-based prefill pool index in `[0, num_prefill_pools)`
+
+. Row `i`
+
+covers the `i`
+
+-th ISL bucket; column `j`
+
+covers the `j`
+
+-th TTFT bucket. Out-of-range ISL or TTFT values are clamped to the nearest boundary row or column.
+
+Optional list of priority-based pool overrides. When a request carries a priority value from its agent context that matches a rule, the override’s `target_pool`
+
+replaces the grid result. Rules are evaluated in list order; first match wins. See [PriorityPoolOverride](https://docs.nvidia.com/dynamo/dev/knowledge-base/modular-components/router/global-router-configuration#prioritypooloverride).
+
+### DecodePoolSelectionStrategy
+
+Routes a request to a decode pool based on its `context_length`
+
+bucket and ITL target. The current handler computes `context_length`
+
+as the number of request `token_ids`
+
+at decode routing time; it does not add subsequently generated tokens. The routing space is a 2D grid of `context_length_resolution × itl_resolution`
+
+cells. `decode_pool_mapping[ctx_idx][itl_idx]`
+
+gives the pool index.
+
+Lower bound of the ITL target range, in milliseconds. Also accepts the deprecated key `itl_min`
+
+.
+
+Upper bound of the ITL target range, in milliseconds. Must be strictly greater than `itl_min_ms`
+
+. Also accepts the deprecated key `itl_max`
+
+.
+
+Number of ITL grid columns (the second dimension of `decode_pool_mapping`
+
+). Must be a positive integer.
+
+Lower bound of the request-token-count range used by the current handler as `context_length`
+
+. Smaller requests are clamped to the first row.
+
+Upper bound of the request-token-count range used as `context_length`
+
+. Must be strictly greater than `context_length_min`
+
+.
+
+Number of context-length grid rows (the first dimension of `decode_pool_mapping`
+
+). Must be a positive integer.
+
+2D array of pool indices with shape `[context_length_resolution][itl_resolution]`
+
+. Each entry is a zero-based decode pool index in `[0, num_decode_pools)`
+
+. Row `i`
+
+covers the `i`
+
+-th context-length bucket; column `j`
+
+covers the `j`
+
+-th ITL bucket.
+
+Optional priority-based pool overrides. See [PriorityPoolOverride](https://docs.nvidia.com/dynamo/dev/knowledge-base/modular-components/router/global-router-configuration#prioritypooloverride).
+
+### AggPoolSelectionStrategy
+
+Routes a request to an aggregated pool based on both its TTFT and ITL targets. Used in `mode: "agg"`
+
+where each pool handles both prefill and decode. By default, the routing space is a 2D grid of `ttft_resolution × itl_resolution`
+
+cells. Configuring all three optional `isl_*`
+
+fields adds a leading ISL dimension. This dimension works whether or not chunked prefill is enabled.
+
+Lower bound of the TTFT target range, in milliseconds. Also accepts the deprecated key `ttft_min`
+
+.
+
+Upper bound of the TTFT target range, in milliseconds. Must be strictly greater than `ttft_min_ms`
+
+. Also accepts the deprecated key `ttft_max`
+
+.
+
+Number of TTFT grid rows (the first dimension of `agg_pool_mapping`
+
+). Must be a positive integer.
+
+Lower bound of the ITL target range, in milliseconds. Also accepts the deprecated key `itl_min`
+
+.
+
+Upper bound of the ITL target range, in milliseconds. Must be strictly greater than `itl_min_ms`
+
+. Also accepts the deprecated key `itl_max`
+
+.
+
+Number of ITL grid columns (the second dimension of `agg_pool_mapping`
+
+). Must be a positive integer.
+
+Optional lower bound for aggregated-mode input sequence length. Set this together with `isl_max`
+
+and `isl_resolution`
+
+to enable 3D selection.
+
+Optional upper bound for aggregated-mode input sequence length. Must be greater than `isl_min`
+
+when ISL selection is enabled.
+
+Optional number of aggregated-mode ISL buckets. Must be a positive integer when ISL selection is enabled.
+
+Without `isl_*`
+
+, a 2D array with shape `[ttft_resolution][itl_resolution]`
+
+. With all three `isl_*`
+
+fields, a 3D array with shape `[isl_resolution][ttft_resolution][itl_resolution]`
+
+. Each entry is a zero-based agg pool index in `[0, num_agg_pools)`
+
+. ISL, TTFT, and ITL values outside their configured ranges are clamped to the nearest bucket.
+
+Optional priority-based pool overrides. See [PriorityPoolOverride](https://docs.nvidia.com/dynamo/dev/knowledge-base/modular-components/router/global-router-configuration#prioritypooloverride).
+
+### PriorityPoolOverride
+
+A single priority-range rule in a strategy’s `priority_overrides`
+
+list. When a request carries a priority value from its agent context, each rule is evaluated in list order; the first matching rule’s `target_pool`
+
+overrides the grid result. If no rule matches, the grid result is used.
+
+Inclusive lower bound of the priority range to match.
+
+Inclusive upper bound of the priority range to match. Must be greater than or equal to `min_priority`
+
+.
+
+Zero-based pool index to route to when the request priority falls within `[min_priority, max_priority]`
+
+. Must be a valid pool index for the enclosing strategy (0 to `num_prefill_pools - 1`
+
+, `num_decode_pools - 1`
+
+, or `num_agg_pools - 1`
+
+).
+
+## Validation rules
+
+The router validates the configuration at startup and exits if any rule is violated:
+
+`mode`
+
+must be`"disagg"`
+
+or`"agg"`
+
+.:`disagg`
+
+mode`num_prefill_pools`
+
+,`num_decode_pools`
+
+,`prefill_pool_dynamo_namespaces`
+
+,`decode_pool_dynamo_namespaces`
+
+,`prefill_pool_selection_strategy`
+
+, and`decode_pool_selection_strategy`
+
+are all required.:`agg`
+
+mode`num_agg_pools`
+
+,`agg_pool_dynamo_namespaces`
+
+, and`agg_pool_selection_strategy`
+
+are all required.- Namespace list lengths must equal their corresponding pool counts (
+`prefill_pool_dynamo_namespaces`
+
+length =`num_prefill_pools`
+
+, and so on). `*_pool_priorities`
+
+lists must have the same length as their pool count when provided.`ttft_min_ms`
+
+must be strictly less than`ttft_max_ms`
+
+; likewise for`itl_min_ms`
+
+/`itl_max_ms`
+
+and`context_length_min`
+
+/`context_length_max`
+
+, and`isl_min`
+
+/`isl_max`
+
+.- All
+`*_resolution`
+
+values must be positive integers. `prefill_pool_mapping`
+
+must have exactly`isl_resolution`
+
+rows, each of length`ttft_resolution`
+
+; all pool indices must be in`[0, num_prefill_pools)`
+
+.`decode_pool_mapping`
+
+must have exactly`context_length_resolution`
+
+rows, each of length`itl_resolution`
+
+; all pool indices must be in`[0, num_decode_pools)`
+
+.- Without aggregated
+`isl_*`
+
+fields,`agg_pool_mapping`
+
+must have exactly`ttft_resolution`
+
+rows, each of length`itl_resolution`
+
+; all pool indices must be in`[0, num_agg_pools)`
+
+. - For aggregated selection,
+`isl_min`
+
+,`isl_max`
+
+, and`isl_resolution`
+
+must be omitted together or set together. When set,`isl_min < isl_max`
+
+,`isl_resolution`
+
+is positive, and`agg_pool_mapping`
+
+must have shape`[isl_resolution][ttft_resolution][itl_resolution]`
+
+instead of the 2D shape above. - In each
+`priority_overrides`
+
+entry:`min_priority`
+
+must be ≤`max_priority`
+
+, and`target_pool`
+
+must be a valid pool index for the enclosing strategy.

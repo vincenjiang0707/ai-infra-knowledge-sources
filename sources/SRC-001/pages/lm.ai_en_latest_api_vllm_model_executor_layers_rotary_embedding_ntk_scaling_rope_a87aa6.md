@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/ntk_scaling_rope/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Bases: [RotaryEmbedding](../base/#vllm.model_executor.layers.rotary_embedding.base.RotaryEmbedding)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/int4_emulation_moe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class Int4EmulationTritonExperts(TritonExperts):
 """Int4 W-only MoE that dequantizes weights to BF16 at load time.

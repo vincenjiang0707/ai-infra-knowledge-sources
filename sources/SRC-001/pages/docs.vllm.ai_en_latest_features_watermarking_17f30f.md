@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/watermarking/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Text watermarking[¶](https://docs.vllm.ai#text-watermarking)
 
@@ -176,12 +176,14 @@ is based on the counter-based Philox4x32-10 generator from the[Random123 paper](
 
 The detector primitives operate on token IDs and do not require model weights:
 
+```bash
 from transformers import AutoTokenizer
 from vllm.v1.watermarking import GumbelWatermarkDetector
 tokenizer = AutoTokenizer.from_pretrained(MODEL)
 token_ids = tokenizer.encode(text, add_special_tokens=False)
 result = GumbelWatermarkDetector(key=42, prf="philox").detect(token_ids)
 print(result.p_value, result.is_watermarked)
+```
 
 
 The detection configuration must match the generation configuration, including the tokenizer, PRF, watermarking algorithm, algorithm-specific watermarking configuration, and key. In practice, this information is often unavailable when checking a piece of text. Deployments should therefore retain the set of candidate configurations they have served, test the text against each candidate, and correct for multiple testing, for example with a Bonferroni correction to the resulting p-values.

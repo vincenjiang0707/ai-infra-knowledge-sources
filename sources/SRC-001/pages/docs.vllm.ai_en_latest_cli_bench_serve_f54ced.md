@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/cli/bench/serve/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # vllm bench serve[¶](https://docs.vllm.ai#vllm-bench-serve)
 
@@ -250,7 +250,7 @@ Additionally, list elements can be passed individually using `+`
 [¶](https://docs.vllm.ai#-tokenizer-mode)
 
 - Tokenizer mode:
-`- "auto" will use the tokenizer from `mistral_common` for Mistral models if available, otherwise it will use the "hf" tokenizer. - "hf" will use the fast tokenizer if available. - "slow" will always use the slow tokenizer. - "mistral" will always use the tokenizer from `mistral_common`. - "deepseek_v32" will always use the tokenizer from `deepseek_v32`. - Other custom values can be supported via plugins.`
+`- "auto" will use the tokenizer from `mistral_common` for Mistral models if available, otherwise it will use the "hf" tokenizer. - "hf" will use the fast tokenizer if available. - "mistral" will always use the tokenizer from `mistral_common`. - "deepseek_v32" will always use the tokenizer from `deepseek_v32`. - Other custom values can be supported via plugins.`
 
 -
 Default:
@@ -415,7 +415,7 @@ Default:
 
 - Specify the prefix of request id.
 - Default:
-`bench-5d2cd701-`
+`bench-14605add-`
 
 
 `--served-model-name`
@@ -918,17 +918,17 @@ Download the dataset using:
 [¶](https://docs.vllm.ai#-speed-bench-dataset-subset)
 
 - Possible choices:
-`throughput_8k`
+`throughput_1k`
 
-,`qualitative`
+,`throughput_16k`
 
-,`throughput_1k`
+,`throughput_8k`
 
 ,`throughput_32k`
 
-,`throughput_2k`
+,`qualitative`
 
-,`throughput_16k`
+,`throughput_2k`
 
 - Subset of the SPEED-Bench dataset.
 - Default:

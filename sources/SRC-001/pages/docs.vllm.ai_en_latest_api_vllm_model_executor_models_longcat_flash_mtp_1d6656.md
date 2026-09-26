@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/longcat_flash_mtp/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class LongCatFlashMTP(nn.Module):
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
@@ -218,7 +218,7 @@ elif shared_weight:
 name = name.replace("model.layers.0.", "model.")
 return name
 def get_spec_layer_idx_from_weight_name(
-self, config: PretrainedConfig, weight_name: str
+self, config: PreTrainedConfig, weight_name: str
 ) -> int | None:
 if "model.mtp" in weight_name:
 return config.num_hidden_layers * 2

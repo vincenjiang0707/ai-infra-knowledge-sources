@@ -1,0 +1,7 @@
+source: https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/troubleshooting.html
+
+# Troubleshooting[](https://docs.nvidia.com#troubleshooting)
+
+Use the pages below to narrow the problem down before changing NCCL settings.
+
+[Diagnostics](https://docs.nvidia.com/troubleshooting/diagnostics.html)covers NCCL’s built-in diagnostics that can help identify and potentialy fix problems.[GPU troubleshooting](https://docs.nvidia.com/troubleshooting/gpu_troubleshooting.html)covers GPU-to-GPU, GPU-to-NIC, IOMMU, ACS, topology, and multi-node NVLink issues.[Networking Troubleshooting](https://docs.nvidia.com/troubleshooting/networking_troubleshooting.html)covers interface selection, low-level fabric checks, latency and bandwidth tests, and InfiniBand or RoCE diagnostics.[Runtime and MPI issues](https://docs.nvidia.com/troubleshooting/runtime_and_mpi_issues.html)covers basic error handling, shared-memory and runtime problems, and MPI startup validation.[Performance and tuning](https://docs.nvidia.com/troubleshooting/performance_and_tuning.html)covers baseline performance triage and NCCL tuning knobs to try after system checks look healthy.[Logging](https://docs.nvidia.com/troubleshooting/logging.html)covers NCCL logging levels, subsystem filters, output files, and timestamps.[RAS](https://docs.nvidia.com/troubleshooting/ras.html)covers NCCL’s built-in RAS subsystem for diagnosing hangs and crashes.

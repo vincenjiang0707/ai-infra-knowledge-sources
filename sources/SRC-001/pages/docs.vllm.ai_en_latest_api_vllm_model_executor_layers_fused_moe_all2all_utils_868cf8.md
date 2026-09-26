@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/all2all_utils/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -18,7 +18,7 @@ Functions:
 
 ##
 
-`flashinfer_one_sided_dispatch_layout(hidden_dim, quant_config)`
+`flashinfer_one_sided_dispatch_layout(hidden_dim, quant_config, input_dtype=None)`
 
 [¶](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.all2all_utils.flashinfer_one_sided_dispatch_layout)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/ops/third_party/kda/chunk_intra_token_parallel/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 

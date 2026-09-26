@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/config/compilation/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -1279,7 +1279,7 @@ Attributes:
 -
 ([fuse_qk_norm_rope_kvcache](https://docs.vllm.ai#vllm.config.compilation.PassConfig.fuse_qk_norm_rope_kvcache)
 
-) –[bool](https://docs.python.org/3/builtins/functions.html#bool)Fuse QK RMSNorm + RoPE + KV cache update into a single AITER HIP
+) –[bool](https://docs.python.org/3/builtins/functions.html#bool)Fuse QK RMSNorm + RoPE/MRoPE + KV cache update into an AITER HIP
 
 -
 ([fuse_rope_kvcache](https://docs.vllm.ai#vllm.config.compilation.PassConfig.fuse_rope_kvcache)
@@ -1450,7 +1450,7 @@ Fuse the custom RMSNorm + quant ops.
 
 [¶](https://docs.vllm.ai#vllm.config.compilation.PassConfig.fuse_qk_norm_rope_kvcache)
 
-Fuse QK RMSNorm + RoPE + KV cache update into a single AITER HIP kernel. Supersedes both enable_qk_norm_rope_fusion and fuse_rope_kvcache for layers that support it. Auto-enabled at O1+ on ROCm for models with QK-norm (e.g. Qwen3-MoE).
+Fuse QK RMSNorm + RoPE/MRoPE + KV cache update into an AITER HIP kernel. Supersedes both enable_qk_norm_rope_fusion and fuse_rope_kvcache for layers that support it. Auto-enabled at O2+ on ROCm for models with QK-norm (e.g. Qwen3-MoE and Qwen3-VL-class architectures).
 
 ###
 
@@ -1486,7 +1486,7 @@ Enable fused MLA KV cache update with RoPE.
 
 [¶](https://docs.vllm.ai#vllm.config.compilation.PassConfig.rope_kvcache_fusion_max_token_num)
 
-The threshold for ROCm AITER RoPE+KVCache fusion e.g. for small batch decode. Larger batch sizes e.g. during prefill will use the unfused kernels. Also applies to the fused QK-Norm+RoPE+KVCache pass.
+The threshold for ROCm AITER RoPE+KVCache fusion e.g. for small batch decode. Larger batch sizes e.g. during prefill will use the unfused kernels. Also applies to the fused QK-Norm+RoPE/MRoPE+KVCache pass.
 
 ###
 

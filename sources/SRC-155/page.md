@@ -1,5 +1,3 @@
-# Kernel Design
-
 source: https://github.com/NVlabs/kda/releases
 
 # Releases: NVlabs/kda

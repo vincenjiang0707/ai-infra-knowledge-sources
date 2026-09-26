@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:52:13Z",
- "finished_at": "2026-09-23T03:52:13Z",
- "duration_seconds": 84.8,
- "attempts": 1,
+ "finished_at": "2026-09-25T14:31:32Z",
+ "duration_seconds": 596.2,
+ "attempts": 4,
  "channels": {
   "gh_da09c3e5": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 45,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 29,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -52,12 +62,12 @@
    "issues": {
     "status": "ok",
     "count": 0,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 0,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
@@ -78,25 +88,25 @@
   "ref_225fbb49": {
    "type": "reference",
    "url": "https://github.com/gpu-mode/kernelbot/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 381
   },
   "ref_d10f709a": {
    "type": "reference",
    "url": "https://github.com/gpu-mode/kernelbot/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 4552
+   "mode": "page",
+   "chars": 4800
   },
   "ref_d6144a00": {
    "type": "reference",
    "url": "https://github.com/gpu-mode/kernelbot/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 343
   }
  },

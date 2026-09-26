@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:41:12Z",
- "finished_at": "2026-09-23T03:41:12Z",
- "duration_seconds": 87.5,
- "attempts": 1,
+ "finished_at": "2026-09-24T16:45:52Z",
+ "duration_seconds": 5231.5,
+ "attempts": 2,
  "channels": {
   "gh_de2bca71": {
    "type": "github_repo",
@@ -20,12 +20,12 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
@@ -46,42 +46,45 @@
   "ref_6854362d": {
    "type": "reference",
    "url": "https://github.com/ROCm/aiter/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 755
+   "mode": "page",
+   "chars": 735
   },
   "ref_ccb3e169": {
    "type": "reference",
    "url": "https://github.com/ROCm/aiter/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 5420
+   "mode": "page",
+   "chars": 5905
   },
   "ref_188f4c22": {
    "type": "reference",
    "url": "https://github.com/ROCm/aiter/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 50472
   },
   "site_6e0b3cb5": {
-   "type": "site",
+   "type": "sitemap",
    "url": "https://docs.openvino.ai/",
-   "mode": "page",
+   "mode": "sitemap.xml",
+   "pages_total": 4682,
    "status": "ok",
-   "output": "page.md",
-   "chars": 2829
+   "pages_fetched": 1953,
+   "pages_failed": 47,
+   "output_dir": "pages/",
+   "cap": 2000
   }
  },
  "cursor": {
   "gh_de2bca71:issues": {
-   "last_updated_at": "2026-09-22T18:24:59Z"
+   "last_updated_at": "2026-09-24T14:36:53Z"
   },
   "gh_de2bca71:pulls": {
-   "last_updated_at": "2026-09-23T03:32:27Z"
+   "last_updated_at": "2026-09-24T15:17:54Z"
   },
   "gh_de2bca71:releases": {
    "last_id": 391064380

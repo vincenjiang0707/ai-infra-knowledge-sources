@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v32/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 @support_torch_compile
 class DeepSeekMTP(nn.Module, DeepseekV2MixtureOfExperts, SupportsPP):

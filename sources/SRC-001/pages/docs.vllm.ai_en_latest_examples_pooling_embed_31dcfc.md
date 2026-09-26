@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/pooling/embed/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Embed[¶](https://docs.vllm.ai#embed)
 
@@ -873,6 +873,7 @@ main()
 
 ## Template - Dse Qwen2 Vl[¶](https://docs.vllm.ai#template-dse-qwen2-vl)
 
+```
 {% set image_count = namespace(value=0) %}{% set video_count = namespace(value=0) %}{% for message in messages %}{% if loop.first and message['role'] != 'system' %}{% raw %}<|im_start|>system
 You are a helpful assistant.<|im_end|>
 {% endraw %}{% endif %}<|im_start|>{{ message['role'] }}{% raw %}
@@ -880,10 +881,12 @@ You are a helpful assistant.<|im_end|>
 {% endraw %}{% else %}{% for content in message['content'] %}{% if content['type'] == 'image' or 'image' in content or 'image_url' in content %}{% set image_count.value = image_count.value + 1 %}{% if add_vision_id %}Picture {{ image_count.value }}: {% endif %}<|vision_start|><|image_pad|><|vision_end|>{% elif content['type'] == 'video' or 'video' in content %}{% set video_count.value = video_count.value + 1 %}{% if add_vision_id %}Video {{ video_count.value }}: {% endif %}<|vision_start|><|video_pad|><|vision_end|>{% elif 'text' in content %}{{ content['text'] }}{% endif %}{% endfor %}<|im_end|>{% raw %}
 {% endraw %}{% endif %}{% endfor %}{% if add_generation_prompt %}<|im_start|>assistant{% raw %}
 {% endraw %}{% endif %}<|endoftext|>
+```
 
 
 ## Template - Nemotron Embed Vl[¶](https://docs.vllm.ai#template-nemotron-embed-vl)
 
+```
 {%- if messages | length > 1 -%}
 {{ raise_exception('Embedding models should only embed one message at a time') }}
 {%- endif -%}
@@ -903,10 +906,12 @@ You are a helpful assistant.<|im_end|>
 {%- endfor -%}
 {%- endfor -%}
 {{- bos_token }}{{ vars.prefix }}{{ (vars.images + vars.texts) | join('') }}
+```
 
 
 ## Template - Vlm2Vec Phi3V[¶](https://docs.vllm.ai#template-vlm2vec-phi3v)
 
+```
 {%- if messages | length > 1 -%}
 {{ raise_exception('Embedding models should only embed one message at a time') }}
 {%- endif -%}
@@ -922,10 +927,12 @@ You are a helpful assistant.<|im_end|>
 {%- endfor -%}
 {%- endfor -%}
 {{ vars.parts | join(' ') }}
+```
 
 
 ## Template - Vlm2Vec Qwen2Vl[¶](https://docs.vllm.ai#template-vlm2vec-qwen2vl)
 
+```
 {%- if messages | length > 1 -%}
 {{ raise_exception('Embedding models should only embed one message at a time') }}
 {%- endif -%}
@@ -940,6 +947,7 @@ You are a helpful assistant.<|im_end|>
 {%- endfor -%}
 {%- endfor -%}
 {{ vars.parts | join(' ') }}
+```
 
 
 ## Vision Embedding Offline[¶](https://docs.vllm.ai#vision-embedding-offline)

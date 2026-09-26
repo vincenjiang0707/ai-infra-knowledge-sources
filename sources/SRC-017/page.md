@@ -1,5 +1,3 @@
-# NCCL
-
 source: https://github.com/NVIDIA/nccl/releases
 
 # Releases: NVIDIA/nccl
@@ -83,6 +81,130 @@ We also thank the community for issue reports, testing, and feedback.
 - Rubin performance model has not been optimized with 2.32.3. Users can observe better performance on Rubin by increasing the number of CTAs NCCL uses. Automatic tuning will be improved in the next release.
 - Socket GIN currently requires users to opt-in to enable GDRCopy.
 - B100 PCIe MLoPart workloads can fail during memory allocation with CUDA error 101 (invalid device ordinal). Set NCCL_CUMEM_ENABLE=0 as a workaround.
+
+## NCCL4Py v0.6.0 Release
+
+## Highlights
+
+- Added experimental CuTe DSL ReduceCopy APIs for LSA, multimem, and local memory operations.
+- Added NCCL 2.32 host APIs for collective launch completion events, NVLS configuration, CFT capability inspection, and window registration.
+- Added explicit CuTe DSL barrier-session teardown and corrected
+`ThreadScope.THREAD`
+
+to match libcu++.
+
+## New Features
+
+### Collective Launch Completion Events
+
+-
+Added per-collective CUDA launch completion events through
+
+`NCCLCollConfig`
+
+.**APIs:**`NCCLCollConfig.launch_completion_event`
+
+`NcclEventSpec`
+
+
+
+### NCCL 2.32 Configuration and Capability Inspection
+
+-
+Added host-side NVLS configuration, CFT capability reporting, and specialized window registration flags.
+
+**APIs:**`NCCLConfig.nvls_host_mode`
+
+`NcclNvlsHostMode`
+
+`NCCLCommProperties.cft_support`
+
+`NCCLCommProperties.cft_multicast_support`
+
+`NCCLCommProperties.cft_counted_support`
+
+`WindowFlag.GIN_ONLY`
+
+`WindowFlag.CFT_COUNTED`
+
+
+
+### CuTe DSL ReduceCopy
+
+-
+Added device APIs for reduction and copy operations across LSA windows, multimem pointers, and local tensors.
+
+**APIs:**`lsa_reduce_sum()`
+
+,`multimem_reduce_sum()`
+
+`lsa_copy()`
+
+,`multimem_copy()`
+
+`lsa_reduce_sum_copy()`
+
+,`multimem_reduce_sum_copy()`
+
+`local_reduce_sum_copy()`
+
+
+
+### CuTe DSL Barrier Lifecycle
+
+-
+Added explicit session destruction so barrier handles and indexes can be safely reused.
+
+**APIs:**`LsaBarrierSession.destroy()`
+
+`GinBarrierSession.destroy()`
+
+`BarrierSession.destroy()`
+
+
+
+## Examples and Documentation
+
+- Added
+, demonstrating an LSA reduction across registered windows.`08_reduce_copy.py`
+
+
+## Breaking Changes
+
+`ThreadScope.THREAD`
+
+now has the libcu++ numeric value`10`
+
+instead of`3`
+
+. Code using the enum member requires no changes; code storing or passing its raw integer value must be updated.- CuTe DSL barrier sessions must call
+`destroy()`
+
+exactly once after their final operation. Every thread in the session’s cooperative group must call it from uniform control flow.
+
+## Fixes and Enhancements
+
+- The NCCL 2.31.2 device IR issue reported in nccl4py v0.5.0, which could prevent
+`Gin.put()`
+
+from JIT-compiling with EFA GDA enabled, is resolved in the matching NCCL 2.32.3 IR. - Added a
+`py.typed`
+
+marker so compatible static type checkers can use`nccl.core`
+
+annotations.
+
+## Compatibility Notes
+
+- The nccl4py 0.6.0 host-side bindings and CuTe DSL API are generated from NCCL 2.32.3 headers.
+- When using the CuTe DSL API, use matching NCCL 2.32.3
+`libnccl.so`
+
+and`libnccl_device.bc`
+
+; nccl4py does not verify this automatically. `NCCLCollConfig.launch_completion_event`
+
+requires a timing-disabled, non-interprocess CUDA event. Every rank must either provide an event or omit it. CUDA 12.3 or later is required for post-launch recording semantics.- The CuTe DSL device API remains experimental.
 
 ## NCCL4Py v0.5.0 Release
 
@@ -1472,119 +1594,3 @@ no longer pulls in CuPy or PyTorch.
 Fixes the issue with extra headers for nccl_param feature. Github issue [#2105](https://github.com/NVIDIA/nccl/issues/2105)
 
 Added support for elastic buffer with GIN.
-
-## NCCL v2.30.3-1 Release
-
-## Device API and GIN Enhancements
-
-- GIN contexts are no longer shared between device communicators backed by the same host communicator.
-- Adds per-context resource sharing modes for GIN, allowing GPU-scope or CTA-scoped resource sharing.
-- Adds TrafficClass support to device communicator.
-- Adds versioning to ncclDevComm.
-- Adds timeout support to the device APIs.
-- Adds max_rd_atomic and max_dest_rd_atomic support in GIN.
-- Upgrades doca-gpunetio to v2.0.2-rc1
-
-## Elastic Buffers (LSA support)
-
-- Support new use cases where large tensors are split into multi-segment windows, with the active region in GPU memory and the remainder in host memory.
-- Enables larger effective models and reduces memory pressure during spilling.
-- Elastic buffers will support GIN in a future release.
-
-## gin.get with Nonblocking Flush (Experimental)
-
-- Support GPU‑initiated gets and check completion without stalling.
-- It currently only works with GDAKI (not with CPU proxy) and doesn't work on directNIC and Ampere.
-
-## Symmetric Memory Improvements
-
-- Adds AVG operator to ReduceScatter Symmetric kernels.
-- Enable dynamic memory offload with group support for single-process, multi-GPU scenarios.
-- Adds support for GPU-only multi-segment registration for symmetric windows.
-- Adds CUDA graph capture and replay support for ncclPutSignal and ncclWaitSignal APIs.
-- One-sided RMA can now use an external network plugin.
-
-## Tensor Memory Accelerator (TMA) Support
-
-- Adds TMA support in select built-in symmetric kernels to offload bulk peer‑to‑peer copies and reductions, improving NVLink bandwidth and latency.
-- Can be enabled with NCCL_SYM_TMA_ENABLE=1.
-
-## DDP Support
-
-- Enables Dynamic Direct Path (DDP) so that NCCL can take advantage of hardware multipath and out‑of‑order receive for higher network performance on supported systems.
-- Can be enabled with NCCL_IB_OOO_RQ=1.
-
-## Port Recovery
-
-- Adds support for IB port recovery in NCCL.
-- Improves NCCL’s ability to recover from transient network issues so communicators can continue operating without full re‑initialization.
-- Can be enabled with NCCL_IB_RESILIENCY_PORT_RECOVERY=1.
-
-## Cross Clique Support
-
-- Add support for treating multiple cliques as the same NVLINK domain.
-- Can be enabled with NCCL_MNNVL_CROSS_CLIQUE=1
-
-## NCCL Parameter Infrastructure
-
-- Adds new C APIs to support querying NCCL parameters.
-- Introduces ncclParamGetAllParameterKeys,ncclParamDumpAll, ncclParamGet and ncclParamGetParameter APIs.
-
-## NCCL4PY v0.2.0
-
-- Adds new APIs from NCCL 2.29 release.
-- Add devcomm create/destroy APIs to prepare for device API.
-- Enables Freethreading support.
-
-## Other Improvements
-
-- Adds NCCL Inspector P2P event support.
-- ncclGinBarrierSession can now be created directly for the world team without manual resource allocation.
-- GIN proxy GFD size increased to 128 bytes with version field added.
-- GIN proxy CQ polling (ginProgress) moved to per-context to improve performance.
-- ncclBarrierSession no longer shares resources with ncclLsaBarrierSession or ncclGinBarrierSession.
-- Redundant NCCL_DEBUG=INFO log volume reduced significantly.
-- NVLSTree tuning that improves performance for various Blackwell systems.
-- Adds p2pMaxPeers to communicator to achieve better tuning for send/recv vs. all2all.
-- Enables LL128 protocol in heterogeneous scenarios for Hopper and later GPUs.
-- Adds checks for mismatched Net and CollNet counts across communicators.
-- Adds Graphana template for NCCL inspector dashboard rendering using Prometheus data.
-- Removes unused members nccl_id, comm, nccl_unique_id, and thread_ranks in the examples (Github PR
-[#1989](https://github.com/NVIDIA/nccl/pull/1989)). - Adds NCCL_LIBIBVERBS_SO environment variable to specify an absolute path for libibverbs (Github PR
-[#2043](https://github.com/NVIDIA/nccl/pull/2043)). - Extends suspend memory offload to channel device allocations (Github PR
-[#2060](https://github.com/NVIDIA/nccl/pull/2060)).
-
-## Bug Fixes
-
-- Fixes implicit CUDA synchronization in
-`putSignal`
-
-and`CE collectives`
-
-caused by pageable CPU stack memcpy. - Fixes a hang when using CE collectives and cuda graph under an edge case.
-- Fixes NULL access issue during finalize when RMA and GIN plugins are both initialized.
-- Fixes race conditions in all2all GIN/Hybrid examples with more than one CTA.
-- Fixes
-`ncclGinType_t`
-
-uint8_t enum compatibility issue in nccl4py. - Fixes several memory leaks in communicator create/destroy code paths.
-- Fixes a bug in plugin compat layer for v11 related to lazy initialization.
-- Fixes data corruption in symmetric LL kernels with unaligned buffer.
-- Fixes plugin name being cleared after communicator destroy (Github Issue
-[#1978](https://github.com/NVIDIA/nccl/issues/1978)). - Fixes deadlock and use-after-free in the inspector plugin (Github Issue
-[#2000](https://github.com/NVIDIA/nccl/issues/2000)). - Fixes incorrect network interface selection caused by inverted boolean logic in matchSubnet (Github PR
-[#2047](https://github.com/NVIDIA/nccl/pull/2047)). - Fixes regression from 2.29.2 where CPU affinity mask is not restored in initTransportsRank (Github issue
-[#2033](https://github.com/NVIDIA/nccl/issues/2033))
-
-## Known Limitations
-
-- Applications that use GIN APIs need to be recompiled with 2.30.3 to work with 2.30.3 runtime.
-- gin.get requires GDAKI and is not supported on Ampere or directNIC platforms.
-
-## Acknowledgments
-
-We thank the following contributors for their work on this release:
-
-[@chenhengqi](https://github.com/chenhengqi),[@liangxs](https://github.com/liangxs),[@phu0ngng](https://github.com/phu0ngng),[@SreevatsaAnantharamu](https://github.com/SreevatsaAnantharamu),[@SongXiaoXi](https://github.com/SongXiaoXi)for your PRs.[@sphish](https://github.com/sphish),[@LyricZhao](https://github.com/LyricZhao)for continued contribution on improving the NCCL device API.
-
-We also thank the community for issue reports, testing, and feedback.

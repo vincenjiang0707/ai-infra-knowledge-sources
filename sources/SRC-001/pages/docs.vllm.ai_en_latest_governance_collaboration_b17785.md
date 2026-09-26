@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/governance/collaboration/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Collaboration Policy[¶](https://docs.vllm.ai#collaboration-policy)
 

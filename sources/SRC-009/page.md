@@ -1,5 +1,3 @@
-# TensorRT LLM
-
 source: https://github.com/vllm-project/vllm-ascend/releases
 
 # Releases: vllm-project/vllm-ascend

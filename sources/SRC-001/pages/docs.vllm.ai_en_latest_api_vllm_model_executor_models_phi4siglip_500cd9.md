@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/phi4siglip/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 @MULTIMODAL_REGISTRY.register_processor(
 Phi4SiglipMultiModalProcessor,
@@ -24,7 +24,7 @@ return DEFAULT_IMAGE_TOKEN
 raise ValueError("Only image modality is supported")
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = "") -> None:
 super().__init__()
-config: PretrainedConfig = vllm_config.model_config.hf_config
+config: PreTrainedConfig = vllm_config.model_config.hf_config
 quant_config = vllm_config.quant_config
 self.config = config
 vision_config_dict: dict = getattr(config, "vision_config", {})

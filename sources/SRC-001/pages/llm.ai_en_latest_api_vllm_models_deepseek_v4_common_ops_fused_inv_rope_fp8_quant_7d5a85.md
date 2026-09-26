@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/common/ops/fused_inv_rope_fp8_quant/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 

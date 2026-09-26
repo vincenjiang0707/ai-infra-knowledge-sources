@@ -1,0 +1,46 @@
+source: https://github.com/trending/vue?since=daily
+
+##
+[
+julyx10 /
+lap](https://github.com/julyx10/lap)
+
+An offline-first photo manager for large local libraries
+
+See what the GitHub community is most excited about today.
+
+An offline-first photo manager for large local libraries
+
+雅思词汇真经、雅思语法、听力 179、阅读 538 同义替换等。Everything during preparing for my IELTS exam.
+
+Fully featured, open source CRM
+
+A Vue 3 admin dashboard template using Vite + TypeScript + Element Plus | vue3 admin | vue-admin — focused on user experience and visual design.
+
+一个第三方音乐播放器、本地服务、桌面歌词、音乐下载、远程控制
+
+The open source simple and complete warehouse management system is derived from our many years of experience in implementing erp projects. We stripped the original commercial system wms function and opened it up for free, hoping to help the majority of small and medium-sized enterprises. At present, the system supports cross-platform。
+
+⚡ A Simple, Speedy, Secure, and Serverless Link Shortener with Analytics, Running Entirely on Cloudflare.
+
+A browser extension for automating your browser by connecting blocks
+
+Wiki.js | Next Generation Open Source Wiki
+
+Utility for mass-downloading LRC synced lyrics for your offline music library.
+
+PanHub 网盘聚合搜索 · Netdisk Search Aggregator。一个搜索框聚合夸克/阿里云盘/百度/115/迅雷等网盘资源，多源聚合去重、智能排序、插件熔断隔离。零数据库轻量部署，支持 Docker / Vercel / Cloudflare。Aggregate netdisk links into one search.
+
+Ceru Music 是基于 Electron 和 Vue 开发的跨平台桌面音乐播放器工具，借鉴洛雪音乐插件思想，提供插件运行框架与播放功能，不直接存储、提供任何音乐源文件。用户需通过自行选择、安装合规插件获取音乐相关数据，项目旨在为开发者提供桌面应用技术实践与学习案例，为用户提供合规的音乐播放工具框架。
+
+Brown Dust 2 Mod Manager to help you manage mods.
+
+利用Cloudflare R2 + Workers搭建在线网盘
+
+🎉 (RuoYi)官方仓库 基于SpringBoot，Spring Security，JWT，Vue3 & Vite、Element Plus 的前后端分离权限管理系统
+
+🍀 A cross-platform instant messaging desktop application with exceptional performance built on Rust + Vue3, compatible with Windows, macOS, Linux, Android, and iOS（一款基于Rust+Vue3极致性能的跨平台即时通讯桌面应用，兼容Windows、MacOS、Linux、Android、IOS）
+
+An open-source UI component library for building high-quality, accessible design systems and web apps for Vue. Previously Radix Vue
+
+Modern, Streamlined, Free and Open Source Customer Service Software

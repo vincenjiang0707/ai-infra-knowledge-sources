@@ -1,0 +1,22 @@
+{
+ "src_id": "SRC-167",
+ "name": "Ascend Gitee",
+ "category": "昇腾与其他国产芯⽚",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": "PDF 标 403（Ascend Gitee 组织）",
+ "status": "blocked",
+ "started_at": "2026-09-24T18:12:00Z",
+ "finished_at": "2026-09-24T18:12:00Z",
+ "duration_seconds": 0.0,
+ "attempts": 1,
+ "channels": {
+  "pdf_flag": {
+   "type": "none",
+   "status": "blocked",
+   "reason": "PDF 标 403（Ascend Gitee 组织）"
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

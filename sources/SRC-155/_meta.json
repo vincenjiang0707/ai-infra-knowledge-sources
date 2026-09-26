@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:04:28Z",
- "finished_at": "2026-09-23T04:04:28Z",
- "duration_seconds": 107.2,
- "attempts": 1,
+ "finished_at": "2026-09-25T19:32:55Z",
+ "duration_seconds": 75.7,
+ "attempts": 3,
  "channels": {
   "gh_bf1cb4e7": {
    "type": "github_repo",
@@ -20,12 +20,12 @@
    "issues": {
     "status": "ok",
     "count": 0,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 0,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
@@ -52,12 +52,22 @@
    "issues": {
     "status": "ok",
     "count": 5,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 4,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 2,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 2,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -78,49 +88,49 @@
   "ref_b1cdb6bc": {
    "type": "reference",
    "url": "https://github.com/gpu-mode/popcorn/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 2485
   },
   "ref_30821690": {
    "type": "reference",
    "url": "https://github.com/gpu-mode/popcorn/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 403
+   "mode": "page",
+   "chars": 600
   },
   "ref_f816ff2b": {
    "type": "reference",
    "url": "https://github.com/gpu-mode/popcorn/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 339
   },
   "ref_97357fd2": {
    "type": "reference",
    "url": "https://github.com/NVlabs/kda/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 2616
+   "mode": "page",
+   "chars": 2617
   },
   "ref_9f494849": {
    "type": "reference",
    "url": "https://github.com/NVlabs/kda/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 2664
+   "mode": "page",
+   "chars": 2675
   },
   "ref_1ad38f83": {
    "type": "reference",
    "url": "https://github.com/NVlabs/kda/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 574
   }
  },

@@ -1,0 +1,123 @@
+source: https://docs.nvidia.com/dynamo/cli/model-deployment/introduction
+lastmod: 2026-09-24T19:58:16.636Z
+
+# Deployment Guide
+
+This guide walks through the basic **aggregated deployment** flow: a single frontend plus one worker serving a model behind an OpenAI-compatible endpoint. It assumes you have **one node with one or more GPUs** — everything below runs on that single machine. Multi-node and other patterns build on this same flow.
+
+A deployment is always a **frontend** (`python -m dynamo.frontend`
+
+, the HTTP ingress) plus **one or more workers** (`python -m dynamo.<backend>`
+
+, which wrap an inference engine). Workers register with the frontend automatically on startup. The steps below start one of each.
+
+**Experimental sidecar launch mode.** The steps below run an integrated backend,
+with the Dynamo worker and inference engine in the same process. The
+[Sidecar Backends](https://docs.nvidia.com/dynamo/knowledge-base/concepts/system-architecture/sidecar-backends-experimental) page explains how to run
+a stock engine server beside a CPU-only Dynamo worker and links to the
+framework-specific launch guides.
+
+
+Prerequisites.Dynamo installed for your backend (see the[installation guide]), and etcd + NATS reachable on localhost so the frontend and worker can discover each other:
+
+If you installed with the **prebuilt container**, run every command below *inside* the container. `docker exec`
+
+into it first:
+
+### Choose your model
+
+Pick any model from Hugging Face (or a local path). This guide uses `Qwen/Qwen3-0.6B`
+
+, which fits comfortably on a single GPU. Note the identifier — you pass it to the worker in **Start the worker** and reference it in your requests.
+
+Larger models may need more than one GPU — see **Set parallelism** for how to size that.
+
+### Start the frontend
+
+The frontend serves the OpenAI-compatible HTTP API on port 8000 and routes requests to any workers that register with it. This command is the same regardless of which backend or model you use — run it once and leave it running.
+
+It will report that it is waiting for workers.
+
+### Choose a backend
+
+A worker runs one of three inference backends. All three expose the same OpenAI-compatible API through the frontend and support the same deployment patterns — they differ in performance characteristics and model coverage:
+
+([vLLM](https://docs.nvidia.com/dynamo/knowledge-base/modular-components/backends/v-llm/overview)`dynamo.vllm`
+
+) — broad model coverage and a mature feature set.([SGLang](https://docs.nvidia.com/dynamo/knowledge-base/modular-components/backends/sg-lang/overview)`dynamo.sglang`
+
+) — high-throughput serving with RadixAttention.([TensorRT-LLM](https://docs.nvidia.com/dynamo/knowledge-base/modular-components/backends/tensor-rt-llm/overview)`dynamo.trtllm`
+
+) — NVIDIA-optimized inference for maximum performance.
+
+Not sure which to pick? See the [Compatibility](https://docs.nvidia.com/dynamo/reference/general/compatibility.mdx) matrix for supported models and features per backend. Use your choice in the tabs for the next two steps.
+
+### Set parallelism (optional)
+
+Skip this step if your model fits on a single GPU — the defaults (parallelism size 1) are correct. Come back when you deploy a larger model.
+
+Parallelism flags pool multiple GPUs into one worker so a model too large for a single GPU can fit. The main flag is **tensor parallelism (TP)**; pipeline parallelism (PP) and data parallelism (DP) are covered under [scaling](https://docs.nvidia.com/dynamo/cli/model-deployment/introduction#scaling-and-larger-deployments). Add the flag for your backend to the worker command in the next step:
+
+###### vLLM
+
+###### SGLang
+
+###### TensorRT-LLM
+
+**If your model doesn’t fit on one GPU, raise the tensor-parallel size** until the model fits — as long as the **combined VRAM across those GPUs** clears the model plus KV-cache headroom:
+
+Keep the parallelism size **≤ the number of GPUs on the node**, and use powers of 2 (2, 4, 8). See [Scaling and larger deployments](https://docs.nvidia.com/dynamo/cli/model-deployment/introduction#scaling-and-larger-deployments) for sizing details and multi-node.
+
+### Start the worker
+
+In a second terminal, start a worker for your chosen backend, adding any parallelism flags from the previous step. It loads the model, then registers with the frontend automatically. Note that vLLM uses `--model`
+
+while SGLang and TensorRT-LLM use `--model-path`
+
+.
+
+###### vLLM
+
+###### SGLang
+
+###### TensorRT-LLM
+
+`--enforce-eager`
+
+and `--max-model-len 4096`
+
+keep startup fast and memory low for this walkthrough; drop them for production.
+
+Wait until the worker logs that the model has loaded and it has registered with the frontend.
+
+## Scaling and larger deployments
+
+The flow above is one worker on one node. To go bigger, you change **flags on the worker** — the frontend command never changes, and you still run just one frontend.
+
+### Sizing the GPU pool
+
+The only hard requirement for a model to fit is that the **combined memory of the pooled GPUs** clears the model, with headroom for the KV cache and framework overhead:
+
+Estimate weights by multiplying the parameter count by the bytes per parameter for the checkpoint’s dtype — **2 bytes** for BF16/FP16, **1 byte** for FP8/INT8, **0.5** for FP4. A 70B model in FP8 is ~70 GB of weights; in BF16, ~140 GB. Add ~10–15% overhead and leave a healthy remainder for the KV cache — that leftover VRAM is what determines how much concurrency and context length you can serve. The **minimum GPUs** to fit one copy is `ceil((weights + KV + overhead) / VRAM per GPU)`
+
+, rounded up to a power of 2.
+
+**TP and PP** partition one copy of the model, so either one helps it fit; **DP** replicates the model, so it never helps fit — only raise DP once one copy already fits and you have spare GPUs for throughput. Fill TP up to node width first (it relies on fast intra-node NVLink), and only reach for PP or multiple nodes when one node isn’t enough.
+
+### More on one node
+
+Once one copy fits, spare GPUs on the node can serve you in a few ways:
+
+**Wider parallelism**— raise the tensor-parallel size for more KV headroom (longer contexts, more concurrency).**More replicas (data parallelism)**— run a full second copy for throughput. Two replicas roughly double requests/sec.**Disaggregated serving**— dedicate some GPUs to prefill and others to decode. See[disaggregated serving](https://docs.nvidia.com/dynamo/cli/disaggregated-serving/overview).
+
+### Multiple nodes
+
+When a model’s tensor-parallel size exceeds the GPUs on a single node, you can span it across nodes directly with the CLI — one head node plus headless workers joined over `torch.distributed`
+
+, no Kubernetes required. See ** Multi-Node Deployment**.
+
+## Next steps
+
+**Size the deployment**— AIConfigurator can evaluate the same model, backend, GPU system, and SLA for local or Kubernetes deployments. Copy its recommended TP, PP, and replica counts into your worker commands. See the[AIConfigurator reference](https://docs.nvidia.com/dynamo/additional-resources/ai-configurator-reference).**Deployment patterns**— add a router or split prefill and decode across workers. See the local deployment examples for[vLLM](https://docs.nvidia.com/dynamo/recipes/cli-templates/v-llm),[SGLang](https://docs.nvidia.com/dynamo/recipes/cli-templates/sg-lang), and[TensorRT-LLM](https://docs.nvidia.com/dynamo/recipes/cli-templates/tensor-rt-llm). Each page provides copyable commands for the`launch/*.sh`
+
+scripts in the repository.**KV cache offloading**— extend effective KV cache capacity beyond GPU memory with[KVBM, LMCache, HiCache, or FlexKV](https://docs.nvidia.com/dynamo/cli/kv-cache-offloading/overview).

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/inkling/amd/ops/gluon/rel_mha_decode_gfx950/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Pick num_kv_splits to balance occupancy against reduce overhead.
 

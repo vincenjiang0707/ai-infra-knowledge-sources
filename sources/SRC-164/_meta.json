@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:24:18Z",
- "finished_at": "2026-09-23T04:57:40Z",
- "duration_seconds": 0.6,
- "attempts": 2,
+ "finished_at": "2026-09-24T18:58:58Z",
+ "duration_seconds": 0.7,
+ "attempts": 3,
  "channels": {
   "site_2adb643c": {
    "type": "site",
@@ -17,7 +17,7 @@
    "status": "ok",
    "output": "page.md",
    "mode": "raw",
-   "chars": 41056
+   "chars": 41065
   }
  },
  "cursor": {},

@@ -1,0 +1,131 @@
+# Public AI on Hugging Face Inference Providers 🔥
+
+source: https://huggingface.co/blog/inference-providers-publicai
+published: Wed, 17 Sep 2025 00:00:00 GMT
+
+🏢 98
+
+#### HuggingDiscussions
+
+Discuss and provide feedback on Hugging Face Hub features
+
+We're thrilled to share that **Public AI** is now a supported Inference Provider on the Hugging Face Hub!
+Public AI joins our growing ecosystem, enhancing the breadth and capabilities of serverless inference directly on the Hub’s model pages. Inference Providers are also seamlessly integrated into our client SDKs (for both JS and Python), making it super easy to use a wide variety of models with your preferred providers.
+
+This launch makes it easier than ever to access public and sovereign models from institutions like the Swiss AI Initiative and AI Singapore — right from Hugging Face. You can browse Public AI’s org on the Hub at [https://huggingface.co/publicai](https://huggingface.co/publicai) and try trending supported models at [https://huggingface.co/models?inference_provider=publicai&sort=trending](https://huggingface.co/models?inference_provider=publicai&sort=trending).
+
+The Public AI Inference Utility is a nonprofit, open-source project. The team builds products and organizes advocacy to support the work of public AI model builders like the Swiss AI Initiative and AI Singapore, among others.
+
+The Public AI Inference Utility runs on a distributed infrastructure that combines a vLLM-powered backend with a deployment layer designed for resilience across multiple partners. Behind the scenes, inference is handled by servers exposing OpenAI-compatible APIs on vLLM, deployed across clusters donated by national and industry partners. A global load-balancing layer ensures requests are routed efficiently and transparently, regardless of which country’s compute is serving the query.
+
+Free public access is supported by donated GPU time and advertising subsidies, while long-term stability is intended to be anchored by state and institutional contributions. You can learn more about Public AI’s platform and infrastructure at [https://platform.publicai.co/](https://platform.publicai.co/).
+
+You can now use the Public AI Inference Utility as an Inference Provider on Hugging Face. We're excited to see what you'll build with this new provider.
+
+Read more about how to use Public AI as an Inference Provider in its dedicated [documentation page](https://huggingface.co/docs/inference-providers/providers/publicai).
+
+See the list of supported models [here](https://huggingface.co/models?inference_provider=publicai&sort=trending).
+
+The following example shows how to use Swiss AI's Apertus-70B using Public AI as the inference provider. You can use a [Hugging Face token](https://huggingface.co/settings/tokens) for automatic routing through Hugging Face, or your own Public AI API key if you have one.
+
+Note: this requires using a recent version of `huggingface_hub`
+
+(>= 0.34.6).
+
+```
+import os
+from huggingface_hub import InferenceClient
+client = InferenceClient(
+provider="publicai",
+api_key=os.environ["HF_TOKEN"],
+)
+messages = [
+{
+"role": "user",
+"content": "What is the capital of France?"
+}
+]
+completion = client.chat.completions.create(
+model="swiss-ai/Apertus-70B-Instruct-2509",
+messages=messages,
+)
+print(completion.choices[0].message)
+```
+
+
+```
+import { InferenceClient } from "@huggingface/inference";
+const client = new InferenceClient(process.env.HF_TOKEN);
+const chatCompletion = await client.chatCompletion({
+model: "swiss-ai/Apertus-70B-Instruct-2509",
+messages: [
+{
+role: "user",
+content: "What is the capital of France?",
+},
+],
+provider: "publicai",
+});
+console.log(chatCompletion.choices[0].message);
+```
+
+
+At the time of writing, usage of the Public AI Inference Utility through Hugging Face Inference Providers is free of charge. Pricing and availability may change.
+
+Here is how billing works for other providers on the platform:
+
+For direct requests, i.e. when you use the key from an inference provider, you are billed by the corresponding provider. For instance, if you use a Public AI API key you're billed on your Public AI account.
+
+For routed requests, i.e. when you authenticate via the Hugging Face Hub, you'll only pay the standard provider API rates. There's no additional markup from us; we just pass through the provider costs directly. (In the future, we may establish revenue-sharing agreements with our provider partners.)
+
+**Important Note** ‼️ PRO users get $2 worth of Inference credits every month. You can use them across providers. 🔥
+
+Subscribe to the [Hugging Face PRO plan](https://hf.co/subscribe/pro) to get access to Inference credits, ZeroGPU, Spaces Dev Mode, 20x higher limits, and more.
+
+We also provide free inference with a small quota for our signed-in free users, but please upgrade to PRO if you can!
+
+We would love to get your feedback! Share your thoughts and/or comments here: [https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/49](https://huggingface.co/spaces/huggingface/HuggingDiscussions/discussions/49)
+
+Discuss and provide feedback on Hugging Face Hub features
+
+"At the time of writing, usage of the Public AI Inference Utility through Hugging Face Inference Providers is free of charge. Pricing and availability may change." you said.
+
+Not entirely true—here’s the clarified reality based on Hugging Face’s official documentatio
+
+🧾 Is it free to use Hugging Face’s Public AI Inference Utility?
+
+Partially free: Every Hugging Face user receives monthly credits to experiment with Inference Providers.
+
+Free users: $0.10/month
+
+Pro users: $2.00/month
+
+Team/Enterprise: $2.00 per seat/month
+
+Once credits are used up, extra usage is pay-as-you-go—you’re charged the same rates as the provider, with no markup from Hugging Face.
+
+🔌 Two ways to use Inference Providers:
+
+Routed by Hugging Face: You use Hugging Face’s interface and billing.
+
+Credits apply.
+
+No provider account needed.
+
+Custom Provider Key: You connect directly to providers like Fireworks, Together AI, etc.
+
+Credits do not apply.
+
+You’re billed directly by the provider.
+
+🧠 What about those providers you listed?
+
+Fireworks, Together AI, Hyperbolic, Nebious, and Novita are among the integrated providers.
+
+If you use them via Hugging Face’s routing, you may benefit from credits.
+
+If you use them directly (e.g., via API keys), you’ll pay their rates, not Hugging Face’s.
+
+So yes, some usage is free, but not unlimited, and pricing depends on how you connect.
+
+Hey [@AItool](https://huggingface.co/AItool) , if you sign up over at [https://platform.publicai.co](https://platform.publicai.co) to issue your own API key, you'll pay our rates and not Hugging Face's. i.e. our rates now is completely free! (up to 20 requests per minute)

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/config/model/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 @config(config=ConfigDict(arbitrary_types_allowed=True))
 class ModelConfig:
@@ -27,7 +27,6 @@ tokenizer_mode: TokenizerMode | str = "auto"
 - "auto" will use the tokenizer from `mistral_common` for Mistral models
 if available, otherwise it will use the "hf" tokenizer.
 - "hf" will use the fast tokenizer if available.
-- "slow" will always use the slow tokenizer.
 - "mistral" will always use the tokenizer from `mistral_common`.
 - "deepseek_v32" will always use the tokenizer from `deepseek_v32`.
 - "deepseek_v4" will always use the tokenizer from `deepseek_v4`.
@@ -59,9 +58,9 @@ seed: int = 0
 We must set the global seed because otherwise,
 different tensor parallel workers would sample different tokens,
 leading to inconsistent results."""
-hf_config: PretrainedConfig = field(init=False)
+hf_config: PreTrainedConfig = field(init=False)
 """The Hugging Face config of the model."""
-hf_text_config: PretrainedConfig = field(init=False)
+hf_text_config: PreTrainedConfig = field(init=False)
 """The Hugging Face config of the text model (same as hf_config for text models)."""
 is_submodel_config: bool = field(default=False, init=False)
 """Whether this is a submodule view derived by `VllmConfig.with_hf_config`
@@ -343,7 +342,7 @@ factors["language_model_only"] = self.multimodal_config.language_model_only
 return hash_factors(factors)
 def _update_nested(
 self,
-target: PretrainedConfig | dict[str, Any],
+target: PreTrainedConfig | dict[str, Any],
 updates: dict[str, Any],
 ) -> None:
 """Recursively updates a config or dict with nested updates."""
@@ -368,14 +367,14 @@ else:
 setattr(target, key, value)
 def _apply_dict_overrides(
 self,
-config: PretrainedConfig,
+config: PreTrainedConfig,
 overrides: dict[str, Any],
 ) -> None:
 """Apply dict overrides, handling both nested configs and dict values."""
-from transformers import PretrainedConfig
+from transformers import PreTrainedConfig
 for key, value in overrides.items():
 attr = getattr(config, key, None)
-if attr is not None and isinstance(attr, PretrainedConfig):
+if attr is not None and isinstance(attr, PreTrainedConfig):
 # It's a nested config - recursively update it
 self._update_nested(attr, value)
 else:
@@ -440,21 +439,25 @@ hf_overrides_kw[key] = value
 hf_overrides_fn = None
 self.maybe_pull_model_tokenizer_for_runai(self.model, self.tokenizer)
 # If loading model/tokenizer from HF Hub, resolve the revision once
-# to prevent resolving it multiple times downstream.
-# If the weights come from a different repo, we cannot eagerly resolve revision
-weights_from_model = not self.model_weights or self.model_weights == self.model
-# If the config comes from a different repo, we cannot eagerly resolve revision
-config_from_model = not self.hf_config_path or self.hf_config_path == self.model
-can_resolve_model_revision = config_from_model and weights_from_model
-if can_resolve_model_revision:
+# to prevent resolving it multiple times downstream. A resolved revision
+# only pins the repo it was resolved for, so each repo needs its own call.
 self.revision = resolve_revision(
 self.model,
 self.revision,
 self.hf_token,
 )
+# The config can live in another repo, which `self.revision` does not pin.
+# It stays `None` if the config comes from `self.model`, so that call sites
+# fall back to `self.revision` the same way they fall back to `self.model`.
+self._hf_config_revision = None
+if self.hf_config_path and self.hf_config_path != self.model:
+self._hf_config_revision = resolve_revision(
+self.hf_config_path,
+self.revision,
+self.hf_token,
+)
 if (
-can_resolve_model_revision
-and self.tokenizer == self.model
+self.tokenizer == self.model
 and self.tokenizer_revision == requested_revision
 ):
 self.tokenizer_revision = self.revision
@@ -480,7 +483,7 @@ raise ValueError("cumem allocator is not supported on current platform.")
 hf_config = get_config(
 self.hf_config_path or self.model,
 self.trust_remote_code,
-self.revision,
+self._hf_config_revision or self.revision,
 self.code_revision,
 self.config_format,
 hf_overrides_kw=hf_overrides_kw,
@@ -1485,7 +1488,7 @@ if self.generation_config in {"auto", "vllm"}:
 config = try_get_generation_config(
 self.hf_config_path or self.model,
 trust_remote_code=self.trust_remote_code,
-revision=self.revision,
+revision=self._hf_config_revision or self.revision,
 code_revision=self.code_revision,
 config_format=self.config_format,
 hf_token=self.hf_token,
@@ -1518,6 +1521,8 @@ config = {} if src == "vllm" else self.try_get_generation_config()
 config.update(self.override_generation_config)
 available_params = [
 "repetition_penalty",
+"presence_penalty",
+"frequency_penalty",
 "temperature",
 "top_k",
 "top_p",

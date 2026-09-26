@@ -1,7 +1,7 @@
 # sgl-project/sgl-learning-materials
 
 - stars: 893
-- forks: 70
+- forks: 69
 - open_issues: 1
 - default_branch: main
 - archived: False

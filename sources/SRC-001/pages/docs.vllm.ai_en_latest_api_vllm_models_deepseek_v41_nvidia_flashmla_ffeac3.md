@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/nvidia/flashmla/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class DeepseekV4FlashMLAAttention(DeepseekV4Attention):
 """FlashMLA sparse MLA attention layer for DeepSeek V4.1 (CUDA)."""

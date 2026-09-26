@@ -1,0 +1,252 @@
+# Welcome the NVIDIA Llama Nemotron Nano VLM to Hugging Face Hub
+
+source: https://huggingface.co/blog/nvidia/llama-nemotron-nano-vl
+published: Fri, 27 Jun 2025 21:09:27 GMT
+
+Text Generation • 8B • Updated • 6.25M • 7.87k
+
+#
+[
+](https://huggingface.co#welcome-the-nvidia-llama-nemotron-nano-vlm-to-hugging-face-hub)
+Welcome the NVIDIA Llama Nemotron Nano VLM to Hugging Face Hub
+
+[Enterprise + Article](https://huggingface.co/blog)
+
+[
+](https://huggingface.co#tldr)
+TL;DR
+
+[NVIDIA Llama Nemotron Nano VL](https://huggingface.co/nvidia/Llama-3.1-Nemotron-Nano-VL-8B-V1) is a state-of-the-art 8B Vision Language Model (VLM) designed for intelligent document processing, offering high accuracy and multimodal understanding. Available on Hugging Face, it excels in extracting and understanding information from complex documents like invoices, receipts, contracts, and more. With its powerful OCR capabilities and efficient performance on the [OCRBench v2 benchmark](https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard), this model delivers industry-leading accuracy for text and table extraction, as well as chart, diagram, and table parsing. Whether you’re automating financial document processing or improving business intelligence workflows, Llama Nemotron Nano VL is optimized for fast, scalable deployments.
+
+Check out the [tutorial](https://github.com/NVIDIA/GenerativeAIExamples/blob/main/nemotron/VLM/llama_3.1_nemotron_nano_VL_8B/Llama_Nemotron_VL_nano_8B.ipynb) below to start building your own intelligent document processing solutions with Llama Nemotron Nano VL! Users can also [post-train](https://docs.nvidia.com/nemo-framework/user-guide/latest/vlms/llama_nemotron_vl.html) the model further with their own datasets using [NVIDIA NeMo](https://www.nvidia.com/en-us/ai-data-science/products/nemo/).
+
+##
+[
+](https://huggingface.co#introduction-to-llama-nemotron-nano-vl)
+Introduction to Llama Nemotron Nano VL
+
+[Llama Nemotron Nano VL](https://huggingface.co/nvidia/Llama-3.1-Nemotron-Nano-VL-8B-V1), the latest addition to the [NVIDIA Nemotron](https://www.nvidia.com/en-us/ai-data-science/foundation-models/nemotron/) family of models, is a vision language model (VLM) designed to push the boundaries of intelligent document processing (IDP) and optical character recognition (OCR). With its high accuracy, low model footprint, and multimodal capabilities, Llama Nemotron Nano VL enables the seamless extraction and understanding of information from complex documents. This includes PDFs, images, tables, charts, formulas, and diagrams, making it an ideal solution for automating document workflows across various industries like finance, healthcare, legal, and government.
+
+##
+[
+](https://huggingface.co#high-accuracy-ocr-with-llama-nemotron-nano-vl)
+High-Accuracy OCR with Llama Nemotron Nano VL
+
+Llama Nemotron Nano VL demonstrates exceptional accuracy on the [OCRBench v2 benchmark](https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard), which tests models on real-world OCR and document understanding tasks. These tasks include text recognition, table extraction, and element parsing across various document types. The model’s advanced capabilities enable it to deliver better performance than current leading VLMs in real-world enterprise scenarios.
+
+###
+[
+](https://huggingface.co#llama-nemotron-nano-vl-ocrbench-v2-performance)
+Llama Nemotron Nano VL OCRBench v2 Performance:
+
+**Text Recognition**: Llama Nemotron Nano VL excels at spotting and extracting text, achieving high accuracy in real-world OCR tasks such as invoice processing.**Element Parsing**: The model accurately identifies and extracts critical document elements like tables, charts, and images, which are essential for understanding complex documents.**Table Extraction**: Extracting tabular data from documents is highly accurate with this model, making it suitable for financial statements and similar use cases.**Grounding**: It also supports grounding through bounding boxes in both queries and outputs, enhancing the interpretability of the model's responses.
+
+##
+[
+](https://huggingface.co#model-architecture-and-innovations)
+Model Architecture and Innovations
+
+Llama Nemotron Nano VL builds upon [Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct) and [C-RADIOv2-VLM-H](https://huggingface.co/nvidia/C-RADIOv2-VLM-H), a Vision Transformer (ViT) that serves as the backbone for visual feature extraction. This allows the model to handle a wide variety of visual elements in documents, including charts, graphs, and other complex visual representations.
+
+###
+[
+](https://huggingface.co#core-technologies)
+Core Technologies
+
+####
+[
+](https://huggingface.co#strong-vision-foundation)
+Strong Vision Foundation
+
+**C-RADIOv2-VLM-H Vision Transformer (ViT)**: The core visual understanding component of the model, C-RADIO allows for high-resolution processing of documents containing complex visual elements. This serves as a vision backbone, excelling across visual domains and enabling the model to process multi-image understanding with high resolution. This technology underpins the model’s ability to handle complex documents containing visual elements such as images, diagrams, charts, and tables.
+
+C-RADIO is trained on multi-resolution data using multiple distillation techniques. Multiplicative noise was applied to our weights during training to improve generalization.
+
+Llama Nemotron VL further adopts a design that dynamically aggregates encoded patch features, enabling support for high-resolution input without sacrificing spatial continuity. This strategy efficiently processes documents with arbitrary aspect ratios while preserving both local detail and global context. It enables fine-grained analysis of dense visual content—such as small fonts, multi-column layouts, and intricate charts—without compromising computational efficiency or coverage. The model can also preserve the information better and have less distortion, due to the innovation in high-resolution tiling.
+
+By empowering Llama-3.1 8B LLM with this strong vision foundation, Llama Nemotron Nano VL delivers unparalleled accuracy in parsing and interpreting documents.
+
+####
+[
+](https://huggingface.co#high-quality-data-for-document-intelligence)
+High quality data for document intelligence
+
+Llama Nemotron Nano VL was trained using several OSS datasets along with data from NVIDIA’s VLM-based OCR solution, [NeMo Retriever Parse](https://build.nvidia.com/nvidia/nemoretriever-parse). This provides capabilities in text and table parsing, along with grounding, enabling the Llama Nemotron Nano VL to perform at an industry-leading level in document understanding tasks. Synthetic table extraction datasets that were used for training this OCR solution were also used for training Llama Nemotron Nano VL 8B VLM to enable more optimal table understanding and extraction.
+
+Llama Nemotron Nano VL excels in tasks like text recognition and visual reasoning, and demonstrates advanced chart and diagram understanding capabilities. Llama Nemotron Nano VL allows for predicting bounding box coordinates in normalized space to enable grounding like tasks and text-referring.
+
+This strong performance is underpinned by high-quality in-domain data combined with a diverse training distribution across document types, languages, and layouts. A robust data strategy ensures coverage across challenging use cases through selective curation, targeted augmentation, and formatting techniques that clarify task intent and reduce ambiguity—resulting in models that generalize effectively to real-world applications.
+
+#####
+[
+](https://huggingface.co#pre-training)
+Pre-Training
+
+Llama Nemotron Nano VL undergoes a two-stage training regimen: pre-training followed by Supervised Fine-Tuning (SFT). The initial pre-training phase focuses on achieving cross-modal alignment between the language and vision domains. This is accomplished through the training of a Multi-Layer Perceptron (MLP) connector, which serves as an interface between the two modalities.
+
+For the training process, Llama Nemotron Nano VL leverages a comprehensive and diverse collection of datasets. This aggregated dataset, comprising a total of ~1.5M samples, includes publicly available, synthetically generated, as well as internally curated datasets. A summary of the datasets utilized during the pre-training stage is presented in Figure 1.
+
+#####
+[
+](https://huggingface.co#supervised-fine-tuning)
+Supervised Fine-Tuning
+
+In the Supervised Fine-Tuning stage, Llama-Nemotron-Nano-VL is trained end-to-end on a combination of synthetic, public, and internally curated datasets. The data encompasses a wide spectrum of tasks, including but not limited to: OCR, text grounding, table parsing, and general document-based VQA.
+
+The document understanding capabilities of Llama Nemotron Nano VL can be largely attributed to the OCR-focused SFT data blend. Besides simple OCR, many of the datasets involve tasks such as predicting the correct reading order, reconstructing markdown formatting along with semantic classes (such as Captions, Titles, Section headers) and bounding boxes of individual text blocks. The model is also trained to parse mathematical formulas in LaTeX format and to extract tables in LaTeX, HTML, or markdown formats, depending on the prompt.
+
+To ensure robustness across various domains, we apply affine and photometric augmentations to the document images. To improve the table and chart parsing performance further, we enable swapping of tables and charts embedded into the full-page documents between the datasets. This enables the model to handle diverse document layouts and structures.
+
+A large portion of the internally-created datasets are based on Nemo Retriever Parse training data. These include NVPDFTex - a collection of arxiv documents with ground-truth labels consisting of formatted text in reading order, with bounding boxes and semantic classes of text, as well as LaTeX tables and equations; Common Crawl pdfs that are labeled by human annotators; rendered text from Wikipedia with markdown formatting and tables, as well as a number of synthetic datasets targeted at improving table parsing capabilities and dense OCR. In addition, the training blend includes a number of publicly-available datasets, such as DocLayNet, FinTabNet and PubTables-1M, in which we refine the groundtruth labels.
+
+Figure 2 below shows the task distribution of the training data. As can be seen, a significant portion of the training samples involve OCR along with grounding and table parsing, as well as OCR-adjacent VQA tasks.
+
+###
+[
+](https://huggingface.co#post-training-process)
+Post Training Process
+
+Llama Nemotron Nano VL was trained using [NVIDIA Megatron](https://github.com/NVIDIA/Megatron-LM) and utilizes efficient Transformer implementations in NVIDIA [Transformer Engine](https://github.com/NVIDIA/TransformerEngine). For multimodal dataloading, we use [Megatron Energon](https://github.com/NVIDIA/Megatron-Energon). We provide example [Megatron training and inference scripts](https://github.com/NVIDIA/Megatron-LM/tree/main/examples/multimodal/llama_3p1_nemotron_nano_vl_8b_v1) along with hyperparameters and other instructions to enable custom training of VLMs.
+
+###
+[
+](https://huggingface.co#examples)
+Examples
+
+####
+[
+](https://huggingface.co#table-extraction)
+Table Extraction
+
+####
+[
+](https://huggingface.co#vqa-with-grounding)
+VQA with Grounding
+
+####
+[
+](https://huggingface.co#text-extraction)
+Text Extraction
+
+###
+[
+](https://huggingface.co#recommended-prompts)
+Recommended prompts
+
+To ensure the output is formatted precisely as you need, we recommend including **detailed instructions within your prompts**. We've provided some examples below to illustrate how this works for various tasks:
+
+####
+[
+](https://huggingface.co#document-extraction--in-reading-order-along-with-grounding-and-semantic-classes)
+Document extraction in reading order along with grounding and semantic classes
+
+```
+Parse this document in reading order as mathpix markdown with LaTeX equations and tables. Fetch the bounding box for each block along with the corresponding category from the following options: Bibliography, Caption, Code, Footnote, Formula, List-item, Page-footer, Page-header, Picture, Section-header, TOC (Table-of-Contents), Table, Text and Title. The coordinates should be normalized ranging from 0 to 1000 by the image width and height.
+Your answer should be in the following format:\n[{{\"bbox\": [x1, y1, x2, y2], \"category\": category, \"content\": text_content)}}...].
+```
+
+
+####
+[
+](https://huggingface.co#table-extraction-for-rd-tablebench)
+Table extraction for RD-TableBench
+
+```
+Convert the image to an HTML table. The output should begin with <table> and end with </table>. Specify rowspan and colspan attributes when they are greater than 1. Do not specify any other attributes. Only use the b, br, tr, th, td, sub and sup HTML tags. No additional formatting is required.
+```
+
+
+####
+[
+](https://huggingface.co#table-extraction-with-grounding)
+Table extraction with grounding
+
+```
+Transcribe the tables as HTML and extract their bounding box coordinates. The coordinates should be normalized ranging from 0 to 1000 by the image width and height and the answer should be in the following format:\n[(x1, y1, x2, y2, html table), (x1, y1, x2, y2, html table)...].
+```
+
+
+##
+[
+](https://huggingface.co#ocrbench-v2-benchmark-a-closer-look)
+OCRBench v2 Benchmark: A Closer Look
+
+[OCRBench v2](https://huggingface.co/spaces/ling99/OCRBench-v2-leaderboard) is an advanced benchmark designed to evaluate OCR models across a diverse range of real-world document types and layouts. It includes over **10,000 human-verified question-answer pairs** to rigorously assess a model’s capabilities in visual text localization, table parsing, diagram reasoning and key-value extraction.
+
+Llama Nemotron Nano VL outperforms other VLMs on this benchmark and also achieves strong accuracies in benchmarks such as **ChartQA** and **AI2D**, making it a compelling option for enterprises aiming to automate document workflows such as:
+
+- Invoice and receipt processing
+- Compliance and identity document analysis
+- Contract and legal document review
+- Healthcare and financial document processing
+
+Its combination of high accuracy, strong layout aware reasoning, and efficient deployment on a single GPU makes it an ideal choice for large-scale enterprise automation.
+
+##
+[
+](https://huggingface.co#advanced-use-cases-for-llama-nemotron-nano-vl)
+Advanced Use Cases for Llama Nemotron Nano VL
+
+Llama Nemotron Nano VL is optimized for various document processing tasks across multiple industries. Here are some of the key use cases where the model excels:
+
+###
+[
+](https://huggingface.co#1-invoice-and-receipt-processing)
+1. Invoice and Receipt Processing
+
+Automating the extraction of line items, totals, dates, and other key data points from invoices and receipts. This is crucial for accounting, ERP integration, and expense management.
+
+###
+[
+](https://huggingface.co#2-compliance-document-analysis)
+2. Compliance Document Analysis
+
+Extracting structured data from passports, IDs, and tax forms for regulatory compliance and KYC processes.
+
+###
+[
+](https://huggingface.co#3-contract-review)
+3. Contract Review
+
+Automatically identifying key clauses, dates, and obligations in legal documents.
+
+###
+[
+](https://huggingface.co#4-healthcare-and-insurance-automation)
+4. Healthcare and Insurance Automation
+
+Extracting patient data, claim information, and policy details from medical records and insurance forms.
+
+##
+[
+](https://huggingface.co#get-started-with-llama-nemotron-nano-vl)
+Get Started with Llama Nemotron Nano VL
+
+Llama Nemotron Nano VL provides developers with the tools to automate document processing workflows at scale. It is available through the [NVIDIA NIM API](https://build.nvidia.com/nvidia/llama-3_1-nemotron-nano-vl-8b-v1) and for download on [Hugging Face](https://huggingface.co/nvidia/Llama-3.1-Nemotron-Nano-VL-8B-V1), where you can begin building production-ready document understanding applications. Users can also use [NVIDIA NeMo to finetune](https://docs.nvidia.com/nemo-framework/user-guide/latest/vlms/llama_nemotron_vl.html) the model on their own dataset.
+
+###
+[
+](https://huggingface.co#hands-on-tutorial-building-an-invoicereceipt-document-intelligence-notebook-and-video)
+Hands-On Tutorial: Building an Invoice/Receipt Document Intelligence [Notebook](https://github.com/NVIDIA/GenerativeAIExamples/blob/main/nemotron/VLM/llama_3.1_nemotron_nano_VL_8B/Llama_Nemotron_VL_nano_8B.ipynb) and [Video](https://www.youtube.com/watch?v=FHc5KxgJ61g)
+
+The tutorial will walk you through:
+
+**Setting up the environment**for using Llama Nemotron Nano VL.**Processing invoices and receipts**to automatically extract and organize data.**Optimizing your solution**to handle large-scale document workflows.
+
+##
+[
+](https://huggingface.co#conclusion)
+Conclusion
+
+[Llama Nemotron Nano VL](https://huggingface.co/nvidia/Llama-3.1-Nemotron-Nano-VL-8B-V1) is a powerful multimodal model designed to meet the demanding needs of intelligent document processing in modern enterprises. Whether you are processing invoices, contracts, or compliance documents, this model provides the accuracy, efficiency, and scalability required for high-performance document understanding.
+
+For a hands-on experience, check out our **tutorial on invoice and receipt document intelligence**, and start leveraging the full power of Llama Nemotron Nano VL today.
+
+##
+[
+](https://huggingface.co#contributors)
+Contributors
+
+Amala Sanjay Deshmukh*, Kateryna Chumachenko*, Tuomas Rintamaki, Matthieu Le, Tyler Poon, Lukas Voegtle, Philipp Fischer, Jarno Seppanen, Ilia Karmanov, Guo Chen, Zhiqi Li, Guilin Liu, Zhiding Yu, Danial Mohseni Taheri, Pritam Biswas, Hao Zhang, Yao Xu, Mike Ranzinger, Greg Heinrich, Pavlo Molchanov, Jason Lu, Hongxu Yin, Sean Cha, Subhashree Radhakrishnan, Ratnesh Kumar, Zaid Pervaiz Bhat, Daniel Korzekwa, Sepehr Sameni, Boxin Wang, Zhuolin Yang, Nayeon Lee, Wei Ping, Wenliang Dai, Katherine Luna, Michael Evans, Leon Derczynski, Erick Galinkin, Akshay Hazare, Padmavathy Subramanian, Alejandra Rico, Amy Shen, Annie Surla, Katherine Cheung, Saori Kaji, Meredith Price, Bo Liu, Benedikt Schifferer, Jean-Francois Puget, Oluwatobi Olabiyi, Karan Sapra, Timo Roman, Jan Kautz, Andrew Tao, Bryan Catanzaro
+
+* Equal Contribution

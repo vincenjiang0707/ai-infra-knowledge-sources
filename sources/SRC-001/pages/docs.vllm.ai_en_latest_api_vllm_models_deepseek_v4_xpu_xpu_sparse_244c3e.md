@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/xpu/xpu_sparse/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class DeepseekV4XPUAttention(DeepseekV4Attention):
 """XPU sparse MLA attention layer for DeepSeek V4."""

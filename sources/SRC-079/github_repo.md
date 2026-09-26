@@ -1,12 +1,12 @@
 # NVIDIA/Model-Optimizer
 
-- stars: 3847
-- forks: 614
-- open_issues: 414
+- stars: 4292
+- forks: 641
+- open_issues: 417
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-23T02:07:36Z
+- pushed_at: 2026-09-25T14:26:16Z
 - homepage: https://nvidia.github.io/Model-Optimizer/
 
 ## README

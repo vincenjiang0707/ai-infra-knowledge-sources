@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/glm5next/sparse_indexer/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 @CustomOp.register("sparse_attn_indexer_kpool")
 class SparseAttnIndexerKpool(CustomOp):

@@ -7,25 +7,55 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:53:57Z",
- "finished_at": "2026-09-23T04:53:57Z",
- "duration_seconds": 2839.1,
- "attempts": 1,
+ "finished_at": "2026-09-24T18:50:44Z",
+ "duration_seconds": 2324.3,
+ "attempts": 2,
  "channels": {
   "site_ddde0c76": {
    "type": "sitemap",
    "url": "https://docs.vllm.ai/en/latest/",
    "mode": "sitemap.xml",
-   "pages_total": 2723,
+   "pages_total": 2725,
    "status": "ok",
-   "pages_fetched": 1991,
-   "pages_failed": 9,
+   "pages_fetched": 1992,
+   "pages_failed": 8,
    "output_dir": "pages/",
    "cap": 2000
+  },
+  "site_7c6687ed": {
+   "type": "sitemap",
+   "url": "https://docs.vllm.ai/en/latest/configuration/optimization/",
+   "mode": "sitemap.xml",
+   "pages_total": 1,
+   "status": "ok",
+   "pages_fetched": 0,
+   "pages_failed": 0,
+   "output_dir": "pages/",
+   "cap": 2000,
+   "head_check": "no_update"
+  },
+  "site_5405c34f": {
+   "type": "sitemap",
+   "url": "https://docs.vllm.ai/projects/recipes/en/stable/",
+   "mode": "sitemap.xml",
+   "pages_total": 58,
+   "status": "ok",
+   "pages_fetched": 0,
+   "pages_failed": 0,
+   "output_dir": "pages/",
+   "cap": 2000,
+   "head_check": "no_update"
   }
  },
  "cursor": {
   "site_ddde0c76:sitemap": {
-   "lastmod": "2026-09-23"
+   "lastmod": "2026-09-24"
+  },
+  "site_7c6687ed:sitemap": {
+   "lastmod": "2026-09-25"
+  },
+  "site_5405c34f:sitemap": {
+   "lastmod": "2026-04-27"
   }
  },
  "notes": ""

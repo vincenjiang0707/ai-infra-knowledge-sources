@@ -1,6 +1,6 @@
 # Changelog (aggregated from releases.body)
 
-> releases: 16
+> releases: 17
 
 ## v2.28.3-1 (2025-10-06)
 
@@ -1052,6 +1052,77 @@ We also thank the community for issue reports, testing, and feedback.
 ## Known Issues
 
 - The NCCL 2.31.2 device IR may fail to JIT-compile `Gin.put()` when EFA GDA is enabled. Apply [this patch](https://github.com/NVIDIA/nccl/commit/60ffa5cdd047b517e1818e0d011e48a52fd43c7e) to NCCL 2.31.2 and rebuild `libnccl_device.bc`.
+
+## nccl4py-v0.6.0 (2026-09-23)
+
+## Highlights
+
+- Added experimental CuTe DSL ReduceCopy APIs for LSA, multimem, and local memory operations.
+- Added NCCL 2.32 host APIs for collective launch completion events, NVLS configuration, CFT capability inspection, and window registration.
+- Added explicit CuTe DSL barrier-session teardown and corrected `ThreadScope.THREAD` to match libcu++.
+
+## New Features
+
+### Collective Launch Completion Events
+
+- Added per-collective CUDA launch completion events through `NCCLCollConfig`.
+
+  **APIs:**
+  - `NCCLCollConfig.launch_completion_event`
+  - `NcclEventSpec`
+
+### NCCL 2.32 Configuration and Capability Inspection
+
+- Added host-side NVLS configuration, CFT capability reporting, and specialized window registration flags.
+
+  **APIs:**
+  - `NCCLConfig.nvls_host_mode`
+  - `NcclNvlsHostMode`
+  - `NCCLCommProperties.cft_support`
+  - `NCCLCommProperties.cft_multicast_support`
+  - `NCCLCommProperties.cft_counted_support`
+  - `WindowFlag.GIN_ONLY`
+  - `WindowFlag.CFT_COUNTED`
+
+### CuTe DSL ReduceCopy
+
+- Added device APIs for reduction and copy operations across LSA windows, multimem pointers, and local tensors.
+
+  **APIs:**
+  - `lsa_reduce_sum()`, `multimem_reduce_sum()`
+  - `lsa_copy()`, `multimem_copy()`
+  - `lsa_reduce_sum_copy()`, `multimem_reduce_sum_copy()`
+  - `local_reduce_sum_copy()`
+
+### CuTe DSL Barrier Lifecycle
+
+- Added explicit session destruction so barrier handles and indexes can be safely reused.
+
+  **APIs:**
+  - `LsaBarrierSession.destroy()`
+  - `GinBarrierSession.destroy()`
+  - `BarrierSession.destroy()`
+
+## Examples and Documentation
+
+- Added [`08_reduce_copy.py`](https://github.com/NVIDIA/nccl/blob/nccl4py-v0.6.0/bindings/nccl4py/examples/cute/08_reduce_copy.py), demonstrating an LSA reduction across registered windows.
+
+## Breaking Changes
+
+- `ThreadScope.THREAD` now has the libcu++ numeric value `10` instead of `3`. Code using the enum member requires no changes; code storing or passing its raw integer value must be updated.
+- CuTe DSL barrier sessions must call `destroy()` exactly once after their final operation. Every thread in the session’s cooperative group must call it from uniform control flow.
+
+## Fixes and Enhancements
+
+- The NCCL 2.31.2 device IR issue reported in nccl4py v0.5.0, which could prevent `Gin.put()` from JIT-compiling with EFA GDA enabled, is resolved in the matching NCCL 2.32.3 IR.
+- Added a `py.typed` marker so compatible static type checkers can use `nccl.core` annotations.
+
+## Compatibility Notes
+
+- The nccl4py 0.6.0 host-side bindings and CuTe DSL API are generated from NCCL 2.32.3 headers.
+- When using the CuTe DSL API, use matching NCCL 2.32.3 `libnccl.so` and `libnccl_device.bc`; nccl4py does not verify this automatically.
+- `NCCLCollConfig.launch_completion_event` requires a timing-disabled, non-interprocess CUDA event. Every rank must either provide an event or omit it. CUDA 12.3 or later is required for post-launch recording semantics.
+- The CuTe DSL device API remains experimental.
 
 ## v2.32.3-1 (2026-09-17)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/serving/expert_parallel_deployment/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Expert Parallel Deployment[¶](https://docs.vllm.ai#expert-parallel-deployment)
 
@@ -118,6 +118,7 @@ across 2 nodes using `deepep_low_latency`
 
 mode:
 
+```bash
 # Node 1 (Primary - handles incoming requests)
 vllm serve deepseek-ai/DeepSeek-V3-0324 \
 --all2all-backend deepep_low_latency \
@@ -139,6 +140,7 @@ vllm serve deepseek-ai/DeepSeek-V3-0324 \
 --data-parallel-address 192.168.1.100 \ # IP of primary node (Node 1)
 --data-parallel-rpc-port 13345 \ # Same RPC port as primary
 --headless # No API server, worker only
+```
 
 
 ### Key Configuration Notes[¶](https://docs.vllm.ai#key-configuration-notes)

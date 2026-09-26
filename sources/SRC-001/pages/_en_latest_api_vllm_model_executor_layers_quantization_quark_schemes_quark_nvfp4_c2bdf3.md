@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/quark/schemes/quark_nvfp4/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class QuarkNVFP4(QuarkScheme):
 """Quark NVFP4 quantization scheme.

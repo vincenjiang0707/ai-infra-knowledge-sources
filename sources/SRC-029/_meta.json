@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:43:22Z",
- "finished_at": "2026-09-23T03:43:22Z",
- "duration_seconds": 82.3,
- "attempts": 1,
+ "finished_at": "2026-09-25T10:32:49Z",
+ "duration_seconds": 412.2,
+ "attempts": 5,
  "channels": {
   "gh_2d4350d3": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 30,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 15,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -46,33 +56,33 @@
   "ref_2b1e9911": {
    "type": "reference",
    "url": "https://github.com/AI-Hypercomputer/JetStream/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 965
   },
   "ref_e5eadd7c": {
    "type": "reference",
    "url": "https://github.com/AI-Hypercomputer/JetStream/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 3636
+   "mode": "page",
+   "chars": 3726
   },
   "ref_bb5a96ba": {
    "type": "reference",
    "url": "https://github.com/AI-Hypercomputer/JetStream/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 21306
   },
   "site_3078e6d3": {
    "type": "site",
    "url": "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 4896
   }
  },

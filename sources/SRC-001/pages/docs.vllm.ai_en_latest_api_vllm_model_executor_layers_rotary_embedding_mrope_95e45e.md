@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/mrope/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MRotaryEmbedding(RotaryEmbeddingBase):
 """Rotary Embedding with Multimodal Sections."""
@@ -169,6 +169,34 @@ sin,
 )
 key = torch.cat((key_rot, key_pass), dim=-1).reshape(key_shape)
 return query, key
+def forward_hip(
+self,
+positions: torch.Tensor,
+query: torch.Tensor,
+key: torch.Tensor | None = None,
+offsets: torch.Tensor | None = None,
+) -> tuple[torch.Tensor, torch.Tensor | None]:
+if positions.ndim == 2:
+assert key is not None
+assert self.mrope_section
+query_shape = query.shape
+key_shape = key.shape
+cos_sin_cache = self._match_cos_sin_cache_dtype(query)
+torch.ops.vllm.mrope(
+positions,
+query,
+key,
+cos_sin_cache,
+self.head_size,
+self.rotary_dim,
+self.mrope_section[0],
+self.mrope_section[1],
+self.mrope_section[2],
+self.mrope_interleaved,
+self.is_neox_style,
+)
+return query.reshape(query_shape), key.reshape(key_shape)
+return super().forward_hip(positions, query, key)
 def forward_cpu(
 self,
 positions: torch.Tensor,

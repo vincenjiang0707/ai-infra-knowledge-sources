@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/features/structured_diffusion/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Structured reads on DiffusionGemma[¶](https://docs.vllm.ai#structured-reads-on-diffusiongemma)
 
@@ -24,6 +24,7 @@ turns a question schema into those fields. It serves `/v1/chat/completions`
 
 : the system message is the schema, the user message is the state JSON, and the reply content is one distribution per question with a standard error over a few noise draws.
 
+```bash
 vllm serve google/diffusiongemma-26B-A4B-it \
 --diffusion-config '{"canvas_length": 64}' --max-logprobs 32 --enable-prefix-caching
 python examples/features/structured_diffusion/structured_server.py \
@@ -33,6 +34,7 @@ curl -s localhost:8011/v1/chat/completions -H 'content-type: application/json' -
 {"role": "system", "content": "{\"questions\": [{\"id\": \"urgent\", \"type\": \"noul\", \"instructions\": \"Does the customer need a reply within the hour?\"}]}"},
 {"role": "user", "content": "{\"ticket\": \"Everything is down and we have a demo at noon.\"}"}
 ]}'
+```
 
 
 The attention backend is picked as for Gemma 4: FlashAttention 4 on every layer when available, otherwise Triton. FlashInfer cannot serve this model (a batch mixes causal prefill with bidirectional denoising), and `--attention-backend FLASHINFER`
@@ -99,10 +101,12 @@ and each image as a file part, or as an `images`
 
 array of data URLs.
 
+```bash
 curl -s localhost:8011/v1/systemone -H 'content-type: application/json' -d '{
 "model": "jev-latest",
 "state": {"ticket": "Everything is down and we have a demo at noon."},
 "questions": {"urgent": {"type": "noul", "instructions": "Does the customer need a reply within the hour?"}}}'
+```
 
 
 `"think": N`

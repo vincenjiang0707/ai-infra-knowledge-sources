@@ -1,0 +1,3 @@
+source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityPcieGpuAttr.html
+
+7.122. CUpti_ActivityPcieGpuAttr# struct CUpti_ActivityPcieGpuAttr# Attributes for more information about GPU (gpuAttr). Public Members CUuuid uuidDev# UUID for the device. CUpti_ActivityDevice6. CUdevice peerDev[32]# CUdevice with which this device has P2P capability. This can also be obtained by querying cuDeviceCanAccessPeer or cudaDeviceCanAccessPeer APIs

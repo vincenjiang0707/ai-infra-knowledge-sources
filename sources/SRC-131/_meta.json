@@ -7,17 +7,41 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:20:24Z",
- "finished_at": "2026-09-23T04:20:24Z",
- "duration_seconds": 16.7,
- "attempts": 2,
+ "finished_at": "2026-09-24T18:55:49Z",
+ "duration_seconds": 18.0,
+ "attempts": 3,
  "channels": {
   "site_1550f989": {
-   "type": "js",
+   "type": "blog",
    "url": "https://www.anyscale.com/blog",
+   "index_urls": [
+    "https://www.anyscale.com/blog"
+   ],
    "status": "ok",
-   "output": "page.md",
-   "mode": "js",
-   "chars": 2130
+   "mode": "blog",
+   "posts": [],
+   "total_chars": 0,
+   "post_urls": {
+    "https://www.anyscale.com/blog/anyscale-signs-definitive-agreement-to-join-nscale": "01_anyscale-signs-definitive-agreement-to-join-nscale.md",
+    "https://www.anyscale.com/blog/anyscale-llm-post-training-skill": "02_anyscale-llm-post-training-skill.md",
+    "https://www.anyscale.com/blog/ml-operations-with-agent-skills": "03_ml-operations-with-agent-skills.md",
+    "https://www.anyscale.com/blog/ray-summit-2026-recap": "04_ray-summit-2026-recap.md",
+    "https://www.anyscale.com/blog/how-we-scaled-ray-from-batch-inference-to-10000-node-training-clusters": "05_how-we-scaled-ray-from-batch-inference-to-10000-node-trainin.md",
+    "https://www.anyscale.com/blog/llm-kv-token-aware-routing": "06_llm-kv-token-aware-routing.md",
+    "https://www.anyscale.com/blog/ray-history-server": "07_ray-history-server.md",
+    "https://www.anyscale.com/blog/learning-loops": "08_learning-loops.md",
+    "https://www.anyscale.com/blog/fp8-reinfinforcement-learning-in-skyrl": "09_fp8-reinfinforcement-learning-in-skyrl.md",
+    "https://www.anyscale.com/blog/gpu-native-operators-in-ray-data": "10_gpu-native-operators-in-ray-data.md",
+    "https://www.anyscale.com/blog/anyscale-gpu-health-observability": "11_anyscale-gpu-health-observability.md",
+    "https://www.anyscale.com/blog/announcing-native-sandboxing-in-ray": "12_announcing-native-sandboxing-in-ray.md",
+    "https://www.anyscale.com/blog/kuberay-v1-7": "13_kuberay-v1-7.md",
+    "https://www.anyscale.com/blog/announcing-anyscale-connect-for-kuberay": "14_announcing-anyscale-connect-for-kuberay.md",
+    "https://www.anyscale.com/blog/ray-data-shuffle-v2": "15_ray-data-shuffle-v2.md",
+    "https://www.anyscale.com/blog/page/2": "16_2.md",
+    "https://www.anyscale.com/blog/page/3": "17_3.md",
+    "https://www.anyscale.com/blog/page/4": "18_4.md"
+   },
+   "head_check": "no_update"
   }
  },
  "cursor": {},

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/serving/integrations/llamaindex/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # LlamaIndex[¶](https://docs.vllm.ai#llamaindex)
 

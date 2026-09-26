@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/int4/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # INT4 W4A16[¶](https://docs.vllm.ai#int4-w4a16)
 
@@ -54,6 +54,7 @@ When quantizing weights to INT4, you need sample data to estimate the weight upd
 
 :
 
+```bash
 from datasets import load_dataset
 NUM_CALIBRATION_SAMPLES = 512
 MAX_SEQUENCE_LENGTH = 2048
@@ -66,6 +67,7 @@ ds = ds.map(preprocess)
 def tokenize(sample):
 return tokenizer(sample["text"], padding=False, max_length=MAX_SEQUENCE_LENGTH, truncation=True, add_special_tokens=False)
 ds = ds.map(tokenize, remove_columns=ds.column_names)
+```
 
 
 ### 3. Applying Quantization[¶](https://docs.vllm.ai#3-applying-quantization)
@@ -101,12 +103,14 @@ To evaluate accuracy, you can use `lm_eval`
 
 :
 
+```bash
 lm_eval --model vllm \
 --model_args pretrained="./Meta-Llama-3-8B-Instruct-W4A16-G128",add_bos_token=true \
 --tasks gsm8k \
 --num_fewshot 5 \
 --limit 250 \
 --batch_size 'auto'
+```
 
 
 Note

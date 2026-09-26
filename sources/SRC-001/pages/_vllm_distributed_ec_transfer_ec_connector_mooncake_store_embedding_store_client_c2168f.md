@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/mooncake_store_embedding/store_client/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MooncakeEmbeddingStoreClient:
 """Wraps Mooncake object and buffer APIs used by embedding transfer."""

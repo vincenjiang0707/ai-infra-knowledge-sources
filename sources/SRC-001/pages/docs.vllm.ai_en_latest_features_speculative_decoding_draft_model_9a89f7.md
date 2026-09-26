@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/speculative_decoding/draft_model/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Draft Models[¶](https://docs.vllm.ai#draft-models)
 
@@ -26,6 +26,7 @@ print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
 
 To perform the equivalent launch in online mode, use the following server-side code:
 
+```bash
 vllm serve Qwen/Qwen3-4B-Thinking-2507 \
 --host 0.0.0.0 \
 --port 8000 \
@@ -34,6 +35,7 @@ vllm serve Qwen/Qwen3-4B-Thinking-2507 \
 --max-model-len 2048 \
 --gpu-memory-utilization 0.8 \
 --speculative-config '{"model": "Qwen/Qwen3-0.6B", "num_speculative_tokens": 5, "method": "draft_model"}'
+```
 
 
 The code used to request completions as a client remains unchanged:

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/cli/complete/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # vllm complete[¶](https://docs.vllm.ai#vllm-complete)
 

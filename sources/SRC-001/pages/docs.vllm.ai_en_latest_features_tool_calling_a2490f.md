@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/tool_calling/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Tool Calling[¶](https://docs.vllm.ai#tool-calling)
 
@@ -21,10 +21,12 @@ Start the server with tool calling enabled. This example uses Meta's Llama 3.1 8
 
 tool calling chat template from the vLLM examples directory:
 
+```bash
 vllm serve meta-llama/Llama-3.1-8B-Instruct \
 --enable-auto-tool-choice \
 --tool-call-parser llama3_json \
 --chat-template examples/tool_chat_template_llama3.1_json.jinja
+```
 
 
 Next, make a request that triggers the model to use the available tools:

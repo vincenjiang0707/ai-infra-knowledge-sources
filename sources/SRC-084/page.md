@@ -1,5 +1,3 @@
-# HQQ
-
 source: https://github.com/dropbox/hqq/releases
 
 # Releases: dropbox/hqq

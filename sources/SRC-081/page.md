@@ -1,5 +1,3 @@
-# GPTQModel
-
 source: https://github.com/vllm-project/llm-compressor/releases
 
 # Releases: vllm-project/llm-compressor

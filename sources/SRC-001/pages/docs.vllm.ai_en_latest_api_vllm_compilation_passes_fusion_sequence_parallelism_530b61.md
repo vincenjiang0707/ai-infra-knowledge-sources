@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/passes/fusion/sequence_parallelism/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Bases: [VllmPatternMatcherPass](../../vllm_inductor_pass/#vllm.compilation.passes.vllm_inductor_pass.VllmPatternMatcherPass)
 

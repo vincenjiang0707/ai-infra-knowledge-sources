@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/passes/fusion/rope_kvcache_fusion/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 

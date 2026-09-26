@@ -1,0 +1,14 @@
+source: https://docs.openvino.ai/2025/api/ie_python_api/_autosummary/openvino.runtime.opset13.gru_sequence.html
+lastmod: 
+
+# openvino.runtime.opset13.gru_sequence[#](https://docs.openvino.ai#openvino-runtime-opset13-gru-sequence)
+
+-
+openvino.runtime.opset13.gru_sequence(
+*X:*,[Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| int | float | ndarray*initial_hidden_state:*,[Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| int | float | ndarray*sequence_lengths:*,[Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| int | float | ndarray*W:*,[Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| int | float | ndarray*R:*,[Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| int | float | ndarray*B:*,[Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)| int | float | ndarray*hidden_size: int*,*direction: str*,*activations: list[str] | None = None*,*activations_alpha: list[float] | None = None*,*activations_beta: list[float] | None = None*,*clip: float = 0.0*,*linear_before_reset: bool = False*,*name: str | None = None*)[Node](https://docs.openvino.ai/openvino.Node.html#openvino.Node)[#](https://docs.openvino.ai#openvino.runtime.opset13.gru_sequence) Return a node which performs GRUSequence operation.
+
+- Parameters:
+**inputs**– The input tensor. Shape: [batch_size, seq_length, input_size].**initial_hidden_state**– The hidden state tensor. Shape: [batch_size, num_directions, hidden_size].**sequence_lengths**– Specifies real sequence lengths for each batch element. Shape: [batch_size]. Integer type.**weights_w**– Tensor with weights for matrix multiplication operation with input portion of data. Shape: [num_directions, 3*hidden_size, input_size].**weights_r**– The tensor with weights for matrix multiplication operation with hidden state. Shape: [num_directions, 3*hidden_size, hidden_size].**biases**– The sum of biases (weight and recurrence). For linear_before_reset set True the shape is [num_directions, 4*hidden_size]. Otherwise the shape is [num_directions, 3*hidden_size].**hidden_size**– Specifies hidden state size.**direction**– Specifies if the RNN is forward, reverse, or bidirectional.**activations**– The list of three activation functions for gates.**activations_alpha**– The list of alpha parameters for activation functions.**activations_beta**– The list of beta parameters for activation functions.**clip**– Specifies bound values [-C, C] for tensor clipping performed before activations.**linear_before_reset**– Flag denotes if the layer behaves according to the modification of GRU described in the formula in the ONNX documentation.**name**– An optional name of the output node.
+
+- Returns:
+The new node represents GRUSequence. Node outputs count: 2.

@@ -1,12 +1,12 @@
 # vllm-project/vllm-ascend
 
-- stars: 2876
-- forks: 2349
-- open_issues: 3558
+- stars: 2891
+- forks: 2366
+- open_issues: 3635
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-23T03:12:12Z
+- pushed_at: 2026-09-25T07:12:27Z
 - homepage: https://docs.vllm.ai/projects/ascend
 
 ## README
@@ -111,7 +111,7 @@ Below are the maintained branches:
 
 | Branch           | Status       | Note                                 |
 |------------------|--------------|--------------------------------------|
-| main             | Maintained   | CI commitment for vLLM main branch and vLLM v0.28.0 tag |
+| main             | Maintained   | CI commitment for vLLM main branch and vLLM v0.30.0 tag |
 | releases/v0.13.0 | Maintained   | Only bug fixes are allowed, and no new release tags anymore. |
 | releases/v0.18.0 | Maintained   | CI commitment for vLLM 0.18.0 version |
 | releases/v0.23.0 | Maintained   | CI commitment for vLLM 0.23.0 version |

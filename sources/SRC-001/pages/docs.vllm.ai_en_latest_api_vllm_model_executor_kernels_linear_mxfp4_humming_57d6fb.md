@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp4/humming/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class HummingMxFp4LinearKernel(MxFp4LinearKernel):
 """Humming GEMM Kernel for MXFP4."""

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/getting_started/quickstart/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Quickstart[¶](https://docs.vllm.ai#quickstart)
 
@@ -170,11 +170,13 @@ Now, the fun part! The outputs are generated using `llm.generate`
 
 . It adds the input prompts to the vLLM engine's waiting queue and executes the vLLM engine to generate the outputs with high throughput. The outputs are returned as a list of [ RequestOutput](https://docs.vllm.ai/api/vllm/outputs/#vllm.outputs.RequestOutput) objects, which include all of the output tokens.
 
+```bash
 outputs = llm.generate(prompts, sampling_params)
 for output in outputs:
 prompt = output.prompt
 generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+```
 
 
 Note
@@ -256,6 +258,7 @@ to enable the server to check for API key in the header. You can pass multiple k
 
 Once your server is started, you can query the model with input prompts:
 
+```bash
 curl http://localhost:8000/v1/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -264,6 +267,7 @@ curl http://localhost:8000/v1/completions \
 "max_tokens": 7,
 "temperature": 0
 }'
+```
 
 
 Since this server is compatible with OpenAI API, you can use it as a drop-in replacement for any applications using OpenAI API. For example, another way to query the server is via the `openai`
@@ -295,6 +299,7 @@ vLLM is designed to also support the OpenAI Chat Completions API. The chat inter
 
 You can use the [create chat completion](https://platform.openai.com/docs/api-reference/chat/completions/create) endpoint to interact with the model:
 
+```bash
 curl http://localhost:8000/v1/chat/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -304,6 +309,7 @@ curl http://localhost:8000/v1/chat/completions \
 {"role": "user", "content": "Who won the world series in 2020?"}
 ]
 }'
+```
 
 
 Alternatively, you can use the `openai`

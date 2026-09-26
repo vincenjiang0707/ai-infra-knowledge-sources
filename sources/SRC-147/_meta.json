@@ -7,17 +7,17 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:22:55Z",
- "finished_at": "2026-09-23T04:22:55Z",
- "duration_seconds": 13.0,
- "attempts": 1,
+ "finished_at": "2026-09-24T18:57:39Z",
+ "duration_seconds": 11.2,
+ "attempts": 2,
  "channels": {
   "github_org_1fa673e0": {
    "type": "github_org",
    "url": "https://github.com/trending",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 65341
+   "mode": "page",
+   "chars": 1571
   }
  },
  "cursor": {},

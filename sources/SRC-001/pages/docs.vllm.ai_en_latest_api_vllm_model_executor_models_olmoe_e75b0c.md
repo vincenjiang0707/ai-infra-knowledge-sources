@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/olmoe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class OlmoeMoE(nn.Module):
 """A tensor-parallel MoE implementation for Olmoe that shards each expert
@@ -22,11 +22,9 @@ prefix: str = "",
 super().__init__()
 self.hidden_size = hidden_size
 # Gate always runs at half / full precision for now.
-self.gate = ReplicatedLinear(
+self.gate = GateLinear(
 hidden_size,
 num_experts,
-bias=False,
-quant_config=None,
 prefix=f"{prefix}.gate",
 )
 self.experts = FusedMoEFactory(

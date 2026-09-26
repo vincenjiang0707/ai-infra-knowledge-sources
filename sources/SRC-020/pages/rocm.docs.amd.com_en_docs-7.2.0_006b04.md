@@ -1,0 +1,20 @@
+source: https://rocm.docs.amd.com/en/docs-7.2.0/
+
+# AMD ROCm documentation[#](https://rocm.docs.amd.com#amd-rocm-documentation)
+
+2025-12-16
+
+3 min read time
+
+ROCm is an open-source software platform optimized to extract HPC and AI workload
+performance from AMD Instinct GPUs and AMD Radeon GPUs while maintaining
+compatibility with industry software frameworks. For more information, see
+[What is ROCm?](https://rocm.docs.amd.com/what-is-rocm.html)
+
+ROCm supports multiple programming languages and programming interfaces such as
+[HIP (Heterogeneous-Compute Interface for Portability)](https://rocm.docs.amd.com/projects/HIP/en/docs-7.2.0/index.html), OpenCL,
+and OpenMP, as explained in the [Programming guide](https://rocm.docs.amd.com/how-to/programming_guide.html).
+
+If you’re using AMD Radeon GPUs or Ryzen APUs in a workstation setting with a display connected, review [ROCm on Radeon and Ryzen documentation](https://rocm.docs.amd.com/projects/radeon-ryzen/en/docs-6.4.4/index.html).
+
+ROCm documentation is organized into the following categories:

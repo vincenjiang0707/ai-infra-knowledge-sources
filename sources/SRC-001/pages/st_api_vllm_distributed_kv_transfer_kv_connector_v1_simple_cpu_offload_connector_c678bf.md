@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/simple_cpu_offload_connector/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class SimpleCPUOffloadConnector(KVConnectorBase_V1, SupportsHMA):
 """CPU KV cache offloading with custom kernel transfers and BlockPool LRU."""

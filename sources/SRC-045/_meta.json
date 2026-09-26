@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:19:55Z",
- "finished_at": "2026-09-23T03:19:55Z",
- "duration_seconds": 38.8,
- "attempts": 1,
+ "finished_at": "2026-09-25T01:51:56Z",
+ "duration_seconds": 23.3,
+ "attempts": 3,
  "channels": {
   "gh_85b6002c": {
    "type": "github_repo",
@@ -20,12 +20,12 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -46,10 +46,10 @@
  },
  "cursor": {
   "gh_85b6002c:issues": {
-   "last_updated_at": "2026-09-22T15:37:21Z"
+   "last_updated_at": "2026-09-24T21:37:46Z"
   },
   "gh_85b6002c:pulls": {
-   "last_updated_at": "2026-09-23T08:45:18Z"
+   "last_updated_at": "2026-09-24T10:45:57Z"
   },
   "gh_85b6002c:releases": {
    "last_id": 387036818

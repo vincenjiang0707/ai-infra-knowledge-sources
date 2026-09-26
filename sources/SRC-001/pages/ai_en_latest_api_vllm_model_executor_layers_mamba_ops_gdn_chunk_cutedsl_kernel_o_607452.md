@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/ops/gdn_chunk_cutedsl/kernel_o/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class Sm100ChunkOKernel:
 """Compute per-token output from recurrent and intra-chunk terms.

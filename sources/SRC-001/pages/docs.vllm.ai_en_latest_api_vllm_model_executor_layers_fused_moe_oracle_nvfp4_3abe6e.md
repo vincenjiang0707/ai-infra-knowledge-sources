@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/oracle/nvfp4/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 def select_nvfp4_moe_backend(
 config: FusedMoEConfig,

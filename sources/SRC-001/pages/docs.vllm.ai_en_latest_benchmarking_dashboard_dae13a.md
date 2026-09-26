@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/benchmarking/dashboard/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Performance Dashboard[¶](https://docs.vllm.ai#performance-dashboard)
 

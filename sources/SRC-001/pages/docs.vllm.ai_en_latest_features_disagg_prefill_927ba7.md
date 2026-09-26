@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/disagg_prefill/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Disaggregated Prefilling (experimental)[¶](https://docs.vllm.ai#disaggregated-prefilling-experimental)
 

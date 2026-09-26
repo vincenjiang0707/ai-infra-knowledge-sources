@@ -1,6 +1,6 @@
 # Changelog (aggregated from releases.body)
 
-> releases: 90
+> releases: 91
 
 ## v0.5.0 (2023-10-19)
 
@@ -16655,3 +16655,313 @@ Test & Infra
 * @100-JM made their first contribution in https://github.com/NVIDIA/TensorRT-LLM/pull/18865
 
 **Full Changelog**: https://github.com/NVIDIA/TensorRT-LLM/compare/v1.3.0rc26...v1.3.0rc27
+
+## v1.3.0rc28 (2026-09-23)
+
+## Highlights
+
+- Known Issues
+  - Multi-node inference may fail during startup when a requested parallel mapping spans nodes or request payloads reference caller-local Python modules.
+  - Disaggregated serving may fail to start when an advertised hostname does not resolve to a bindable IPv4 address. Use a hostname that resolves to a local IPv4 interface.
+  - Qwen3.5-4B may lose accuracy with context pipeline parallelism and a different generation tensor-parallel layout.
+  - Overlapped TinyLlama disaggregated serving may return content associated with another prompt in the same request batch.
+  - Eight-rank asymmetric NIXL KV-cache transfers may fail intermittently, preventing disaggregated cache exchange.
+  - MiniMax-M3 MXFP8 inference with MSA and piecewise CUDA graphs may crash during executor initialization.
+  - Nemotron-3 Super FP8 inference may lose accuracy when using the C++ Mamba cache without attention data parallelism. Use the Python Mamba cache to avoid the affected path.
+  - DeepSeek-V4-Flash NVFP4 inference may intermittently crash with an illegal memory access while initializing the KV cache.
+  - Qwen3-30B-A3B skip-softmax attention may hang with 0.9 sparsity and FP8 KV cache.
+  - Qwen3-VL forced chunked prefill may intermittently terminate multimodal requests before generation.
+  - Two-rank tensor-parallel execution may intermittently abort while importing CUDA IPC memory handles.
+
+- Model Support
+  - Extend Qwen3.8-Flash-Next with disaggregation, MegaMoE, and GVR index reuse #18921, #19323, #19138
+  - Enable MiniMax-M3 Eagle3 speculation and MegaMoE CuTeDSL execution #18872, #18605
+  - Optimize Kimi-K3 attention-residual RMSNorm fusion and KDA cache alignment #19182
+  - Enable Nemotron multimodal KVCM2 and Transformers 5.13 checkpoint loading #19140, #19168
+  - Expand Qwen-Image attention backends and Cosmos3 Edge Diffusers parity #18147, #19097
+
+- API
+  - Remove deprecated TensorRT serve, evaluation, benchmark, and stress paths (BREAKING) #19022, #19021, #18850
+  - Remove the deprecated Eagle choices configuration field (BREAKING) #18210
+  - Remove unused LlmRequest methods and legacy request code (BREAKING) #18977, #18902
+  - Deprecate the Triton MoE backend in favor of supported implementations #19035
+  - Remove callable telemetry schema metadata support from configuration capture #19360
+
+- Feature
+  - Add DFlash 2 support with model-specific MoE backend overrides #18155, #17408
+  - Enable KV-cache manager V2 by default for Llama and Llama4 #19004
+  - Track KV-cache reuse by source tier and extend connector support #18583, #18762
+  - Unify native KV transfer coordination, admission, and backend contracts #19128, #19266, #19198
+  - Add token-aware ADP routing and enhanced NIXL transceiver buffering #19130, #15780, #18939
+  - Integrate Sol-Attn sparse attention into VisualGen pipelines #18329
+  - Give VisualGen servers isolated media directories for concurrent requests #19135
+  - Add FP8 KV-cache support to PrimTS MLA decode #18946
+  - Add NCCL-EP 0.2 low-latency expert-parallel integration #18689
+  - Return per-token MoE routing through Router Replay to training #18397
+  - Add fused sampling and min-p to AdvancedSamplingMode.FULL #18515
+  - Validate CUDA-graph input-buffer readiness before replay #18207
+  - Optimize MiniMax-M3 QKV, MSA writes, and CuTeDSL autotuning #18205, #18614, #18620, #17015
+  - Reduce DeepEP metadata overhead and tune MegaMoE for Blackwell #16919, #17956
+  - Tune GVR, DSA, and PrimTS kernels across Blackwell generations #19076, #19094, #19096
+  - Cache input-prefix tokenization and reduce default NumExpr thread overhead #18389, #18556
+  - Deduplicate VisualGen Wan RoPE shared-memory staging #18036
+  - Extract encoder runners and reorganize disaggregated beam-search support #18933, #18638
+  - Add FlashInfer decode overrides with complete autotuner candidate logging #19162
+  - Centralize multimodal rotary dummy-slot state across execution paths #19290
+  - Optimize NVFP4 MLA gathering and profile dense cached KV chunks #19291, #19269
+  - Preallocate GDN prefill state workspaces for repeated execution #19108
+  - Add attention-kernel failure context and optional page-table diagnostics #18756
+  - Consolidate MoE components and simplify Kimi FP8 checkpoint loading #19061, #19179
+
+- Fix
+  - Correct KVCM2 quotas, block scales, parity, admission, and draft sizing #18988, #19192, #19103, #18697, #19018, #19202
+  - Share speculative draft-length updates during warmup and capacity planning #19204
+  - Correct V2 KV-cache estimation for GPT-OSS and related workloads #18910
+  - Stabilize XQA attention-sink normalization for fully masked partial rows #19220
+  - Fix mixed-precision MoE configuration, LoRA propagation, and Ray workspaces #18393, #19109, #18300
+  - Reject unsupported one-model speculative parameters before streaming begins #19161
+  - Restore grammar state across speculative verification modes #19296
+  - Default unset non-greedy speculative temperatures and avoid unused draft caches #19390, #19410
+  - Convert DFlash capture buffers to the correct runtime dtype #19354
+  - Stop charging retiring requests against ADP admission capacity #18457
+  - Preserve integrated-GPU host-tier budgets during cache sizing #18926
+  - Load custom tokenizers consistently and reject empty completion prompts #18680, #17737
+  - Preserve Cosmos3 metadata and make MoonViT replication helix-aware #18909, #19277
+  - Correct Wan fused layer normalization with FP32 accumulation #17987
+  - Fix NVLink discovery below probe bounds and release attention workspaces #19210, #19051
+  - Correct RocketKV cache sizing and avoid full Triton prefill casts #19264, #19385
+  - Add SM100-family JIT support for MiniMax sparse attention #19372
+  - Preserve logger formatting arguments and external wheel requirements #19160, #19286
+  - Reconfigure CMake when wheel-build arguments change #19339
+  - Preserve multimodal KV-cache keys across V2 event publication #18810
+  - Compose telemetry capture policies across nested configuration fields #18978
+  - Accept FlashInfer ultra-wide W4A16 tiles and isolate rank-local cubins #18898, #19034
+  - Honor every greedy stop token through canonical termination checks #19049
+  - Preserve mixed-BF16 FlashInfer attention dispatch #19144
+  - Keep strict Qwen3 LoRA validation with KV-cache manager V2 #19206
+  - Match vendored include patterns by complete path components #19274
+  - Warn when DFlash is combined with unsupported disaggregated serving #19352
+
+- Documentation
+  - Document DeepSeek-V4 support in NVFP4 cold-page compression #19317
+  - Remove the superseded deployment guide from published documentation #19426
+  - Keep historical change rationale in pull-request descriptions #19419
+  - Restore bounce-buffer capture metadata during documentation builds #19279
+  - Clarify phased FMHA inputs, outputs, and ownership contracts #19284
+  - Document CUDA-graph padding bounds and tail-only invariants #19163
+
+- Test & Infra
+  - Upgrade public PyTorch and Triton while supporting DLFW release wheels #18743, #18628
+  - Clean development images and derive DLFW wheel versions automatically #19152, #19248
+  - Add CBTS shadow runs and Python change-reference analysis #18814, #19124
+  - Expand model coverage for Phi-3, Exaone4, Whisper, and DeepSeek-V3.2 #19245, #19246, #19256, #19332
+  - Make missing VisualGen checkpoints and dependencies fail explicitly #19054
+  - Publish canonical BOLT profiles and disable unsupported aggregate cases #18615, #19299
+  - Improve confidentiality scanning, internal Git fallback, and stalled-job cleanup #19200, #18951, #19165
+  - Add InferenceX-style GSM8K evaluation and model-feature qualification #18738, #19046
+  - Refine pre-merge performance gating and generation-only sanity runs #18766, #19107
+  - Add power-law MoE routing controls and additional DFlash coverage #19148, #19159
+  - Register LTX-2 VAE and executor IPC validation in CI #19203
+  - Enforce V2 KV-cache iteration statistics and parity prewarming #19207, #19132
+  - Stabilize AgentX timeouts, MoE-LoRA measurement, and MiniMax fixtures #19219, #19255, #19298
+  - Gate SM103 graph tests and cap hybrid-model batch sizes #19280, #19398
+  - Bound MiniMax serving configurations and trim oversized perf-sanity cases #19344, #19349
+  - Initialize KV-cache fixtures and restore deterministic test coverage #19382
+  - Remove obsolete K2, DeepSeek, Llama, and flaky parity coverage #19084, #19114, #18654, #19239
+  - Stabilize attention rotary, MSA layout, and backend-policy tests #18774, #19078, #18811
+  - Update performance helpers and balance checkpoint-I/O experiment arms #19129, #19170
+  - Remove deprecated MiniMax coverage and correct stop-word expectations #19030, #19158
+  - Cover MiniMax C++ NIXL bounce and Nemotron graph parity #19288, #19335
+
+## What's Changed
+* [None][infra] Skip pre-merge perf gating when main has already regressed and refactor the pre-merge perf-sanity list by @chenfeiz0326 in https://github.com/NVIDIA/TensorRT-LLM/pull/18766
+* [https://nvbugs/6758853][fix] Prewarm prefixes for KV cache parity comparisons by @yizhang-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19132
+* [TRTLLM-15788][feat] Add dflash 2 support by @mikeiovine in https://github.com/NVIDIA/TensorRT-LLM/pull/18155
+* [TRTLLM-14093][feat] Eagle3 support for MiniMax-M3 by @zheyuf in https://github.com/NVIDIA/TensorRT-LLM/pull/18872
+* [None][chore] BREAKING: Remove TRT leftovers from serve and eval by @Funatiq in https://github.com/NVIDIA/TensorRT-LLM/pull/19022
+* [https://nvbugs/6556429][fix] Fix host tier budget on integrated GPUs by @pamelap-nvidia in https://github.com/NVIDIA/TensorRT-LLM/pull/18926
+* [None][chore] Log attention kernel failure context and add an opt-in host-side page-table check by @brnguyen2 in https://github.com/NVIDIA/TensorRT-LLM/pull/18756
+* [https://nvbugs/6661846][fix] Initialize FP8 storage in MSA layout tests by @peihu-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19078
+* [https://nvbugs/6732123][fix] Correct V2 KV cache quota estimation by @yizhang-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/18988
+* [None][feat] support disaggregated serving for Qwen3.8-Flash-Next by @Wanli-Jiang in https://github.com/NVIDIA/TensorRT-LLM/pull/18921
+* [TRTLLM-16404][fix] thread LoRA params through MoE models by @achartier in https://github.com/NVIDIA/TensorRT-LLM/pull/19109
+* [None][fix] compose telemetry capture policies by @Mgluhovskoi in https://github.com/NVIDIA/TensorRT-LLM/pull/18978
+* [TRTLLM-15715][refactor] Extract progress polling and error consensus into DisaggTransferCoordinator by @nv-xtf in https://github.com/NVIDIA/TensorRT-LLM/pull/19128
+* [TRTLLM-16326][test] Fail VisualGen tests on missing checkpoints/deps by @zhenhuaw-me in https://github.com/NVIDIA/TensorRT-LLM/pull/19054
+* [TRTLLM-10657][fix] Resolve MIXED_PRECISION quant config for DeepSeek W4A8 MoE experts by @brnguyen2 in https://github.com/NVIDIA/TensorRT-LLM/pull/18393
+* [None][perf] Fuse MiniMax-M3 MSA per-layer KV-cache writes into one kernel by @zheyuf in https://github.com/NVIDIA/TensorRT-LLM/pull/18614
+* [https://nvbugs/6716104][fix] Keep mixed BF16 attention on FlashInfer by @yihwang-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19144
+* [None][chore] Remove TRT leftovers from perf and stress test by @Funatiq in https://github.com/NVIDIA/TensorRT-LLM/pull/19021
+* [None][chore] Remove unused LlmRequest methods by @Funatiq in https://github.com/NVIDIA/TensorRT-LLM/pull/18977
+* [None][feat] Enable KVCacheManagerV2 by default for Llama and Llama4 by @yizhang-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19004
+* [TRTLLMINF-336][infra] BoltProfileGen: publish the BOLTed build as canonical (default off) by @mlefeb01 in https://github.com/NVIDIA/TensorRT-LLM/pull/18615
+* [None][test] Run the Blackwell 4-GPU perf cases on Rubin by @ruodil in https://github.com/NVIDIA/TensorRT-LLM/pull/18222
+* [None][perf] Add CuteDSL to MiniMax-M3 autotune (for MXFP8 linear GEMM+quant) by @zheyuf in https://github.com/NVIDIA/TensorRT-LLM/pull/18620
+* [TRTLLM-16020][test] Add Kimi K3 GSM8K accuracy tests to GB300 multi-node post-merge CI by @moraxu in https://github.com/NVIDIA/TensorRT-LLM/pull/18461
+* [None][test] Prune DeepSeek-V3 and DeepSeek-V3.2 tests by @xinhe-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19114
+* [https://nvbugs/6708349][fix] Allocate V2 KV block scales using resolved dtype by @yizhang-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19192
+* [TRTLLM-10804][infra] Support DLFW wheels in release by @niukuo in https://github.com/NVIDIA/TensorRT-LLM/pull/18628
+* [None][chore] cuda_graph_runner: name the padded-batch bound, document the tail-only padding invariant by @brnguyen2 in https://github.com/NVIDIA/TensorRT-LLM/pull/19163
+* [None][fix] Route custom-tokenizer loading through one shared loader by @moraxu in https://github.com/NVIDIA/TensorRT-LLM/pull/18680
+* [TRTLLM-16220][feat] Enable KVCacheManagerV2 by default for Nemotron multimodal models by @eopXD in https://github.com/NVIDIA/TensorRT-LLM/pull/19140
+* [None][fix] Logger: honor printf-style arguments by @brnguyen2 in https://github.com/NVIDIA/TensorRT-LLM/pull/19160
+* [None][fix] Preserve caller-supplied Cosmos3 prompt metadata by @ishovkun in https://github.com/NVIDIA/TensorRT-LLM/pull/18909
+* [None][test] Pin the float32 precision of the attention-plugin rotary table by @brnguyen2 in https://github.com/NVIDIA/TensorRT-LLM/pull/18774
+* [None][fix] reject empty prompt list in completions endpoint by @lonexreb in https://github.com/NVIDIA/TensorRT-LLM/pull/17737
+* [None][feat] Make ADP new conversation routing token-aware by @dongfengy in https://github.com/NVIDIA/TensorRT-LLM/pull/19130
+* [https://nvbugs/6708111][fix] Load Nemotron-H saved by transformers>=5.13 by @aswinvisva in https://github.com/NVIDIA/TensorRT-LLM/pull/19168
+* [None][chore] Refactor support for beam search in disaggregated serving by @athena-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/18638
+* [TRTLLMINF-434][infra] Fix confidentiality scan argument overflow by @mzweilz in https://github.com/NVIDIA/TensorRT-LLM/pull/19200
+* [TRTLLM-15262][feat] Test CUDA graph input buffers status before replay by @asfiyab-nvidia in https://github.com/NVIDIA/TensorRT-LLM/pull/18207
+* [TRTLLM-15938][fix] build MoE MNNVL/all-to-all workspaces without MPI under Ray by @shuyixiong in https://github.com/NVIDIA/TensorRT-LLM/pull/18300
+* [https://nvbugs/6535765][fix] bump Wan layernorm fusion math to FP32 by @o-stoner in https://github.com/NVIDIA/TensorRT-LLM/pull/17987
+* [None][perf] GVR V2 top-K: 4K<n<=8K register rungs, unified QC gate, sampled small-envelope prefill plan, SM-count-aware dispatch with B300 tuning by @longcheng-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19076
+* [None][feat] Enable NVFP4 KV for DSV4 by @Tracin in https://github.com/NVIDIA/TensorRT-LLM/pull/18723
+* [None][feat] support draft model MoE backend override by @Barry-Delaney in https://github.com/NVIDIA/TensorRT-LLM/pull/17408
+* [TRTLLM-16188][test] Add Kimi K3 short-context perf cases and fix stale disagg note by @ruodil in https://github.com/NVIDIA/TensorRT-LLM/pull/19191
+* [TRTLLM-15344][feat] cache transceiver nixl bounce buffer by @chuangz0 in https://github.com/NVIDIA/TensorRT-LLM/pull/15780
+* [https://nvbugs/6721561][fix] Accept flashinfer W4A16 ultra-wide FC2 tile on SM120 by @nv-guomingz in https://github.com/NVIDIA/TensorRT-LLM/pull/18898
+* [None][chore] Deprecate the TRITON MoE backend by @xxi-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19035
+* [None][fix] KVCM2: fix remaining Python/C++ parity issues and replace abort with a poison latch by @lowsfer in https://github.com/NVIDIA/TensorRT-LLM/pull/19103
+* [https://nvbugs/6739916][fix] Preallocate GDN prefill state workspace by @VALLIS-NERIA in https://github.com/NVIDIA/TensorRT-LLM/pull/19108
+* [#19169][test] Balance post-merge checkpoint I/O experiment arms by @chienchunhung in https://github.com/NVIDIA/TensorRT-LLM/pull/19170
+* [None][fix] Restore SM107 2x-mmaK acceptance and fine-grained sync PDL path by @farazkh80 in https://github.com/NVIDIA/TensorRT-LLM/pull/18974
+* [https://nvbugs/6762287][fix] Pin the measured literal `"Hello there! "` at both assertion sites, preserving… by @trtllm-agent in https://github.com/NVIDIA/TensorRT-LLM/pull/19158
+* [TRTLLMINF-346][fix] add internal Git fallback for PR diffs by @hanjingtian in https://github.com/NVIDIA/TensorRT-LLM/pull/18951
+* [None][test] Enforce the V2 KV cache iteration stats contract by @yizhang-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19207
+* [https://nvbugs/6762589][test] Register LTX-2 VAE and executor IPC tests in CI by @luyiyun1021 in https://github.com/NVIDIA/TensorRT-LLM/pull/19203
+* [None][test] Add InferenceX-style GSM8K accuracy eval mode by @zheyuf in https://github.com/NVIDIA/TensorRT-LLM/pull/18738
+* [None][feat] Add DeepSeek-V4 support to NVFP4 cold-page KV Cache Compression by @Hudayday in https://github.com/NVIDIA/TensorRT-LLM/pull/18783
+* [None][chore] Split FMHA backend policy tests by @yuxianq in https://github.com/NVIDIA/TensorRT-LLM/pull/18811
+* [None][fix] Keep strict Qwen3 LoRA checks with KV cache manager V2 by @yizhang-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19206
+* [None][fix] Correct the NVLink link count on GPUs below NVML's probe bound by @Wanli-Jiang in https://github.com/NVIDIA/TensorRT-LLM/pull/19210
+* [TRTLLM-15758][refactor] Extract encoder runners from model engine by @lori-ren in https://github.com/NVIDIA/TensorRT-LLM/pull/18933
+* [None][fix] Pass alpha through SM107 scaled_mm compilation by @peaceh-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19150
+* [None][fix] Restore bounce-buffer capture policy for documentation builds by @chzblych in https://github.com/NVIDIA/TensorRT-LLM/pull/19279
+* [https://nvbugs/6555619][fix] Dispatch DeepSeek-V4 FMHA epilogue-fusion kernels on SM107 by @farazkh80 in https://github.com/NVIDIA/TensorRT-LLM/pull/19025
+* [None][fix] Align isSM100Family() with its SM100-109 C++ namesake by @farazkh80 in https://github.com/NVIDIA/TensorRT-LLM/pull/19221
+* [None][fix] Complete DeepSeek-V4 Rubin BF16 dispatch and optimize MLA KV expansion by @peaceh-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19139
+* [TRTLLMINF-445][infra] Upgrade public torch to 2.13.0 and triton to 3.7.1 by @EmmaQiaoCh in https://github.com/NVIDIA/TensorRT-LLM/pull/18743
+* [None][feat] Support MiniMax-M3 in MegaMoE CuTeDSL by @peihu-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/18605
+* [TRTLLM-15740][perf] VisualGen Wan: deduplicate shared RoPE SMEM staging by @yanxinzhangcs in https://github.com/NVIDIA/TensorRT-LLM/pull/18036
+* [None][fix] Reject sampling params unsupported by one-model speculation before the stream opens by @brnguyen2 in https://github.com/NVIDIA/TensorRT-LLM/pull/19161
+* [None][test] Add coverage for Phi3ForCausalLM by @StanleySun639 in https://github.com/NVIDIA/TensorRT-LLM/pull/19245
+* [None][perf] default NumExpr to one thread and lazy-load it by @dhansen-nvidia in https://github.com/NVIDIA/TensorRT-LLM/pull/18556
+* [None][fix] Align the budget split, spec layers and pool_ratio with derived per-layer KV windows by @moraxu in https://github.com/NVIDIA/TensorRT-LLM/pull/18697
+* [https://nvbugs/6656598][tests] Deprecate K2 E2E test for K3 by @2ez4bz in https://github.com/NVIDIA/TensorRT-LLM/pull/19084
+* [None][perf] Reduce DeepEP metadata overhead in CuTeDSL MoE by @peihu-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/16919
+* [None][fix] Stage all requirements files for out-of-tree wheels by @brnguyen2 in https://github.com/NVIDIA/TensorRT-LLM/pull/19286
+* [None][fix] Align MiniMax-M3 composition test fixtures with MoE interfaces by @peihu-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19298
+* [None][infra] Cancel slurm job if no new log after in 2 hours by @yuanjingx87 in https://github.com/NVIDIA/TensorRT-LLM/pull/19165
+* [None][feat] add powerlaw expert_pattern to bench_moe routing control by @leslie-fang25 in https://github.com/NVIDIA/TensorRT-LLM/pull/19148
+* [https://nvbugs/6714109][fix] Remove deprecated Minimax M3 Triton MXFP8 piecewise graph test by @peihu-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19030
+* [None][fix] SM107 runtime gate fixes and test hygiene from the Rubin validation run by @farazkh80 in https://github.com/NVIDIA/TensorRT-LLM/pull/19224
+* [https://nvbugs/6746175][fix] Size the agentx aiperf timeout to cover warmup and unwaive GB300 DSpark con1456 by @chenfeiz0326 in https://github.com/NVIDIA/TensorRT-LLM/pull/19219
+* [TRTLLM-12891][feat] Support KV cache connector for v2_kvcm and extend VSWA support by @eopXD in https://github.com/NVIDIA/TensorRT-LLM/pull/18762
+* [None][chore] Name the Nemotron multimodal module for the family it serves instead of one of its three models by @eopXD in https://github.com/NVIDIA/TensorRT-LLM/pull/19146
+* [None][infra] Add blossom-ci authorized users by @trtllm-agent in https://github.com/NVIDIA/TensorRT-LLM/pull/19215
+* [None][test] add VR200 multi-node disagg perf cases by @fredricz-20070104 in https://github.com/NVIDIA/TensorRT-LLM/pull/19267
+* [https://nvbugs/6770503][test] Update perf sanity helper unit tests to match #18990 renames by @HuiGao-NV in https://github.com/NVIDIA/TensorRT-LLM/pull/19129
+* [None][feat] support FP8 KV cache in PrimTS MLA decode by @yuxianq in https://github.com/NVIDIA/TensorRT-LLM/pull/18946
+* [None][chore] promote PrimTS source from TRT-LLM #18815 by @yuxianq in https://github.com/NVIDIA/TensorRT-LLM/pull/19331
+* [https://nvbugs/6786555][fix] [https://nvbugs/6786567] Gate SM103 graph test on SM count by @longcheng-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19280
+* [https://nvbugs/6758594][fix] Measure MoE LoRA adapters one request at a time by @lori-ren in https://github.com/NVIDIA/TensorRT-LLM/pull/19255
+* [https://nvbugs/6641268][perf] Use producer-zeroed V tails in PrimTS FMHA by @yuxianq in https://github.com/NVIDIA/TensorRT-LLM/pull/19096
+* [#18465][feat] Track KV cache reuse hit tokens by source tier by @yizhang-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/18583
+* [https://nvbugs/6776338][fix] Enable DeepGEMM FP8 block scales on SM107 by @peaceh-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19199
+* [None][fix] Match vendor include patterns by path component by @yuxianq in https://github.com/NVIDIA/TensorRT-LLM/pull/19274
+* [TRTLLM-14968][TRTLLM-14969][refactor] Split TRTLLMGenFusedMoE into eleven leaves with canonical identities by @xxi-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19153
+* [None][fix] Fix KV cache size estimation with Qwen3.5 + EAGLE3 by @AlessioNetti in https://github.com/NVIDIA/TensorRT-LLM/pull/19018
+* [TRTLLM-16315][infra] add Python change reference analysis for CBTS by @crazydemo in https://github.com/NVIDIA/TensorRT-LLM/pull/19124
+* [None][test] Add coverage for Exaone4ForCausalLM by @StanleySun639 in https://github.com/NVIDIA/TensorRT-LLM/pull/19246
+* [#17495][fix] Share draft length updates with warmup by @yizhang-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19204
+* [https://nvbugs/6627795][fix] stop charging retiring requests against ADP admission and capacity by @chenfeiz0326 in https://github.com/NVIDIA/TensorRT-LLM/pull/18457
+* [None][perf] Add CUTEDSL FC2 N-tile tuning override by @peihu-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/17015
+* [https://nvbugs/6739553][fix] Isolate the FlashInfer cubin cache per rank by @xxi-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19034
+* [TRTLLM-15716][refactor] Extract receive start/tail and admission into DisaggTransferCoordinator by @nv-xtf in https://github.com/NVIDIA/TensorRT-LLM/pull/19266
+* [TRTLLM-14329][perf] Enable fused DSA metadata by default by @xwang233 in https://github.com/NVIDIA/TensorRT-LLM/pull/19094
+* [TRTLLM-16465][perf] Release unused attention workspace memory by @zhaoyangwang-nvidia in https://github.com/NVIDIA/TensorRT-LLM/pull/19051
+* [TRTLLM-14388][refactor] BREAKING: Remove eagle_choices by @mikeiovine in https://github.com/NVIDIA/TensorRT-LLM/pull/18210
+* [https://nvbugs/6693990][test] Remove flaky MTP non-greedy CUDA graph matches eager test by @asfiyab-nvidia in https://github.com/NVIDIA/TensorRT-LLM/pull/19239
+* [None][perf] update MegaMoE kernels for Blackwell and Rubin by @Barry-Delaney in https://github.com/NVIDIA/TensorRT-LLM/pull/17956
+* [TRTLLM-16186][feat] Route native KV transfer through a shared backend contract by @Shixiaowei02 in https://github.com/NVIDIA/TensorRT-LLM/pull/19198
+* [TRTLLM-16104][test] Add MX weight manifests and widen the ModelExpress qualification probe by @moraxu in https://github.com/NVIDIA/TensorRT-LLM/pull/18560
+* [None][fix] Restore grammar state after SA, DFlash and PARD verification by @brnguyen2 in https://github.com/NVIDIA/TensorRT-LLM/pull/19296
+* [None][test] verify model feature matrix support by @cascade812 in https://github.com/NVIDIA/TensorRT-LLM/pull/19046
+* [TRTLLM-14729][feat] Support various Qwen-Image attention backends by @yibinl-nvidia in https://github.com/NVIDIA/TensorRT-LLM/pull/18147
+* [https://nvbugs/6751484][fix] Replace the single-index check with the canonical `meet_stop_token_criteria`… by @trtllm-agent in https://github.com/NVIDIA/TensorRT-LLM/pull/19049
+* [None][fix] Make MoonViT replication helix-aware by @lancelly in https://github.com/NVIDIA/TensorRT-LLM/pull/19277
+* [None][test] Enable Wan2.2 Rubin QA coverage and add Cosmos3 Super example by @yingguo-trt in https://github.com/NVIDIA/TensorRT-LLM/pull/19259
+* [None][infra] add CBTS coverage shadow-run framework by @crazydemo in https://github.com/NVIDIA/TensorRT-LLM/pull/18814
+* [None][doc] Document DeepSeek-V4 support in NVFP4 cold-page Compression by @Hudayday in https://github.com/NVIDIA/TensorRT-LLM/pull/19317
+* [NVBUG-6762388][fix] enable Cosmos3 Edge Diffusers parity by @ishovkun in https://github.com/NVIDIA/TensorRT-LLM/pull/19097
+* [TRTLLM-16516][feat] Give each VisualGen server its own media directory by @luyiyun1021 in https://github.com/NVIDIA/TensorRT-LLM/pull/19135
+* [None][fix] Initialize KV cache fixtures and unwaive nine cases on all platforms by @yizhang-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19382
+* [None][perf] Fuse MiniMax-M3 QKV and index projection by @peihu-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/18205
+* [https://nvbugs/6626640][fix] Correct V2 KV cache estimation by @dongfengy in https://github.com/NVIDIA/TensorRT-LLM/pull/18910
+* [None][fix] Exclude aggregates from the IsSimpleAlphaBeta guard by @100milliongold in https://github.com/NVIDIA/TensorRT-LLM/pull/19065
+* [TRTLLM-16217][test] Add Rubin single-node serve perf cases by @ruodil in https://github.com/NVIDIA/TensorRT-LLM/pull/19341
+* [None][test] Trim DeepSeek-R1 and Nemotron-Ultra-V3 perf-sanity cases by @chenfeiz0326 in https://github.com/NVIDIA/TensorRT-LLM/pull/19349
+* [TRTLLMINF-401][infra] Derive the DLFW wheel local version from the container by @weiminwang-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19248
+* [None][feat] Add FP4 MLA attention backend by @reasonsolo in https://github.com/NVIDIA/TensorRT-LLM/pull/19070
+* [None][test] Add nemotron_3.5_lightning_30b_nvfp4 and nemotron_3.5_lightning_30b_bf16 func and perf cases on Spark by @JennyLiu-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19340
+* [None][chore] Remove TRT leftovers from bench by @Funatiq in https://github.com/NVIDIA/TensorRT-LLM/pull/18850
+* [TRTLLM-16403][chore] Add more dflash 2 tests by @mikeiovine in https://github.com/NVIDIA/TensorRT-LLM/pull/19159
+* [TRTLLM-15262][feat] single source of truth for mrope_dummy_seq_slot by @asfiyab-nvidia in https://github.com/NVIDIA/TensorRT-LLM/pull/19290
+* [None][chore] Clarify phased FMHA inputs and outputs by @yuxianq in https://github.com/NVIDIA/TensorRT-LLM/pull/19284
+* [https://nvbugs/6667807][fix] Raise NVLink one-sided MoE all-to-all rank cap to 256 by @dongfengy in https://github.com/NVIDIA/TensorRT-LLM/pull/18800
+* [None][fix] Fix runtime failures for rubin test enablement by @yifeizhang-c in https://github.com/NVIDIA/TensorRT-LLM/pull/19038
+* [None][perf] specialize NVFP4 MLA context gather for residual layout by @SimengLiu-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19291
+* [None][refactor] Remove callable telemetry schema metadata support by @Mgluhovskoi in https://github.com/NVIDIA/TensorRT-LLM/pull/19360
+* [None][fix] Release V2 cache claims after failed first-context admission by @yizhang-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19202
+* [None][feat] Rubin kernels & attention: DSV4/DSA, CuteDSL GEMM by @reasonsolo in https://github.com/NVIDIA/TensorRT-LLM/pull/19184
+* [TRTLLMINF-443][infra] Disable agg c1024 from BOLT profile gen by @mlefeb01 in https://github.com/NVIDIA/TensorRT-LLM/pull/19299
+* [None][feat] Kimi K3 attention-residual RMSNorm fusion + KDA beta-cache alignment by @reasonsolo in https://github.com/NVIDIA/TensorRT-LLM/pull/19182
+* [None][feat] Enable 2:4 activation-sparsity FMHA on SM107 by @farazkh80 in https://github.com/NVIDIA/TensorRT-LLM/pull/19024
+* [TRTLLM-15917][feat] Integrate Sol-Attn sparse attention into VisualGen by @karljang in https://github.com/NVIDIA/TensorRT-LLM/pull/18329
+* [None][fix] Emit multimodal keys in KV cache v2 events by @yizhang-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/18810
+* [None][fix] Resolve unset temperature to 1.0 for non-greedy one-model spec decode rows by @zhaoyangwang-nvidia in https://github.com/NVIDIA/TensorRT-LLM/pull/19390
+* [https://nvbugs/6776338][fix] Run legacy fmha_v2 on the SM100 family (incl. SM107) instead of aborting by @farazkh80 in https://github.com/NVIDIA/TensorRT-LLM/pull/19365
+* [None][feat] add CuteDslFc12FusedMoE fused FC1+FC2 NVFP4 MoE backend (Rubin/SM107) by @leslie-fang25 in https://github.com/NVIDIA/TensorRT-LLM/pull/18357
+* [None][fix] Avoid unused DFlash draft KV cache managers by @xwang233 in https://github.com/NVIDIA/TensorRT-LLM/pull/19410
+* [https://nvbugs/6601633][fix] Add an SM100-family JIT target for MSA by @zhangcl in https://github.com/NVIDIA/TensorRT-LLM/pull/19372
+* [None][refactor] Clean up Kimi checkpoint FP8 attention loading by @jiaganc in https://github.com/NVIDIA/TensorRT-LLM/pull/19179
+* [None][test] Enable gen_only_no_context mode in perf sanity system by @chenfeiz0326 in https://github.com/NVIDIA/TensorRT-LLM/pull/19107
+* [None][perf] Prefix-tokenization cache for the default input processor by @Tabrizian in https://github.com/NVIDIA/TensorRT-LLM/pull/18389
+* [None][fix] Convert the DFlash capture tap to the buffer dtype by @brnguyen2 in https://github.com/NVIDIA/TensorRT-LLM/pull/19354
+* [TRTLLM-14967][refactor] Give the CuteDSL MegaMoE kernel an impl identity by @xxi-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19392
+* [https://nvbugs/6672360][fix] Stabilize XQA attention sink normalization by @dongfengy in https://github.com/NVIDIA/TensorRT-LLM/pull/19220
+* [TRTLLM-15137][feat] Add fused sampling and min-p support to AdvancedSamplingMode.FULL by @lori-ren in https://github.com/NVIDIA/TensorRT-LLM/pull/18515
+* [TRTLLM-16184][refactor] Consolidate the C++ MoE kernels, thop ops and gtests under moe/ directories by @lori-ren in https://github.com/NVIDIA/TensorRT-LLM/pull/19061
+* [https://nvbugs/6777501][fix] Fix nemotron breakable cuda graph test parity check by @dominicshanshan in https://github.com/NVIDIA/TensorRT-LLM/pull/19335
+* [None][doc] Remove the outdated deployment guide. by @nv-guomingz in https://github.com/NVIDIA/TensorRT-LLM/pull/19426
+* [None][feat] FlashInfer: TRTLLM_FI_DECODE_TENSOR_CORES override; autotuner: log every candidate by @brnguyen2 in https://github.com/NVIDIA/TensorRT-LLM/pull/19162
+* [None][feat] Add NCCL-EP 0.2 low-latency integration by @nv-lschneider in https://github.com/NVIDIA/TensorRT-LLM/pull/18689
+* [TRTLLM-16464][fix] Size RocketKV KT cache using local KV heads by @zhaoyangwang-nvidia in https://github.com/NVIDIA/TensorRT-LLM/pull/19264
+* [TRTLLM-16498][fix] Avoid full KV pool casts in Triton prefill by @zhaoyangwang-nvidia in https://github.com/NVIDIA/TensorRT-LLM/pull/19385
+* [TRTLLM-14964][TRTLLM-14965][refactor] Give Marlin and DenseGEMM canonical impl identities by @xxi-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19380
+* [None][test] Add coverage for WhisperForConditionalGeneration by @StanleySun639 in https://github.com/NVIDIA/TensorRT-LLM/pull/19256
+* [None][test] Cover MiniMax-M3 C++ NIXL bounce by @peihu-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19288
+* [None][fix] Reject unsupported SM100 sync-object factories by @peaceh-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19142
+* [None][feat] enable the GVR Top-K and MTP draft-loop index reuse for the QSA indexer by @Wanli-Jiang in https://github.com/NVIDIA/TensorRT-LLM/pull/19138
+* [https://nvbugs/6603467][test] Cap hybrid-model test batch sizes at 256 by @VALLIS-NERIA in https://github.com/NVIDIA/TensorRT-LLM/pull/19398
+* [None][test] Add coverage for DeepseekV32ForCausalLM by @StanleySun639 in https://github.com/NVIDIA/TensorRT-LLM/pull/19332
+* [None][test] Prune Llama-3.1 8b model from tests by @xinhe-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/18654
+* [TRTLLMINF-419][infra] Clean up the devel image build by @EmmaQiaoCh in https://github.com/NVIDIA/TensorRT-LLM/pull/19152
+* [None][chore] BREAKING: Remove unused code from LlmRequest by @Funatiq in https://github.com/NVIDIA/TensorRT-LLM/pull/18902
+* [TRTLLM-13662][feat] transceiver enhancement by @bo-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/18939
+* [None][fix] Use bounded NVFP4 serving configs for MiniMax-M3 perf tests by @yufeiwu-nv in https://github.com/NVIDIA/TensorRT-LLM/pull/19344
+* [None][fix] Warn when DFlash is used with disaggregated serving by @brnguyen2 in https://github.com/NVIDIA/TensorRT-LLM/pull/19352
+* [None][feat] Router Replay (R3): return per-token MoE routing to training engine in post train. by @shikicloud in https://github.com/NVIDIA/TensorRT-LLM/pull/18397
+* [None][doc] Keep change rationale in the PR description, not code comments by @brnguyen2 in https://github.com/NVIDIA/TensorRT-LLM/pull/19419
+* [None][fix] Reconfigure cmake when build_wheel.py arguments change by @brnguyen2 in https://github.com/NVIDIA/TensorRT-LLM/pull/19339
+* [None][chore] Remove the duplicate Rubin fused FC12 op registration by @leslie-fang25 in https://github.com/NVIDIA/TensorRT-LLM/pull/19476
+* [None][feat] Support the MegaMoE CuteDSL MoE backend for Qwen3.8-Flash-Next by @Wanli-Jiang in https://github.com/NVIDIA/TensorRT-LLM/pull/19323
+* [TRTLLM-16466][fix] Profile cached KV chunks for dense MLA by @zhaoyangwang-nvidia in https://github.com/NVIDIA/TensorRT-LLM/pull/19269
+
+## New Contributors
+* @yanxinzhangcs made their first contribution in https://github.com/NVIDIA/TensorRT-LLM/pull/18036
+* @100milliongold made their first contribution in https://github.com/NVIDIA/TensorRT-LLM/pull/19065
+
+**Full Changelog**: https://github.com/NVIDIA/TensorRT-LLM/compare/v1.3.0rc27...v1.3.0rc28
+

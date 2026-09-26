@@ -1,5 +1,3 @@
-# Ascend
-
 source: https://github.com/Ascend/msmodelslim/releases
 
 # Releases: Ascend/msmodelslim

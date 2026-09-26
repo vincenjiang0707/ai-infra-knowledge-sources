@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/inc/schemes/inc_mxfp8_moe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class INCMxfp8MoEMethod(FusedMoEMethodBase):
 """W8A8 MXFP8 MoE method for serialized AutoRound checkpoints."""

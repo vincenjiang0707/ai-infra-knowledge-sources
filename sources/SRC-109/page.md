@@ -1,5 +1,3 @@
-# GenAI Perf
-
 source: https://github.com/triton-inference-server/perf_analyzer/releases
 
 # Releases: triton-inference-server/perf_analyzer

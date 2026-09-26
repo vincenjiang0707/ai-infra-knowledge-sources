@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/nixl_kv_cache_lease/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # NIXL KV Cache Lease Renewal[¶](https://docs.vllm.ai#nixl-kv-cache-lease-renewal)
 
@@ -176,11 +176,13 @@ in `--kv-transfer-config`
 `decoder_kv_blocks_ttl` | 480s | TTL for KV blocks cached on D in bidirectional transfer mode. Simple fixed timeout, not renewed via heartbeats. |
 
 vllm serve <MODEL> \
+```json
 --kv-transfer-config '{
 "kv_connector": "NixlConnector",
 "kv_role": "kv_producer",
 "kv_connector_extra_config": {"kv_lease_duration": 60}
 }'
+```
 
 
 For full NixlConnector configuration details, see the [NixlConnector Usage Guide](https://docs.vllm.ai/features/nixl_connector_usage/).

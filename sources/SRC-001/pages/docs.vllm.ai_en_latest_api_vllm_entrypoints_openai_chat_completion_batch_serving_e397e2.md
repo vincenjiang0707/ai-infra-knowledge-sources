@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/openai/chat_completion/batch_serving/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class OpenAIServingChatBatch(OpenAIServingChat):
 """Extends OpenAIServingChat with the /v1/chat/completions/batch endpoint.

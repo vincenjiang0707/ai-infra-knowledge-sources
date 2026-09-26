@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/ec_cpu_connector/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # CPU EC Connector Usage Guide[¶](https://docs.vllm.ai#cpu-ec-connector-usage-guide)
 
@@ -68,11 +68,13 @@ isn't importable, the connector raises`RuntimeError: ec_enable_nixl requires NIX
 
 Local CPU-tier offload only, within a single engine instance:
 
+```json
 vllm serve <model> --ec-transfer-config '{
 "ec_connector": "ECCPUConnector",
 "ec_role": "ec_both",
 "ec_connector_extra_config": {"ec_cpu_bytes": 1073741824}
 }'
+```
 
 
 `ec_role="ec_both"`
@@ -101,11 +103,13 @@ in`shutdown()`
 
 Producer — offloads to its CPU tier and serves reads from consumers:
 
+```json
 vllm serve <model> --ec-transfer-config '{
 "ec_connector": "ECCPUConnector",
 "ec_role": "ec_producer",
 "ec_connector_extra_config": {"ec_enable_nixl": true, "ec_cpu_bytes": 1073741824}
 }'
+```
 
 
 `ec_role="ec_producer"`
@@ -120,11 +124,13 @@ Consumer — pulls encodings named in a request's `ec_transfer_params`
 
 before falling back to local encoding:
 
+```json
 vllm serve <model> --ec-transfer-config '{
 "ec_connector": "ECCPUConnector",
 "ec_role": "ec_consumer",
 "ec_connector_extra_config": {"ec_enable_nixl": true, "ec_cpu_bytes": 1073741824}
 }'
+```
 
 
 ### Orchestration flow[¶](https://docs.vllm.ai#orchestration-flow)

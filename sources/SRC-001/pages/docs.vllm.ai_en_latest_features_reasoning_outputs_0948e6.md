@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/reasoning_outputs/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Reasoning Outputs[¶](https://docs.vllm.ai#reasoning-outputs)
 
@@ -185,6 +185,7 @@ field in [chat completion response chunks](https://platform.openai.com/docs/api-
 
 ## Json
 
+```json
 {
 "id": "chatcmpl-123",
 "object": "chat.completion.chunk",
@@ -203,6 +204,7 @@ field in [chat completion response chunks](https://platform.openai.com/docs/api-
 }
 ]
 }
+```
 
 
 OpenAI Python client library does not officially support `reasoning`
@@ -410,6 +412,7 @@ Then make a request with `thinking_token_budget`
 
 to limit the reasoning tokens:
 
+```bash
 curl http://localhost:8000/v1/chat/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -419,6 +422,7 @@ curl http://localhost:8000/v1/chat/completions \
 ],
 "thinking_token_budget": 10
 }'
+```
 
 
 ### Offline Inference[¶](https://docs.vllm.ai#offline-inference)

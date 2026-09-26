@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/qwen3_next/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class Qwen3NextAttention(nn.Module):
 def __init__(

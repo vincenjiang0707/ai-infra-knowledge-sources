@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/mixtral/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MixtralMoE(nn.Module):
 """A tensor-parallel MoE implementation for Mixtral that shards each expert
@@ -35,12 +35,10 @@ self.n_redundant_experts = parallel_config.eplb_config.num_redundant_experts
 self.n_physical_experts = self.n_logical_experts + self.n_redundant_experts
 self.n_local_physical_experts = self.n_physical_experts // self.ep_size
 # Gate always runs at half / full precision for now.
-self.gate = ReplicatedLinear(
+self.gate = GateLinear(
 hidden_size,
 num_experts,
-bias=False,
 params_dtype=params_dtype,
-quant_config=None,
 prefix=f"{prefix}.gate",
 )
 self.experts = FusedMoEFactory(

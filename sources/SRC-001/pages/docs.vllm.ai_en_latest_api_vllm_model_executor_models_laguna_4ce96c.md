@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/laguna/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class LagunaAttention(nn.Module):
 """Laguna attention with optional softplus output gating.

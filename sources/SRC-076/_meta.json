@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:50:48Z",
- "finished_at": "2026-09-23T03:50:48Z",
- "duration_seconds": 83.9,
- "attempts": 1,
+ "finished_at": "2026-09-25T14:06:35Z",
+ "duration_seconds": 730.8,
+ "attempts": 4,
  "channels": {
   "gh_f993255d": {
    "type": "github_repo",
@@ -19,13 +19,13 @@
    "output": "github_repo.md",
    "issues": {
     "status": "ok",
-    "count": 48,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "pulls": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -52,12 +52,22 @@
    "issues": {
     "status": "ok",
     "count": 15,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 11,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -78,31 +88,31 @@
   "ref_a61b00f6": {
    "type": "reference",
    "url": "https://github.com/ScalingIntelligence/KernelBench/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 1199
   },
   "ref_234b8e93": {
    "type": "reference",
    "url": "https://github.com/ScalingIntelligence/KernelBench/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 4654
+   "mode": "page",
+   "chars": 4755
   },
   "ref_04a9f80e": {
    "type": "reference",
    "url": "https://github.com/ScalingIntelligence/KernelBench/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 369
   }
  },
  "cursor": {
   "gh_f993255d:issues": {
-   "last_updated_at": "2026-09-17T08:23:10Z"
+   "last_updated_at": "2026-09-23T20:05:53Z"
   },
   "gh_f993255d:pulls": {
    "last_updated_at": "2026-09-21T02:00:13Z"

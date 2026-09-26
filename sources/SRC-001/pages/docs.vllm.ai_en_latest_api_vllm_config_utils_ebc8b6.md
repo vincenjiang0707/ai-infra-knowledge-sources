@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/config/utils/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -215,7 +215,7 @@ Gets the factors used for hashing a config class. - Includes all dataclass field
 
 [¶](https://docs.vllm.ai#vllm.config.utils.getattr_iter)
 
-A helper function that retrieves an attribute from an object which may have multiple possible names. This is useful when fetching attributes from arbitrary `transformers.PretrainedConfig`
+A helper function that retrieves an attribute from an object which may have multiple possible names. This is useful when fetching attributes from arbitrary `transformers.PreTrainedConfig`
 
 instances.
 

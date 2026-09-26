@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe_w8a8_fp8/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class CompressedTensorsW8A8Fp8MoEMethod(CompressedTensorsMoEMethod):
 """W8A8 FP8 MoE quantization using compressed tensors."""

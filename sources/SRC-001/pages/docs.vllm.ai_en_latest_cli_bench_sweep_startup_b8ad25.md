@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/cli/bench/sweep/startup/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # vllm bench sweep startup[¶](https://docs.vllm.ai#vllm-bench-sweep-startup)
 

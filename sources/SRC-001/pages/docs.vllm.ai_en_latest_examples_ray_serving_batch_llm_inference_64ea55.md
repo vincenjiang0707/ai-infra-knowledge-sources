@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/ray_serving/batch_llm_inference/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Batch LLM Inference[¶](https://docs.vllm.ai#batch-llm-inference)
 

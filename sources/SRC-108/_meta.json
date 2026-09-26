@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:13:58Z",
- "finished_at": "2026-09-23T05:06:57Z",
- "duration_seconds": 5.4,
- "attempts": 3,
+ "finished_at": "2026-09-24T18:53:07Z",
+ "duration_seconds": 7.2,
+ "attempts": 4,
  "channels": {
   "site_dae13ac4": {
    "type": "sitemap",
@@ -25,7 +25,7 @@
  },
  "cursor": {
   "site_dae13ac4:sitemap": {
-   "lastmod": "2026-09-22"
+   "lastmod": "2026-09-24"
   }
  },
  "notes": ""

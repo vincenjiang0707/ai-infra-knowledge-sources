@@ -418,6 +418,7 @@ directly or from your monitoring tools.
 `emptyDir`
 
 volumes```
+```html
 <div class="feature-state-notice feature-alpha" title="Feature Gate: InPlacePodVerticalScalingMemoryBackedVolumes">
 <span class="feature-state-name">Feature state:</span>
 <span class="feature-state-details">
@@ -425,6 +426,7 @@ volumes```
 </span>
 </div>
 <div class="feature-alpha">
+```
 <details>
 <summary>More information about this feature</summary>
 <p>To use this feature, you (or a cluster administrator) will need to enable the <a href="/docs/reference/command-line-tools-reference/feature-gates/#InPlacePodVerticalScalingMemoryBackedVolumes"><tt>InPlacePodVerticalScalingMemoryBackedVolumes</tt></a> feature gate for all relevant components in your cluster.</p>

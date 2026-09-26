@@ -1,5 +1,3 @@
-# UCX
-
 source: https://github.com/openucx/ucx/releases
 
 # Releases: openucx/ucx

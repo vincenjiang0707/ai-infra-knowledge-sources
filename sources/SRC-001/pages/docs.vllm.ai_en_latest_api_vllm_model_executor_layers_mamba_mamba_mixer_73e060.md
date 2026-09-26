@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/mamba_mixer/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 @PluggableLayer.register("mamba_mixer")
 class MambaMixer(MambaBase, PluggableLayer):

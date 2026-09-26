@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/nixl_connector_usage/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # NixlConnector Usage Guide[¶](https://docs.vllm.ai#nixlconnector-usage-guide)
 
@@ -53,11 +53,13 @@ in `--kv-transfer-config`
 ### Example: using LIBFABRIC backend[¶](https://docs.vllm.ai#example-using-libfabric-backend)
 
 vllm serve <MODEL> \
+```json
 --kv-transfer-config '{
 "kv_connector":"NixlConnector",
 "kv_role":"kv_producer",
 "kv_connector_extra_config":{"backends":["LIBFABRIC"]}
 }'
+```
 
 
 You can also pass JSON keys individually using dotted arguments, and you can append list elements using `+`
@@ -95,6 +97,7 @@ vllm serve Qwen/Qwen3-0.6B \
 Start a decoder instance that consumes KV caches:
 
 # 2nd GPU as decoder
+```bash
 CUDA_VISIBLE_DEVICES=1 \
 UCX_NET_DEVICES=all \
 VLLM_NIXL_SIDE_CHANNEL_PORT=5601 \
@@ -102,18 +105,21 @@ vllm serve Qwen/Qwen3-0.6B \
 --port 8200 \
 --enforce-eager \
 --kv-transfer-config '{"kv_connector":"NixlConnector","kv_role":"kv_consumer","kv_load_failure_policy":"fail"}'
+```
 
 
 ### Proxy Server[¶](https://docs.vllm.ai#proxy-server)
 
 Use a proxy server to route requests between prefiller and decoder:
 
+```bash
 python tests/v1/kv_connector/nixl_integration/toy_proxy_server.py \
 --port 8192 \
 --prefiller-hosts localhost \
 --prefiller-ports 8100 \
 --decoder-hosts localhost \
 --decoder-ports 8200
+```
 
 
 ## Environment Variables[¶](https://docs.vllm.ai#environment-variables)
@@ -261,6 +267,7 @@ in `kv_connector_extra_config`
 on **both** P and D instances:
 
 # Prefill instance
+```
 vllm serve <MODEL> \
 --kv-transfer-config '{
 "kv_connector": "NixlConnector",
@@ -278,6 +285,7 @@ vllm serve <MODEL> \
 "bidirectional_kv_xfer": true
 }
 }'
+```
 
 
 Additional configuration options in `kv_connector_extra_config`
@@ -296,18 +304,22 @@ Use the provided multi-turn proxy to manage `kv_transfer_params`
 
 caching across conversation turns:
 
+```bash
 python examples/disaggregated/disaggregated_serving/disagg_proxy_multiturn.py \
 --host 0.0.0.0 --port 8000 \
 --prefiller-host <P_IP> --prefiller-port 8100 \
 --decoder-host <D_IP> --decoder-port 8200
+```
 
 
 The proxy supports multiple P and D instances via round-robin:
 
+```bash
 python examples/disaggregated/disaggregated_serving/disagg_proxy_multiturn.py \
 --host 0.0.0.0 --port 8000 \
 --prefiller-hosts <P_IP1> <P_IP2> --prefiller-ports 8100 8100 \
 --decoder-hosts <D_IP1> <D_IP2> --decoder-ports 8200 8200
+```
 
 
 ### Client usage[¶](https://docs.vllm.ai#client-usage)
@@ -317,6 +329,7 @@ Include a `conversation_id`
 field in the request body to enable cross-turn KV reuse. Without it, the proxy cannot link turns and falls back to full recomputation.
 
 # Turn 1
+```bash
 curl http://localhost:8000/v1/chat/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -338,6 +351,7 @@ curl http://localhost:8000/v1/chat/completions \
 {"role": "user", "content": "How does disaggregated prefilling work?"}
 ]
 }'
+```
 
 
 Note
@@ -356,12 +370,14 @@ flag, which injects a per-conversation `conversation_id`
 
 into every request payload so the proxy can key cross-turn KV cache reuse.The flag is **off by default** so the benchmark is compatible with strict OpenAI-compatible frontends that reject unknown top-level fields. When benchmarking the multi-turn proxy you must pass it explicitly — otherwise every turn lands as a cache MISS and the bidirectional KV transfer path is never exercised.
 
+```bash
 python benchmarks/multi_turn/benchmark_serving_multi_turn.py \
 --model <MODEL> --served-model-name <NAME> \
 --url http://<proxy_host>:8000 \
 --input-file benchmarks/multi_turn/generate_multi_turn.json \
 --num-clients 2 --max-active-conversations 6 \
 --send-conversation-id
+```
 
 
 ### Limitations[¶](https://docs.vllm.ai#limitations)
@@ -419,12 +435,14 @@ vllm serve Qwen/Qwen3-0.6B --port 8000 \
 
 ### Proxy for Multiple Instances[¶](https://docs.vllm.ai#proxy-for-multiple-instances)
 
+```bash
 python tests/v1/kv_connector/nixl_integration/toy_proxy_server.py \
 --port 8192 \
 --prefiller-hosts ${IP1} ${IP2} \
 --prefiller-ports 8000 8000 \
 --decoder-hosts ${IP3} ${IP4} \
 --decoder-ports 8000 8000
+```
 
 
 For multi-host DP deployment, only need to provide the host/port of the head instances.

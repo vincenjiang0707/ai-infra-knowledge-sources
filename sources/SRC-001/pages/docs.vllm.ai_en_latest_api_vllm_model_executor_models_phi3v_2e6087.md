@@ -1,11 +1,11 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/phi3v/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class Phi3HDImageEmbedding(nn.Module):
 """Phi3 Image embedding with HD transform."""
 def __init__(
 self,
-config: PretrainedConfig,
+config: PreTrainedConfig,
 quant_config: QuantizationConfig | None,
 prefix: str = "",
 ) -> None:

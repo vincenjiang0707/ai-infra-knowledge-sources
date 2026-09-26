@@ -75,10 +75,13 @@ def scan_src(src_id, registry_entry):
             if os.path.isfile(full):
                 files.append((f'{name}', name))
             elif os.path.isdir(full):
-                # surface as dir entry (click to list)
+                # surface as dir entry (click to list); count recursively so
+                # posts/<tab>/*.md aggregates under the posts/ count
+                sub_n = sum(len([f for f in fns if f.endswith('.md')])
+                            for _r, _d, fns in os.walk(full))
                 sub_listing = sorted(os.listdir(full))
                 if sub_listing:
-                    files.append((f'{name}/', f'{name}/ ({len(sub_listing)} files)'))
+                    files.append((f'{name}/', f'{name}/ ({sub_n or len(sub_listing)} files)'))
     return {
         'src_id': src_id,
         'status': registry_entry.get('status', 'unknown'),

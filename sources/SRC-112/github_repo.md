@@ -1,12 +1,12 @@
 # SemiAnalysisAI/InferenceX
 
-- stars: 1751
+- stars: 1761
 - forks: 305
-- open_issues: 300
+- open_issues: 267
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-23T02:56:24Z
+- pushed_at: 2026-09-25T18:56:23Z
 - homepage: https://inferencex.com/
 
 ## README

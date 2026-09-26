@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/serving/context_parallel_deployment/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Context Parallel Deployment[¶](https://docs.vllm.ai#context-parallel-deployment)
 

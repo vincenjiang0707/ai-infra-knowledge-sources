@@ -1,5 +1,3 @@
-# Qwen 官⽅组织
-
 source: https://github.com/QwenLM
 
 # Qwen

@@ -1,6 +1,6 @@
 # SafeAILab/EAGLE
 
-- stars: 2539
+- stars: 2542
 - forks: 297
 - open_issues: 101
 - default_branch: main

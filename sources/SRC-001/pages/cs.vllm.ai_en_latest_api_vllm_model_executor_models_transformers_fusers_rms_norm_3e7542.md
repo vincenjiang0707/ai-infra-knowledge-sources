@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/transformers/fusers/rms_norm/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -258,6 +258,23 @@ before returning?
 
 ##
 
+`_is_inverse_sqrt(node)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.models.transformers.fusers.rms_norm._is_inverse_sqrt)
+
+Detect `rsqrt(v)`
+
+, or the `pow(v, -0.5)`
+
+/ `v ** -0.5`
+
+spelling of it.
+
+## Source code in `vllm/model_executor/models/transformers/fusers/rms_norm.py`
+
+
+##
+
 `_is_one_plus(node)`
 
 [¶](https://docs.vllm.ai#vllm.model_executor.models.transformers.fusers.rms_norm._is_one_plus)
@@ -288,11 +305,30 @@ or `x * x`
 
 ##
 
+`_operand(node, index, name)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.models.transformers.fusers.rms_norm._operand)
+
+Operand `index`
+
+of `node`
+
+, whether it was passed positionally or as `name`
+
+.
+
+## Source code in `vllm/model_executor/models/transformers/fusers/rms_norm.py`
+
+
+##
+
 `_variance_eps(rsqrt, x)`
 
 [¶](https://docs.vllm.ai#vllm.model_executor.models.transformers.fusers.rms_norm._variance_eps)
 
-Eps from `rsqrt(mean(x**2, -1) + eps)`
+`eps`
+
+from `rsqrt(mean(x**2, -1) + eps)`
 
 , or `None`
 

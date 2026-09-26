@@ -2579,6 +2579,7 @@ Cross-compiled, marked **pre-release**. Not an official release artifact.
 
 Pinned to aiter commit **`b12a1904`** (`main` HEAD 2026-08-26, MHA v4 #4967).
 
+```bash
 > **Note on the version number.** An earlier attempt tagged this build `v0.1.20.dev1`.
 > Two things were wrong with it: the base version (`0.1.20.devN` sorts *before* `v0.1.20`,
 > but this build is 94 commits *after* it), and the custom `.devN`.
@@ -2589,6 +2590,7 @@ Pinned to aiter commit **`b12a1904`** (`main` HEAD 2026-08-26, MHA v4 #4967).
 > `v0.1.21.dev0` ends in `.dev0`, which setuptools_scm supports, and it also orders
 > correctly (`0.1.20 < 0.1.21.dev0 < 0.1.21`).
 > **If you tag aiter, avoid custom `.devN` — use `.dev0`, `-rcN`, or a plain version.**
+```
 
 ## Why this exists
 

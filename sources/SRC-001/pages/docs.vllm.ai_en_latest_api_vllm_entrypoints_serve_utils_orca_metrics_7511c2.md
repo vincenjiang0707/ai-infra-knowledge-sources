@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/serve/utils/orca_metrics/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 

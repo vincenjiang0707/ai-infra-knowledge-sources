@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/conformer_encoder/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class ConformerEncoder(nn.Module):
 """Conformer encoder used by FireRedASR2."""

@@ -1,8 +1,8 @@
 # mlc-ai/mlc-llm
 
-- stars: 23182
-- forks: 2138
-- open_issues: 343
+- stars: 23189
+- forks: 2137
+- open_issues: 346
 - default_branch: main
 - archived: False
 - license: Apache-2.0
@@ -31,6 +31,7 @@
 MLC LLM is a machine learning compiler and high-performance deployment engine for large language models.  The mission of this project is to enable everyone to develop, optimize, and deploy AI models natively on everyone's platforms. 
 
 <div align="center">
+```html
 <table style="width:100%">
   <thead>
     <tr>
@@ -72,6 +73,7 @@ MLC LLM is a machine learning compiler and high-performance deployment engine fo
   </tbody>
 </table>
 </div>
+```
 
 MLC LLM compiles and runs code on MLCEngine -- a unified high-performance LLM inference engine across the above platforms. MLCEngine provides OpenAI-compatible API available through REST server, python, javascript, iOS, Android, all backed by the same engine and compiler that we keep improving with the community.
 

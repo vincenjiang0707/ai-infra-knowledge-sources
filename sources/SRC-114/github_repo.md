@@ -1,7 +1,7 @@
 # mlcommons/inference
 
 - stars: 1631
-- forks: 650
+- forks: 651
 - open_issues: 209
 - default_branch: master
 - archived: False

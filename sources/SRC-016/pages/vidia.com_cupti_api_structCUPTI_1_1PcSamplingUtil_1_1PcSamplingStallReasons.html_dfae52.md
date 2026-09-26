@@ -1,0 +1,3 @@
+source: https://docs.nvidia.com/cupti/api/structCUPTI_1_1PcSamplingUtil_1_1PcSamplingStallReasons.html
+
+8.1.1.8. PcSamplingStallReasons# Fully qualified name: CUPTI::PcSamplingUtil::PcSamplingStallReasons struct PcSamplingStallReasons# All available stall reasons name and respective indexes will be stored in it. Public Members size_t numStallReasons# Number of all available stall reasons. char **stallReasons# Stall reasons names of all available stall reasons. uint32_t *stallReasonIndex# Stall reason index of all available stall reasons.

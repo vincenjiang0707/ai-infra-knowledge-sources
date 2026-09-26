@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/granitemoe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class GraniteMoeMoE(nn.Module):
 """A tensor-parallel MoE implementation for GraniteMoe that shards each
@@ -24,12 +24,10 @@ super().__init__()
 self.hidden_size = hidden_size
 self.is_sequence_parallel = is_sequence_parallel
 # Gate always runs at half / full precision for now.
-self.gate = ReplicatedLinear(
+self.gate = GateLinear(
 hidden_size,
 num_experts,
-bias=False,
 params_dtype=params_dtype,
-quant_config=None,
 prefix=f"{prefix}.gate",
 )
 self.experts = FusedMoEFactory(

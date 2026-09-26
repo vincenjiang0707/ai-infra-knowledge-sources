@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/inc/schemes/inc_wna16_linear/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class INCXPULinearBase(INCLinearScheme):
 # AWQ packs nibbles within each int32 in the order [0, 2, 4, 6, 1, 3, 5, 7];

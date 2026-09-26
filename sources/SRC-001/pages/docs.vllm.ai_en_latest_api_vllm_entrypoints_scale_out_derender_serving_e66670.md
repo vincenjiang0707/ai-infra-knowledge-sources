@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/scale_out/derender/serving/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class ServingDerender(BaseServing):
 def __init__(

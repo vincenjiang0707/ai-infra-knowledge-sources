@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/mla/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MultiHeadLatentAttention(nn.Module, AttentionLayerBase):
 """Kimi-K3 Multi-head Latent Attention with optional RoPE and output gate."""
@@ -301,20 +301,13 @@ latent. For the MQA decode path we pre-split it so that queries are
 projected into latent space by ``W_UK_T`` and the attention output is
 projected back to ``v`` by ``W_UV`` -- avoiding materializing full K/V.
 """
-kv_b_proj_weight = get_and_maybe_dequant_weights(
-self.kv_b_proj, out_dtype=act_dtype
-).T
-assert kv_b_proj_weight.shape == (
-self.kv_lora_rank,
-self.num_local_heads * (self.qk_nope_head_dim + self.v_head_dim),
-), f"{kv_b_proj_weight.shape=}"
-kv_b_proj_weight = kv_b_proj_weight.view(
+W_UK, W_UV = split_kv_b_proj(
+self.kv_b_proj,
+act_dtype,
 self.kv_lora_rank,
 self.num_local_heads,
-self.qk_nope_head_dim + self.v_head_dim,
-)
-W_UK, W_UV = kv_b_proj_weight.split(
-[self.qk_nope_head_dim, self.v_head_dim], dim=-1
+self.qk_nope_head_dim,
+self.v_head_dim,
 )
 # (L, N, V) -> (N, L, V)
 replace_parameter(self, "W_UV", W_UV.transpose(0, 1), prefer_copy=True)

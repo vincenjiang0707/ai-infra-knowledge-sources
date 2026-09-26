@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:55:06Z",
- "finished_at": "2026-09-23T03:55:06Z",
- "duration_seconds": 65.1,
- "attempts": 1,
+ "finished_at": "2026-09-24T18:00:50Z",
+ "duration_seconds": 39.9,
+ "attempts": 2,
  "channels": {
   "gh_a11084b1": {
    "type": "github_repo",
@@ -19,13 +19,13 @@
    "output": "github_repo.md",
    "issues": {
     "status": "ok",
-    "count": 55,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "pulls": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -51,13 +51,13 @@
    "output": "github_repo.md",
    "issues": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "pulls": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -78,25 +78,25 @@
   "ref_d2c1fc93": {
    "type": "reference",
    "url": "https://github.com/ROCm/rocprofiler-sdk/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 477
   },
   "ref_d56d9fb1": {
    "type": "reference",
    "url": "https://github.com/ROCm/rocprofiler-sdk/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 7250
+   "mode": "page",
+   "chars": 4877
   },
   "ref_11b9b290": {
    "type": "reference",
    "url": "https://github.com/ROCm/rocprofiler-sdk/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 349
   }
  },

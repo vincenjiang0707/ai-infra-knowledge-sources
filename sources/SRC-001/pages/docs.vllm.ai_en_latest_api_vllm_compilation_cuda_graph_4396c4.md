@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/cuda_graph/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class CUDAGraphWrapper:
 """Wraps a runnable to add CUDA graph capturing and replaying ability. And

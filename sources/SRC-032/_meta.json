@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:19:30Z",
- "finished_at": "2026-09-23T03:19:30Z",
- "duration_seconds": 29.8,
- "attempts": 1,
+ "finished_at": "2026-09-25T10:37:17Z",
+ "duration_seconds": 267.6,
+ "attempts": 5,
  "channels": {
   "gh_4098c783": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 78,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 36,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 36,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -46,7 +56,7 @@
  },
  "cursor": {
   "gh_4098c783:issues": {
-   "last_updated_at": "2026-09-11T07:55:50Z"
+   "last_updated_at": "2026-09-24T08:28:39Z"
   },
   "gh_4098c783:pulls": {
    "last_updated_at": "2026-09-21T09:46:03Z"

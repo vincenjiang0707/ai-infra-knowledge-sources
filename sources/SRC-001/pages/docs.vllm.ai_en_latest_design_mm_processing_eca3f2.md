@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/mm_processing/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Multi-Modal Data Processing[¶](https://docs.vllm.ai#multi-modal-data-processing)
 

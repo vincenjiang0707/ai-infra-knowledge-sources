@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/hisparse/stats/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Bases: [KVConnectorStats](../../metrics/#vllm.distributed.kv_transfer.kv_connector.v1.metrics.KVConnectorStats)
 

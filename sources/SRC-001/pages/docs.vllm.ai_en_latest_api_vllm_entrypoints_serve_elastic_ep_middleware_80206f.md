@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/serve/elastic_ep/middleware/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Middleware that checks if the model is currently scaling and returns a 503 Service Unavailable response if it is.
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/training/async_rl/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Async Reinforcement Learning[¶](https://docs.vllm.ai#async-reinforcement-learning)
 

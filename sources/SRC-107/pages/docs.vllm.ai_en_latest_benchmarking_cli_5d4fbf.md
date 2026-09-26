@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/benchmarking/cli/
-lastmod: 2026-09-22
+lastmod: 2026-09-24
 
 # Benchmark CLI[¶](https://docs.vllm.ai#benchmark-cli)
 
@@ -152,6 +152,7 @@ and `--plot-dataset-stats`
 can be used to generate respectively the requests completion timeline and dataset prompt and output tokens statistics, which can be useful for debugging purpose or for deeper analysis.
 
 vllm bench serve \
+```bash
 --backend vllm \
 --model meta-llama/Llama-3.1-8B-Instruct \
 --endpoint /v1/completions \
@@ -162,6 +163,7 @@ vllm bench serve \
 --timeline-itl-thresholds 2,5 \
 --plot-dataset-stats \
 --save-result
+```
 
 
 ##### Interactive Timeline[¶](https://docs.vllm.ai#interactive-timeline)
@@ -189,6 +191,7 @@ format and needs to have "prompt" field per entry, e.g., data.jsonl{"prompt": "W
 {"prompt": "What is the capital of China?"}
 
 
+```bash
 # run benchmarking script
 vllm bench serve --port 9001 --save-result --save-detailed \
 --backend vllm \
@@ -202,6 +205,7 @@ vllm bench serve --port 9001 --save-result --save-detailed \
 --temperature=0.3 \
 --top-p=0.75 \
 --result-dir "./log/"
+```
 
 
 You can skip applying chat template if your data already has it by using `--skip-chat-template`
@@ -235,6 +239,7 @@ and `--endpoint /v1/audio/transcriptions`
 .
 
 vllm bench serve \
+```bash
 --model openai/whisper-tiny \
 --backend openai-audio \
 --endpoint /v1/audio/transcriptions \
@@ -245,6 +250,7 @@ vllm bench serve \
 --save-result \
 --save-detailed \
 --result-filename whisper_bench.json
+```
 
 
 **Example 2: Qwen2-Audio**
@@ -258,6 +264,7 @@ Qwen2-Audio is a multimodal chat model that can do ASR and speech analysis, so i
 to enable multimodal chat transformation.
 
 vllm bench serve \
+```bash
 --model Qwen/Qwen2-Audio-7B-Instruct \
 --backend openai-chat \
 --endpoint /v1/chat/completions \
@@ -269,6 +276,7 @@ vllm bench serve \
 --save-result \
 --save-detailed \
 --result-filename qwen_bench.json
+```
 
 
 #### Custom Image Dataset[¶](https://docs.vllm.ai#custom-image-dataset)
@@ -323,6 +331,7 @@ endpoint for multimodal inputs.
 #### VisionArena Benchmark for Vision Language Models[¶](https://docs.vllm.ai#visionarena-benchmark-for-vision-language-models)
 
 vllm bench serve \
+```bash
 --backend openai-chat \
 --model Qwen/Qwen2-VL-7B-Instruct \
 --endpoint /v1/chat/completions \
@@ -330,29 +339,36 @@ vllm bench serve \
 --dataset-path lmarena-ai/VisionArena-Chat \
 --hf-split train \
 --num-prompts 1000
+```
 
 
 #### InstructCoder Benchmark with Speculative Decoding[¶](https://docs.vllm.ai#instructcoder-benchmark-with-speculative-decoding)
 
+```bash
 vllm serve meta-llama/Meta-Llama-3-8B-Instruct \
 --speculative-config $'{"method": "ngram",
 "num_speculative_tokens": 5, "prompt_lookup_max": 5,
 "prompt_lookup_min": 2}'
+```
 
 
 vllm bench serve \
+```bash
 --model meta-llama/Meta-Llama-3-8B-Instruct \
 --dataset-name hf \
 --dataset-path likaixin/InstructCoder \
 --num-prompts 2048
+```
 
 
 #### Spec Bench Benchmark with Speculative Decoding[¶](https://docs.vllm.ai#spec-bench-benchmark-with-speculative-decoding)
 
+```bash
 vllm serve meta-llama/Meta-Llama-3-8B-Instruct \
 --speculative-config $'{"method": "ngram",
 "num_speculative_tokens": 5, "prompt_lookup_max": 5,
 "prompt_lookup_min": 2}'
+```
 
 
 Run all categories:
@@ -373,11 +389,13 @@ Available categories include `[writing, roleplay, reasoning, math, coding, extra
 Run only a specific category like "summarization":
 
 vllm bench serve \
+```bash
 --model meta-llama/Meta-Llama-3-8B-Instruct \
 --dataset-name spec_bench \
 --dataset-path "<YOUR_DOWNLOADED_PATH>/data/spec_bench/question.jsonl" \
 --num-prompts -1 \
 --spec-bench-category "summarization"
+```
 
 
 #### SPEED-Bench Benchmark with Speculative Decoding[¶](https://docs.vllm.ai#speed-bench-benchmark-with-speculative-decoding)
@@ -417,19 +435,23 @@ and`throughput_32k`
 
 Start a server with speculative decoding:
 
+```bash
 vllm serve meta-llama/Llama-3.3-70B-Instruct \
 --speculative-config $'{"method": "eagle3",
 "num_speculative_tokens": 3,
 "model": "nvidia/Llama-3.3-70B-Instruct-Eagle3"}'
+```
 
 
 Run all categories in the Qualitative split:
 
 vllm bench serve \
+```bash
 --model meta-llama/Llama-3.3-70B-Instruct \
 --dataset-name speed_bench \
 --dataset-path "<YOUR_DOWNLOADED_PATH>/data/speed_bench" \
 --num-prompts -1
+```
 
 
 Available categories include `[writing, roleplay, reasoning, math, coding, stem, humanities, multilingual, summarization, qa, rag]`
@@ -439,21 +461,25 @@ Available categories include `[writing, roleplay, reasoning, math, coding, stem,
 Run only a specific category like "multilingual":
 
 vllm bench serve \
+```bash
 --model meta-llama/Llama-3.3-70B-Instruct \
 --dataset-name speed_bench \
 --dataset-path "<YOUR_DOWNLOADED_PATH>/data/speed_bench" \
 --num-prompts -1 \
 --speed-bench-category "multilingual"
+```
 
 
 Run all categories in the Throughput split (2k ISL):
 
 vllm bench serve \
+```bash
 --model meta-llama/Llama-3.3-70B-Instruct \
 --dataset-name speed_bench \
 --speed-bench-dataset-subset throughput_2k \
 --dataset-path "<YOUR_DOWNLOADED_PATH>/data/speed_bench/" \
 --num-prompts -1
+```
 
 
 Available categories include `[high_entropy, mixed, low_entropy]`
@@ -475,6 +501,7 @@ Start a tool-parser-enabled server, then run the bench. For example, with `gpt-o
 :
 
 # Server
+```bash
 vllm serve openai/gpt-oss-20b \
 --enable-auto-tool-choice \
 --tool-call-parser openai \
@@ -488,6 +515,7 @@ vllm bench serve \
 --dataset-path gorilla-llm/Berkeley-Function-Calling-Leaderboard \
 --bfcl-categories simple,live_simple,multiple \
 --num-prompts 200
+```
 
 
 `--bfcl-categories`
@@ -545,6 +573,7 @@ The dataset class normalizes BFCL's loose schema dialect (`dict`
 :
 
 vllm bench serve \
+```bash
 --backend openai-chat \
 --model Qwen/Qwen2-VL-7B-Instruct \
 --endpoint /v1/chat/completions \
@@ -553,6 +582,7 @@ vllm bench serve \
 --hf-split train \
 --hf-subset "chart2text(cauldron)" \
 --num-prompts 10
+```
 
 
 `Aeala/ShareGPT_Vicuna_unfiltered`
@@ -560,6 +590,7 @@ vllm bench serve \
 :
 
 vllm bench serve \
+```bash
 --backend openai-chat \
 --model Qwen/Qwen2-VL-7B-Instruct \
 --endpoint /v1/chat/completions \
@@ -567,6 +598,7 @@ vllm bench serve \
 --dataset-path Aeala/ShareGPT_Vicuna_unfiltered \
 --hf-split train \
 --num-prompts 10
+```
 
 
 `AI-MO/aimo-validation-aime`
@@ -574,11 +606,13 @@ vllm bench serve \
 :
 
 vllm bench serve \
+```bash
 --model Qwen/QwQ-32B \
 --dataset-name hf \
 --dataset-path AI-MO/aimo-validation-aime \
 --num-prompts 10 \
 --seed 42
+```
 
 
 `philschmid/mt-bench`
@@ -586,10 +620,12 @@ vllm bench serve \
 :
 
 vllm bench serve \
+```bash
 --model Qwen/QwQ-32B \
 --dataset-name hf \
 --dataset-path philschmid/mt-bench \
 --num-prompts 80
+```
 
 
 `openai/openai_humaneval`
@@ -597,10 +633,12 @@ vllm bench serve \
 :
 
 vllm bench serve \
+```bash
 --model NousResearch/Hermes-3-Llama-3.1-8B \
 --dataset-name hf \
 --dataset-path openai/openai_humaneval \
 --num-prompts 80
+```
 
 
 `openai/gsm8k`
@@ -608,10 +646,12 @@ vllm bench serve \
 :
 
 vllm bench serve \
+```bash
 --model NousResearch/Hermes-3-Llama-3.1-8B \
 --dataset-name hf \
 --dataset-path openai/gsm8k \
 --num-prompts 80
+```
 
 
 `vdaita/edit_5k_char`
@@ -621,12 +661,14 @@ or `vdaita/edit_10k_char`
 :
 
 vllm bench serve \
+```bash
 --model Qwen/QwQ-32B \
 --dataset-name hf \
 --dataset-path vdaita/edit_5k_char \
 --num-prompts 90 \
 --blazedit-min-distance 0.01 \
 --blazedit-max-distance 0.99
+```
 
 
 `openslr/librispeech_asr`
@@ -647,6 +689,7 @@ vllm bench serve \
 
 
 vllm bench serve \
+```bash
 --model openai/whisper-large-v3-turbo \
 --backend openai-audio \
 --dataset-name hf \
@@ -657,6 +700,7 @@ vllm bench serve \
 --ready-check-timeout-sec 600 \
 --save-result \
 --max-concurrency 512
+```
 
 
 #### Running With Sampling Parameters[¶](https://docs.vllm.ai#running-with-sampling-parameters)
@@ -666,6 +710,7 @@ When using OpenAI-compatible backends such as `vllm`
 , optional sampling parameters can be specified. Example client command:
 
 vllm bench serve \
+```bash
 --backend vllm \
 --model NousResearch/Hermes-3-Llama-3.1-8B \
 --endpoint /v1/completions \
@@ -675,6 +720,7 @@ vllm bench serve \
 --top-p 0.9 \
 --temperature 0.5 \
 --num-prompts 10
+```
 
 
 #### Running With Ramp-Up Request Rate[¶](https://docs.vllm.ai#running-with-ramp-up-request-rate)
@@ -714,6 +760,7 @@ to a positive value sends single-token text-only probe requests at that rate (re
 and their latency is reported separately, so the probe percentiles directly measure the interference that the main workload inflicts on unrelated requests.
 
 vllm bench serve \
+```bash
 --model Qwen/Qwen2.5-VL-3B-Instruct \
 --backend openai-chat \
 --endpoint /v1/chat/completions \
@@ -721,6 +768,7 @@ vllm bench serve \
 --random-mm-bucket-config '{(2048, 2048, 1): 1.0}' \
 --request-rate 4 \
 --probe-request-rate 20
+```
 
 
 #### Load Pattern Configuration[¶](https://docs.vllm.ai#load-pattern-configuration)
@@ -838,11 +886,13 @@ to 80-90% of the reported maximum to test realistic resource constraints - For S
 
 ## Show more
 
+```bash
 vllm bench throughput \
 --model NousResearch/Hermes-3-Llama-3.1-8B \
 --dataset-name sonnet \
 --dataset-path vllm/benchmarks/sonnet.txt \
 --num-prompts 10
+```
 
 
 If successful, you will see the following output
@@ -854,6 +904,7 @@ Total num output tokens: 1500
 
 #### VisionArena Benchmark for Vision Language Models[¶](https://docs.vllm.ai#visionarena-benchmark-for-vision-language-models_1)
 
+```bash
 vllm bench throughput \
 --model Qwen/Qwen2-VL-7B-Instruct \
 --backend vllm-chat \
@@ -861,6 +912,7 @@ vllm bench throughput \
 --dataset-path lmarena-ai/VisionArena-Chat \
 --num-prompts 1000 \
 --hf-split train
+```
 
 
 The `num prompt tokens`
@@ -874,6 +926,7 @@ Total num output tokens: 1280
 
 #### InstructCoder Benchmark with Speculative Decoding[¶](https://docs.vllm.ai#instructcoder-benchmark-with-speculative-decoding_1)
 
+```bash
 VLLM_WORKER_MULTIPROC_METHOD=spawn \
 vllm bench throughput \
 --dataset-name=hf \
@@ -886,6 +939,7 @@ vllm bench throughput \
 --speculative-config $'{"method": "ngram",
 "num_speculative_tokens": 5, "prompt_lookup_max": 5,
 "prompt_lookup_min": 2}'
+```
 
 
 Throughput: 104.77 requests/s, 23836.22 total tokens/s, 10477.10 output tokens/s
@@ -899,6 +953,7 @@ Total num output tokens: 204800
 
 :
 
+```bash
 vllm bench throughput \
 --model Qwen/Qwen2-VL-7B-Instruct \
 --backend vllm-chat \
@@ -907,12 +962,14 @@ vllm bench throughput \
 --hf-split train \
 --hf-subset "chart2text(cauldron)" \
 --num-prompts 10
+```
 
 
 `Aeala/ShareGPT_Vicuna_unfiltered`
 
 :
 
+```bash
 vllm bench throughput \
 --model Qwen/Qwen2-VL-7B-Instruct \
 --backend vllm-chat \
@@ -920,12 +977,14 @@ vllm bench throughput \
 --dataset-path Aeala/ShareGPT_Vicuna_unfiltered \
 --hf-split train \
 --num-prompts 10
+```
 
 
 `AI-MO/aimo-validation-aime`
 
 :
 
+```bash
 vllm bench throughput \
 --model Qwen/QwQ-32B \
 --backend vllm \
@@ -933,11 +992,13 @@ vllm bench throughput \
 --dataset-path AI-MO/aimo-validation-aime \
 --hf-split train \
 --num-prompts 10
+```
 
 
 Benchmark with LoRA adapters:
 
 # download dataset
+```bash
 # wget https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered/resolve/main/ShareGPT_V3_unfiltered_cleaned_split.json
 vllm bench throughput \
 --model meta-llama/Llama-2-7b-hf \
@@ -949,6 +1010,7 @@ vllm bench throughput \
 --max-lora-rank 8 \
 --enable-lora \
 --lora-path yard1/llama-2-7b-sql-lora-test
+```
 
 
 #### Synthetic Random Multimodal (random-mm)[¶](https://docs.vllm.ai#synthetic-random-multimodal-random-mm)
@@ -957,6 +1019,7 @@ Generate synthetic multimodal inputs for offline throughput testing without exte
 
 so that image tokens are counted correctly.
 
+```bash
 vllm bench throughput \
 --model Qwen/Qwen2-VL-7B-Instruct \
 --backend vllm-chat \
@@ -967,6 +1030,7 @@ vllm bench throughput \
 --random-mm-base-items-per-request 2 \
 --random-mm-limit-mm-per-prompt '{"image": 3, "video": 0}' \
 --random-mm-bucket-config '{(256, 256, 1): 0.7, (720, 1280, 1): 0.3}'
+```
 
 
 ### 🛠️ Structured Output Benchmark[¶](https://docs.vllm.ai#structured-output-benchmark)
@@ -979,6 +1043,7 @@ Benchmark the performance of structured output generation (JSON, grammar, regex)
 
 #### JSON Schema Benchmark[¶](https://docs.vllm.ai#json-schema-benchmark)
 
+```bash
 python3 benchmarks/benchmark_serving_structured_output.py \
 --backend vllm \
 --model NousResearch/Hermes-3-Llama-3.1-8B \
@@ -986,10 +1051,12 @@ python3 benchmarks/benchmark_serving_structured_output.py \
 --structured-output-ratio 1.0 \
 --request-rate 10 \
 --num-prompts 1000
+```
 
 
 #### Grammar-based Generation Benchmark[¶](https://docs.vllm.ai#grammar-based-generation-benchmark)
 
+```bash
 python3 benchmarks/benchmark_serving_structured_output.py \
 --backend vllm \
 --model NousResearch/Hermes-3-Llama-3.1-8B \
@@ -997,26 +1064,31 @@ python3 benchmarks/benchmark_serving_structured_output.py \
 --structure-type grammar \
 --request-rate 10 \
 --num-prompts 1000
+```
 
 
 #### Regex-based Generation Benchmark[¶](https://docs.vllm.ai#regex-based-generation-benchmark)
 
+```bash
 python3 benchmarks/benchmark_serving_structured_output.py \
 --backend vllm \
 --model NousResearch/Hermes-3-Llama-3.1-8B \
 --dataset regex \
 --request-rate 10 \
 --num-prompts 1000
+```
 
 
 #### Choice-based Generation Benchmark[¶](https://docs.vllm.ai#choice-based-generation-benchmark)
 
+```bash
 python3 benchmarks/benchmark_serving_structured_output.py \
 --backend vllm \
 --model NousResearch/Hermes-3-Llama-3.1-8B \
 --dataset choice \
 --request-rate 10 \
 --num-prompts 1000
+```
 
 
 #### XGrammar Benchmark Dataset[¶](https://docs.vllm.ai#xgrammar-benchmark-dataset)
@@ -1029,6 +1101,7 @@ Benchmark the performance of long document question-answering with prefix cachin
 
 #### Basic Long Document QA Test[¶](https://docs.vllm.ai#basic-long-document-qa-test)
 
+```bash
 python3 benchmarks/benchmark_long_document_qa_throughput.py \
 --model meta-llama/Llama-2-7b-chat-hf \
 --enable-prefix-caching \
@@ -1036,6 +1109,7 @@ python3 benchmarks/benchmark_long_document_qa_throughput.py \
 --document-length 2000 \
 --output-len 50 \
 --repeat-count 5
+```
 
 
 #### Different Repeat Modes[¶](https://docs.vllm.ai#different-repeat-modes)
@@ -1074,12 +1148,14 @@ Benchmark the efficiency of automatic prefix caching.
 
 #### Fixed Prompt with Prefix Caching[¶](https://docs.vllm.ai#fixed-prompt-with-prefix-caching)
 
+```bash
 python3 benchmarks/benchmark_prefix_caching.py \
 --model meta-llama/Llama-2-7b-chat-hf \
 --enable-prefix-caching \
 --num-prompts 1 \
 --repeat-count 100 \
 --input-length-range 128:256
+```
 
 
 #### ShareGPT Dataset with Prefix Caching[¶](https://docs.vllm.ai#sharegpt-dataset-with-prefix-caching)
@@ -1163,12 +1239,14 @@ Benchmark the performance of request prioritization in vLLM.
 
 #### Basic Prioritization Test[¶](https://docs.vllm.ai#basic-prioritization-test)
 
+```bash
 python3 benchmarks/benchmark_prioritization.py \
 --model meta-llama/Llama-2-7b-chat-hf \
 --input-len 128 \
 --output-len 64 \
 --num-prompts 100 \
 --scheduling-policy priority
+```
 
 
 #### Multiple Sequences per Prompt[¶](https://docs.vllm.ai#multiple-sequences-per-prompt)
@@ -1183,15 +1261,18 @@ Benchmark the performance of multi-modal requests in vLLM.
 
 Start vLLM:
 
+```bash
 vllm serve Qwen/Qwen2.5-VL-7B-Instruct \
 --dtype bfloat16 \
 --limit-mm-per-prompt '{"image": 1}' \
 --allowed-local-media-path /path/to/sharegpt4v/images
+```
 
 
 Send requests with images:
 
 vllm bench serve \
+```bash
 --backend openai-chat \
 --model Qwen/Qwen2.5-VL-7B-Instruct \
 --dataset-name sharegpt \
@@ -1201,21 +1282,25 @@ vllm bench serve \
 --result-dir ~/vllm_benchmark_results \
 --save-detailed \
 --endpoint /v1/chat/completions
+```
 
 
 #### Videos (ShareGPT4Video)[¶](https://docs.vllm.ai#videos-sharegpt4video)
 
 Start vLLM:
 
+```bash
 vllm serve Qwen/Qwen2.5-VL-7B-Instruct \
 --dtype bfloat16 \
 --limit-mm-per-prompt '{"video": 1}' \
 --allowed-local-media-path /path/to/sharegpt4video/videos
+```
 
 
 Send requests with videos:
 
 vllm bench serve \
+```bash
 --backend openai-chat \
 --model Qwen/Qwen2.5-VL-7B-Instruct \
 --dataset-name sharegpt \
@@ -1225,6 +1310,7 @@ vllm bench serve \
 --result-dir ~/vllm_benchmark_results \
 --save-detailed \
 --endpoint /v1/chat/completions
+```
 
 
 #### Synthetic Random Images (random-mm)[¶](https://docs.vllm.ai#synthetic-random-images-random-mm)
@@ -1245,11 +1331,13 @@ with endpoint`/v1/chat/completions`
 
 Start the server (example):
 
+```bash
 vllm serve Qwen/Qwen2.5-VL-3B-Instruct \
 --dtype bfloat16 \
 --max-model-len 16384 \
 --limit-mm-per-prompt '{"image": 3, "video": 0}' \
 --mm-processor-kwargs max_pixels=1003520
+```
 
 
 Benchmark. It is recommended to use the flag `--ignore-eos`
@@ -1261,6 +1349,7 @@ to simulate real responses. You can set the size of the output via the arg `rand
 Ex.1: Fixed number of items and a single image resolution, enforcing generation of approx 40 tokens:
 
 vllm bench serve \
+```bash
 --backend openai-chat \
 --model Qwen/Qwen2.5-VL-3B-Instruct \
 --endpoint /v1/chat/completions \
@@ -1277,14 +1366,17 @@ vllm bench serve \
 --request-rate inf \
 --ignore-eos \
 --seed 42
+```
 
 
 The number of items per request can be controlled by passing multiple image buckets:
 
+```bash
 --random-mm-base-items-per-request 2 \
 --random-mm-num-mm-items-range-ratio 0.5 \
 --random-mm-limit-mm-per-prompt '{"image": 4, "video": 0}' \
 --random-mm-bucket-config '{(256, 256, 1): 0.7, (720, 1280, 1): 0.3}' \
+```
 
 
 Flags specific to `random-mm`
@@ -1358,6 +1450,7 @@ to save results.
 
 #### Basic Example with Synthetic Data (random-mm)[¶](https://docs.vllm.ai#basic-example-with-synthetic-data-random-mm)
 
+```bash
 vllm bench mm-processor \
 --model Qwen/Qwen2-VL-7B-Instruct \
 --dataset-name random-mm \
@@ -1367,20 +1460,24 @@ vllm bench mm-processor \
 --random-mm-base-items-per-request 2 \
 --random-mm-limit-mm-per-prompt '{"image": 3, "video": 0}' \
 --random-mm-bucket-config '{(256, 256, 1): 0.7, (720, 1280, 1): 0.3}'
+```
 
 
 #### Using a HuggingFace Dataset[¶](https://docs.vllm.ai#using-a-huggingface-dataset)
 
+```bash
 vllm bench mm-processor \
 --model Qwen/Qwen2-VL-7B-Instruct \
 --dataset-name hf \
 --dataset-path lmarena-ai/VisionArena-Chat \
 --hf-split train \
 --num-prompts 100
+```
 
 
 #### Warmup, Custom Percentiles, and JSON Output[¶](https://docs.vllm.ai#warmup-custom-percentiles-and-json-output)
 
+```bash
 vllm bench mm-processor \
 --model Qwen/Qwen2-VL-7B-Instruct \
 --dataset-name random-mm \
@@ -1391,6 +1488,7 @@ vllm bench mm-processor \
 --random-mm-base-items-per-request 1 \
 --metric-percentiles 50,90,95,99 \
 --output-json results.json
+```
 
 
 See [ vllm bench mm-processor](https://docs.vllm.ai/cli/bench/mm_processor/) for the full argument reference.
@@ -1506,6 +1604,7 @@ Start the server:
 Run the benchmark:
 
 vllm bench serve \
+```bash
 --model BAAI/bge-reranker-v2-m3 \
 --backend vllm-rerank \
 --endpoint /v1/rerank \
@@ -1514,6 +1613,7 @@ vllm bench serve \
 --random-input-len 512 \
 --num-prompts 10 \
 --random-batch-size 5
+```
 
 
 For reranker models, this will create `num_prompts / random_batch_size`

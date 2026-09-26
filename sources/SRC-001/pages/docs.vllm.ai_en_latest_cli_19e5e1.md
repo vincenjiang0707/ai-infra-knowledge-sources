@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/cli/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # vLLM CLI Guide[¶](https://docs.vllm.ai#vllm-cli-guide)
 
@@ -146,11 +146,13 @@ Available Commands:
 Benchmark the latency of a single batch of requests.
 
 vllm bench latency \
+```bash
 --model meta-llama/Llama-3.2-1B-Instruct \
 --input-len 32 \
 --output-len 1 \
 --enforce-eager \
 --load-format dummy
+```
 
 
 See [vllm bench latency](https://docs.vllm.ai/bench/latency/) for the full reference of all available arguments.
@@ -160,12 +162,14 @@ See [vllm bench latency](https://docs.vllm.ai/bench/latency/) for the full refer
 Benchmark the online serving throughput.
 
 vllm bench serve \
+```bash
 --model meta-llama/Llama-3.2-1B-Instruct \
 --host server-host \
 --port server-port \
 --random-input-len 32 \
 --random-output-len 4 \
 --num-prompts 5
+```
 
 
 See [vllm bench serve](https://docs.vllm.ai/bench/serve/) for the full reference of all available arguments.
@@ -174,12 +178,14 @@ See [vllm bench serve](https://docs.vllm.ai/bench/serve/) for the full reference
 
 Benchmark offline inference throughput.
 
+```bash
 vllm bench throughput \
 --model meta-llama/Llama-3.2-1B-Instruct \
 --input-len 32 \
 --output-len 1 \
 --enforce-eager \
 --load-format dummy
+```
 
 
 See [vllm bench throughput](https://docs.vllm.ai/bench/throughput/) for the full reference of all available arguments.

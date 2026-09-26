@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:45:55Z",
- "finished_at": "2026-09-23T03:45:55Z",
- "duration_seconds": 81.1,
- "attempts": 1,
+ "finished_at": "2026-09-25T13:54:24Z",
+ "duration_seconds": 122.8,
+ "attempts": 6,
  "channels": {
   "gh_918dad7a": {
    "type": "github_repo",
@@ -20,12 +20,12 @@
    "issues": {
     "status": "ok",
     "count": 0,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 0,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
@@ -52,12 +52,12 @@
    "issues": {
     "status": "ok",
     "count": 0,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
-    "count": 1,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -78,25 +78,25 @@
   "ref_3103374f": {
    "type": "reference",
    "url": "https://github.com/Ascend/msprof/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 2481
   },
   "ref_cf7b7ef3": {
    "type": "reference",
    "url": "https://github.com/Ascend/msprof/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 448
+   "mode": "page",
+   "chars": 594
   },
   "ref_ae5b74ae": {
    "type": "reference",
    "url": "https://github.com/Ascend/msprof/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 580
   }
  },

@@ -1,5 +1,3 @@
-# GPU MODE
-
 source: https://github.com/gpu-mode/kernelbot/releases
 
 # Releases: gpu-mode/kernelbot

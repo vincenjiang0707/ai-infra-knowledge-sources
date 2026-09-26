@@ -1,0 +1,128 @@
+source: https://docs.opencloudos.org/OC9/ai-deployment/GPU-optimization-practice/hygon-deployment/
+
+# 基于 OpenCloudOS 的海光 DCU 部署实践
+
+目前， OpenCloudOS 已实现对海光 DCU 驱动和 DTK 的深度适配和原生支持，为使用海光 DCU 用户提供了完整的 RPM 二进制软件包，包括内核级驱动、系统管理工具、计算库及AI框架适配组件。
+
+本文档将指导如何在 OpenCloudOS 上快速完成 DCU 驱动和 DTK 的安装部署，并无缝运行上层AI模型与应用。
+
+## 一、基础环境要求及说明
+
+1、 **支持 TencentOS 及内核版本** ：OpenCloudOS 9 版本、6.6内核（含其间各小版本）。
+
+2、 **支持的 GPU 设备** ：海光K100_AI、海光BW1000
+
+3、 **DCU 驱动版本** ：6.3.16-V1.1.0a
+
+4、 **DTK版本** ：25.04.2
+
+5、 **环境检查** ：该部署流程中，驱动包主要以二进制形式安装，因此需严格按照第二节「前置检查」流程，匹配软硬件系统，确认CPU架构，操作系统以及内核版本是否在列表中。
+
+6、 **系统依赖** ：DCU 和 DTK 所需依赖清单，请参照附二。请在执行该文档操作前，检查必要依赖是否齐全。
+
+## 二、前置检查
+
+请执行以下执行脚本，以确认系统环境是否符合要求，[点击下载执行脚本](https://ocweb-1319394267.cos.ap-guangzhou.myqcloud.com/docs/scripts/hygon-dcu-detection.sh)
+
+```
+sudo ./hygon-dcu-detection.sh
+```
+
+
+备注 ：关于一键安装脚本详细代码请查看[该链接](https://gitee.com/OpenCloudOS/Document/blob/master/docs/OC9/ai-deployment/GPU-optimization-practice/hygon-dcu-detection.sh)
+
+## 三、安装海光驱动及 DTK
+
+### 3.1 安装 OpenCloudOS EPOL源
+
+```
+# 如使用 OpenCloudOS 9系统，请先安装 EPOL extras 软件源
+dnf install epol-extras-release
+```
+
+
+### 3.2 安装驱动包
+
+```
+# 安装驱动包
+dnf install hygon-driver-6.3.16
+# 安装完成后需重启
+reboot
+```
+
+
+**备注：**海光 DCU 适配 OpenCloudOS 内核驱动的 RPM 包可支持多内核版本。它有若干个ko，会识别 OS 内核版本，因此可自动适配 6.6 内核中的各个不同小版本。基于上述原因，驱动安装过程中耗时相对较长，整个过程需要 2-5 分钟。
+
+### 3.3 驱动安装验证
+
+安装完成后，根据提示重启系统，重启后即可通过`hy-smi`
+
+命令查看驱动安装结果：
+
+### 3.4 安装 DTK 包
+
+```
+dnf install dtk-25.04.2
+```
+
+
+### 3.5 DTK 安装验证
+
+可通过`rocm-smi`
+
+命令查看驱动安装结果：
+
+## 四、AI 框架安装与验证
+
+### 4.1 启动 AI 框架（以 vLLM 示例）
+
+```
+docker run -it --network=host --name=vllm-test --privileged --device=/dev/kfd --device=/dev/dri --ipc=host --shm-size=64G --group-add video --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -u root --ulimit stack=-1:-1 --ulimit memlock=-1:-1 -v /opt/hyhal:/opt/hyhal:ro -v `pwd`:/mnt -v ~:/model:ro image.sourcefind.cn:5000/dcu/admin/base/custom:vllm0.9.2-opencloudos9.4-dtk25.04.2-py3.11 bash
+```
+
+
+备注：海光官方将在后续逐步扩展适配 OpenCloudOS 的其他 AI 框架。
+
+### 4.2 运行大模型（以DeepSeek-R1-Distill-Qwen为例）
+
+以本地模型运行为例，本地模型为 DeepSeek-R1-Distill-Qwen-14B
+
+```
+vllm server . --port 8000 --trust-remote-code
+```
+
+
+### 4.3 结果展示
+
+```
+curl http://localhost:8000/v1/completions
+-H "Content-Type: application/json"
+-d '{
+"model": ".",
+"prompt": "who are you ?",
+"max_tokens": 20,
+"temperature": 0
+}'
+```
+
+
+## 五、手动安装指南（备用方案）
+
+若驱动程序安装失败，可以从[光合开发者社区-资源下载中心](https://developer.sourcefind.cn/tool)下载需要的驱动程序（发布形式为.run包）进行安装。
+
+### 附录一：软件包清单
+
+| 文件名 | 包名 | |
+|---|---|---|
+| 驱动 | hygon-driver-6.3.16-1.oc9.x86_64.rpm | hygon-driver |
+| DTK | dtk-25.04.2-1.oc9.x86_64.rpm | dtk |
+
+### 附录二：系统必要依赖
+
+**DCU 系统依赖** ：cmake、gcc、gcc-c++、rpm-build、bash、coreutils、findutils、tar、sed、gzip、xz、make、automake、 autoconf、 pciutils、 pciutils-devel、 pciutils-libs、 system、 kernel-devel、 kernel-headers。
+
+**DTK 系统依赖** ：mesa-libGL-devel、libdrm、libdrm-devel、ncurses-devel、sqlite-devel、libcurl、libcurl-devel、perl-File-Which、perl-File-BaseDir、perl-File-Copy-Recursive、perl-File-Listing、perl-Digest、perl-Digest-MD5、perl-Data-Dumper、python3、python3-pip、python3-devel、python3-wheel、java-1.8.0-openjdk、gettext、gettext-devel、protobuf、vim-common、curl、doxygen、graphviz、deltarpm、tcl、environment-modules、policycoreutils-python-utils、texlive、texlive-xtab、texlive-multirow、texlive-sectsty、texlive-tocloft、texlive-adjustbox、libibverbs。
+
+### 附录三：海光DCU系列驱动+DTK+DAS系统架构
+
+驱动+DTK（DCU Compute Stack）架构图 DAS 架构图

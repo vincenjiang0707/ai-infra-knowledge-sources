@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/linear/bailing_linear_attn/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 @PluggableLayer.register("bailing_moe_linear_attention")
 class BailingMoELinearAttention(LinearAttention):
@@ -11,7 +11,7 @@ vLLM's v1 engine with MambaBase interface support.
 # --8<-- [end:bailing_moe_linear_attention]
 def __init__(
 self,
-config: PretrainedConfig,
+config: PreTrainedConfig,
 vllm_config: VllmConfig,
 prefix: str = "linear_attn",
 ):

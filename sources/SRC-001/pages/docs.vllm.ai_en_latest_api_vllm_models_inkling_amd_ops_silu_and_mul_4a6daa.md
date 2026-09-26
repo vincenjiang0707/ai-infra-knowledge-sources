@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/inkling/amd/ops/silu_and_mul/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/quark/schemes/quark_w4a16_int4/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class QuarkW4A16Int4(QuarkScheme):
 """Quark packed INT4 weight-only linear scheme via MPLinearKernel."""

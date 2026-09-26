@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/getting_started/installation/gpu/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # GPU[¶](https://docs.vllm.ai#gpu)
 
@@ -131,12 +131,14 @@ Open a new terminal and start an interactive chat session:
 
 #### Option 2: API requests with curl[¶](https://docs.vllm.ai#option-2-api-requests-with-curl)
 
+```bash
 curl http://localhost:8000/v1/chat/completions \
 -H "Content-Type: application/json" \
 -d '{
 "messages": [{"role": "user", "content": "Hello!"}],
 "max_tokens": 50
 }'
+```
 
 
 #### Option 3: Python with OpenAI SDK[¶](https://docs.vllm.ai#option-3-python-with-openai-sdk)
@@ -337,6 +339,7 @@ uv pip install --pre vllm \
 
 If you want to access the wheels for previous commits (e.g. to bisect the behavior change, performance regression), you can specify the commit hash in the URL, example:
 
+```bash
 export VLLM_COMMIT=5b8c30d62b754b575e043ce2fc0dcbf8a64f6306
 export VLLM_ROCM_VARIANT=$(curl -s https://wheels.vllm.ai/rocm/${VLLM_COMMIT} | \
 grep -oP 'rocm\d+' | head -1 | sed 's/%2B/+/g')
@@ -349,6 +352,7 @@ echo $VLLM_VERSION
 uv pip install vllm==${VLLM_VERSION} \
 --extra-index-url https://wheels.vllm.ai/rocm/${VLLM_COMMIT}/${VLLM_ROCM_VARIANT} \
 --index-strategy unsafe-best-match
+```
 
 
 `pip`
@@ -369,6 +373,7 @@ If you insist on using `pip`
 
 , you need to specify the exact vLLM version in the package name and provide the custom index URL (which can be obtained from the web page).
 
+```bash
 export VLLM_COMMIT=5b8c30d62b754b575e043ce2fc0dcbf8a64f6306
 export VLLM_ROCM_VARIANT=$(curl -s https://wheels.vllm.ai/rocm/${VLLM_COMMIT} | \
 grep -oP 'rocm\d+' | head -1 | sed 's/%2B/+/g')
@@ -380,6 +385,7 @@ echo $VLLM_ROCM_VARIANT
 echo $VLLM_VERSION
 pip install vllm==${VLLM_VERSION} \
 --extra-index-url https://wheels.vllm.ai/rocm/${VLLM_COMMIT}/${VLLM_ROCM_VARIANT}
+```
 
 
 Pre-built vLLM XPU wheels are published to `wheels.vllm.ai`
@@ -393,6 +399,21 @@ shim described below. PyTorch XPU packages are served from the PyTorch XPU index
 To install the wheel built from the latest main branch:
 
 uv pip install vllm --extra-index-url https://wheels.vllm.ai/nightly/xpu --extra-index-url https://download.pytorch.org/whl/xpu --index-strategy unsafe-best-match
+
+
+Note that after upgrading to PyTorch 2.14, xpu graph support requires specific oneAPI packages.
+
+uv pip install \
+"intel-cmplr-lib-rt==2026.1.1" \
+"intel-cmplr-lib-ur==2026.1.1" \
+"intel-cmplr-lic-rt==2026.1.1" \
+"intel-sycl-rt==2026.1.1" \
+"oneccl-devel==2022.1.2; platform_system == 'Linux' and platform_machine == 'x86_64'" \
+"oneccl==2022.1.2; platform_system == 'Linux' and platform_machine == 'x86_64'" \
+"dpcpp-cpp-rt==2026.1.1" \
+"intel-opencl-rt==2026.1.1" \
+"intel-openmp==2026.1.1" \
+"intel-pti==1.1.0"
 
 
 #### Install specific revisions[¶](https://docs.vllm.ai#install-specific-revisions_2)
@@ -713,7 +734,7 @@ Install
 
 [Triton for ROCm](https://github.com/ROCm/triton.git)Install ROCm's Triton following the instructions from
 
-[ROCm/triton](https://github.com/ROCm/triton.git)[python3 -m pip install ninja cmake wheel pybind11](https://docs.vllm.ai#__codelineno-37-1)[pip uninstall -y triton](https://docs.vllm.ai#__codelineno-37-2)[git clone https://github.com/ROCm/triton.git](https://docs.vllm.ai#__codelineno-37-3)[cd triton](https://docs.vllm.ai#__codelineno-37-4)[# git checkout $TRITON_BRANCH](https://docs.vllm.ai#__codelineno-37-5)[git checkout f9e5bf54](https://docs.vllm.ai#__codelineno-37-6)[if [ ! -f setup.py ]; then cd python; fi](https://docs.vllm.ai#__codelineno-37-7)[python3 setup.py install](https://docs.vllm.ai#__codelineno-37-8)[cd ../..](https://docs.vllm.ai#__codelineno-37-9)Note
+[ROCm/triton](https://github.com/ROCm/triton.git)[python3 -m pip install ninja cmake wheel pybind11](https://docs.vllm.ai#__codelineno-38-1)[pip uninstall -y triton](https://docs.vllm.ai#__codelineno-38-2)[git clone https://github.com/ROCm/triton.git](https://docs.vllm.ai#__codelineno-38-3)[cd triton](https://docs.vllm.ai#__codelineno-38-4)[# git checkout $TRITON_BRANCH](https://docs.vllm.ai#__codelineno-38-5)[git checkout f9e5bf54](https://docs.vllm.ai#__codelineno-38-6)[if [ ! -f setup.py ]; then cd python; fi](https://docs.vllm.ai#__codelineno-38-7)[python3 setup.py install](https://docs.vllm.ai#__codelineno-38-8)[cd ../..](https://docs.vllm.ai#__codelineno-38-9)Note
 
 - The validated
 `$TRITON_BRANCH`
@@ -732,7 +753,7 @@ Optionally, if you choose to use CK flash attention, you can install
 
 . To get your gfx architecture, run`rocminfo |grep gfx`
 
-.[git clone https://github.com/Dao-AILab/flash-attention.git](https://docs.vllm.ai#__codelineno-38-1)[cd flash-attention](https://docs.vllm.ai#__codelineno-38-2)[# git checkout $FA_BRANCH](https://docs.vllm.ai#__codelineno-38-3)[git checkout 0e60e394](https://docs.vllm.ai#__codelineno-38-4)[git submodule update --init](https://docs.vllm.ai#__codelineno-38-5)[GPU_ARCHS="gfx942" python3 setup.py install](https://docs.vllm.ai#__codelineno-38-6)[cd ..](https://docs.vllm.ai#__codelineno-38-7)Note
+.[git clone https://github.com/Dao-AILab/flash-attention.git](https://docs.vllm.ai#__codelineno-39-1)[cd flash-attention](https://docs.vllm.ai#__codelineno-39-2)[# git checkout $FA_BRANCH](https://docs.vllm.ai#__codelineno-39-3)[git checkout 0e60e394](https://docs.vllm.ai#__codelineno-39-4)[git submodule update --init](https://docs.vllm.ai#__codelineno-39-5)[GPU_ARCHS="gfx942" python3 setup.py install](https://docs.vllm.ai#__codelineno-39-6)[cd ..](https://docs.vllm.ai#__codelineno-39-7)Note
 
 - The validated
 `$FA_BRANCH`
@@ -743,7 +764,7 @@ can be found in the[docker/Dockerfile.rocm_base](https://github.com/vllm-project
 -
 Optionally, if you choose to build AITER yourself to use a certain branch or commit, you can build AITER using the following steps:
 
-[python3 -m pip uninstall -y aiter](https://docs.vllm.ai#__codelineno-39-1)[git clone --recursive https://github.com/ROCm/aiter.git](https://docs.vllm.ai#__codelineno-39-2)[cd aiter](https://docs.vllm.ai#__codelineno-39-3)[git checkout $AITER_BRANCH_OR_COMMIT](https://docs.vllm.ai#__codelineno-39-4)[git submodule sync; git submodule update --init --recursive](https://docs.vllm.ai#__codelineno-39-5)[python3 setup.py develop](https://docs.vllm.ai#__codelineno-39-6)Note
+[python3 -m pip uninstall -y aiter](https://docs.vllm.ai#__codelineno-40-1)[git clone --recursive https://github.com/ROCm/aiter.git](https://docs.vllm.ai#__codelineno-40-2)[cd aiter](https://docs.vllm.ai#__codelineno-40-3)[git checkout $AITER_BRANCH_OR_COMMIT](https://docs.vllm.ai#__codelineno-40-4)[git submodule sync; git submodule update --init --recursive](https://docs.vllm.ai#__codelineno-40-5)[python3 setup.py develop](https://docs.vllm.ai#__codelineno-40-6)Note
 
 - You will need to config the
 `$AITER_BRANCH_OR_COMMIT`
@@ -757,7 +778,7 @@ can be found in the[docker/Dockerfile.rocm_base](https://github.com/vllm-project
 -
 Optionally, if you want to use MORI for EP or PD disaggregation, you can install
 
-[MORI](https://github.com/ROCm/mori)using the following steps:[git clone https://github.com/ROCm/mori.git](https://docs.vllm.ai#__codelineno-40-1)[cd mori](https://docs.vllm.ai#__codelineno-40-2)[git checkout $MORI_BRANCH_OR_COMMIT](https://docs.vllm.ai#__codelineno-40-3)[git submodule sync; git submodule update --init --recursive](https://docs.vllm.ai#__codelineno-40-4)[MORI_GPU_ARCHS="gfx942;gfx950" python3 setup.py install](https://docs.vllm.ai#__codelineno-40-5)Note
+[MORI](https://github.com/ROCm/mori)using the following steps:[git clone https://github.com/ROCm/mori.git](https://docs.vllm.ai#__codelineno-41-1)[cd mori](https://docs.vllm.ai#__codelineno-41-2)[git checkout $MORI_BRANCH_OR_COMMIT](https://docs.vllm.ai#__codelineno-41-3)[git submodule sync; git submodule update --init --recursive](https://docs.vllm.ai#__codelineno-41-4)[MORI_GPU_ARCHS="gfx942;gfx950" python3 setup.py install](https://docs.vllm.ai#__codelineno-41-5)Note
 
 - You will need to config the
 `$MORI_BRANCH_OR_COMMIT`
@@ -773,7 +794,7 @@ Build vLLM. For example, vLLM on ROCM 7.0 can be built with the following steps:
 
 ## Commands
 
-[pip install --upgrade pip](https://docs.vllm.ai#__codelineno-41-1)[# Build & install AMD SMI](https://docs.vllm.ai#__codelineno-41-3)[pip install /opt/rocm/share/amd_smi](https://docs.vllm.ai#__codelineno-41-4)[# Install dependencies](https://docs.vllm.ai#__codelineno-41-6)[pip install --upgrade numba \](https://docs.vllm.ai#__codelineno-41-7)[scipy \](https://docs.vllm.ai#__codelineno-41-8)[huggingface-hub \](https://docs.vllm.ai#__codelineno-41-9)[setuptools_scm](https://docs.vllm.ai#__codelineno-41-10)[pip install -r requirements/rocm.txt](https://docs.vllm.ai#__codelineno-41-11)[# To build for a single architecture (e.g., MI300) for faster installation (recommended):](https://docs.vllm.ai#__codelineno-41-13)[export PYTORCH_ROCM_ARCH="gfx942"](https://docs.vllm.ai#__codelineno-41-14)[# To build vLLM for multiple arch MI210/MI250/MI300, use this instead](https://docs.vllm.ai#__codelineno-41-16)[# export PYTORCH_ROCM_ARCH="gfx90a;gfx942"](https://docs.vllm.ai#__codelineno-41-17)[python3 setup.py develop](https://docs.vllm.ai#__codelineno-41-19)This may take 5-10 minutes. Currently,
+[pip install --upgrade pip](https://docs.vllm.ai#__codelineno-42-1)[# Build & install AMD SMI](https://docs.vllm.ai#__codelineno-42-3)[pip install /opt/rocm/share/amd_smi](https://docs.vllm.ai#__codelineno-42-4)[# Install dependencies](https://docs.vllm.ai#__codelineno-42-6)[pip install --upgrade numba \](https://docs.vllm.ai#__codelineno-42-7)[scipy \](https://docs.vllm.ai#__codelineno-42-8)[huggingface-hub \](https://docs.vllm.ai#__codelineno-42-9)[setuptools_scm](https://docs.vllm.ai#__codelineno-42-10)[pip install -r requirements/rocm.txt](https://docs.vllm.ai#__codelineno-42-11)[# To build for a single architecture (e.g., MI300) for faster installation (recommended):](https://docs.vllm.ai#__codelineno-42-13)[export PYTORCH_ROCM_ARCH="gfx942"](https://docs.vllm.ai#__codelineno-42-14)[# To build vLLM for multiple arch MI210/MI250/MI300, use this instead](https://docs.vllm.ai#__codelineno-42-16)[# export PYTORCH_ROCM_ARCH="gfx90a;gfx942"](https://docs.vllm.ai#__codelineno-42-17)[python3 setup.py develop](https://docs.vllm.ai#__codelineno-42-19)This may take 5-10 minutes. Currently,
 
 `pip install .`
 
@@ -794,10 +815,12 @@ Tip
 , see[PyTorch XPU get started](https://docs.pytorch.org/docs/stable/notes/get_start_xpu.html)): - Start from vllm-xpu-kernels v0.1.10, we recommend user upgrade driver to
 [compute runtime 26.18](https://github.com/intel/compute-runtime/releases/tag/26.18.38308.1)release, to avoid potential compatibility issue.
 
+```bash
 git clone https://github.com/vllm-project/vllm.git
 cd vllm
 pip install --upgrade pip
 pip install -v -r requirements/xpu.txt
+```
 
 
 - Then, install vLLM XPU backend:
@@ -836,6 +859,7 @@ For build instructions from source, refer to the [vLLM-Metal documentation](http
 
 vLLM offers an official Docker image for deployment. The image can be used to run OpenAI compatible server and is available on Docker Hub as [vllm/vllm-openai](https://hub.docker.com/r/vllm/vllm-openai/tags).
 
+```bash
 docker run --runtime nvidia --gpus all \
 -v ~/.cache/huggingface:/root/.cache/huggingface \
 --env "HF_TOKEN=$HF_TOKEN" \
@@ -843,10 +867,12 @@ docker run --runtime nvidia --gpus all \
 --ipc=host \
 vllm/vllm-openai:latest \
 --model Qwen/Qwen3-0.6B
+```
 
 
 This image can also be used with other container engines such as [Podman](https://podman.io/).
 
+```bash
 podman run --device nvidia.com/gpu=all \
 -v ~/.cache/huggingface:/root/.cache/huggingface \
 --env "HF_TOKEN=$HF_TOKEN" \
@@ -854,6 +880,7 @@ podman run --device nvidia.com/gpu=all \
 --ipc=host \
 docker.io/vllm/vllm-openai:latest \
 --model Qwen/Qwen3-0.6B
+```
 
 
 You can add any other [engine-args](https://docs.vllm.ai/configuration/engine_args/) you need after the image tag (`vllm/vllm-openai:latest`
@@ -896,12 +923,14 @@ or `true`
 
 when running the container:
 
+```bash
 docker run --runtime nvidia --gpus all \
 -v ~/.cache/huggingface:/root/.cache/huggingface \
 -p 8000:8000 \
 --env "HF_TOKEN=<secret>" \
 --env "VLLM_ENABLE_CUDA_COMPATIBILITY=1" \
 vllm/vllm-openai <args...>
+```
 
 
 This will automatically configure `LD_LIBRARY_PATH`
@@ -917,6 +946,7 @@ vLLM offers official Docker images for deployment. The images can be used to run
 — preview build from the latest development branch, use this if you want the latest features and fixes
 
 docker run --rm \
+```bash
 --group-add=video \
 --cap-add=SYS_PTRACE \
 --security-opt seccomp=unconfined \
@@ -928,12 +958,14 @@ docker run --rm \
 --ipc=host \
 vllm/vllm-openai-rocm:<tag> \
 --model Qwen/Qwen3-0.6B
+```
 
 
 To use the docker image as base for development, you can launch it in interactive session through overriding the entrypoint.
 
 ## Commands
 
+```bash
 docker run --rm -it \
 --group-add=video \
 --cap-add=SYS_PTRACE \
@@ -946,6 +978,7 @@ docker run --rm -it \
 --ipc=host \
 --entrypoint /bin/bash \
 vllm/vllm-openai-rocm:<tag>
+```
 
 
 #### Use AMD's Docker Images (Deprecated)[¶](https://docs.vllm.ai#use-amds-docker-images-deprecated)
@@ -1047,6 +1080,7 @@ to get the most benefits. Keep an eye on memory usage with parallel jobs as it c
 
 ## Command
 
+```bash
 # Example of building on Nvidia GH200 server. (Memory usage: ~15GB, Build time: ~1475s / ~25 min, Image size: 6.93GB)
 DOCKER_BUILDKIT=1 docker build . \
 --file docker/Dockerfile \
@@ -1057,12 +1091,14 @@ DOCKER_BUILDKIT=1 docker build . \
 --build-arg nvcc_threads=2 \
 --build-arg BUILD_BASE_IMAGE=pytorch/manylinuxaarch64-builder:cuda13.0-78e737ad29420ffc4800e677c51e2a852caf8359 \
 --build-arg torch_cuda_arch_list="9.0 10.0+PTX"
+```
 
 
 For (G)B300, we recommend using CUDA 13, as shown in the following command.
 
 ## Command
 
+```bash
 DOCKER_BUILDKIT=1 docker build \
 --build-arg CUDA_VERSION=13.0.2 \
 --build-arg BUILD_BASE_IMAGE=pytorch/manylinuxaarch64-builder:cuda13.0-78e737ad29420ffc4800e677c51e2a852caf8359 \
@@ -1074,6 +1110,7 @@ DOCKER_BUILDKIT=1 docker build \
 --target vllm-openai \
 -f docker/Dockerfile \
 .
+```
 
 
 Note
@@ -1126,6 +1163,7 @@ for ARM64/AArch64 CPUs.
 
 ## ARM64/AArch64 build command
 
+```bash
 docker buildx build --progress=plain --load \
 --file docker/Dockerfile \
 --target vllm-openai \
@@ -1141,10 +1179,12 @@ docker buildx build --progress=plain --load \
 --build-arg BUILD_BASE_IMAGE="pytorch/manylinuxaarch64-builder:cuda13.4" \
 --build-arg FINAL_BASE_IMAGE="nvcr.io/nvidia/cuda-dl-base:26.08-cuda13.4-devel-ubuntu24.04" \
 .
+```
 
 
 ## x86_64 build command
 
+```bash
 docker buildx build --progress=plain --load \
 --file docker/Dockerfile \
 --target vllm-openai \
@@ -1160,6 +1200,7 @@ docker buildx build --progress=plain --load \
 --build-arg BUILD_BASE_IMAGE="pytorch/manylinux2_28-builder:cuda13.4" \
 --build-arg FINAL_BASE_IMAGE="nvcr.io/nvidia/cuda-dl-base:26.08-cuda13.4-devel-ubuntu24.04" \
 .
+```
 
 
 Note
@@ -1182,11 +1223,13 @@ disables only the PyPI publication-size guard for this private staging image.
 
 To run vLLM with the custom-built Docker image:
 
+```bash
 docker run --runtime nvidia --gpus all \
 -v ~/.cache/huggingface:/root/.cache/huggingface \
 -p 8000:8000 \
 --env "HF_TOKEN=<secret>" \
 vllm/vllm-openai <args...>
+```
 
 
 The argument `vllm/vllm-openai`
@@ -1247,6 +1290,7 @@ as entrypoint):
 To run vLLM with the custom-built Docker image:
 
 docker run --rm \
+```bash
 --group-add=video \
 --cap-add=SYS_PTRACE \
 --security-opt seccomp=unconfined \
@@ -1257,6 +1301,7 @@ docker run --rm \
 -p 8000:8000 \
 --ipc=host \
 vllm/vllm-openai-rocm <args...>
+```
 
 
 The argument `vllm/vllm-openai-rocm`
@@ -1277,12 +1322,14 @@ See [Feature x Hardware](https://docs.vllm.ai/features/#feature-x-hardware) comp
 
 XPU platform supports **tensor parallel** inference/serving and also supports **pipeline parallel** as a beta feature for online serving. For **pipeline parallel**, we support it on single node with mp as the backend. For example, a reference execution like following:
 
+```bash
 vllm serve facebook/opt-13b \
 --dtype=bfloat16 \
 --max_model_len=1024 \
 --distributed-executor-backend=mp \
 --pipeline-parallel-size=2 \
 -tp=8
+```
 
 
 By default, a ray instance will be launched automatically if no existing one is detected in the system, with `num-gpus`

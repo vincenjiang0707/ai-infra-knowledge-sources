@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/quantization/online/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Online Quantization[¶](https://docs.vllm.ai#online-quantization)
 
@@ -30,12 +30,14 @@ quantization_config={"linear": {"activation": None, "weight": None}}
 
 Or with the CLI:
 
+```bash
 vllm serve meta-llama/Llama-3.1-8B --quantization fp8_per_tensor
 vllm serve meta-llama/Llama-3.1-8B --quantization fp8_per_block
 vllm serve meta-llama/Llama-3.1-8B --quantization mxfp8
 vllm serve meta-llama/Llama-3.1-8B --quantization mxfp4
 vllm serve Qwen/Qwen3.5-35B-A3B --quantization mxfp4 \
 --quantization-config '{"linear":{"activation":null,"weight":null}}'
+```
 
 
 ## Supported Schemes[¶](https://docs.vllm.ai#supported-schemes)

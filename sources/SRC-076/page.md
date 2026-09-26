@@ -1,5 +1,3 @@
-# PyTorch
-
 source: https://github.com/ScalingIntelligence/KernelBench/releases
 
 # Releases: ScalingIntelligence/KernelBench

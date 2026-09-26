@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/integrations/production-stack/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Production stack[¶](https://docs.vllm.ai#production-stack)
 
@@ -62,6 +62,7 @@ To send an actual chatting request, you can issue a curl request to the OpenAI `
 
 endpoint:
 
+```bash
 curl -X POST http://localhost:30080/v1/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -69,6 +70,7 @@ curl -X POST http://localhost:30080/v1/completions \
 "prompt": "Once upon a time,",
 "max_tokens": 10
 }'
+```
 
 
 ## Output

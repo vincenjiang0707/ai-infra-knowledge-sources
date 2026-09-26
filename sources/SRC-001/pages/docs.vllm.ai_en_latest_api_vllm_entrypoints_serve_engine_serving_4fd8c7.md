@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/serve/engine/serving/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class BaseServing:
 def __init__(
@@ -15,6 +15,8 @@ async def _check_model(
 self,
 request: AnyRequest | AnyPoolingRequest,
 ) -> ErrorResponse | None:
+if self.request_logger is not None:
+self.request_logger.log_request_body(request)
 error_response = None
 if self._is_model_supported(request.model):
 return None

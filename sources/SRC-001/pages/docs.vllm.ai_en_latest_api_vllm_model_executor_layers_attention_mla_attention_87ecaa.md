@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/attention/mla_attention/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -164,6 +164,15 @@ Functions:
 –[reorg_kvcache](https://docs.vllm.ai#vllm.model_executor.layers.attention.mla_attention.reorg_kvcache)Reorg and unpad kvcache after cp local gather to tp layout for attn kernel.
 
 -
+–[split_kv_b_proj](https://docs.vllm.ai#vllm.model_executor.layers.attention.mla_attention.split_kv_b_proj)Dequantize
+
+`kv_b_proj`
+
+and return`W_UK [L,N,P]`
+
+,`W_UV [L,N,V]`
+
+. -
 –[unified_mla_kv_cache_update](https://docs.vllm.ai#vllm.model_executor.layers.attention.mla_attention.unified_mla_kv_cache_update)Returns a dummy that is passed to unified_attention to signal a side effect and
 
 
@@ -802,6 +811,23 @@ Parameters:
 
 |
 |
+
+##
+
+`split_kv_b_proj(kv_b_proj, out_dtype, kv_lora_rank, num_heads, qk_nope_head_dim, v_head_dim)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.attention.mla_attention.split_kv_b_proj)
+
+Dequantize `kv_b_proj`
+
+and return `W_UK [L,N,P]`
+
+, `W_UV [L,N,V]`
+
+.
+
+## Source code in `vllm/model_executor/layers/attention/mla_attention.py`
+
 
 ##
 

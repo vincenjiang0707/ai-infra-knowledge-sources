@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/coordinator/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MooncakeStoreCoordinator:
 """Mirror of ``HybridKVCacheCoordinator.find_longest_cache_hit`` over an

@@ -7,17 +7,17 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:14:32Z",
- "finished_at": "2026-09-23T04:14:32Z",
- "duration_seconds": 7.2,
- "attempts": 1,
+ "finished_at": "2026-09-24T18:53:44Z",
+ "duration_seconds": 6.9,
+ "attempts": 2,
  "channels": {
   "acad_46fc02a8": {
    "type": "academic",
    "url": "https://openreview.net/",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 307706
+   "mode": "page",
+   "chars": 308603
   }
  },
  "cursor": {},

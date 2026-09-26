@@ -1,5 +1,3 @@
-# MUSA SDK
-
 source: https://developer.mthreads.com/sdk/musa
 
 MUSA SDK 是一个摩尔线程 GPU 并行计算开发 SDK 的集合，它包含了MUSAToolkits（内置运行时、编译器、GPU 加速计算库、迁移和优化工具）及计算库、神经网络加速库、通信库等一系列开发工具，方便开发者一站式安装 MUSA 应用开发环境。借助 MUSA SDK ，开发者可以快速开发出针对摩尔线程 GPU 优化的并行计算应用。

@@ -1,5 +1,3 @@
-# GitHub
-
 source: https://github.com/topics/llm-inference
 
 GPT4All: Run Local LLMs on Any Device. Open-source and available for commercial use.

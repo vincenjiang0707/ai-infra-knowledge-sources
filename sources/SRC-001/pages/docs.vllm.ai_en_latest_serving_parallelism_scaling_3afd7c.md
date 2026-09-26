@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/serving/parallelism_scaling/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Parallelism and Scaling[¶](https://docs.vllm.ai#parallelism-and-scaling)
 
@@ -164,10 +164,12 @@ command on a single node is sufficient.
 
 The common practice is to set the tensor parallel size to the number of GPUs in each node, and the pipeline parallel size to the number of nodes. For example, if you have 16 GPUs across 2 nodes (8 GPUs per node), set the tensor parallel size to 8 and the pipeline parallel size to 2:
 
+```bash
 vllm serve /path/to/the/model/in/the/container \
 --tensor-parallel-size 8 \
 --pipeline-parallel-size 2 \
 --distributed-executor-backend ray
+```
 
 
 Alternatively, you can set `tensor_parallel_size`
@@ -191,18 +193,22 @@ and `pp_size=2`
 
 Choose one node as the head node and run:
 
+```bash
 vllm serve /path/to/the/model/in/the/container \
 --tensor-parallel-size 8 --pipeline-parallel-size 2 \
 --nnodes 2 --node-rank 0 \
 --master-addr <HEAD_NODE_IP>
+```
 
 
 On the other worker node, run:
 
+```bash
 vllm serve /path/to/the/model/in/the/container \
 --tensor-parallel-size 8 --pipeline-parallel-size 2 \
 --nnodes 2 --node-rank 1 \
 --master-addr <HEAD_NODE_IP> --headless
+```
 
 
 ## Optimizing network communication for tensor parallelism[¶](https://docs.vllm.ai#optimizing-network-communication-for-tensor-parallelism)

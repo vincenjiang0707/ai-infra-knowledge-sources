@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/passes/ir/lowering_pass/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class VllmIRLoweringPass(VllmInductorPass):
 """This pass lowers vLLM IR ops to their implementations the priority list."""

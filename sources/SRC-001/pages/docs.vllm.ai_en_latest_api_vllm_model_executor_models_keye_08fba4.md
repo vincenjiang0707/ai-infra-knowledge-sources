@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/keye/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class BaseKeyeModule(nn.Module, SupportsMultiModal):
 packed_modules_mapping = {
@@ -29,7 +29,7 @@ return "<|vision_start|><|video_pad|><|vision_end|>"
 raise ValueError("Only image or video modality is supported")
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
 super().__init__()
-config: PretrainedConfig = vllm_config.model_config.hf_config
+config: PreTrainedConfig = vllm_config.model_config.hf_config
 quant_config = vllm_config.quant_config
 self.config = config
 with self._mark_tower_model(vllm_config, {"image", "video"}):
@@ -56,8 +56,8 @@ self.language_model.make_empty_intermediate_tensors
 @abstractmethod
 def _build_projector(
 self,
-text_config: PretrainedConfig,
-vision_config: PretrainedConfig,
+text_config: PreTrainedConfig,
+vision_config: PreTrainedConfig,
 quant_config: QuantizationConfig | None = None,
 prefix: str = "",
 ) -> nn.Module:

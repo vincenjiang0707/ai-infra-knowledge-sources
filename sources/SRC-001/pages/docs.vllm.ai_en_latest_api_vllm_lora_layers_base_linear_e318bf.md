@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/layers/base_linear/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class BaseLinearLayerWithLoRA(BaseLayerWithLoRA):
 # The adapter branch consumes the original activation, independently of
@@ -35,7 +35,7 @@ def create_lora_weights(
 self,
 max_loras: int,
 lora_config: LoRAConfig,
-model_config: PretrainedConfig | None = None,
+model_config: PreTrainedConfig | None = None,
 ) -> None:
 self.lora_config = lora_config
 if isinstance(self.base_layer, ReplicatedLinear):

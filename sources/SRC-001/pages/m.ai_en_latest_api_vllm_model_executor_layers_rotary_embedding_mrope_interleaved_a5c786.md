@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/mrope_interleaved/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MRotaryEmbeddingInterleaved(MRotaryEmbedding):
 """Rotary Embedding with Multimodal Sections and Interleaved Support."""

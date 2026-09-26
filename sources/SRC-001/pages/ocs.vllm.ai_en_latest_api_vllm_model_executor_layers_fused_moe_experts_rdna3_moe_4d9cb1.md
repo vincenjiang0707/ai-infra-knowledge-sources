@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/rdna3_moe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class Rdna3WNA16Experts(mk.FusedMoEExpertsModular):
 """W4A16 experts backed by ``moe_gptq_gemm_rdna3`` (gfx1100).

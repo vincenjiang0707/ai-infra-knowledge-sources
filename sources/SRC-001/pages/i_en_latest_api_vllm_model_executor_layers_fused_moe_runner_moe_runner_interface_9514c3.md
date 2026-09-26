@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/runner/moe_runner_interface/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Bases: [PluggableLayer](../../../../custom_op/#vllm.model_executor.custom_op.PluggableLayer)
 

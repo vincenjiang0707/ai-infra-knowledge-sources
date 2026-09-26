@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fusion/relu2_fp8_quant/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 BF16 ReLU2 followed by static per-tensor FP8 quantization.
 

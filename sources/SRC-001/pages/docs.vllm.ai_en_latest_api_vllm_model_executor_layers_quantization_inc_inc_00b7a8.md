@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/inc/inc/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class INCConfig(QuantizationConfig):
 """Config class for Intel Neural Compressor (INC).

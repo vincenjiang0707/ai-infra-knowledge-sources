@@ -1541,7 +1541,7 @@ LMCache v0.3.8 is not stable with vLLM 0.11.0 and has been taken off of PyPI.
 
 Automated nightly operator build from `dev` branch.
 
-**Image:** `lmcache/lmcache-operator:nightly-2026-09-23`
+**Image:** `lmcache/lmcache-operator:nightly-2026-09-25`
 
 ```bash
 kubectl apply -f https://github.com/LMCache/LMCache/releases/download/operator-nightly-latest/install.yaml
@@ -4263,9 +4263,9 @@ pip install lmcache==0.5.5rc7+xpu --no-deps \
 
 (empty body)
 
-## nightly (2026-09-22)
+## nightly (2026-09-24)
 
-Nightly CUDA 13.0 wheels built from `dev` on 2026-09-22.
+Nightly CUDA 13.0 wheels built from `dev` on 2026-09-24.
 
 ```
 uv pip install lmcache --pre \
@@ -4274,9 +4274,9 @@ uv pip install lmcache --pre \
   --index-strategy unsafe-best-match
 ```
 
-## nightly-cu129 (2026-09-22)
+## nightly-cu129 (2026-09-24)
 
-Nightly CUDA 12.9 wheels built from `dev` on 2026-09-22.
+Nightly CUDA 12.9 wheels built from `dev` on 2026-09-24.
 
 ```
 uv pip install lmcache --pre \
@@ -4285,9 +4285,9 @@ uv pip install lmcache --pre \
   --index-strategy unsafe-best-match
 ```
 
-## nightly-musa (2026-09-22)
+## nightly-musa (2026-09-24)
 
-Nightly MUSA wheel for LMCache, built from `dev` on 2026-09-22.
+Nightly MUSA wheel for LMCache, built from `dev` on 2026-09-24.
 
 Built and smoke-tested in the validated public MUSA image. TorchMUSA,
 the MUSA SDK, and device drivers remain host-owned and are not bundled
@@ -4295,19 +4295,19 @@ in the wheel.
 
 Install inside the matching MUSA runtime image:
 ```bash
-pip install lmcache==0.5.6.dev66+musa --no-deps \
+pip install lmcache==0.5.6.dev98+musa --no-deps \
   --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/nightly-musa
 ```
 
-## nightly-rocm (2026-09-22)
+## nightly-rocm (2026-09-24)
 
-Nightly ROCm 7.2 wheels built from `dev` on 2026-09-22,
+Nightly ROCm 7.2 wheels built from `dev` on 2026-09-24,
 for AMD Instinct gfx942 (MI300X/MI325X) and gfx950 (MI350X/MI355X),
 ABI-matched to the upstream `vllm/vllm-openai-rocm` image
 (torch 2.11, cp312).
 
 Install into an upstream vLLM ROCm container:
 ```
-pip install lmcache==0.5.6.dev66+rocm7.2 --no-deps \
+pip install lmcache==0.5.6.dev98+rocm7.2 --no-deps \
   --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/nightly-rocm
 ```

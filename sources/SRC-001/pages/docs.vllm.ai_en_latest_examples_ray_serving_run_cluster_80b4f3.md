@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/ray_serving/run_cluster/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Run Cluster[¶](https://docs.vllm.ai#run-cluster)
 

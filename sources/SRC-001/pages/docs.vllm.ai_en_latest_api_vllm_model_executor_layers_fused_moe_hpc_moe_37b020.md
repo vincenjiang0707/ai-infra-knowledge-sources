@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/hpc_moe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class HPCExperts(mk.FusedMoEExpertsModular):
 """MoE implementation powered by [HPC](https://github.com/Tencent/hpc-ops).

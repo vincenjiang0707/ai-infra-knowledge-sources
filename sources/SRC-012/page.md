@@ -1,5 +1,3 @@
-# MLC LLM
-
 source: https://github.com/mlc-ai/mlc-llm/releases
 
 # Releases: mlc-ai/mlc-llm

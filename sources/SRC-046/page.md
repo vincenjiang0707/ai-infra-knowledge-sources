@@ -1,5 +1,3 @@
-# 燧原官⽹
-
 source: https://www.enflame-tech.com/
 
 燧原S60

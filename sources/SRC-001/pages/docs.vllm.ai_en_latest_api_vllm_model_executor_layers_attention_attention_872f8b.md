@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/attention/attention/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class Attention(nn.Module, AttentionLayerBase):
 """Attention layer.
@@ -379,7 +379,7 @@ assert not self.attn_backend.is_mla(), (
 # ``unify`` scales it up by an integer ratio.
 shared_page = vllm_config.cache_config.skip_page_size_padded
 # The backend owns its packing
-sw_per_token = self.attn_backend.customize_spec(
+kv_cache_spec = self.attn_backend.customize_spec(
 SlidingWindowSpec(
 block_size=1,
 num_kv_heads=self.num_kv_heads,
@@ -389,10 +389,15 @@ dtype=self.kv_cache_torch_dtype,
 kv_quant_mode=quant_mode,
 sliding_window=self.sliding_window,
 )
-).real_page_size_bytes
+)
+sw_per_token = kv_cache_spec.real_page_size_bytes
 page_budget = shared_page or sw_per_token * block_size
 sw_block_size = _largest_kernel_block_within(
-self.attn_backend, sw_per_token, page_budget, block_size
+self.attn_backend,
+sw_per_token,
+page_budget,
+block_size,
+kv_cache_spec,
 )
 return SlidingWindowSpec(
 block_size=sw_block_size,

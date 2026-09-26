@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/linear/base/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Bases: [PluggableLayer](../../../../custom_op/#vllm.model_executor.custom_op.PluggableLayer)
 
@@ -14,7 +14,7 @@ Base class for Linear attention layer.
 | class LinearAttention(PluggableLayer, MambaBase):
 """Base class for Linear attention layer."""
 def __init__(
-self, config: PretrainedConfig, vllm_config: VllmConfig, prefix: str = ""
+self, config: PreTrainedConfig, vllm_config: VllmConfig, prefix: str = ""
 ):
 super().__init__()
 self.layer_idx = extract_layer_index(prefix)

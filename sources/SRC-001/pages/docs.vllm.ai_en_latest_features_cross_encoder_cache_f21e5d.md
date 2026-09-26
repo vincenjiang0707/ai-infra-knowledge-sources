@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/cross_encoder_cache/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Cross-Encoder Output Reuse[¶](https://docs.vllm.ai#cross-encoder-output-reuse)
 
@@ -30,6 +30,7 @@ to the existing producer `--ec-transfer-config`
 
 , preserving its P2P settings:
 
+```json
 {
 "ec_connector": "ECMooncakeConnector",
 "ec_role": "ec_producer",
@@ -37,6 +38,7 @@ to the existing producer `--ec-transfer-config`
 "cross_encoder_cache": true
 }
 }
+```
 
 
 Prefill keeps its existing [ ECMooncakeConnector](https://docs.vllm.ai/api/vllm/distributed/ec_transfer/ec_connector/mooncake_ec_connector/#vllm.distributed.ec_transfer.ec_connector.mooncake_ec_connector.ECMooncakeConnector) consumer configuration and does not need a Store client.
@@ -48,6 +50,7 @@ with `global_segment_size`
 set to zero:
 
 {
+```json
 "metadata_server": "http://STORE_HOST:2379/metadata",
 "master_server_address": "STORE_HOST:50051",
 "protocol": "tcp",
@@ -56,6 +59,7 @@ set to zero:
 "global_segment_size": 0,
 "local_buffer_size": "4GB"
 }
+```
 
 
 Replace the addresses with your Store endpoints and set the path on each Encoder before starting vLLM:

@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:26:52Z",
- "finished_at": "2026-09-23T03:26:52Z",
- "duration_seconds": 241.4,
- "attempts": 1,
+ "finished_at": "2026-09-25T01:57:45Z",
+ "duration_seconds": 230.0,
+ "attempts": 3,
  "channels": {
   "gh_087dae28": {
    "type": "github_repo",
@@ -20,16 +20,16 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
-    "count": 7304
+    "count": 7341
    },
    "changelog": {
     "status": "ok",
@@ -46,37 +46,37 @@
   "ref_30f1d35c": {
    "type": "reference",
    "url": "https://github.com/ggml-org/llama.cpp/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 1859
+   "mode": "page",
+   "chars": 2294
   },
   "ref_fa4151fc": {
    "type": "reference",
    "url": "https://github.com/ggml-org/llama.cpp/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 11170
+   "mode": "page",
+   "chars": 130
   },
   "ref_e954bc49": {
    "type": "reference",
    "url": "https://github.com/ggml-org/llama.cpp/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 49604
+   "mode": "page",
+   "chars": 50398
   }
  },
  "cursor": {
   "gh_087dae28:issues": {
-   "last_updated_at": "2026-09-23T02:25:36Z"
+   "last_updated_at": "2026-09-25T01:40:40Z"
   },
   "gh_087dae28:pulls": {
-   "last_updated_at": "2026-09-23T03:09:18Z"
+   "last_updated_at": "2026-09-25T01:52:51Z"
   },
   "gh_087dae28:releases": {
-   "last_id": 394243883
+   "last_id": 396172268
   }
  },
  "notes": ""

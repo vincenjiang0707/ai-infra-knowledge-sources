@@ -1,5 +1,3 @@
-# MLSys
-
 source: https://proceedings.mlsys.org/
 
 Requests for name changes in the electronic proceedings will be accepted with no questions asked. However name changes may cause bibliographic tracking issues. Authors are asked to consider this carefully and discuss it with their co-authors prior to requesting a name change in the electronic proceedings.

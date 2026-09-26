@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/siglip2navit/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -79,7 +79,7 @@ Parameters:
 
 [¶](https://docs.vllm.ai#vllm.model_executor.models.siglip2navit.Siglip2Encoder(config))`Siglip2VisionConfig`
 
-) –PretrainedConfig
+) –PreTrainedConfig
 
 
 Methods:

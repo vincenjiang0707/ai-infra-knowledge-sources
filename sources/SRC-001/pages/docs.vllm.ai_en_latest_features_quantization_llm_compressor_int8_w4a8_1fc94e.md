@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/int8_w4a8/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # INT8 W4A8[¶](https://docs.vllm.ai#int8-w4a8)
 
@@ -47,6 +47,7 @@ When quantizing activations to INT8 and weights to INT4, you need sample data to
 
 :
 
+```bash
 from datasets import load_dataset
 NUM_CALIBRATION_SAMPLES = 512
 MAX_SEQUENCE_LENGTH = 2048
@@ -59,6 +60,7 @@ ds = ds.map(preprocess)
 def tokenize(sample):
 return tokenizer(sample["text"], padding=False, max_length=MAX_SEQUENCE_LENGTH, truncation=True, add_special_tokens=False)
 ds = ds.map(tokenize, remove_columns=ds.column_names)
+```
 
 
 ### 3. Applying Quantization[¶](https://docs.vllm.ai#3-applying-quantization)

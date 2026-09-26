@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/prefix_caching/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Automatic Prefix Caching[¶](https://docs.vllm.ai#automatic-prefix-caching)
 
@@ -58,6 +58,7 @@ package.
 
 In this example, we illustrate how prefix caching works with multi-modality inputs (e.g., images). Assuming we have a request with the following messages:
 
+```
 messages = [
 {"role": "user",
 "content": [
@@ -69,6 +70,7 @@ messages = [
 },
 ]},
 ]
+```
 
 
 It will become the following prompt:
@@ -109,6 +111,7 @@ In the rest of this document, we first introduce the data structure used for pre
 
 in the request, this value is injected into the hash of the first block, ensuring that only requests with the same salt can reuse cached KV blocks. This prevents timing-based attacks where an adversary could infer cached content by observing latency differences. This offers protection without compromising performance.
 
+```json
 {
 "messages": [
 {"role": "system", "content": "You are a helpful assistant."},
@@ -117,6 +120,7 @@ in the request, this value is injected into the hash of the first block, ensurin
 ],
 "cache_salt": "your-cache-salt"
 }
+```
 
 
 With this setup, cache sharing is limited to users or requests that explicitly agree on a common salt, enabling cache reuse within a trust group while isolating others.

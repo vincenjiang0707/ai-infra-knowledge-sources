@@ -1,5 +1,3 @@
-# InternLM
-
 source: https://github.com/InternLM
 
 **InternLM**

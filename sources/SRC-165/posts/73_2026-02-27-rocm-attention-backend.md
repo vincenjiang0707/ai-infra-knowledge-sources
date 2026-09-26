@@ -252,6 +252,7 @@ with ROCm 7.0.0. This is a nightly Docker image built from the main branch of [h
 **MHA Benchmark (Qwen3-235B):**
 
 ```
+```bash
 export SAFETENSORS_FAST_GPU=1
 export VLLM_ROCM_USE_AITER=1
 export VLLM_RPC_TIMEOUT=1800000
@@ -272,11 +273,13 @@ vllm serve $model_path \
 --async-scheduling \
 --port 1234
 ```
+```
 
 
 **MLA Benchmark (DeepSeek-R1):**
 
 ```
+```bash
 export SAFETENSORS_FAST_GPU=1
 export VLLM_ROCM_USE_AITER=1
 export VLLM_RPC_TIMEOUT=1800000
@@ -294,6 +297,7 @@ vllm serve $model_path \
 --compilation-config '{"cudagraph_mode": "FULL_AND_PIECEWISE"}' \
 --async-scheduling \
 --port 1234
+```
 ```
 
 

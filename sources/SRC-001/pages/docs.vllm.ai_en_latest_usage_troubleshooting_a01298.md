@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/usage/troubleshooting/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Troubleshooting[¶](https://docs.vllm.ai#troubleshooting)
 
@@ -182,11 +182,13 @@ to the correct IP address and port of the master node (e.g., `10.0.0.1:29400`
 
 ), reachable from all nodes. Then, run:
 
+```bash
 NCCL_DEBUG=TRACE torchrun --nnodes 2 \
 --nproc-per-node=2 \
 --rdzv_backend=static \
 --rdzv_endpoint=$MASTER_ADDR \
 --node-rank $NODE_RANK test.py
+```
 
 
 Set `MASTER_ADDR`

@@ -1,10 +1,10 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/radio/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class ViTPatchGenerator(nn.Module):
 def __init__(
 self,
-# config: PretrainedConfig,
+# config: PreTrainedConfig,
 patch_size: int,
 embed_dim: int,
 input_dims: input_dim_t,

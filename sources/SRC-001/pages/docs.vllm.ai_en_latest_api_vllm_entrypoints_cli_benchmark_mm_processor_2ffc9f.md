@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/cli/benchmark/mm_processor/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -34,6 +34,7 @@ The benchmark supports two data sources: synthetic random multimodal inputs (`ra
 
 #### Quick Start[¶](https://docs.vllm.ai#vllm.entrypoints.cli.benchmark.mm_processor.BenchmarkMMProcessorSubcommand--quick-start)
 
+```bash
 vllm bench mm-processor \
 --model Qwen/Qwen2-VL-7B-Instruct \
 --dataset-name random-mm \
@@ -43,6 +44,7 @@ vllm bench mm-processor \
 --random-mm-base-items-per-request 2 \
 --random-mm-limit-mm-per-prompt '{"image": 3, "video": 0}' \
 --random-mm-bucket-config '{(256, 256, 1): 0.7, (720, 1280, 1): 0.3}'
+```
 
 
 #### Measured Stages[¶](https://docs.vllm.ai#vllm.entrypoints.cli.benchmark.mm_processor.BenchmarkMMProcessorSubcommand--measured-stages)

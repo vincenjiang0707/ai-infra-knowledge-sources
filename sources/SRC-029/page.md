@@ -1,5 +1,3 @@
-# AWS Neuron
-
 source: https://awsdocs-neuron.readthedocs-hosted.com/en/latest/
 
 # AWS Neuron Documentation[#](https://awsdocs-neuron.readthedocs-hosted.com#aws-neuron-documentation)

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/hybrid_kv_cache_manager/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Hybrid KV Cache Manager[¶](https://docs.vllm.ai#hybrid-kv-cache-manager)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/nixl/push_worker/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class NixlPushConnectorWorker(NixlBaseConnectorWorker):
 """Push-specific (WRITE) worker logic. See module docstring."""
@@ -22,6 +22,7 @@ self._hb_handshake_notif_only = True
 # (``_pop_done_transfers``); guarded by
 # ``_sending_transfers_lock``.
 self._sending_transfers = defaultdict[ReqId, list[TransferHandle]](list)
+self._send_failures: set[ReqId] = set()
 self._sending_transfers_lock = threading.Lock()
 # Writer-thread owned matching state.
 # P-side: finished request blocks received from scheduler metadata
@@ -74,6 +75,7 @@ for handles in self._sending_transfers.values():
 for handle in handles:
 self.nixl_wrapper.release_xfer_handle(handle)
 self._sending_transfers.clear()
+self._send_failures.clear()
 super().shutdown()
 # --- Engine-main-thread entry point -------------------------------- #
 def start_load_kv(self, metadata: NixlConnectorMetadata):
@@ -581,6 +583,8 @@ remote_rank=remote_rank,
 # don't have a ``_recving_metadata`` entry to invalidate, so
 # we just release the handle and let the engine reschedule
 # via the lease / watchdog.
+with self._sending_transfers_lock:
+self._send_failures.add(request_id)
 if not self._handle_failed_transfer(request_id, handle):
 return handle
 return None
@@ -654,13 +658,16 @@ with self._sending_transfers_lock:
 done_pushing, failed_pushing = self._pop_done_transfers(
 self._sending_transfers
 )
-# A failed send must never be reported as done: its blocks
-# are freed via the lease / watchdog instead.
-done_pushing = {
+# Remember failures until the final sibling WRITE completes.
+self._send_failures.update(failed_pushing)
+successful = {
 req_id
-for req_id in done_pushing - failed_pushing
-if req_id in self._recving_metadata
+for req_id in done_pushing - self._send_failures
+if req_id in self._reqs_to_send or req_id in self._reqs_to_process
 }
+self._send_failures.difference_update(done_pushing | done_sending)
+# Expired requests were already reported, even if their WRITEs finish later.
+done_pushing = successful
 for req_id in done_pushing:
 self._reqs_to_send.pop(req_id, None)
 self._reqs_to_process.discard(req_id)

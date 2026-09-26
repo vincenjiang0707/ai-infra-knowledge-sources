@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/connector/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MooncakeStoreConnector(KVConnectorBase_V1, SupportsHMA):
 """KV connector using MooncakeDistributedStore as shared KV pool."""

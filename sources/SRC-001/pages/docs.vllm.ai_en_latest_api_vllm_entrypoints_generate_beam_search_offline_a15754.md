@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/generate/beam_search/offline/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class BeamSearchOfflineMixin(OfflineInferenceMixin):
 """Offline inference for beam search."""

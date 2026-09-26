@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/attention/dsa/sparse_mqa_logits/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -66,7 +66,7 @@ counts valid sparse-token columns; valid columns form a prefix because block ids
 
 ##
 
-`_sparse_topk_remap_kernel(col_ptr, col_stride, si_ptr, si_stride, ks_ptr, ks_stride, out_ptr, out_stride, k, SBK, K_POW2)`
+`_sparse_topk_remap_kernel(col_ptr, col_stride, si_ptr, si_stride, ks_ptr, ks_stride, out_ptr, out_stride, k, width, SBK, K_POW2)`
 
 [¶](https://docs.vllm.ai#vllm.model_executor.kernels.attention.dsa.sparse_mqa_logits._sparse_topk_remap_kernel)
 
@@ -76,7 +76,9 @@ Column `j * SBK + o`
 
 scores the token at `(si[row, j] - ks // SBK) * SBK + o`
 
-; -1 columns stay -1.
+; columns outside `[0, width)`
+
+(including DeepSelect's sentinel for NaN rows) become -1.
 
 ## Source code in `vllm/model_executor/kernels/attention/dsa/sparse_mqa_logits.py`
 

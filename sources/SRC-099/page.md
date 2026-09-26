@@ -1,5 +1,3 @@
-# Linux 性能⼯具
-
 source: https://www.brendangregg.com/linuxperf.html
 
 # Linux Performance

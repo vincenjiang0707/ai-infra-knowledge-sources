@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/fp8/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # FP8 W8A8[¶](https://docs.vllm.ai#fp8-w8a8)
 
@@ -136,11 +136,13 @@ token by default, so make sure to include the `add_bos_token=True`
 
 argument when running your evaluations.
 
+```bash
 MODEL=$PWD/Meta-Llama-3-8B-Instruct-FP8-Dynamic
 lm_eval \
 --model vllm \
 --model_args pretrained=$MODEL,add_bos_token=True \
 --tasks gsm8k --num_fewshot 5 --batch_size auto --limit 250
+```
 
 
 Here's an example of the resulting scores:

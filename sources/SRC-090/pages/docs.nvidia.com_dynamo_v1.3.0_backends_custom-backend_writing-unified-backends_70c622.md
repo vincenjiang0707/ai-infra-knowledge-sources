@@ -1,0 +1,836 @@
+source: https://docs.nvidia.com/dynamo/v1.3.0/backends/custom-backend/writing-unified-backends
+lastmod: 2026-09-24T19:58:16.636Z
+
+# Writing Unified Backends
+
+Dynamo’s unified backend path lets custom engines implement the same lifecycle contract used by the built-in backends. The engine owns inference; Dynamo owns runtime registration, request serving, cancellation monitoring, signal handling, drain, and graceful shutdown.
+
+Use this path for new token-in-token-out engines unless you need a feature that is still outside the unified contract.
+
+## Choose an Implementation Language
+
+Both unified implementations follow the same shape:
+
+The framework handles model registration, endpoint serving, cancellation plumbing, and shutdown behavior around that engine contract.
+
+## What the Unified Contract Covers
+
+Supported today:
+
+- aggregated token-in-token-out inference
+- disaggregated serving modes for supported engines
+- model registration through Dynamo discovery
+- request cancellation
+- structured backend errors
+- graceful shutdown and drain hooks
+
+Still use the lower-level Python worker path when you need a backend-specific feature that has not reached its unified engine, a separate multimodal encode worker, engine-specific routes, custom request handling, or direct control of the request payload.
+
+After you implement the backend, package it into a runtime image with
+[Runtime Containers](https://docs.nvidia.com/dynamo/v1.3.0/backends/custom-backend/runtime-containers). For Kubernetes deployment, place the
+custom backend in a `DynamoGraphDeployment`
+
+and follow the
+[Deployment Overview](https://docs.nvidia.com/dynamo/v1.3.0/kubernetes-deployment/deploy-models/model-deployment-guide).
+
+###### Python
+
+###### Rust
+
+## Python Implementation
+
+
+New — Dynamo’s unified backend.This guide covers the newunified backendinfrastructure in[: a shared]`dynamo.common.backend`
+
+`LLMEngine`
+
+ABC that vLLM, SGLang, TRT-LLM, and a sample engine already implement, and that any custom Python engine can plug into the same way. For the Rust version of the same contract, use the Rust tab on this page. For the older lower-level Python worker path (`register_model`
+
++`serve_endpoint`
+
+) — still the right choice for features the unified backend does not yet cover — see[Writing Python Workers].
+
+Beta — actively under development.The unified backend surface is beta quality and may change without backwards compatibility between releases. See[Feature gaps]below for what the unified path covers today versus the existing (non-unified) backend paths.
+
+This guide walks through building a Python backend for an inference
+engine that plugs into Dynamo’s distributed runtime via
+`dynamo.common.backend`
+
+. A “unified backend” is a Python entry point
+that implements the shared `LLMEngine`
+
+ABC and lets the framework own
+runtime lifecycle (signal handling, model registration, graceful
+shutdown, cancellation monitoring) — your code just owns inference.
+
+Your backend lives in its own package and **does not need to be part
+of the dynamo repository**. It depends on `ai-dynamo`
+
+from PyPI (or
+the git source) and imports `dynamo.common.backend`
+
+. The steps below
+assume you’re starting a fresh package in your own repo.
+
+The reference example is the **sample engine** at
+[ sample_engine.py](https://docs.nvidia.com/dynamo/v1.3.0/components/src/dynamo/common/backend/sample_engine.py)
+— a complete, runnable implementation under 120 lines. Read it
+alongside this guide.
+
+**Where to look for what:**
+
+- This guide — step-by-step walkthrough for someone starting a new backend from scratch.
+— authoritative method-by-method contract.`LLMEngine`
+
+ABC docstrings[Package README](https://docs.nvidia.com/dynamo/v1.3.0/components/src/dynamo/common/backend/README.md)— in-tree reference:`GenerateRequest`
+
+/`GenerateChunk`
+
+field definitions, per-engine cancellation cookbook (vLLM / SGLang / TRT-LLM), full`DynamoException`
+
+table, file index, and the per-engine feature-gap matrix.
+
+### Python feature gaps
+
+The unified backend is in beta. The summary below is the common
+contract — what every engine on the unified path gets — plus the
+gaps that apply to all three engines. Per-engine specifics (vLLM
+sleep/wake, SGLang diffusion, TRT-LLM custom logits processors,
+etc.) live in the
+[package README](https://docs.nvidia.com/dynamo/v1.3.0/components/src/dynamo/common/backend/README.md#feature-gaps).
+
+**Supported today**
+
+Lifecycle and runtime:
+
+- Aggregated token-in-token-out inference
+- Disaggregated serving (
+`agg`
+
+/`prefill`
+
+/`decode`
+
+) — KV transfer uses NIXL across all three engines; SGLang exchanges a Dynamo-level bootstrap address (host/port/room), vLLM and TRT-LLM use an engine-internal handshake - Model registration with discovery and endpoint types
+- Request cancellation via
+`abort()`
+
++`context.is_stopped()`
+
+- Graceful shutdown with signal handling
+`drain()`
+
+hook for pre-cleanup work (e.g. in-flight NIXL transfers)`DynamoException`
+
+error chain wrapping- Finish reason normalization (handled by the Rust layer)
+- Engine control plumbing, with per-backend profiling, quiesce/resume, and supported weight-update controls
+- vLLM KV block clearing in aggregated, prefill, and decode modes through
+`POST /engine/control/clear_kv_blocks`
+
+on the worker’s system port. Send`{}`
+
+as the JSON body. A successful reset clears both the prefix cache and connector cache and returns`{"status":"success","message":"KV cache cleared"}`
+
+. A rejected reset returns HTTP 200 with`{"status":"error","message":"KV cache reset failed"}`
+
+. An unavailable engine returns`{"status":"error","message":"Engine is not running"}`
+
+; exceptions return the same error shape with the exception text as the message. The direct control does not pause generation, drain work, or preempt active requests. If blocks remain in use, wait for those requests to finish and retry. The control is available even when prefix caching is not explicitly enabled because the connector cache may still need a reset.
+
+Observability:
+
+- Health-check canary via
+`health_check_payload()`
+
+(plus`DYN_HEALTH_CHECK_PAYLOAD`
+
+/`--health-check-payload`
+
+overrides) - Vendor-prefixed Prometheus bridge (
+`vllm:`
+
+/`sglang:`
+
+/`trtllm_`
+
+/`lmcache:`
+
+) via`register_prometheus()`
+
+- Framework-owned lifecycle gauges (
+`cleanup_time_seconds`
+
+,`drain_time_seconds`
+
+,`model_load_time_seconds`
+
+) — always on - Per-rank
+`dynamo_component_*`
+
+gauges + router`kv_used_blocks`
+
+signal via`component_metrics_dp_ranks()`
+
++`attach_snapshot_publisher()`
+
++`ComponentSnapshot`
+
+push - KV event publishing via
+`kv_event_sources()`
+
+returning`ZmqSource`
+
+or`PushSource`
+
+- KV-aware routing (DP-rank-aware) via
+`dp_rank.forced_dp_rank`
+
+/`validate_global_dp_rank`
+
++`EngineConfig.data_parallel_{size, start_rank}`
+
+- OpenTelemetry tracing facade —
+`telemetry.current_span`
+
+/`start_span`
+
+plus W3C trace header propagation through`telemetry.engine_trace_kwargs(context)`
+
+
+Request handling:
+
+- Guided decoding — wired per-engine on the request side with
+JSON schema, regex, grammar, and choice coverage. vLLM uses
+`StructuredOutputsParams`
+
+, TRT-LLM uses`GuidedDecodingParams`
+
+, and SGLang maps the constraints to`json_schema`
+
+,`regex`
+
+, and`ebnf`
+
+; SGLang translates choices to an escaped regex alternation - Structural tag generation via
+`WorkerConfig.structural_tag_{mode, scope, schema}`
+
+and`serialize_structural_tag`
+
+- Custom Jinja chat templates via
+`WorkerConfig.custom_jinja_template`
+
+(frontend applies; the backend advertises through model registration) - Tool / reasoning parser configuration (
+`tool_call_parser`
+
+,`reasoning_parser`
+
+,`exclude_tools_when_tool_choice_none`
+
+) - vLLM image and video inference in aggregated and prefill/decode deployments,
+including frontend-rendered multimodal input transfer and the CPU embedding
+cache. See
+[vLLM Multimodal](https://docs.nvidia.com/dynamo/v1.3.0/user-guides/multimodal/v-llm-multimodal#unified-vllm-backend).
+
+**Remaining Python unified-backend gaps**
+
+If you need one of these features today, keep that workload on the
+existing per-engine entry point (`dynamo.<backend>.main`
+
+) until the
+unified path catches up.
+
+### Python: What you are building
+
+A backend is two things:
+
+**An engine class**that subclasses`LLMEngine`
+
+— owns the model, accepts preprocessed token requests, streams output chunks.**A**— a three-line shim that hands the engine class to`main.py`
+
+entry point`run()`
+
+from`dynamo.common.backend.run`
+
+, which drives the lifecycle.
+
+The `dynamo.common.backend`
+
+package handles everything else: signal
+handling, distributed runtime setup, model registration with
+discovery, the serving loop, graceful shutdown, cancellation
+monitoring, and error chain wrapping. (The lifecycle state machine
+actually lives in Rust; `dynamo.common.backend.Worker`
+
+is a thin
+Python shim over it.)
+
+### Python prerequisites
+
+- Python 3.11 or newer.
+`dynamo`
+
+uses`typing.Required`
+
+, which is 3.11+. - NATS and etcd reachable for end-to-end runs. The dynamo repo’s
+`deploy/docker-compose.yml`
+
+brings up both in one command if you don’t already have them running. `uv`
+
+or`pip`
+
+for installing dependencies.- Familiarity with
+`async`
+
+Python (`asyncio`
+
+, async generators) and`argparse`
+
+.
+
+### Python Step 1: Create the package
+
+Minimal `pyproject.toml`
+
+:
+
+For a bleeding-edge dependency on the dynamo source tree, install the runtime wheel from a clone:
+
+[Maturin](https://github.com/PyO3/maturin) is the Rust-Python bindings build tool. The `patchelf`
+
+extra lets maturin patch native extension library paths during the build.
+
+Building the wheel needs a Rust toolchain plus `clang`
+
+, `cmake`
+
+,
+`protobuf-compiler`
+
+, and `libssl-dev`
+
+.
+
+### Python Step 2: Subclass `LLMEngine`
+
+
+In `src/my_backend/engine.py`
+
+, declare a class that subclasses
+`LLMEngine`
+
+and owns whatever state your engine needs. Construction
+must be cheap and side-effect-free — heavy work goes in `start()`
+
+.
+
+`GenerateRequest`
+
+and `GenerateChunk`
+
+are `TypedDict`
+
+s describing the
+shared shape — see Step 4 for the fields.
+
+### Python Step 3: Implement `from_args`
+
+
+`from_args`
+
+is a classmethod factory that parses CLI args and returns
+`(engine, WorkerConfig)`
+
+. The engine is constructed but **not
+started**.
+
+`from_args`
+
+is `async`
+
+to match the ABC; you can `await`
+
+from it if
+your CLI parsing reads config from a file or hits an API. Most
+backends don’t need to.
+
+For backends that already have a `DynamoRuntimeConfig`
+
+-shaped
+config object (e.g. ones derived from vLLM’s, SGLang’s, or
+TRT-LLM’s existing config), prefer the
+`WorkerConfig.from_runtime_config(runtime_cfg, model_name=...)`
+
+helper — it pulls the shared discovery / request-plane / parser
+fields off the config in one line.
+
+### Python Step 4: Implement `LLMEngine`
+
+methods
+
+The ABC has three required methods (`start`
+
+, `generate`
+
+, `cleanup`
+
+)
+plus two with default no-op implementations (`abort`
+
+, `drain`
+
+).
+
+#### Python: `start()`
+
+
+Start the engine and return `EngineConfig`
+
+metadata. After this
+returns, `generate()`
+
+MUST be ready for concurrent calls.
+
+`worker_id`
+
+is an opaque per-worker identifier — most engines ignore
+it. Backends needing a stable cluster-wide key (e.g. TRT-LLM’s
+`disagg_machine_id`
+
+snowflake) should derive from it instead of
+hashing host/pid or asking operators for a CLI override.
+
+Every `EngineConfig`
+
+field except `model`
+
+is optional. `None`
+
+means
+“don’t advertise”; KV-aware routing falls back to round-robin when KV
+fields are unset.
+
+#### Python: `generate()`
+
+
+An async generator that yields `GenerateChunk`
+
+dicts for a single
+request. Called concurrently for multiple in-flight requests.
+
+**Contract** (chunk shape is defined by the `GenerateChunk`
+
+TypedDict
+— see
+[Request / Response Types](https://docs.nvidia.com/dynamo/v1.3.0/components/src/dynamo/common/backend/README.md#request--response-types)
+in the package README for the field reference):
+
+- Every chunk carries
+`token_ids`
+
+and`index`
+
+(use`0`
+
+for single choice). - The final chunk additionally carries
+`finish_reason`
+
+and`completion_usage`
+
+. - The framework’s cancellation monitor calls
+`engine.abort(context)`
+
+when the client disconnects or cancels; your loop should also poll`context.is_stopped()`
+
+between yields and exit cleanly with a`finish_reason="cancelled"`
+
+chunk.
+
+Finish reason normalization (`"abort"`
+
+→ `"cancelled"`
+
+, etc.) is
+handled by the Rust layer — emit whatever your engine uses
+natively.
+
+#### Python: `abort(context)`
+
+— optional
+
+Called by the framework only when the client disconnects or the request is cancelled. NOT called on silent stream drops. Override to release engine-side resources (KV slots, scheduler entries, remote schedulers):
+
+For cleanup that must run on every drop path — including silent
+drops — use a `try/finally`
+
+or a context manager inside `generate`
+
+,
+not `abort`
+
+. The sample engine doesn’t override `abort`
+
+because it
+has no engine-side state to release; the default is a no-op.
+
+#### Python: `drain()`
+
+— optional
+
+Runs once before shutdown, after the discovery unregister + grace-period sleep, while NATS/etcd are still alive. Use it for backend-side draining that must complete before transport teardown (e.g. in-flight NIXL KV transfers on prefill workers). Default is no-op.
+
+#### Python: `cleanup()`
+
+
+Two real requirements, both pinned by the Rust-side conformance kit:
+
+**Null-safe against partial**If`start()`
+
+failure.`start()`
+
+raises partway through, fields you allocate incrementally may still be`None`
+
+.`cleanup()`
+
+must guard each resource (`if self._engine is not None: …`
+
+) so the post-failure call doesn’t crash on half-initialized state.**Idempotent.**A second call after a successful first must return cleanly without re-entering teardown.
+
+The Rust `Worker`
+
+drives both: it calls `cleanup()`
+
+after `start()`
+
+returns Ok on shutdown, and the conformance kit (`run_conformance`
+
+)
+additionally calls `cleanup()`
+
+on a never-started engine and twice in a
+row, failing your tests with `CleanupWithoutStartFailed`
+
+/
+`SecondCleanupFailed`
+
+if either invariant breaks. The guarded
+single-shot pattern below covers both:
+
+#### Python: Metrics and Prometheus (optional)
+
+Unified backends have two metrics surfaces.
+
+Use `register_prometheus(metrics)`
+
+to bridge vendor-prefixed Prometheus
+families into the worker’s `/metrics`
+
+output. The framework owns the
+`metrics`
+
+handle; do not retain it after the method returns.
+
+Use `component_metrics_dp_ranks()`
+
+plus
+`attach_snapshot_publisher(publisher)`
+
+when the engine can push per-rank
+`ComponentSnapshot`
+
+values for `dynamo_component_*`
+
+gauges and the
+router’s `kv_used_blocks`
+
+signal:
+
+Keep the rank list stable for the engine lifetime. `Worker`
+
+invokes
+`attach_snapshot_publisher()`
+
+only when the rank list is non-empty and
+`WorkerConfig.enable_kv_routing`
+
+is enabled. `register_prometheus()`
+
+still
+runs when `enable_kv_routing=False`
+
+.
+
+Use the in-tree backends as references: vLLM pushes snapshots from its
+stat logger and bridges `vllm:`
+
+/ `lmcache:`
+
+metrics, SGLang pushes
+leader-node scheduler snapshots and bridges `sglang:`
+
+when
+`--enable-metrics`
+
+is set, and TRT-LLM pushes snapshots from its stats
+poll thread while bridging `trtllm_`
+
+metrics.
+
+#### Python: KV event publishing (optional)
+
+Unified backends declare KV event sources; the framework constructs and owns
+the `KvEventPublisher`
+
+instances. Do not instantiate `KvEventPublisher`
+
+directly from a unified `LLMEngine`
+
+. Instead, implement
+`kv_event_sources()`
+
+and return one source for each data-parallel rank hosted
+by the worker.
+
+Rust backends use the equivalent `LLMEngine::kv_event_sources()`
+
+trait method;
+see [Rust Step 4](https://docs.nvidia.com/dynamo/v1.3.0/backends/custom-backend/writing-unified-backends#rust-step-4-implement-the-llmengine-trait) and the
+[ LLMEngine trait](https://docs.nvidia.com/dynamo/v1.3.0/lib/backend-common/src/engine.rs).
+
+Use `ZmqSource`
+
+when the engine already emits Dynamo-compatible KV events on a
+ZMQ socket, as vLLM and SGLang do:
+
+Use `PushSource`
+
+when the engine needs a live publisher object and drives
+`publish_stored()`
+
+/ `publish_removed()`
+
+from its own event thread. The in-tree
+TRT-LLM backend is the reference implementation for this path:
+
+KV event publishers require `EngineConfig.llm.kv_cache_block_size`
+
+. If the
+engine declares sources but does not return a block size, `Worker`
+
+skips KV
+event publishers because the router cannot map token IDs to cache blocks.
+`WorkerConfig.enable_kv_routing=False`
+
+is the operator-level kill switch; when
+it is disabled, the worker does not call `kv_event_sources()`
+
+.
+
+Keep rank ownership stable for the engine lifetime. DP-capable engines should
+also advertise the same rank shape in `EngineConfig.llm.data_parallel_size`
+
+and
+`data_parallel_start_rank`
+
+so router-forced `dp_rank`
+
+values line up with the
+published event streams.
+
+`PushSource`
+
+engines own cleanup of their event producer. Stop publisher
+threads or tasks in `cleanup()`
+
+before returning, and do not publish after
+cleanup begins.
+
+### Python Step 5: Write `main.py`
+
+
+Three lines.
+
+`run`
+
+installs signal handlers, builds the distributed runtime,
+calls `engine.start(worker_id)`
+
+with a runtime-allocated identifier,
+registers the model with discovery, serves the endpoint, and runs the
+graceful-shutdown orchestrator on SIGTERM/SIGINT.
+
+Pair this with the `[project.scripts]`
+
+entry from Step 1’s
+`pyproject.toml`
+
+so `my-backend ...`
+
+works as a console command.
+
+### Python Step 6: Errors and logging
+
+**Errors**: the framework wraps non-`DynamoException`
+
+errors raised
+from `generate()`
+
+(or lifecycle methods) as `Unknown`
+
+. For typed
+error reporting, raise a `DynamoException`
+
+subclass directly from
+[ dynamo.llm.exceptions](https://docs.nvidia.com/dynamo/v1.3.0/components/src/dynamo/common/backend/README.md#error-handling)
+— it propagates unchanged through the Rust bridge:
+
+The package README has the full table of exception types and which
+lifecycle phase raises which one. Engine-init failures should raise
+`EngineShutdown`
+
+from `start()`
+
+. Cleanup shouldn’t normally raise —
+log and swallow if a subsystem fails.
+
+**Logging**: keep levels consistent across unified backends so
+operators see the same surface regardless of which engine they’re
+running:
+
+`logger.info`
+
+— lifecycle milestones (engine init complete, serving started, engine shutdown).`logger.debug`
+
+— per-request events (request abort, cancellation).`logger.warning`
+
+— recoverable problems (empty outputs, unexpected finish reasons).`logger.error`
+
+— unrecoverable failures only.
+
+The framework also configures `dynamo.runtime.logging`
+
+for you; you
+just call `logger = logging.getLogger(__name__)`
+
+at the top of your
+module and use it.
+
+### Python Step 7: Test your engine
+
+Install the dev extras (`pytest`
+
+, `pytest-asyncio`
+
+) declared in Step 1:
+
+The sample engine has a unit-test
+[suite](https://docs.nvidia.com/dynamo/v1.3.0/components/src/dynamo/common/backend/tests/test_engine.py)
+that you can copy as a starting point. The shape of a useful test:
+
+Cover the happy path, cancellation, and any backend-specific edge
+cases (stop tokens, max-tokens cap, empty prompt). Three to five
+focused tests is plenty — the framework already pins the lifecycle
+state machine and cancellation contract with Rust-side tests in
+`lib/backend-common`
+
+.
+
+### Python Step 8: Run it locally
+
+Three moving parts need to come up: NATS + etcd (discovery and the event/request planes), the Dynamo frontend (HTTP → backend discovery), and your backend.
+
+Then send a request:
+
+A successful response has non-empty `choices[0].message.content`
+
+and a `finish_reason`
+
+of `stop`
+
+or `length`
+
+.
+`jq -e '.choices[0].finish_reason'`
+
+is a good one-liner for a CI
+smoke test.
+
+If your backend looks silent, set `DYN_LOG=info`
+
+(or
+`DYN_LOG=debug,dynamo=debug`
+
+for finer scoping) before launching —
+the framework configures `tracing`
+
+from `DYN_LOG`
+
+.
+
+### Python reference: sample engine
+
+[ sample_engine.py](https://docs.nvidia.com/dynamo/v1.3.0/components/src/dynamo/common/backend/sample_engine.py)
+is the canonical minimal reference. Run it as-is:
+
+It generates rotating token IDs with no ML dependencies, so it’s a useful stand-in for AIPerf / end-to-end pipeline smoke tests. Lift these patterns:
+
+`from_args`
+
+parses CLI args and returns`(engine, WorkerConfig)`
+
+with no awaits.`start()`
+
+returns an`EngineConfig`
+
+whose KV fields are illustrative but not load-bearing (no real KV cache).`generate()`
+
+polls`context.is_stopped()`
+
+between yields and emits a`cancelled`
+
+terminal on observation.`cleanup()`
+
+is a no-op because the engine holds no resources.
+
+### Python checklist
+
+Before shipping:
+
+-
+`LLMEngine`
+
+subclassed;`from_args`
+
+returns`(engine, WorkerConfig)`
+
+. -
+`start()`
+
+returns`EngineConfig`
+
+with at least a non-empty`model`
+
+. -
+`generate()`
+
+polls`context.is_stopped()`
+
+between yields and emits a`"cancelled"`
+
+terminal on observation. - Final chunk has
+`finish_reason`
+
+and`completion_usage`
+
+. - Typed
+`DynamoException`
+
+subclasses used for error reporting where the category matters. -
+`cleanup()`
+
+releases all engine resources. - Logging levels match the standards in Step 6.
+
+### Python see also
+
+— authoritative contract.`LLMEngine`
+
+ABC[Package README](https://docs.nvidia.com/dynamo/v1.3.0/components/src/dynamo/common/backend/README.md)— feature gaps, error model, request/response contract.[Sample engine](https://docs.nvidia.com/dynamo/v1.3.0/components/src/dynamo/common/backend/sample_engine.py)— example user guide.- Rust tab on this page — the Rust counterpart, same contract, lower-level.

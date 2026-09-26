@@ -1,0 +1,21 @@
+source: https://github.com/vllm-project/agentic-api/issues
+
+-
+[Notifications](https://github.com/login?return_to=%2Fvllm-project%2Fagentic-api)You must be signed in to change notification settings -
+[Fork 78](https://github.com/login?return_to=%2Fvllm-project%2Fagentic-api)
+
+# All issues
+
+Issue creation is restricted in this repository
+
+## Issues
+
+is:issue state:open
+
+is:issue state:open
+
+## Search results
+
+[Validate compatibility and session-centric performance](https://github.com/vllm-project/agentic-api/issues/367)[enhancementNew feature or request](https://github.com/vllm-project/agentic-api/issues?q=is%3Aissue%20state%3Aopen%20label%3Aenhancement)New feature or requestStatus: Open.#367 In vllm-project/agentic-api;[Package and launch the integrated serving modes](https://github.com/vllm-project/agentic-api/issues/366)[enhancementNew feature or request](https://github.com/vllm-project/agentic-api/issues?q=is%3Aissue%20state%3Aopen%20label%3Aenhancement)New feature or requestStatus: Open.#366 In vllm-project/agentic-api;[Compose API routes and lightweight runtime configurations](https://github.com/vllm-project/agentic-api/issues/365)[enhancementNew feature or request](https://github.com/vllm-project/agentic-api/issues?q=is%3Aissue%20state%3Aopen%20label%3Aenhancement)New feature or requestStatus: Open.#365 In vllm-project/agentic-api;[Connect agentic execution signals to session-centric KV policy](https://github.com/vllm-project/agentic-api/issues/364)[enhancementNew feature or request](https://github.com/vllm-project/agentic-api/issues?q=is%3Aissue%20state%3Aopen%20label%3Aenhancement)New feature or requestStatus: Open.#364 In vllm-project/agentic-api;[Implement distributed gRPC inference through llm-d](https://github.com/vllm-project/agentic-api/issues/363)[enhancementNew feature or request](https://github.com/vllm-project/agentic-api/issues?q=is%3Aissue%20state%3Aopen%20label%3Aenhancement)New feature or requestStatus: Open.#363 In vllm-project/agentic-api;[Implement native inference using shared vLLM libraries](https://github.com/vllm-project/agentic-api/issues/362)[enhancementNew feature or request](https://github.com/vllm-project/agentic-api/issues?q=is%3Aissue%20state%3Aopen%20label%3Aenhancement)New feature or requestStatus: Open.#362 In vllm-project/agentic-api;[Introduce a transport-independent inference boundary](https://github.com/vllm-project/agentic-api/issues/361)[enhancementNew feature or request](https://github.com/vllm-project/agentic-api/issues?q=is%3Aissue%20state%3Aopen%20label%3Aenhancement)New feature or requestStatus: Open.#361 In vllm-project/agentic-api;[Define the shared inference and session contracts](https://github.com/vllm-project/agentic-api/issues/360)[enhancementNew feature or request](https://github.com/vllm-project/agentic-api/issues?q=is%3Aissue%20state%3Aopen%20label%3Aenhancement)New feature or requestStatus: Open.#360 In vllm-project/agentic-api;[RFC: Shared vLLM frontend integration and session-centric inference](https://github.com/vllm-project/agentic-api/issues/359)[enhancementNew feature or request](https://github.com/vllm-project/agentic-api/issues?q=is%3Aissue%20state%3Aopen%20label%3Aenhancement)New feature or requestStatus: Open.#359 In vllm-project/agentic-api;[Fix codex-seed-model-cache.sh](https://github.com/vllm-project/agentic-api/issues/358)[bugSomething isn't working](https://github.com/vllm-project/agentic-api/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug)Something isn't workingStatus: Open.#358 In vllm-project/agentic-api;[Support asynchronous/background Responses](https://github.com/vllm-project/agentic-api/issues/357)[enhancementNew feature or request](https://github.com/vllm-project/agentic-api/issues?q=is%3Aissue%20state%3Aopen%20label%3Aenhancement)New feature or requestStatus: Open.#357 In vllm-project/agentic-api;[Support a Files API and](https://github.com/vllm-project/agentic-api/issues/356)`file_id`
+
+hydration for Responses requests[enhancementNew feature or request](https://github.com/vllm-project/agentic-api/issues?q=is%3Aissue%20state%3Aopen%20label%3Aenhancement)New feature or requestStatus: Open.#356 In vllm-project/agentic-api;

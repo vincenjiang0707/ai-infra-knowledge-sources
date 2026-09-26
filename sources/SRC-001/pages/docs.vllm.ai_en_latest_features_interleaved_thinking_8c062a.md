@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/interleaved_thinking/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Interleaved Thinking[¶](https://docs.vllm.ai#interleaved-thinking)
 

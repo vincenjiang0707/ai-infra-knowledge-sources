@@ -1,5 +1,3 @@
-# NCCL tests
-
 source: https://github.com/NVIDIA/nccl-tests/releases
 
 # Releases: NVIDIA/nccl-tests

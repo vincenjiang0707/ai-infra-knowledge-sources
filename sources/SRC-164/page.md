@@ -252,7 +252,7 @@ source: https://docs.sglang.io/llms.txt
 - [Mistral Small 4](https://docs.sglang.io/cookbook/autoregressive/Mistral/Mistral-Small-4.md)
 - [Mistral Medium 3.5](https://docs.sglang.io/cookbook/autoregressive/Mistral/Mistral-Medium-3.5.md)
 - [Devstral 2 (Mistral)](https://docs.sglang.io/cookbook/autoregressive/Mistral/Devstral-2.md)
-- [MiMo-V2.6](https://docs.sglang.io/cookbook/autoregressive/Xiaomi/MiMo-V2.6.md): Deploy MiMo-V2.6-Flash and Pro with SGLang on NVIDIA B300 GPUs, using MXFP4 MoE weights, BF16 routing, DFlash decoding, and a 1M-token context window.
+- [MiMo-V2.6](https://docs.sglang.io/cookbook/autoregressive/Xiaomi/MiMo-V2.6.md): Deploy MiMo-V2.6-Flash and Pro with SGLang on NVIDIA H200 and B300 GPUs, using MXFP4 MoE weights, BF16 routing, DFlash decoding, and a 1M-token context window.
 - [MiMo-V2.5](https://docs.sglang.io/cookbook/autoregressive/Xiaomi/MiMo-V2.5.md)
 - [MiMo-V2-Flash](https://docs.sglang.io/cookbook/autoregressive/Xiaomi/MiMo-V2-Flash.md)
 - [Chroma-1.0](https://docs.sglang.io/cookbook/autoregressive/FlashLabs/Chroma1.0.md)

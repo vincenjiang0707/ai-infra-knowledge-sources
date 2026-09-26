@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/training/sampling_mask/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Sampling Mask (Distribution Replay)[¶](https://docs.vllm.ai#sampling-mask-distribution-replay)
 
@@ -35,6 +35,7 @@ The mask is also available via the `/inference/v1/generate`
 
 HTTP endpoint:
 
+```json
 {
 "choices": [{
 "token_ids": [187, 42, 303],
@@ -42,6 +43,7 @@ HTTP endpoint:
 "finish_reason": "stop"
 }]
 }
+```
 
 
 ## Requirements[¶](https://docs.vllm.ai#requirements)

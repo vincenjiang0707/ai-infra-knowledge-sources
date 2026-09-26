@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/attention/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class DeepseekV4Attention(nn.Module, AttentionLayerBase, ABC):
 """DeepseekV4 MLA attention layer.

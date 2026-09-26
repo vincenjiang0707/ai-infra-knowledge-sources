@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_w4a4_mxfp4/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class CompressedTensorsW4A4Mxfp4(CompressedTensorsScheme):
 """Compressed tensors scheme for MXFP4.

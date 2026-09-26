@@ -1,5 +1,3 @@
-# Kimi 官⽅组织
-
 source: https://github.com/MoonshotAI
 
 [ ](https://www.moonshot.cn/)[Moonshot AI](https://moonshot.ai) is committed to solving ambitious "moonshot" problems that will lead humanity to AGI. We embrace open source, and contributed the following projects to the community:

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/mooncake_ec_connector/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class ECMooncakeConnector(ECConnectorBase):
 """Preserve the public API while delegating to one process-role component."""

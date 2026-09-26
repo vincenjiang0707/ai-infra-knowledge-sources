@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/nixl_connector_compatibility/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # NixlConnector Compatibility Matrix[¶](https://docs.vllm.ai#nixlconnector-compatibility-matrix)
 

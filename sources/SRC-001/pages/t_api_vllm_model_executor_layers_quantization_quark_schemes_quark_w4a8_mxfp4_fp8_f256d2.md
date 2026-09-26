@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/quark/schemes/quark_w4a8_mxfp4_fp8/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class QuarkW4A8_MXFP4_FP8(QuarkScheme):
 """- Weights: MXFP4 with E8M0 scales per block of 32

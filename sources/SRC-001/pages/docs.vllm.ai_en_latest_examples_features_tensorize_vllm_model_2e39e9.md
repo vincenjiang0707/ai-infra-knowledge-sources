@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/features/tensorize_vllm_model/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Tensorize vLLM Model[¶](https://docs.vllm.ai#tensorize-vllm-model)
 

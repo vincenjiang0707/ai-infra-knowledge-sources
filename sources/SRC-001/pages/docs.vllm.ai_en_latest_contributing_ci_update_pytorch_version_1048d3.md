@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/contributing/ci/update_pytorch_version/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Update PyTorch version on vLLM OSS CI/CD[¶](https://docs.vllm.ai#update-pytorch-version-on-vllm-oss-cicd)
 

@@ -1,0 +1,101 @@
+source: https://github.com/vllm-project/guidellm/pull/1153/checks
+
+# OTeL trace support - #1153
+
+Open
+
+[jaredoconnell](https://github.com/jaredoconnell)wants to merge 8 commits into
+
+Open
+
+[OTeL trace support](https://github.com#top)#1153[jaredoconnell](https://github.com/jaredoconnell) wants to merge 8 commits into
+
+[OTeL trace support](https://github.com#top)#1153
+
+[jaredoconnell](https://github.com/jaredoconnell)wants to merge 8 commits into
+
+Mergify / Mergify Merge Queue
+completed
+Sep 23, 2026 in 0s
+
+## Waiting for queue conditions to match
+
+### Queue entry conditions
+
+-
+`-conflict`
+
+[📌 queue requirement] - all of [🚦 Auto-merge conditions]:
+-
+`#approved-reviews-by >= 2`
+
+-
+`#changes-requested-reviews-by = 0`
+
+-
+`#review-threads-unresolved = 0`
+
+
+-
+- any of [🔀 queue conditions]:
+- all of [📌 queue conditions of queue rule
+`default`
+
+]:-
+`#approved-reviews-by >= 1`
+
+-
+`#changes-requested-reviews-by = 0`
+
+-
+`-closed`
+
+-
+`-draft`
+
+-
+`check-success = DCO`
+
+-
+`check-success = update-description`
+
+
+-
+
+- all of [📌 queue conditions of queue rule
+-
+`-closed`
+
+[📌 queue requirement] -
+`-draft`
+
+[📌 queue requirement] - any of [📌 queue -> configuration change requirements]:
+-
+`-mergify-configuration-changed`
+
+-
+`check-success = @mergify/Configuration changed`
+
+-
+`check-success = @mergify/Configuration has been deleted`
+
+
+-
+- any of [📌 queue requirement]:
+-
+`check-neutral = @mergify/Mergify Merge Protections`
+
+-
+`check-skipped = @mergify/Mergify Merge Protections`
+
+-
+`check-success = @mergify/Mergify Merge Protections`
+
+
+-
+
+All conditions must match for automatic queuing. You can also use `@Mergifyio queue`
+
+to queue manually.
+
+Loading

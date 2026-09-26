@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class CompressedTensorsConfig(QuantizationConfig):
 def __init__(
@@ -631,6 +631,7 @@ return CompressedTensorsWNA8Int(
 num_bits=weight_quant.num_bits,
 strategy=weight_quant.strategy,
 group_size=weight_quant.group_size,
+symmetric=weight_quant.symmetric,
 input_quant=input_quant,
 layer_name=layer_name,
 quant_format=format,
@@ -643,6 +644,7 @@ return CompressedTensorsWNA4Int(
 num_bits=weight_quant.num_bits,
 strategy=weight_quant.strategy,
 group_size=weight_quant.group_size,
+symmetric=weight_quant.symmetric,
 input_quant=input_quant,
 layer_name=layer_name,
 quant_format=format,

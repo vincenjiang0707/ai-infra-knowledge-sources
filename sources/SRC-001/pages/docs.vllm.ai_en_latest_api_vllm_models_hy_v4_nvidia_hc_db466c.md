@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/hy_v4/nvidia/hc/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 

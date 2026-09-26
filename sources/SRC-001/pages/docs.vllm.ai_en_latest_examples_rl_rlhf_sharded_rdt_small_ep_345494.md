@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/rl/rlhf_sharded_rdt_small_ep/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # RLHF Sharded Rdt Small Ep[¶](https://docs.vllm.ai#rlhf-sharded-rdt-small-ep)
 

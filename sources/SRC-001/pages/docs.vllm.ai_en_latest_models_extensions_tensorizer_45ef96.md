@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/models/extensions/tensorizer/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Loading models with CoreWeave's Tensorizer[¶](https://docs.vllm.ai#loading-models-with-coreweaves-tensorizer)
 
@@ -29,23 +29,27 @@ To serialize a model with Tensorizer, call the example script with the necessary
 
 :
 
+```bash
 python examples/features/tensorize_vllm_model.py \
 --model facebook/opt-125m \
 serialize \
 --serialized-directory s3://my-bucket \
 --suffix v1
+```
 
 
 This saves the model tensors at `s3://my-bucket/vllm/facebook/opt-125m/v1`
 
 . If you intend on applying a LoRA adapter to your tensorized model, you can pass the HF id of the LoRA adapter in the above command, and the artifacts will be saved there too:
 
+```bash
 python examples/features/tensorize_vllm_model.py \
 --model facebook/opt-125m \
 --lora-path <lora_id> \
 serialize \
 --serialized-directory s3://my-bucket \
 --suffix v1
+```
 
 
 ## Serving the model using Tensorizer[¶](https://docs.vllm.ai#serving-the-model-using-tensorizer)
@@ -100,6 +104,7 @@ parameter in the initializer for `TensorSerializer`
 
 to some arbitrary value, you would do so like this when serializing:
 
+```bash
 python examples/features/tensorize_vllm_model.py \
 --model facebook/opt-125m \
 --lora-path <lora_id> \
@@ -107,6 +112,7 @@ serialize \
 --serialized-directory s3://my-bucket \
 --serialization-kwargs '{"limit_cpu_concurrency": 2}' \
 --suffix v1
+```
 
 
 As an example when customizing the loading process via `TensorDeserializer`
@@ -117,10 +123,12 @@ parameter in the initializer via `model_loader_extra_config`
 
 like so:
 
+```bash
 vllm serve s3://my-bucket/vllm/facebook/opt-125m/v1 \
 --load-format tensorizer \
 --enable-lora \
 --model-loader-extra-config '{"deserialization_kwargs": {"num_readers": 2}}'
+```
 
 
 Or with `LLM()`

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/trtllm_fp8_moe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class TrtLlmFp8ExpertsMonolithic(TrtLlmFp8ExpertsBase, mk.FusedMoEExpertsMonolithic):
 """Fp8 TRTLLM-Gen MoE kernels. Supports monolithic interface."""

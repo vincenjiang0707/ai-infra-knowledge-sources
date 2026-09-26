@@ -1,5 +1,3 @@
-# KubeRay
-
 source: https://github.com/ray-project/kuberay/releases
 
 # Releases: ray-project/kuberay

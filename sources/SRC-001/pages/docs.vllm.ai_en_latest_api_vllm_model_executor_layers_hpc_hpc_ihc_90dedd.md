@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/hpc/hpc_ihc/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 HPC fused iHC (independent Hyper-Connections) kernels for HY V4.
 

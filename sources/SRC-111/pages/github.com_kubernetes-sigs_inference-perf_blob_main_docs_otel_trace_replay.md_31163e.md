@@ -1,0 +1,1262 @@
+source: https://github.com/kubernetes-sigs/inference-perf/blob/main/docs/otel_trace_replay.md
+
+Replay LLM workloads captured as OpenTelemetry traces. You bring traces collected from a real system (e.g. an agent framework instrumented with OTel); inference-perf reconstructs the original call graph — including sequential dependencies, parallel fan-outs, and shared-prefix patterns — and drives those calls against the target inference server under test.
+
+[Why use OTel trace replay?](https://github.com#why-use-otel-trace-replay)[Quick Start](https://github.com#quick-start)[Configuration Guide](https://github.com#configuration-guide)[Session-Level Metrics](https://github.com#session-level-metrics)[OpenTelemetry Background](https://github.com#opentelemetry-background)[Developer Guide](https://github.com#developer-guide)[Trace File Format](https://github.com#trace-file-format)[How It Works: Trace → Replay Graph](https://github.com#how-it-works-trace--replay-graph)[Architecture Overview](https://github.com#architecture-overview)[Memory & Lazy Loading](https://github.com#memory--lazy-loading)[SessionGenerator API](https://github.com#sessiongenerator-api)[Segment Decomposition](https://github.com#segment-decomposition)[Tool-Call Replay](https://github.com#tool-call-replay)[Output-Aware Replay Implementation](https://github.com#output-aware-replay-implementation)[Failure Handling Details](https://github.com#failure-handling-details)[Load Generator: run_stage vs run_session_stage](https://github.com#load-generator-run_stage-vs-run_session_stage)[Dependency Inference Algorithm](https://github.com#dependency-inference-algorithm)[Backwards Compatibility](https://github.com#backwards-compatibility)
+
+
+Standard load types (`constant`
+
+, `poisson`
+
+, `concurrent`
+
+) dispatch requests at pre-scheduled times determined by the load timer. While they can handle sequential multi-turn conversations (via `shared_prefix`
+
+with user sessions), they cannot model **complex dependency graphs** where:
+
+- Multiple LLM calls run in parallel (e.g., parallel tool calls, concurrent reasoning paths)
+- Each call's input depends on outputs from multiple predecessors
+- Timing between calls reflects real application logic (waiting for tool results, user input, etc.) rather than just clock-based scheduling
+
+Agentic applications — tool-calling agents with parallel branches, multi-step RAG pipelines, complex workflows — produce these **dependency graphs** where the structure and timing of calls is determined by the application's control flow, not a fixed schedule.
+
+OTel trace replay enables you to:
+
+- Benchmark
+**complex agentic workloads**with parallel execution and branching dependencies - Replay
+**production traffic patterns**with actual timing and dependency structures from real systems - Measure
+**KV cache effectiveness**with realistic shared-prefix and growing-context patterns - Test
+**session-level behavior**(success rates, end-to-end latency, failure propagation) for complete workflows
+
+
+Note:If you're unfamiliar with OpenTelemetry traces and spans, see the[OpenTelemetry Background]section.
+
+```
+# Replay a single trace against a local vLLM server
+python -m inference_perf.main \
+--config examples/otel/configs/per_case_config/simple_chain.yml
+# Replay multiple traces from a directory
+python -m inference_perf.main \
+--config examples/otel/configs/advanced/graph-replay.yml
+# Inspect the replay graph for a trace (no server needed)
+python -m inference_perf.datagen.replay.otel_trace_to_replay_graph \
+--input examples/otel/test_traces/simple/simple_chain.json \
+--output /tmp/graph.json \
+--summary
+```
+
+OTel trace replay requires two configuration sections: `data`
+
+(what to replay) and `load`
+
+(how to replay it).
+
+```
+api:
+type: chat # Required: chat or anthropic_messages
+streaming: true # Optional: enable streaming responses
+server:
+type: vllm # Required: vllm, sglang, or tgi
+base_url: "http://localhost:8000" # Required: inference server URL
+model_name: "HuggingFaceTB/SmolLM2-135M-Instruct" # Required: model name
+data:
+type: otel_trace_replay # Required: activates trace replay mode
+otel_trace_replay:
+trace_directory: "path/to/traces/" # Required: source traces (or use trace_files)
+load:
+type: trace_session_replay # Required: must match data type
+stages:
+- concurrent_sessions: 4 # Required: max sessions running simultaneously
+num_sessions: 20 # Optional: omit to run all remaining sessions
+session_rate: 2.0 # Optional: max new sessions/sec (omit for no limit)
+worker_max_concurrency: 500 # Optional: set high for trace replay (default: 100)
+# Rule of thumb: concurrent_sessions × 50-100
+```
+
+
+Important:`data.type: otel_trace_replay`
+
+requires`load.type: trace_session_replay`
+
+. A validator enforces this at startup.
+
+Note onSet this high for trace replay. All events in a session are enqueued immediately, and events waiting for predecessors hold concurrency slots. However, waiting is done via`worker_max_concurrency`
+
+:`asyncio.Event`
+
+(zero threads—just suspended coroutines), so high values have negligible cost.Rule of thumb:`concurrent_sessions × 50`
+
+to`concurrent_sessions × 100`
+
+depending on your trace complexity.
+
+When benchmarking through a router that implements token-based session affinity — such as the [llm-d-router session affinity plugins](https://github.com/llm-d/llm-d-router/tree/main/pkg/epp/framework/plugins/scheduling/scorer/sessionaffinity) — the router returns a session token in a response header (`x-session-token`
+
+by default) and expects the client to echo that header on subsequent requests of the same session. Set `api.session_token_header_key`
+
+to make the client behave that way:
+
+```
+api:
+type: chat
+session_token_header_key: x-session-token # header carrying the router's session token
+```
+
+The token received in a session's response is stored per session and sent as a request header on that session's subsequent requests, allowing the router to route the whole session to the same endpoint.
+
+This differs from `api.session_id_header_key`
+
+, which unconditionally sends the replay-side session ID as a request header and does not involve any server-assigned token.
+
+The setting applies to any workload that has a session identity, not just trace replay — `conversation_replay`
+
+and `shared_prefix`
+
+are covered too.
+
+The `data.otel_trace_replay`
+
+section controls what traces to replay and how to process them.
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+`trace_files` |
+list[string] | One of `trace_files` , `trace_directory` , or `hf_dataset_path` |
+List of specific trace files. Supports glob patterns (e.g., `"path/*/*.json"` ). All files are parsed into RAM at startup; graphs are built on demand. |
+`trace_directory` |
+string | One of `trace_files` , `trace_directory` , or `hf_dataset_path` |
+Directory containing trace files. All `.json` files will be loaded. All files are parsed into RAM at startup; graphs are built on demand. |
+`hf_dataset_path` |
+string | dict | One of `trace_files` , `trace_directory` , or `hf_dataset_path` |
+HuggingFace dataset identifier. As a string: `"username/dataset-name"` . As a dict: `{path, revision, split, ...}` — extra keys are forwarded to `datasets.load_dataset()` . Downloaded and cached automatically. Raw span data stays memory-mapped on disk; graphs are built on demand. |
+`use_static_model` |
+boolean | No (default: `false` ) |
+Override all recorded model names with `static_model_name` |
+`static_model_name` |
+string | Required if `use_static_model: true` |
+Model name to use for all requests |
+`model_mapping` |
+dict | No | Map recorded model names to target models (e.g., `"gpt-4": "my-model"` ) |
+`default_max_tokens` |
+integer | No (default: `1000` ) |
+Fallback `max_tokens` for traces that don't specify it |
+`duplicate_sessions_target` |
+integer | No | Pad the corpus by duplicating sessions until the total reaches this number, in round-robin order. Useful when the trace corpus is smaller than needed for stress testing. Duplicates get IDs of the form `{original_id}_dup{N}` |
+`inject_random_session_id` |
+boolean | No (default: `false` ) |
+Prepend a random string (`[SESS:<random>] ` ) to messages in `unique` input segments to defeat KV-cache reuse between sessions. Duplicate sessions (created by `duplicate_sessions_target` ) get this injection automatically regardless of this flag, so each duplicate evaluates as a fresh KV-cache miss |
+`max_wait_ms` |
+integer | No (default: `15000` ) |
+Maximum inter-event wait time in milliseconds. Caps the delay between predecessor completion and event dispatch to avoid reproducing unusually long tool/agent execution times from the original trace |
+`include_errors` |
+boolean | No (default: `true` ) |
+Include spans marked as errors in the trace. Set to `false` to exclude error spans entirely |
+`skip_invalid_files` |
+boolean | No (default: `false` ) |
+Skip invalid traces instead of failing. Covers both file-level parse errors (bad JSON, missing file) and graph-build errors (malformed spans). Skipped sessions are logged and silently omitted from the run. |
+`filter` |
+string | No | Lambda expression applied to each trace record before replay. Evaluated via `eval()` — use only with trusted inputs. Example: `"lambda x: x['benchmark'] == 'gsm8k'"` . Applies uniformly across all three trace sources |
+`bad_tool_call_handling` |
+enum | No (default: `none` ) |
+How to handle tool_calls whose `function.arguments` is not valid JSON. `none` : no mitigation (upstream behavior). `use_recorded` : substitute the recorded assistant message at the affected slot. See
+|
+`tool_choice_mode` |
+enum | No (default: `force_recorded` ) |
+Whether to inject a `tool_choice` on recorded tool-call turns. `force_recorded` : force the recorded function, or `"required"` when that isn't possible (upstream behavior). `as_recorded` : inject nothing, leaving the choice to the model. See
+`tool_choice` and Token Budget |
+`disable_output_substitution` |
+boolean | No (default: `false` ) |
+When `true` , replay each call with its recorded assistant output (text and tool calls) instead of substituting the live output from predecessor calls. Predecessor wait timing is still enforced. Cannot be combined with `inject_random_session_id` or `duplicate_sessions_target` (those trigger substitution and would contradict this flag — config validation rejects the combination) |
+
+**Examples:**
+
+```
+# Option 1: Load from local directory
+data:
+type: otel_trace_replay
+otel_trace_replay:
+trace_directory: "production_traces/"
+use_static_model: true
+static_model_name: "llama-3-8b"
+default_max_tokens: 2048
+skip_invalid_files: true
+# Option 2: Load from specific files (supports glob patterns)
+data:
+type: otel_trace_replay
+otel_trace_replay:
+trace_files:
+- "traces/agent_*.json"
+- "traces/rag_pipeline.json"
+use_static_model: true
+static_model_name: "llama-3-8b"
+# Option 3: Load from HuggingFace dataset (NEW)
+data:
+type: otel_trace_replay
+otel_trace_replay:
+hf_dataset_path: "lenadan/otel-test-snippet"
+use_static_model: true
+static_model_name: "llama-3-8b"
+default_max_tokens: 2048
+# Filtering (works with all three sources)
+data:
+type: otel_trace_replay
+otel_trace_replay:
+hf_dataset_path: "lenadan/otel-test-snippet"
+filter: "lambda x: x['benchmark'] == 'gsm8k' and len(x['spans']) >= 3"
+use_static_model: true
+static_model_name: "llama-3-8b"
+```
+
+
+Note:The`hf_dataset_path`
+
+option automatically downloads the dataset from HuggingFace Hub and caches it locally (typically in`~/.cache/huggingface/datasets`
+
+). Subsequent runs will use the cached version. All JSON files in the dataset directory tree will be loaded as trace files.
+
+Some server-side tool-call parsers emit malformed JSON in
+`tool_calls[i].function.arguments`
+
+— for example vLLM's `qwen3_xml`
+
+parser
+leaks closing XML markers (`</parameter></function>`
+
+) into the JSON string
+value at decode time. The model server still returns 200 on the response,
+but on the *next* turn the chat template's `json.loads(arguments)`
+
+raises
+and the server returns HTTP 400. Replaying the bad bytes verbatim therefore
+halts the session.
+
+The `bad_tool_call_handling`
+
+knob on `otel_trace_replay`
+
+selects a
+client-side mitigation:
+
+| Value | Behavior |
+|---|---|
+`none` (default) |
+No mitigation. Bytes propagate; the server may HTTP-400 on the next turn. Use for benchmarking the upstream parser bug or for strict trace fidelity. |
+`use_recorded` |
+When the live model returns malformed `arguments` , discard the live response and substitute the recorded assistant message at this slot. The recorded `tool_call_id` flows naturally into the recorded `role:tool` successor that follows. The next-turn request is structurally identical to a healthy replay (same message count, same roles, valid JSON in arguments, matching `tool_call_id` pairs). |
+
+The mitigation lives entirely in the substitution path — the response path stores raw bytes from the model exactly as upstream main does.
+
+If `use_recorded`
+
+detects malformed `tool_calls`
+
+AND the recorded fallback
+is also malformed (the trace was captured from a buggy parser too), the
+current event is hard-failed; `EventFailedError`
+
+cascades to events that
+await this one's output, while parallel DAG branches continue.
+
+When at least one substitution fires, the session's completion record gains two extra keys for telemetry:
+
+`recorded_substitution_event_ids`
+
+— sorted list of predecessor event_ids whose live tool_call response was replaced`n_recorded_substitutions`
+
+—`len(recorded_substitution_event_ids)`
+
+
+These keys are gated behind `len(...) > 0`
+
+, so a default-config run
+produces an identical wire format to upstream main.
+
+For stress testing with a corpus smaller than your target session count, set
+`duplicate_sessions_target`
+
+to inflate the corpus. Each duplicate gets a unique
+ID (`{original_id}_dup1`
+
+, `_dup2`
+
+, …) and is automatically tagged with a per-
+session random string injected into its unique-segment messages, so duplicates
+do not share KV-cache state.
+
+```
+data:
+type: otel_trace_replay
+otel_trace_replay:
+trace_directory: "production_traces/"
+use_static_model: true
+static_model_name: "qwen3-2b"
+bad_tool_call_handling: use_recorded
+```
+
+```
+data:
+type: otel_trace_replay
+otel_trace_replay:
+trace_directory: "small_corpus/"
+duplicate_sessions_target: 500 # inflate any size up to 500 sessions
+```
+
+If you also want non-duplicate sessions to be KV-cache-isolated from each
+other, set `inject_random_session_id: true`
+
+.
+
+The `load.trace_session_replay`
+
+section controls how sessions are executed. Unlike standard load types that dispatch requests independently, `trace_session_replay`
+
+operates on **sessions** where each trace file = one session containing multiple LLM calls with complex dependency graphs (including parallel branches and conditional paths).
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+`stages` |
+list | Yes | List of stage configurations (see below) |
+`worker_max_concurrency` |
+integer | No (default: `100` ) |
+Max concurrent requests per worker. For trace replay, set to since waiting events hold slots but use zero threads`concurrent_sessions × 50-100` |
+
+**Stage Configuration:**
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+`concurrent_sessions` |
+integer | Yes | Max sessions running simultaneously. Set to `0` for unlimited (stress mode) |
+`num_sessions` |
+integer | No | Total sessions to run in this stage. Omit to run all remaining sessions (entire corpus if single stage) |
+`session_rate` |
+float | No | Optional rate limit for starting new sessions (sessions/sec) |
+`max_stage_duration` |
+float | No | Wall-clock cap in seconds on how long the stage may run. Omit to run until all sessions complete. See
+|
+
+**Example:**
+
+```
+load:
+type: trace_session_replay
+stages:
+# Stage 1: Warm-up with low concurrency
+- concurrent_sessions: 2
+num_sessions: 10
+session_rate: 1.0
+# Stage 2: Ramp up
+- concurrent_sessions: 4
+num_sessions: 20
+session_rate: 2.0
+# Stage 3: Stress test (unlimited concurrency)
+- concurrent_sessions: 0
+num_sessions: 50
+worker_max_concurrency: 200
+```
+
+Two independent settings bound how long a `trace_session_replay`
+
+stage — and the run overall — can take. They apply at different points and are reported separately.
+
+** max_stage_duration** (per stage,
+
+`load.stages[].max_stage_duration`
+
+)An optional wall-clock cap on the stage's session-dispatch loop. Omit it to run until every session in the stage completes naturally. If it's exceeded:
+
+- Any sessions still active (dispatched but not yet finished) are cancelled.
+- Any sessions that were never dispatched (still pending in the queue) are dropped.
+- The stage is marked
+`TIMED_OUT`
+
+in the session report (see below). - The stranded sessions show up in the stage's session report as
+`sessions_not_completed_active`
+
+and`sessions_not_completed_pending`
+
+.
+
+** stage_teardown_grace_seconds** (global,
+
+`load.stage_teardown_grace_seconds`
+
+, default `120.0`
+
+)After *any* stage ends — whether it completed normally, hit `max_stage_duration`
+
+, or was interrupted — in-flight requests are given this many seconds to finish before being force-cancelled. This grace period is a separate, later phase: it starts only once the stage's dispatch loop has already stopped, and it applies uniformly to every load type, not just session replay.
+
+**How they interact — a worked timeline:**
+
+```
+load:
+type: trace_session_replay
+stages:
+- concurrent_sessions: 4
+num_sessions: 50
+max_stage_duration: 300 # stage may run for up to 5 minutes
+stage_teardown_grace_seconds: 30 # then up to 30s more to drain in-flight work
+```
+
+`t=0s`
+
+— the stage starts dispatching sessions, up to`concurrent_sessions`
+
+at a time.`t=300s`
+
+— if sessions are still running,`max_stage_duration`
+
+is hit: no new sessions are dispatched, active sessions are cancelled, and pending sessions are dropped. The stage's`end_time`
+
+is recorded here — this window is what stage-level metrics (throughput, latency) are computed over.`t=300s`
+
+–`t=330s`
+
+— the teardown grace: any request still in flight when the stage ended gets up to 30 more seconds to finish rather than being cut off mid-response. This window is reported separately as`teardown_duration`
+
+and is**excluded**from the stage's metrics window.`t=330s`
+
+(or sooner, once everything drains) — the stage boundary is forced and the next stage begins.
+
+If `max_stage_duration`
+
+is omitted, step 2 only happens once all sessions finish on their own; teardown still applies at that point (typically finding nothing left to drain).
+
+```
+api:
+type: chat
+streaming: true
+server:
+type: vllm
+base_url: "http://localhost:8000"
+model_name: "llama-3-8b"
+data:
+type: otel_trace_replay
+otel_trace_replay:
+trace_directory: "production_traces/"
+use_static_model: true
+static_model_name: "llama-3-8b"
+default_max_tokens: 2048
+skip_invalid_files: true
+load:
+type: trace_session_replay
+stages:
+- concurrent_sessions: 2
+num_sessions: 10
+session_rate: 1.0
+- concurrent_sessions: 4
+num_sessions: 20
+session_rate: 2.0
+worker_max_concurrency: 200
+```
+
+In addition to per-request metrics (TTFT, TPOT, throughput), OTel trace replay produces **session-level metrics** that capture the outcome of complete agentic workflows.
+
+Each session (one trace file) produces a metric with:
+
+| Field | Description |
+|---|---|
+`session_id` |
+Unique session identifier |
+`stage_id` |
+Stage that ran this session |
+`file_path` |
+Source trace file |
+`start_time` , `end_time` , `duration_sec` |
+Wall-clock timing for the entire session |
+`num_events` |
+Total LLM calls in the session graph |
+`num_events_completed` |
+Calls that actually executed and returned a response |
+`num_events_cancelled` |
+Calls skipped because a predecessor failed |
+`success` |
+`True` if all events completed without error |
+`error` |
+First error encountered, if any |
+`total_input_tokens` , `total_output_tokens` |
+Aggregated across all calls in the session |
+
+After a run, three session report files are generated:
+
+-
+— Aggregate statistics across all sessions:`summary_session_lifecycle_metrics.json`
+
+`num_sessions`
+
+(total, including sessions never completed),`num_sessions_completed`
+
+(succeeded + failed)`num_sessions_succeeded`
+
+,`num_sessions_failed`
+
+`num_sessions_not_completed`
+
+,`num_sessions_not_completed_active`
+
+,`num_sessions_not_completed_pending`
+
+— sessions stranded when`max_stage_duration`
+
+fired before they finished, interrupted or failed due to open circuit breakers`total_events`
+
+,`total_events_completed`
+
+,`total_events_cancelled`
+
+- Distributions:
+`session_duration_sec`
+
+,`num_events`
+
+,`total_input_tokens`
+
+,`total_output_tokens`
+
+
+-
+— Same statistics grouped by stage, prefixed with a`stage_N_session_lifecycle_metrics.json`
+
+`stage_metadata`
+
+block describing the stage's configuration and outcome. -
+— One entry per session with all fields (for detailed analysis)`per_session_lifecycle_metrics.json`
+
+
+At the end of a run, the CLI also prints these session-level statistics as summary tables (Session Summary, Session Duration & Events, Session Token Totals) alongside the standard per-stage tables.
+
+The session summary also includes KV cache hit rate metrics (`kv_cache_hit_percent`
+
+, `kv_cache_hit_per_session_percent`
+
+) when the server reports cached token counts. See [Metrics Definition](https://github.com/kubernetes-sigs/inference-perf/blob/main/docs/metrics.md#kv-cache-hit-rate) for details.
+
+
+Note:vLLM requires`--enable-prompt-tokens-details`
+
+to populate cache token counts in the usage response. Without this flag, cache metrics will be`None`
+
+.
+
+These complement the standard per-request metrics, giving you both micro (individual LLM calls) and macro (complete workflows) views of performance.
+
+**OpenTelemetry (OTel)** is an observability framework for collecting traces, metrics, and logs from distributed systems. A **trace** represents a complete request flow through your system, composed of multiple **spans**.
+
+A **span** represents a single unit of work or operation. In the context of LLM applications:
+
+- Each LLM API call (e.g., a chat completion request) is captured as a span
+- A span includes timing information (start/end), input/output data, and metadata
+- Spans are linked together via parent-child relationships to form a trace
+
+A **trace** is a collection of spans that together represent a complete workflow. For example:
+
+- A multi-turn conversation: user message → LLM response → user follow-up → LLM response
+- An agentic workflow: initial query → tool call → tool result → final answer
+- A RAG pipeline: query → retrieval → context injection → generation
+
+Each trace has a unique `trace_id`
+
+, and all spans within that trace share this ID. Spans also have their own `span_id`
+
+and reference their parent span, forming a directed acyclic graph (DAG) of operations.
+
+**Why this matters for replay:** OTel trace replay reconstructs these dependency relationships from your production traces, ensuring that benchmark workloads maintain the same causal dependencies, timing patterns, and context-sharing behavior as your real system.
+
+Bring traces exported from any OTel-instrumented LLM system. Each file is a JSON object with a `spans`
+
+array. Each LLM span must include:
+
+The replayer follows the [OpenTelemetry Semantic Conventions for GenAI](https://opentelemetry.io/docs/specs/semconv/gen-ai/).
+
+Each OTel trace file contains a flat list of spans. The replayer converts them into a directed acyclic graph (DAG) that preserves the original dependencies and timing:
+
+**Extract LLM spans**— Spans with`gen_ai.input.messages`
+
+(or a`chat *`
+
+name) become session events**Infer dependencies**— Two types of edges are added:**Causal edges**: when a span's input contains an`assistant`
+
+message whose content exactly matches a predecessor's output**Temporal edges**: to the closest non-overlapping earlier span (timing fallback)
+
+**Transitive reduction**— Redundant edges are pruned so only direct predecessors remain**Preserve timing**— The delay between when predecessors finish and when each call starts is recorded as`wait_ms`
+
+
+Root events (no predecessors) start immediately. All others wait for their predecessors, then observe `wait_ms`
+
+before dispatching.
+
+OTel trace replay introduces a new generator hierarchy to handle causally dependent requests. The codebase has two distinct generator types, both inheriting from `BaseGenerator`
+
+:
+
+** DataGenerator** — Used by standard load types (
+
+`random`
+
+, `shared_prefix`
+
+, `cnn_dailymail`
+
+)- Implements
+`get_data()`
+
+iterator yielding independent requests - Works with
+`load.type: constant`
+
+,`poisson`
+
+, or`concurrent`
+
+- Requests are fully independent
+
+** SessionGenerator** — Used exclusively for trace replay
+
+- Implements session-oriented methods instead of
+`get_data()`
+
+- Works with
+`load.type: trace_session_replay`
+
+- Requests within a session are
+**causally dependent**
+
+OTel trace replay cannot use the `DataGenerator`
+
+model because:
+
+- Requests inside a trace are
+**causally dependent**— call B cannot start until call A finishes - A's actual output must be injected into B's prompt (not the recorded text)
+- A flat iterator has no way to express "don't yield this yet" or "substitute with live output"
+
+The session replay implementation uses a layered architecture that separates trace-source-specific logic from the generic session replay runtime:
+
+```
+ReplayGraphSessionGeneratorBase (shared runtime)
+├── Session scheduling & lifecycle
+├── Worker coordination
+├── Output substitution
+└── Completion tracking
+OTelTraceReplayDataGenerator (OTel-specific)
+├── OTel trace parsing
+├── Span extraction
+└── Dependency inference → ReplayGraph
+```
+
+
+**Key components:**
+
+— Shared domain types (`replay_graph_types.py`
+
+`ReplayGraph`
+
+,`ReplaySession`
+
+,`GraphEvent`
+
+,`InputSegment`
+
+) that are agnostic to the trace source—`replay_graph_session_datagen.py`
+
+`ReplayGraphSessionGeneratorBase`
+
+abstract base class that handles all session replay runtime logic—`otel_trace_replay_datagen.py`
+
+`OTelTraceReplayDataGenerator`
+
+extends the base class and focuses solely on OTel-specific concerns (trace parsing, span extraction, dependency inference)
+
+**Extensibility:**
+
+This architecture enables any generator that produces a `ReplayGraph`
+
+to leverage the shared session replay runtime. Future generators (e.g., synthetic conversational workloads, agent framework replays, custom trace formats) can extend `ReplayGraphSessionGeneratorBase`
+
+and implement `_load_sessions()`
+
+to return `List[ReplaySession]`
+
+. The base class handles all coordination:
+
+- Session-to-worker affinity
+- Dependency-aware scheduling
+- Output substitution via
+`EventOutputRegistry`
+
+- Failure propagation
+- Session completion tracking
+- Metrics collection
+
+`OTelTraceReplayDataGenerator`
+
+works at the granularity of whole *sessions* (one trace file = one session).
+
+All three trace sources use the same **lazy graph-build** path — session graphs are never all built at startup. The difference is only in how raw trace data is held before graph build:
+
+**Local files** (`trace_files`
+
+/ `trace_directory`
+
+): all JSON files are read and parsed into a `Dataset`
+
+object in Python memory at startup. Raw span data for every trace is resident in RAM from the start, but graphs are still built one at a time on demand as sessions are dispatched.
+
+**HuggingFace dataset** (`hf_dataset_path`
+
+): the dataset stays memory-mapped on disk (Arrow/parquet format). At startup only the lightweight `session_id`
+
+and `source_id`
+
+columns are read to derive stable session IDs. Span data for each row is read from disk only when that session is first dispatched, then discarded after the graph is built.
+
+Each session's graph is built exactly once, on demand:
+
+**At dispatch time**:`is_session_buildable(session_index)`
+
+calls`_ensure_session_built`
+
+, which reads one row, builds the`ReplayGraph`
+
+, and stores it. Subsequent calls are no-ops (idempotent).**On a worker**:`load_lazy_data`
+
+calls`_resolve_event`
+
+, which also calls`_ensure_session_built`
+
+before indexing into the event list.
+
+After a session completes, `cleanup_session`
+
+frees the graph, event list, and graph-state dict.
+
+**Memory footprint**: for HF datasets, proportional to the concurrent working set (raw span data stays on disk until a session is dispatched). For local files, raw JSON is in RAM upfront, but graphs are still only held for active sessions.
+
+The lazy path uses `SessionReplayLazyLoadData`
+
+(a subclass of `LazyLoadInferenceAPIData`
+
+) to address events. Each token carries:
+
+| Field | Description |
+|---|---|
+`session_index` |
+Index into the session slots list |
+`local_event_index` |
+Index into `_session_events[session_index]` |
+`preferred_worker_id` |
+`hash(session_id) % num_workers` |
+
+`_resolve_event`
+
+dispatches on the type: `SessionReplayLazyLoadData`
+
+instances use per-session addressing.
+
+HF dataset path:
+
+```
+startup → session IDs loaded, raw span data stays memory-mapped on disk
+first dispatch → one row read from disk, graph built, row discarded
+events running → registry holds live outputs; graph retained on worker
+all events done → worker evicts: graph freed, registry pruned
+main loop acks → parent evicts: same cleanup (idempotent)
+```
+
+
+Local files path:
+
+```
+startup → all JSON files parsed into Dataset in RAM (spans resident)
+first dispatch → graph built from in-memory row
+events running → registry holds live outputs; graph retained on worker
+all events done → worker evicts: graph freed, registry pruned
+main loop acks → parent evicts: same cleanup (idempotent)
+```
+
+
+Without explicit eviction, each worker would retain every graph it ever built for the full duration of the stage. Per-worker eviction bounds this:
+
+- Every terminal event path (completion, skip, failure) calls
+`_mark_drained_and_maybe_evict`
+
+. `WorkerSessionTracker._drained_events[session_id]`
+
+tracks drained events as a set (idempotent).- When
+`len(drained_events) >= total_events_in_session`
+
+,`evict_worker_session`
+
+is called, freeing the graph and clearing tracker state.
+
+This bounds per-worker memory to roughly `concurrent_sessions × avg_events × avg_output_size`
+
+regardless of how many total sessions have been processed.
+
+`duplicate_sessions_target`
+
+expands a small corpus by appending duplicate entries with IDs of the form `{original_id}_dup{N}`
+
+.
+
+For the HF lazy path, a `_source_indices`
+
+map points each duplicate slot to its source dataset row — no span data is copied at startup; the duplicate reads the same row when its graph is first built. For the local-files path, `_duplicate_sessions_if_needed`
+
+creates new `ReplaySession`
+
+objects that share the same `ReplayGraph`
+
+reference as their source (the graph is not deep-copied).
+
+The `_dup`
+
+suffix automatically triggers KV-cache invalidation (a per-session random hex string is injected into unique message segments), preventing the model's KV cache from being reused across replays of the same trace.
+
+`num_sessions`
+
+(stage-level) limits how many sessions a stage dispatches, and is applied *after* duplication:
+
+`duplicate_sessions_target: 30000`
+
++`num_sessions: 3000`
+
+→ 3,000 sessions are dispatched, drawn from a 30,000-session pool.- Omitting
+`num_sessions`
+
+runs all sessions in the pool.
+
+| Method | Purpose |
+|---|---|
+`get_session_count()` |
+Total sessions in the corpus |
+`get_session_info(index)` |
+Metadata (session_id, file_path, num_events) |
+`activate_session(session_id)` |
+Marks root events as ready to dispatch |
+`get_session_events(index)` |
+Returns all events for a session |
+`check_session_completed(session_id)` |
+Returns `True` when all events finished |
+`build_session_metric(...)` |
+Constructs a `SessionLifecycleMetric` |
+`cleanup_session(session_id)` |
+Releases per-session state |
+
+All requests for a session are enqueued immediately (for parallelism), but each request only *executes* once its predecessors complete — signalled via `EventOutputRegistry`
+
+on the same worker.
+
+Each event's input is split into message-level segments:
+
+— Leading messages identical to a predecessor (KV-cache hit opportunity)`shared`
+
+— An assistant message whose content is a predecessor's output (substituted at replay time with the actual generated text)`output`
+
+— Messages unique to this call`unique`
+
+
+This decomposition happens during graph construction and enables:
+
+- Accurate simulation of KV-cache behavior (shared prefixes)
+- Dynamic output substitution (growing context patterns)
+- Realistic context growth in multi-turn conversations
+
+OTel trace replay reproduces tool-calling agent traces faithfully: captured tool
+definitions are re-attached to each request, the live model is forced to emit a
+tool call where the original trace did, and live tool-call IDs are propagated
+into successor `role: "tool"`
+
+messages so the dependency graph stays coherent.
+
+Tool-call replay activates for an event only when the source span carries
+**both** a `gen_ai.tool.definitions`
+
+attribute (JSON-encoded list of tool
+schemas, or a raw list) and a recorded assistant output containing tool calls.
+If the recorded output has tool calls but the span has no
+`gen_ai.tool.definitions`
+
+, that event is replayed as a plain-text chat
+completion and a warning is logged — make sure your instrumentation emits the
+attribute if you want tool-call replay to engage.
+
+Tool parameter schemas captured from production traces frequently contain JSON Schema features that vLLM's xgrammar backend rejects. Before each request, schemas are normalized to a vLLM-compatible subset (unsupported keywords are stripped and missing required fields are filled in with safe defaults). The goal is server acceptance for load testing, not faithful schema preservation.
+
+When the recorded output was a tool call, the request is sent with
+`tool_choice`
+
+set to the recorded function (or `"required"`
+
+when that isn't
+possible) so the model cannot return plain text. `ignore_eos`
+
+is also disabled
+and `max_tokens`
+
+raised, since the replay model's tokenizer may need more
+headroom than the original to express the same call.
+
+Forcing is the default because a replayed session is a graph: the successor turn
+already holds the `role: "tool"`
+
+messages that answer this turn's calls. If the
+live model replies in prose where the recording called a tool, those recorded
+results answer nothing.
+
+`tool_choice_mode`
+
+selects the policy:
+
+| Value | Behavior |
+|---|---|
+`force_recorded` |
+Default, unchanged from earlier releases. `{"type": "function", "function": {"name": ...}}` when the recorded turn made a single call whose name appears in this turn's tool list; `"required"` otherwise — that is, when the turn made several calls (only one name can be forced at a time) or named a tool absent from the list (which servers may reject). |
+`as_recorded` |
+Inject nothing. Traces do not carry a `tool_choice` , so the request goes out without one — which the OpenAI spec reads as `auto` alongside `tools` . |
+
+Prefer `as_recorded`
+
+when `"required"`
+
+misbehaves on your server. vLLM compiles
+`"required"`
+
+into an unbounded array schema (`minItems: 1`
+
+, no `maxItems`
+
+), so
+nothing forces the model to stop after one call and it may repeat the same call
+until `max_tokens`
+
+— see
+[#772](https://github.com/kubernetes-sigs/inference-perf/issues/772) and
+[vllm#50399](https://github.com/vllm-project/vllm/issues/50399). Note that under
+streaming this truncation is reported as `finish_reason: "tool_calls"`
+
+, not
+`"length"`
+
+, so it is easy to miss.
+
+The trade-off is fidelity in the other direction, and it is not local. With
+`as_recorded`
+
+the model may answer in prose on a turn the recording answered with
+a call. Replay does not degrade that turn gracefully: the successor's recorded
+`role: "tool"`
+
+messages would carry dangling `tool_call_id`
+
+references, so the
+event is marked failed, and because failure is session-scoped
+(`record_failure`
+
+-> `_fail_and_notify`
+
+-> `mark_session_failed`
+
+) **the entire
+session fails and every event downstream of that turn is cancelled.**
+
+Because a replayed session is a graph, the cost depends on where the prose answer
+lands, not on how minor it looks. A prose answer early in a long session discards
+nearly all of that session's remaining LLM calls. That also biases the run: the
+sessions that survive are the ones whose forced turns happened to behave, so
+throughput and latency get computed over a subset that is not the workload you
+configured. Cross-check `total_events_cancelled`
+
+and the failed-session count
+rather than reading the request-level error rate alone.
+
+So prefer `as_recorded`
+
+when `"required"`
+
+is actively breaking your server, and
+expect to trade session completeness for it. Which matters more depends on what
+you are measuring.
+
+`tool_choice_mode`
+
+is independent of `override_tool_call_max_tokens`
+
+: it changes
+what the model generates, not the `max_tokens`
+
+the request asks for.
+
+When a successor's input depends on a predecessor's tool-call response,
+substitution preserves the structured tool call rather than just its text:
+the predecessor's live `tool_calls`
+
+array (with IDs generated by the replay
+server) is injected, and `tool_call_id`
+
+s in the successor's `role: "tool"`
+
+messages are rewritten to match.
+
+Three coordination mechanisms handle output substitution and dependency management:
+
+Intra-worker only. Holds plain dicts (`event_id → output text`
+
+, `event_id → input messages`
+
+) and one `asyncio.Event`
+
+per session event.
+
+- When an event completes,
+`record()`
+
+writes the output and fires the signal, immediately unblocking dependent coroutines on the same worker - When an event fails,
+`record_failure()`
+
+fires the signal without writing any output;`require_async()`
+
+detects this and raises`EventFailedError`
+
+- No IPC — session-to-worker affinity guarantees all events of a session run on the same worker
+
+Per-worker session state tracking. Each worker independently tracks which events have completed and which sessions have failed within its assigned sessions. No cross-process communication needed due to session-to-worker affinity.
+
+Event-driven worker→main communication. When the last event of a session completes, the worker pushes a completion notification (with event completion times and failure status) to an `mp.Queue`
+
+. The main process consumes from this queue in `check_session_completed()`
+
+instead of polling shared state.
+
+Each `SessionChatCompletionAPIData`
+
+holds references to `registry`
+
+, `worker_tracker`
+
+, and `completion_queue`
+
+:
+
+- Before dispatching an HTTP request, the worker calls
+`wait_for_predecessors_and_substitute()`
+
+- This awaits predecessors via
+`registry.require_async()`
+
+(zero threads — pure`asyncio.Event`
+
+suspension) - Checks
+`worker_tracker`
+
+for session failure before and after waiting - Substitutes output segments with actual predecessor text
+- After the response returns,
+`on_completion()`
+
+writes to`registry`
+
+(unblocking dependents) and`worker_tracker`
+
+(recording completion) - If this was the last event in the session, pushes to
+`completion_queue`
+
+
+When an event fails (network error, timeout, HTTP error), the system ensures dependent events don't hang and the session completes gracefully:
+
+**Worker-level failure handling:**
+
+`process_failure()`
+
+is called on the failed event's`SessionChatCompletionAPIData`
+
+- The worker marks the entire session as failed in
+`WorkerSessionTracker`
+
+(local to that worker) `registry.record_failure(event_id)`
+
+is called — this sets the event's`asyncio.Event`
+
+without writing any output to`EventOutputRegistry`
+
+, keeping the registry clean- Dependent events unblock, receive an
+`EventFailedError`
+
+from`require_async`
+
+, and skip without making HTTP requests
+
+**Session-level failure propagation (within a worker):**
+
+**Pre-wait check**: Before waiting for predecessors, each event checks if its session has failed in`WorkerSessionTracker`
+
+. If so, it sets`skip_request = True`
+
+, calls`record_failure`
+
+on itself (to unblock its own successors), and returns immediately**Predecessor wait**:`asyncio.gather`
+
+awaits all predecessors via`require_async`
+
+. If any predecessor was marked failed,`require_async`
+
+raises`EventFailedError`
+
+. The event catches this, sets`skip_request = True`
+
+, calls`record_failure`
+
+on itself, and returns — propagating the failure hop-by-hop through the dependency graph**No empty outputs**: Cancelled events never write to`EventOutputRegistry`
+
+. The registry only contains real outputs from events that actually ran**No completion counting for skipped events**: Skipped events do not call`record_event_completed`
+
+. Session completion is signalled entirely via the immediate failure notification in`process_failure`
+
+**Session-to-worker affinity**: All events of a session run on the same worker, so`WorkerSessionTracker`
+
+(local to each worker) is sufficient for intra-session failure detection
+
+**Worker-to-main-process communication:**
+
+- On the first failure in a session,
+`process_failure`
+
+immediately pushes a completion notification to`session_completion_queue`
+
+with`"failed": True`
+
+and a`"cancelled_events"`
+
+count (how many events will be skipped as a result of this failure). This does not wait for skipped events to finish - The main process calls
+`_process_completion_queue()`
+
+which sets`ReplaySessionState.is_complete`
+
+and`ReplaySessionState.failed`
+
+for the session - When ending OTEL session spans, the load generator checks
+`ReplaySessionState.failed`
+
+to mark failed sessions with error messages
+
+**Session metrics:**
+
+- Session metrics include a
+`success`
+
+field (False for failed sessions) and an`error`
+
+field with the failure reason - The
+`cancelled_events`
+
+field in the completion notification records how many events were skipped due to the failure (computed as`total_events − completed_before_failure − 1`
+
+)
+
+This design ensures:
+
+- No deadlocks: dependent events never wait indefinitely for failed predecessors
+- Clean registry: no phantom empty-string entries for cancelled events
+- Clean shutdown: sessions complete even when events fail, without waiting for all events to skip
+- Accurate metrics: failures are tracked at both event and session level, with cancelled counts
+- Accurate OTEL traces: failed sessions are marked with error messages in their spans
+- Resource efficiency: failed sessions don't consume unnecessary worker time
+
+**Note:** OTel trace replay always runs in multiprocess mode (requires `num_workers > 0`
+
+) because it uses `SessionGenerator`
+
+, which is not supported in single-process mode.
+
+Because a replayed session is a dependency graph, the cost of a single failure is not one
+request — it is every event downstream of the failed one. A request error rate well under
+1% can therefore cancel a double-digit percentage of the events in a run: the cost depends
+on *where* in the graph the fault landed, not on how serious it was.
+
+Set `load.request_retries`
+
+to re-send requests that fail before response headers were
+obtained, which is the dominant class of these faults (a connection refused, reset, or
+dropped from the pool while the endpoint itself stays up and keeps answering):
+
+```
+load:
+request_timeout: 900
+request_retries: 2 # up to 2 extra attempts per request
+request_retry_backoff_sec: 0.5
+```
+
+Only faults raised before a response was established are retried; timeouts and TLS
+configuration errors never are. `request_timeout`
+
+applies per attempt, and a retried
+request's reported latency deliberately still includes the failed attempt and its backoff.
+See [Retrying Transport Faults](https://github.com/kubernetes-sigs/inference-perf/blob/main/docs/config.md#retrying-transport-faults) for the boundary and
+the trade-offs.
+
+Retries are reported separately from errors, and every surface is absent when nothing retried:
+
+| Surface | Shape |
+|---|---|
+| Report JSON | `retries` block beside `successes` /`failures` : `requests_retried` , `attempts` , `recovered` , `failed_after_retry` , `wasted_sec_total` , and `wasted_sec` (mean/min/max/percentiles) |
+| Request Error Summary | `Retried (recovered)` column |
+| Session Summary | `Retries (recovered)` column, plus `sessions_with_retries` , `total_retry_attempts` , `total_retries_recovered` |
+| Per-request JSON and OTel | `info.retry_wasted_sec` and a `gen_ai.response.retry_wasted_sec` span attribute |
+
+Attempts and recoveries are both reported, since a retry that was spent and failed anyway
+is the more interesting number. The waste figures include requests that never succeeded —
+every attempt they made was wasted. A retry is not an error label and never enters
+`failures.count`
+
+.
+
+** run_stage** is the standard path used by every other load type:
+
+- Calls
+`get_data()`
+
+to produce a flat sequence of requests - Stamps each with a time from a
+`LoadTimer`
+
+(constant rate or Poisson) - Puts them all on the worker queue up front
+- Waits until
+`finished_requests_counter`
+
+reaches the expected total
+
+This works because requests are independent and the load shape is fully determined before dispatch begins.
+
+** run_session_stage** is the OTel-specific path. It cannot pre-compute a flat request list because the number of active requests at any moment depends on which sessions are in flight and how far each has progressed through its graph. Instead it runs a session pool loop:
+
+- Maintain a pool of at most
+`concurrent_sessions`
+
+active sessions - When the pool has room (and
+`session_rate`
+
+allows), pop the next session from the pending list, call`activate_session`
+
+, and enqueue all of its events at once - Poll each active session with
+`check_session_completed`
+
+; when one finishes, remove it from the pool so a new session can start - Exit when all sessions in this stage's corpus slice have completed
+
+The key insight is that *session* concurrency (how many traces are in flight) is controlled here in the load generator, while *request* concurrency within a session is controlled by the dependency graph itself — root events run immediately, dependent events wait. The worker pool size (`num_workers`
+
+× `worker_max_concurrency`
+
+) sets the ceiling on how many LLM calls can be in flight across all sessions simultaneously.
+
+The replayer infers dependencies using two types of edges:
+
+**Causal edges**: When a span's input contains an`assistant`
+
+message whose content exactly matches a predecessor's output**Temporal edges**: To the closest non-overlapping earlier span (timing fallback)
+
+The temporal fallback is necessary because output matching doesn't always detect all dependencies. If event X ends before event Y begins, X is considered a predecessor even if Y doesn't use X's entire output.
+
+After adding edges, **transitive reduction** prunes redundant edges so only direct predecessors remain.
+
+All changes are additive. The `SessionGenerator`
+
+path is only activated when `data.type: otel_trace_replay`
+
+is set. Existing data generators, load types, and reports are unmodified.

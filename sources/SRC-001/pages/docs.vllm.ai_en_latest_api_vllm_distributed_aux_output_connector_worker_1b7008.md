@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/aux_output_connector/worker/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class AuxOutputWorkerConnector:
 """Own capture, request tails, and backend resources on the output worker."""

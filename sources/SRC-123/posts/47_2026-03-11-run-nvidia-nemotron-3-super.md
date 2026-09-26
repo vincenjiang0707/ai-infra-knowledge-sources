@@ -46,6 +46,7 @@ We can then serve this model. The command below is configured for a 4xH200 setup
 ```
 # BF16
 ```bash
+```bash
 python3 -m sglang.launch_server \
 --model-path nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16 \
 --host 0.0.0.0 \
@@ -54,6 +55,7 @@ python3 -m sglang.launch_server \
 --tp 4 \
 --tool-call-parser qwen3_coder \
 --reasoning-parser nemotron_3
+```
 ```
 
 

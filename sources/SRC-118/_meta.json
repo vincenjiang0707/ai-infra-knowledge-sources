@@ -1,0 +1,22 @@
+{
+ "src_id": "SRC-118",
+ "name": "ACM Digital",
+ "category": "论⽂、会议与课程",
+ "priority": "",
+ "scrape_type": "academic",
+ "blocked_reason": "PDF 标 403（ACM Digital Library）",
+ "status": "blocked",
+ "started_at": "2026-09-24T18:11:59Z",
+ "finished_at": "2026-09-24T18:11:59Z",
+ "duration_seconds": 0.0,
+ "attempts": 1,
+ "channels": {
+  "pdf_flag": {
+   "type": "none",
+   "status": "blocked",
+   "reason": "PDF 标 403（ACM Digital Library）"
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

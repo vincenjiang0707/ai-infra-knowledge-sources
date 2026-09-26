@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/aux_output_connector/routed_experts/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class RoutedExpertsBuffer:
 """Own incomplete and unkeyed full routed-experts blocks."""

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/kernels/helion/ops/silu_mul_fp8/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Pick the best pre-tuned config for the given input shape.
 

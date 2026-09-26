@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/scaled_mm/b12x/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class B12xTensorFP8ScaledMMLinearKernel(FP8ScaledMMLinearKernel):
 """Static per-tensor FP8 linear through the B12X SM12x dense GEMM."""

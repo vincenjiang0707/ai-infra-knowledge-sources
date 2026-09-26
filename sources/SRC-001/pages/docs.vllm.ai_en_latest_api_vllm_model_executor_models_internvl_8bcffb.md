@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/internvl/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 @MULTIMODAL_REGISTRY.register_processor(
 InternVLMultiModalProcessor,
@@ -75,7 +75,7 @@ self.make_empty_intermediate_tensors = (
 self.language_model.make_empty_intermediate_tensors
 )
 def _patch_quant_config(
-self, config: PretrainedConfig, quant_config: QuantizationConfig | None
+self, config: PreTrainedConfig, quant_config: QuantizationConfig | None
 ):
 # the awq models from OpenGVLab missing `modules_to_not_convert`
 # patch the quant_config to add `modules_to_not_convert` back
@@ -88,7 +88,7 @@ llm_quant_config is not None
 quant_config.modules_to_not_convert.append("vision_model")
 def _init_vision_model(
 self,
-config: PretrainedConfig,
+config: PreTrainedConfig,
 quant_config: QuantizationConfig | None,
 *,
 prefix: str,
@@ -106,7 +106,7 @@ quant_config=quant_config,
 num_hidden_layers_override=num_hidden_layers,
 prefix=prefix,
 )
-def _init_mlp1(self, config: PretrainedConfig) -> nn.Module:
+def _init_mlp1(self, config: PreTrainedConfig) -> nn.Module:
 vit_hidden_size = config.vision_config.hidden_size
 llm_hidden_size = config.text_config.hidden_size
 return nn.Sequential(

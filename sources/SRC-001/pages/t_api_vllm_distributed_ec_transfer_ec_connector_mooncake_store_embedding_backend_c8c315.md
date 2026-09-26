@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/mooncake_store_embedding/backend/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MooncakeEmbeddingStoreBackend:
 """Resolve immutable encoder outputs and publish misses asynchronously."""

@@ -1,0 +1,125 @@
+source: https://docs.nvidia.com/dynamo/kubernetes/installation/gateway-api-inference-extension
+lastmod: 2026-09-25T12:26:00.485Z
+
+# Install Gateway API Inference Extension
+
+Complete this installation only if you plan to use the Gateway API routing topology. The default
+Dynamo Frontend topology works without Gateway API, the Gateway API Inference Extension (GAIE), or
+an Endpoint Picker Plugin (EPP). To use the default topology, continue to
+[the Dynamo Frontend](https://docs.nvidia.com/dynamo/kubernetes/kv-aware-routing/using-the-dynamo-frontend).
+
+Install this integration after the [Dynamo platform](https://docs.nvidia.com/dynamo/kubernetes/installation/install-dynamo). The Dynamo operator needs
+the GAIE `InferencePool`
+
+API before it can reconcile a `DynamoGraphDeployment`
+
+with an EPP component.
+
+### Choose a Gateway implementation
+
+Dynamo requires a Gateway implementation that supports GAIE `InferencePool`
+
+resources and calls the
+configured EPP before forwarding a request.
+
+- Use
+**agentgateway**when the cluster does not already standardize on Istio or when you want a focused AI gateway deployment. - Use
+**Istio**when the cluster already relies on Istio for ingress, service-mesh policy, or telemetry.
+
+Other Gateway implementations can work when they support the same GAIE endpoint-picker contract.
+
+### Set the installation variables
+
+Set `NAMESPACE`
+
+for the model, EPP, `InferencePool`
+
+, and `HTTPRoute`
+
+. With the agentgateway install
+method the `Gateway`
+
+itself lives in `AGW_NAMESPACE`
+
+alongside its controller; the Istio method
+creates the Gateway in `NAMESPACE`
+
+. Keep the Dynamo version aligned with the platform installation.
+
+### Install the Gateway API layer
+
+###### agentgateway
+
+###### Istio
+
+From the root of a Dynamo source checkout, run the repository installation script:
+
+The script installs:
+
+- Gateway API CRDs.
+- GAIE CRDs.
+- agentgateway with the inference extension enabled.
+- An
+`AgentgatewayParameters`
+
+resource that prevents Istio sidecar injection into Gateway proxy pods. - A
+`Gateway`
+
+named`inference-gateway`
+
+in`$AGW_NAMESPACE`
+
+(co-located with the agentgateway controller). Its`http`
+
+listener sets`allowedRoutes.namespaces.from: All`
+
+, so`HTTPRoute`
+
+objects in`$NAMESPACE`
+
+attach to it across namespaces.
+
+The workload namespace `$NAMESPACE`
+
+still holds the model, EPP, `InferencePool`
+
+, and `HTTPRoute`
+
+.
+Only the Gateway itself lives in `$AGW_NAMESPACE`
+
+.
+
+The script pins compatible dependency versions. Review it before running it when your platform team owns Gateway API or agentgateway lifecycle.
+
+### Verify the required APIs
+
+Confirm that the cluster serves the Gateway, route, and inference-pool resources:
+
+Expected API groups include:
+
+### Verify the Gateway
+
+The Gateway namespace depends on the install method: the agentgateway script creates it in
+`$AGW_NAMESPACE`
+
+, while the Istio flow creates it in `$NAMESPACE`
+
+.
+
+###### agentgateway
+
+###### Istio
+
+Wait for the `inference-gateway`
+
+resource to become programmed:
+
+If `Programmed`
+
+remains false, inspect the Gateway and the controller:
+
+## Next Step
+
+Add an EPP component and route an existing DGD with
+[GAIE with Dynamo](https://docs.nvidia.com/dynamo/kubernetes/kv-aware-routing/using-gaie-with-dynamo).

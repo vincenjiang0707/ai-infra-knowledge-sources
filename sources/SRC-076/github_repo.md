@@ -1,6 +1,6 @@
 # meta-pytorch/KernelAgent
 
-- stars: 558
+- stars: 565
 - forks: 92
 - open_issues: 14
 - default_branch: main

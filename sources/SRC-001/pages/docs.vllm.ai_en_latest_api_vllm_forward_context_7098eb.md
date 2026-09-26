@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/forward_context/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -134,7 +134,7 @@ Methods:
 
 ###
 
-`sp_local_sizes(sequence_parallel_size)`
+`sp_local_sizes(sequence_parallel_size, pcp_size=1, use_ep=False)`
 
 [¶](https://docs.vllm.ai#vllm.forward_context.DPMetadata.sp_local_sizes)
 

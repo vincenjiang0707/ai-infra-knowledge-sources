@@ -1,12 +1,12 @@
 # vllm-project/speculators
 
-- stars: 850
-- forks: 232
-- open_issues: 156
+- stars: 852
+- forks: 234
+- open_issues: 162
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-22T18:59:12Z
+- pushed_at: 2026-09-25T11:46:27Z
 - homepage: https://docs.vllm.ai/projects/speculators
 
 ## README

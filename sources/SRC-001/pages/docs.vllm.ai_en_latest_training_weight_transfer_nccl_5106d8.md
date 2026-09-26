@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/training/weight_transfer/nccl/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # NCCL Engine[¶](https://docs.vllm.ai#nccl-engine)
 

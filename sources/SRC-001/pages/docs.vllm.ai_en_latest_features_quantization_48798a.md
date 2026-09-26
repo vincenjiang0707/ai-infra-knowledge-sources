@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/quantization/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Quantization[¶](https://docs.vllm.ai#quantization)
 

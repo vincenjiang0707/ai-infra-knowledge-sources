@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/quantization/modelopt/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # NVIDIA Model Optimizer[¶](https://docs.vllm.ai#nvidia-model-optimizer)
 

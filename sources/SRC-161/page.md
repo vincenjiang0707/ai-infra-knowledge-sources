@@ -1,5 +1,3 @@
-# FlashInfer-Bench
-
 source: https://github.com/flashinfer-ai/flashinfer-bench/releases
 
 # Releases: flashinfer-ai/flashinfer-bench

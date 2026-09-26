@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:49:24Z",
- "finished_at": "2026-09-23T03:49:24Z",
- "duration_seconds": 103.7,
- "attempts": 1,
+ "finished_at": "2026-09-25T02:18:50Z",
+ "duration_seconds": 70.0,
+ "attempts": 3,
  "channels": {
   "gh_bfb54282": {
    "type": "github_repo",
@@ -20,12 +20,12 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
@@ -52,12 +52,12 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -78,43 +78,43 @@
   "ref_e14c073b": {
    "type": "reference",
    "url": "https://github.com/flashinfer-ai/flashinfer/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 1667
+   "mode": "page",
+   "chars": 1993
   },
   "ref_0ad0620e": {
    "type": "reference",
    "url": "https://github.com/flashinfer-ai/flashinfer/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 5869
+   "mode": "page",
+   "chars": 626
   },
   "ref_de813074": {
    "type": "reference",
    "url": "https://github.com/flashinfer-ai/flashinfer/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 22798
+   "mode": "page",
+   "chars": 17279
   }
  },
  "cursor": {
   "gh_bfb54282:issues": {
-   "last_updated_at": "2026-09-23T03:35:10Z"
+   "last_updated_at": "2026-09-25T02:16:47Z"
   },
   "gh_bfb54282:pulls": {
-   "last_updated_at": "2026-09-23T03:47:15Z"
+   "last_updated_at": "2026-09-25T02:16:50Z"
   },
   "gh_bfb54282:releases": {
    "last_id": 393391756
   },
   "gh_30d8214c:issues": {
-   "last_updated_at": "2026-09-22T16:33:12Z"
+   "last_updated_at": "2026-09-23T14:58:39Z"
   },
   "gh_30d8214c:pulls": {
-   "last_updated_at": "2026-09-23T02:56:51Z"
+   "last_updated_at": "2026-09-24T05:26:52Z"
   },
   "gh_30d8214c:releases": {
    "last_id": 356595222

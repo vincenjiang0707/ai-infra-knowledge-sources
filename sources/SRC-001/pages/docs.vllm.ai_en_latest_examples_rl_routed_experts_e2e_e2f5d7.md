@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/rl/routed_experts_e2e/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Routed Experts E2E[¶](https://docs.vllm.ai#routed-experts-e2e)
 

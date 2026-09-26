@@ -1,16 +1,17 @@
 # vllm-project/vllm
 
-- stars: 92460
-- forks: 22538
-- open_issues: 8318
+- stars: 92650
+- forks: 22641
+- open_issues: 8371
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-23T03:11:56Z
+- pushed_at: 2026-09-25T04:55:16Z
 - homepage: https://vllm.ai
 
 ## README
 
+```html
 <!-- markdownlint-disable MD001 MD041 -->
 <p align="center">
   <picture>
@@ -18,6 +19,7 @@
     <img alt="vLLM" src="https://raw.githubusercontent.com/vllm-project/vllm/main/docs/assets/logos/vllm-logo-text-light.png" width=55%>
   </picture>
 </p>
+```
 
 <h3 align="center">
 Easy, fast, and cheap LLM serving for everyone

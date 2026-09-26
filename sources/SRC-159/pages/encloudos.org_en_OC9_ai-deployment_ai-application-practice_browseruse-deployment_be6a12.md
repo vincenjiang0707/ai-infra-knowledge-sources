@@ -1,0 +1,111 @@
+source: https://docs.opencloudos.org/en/OC9/ai-deployment/ai-application-practice/browseruse-deployment/
+
+# Browser-use部署指南
+
+Browser-use 是一个旨在将 AI “智能体”（Agents）与真实浏览器进行交互的 Python 库，它结合了大型语言模型（LLM）的智能决策能力和传统浏览器自动化的执行能力，可以轻松实现浏览器自动化，支持物理机（图形化）和容器（无图形）两种运行场景。
+
+## 官方信息
+
+| 项 | 信息 | 备注 |
+|---|---|---|
+| 官方网站 | https://browser-use.com/ | |
+| 源码地址 | https://github.com/browser-use/browser-use | |
+| 官方文档 | https://docs.browser-use.com/introduction | |
+| 编程语言 | Python | >= python 3.11 |
+
+## 一、安装方式
+
+### 1.1 直接安装
+
+在 OpenCloudOS 9 上的安装，与其他系统无异：
+
+```
+dnf install pip
+pip install uv
+mkdir test-browser && cd test-browser
+uv venv --python 3.11
+source .venv/bin/activate
+uv pip install browser-use
+```
+
+
+```
+dnf install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+```
+
+
+### 1.2 容器安装
+
+```
+docker pull docker.io/opencloudos/opencloudos9-browser-use
+```
+
+
+Dockerfile 参考：
+
+```
+FROM opencloudos/opencloudos9-minimal:latest
+RUN dnf install -y \
+python3-pip \
+https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm \
+&& dnf clean all \
+&& rm -rf /var/cache/yum/*
+RUN pip3 install --no-cache-dir uv \
+&& uv pip install --no-cache-dir browser-use[all] --system
+RUN echo $(date +"%Y-%m-%dT%H:%M:%S%z") > /opencloudos_build_date.txt
+```
+
+
+## 二、使用方式
+
+此处以 Deepseek 为例，介绍 bowser-use 的使用方式。
+
+编写 python 脚本调用 agent:
+
+```
+import asyncio
+import os
+from browser_use import Agent
+from browser_use.llm import ChatDeepSeek
+# Add your custom instructions
+extend_system_message = """
+Remember the most important rules:
+1. When performing a search task, open https://www.google.com/ first for search.
+2. Final output.
+"""
+deepseek_api_key = os.getenv('DEEPSEEK_API_KEY')
+if deepseek_api_key is None:
+print('Make sure you have DEEPSEEK_API_KEY:')
+print('export DEEPSEEK_API_KEY=your_key')
+exit(0)
+async def main():
+llm = ChatDeepSeek(
+base_url='https://api.deepseek.com',
+model='deepseek-chat',
+api_key=deepseek_api_key,
+)
+agent = Agent(
+task="""
+1. Go to https://quotes.toscrape.com/
+2. Use extract_structured_data action with the query "first 3 quotes with their authors"
+3. Save results to quotes.csv using write_file action
+4. Do a google search for the first quote and find when it was written
+""",
+llm=llm,
+use_vision=False,
+extend_system_message=extend_system_message,
+)
+await agent.run()
+if __name__ == "__main__":
+asyncio.run(main())
+```
+
+
+然后在同目录创建一个 .env 文件，贴入 Deepseek 官网申请的 api：
+
+```
+DEEPSEEK_API_KEY="xxxxxxx"
+```
+
+
+**注：如果是其他托管网站的deepseek key，请修改 python 脚本中的 base_url 字段。**

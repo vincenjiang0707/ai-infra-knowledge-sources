@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/integrations/dynamo/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # NVIDIA Dynamo[¶](https://docs.vllm.ai#nvidia-dynamo)
 

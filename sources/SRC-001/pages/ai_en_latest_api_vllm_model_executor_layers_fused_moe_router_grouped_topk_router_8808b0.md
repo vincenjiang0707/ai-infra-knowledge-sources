@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/router/grouped_topk_router/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class GroupedTopKRouter(BaseRouter):
 """Router using grouped top-k routing (e.g., DeepSeekV2/V3)."""

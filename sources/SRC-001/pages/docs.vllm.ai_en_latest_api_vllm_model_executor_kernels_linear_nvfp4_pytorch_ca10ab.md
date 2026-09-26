@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/nvfp4/pytorch/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class TorchNvFp4LinearKernel(NvFp4LinearKernel):
 """NVFP4 GEMM implemented with PyTorch's native ``torch._scaled_mm``.

@@ -1,0 +1,4 @@
+source: https://docs.openvino.ai/2025/api/c_cpp_api/classov_1_1op_1_1v7_1_1_i_d_f_t.html
+lastmod: 
+
+Class ov::op::v7::IDFT# class IDFT : public ov::op::util::FFTBase# An operation IDFT that computes the inverse discrete Fourier transformation. Public Functions IDFT(const Output<Node> &data, const Output<Node> &axes)# Constructs a IDFT operation. IDFT is performed for full size axes. Parameters: data – Input data axes – Axes to perform IDFT IDFT(const Output<Node> &data, const Output<Node> &axes, const Output<Node> &signal_size)# Constructs a IDFT operation. Parameters: data – Input data axes – Axes to perform IDFT signal_size – Signal sizes for ‘axes’

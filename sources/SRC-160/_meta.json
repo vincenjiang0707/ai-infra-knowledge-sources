@@ -1,0 +1,22 @@
+{
+ "src_id": "SRC-160",
+ "name": "寒武纪 SDK",
+ "category": "昇腾与其他国产芯⽚",
+ "priority": "",
+ "scrape_type": "site",
+ "blocked_reason": "PDF 标获取失败（寒武纪 SDK 文档）",
+ "status": "blocked",
+ "started_at": "2026-09-24T18:11:59Z",
+ "finished_at": "2026-09-24T18:11:59Z",
+ "duration_seconds": 0.0,
+ "attempts": 1,
+ "channels": {
+  "pdf_flag": {
+   "type": "none",
+   "status": "blocked",
+   "reason": "PDF 标获取失败（寒武纪 SDK 文档）"
+  }
+ },
+ "cursor": {},
+ "notes": ""
+}

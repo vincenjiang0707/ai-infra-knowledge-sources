@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/mellum/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MellumAttention(Qwen3MoeAttention):
 """Differences from `Qwen3MoeAttention`:

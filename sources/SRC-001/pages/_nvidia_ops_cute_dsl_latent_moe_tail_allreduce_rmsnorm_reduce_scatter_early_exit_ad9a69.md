@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/ops/cute_dsl/latent_moe_tail/allreduce_rmsnorm_reduce_scatter_early_exit/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class AllReduceRMSNormWithReduceScatterEarlyExit:
 """One routed role plus one compact ReduceScatter role."""

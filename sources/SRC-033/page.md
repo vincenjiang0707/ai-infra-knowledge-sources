@@ -1,5 +1,3 @@
-# Ascend 样例
-
 source: https://github.com/Ascend/pytorch/releases
 
 # Releases: Ascend/pytorch

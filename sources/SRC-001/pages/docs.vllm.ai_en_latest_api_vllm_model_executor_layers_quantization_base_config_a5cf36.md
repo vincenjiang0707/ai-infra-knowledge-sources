@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/base_config/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -288,7 +288,7 @@ Parameters:
 
 (`hf_config`
 
-[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.base_config.QuantizationConfig.maybe_update_config(hf_config))`PretrainedConfig | None`
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.base_config.QuantizationConfig.maybe_update_config(hf_config))`PreTrainedConfig | None`
 
 , default:`None`
 

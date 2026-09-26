@@ -2,3 +2,11 @@
 *.tmp
 *.swp
 .DS_Store
+
+# fence_md 增量执行状态 (可随时删除重建)
+scrape/.fence_md_done.json
+
+# 运行产物 / 缓存
+__pycache__/
+scrape/review_fence_candidates.md
+scrape/logs/

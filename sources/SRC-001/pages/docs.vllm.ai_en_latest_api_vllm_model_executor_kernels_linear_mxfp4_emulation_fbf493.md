@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp4/emulation/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class EmulationMxfp4LinearKernel(MxFp4LinearKernel):
 """Software emulation fallback for OCP MXFP4/MXFP6 (dequant + F.linear)."""

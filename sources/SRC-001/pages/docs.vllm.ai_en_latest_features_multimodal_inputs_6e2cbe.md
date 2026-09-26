@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/multimodal_inputs/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Multimodal Inputs[¶](https://docs.vllm.ai#multimodal-inputs)
 
@@ -107,6 +107,7 @@ If using the [LLM.chat](https://docs.vllm.ai/models/generative_models/#llmchat) 
 
 ## Code
 
+```bash
 from vllm import LLM
 from vllm.assets.image import ImageAsset
 llm = LLM(model="llava-hf/llava-1.5-7b-hf")
@@ -144,6 +145,7 @@ outputs = llm.chat(conversation)
 for o in outputs:
 generated_text = o.outputs[0].text
 print(generated_text)
+```
 
 
 Multi-image input can be extended to perform video captioning. We show this with [Qwen2-VL](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) as it supports videos:

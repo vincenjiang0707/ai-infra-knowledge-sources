@@ -1,5 +1,3 @@
-# DistServe
-
 source: https://github.com/LLMServe/DistServe/releases
 
 # Releases: LLMServe/DistServe

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/quark/quark/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class QuarkConfig(QuantizationConfig):
 def __init__(
@@ -24,34 +24,6 @@ getattr(type(self), "packed_modules_mapping", {})
 self.kv_cache_group = kv_cache_group
 self.kv_cache_config = kv_cache_config
 self.pack_method = pack_method
-# Note : this flag is kept disabled because the overhead of
-# dynamic mxfp4 quantization negates the performance gains
-# that come from shifting to mxfp4. It is left here in case
-# we want to re-enable it in the future.
-self.dynamic_mxfp4_quant = False
-def maybe_update_config(
-self,
-model_name: str,
-hf_config: PretrainedConfig | None = None,
-revision: str | None = None,
-):
-"""Enable dynamic MXFP4 only for DeepSeek-V3-family fp4 checkpoints."""
-if hf_config is None:
-return
-if (
-getattr(hf_config, "model_type", None)
-not in _DEEPSEEK_V3_FAMILY_MODEL_TYPES
-):
-return
-quant_config = getattr(hf_config, "quantization_config", None)
-if isinstance(quant_config, dict):
-quant_dtype = (
-quant_config.get("global_quant_config", {})
-.get("weight", {})
-.get("dtype")
-)
-if quant_dtype == "fp4":
-self.dynamic_mxfp4_quant = True
 def get_linear_method(self) -> "QuarkLinearMethod":
 return QuarkLinearMethod(self)
 def get_supported_act_dtypes(cls) -> list[torch.dtype]:
@@ -92,16 +64,6 @@ self, layer: torch.nn.Module, prefix: str
 weight_quant_key, activation_quant_key, method_cls = (
 self.get_quant_method_target(prefix, type(layer))
 )
-exclude_layers = cast(list[str], self.quant_config.get("exclude"))
-is_ignored = should_ignore_layer(
-prefix,
-ignore=exclude_layers,
-fused_mapping=self.packed_modules_mapping,
-check_children=isinstance(layer, RoutedExperts),
-)
-dynamic_mxfp4_quant = (
-is_ignored and "self_attn" in prefix and self.dynamic_mxfp4_quant
-)
 if method_cls is UnquantizedFusedMoEMethod:
 return UnquantizedFusedMoEMethod(layer.moe_config)
 if method_cls is UnquantizedLinearMethod:
@@ -112,7 +74,6 @@ scheme = self.init_scheme(
 scheme_cls,
 weight_quant_key=weight_quant_key,
 activation_quant_key=activation_quant_key,
-dynamic_mxfp4_quant=dynamic_mxfp4_quant,
 weight_config=self._find_matched_config(prefix, type(layer)).get(
 "weight"
 ),
@@ -159,11 +120,6 @@ check_children=is_routed_experts,
 if is_routed_experts:
 return None, None, UnquantizedFusedMoEMethod
 if issubclass(layer_type, LinearBase):
-if "self_attn" in prefix and self.dynamic_mxfp4_quant:
-weight_quant_key, activation_key, _ = self.get_scheme_cls(
-layer_type, prefix
-)
-return weight_quant_key, activation_key, QuarkLinearMethod
 return None, None, UnquantizedLinearMethod
 return None, None, None
 if issubclass(layer_type, LinearBase):
@@ -780,7 +736,6 @@ self,
 scheme_cls: type["QuarkScheme"],
 weight_quant_key: QuantKey | None,
 activation_quant_key: QuantKey | None,
-dynamic_mxfp4_quant: bool = False,
 weight_config: dict[str, Any] | None = None,
 ) -> "QuarkScheme":
 """Construct a Quark scheme selected by get_scheme_cls."""
@@ -816,8 +771,6 @@ QuarkW8A8Int8,
 QuarkOCP_MX,
 ):
 kwargs["weight_quant_key"] = weight_quant_key
-if scheme_cls is QuarkOCP_MX:
-kwargs["dynamic_mxfp4_quant"] = dynamic_mxfp4_quant
 scheme = scheme_cls(**kwargs)
 # Raise error if device does not support the scheme
 # (e.g. fp8 needs ada lovelace)

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/device_allocator/cumem/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class CuMemAllocator:
 """A singleton class that manages a memory pool for CUDA tensors.

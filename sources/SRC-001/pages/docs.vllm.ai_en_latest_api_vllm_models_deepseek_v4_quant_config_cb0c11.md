@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/quant_config/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class DeepseekV4FP8Config(Fp8Config):
 """FP8 config for DeepSeek V4 with expert-dtype-aware MoE dispatch.

@@ -1,5 +1,3 @@
-# 海光光合开发
-
 source: https://developer.sourcefind.cn/
 
 国产异构计算平台软硬件架构

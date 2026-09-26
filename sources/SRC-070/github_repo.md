@@ -1,12 +1,12 @@
 # deepseek-ai/DeepEP
 
-- stars: 10183
-- forks: 1447
-- open_issues: 286
+- stars: 10207
+- forks: 1451
+- open_issues: 289
 - default_branch: main
 - archived: False
 - license: MIT
-- pushed_at: 2026-09-16T05:04:13Z
+- pushed_at: 2026-09-23T08:05:30Z
 - homepage: 
 
 ## README

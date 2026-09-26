@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/layers/logits_processor/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class LogitsProcessorWithLoRA(BaseLayerWithLoRA):
 """LoRA wrapper for LogitsProcessor, with extra logic to handle the
@@ -57,7 +57,7 @@ def create_lora_weights(
 self,
 max_loras: int,
 lora_config: LoRAConfig,
-model_config: PretrainedConfig | None = None,
+model_config: PreTrainedConfig | None = None,
 ) -> None:
 # TODO: Verify if this condition can be further relaxed
 if self.base_layer.vocab_size > 258048:
@@ -178,7 +178,7 @@ cls,
 source_layer: nn.Module,
 lora_config: LoRAConfig,
 packed_modules_list: list,
-model_config: PretrainedConfig | None = None,
+model_config: PreTrainedConfig | None = None,
 ) -> bool:
 # Special handling for the LogitsProcessor.
 return False

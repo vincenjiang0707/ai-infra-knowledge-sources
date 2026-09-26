@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/AXK1/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class AXK1MLAAttention(nn.Module):
 """Main reference: DeepseekV2 paper, and FlashInfer Implementation

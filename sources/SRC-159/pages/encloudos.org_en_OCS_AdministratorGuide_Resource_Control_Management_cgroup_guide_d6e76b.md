@@ -1,0 +1,762 @@
+source: https://docs.opencloudos.org/en/OCS/AdministratorGuide/Resource_Control_Management/cgroup_guide/
+
+# 1 cgroup 介绍
+
+## 1.1 什么是 cgroup
+
+cgroup（Control Group）是 Linux 内核提供的一种资源管理机制，它可以将进程组织成一个层次结构，并对每个层次结构中的进程分配资源限制。
+
+## 1.2 为什么使用 cgroup
+
+通过 cgroup，可以实现资源限制、调整资源访问优先级、监控和报告资源限制、批量控制所有进程的状态等功能。
+
+## 1.3 cgroup 基本架构
+
+cgroup 通过层级结构组织在一起，然后对一个个的进程进行资源控制，形成多对多的关系，如下图所示
+
+图中最下层的 P 表示一个个的进程，每一个进程指向了一个 `css_set`
+
+（cgroups subsystem set），且只能隶属于一个 `css_set`
+
+，一个 `css_set`
+
+可以包含多个进程，隶属于同一 `css_set`
+
+的进程受到同一个 `css_set`
+
+所关联的资源限制。
+
+最上层的称为 cgroup 子系统，针对的是每种可以控制的资源，如 cpu 子系统、memory 子系统、devices子系统等。
+
+接下来一层称为 cgrous 层级结构，cgroup 层级结构可以 attach 一个或者几个 cgroup 子系统，当前层级结构可以对其 attach 的 cgroup 子系统进行资源的限制，每一个 cgroups 子系统只能被 attach 到一个 cpu 层级结构中，原因是 cgroup 子系统是针对特定资源的控制和监视，如果一个 cgroup 子系统被attach到多个层级结构中，就会导致资源分配和限制的冲突，从而影响系统的稳定性和可靠性。
+
+# 2 环境默认设置
+
+## 2.1 cgroup 版本
+
+本系统默认提供 cgroup 能力，用户也可以通过如下命令查询是否支持
+
+```
+grep CONFIG_CGROUPS=y /boot/config-$(uname -r)
+CONFIG_CGROUPS=y
+grep CONFIG_CGROUP_SCHED=y /boot/config-$(uname -r)
+CONFIG_CGROUP_SCHED=y
+```
+
+
+目前默认使用 cgroup v2，用户可以通过如下命令确认：
+
+```
+stat -fc %T /sys/fs/cgroup/
+cgroup2fs
+```
+
+
+cgroup v2 的目录结构如下
+
+```
+ls /sys/fs/cgroup/
+cgroup.controllers cgroup.threads init.scope memory.numa_stat sys-kernel-debug.mount
+cgroup.max.depth cpu.pressure io.cost.model memory.pressure sys-kernel-tracing.mount
+cgroup.max.descendants cpuset.cpus.effective io.cost.qos memory.reclaim system.slice
+cgroup.pressure cpuset.mems.effective io.pressure memory.stat user.slice
+cgroup.procs cpu.stat io.prio.class misc.capacity
+cgroup.stat dev-hugepages.mount io.stat sys-fs-fuse-connections.mount
+cgroup.subtree_control dev-mqueue.mount irq.pressure sys-kernel-config.mount
+```
+
+
+如果用户想切回 cgroup v1，可以通过修改启动参数实现，具体操作为，在 boot 界面的的启动参数中追加如下内容
+
+```
+systemd.unified_cgroup_hierarchy=0
+```
+
+
+切换到 cgroup v1时使用 `stat`
+
+命令显示的是 `tmpfs`
+
+
+```
+stat -fc %T /sys/fs/cgroup/
+tmpfs
+```
+
+
+cgroup v1 的目录结构如下
+
+```
+ls /sys/fs/cgroup/
+blkio cpuacct cpuset freezer memory net_cls net_prio pids systemd
+cpu cpu,cpuacct devices hugetlb misc net_cls,net_prio perf_event rdma unified
+```
+
+
+**注：考虑到当前默认支持 v2，因此本文接下来的使用都围绕 v2 展开来讲**
+
+## 2.2 cgroup 子系统
+
+用户可以通过查询 `/proc/cgroups`
+
+来确认当前 cgroup 支持哪些子系统，目前默认支持的子系统如下所示
+
+```
+cat /proc/cgroups
+#subsys_name hierarchy num_cgroups enabled
+cpuset 0 90 1
+cpu 0 90 1
+cpuacct 0 90 1
+blkio 0 90 1
+memory 0 90 1
+devices 0 90 1
+freezer 0 90 1
+net_cls 0 90 1
+perf_event 0 90 1
+net_prio 0 90 1
+hugetlb 0 90 1
+pids 0 90 1
+rdma 0 90 1
+misc 0 90 1
+```
+
+
+用户可以通过查询 `/sys/fs/cgroup/cgroup.controllers`
+
+来确认当前 cgroup 层次结构中已经启用的子系统
+
+```
+cat /sys/fs/cgroup/cgroup.controllers
+cpuset cpu io memory hugetlb pids rdma misc
+```
+
+
+用户可以通过 `mount`
+
+命令向指定挂载点添加系统支持且未启用的子系统，如：
+
+```
+mkdir /mnt/cgroups/freezer
+mount -t cgroup -o freezer freezer /mnt/cgroups/freezer
+ls /mnt/cgroups/freezer/
+cgroup.clone_children cgroup.procs cgroup.sane_behavior notify_on_release release_agent tasks
+lscgroup | grep freezer
+freezer:/
+```
+
+
+如果不再需要可以通过 `umount`
+
+命令卸载
+
+```
+umount /mnt/cgroups/freezer
+```
+
+
+# 3 cgroup 使用说明
+
+## 3.1 使用 systemd 操作 cgroup
+
+当前 systemd 通过将 cgroup 层级系统与 systemd unit 树绑定，把资源管理的设置简化到应用程序级别，使用户可以直接通过使用 systemctl 指令，或者通过修改 systemd unit 的配置文件来管理 unit 相关的资源。
+
+在资源管控方面，systemd 提供了三种 unit 类型：
+
+- service： 一个或一组进程，由 systemd 依据 unit 配置文件启动。service 对指定进程进行封装，这样进程可以作为一个整体被启动或终止。
+- scope：一组外部创建的进程。通过 fork() 函数启动和终止，之后被 systemd 在运行时注册的进程，scope 会将其封装。例如：用户会话、 容器和虚拟机被认为是 scope。
+- slice： 一组按层级排列的 unit。slice 并不包含进程，但会组建一个层级，并将 scope 和 service 都放置其中。真正的进程包含在 scope 或 service 中。在这一被划分层级的树中，每一个 slice 单位的名字对应通向层级中一个位置的路径。
+
+### 3.1.1 查看 cgroup 的层级结构
+
+通过 `systemd-cgls`
+
+命令可以查看 cgroup 的层级结构
+
+```
+systemd-cgls
+Control group /:
+-.slice
+├─user.slice (#1203)
+│ → user.invocation_id: f7d3942d34cd4635a9a1567f35cf247a
+│ → trusted.invocation_id: f7d3942d34cd4635a9a1567f35cf247a
+│ └─user-0.slice (#41553)
+│ → user.invocation_id: d1ff03802e014648a616ac2bdafbb73a
+...
+├─init.scope (#25)
+│ └─1 /usr/lib/systemd/systemd --switched-root --system --deserialize 31
+└─system.slice (#65)
+├─rngd.service (#2701)
+│ → user.invocation_id: eb2c44177aec4afc8095560dc6269402
+│ → trusted.invocation_id: eb2c44177aec4afc8095560dc6269402
+│ └─674 /usr/sbin/rngd -f -x pkcs11 -x nist
+...
+```
+
+
+### 3.1.2 启动 service
+
+通过 `systemd-run`
+
+命令可以创建、启动临时 service 或 scope 单位，并在此单位中运行自定义指令，格式如下：
+
+```
+systemd-run --unit=name --scope --slice=slice_name command
+```
+
+
+如果用户未指定 `slice`
+
+则默认属于 `system.slice`
+
+
+### 3.1.3 设置 service 属性
+
+服务启动后，就可以使用 `systemctl set-property`
+
+来修改 cgroup。
+
+```
+systemctl set-property name parameter=value
+```
+
+
+与 cgroup v1 相比，v2 的 property 有许多调整，可通过如下命令来查询当前支持的 property 具体类型。
+
+```
+man 5 systemd.resource-control
+```
+
+
+## 3.2 libcgroup 工具
+
+libcgroup 是当前版本管理 cgroup 的主要工具之一，用户可以通过如下命令安装，tools 子包会把主包也依赖进来安装到环境上。
+
+```
+dnf install -y libcgroup-tools
+```
+
+
+### 3.2.1 显示 cgroup 层次结构
+
+libcgroup 提供了 `lscgroup`
+
+来显示 cgroup 层次结构，用户可以直接列出当前全量的已启用 cgroup 子系统信息：
+
+```
+lscgroup
+cpuset,cpu,io,memory,hugetlb,pids,rdma,misc:/
+cpuset,cpu,io,memory,hugetlb,pids,rdma,misc:/sys-fs-fuse-connections.mount
+cpuset,cpu,io,memory,hugetlb,pids,rdma,misc:/sys-kernel-config.mount
+cpuset,cpu,io,memory,hugetlb,pids,rdma,misc:/sys-kernel-debug.mount
+cpuset,cpu,io,memory,hugetlb,pids,rdma,misc:/dev-mqueue.mount
+...
+```
+
+
+也可以指定一个子系统以及其路径：
+
+```
+lscgroup -g cpuset:/sys-fs-fuse-connections.mount
+cpuset,cpu,io,memory,hugetlb,pids,rdma,misc:/sys-fs-fuse-connections.mount/
+```
+
+
+### 3.2.2 创建 / 删除控制群组
+
+libcgroup 提供了 `cgcreate / cgdelete`
+
+这一对命令用来创建 / 删除控制群组。
+使用前，需要先挂载子系统，如：
+
+```
+mkdir -p /mnt/cgroups/freezer
+mount -t cgroup -o freezer freezer /mnt/cgroups/freezer
+```
+
+
+使用 `cgcreate`
+
+创建控制群组：
+
+```
+cgcreate -g freezer:/cgcreate_child
+```
+
+
+完成后，可以通过 `lscgroup`
+
+命令确认：
+
+```
+lscgroup | grep freezer
+freezer:/
+freezer:/freezer
+freezer:/cgcreate_child
+```
+
+
+此时，`/mnt/cgroups/freezer`
+
+目录下就多了 `cgcreate_child`
+
+子目录，下面有 freezer 相关的文件：
+
+```
+ls /mnt/cgroups/freezer/cgcreate_child/
+cgroup.clone_children freezer.parent_freezing freezer.state tasks
+cgroup.procs freezer.self_freezing notify_on_release
+```
+
+
+另外，也可以直接通过 `mkdir`
+
+的方式替代 `cgcreate`
+
+
+```
+mkdir /mnt/cgroups/freezer/childgroup
+lscgroup | grep freezer
+freezer:/
+freezer:/freezer
+freezer:/childgroup
+freezer:/cgcreate_child
+ls /mnt/cgroups/freezer/childgroup
+cgroup.clone_children freezer.parent_freezing freezer.state tasks
+cgroup.procs freezer.self_freezing notify_on_release
+```
+
+
+如果不再需要，可以通过 `cgdelete`
+
+命令删除子群组：
+
+```
+cgdelete freezer:/cgcreate_child
+cgdelete freezer:/childgroup
+lscgroup | grep freezer
+freezer:/
+freezer:/freezer
+```
+
+
+### 3.2.3 添加进程到控制群组
+
+可以通过运行 `cgexec`
+
+指令在手动创建的 cgroup 中启动进程。`cgexec`
+
+的语法为：
+
+```
+cgexec -g controllers:path_to_cgroup command arguments
+```
+
+
+如果进程已启动，可以运行 `cgclassify`
+
+指令将进程移动到 cgroup 中：
+
+```
+cgclassify -g controllers:path_to_cgroup pidlist
+```
+
+
+如：
+
+```
+cgclassify -g freezer:/childgroup 15729
+cat /mnt/cgroups/freezer/childgroup/tasks
+15729
+```
+
+
+# 4 参考示例
+
+## 4.1 使用 systemd-run 将服务加入 cgroup
+
+这里通过 cgroup 的 memory 系统来举例说明
+
+1 编辑 demo 如下，我们构造一个内存缓慢泄漏的场景，正常情况下，这个进程运行很久才会由于 oom 被 kill 掉
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#define SIZE 1024 * 10 // 10kB
+int main() {
+char *ptr;
+while (1) {
+ptr = (char *) malloc(SIZE);
+memset(ptr, 0, SIZE);
+sleep (1);
+}
+return 0;
+}
+```
+
+
+2 通过 `systemd-run`
+
+命令拉起服务
+
+```
+systemd-run --unit=my_malloc --slice=test ./my_malloc
+```
+
+
+3 服务拉起后可以通过 `systemd-cgls`
+
+命令查到服务
+
+```
+systemd-cgls
+Control group /:
+-.slice
+...
+├─test.slice (#5581)
+│ → user.invocation_id: 41e6db3f95094ae99a7f4d7ce471d3a1
+│ → trusted.invocation_id: 41e6db3f95094ae99a7f4d7ce471d3a1
+│ └─my_malloc.service (#5637)
+│ → user.invocation_id: 02d4d4b8d38b4101b5f6ef5af2addfb3
+│ → trusted.invocation_id: 02d4d4b8d38b4101b5f6ef5af2addfb3
+│ └─2124 /home/./my_malloc
+```
+
+
+如果用户未指定 `slice`
+
+则默认属于 `system.slice`
+
+
+```
+systemd-run --unit=my_malloc ./my_malloc
+systemd-cgls
+Control group /:
+-.slice
+├─user.slice (#1123)
+│ → user.invocation_id: 17274220636d448c8b14dca5d4ce1d45
+│ → trusted.invocation_id: 17274220636d448c8b14dca5d4ce1d45
+...
+└─system.slice (#65)
+...
+├─my_malloc.service (#4501)
+│ → user.invocation_id: 7d25225645844d228f300b1f6dc21905
+│ → trusted.invocation_id: 7d25225645844d228f300b1f6dc21905
+│ └─2146 /home/./my_malloc
+```
+
+
+4 服务拉起后，cgroup 根目录下可以查到 my_malloc 这个服务的信息
+
+```
+ls /sys/fs/cgroup/test.slice/my_malloc.service
+cgroup.controllers cgroup.threads memory.low memory.swap.events
+cgroup.events cgroup.type memory.max memory.swap.high
+cgroup.freeze cpu.pressure memory.min memory.swap.max
+cgroup.kill cpu.stat memory.numa_stat memory.zswap.current
+cgroup.max.depth io.pressure memory.oom.group memory.zswap.max
+cgroup.max.descendants irq.pressure memory.peak pids.current
+cgroup.pressure memory.current memory.pressure pids.events
+cgroup.procs memory.events memory.reclaim pids.max
+cgroup.stat memory.events.local memory.stat pids.peak
+cgroup.subtree_control memory.high memory.swap.current
+```
+
+
+5 `memory.max`
+
+默认是 max，我们通过 `systemctl`
+
+设置其为 10k
+
+```
+cat memory.max
+max
+systemctl set-property my_malloc.service MemoryMax=10K
+```
+
+
+6 可以发现服务由于 omm 提前退出
+
+```
+systemctl status my_malloc
+× my_malloc.service - /home/./my_malloc
+Loaded: loaded (/run/systemd/transient/my_malloc.service; transient)
+Transient: yes
+Drop-In: /run/systemd/transient/my_malloc.service.d
+└─50-MemoryMax.conf
+Active: failed (Result: oom-kill) since Tue 2023-05-23 17:20:46 CST; 12s ago
+Duration: 6min 15.691s
+Process: 2124 ExecStart=/home/./my_malloc (code=killed, signal=KILL)
+Main PID: 2124 (code=killed, signal=KILL)
+CPU: 16ms
+May 23 17:14:30 controller systemd[1]: Started my_malloc.service - /home/./my_malloc.
+May 23 17:20:46 controller systemd[1]: my_malloc.service: A process of this unit has been killed by the OO>
+May 23 17:20:46 controller systemd[1]: my_malloc.service: Main process exited, code=killed, status=9/KILL
+May 23 17:20:46 controller systemd[1]: my_malloc.service: Failed with result 'oom-kill'.
+```
+
+
+## 4.2 使用 `/sys/fs/cgroup`
+
+管理 task
+
+除了使用 systemd 的命令，用户也可以直接操作 `/sys/fs/cgroup`
+
+，本节仍使用上文的 demo 做说明
+
+1 列出 controllers 支持的子系统
+
+```
+cat /sys/fs/cgroup/cgroup.subtree_control
+cpuset cpu io memory pids
+```
+
+
+2 启用 memory 子系统
+
+```
+echo "+memory" >> /sys/fs/cgroup/cgroup.subtree_control
+```
+
+
+这个 `cgroup.subtree_control`
+
+的具体使用方法，可以通过 `man`
+
+命令来查询
+
+```
+man 7 cgroups
+```
+
+
+3 创建 `/sys/fs/cgroup/Example/`
+
+目录
+
+```
+mkdir /sys/fs/cgroup/Example/
+```
+
+
+此时，子系统文件也会在目录中自动创建
+
+```
+ls /sys/fs/cgroup/Example/
+cgroup.controllers cgroup.type cpuset.mems memory.events memory.stat
+cgroup.events cpu.idle cpuset.mems.effective memory.events.local memory.swap.current
+cgroup.freeze cpu.max io.bfq.weight memory.high memory.swap.events
+cgroup.kill cpu.max.burst io.latency memory.low memory.swap.high
+cgroup.max.depth cpu.pressure io.max memory.max memory.swap.max
+cgroup.max.descendants cpu.stat io.pressure memory.min memory.zswap.current
+cgroup.pressure cpu.weight io.prio.class memory.numa_stat memory.zswap.max
+cgroup.procs cpu.weight.nice io.stat memory.oom.group pids.current
+cgroup.stat cpuset.cpus io.weight memory.peak pids.events
+cgroup.subtree_control cpuset.cpus.effective irq.pressure memory.pressure pids.max
+cgroup.threads cpuset.cpus.partition memory.current memory.reclaim pids.peak
+```
+
+
+但是此时，`Example/cgroup.subtree_control`
+
+需要使能，刚创建的时候为空
+
+```
+cat /sys/fs/cgroup/Example/cgroup.subtree_control
+```
+
+
+4 启用 Example 的 memory 子系统
+
+```
+echo "+memory" >> /sys/fs/cgroup/Example/cgroup.subtree_control
+cat /sys/fs/cgroup/Example/cgroup.subtree_control
+memory
+```
+
+
+5 创建 `/sys/fs/cgroup/Example/tasks/`
+
+目录：
+
+```
+mkdir /sys/fs/cgroup/Example/tasks/
+```
+
+
+6 此时 tasks 目录下就只有 memory 子系统相关的文件
+
+```
+ls /sys/fs/cgroup/Example/tasks/
+cgroup.controllers cgroup.procs io.pressure memory.max memory.stat
+cgroup.events cgroup.stat irq.pressure memory.min memory.swap.current
+cgroup.freeze cgroup.subtree_control memory.current memory.numa_stat memory.swap.events
+cgroup.kill cgroup.threads memory.events memory.oom.group memory.swap.high
+cgroup.max.depth cgroup.type memory.events.local memory.peak memory.swap.max
+cgroup.max.descendants cpu.pressure memory.high memory.pressure memory.zswap.current
+cgroup.pressure cpu.stat memory.low memory.reclaim memory.zswap.max
+```
+
+
+7 设置 memory 最大值
+
+```
+cat /sys/fs/cgroup/Example/tasks/memory.max
+max
+echo "10K" > /sys/fs/cgroup/Example/tasks/memory.max
+cat /sys/fs/cgroup/Example/tasks/memory.max
+8192
+```
+
+
+需要注意的是，`echo`
+
+的是 10k，但是显示的是 8k，说明是按照 4k 对齐的。
+
+8 获取 demo 的 pid
+
+```
+./my_malloc &
+[1] 2475
+```
+
+
+9 将该进程加入 cgroup 中
+
+```
+echo "2475" > /sys/fs/cgroup/Example/tasks/cgroup.procs
+```
+
+
+10 执行后 demo 就被系统 `kill`
+
+掉了
+
+```
+```
+[1]+ Killed ./my_malloc
+```
+```
+
+
+## 4.3 使用 `cgconfig.conf`
+
+管理子系统
+
+libcgroup-tools 提供了 cgconfig.service 这个服务帮助用户简便地添加和删除层级，该服务默认关闭，用户在编辑 `/etc/cgconfig.conf`
+
+后使能服务即可完成对层级的操作，下面举例说明：
+
+1 显示当前支持的子系统
+
+```
+cat /proc/cgroups
+#subsys_name hierarchy num_cgroups enabled
+cpuset 0 90 1
+cpu 0 90 1
+cpuacct 0 90 1
+blkio 0 90 1
+memory 0 90 1
+devices 0 90 1
+freezer 0 90 1
+net_cls 0 90 1
+perf_event 0 90 1
+net_prio 0 90 1
+hugetlb 0 90 1
+pids 0 90 1
+rdma 0 90 1
+misc 0 90 1
+```
+
+
+2 确定需要挂载的子系统没有被占用，以 freezer 为例，执行如下命令，确保子系统未被占用
+
+```
+lscgroup | grep freezer
+```
+
+
+子系统被占用时 cgconfig 服务会起不来，已使用被占用的 memory 为例，报错如下
+
+```
+systemctl status cgconfig
+× cgconfig.service - Control Group configuration service
+Loaded: loaded (/usr/lib/systemd/system/cgconfig.service; disabled; vendor preset: disabled)
+Active: failed (Result: exit-code) since Tue 2023-05-23 20:53:49 CST; 1min 10s ago
+Process: 2420 ExecStart=/usr/sbin/cgconfigparser -l /etc/cgconfig.conf -s 1664 (code=exited, status=101)
+Main PID: 2420 (code=exited, status=101)
+CPU: 3ms
+May 23 20:53:49 controller systemd[1]: Starting cgconfig.service - Control Group configuration service...
+May 23 20:53:49 controller cgconfigparser[2420]: /usr/sbin/cgconfigparser; error loading /etc/cgconfig.conf: Cgroup mounting failed
+May 23 20:53:49 controller cgconfigparser[2420]: Error: cannot mount memory to /mnt/cgroups/memory: Device or resource busy
+May 23 20:53:49 controller systemd[1]: cgconfig.service: Main process exited, code=exited, status=101/n/a
+May 23 20:53:49 controller systemd[1]: cgconfig.service: Failed with result 'exit-code'.
+May 23 20:53:49 controller systemd[1]: Failed to start cgconfig.service - Control Group configuration service.
+```
+
+
+3 创建挂载条目
+
+编辑 `/etc/cgconfig.conf`
+
+输入如下内容：
+
+```
+mount {
+freezer = /mnt/cgroups/freezer;
+}
+```
+
+
+4 重启 cgconfig 服务
+
+```
+systemctl restart cgconfig
+```
+
+
+需要注意的是，重启会失效，如果需要持久化，可以通过 enable 服务实现：
+
+```
+systemctl enable cgconfig
+```
+
+
+5 此时指定的 `/mnt/cgroups/freezer`
+
+目录下就会有子系统文件
+
+```
+ls /mnt/cgroups/freezer/
+cgroup.clone_children cgroup.procs cgroup.sane_behavior notify_on_release release_agent tasks
+```
+
+
+上述步骤的配置等效于如下操作
+
+```
+mkdir -p /mnt/cgroups/freezer
+mount -t cgroup -o freezer freezer /mnt/cgroups/freezer
+```
+
+
+完成后用户可以参考上文中 cgroup 的使用方法来控制进程的资源
+
+更多使用功能可以通过官方文档查询
+
+```
+man cgconfig.conf
+```
+
+
+# 5 参考
+
+- Maximizing Resource Utilization with cgroup2
+
+https://facebookmicrosites.github.io/cgroup2/docs/overview.html
+
+- Control Groups v2
+
+https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html

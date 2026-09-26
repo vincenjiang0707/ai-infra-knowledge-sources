@@ -1,5 +1,3 @@
-# AMD SMI
-
 source: https://github.com/ROCm/amdsmi/releases
 
 There was an error while loading. Please reload this page.

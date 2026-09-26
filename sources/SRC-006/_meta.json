@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:39:42Z",
- "finished_at": "2026-09-23T03:39:42Z",
- "duration_seconds": 104.8,
- "attempts": 1,
+ "finished_at": "2026-09-25T09:51:57Z",
+ "duration_seconds": 586.0,
+ "attempts": 4,
  "channels": {
   "gh_3f18d6a6": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 63,
+     "appended": 11,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -52,12 +62,22 @@
    "issues": {
     "status": "ok",
     "count": 1,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 1,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 24,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 24,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -78,34 +98,34 @@
   "ref_3b04a47a": {
    "type": "reference",
    "url": "https://github.com/sgl-project/sglang/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 1110
+   "mode": "page",
+   "chars": 959
   },
   "ref_75025ada": {
    "type": "reference",
    "url": "https://github.com/sgl-project/sglang/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 5710
+   "mode": "page",
+   "chars": 6099
   },
   "ref_8a6b928b": {
    "type": "reference",
    "url": "https://github.com/sgl-project/sglang/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 81759
   }
  },
  "cursor": {
   "gh_3f18d6a6:issues": {
-   "last_updated_at": "2026-09-23T03:31:27Z"
+   "last_updated_at": "2026-09-25T09:05:32Z"
   },
   "gh_3f18d6a6:pulls": {
-   "last_updated_at": "2026-09-23T03:38:07Z"
+   "last_updated_at": "2026-09-25T09:41:55Z"
   },
   "gh_3f18d6a6:releases": {
    "last_id": 391825082

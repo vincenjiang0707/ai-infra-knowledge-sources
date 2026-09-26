@@ -1,11 +1,11 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/intern_vit/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class InternParallelAttention(nn.Module):
 """Multi-headed attention from 'Attention Is All You Need' paper."""
 def __init__(
 self,
-config: PretrainedConfig,
+config: PreTrainedConfig,
 quant_config: QuantizationConfig | None = None,
 *,
 num_dummy_heads: int = 0,

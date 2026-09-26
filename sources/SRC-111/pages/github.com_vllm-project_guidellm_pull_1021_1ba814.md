@@ -1,0 +1,43 @@
+source: https://github.com/vllm-project/guidellm/pull/1021
+
+## Conversation
+
+Assisted-by: claude-code Opus 4.6 Signed-off-by: Samuel Monson <smonson@redhat.com>
+
+Signed-off-by: Samuel Monson <smonson@redhat.com>
+
+### This branch has not been deployed
+
+This file contains hidden or bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
+
+[Learn more about bidirectional Unicode characters](https://github.co/hiddenchars)Add this suggestion to a batch that can be applied as a single commit.This suggestion is invalid because no changes were made to the code.Suggestions cannot be applied while the pull request is closed.Suggestions cannot be applied while viewing a subset of changes.Only one suggestion per line can be applied in a batch.Add this suggestion to a batch that can be applied as a single commit.Applying suggestions on deleted lines is not supported.You must change the existing code in this line in order to create a valid suggestion.Outdated suggestions cannot be applied.This suggestion has been applied or marked resolved.Suggestions cannot be applied from pending reviews.Suggestions cannot be applied on multi-line comments.Suggestions cannot be applied while the pull request is queued to merge.Suggestion cannot be applied right now. Please check back later.
+
+## Summary
+
+This is just an experiment for now...
+
+## Details
+
+## Test Plan
+
+## Related Issues
+
+## Use of AI
+
+## git log
+
+commit
+
+1e5af6fAuthor: Samuel Monson smonson@redhat.com
+
+Date: Tue Aug 11 19:47:49 2026 +0000
+
+commit
+
+3aa188cAuthor: Samuel Monson smonson@redhat.com
+
+Date: Tue Aug 11 20:07:39 2026 +0000
+
+Assisted-by: claude-code Opus 4.6
+
+Signed-off-by: Samuel Monson smonson@redhat.com

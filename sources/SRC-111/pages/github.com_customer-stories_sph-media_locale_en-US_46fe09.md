@@ -1,0 +1,32 @@
+source: https://github.com/customer-stories/sph-media?locale=en-US
+
+For generations, Singaporeans have started their day with *The Straits Times*, the English-language flagship daily of SPH Media, and the most-read newspaper in Singapore, followed widely in the region for its comprehensive multimedia coverage of local, regional and world news. Once that meant leafing through newsprint, but today's readers are just as likely to get news on their phones. That’s why SPH Media has been transitioning its many brands—including The Straits Times, Lianhe Zaobao, The Business Times, Berita Harian, and Tamil Murasu—to a digital-first business model and mindset.
+
+From mobile apps to custom content management systems, software has been playing a growing role in the company in recent years. SPH Media decided to centralize its DevSecOps on GitHub in 2020 to help manage the growing footprint. Previously, there was no central place to store, let alone collaborate on or manage, source code at the company. Each team picked their own tools, spreading their code across GitHub, GitLab, BitBucket, and self-hosted Git repositories.
+
+This broad development landscape created security concerns. "It was hard to standardize processes or to get a single view of the company’s code-level security posture," explains Head of Platform Engineering Yong Wen Chua. "We needed to get everything into one place so we could more effectively assess and remediate." The sprawl also increased the likelihood of duplicative work and left engineers spending too much time managing tools instead of creating innovative new media products.
+
+To Chua, GitHub was the obvious choice to centralize SPH Media’s engineering efforts. It provided SPH Media with a unified solution the company used for security, source code management, collaboration, CI/CD automation, and more, in the same place that developers already do their work, minimizing the need to learn and manage additional tools. “GitHub Advanced Security is right there and all you have to do is turn it on," Chua says.
+
+Thanks to secret scanning, SPH Media was able to detect thousands of secrets, such as passwords and tokens, that had accidentally been committed to internal codebases. Chua's team quickly removed the secrets, preventing this sensitive information from possibly finding its way from private repositories into public facing products. Now the company has enabled [push protection](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/push-protection-for-repositories-and-organizations) in secret scanning to help developers avoid committing secrets in the first place.
+
+Chua highlights the security overview feature of GitHub Advanced Security as a particularly helpful feature, as it provides a bird's-eye view of security across all of SPH Media's repositories. "The vulnerability ratings help us prioritize where to focus our efforts first," he says.
+
+One key benefit of GitHub Advanced Security is that developers don't have to change a thing about their own workflows to benefit from it. SPH Media uses GitHub Actions for similar reasons. By automating processes, the company is able to ensure best practices, from code linting to code reviews, without forcing developers to remember additional steps or manually manage additional tools and systems.
+
+Meanwhile, GitHub provides a variety of tools to ensure compliance and standardization across repositories, which also reduces the amount of manual configuration teams must do. One example is [Repository Rules](https://github.blog/2023-07-24-github-repository-rules-are-now-generally-available/), which allows teams to easily define branch protections and ensure consistency in code across repositories. “Enforcing required workflows across the organizations with repository rules will help us operate more efficiently at scale across our many products, projects, and teams,” Chua said.
+
+GitHub Actions also helped streamline the number of tools developers must learn and manage. "GitHub Actions is quite straightforward to use, much easier than Jenkins and other CI/CD tools we've used in the past," Chua says. Beyond CI/CD, the company has also tapped Actions to automatically update various internal websites. For example, SPH Media uses a custom workflow to fetch metadata and application ownership information to keep a Github Pages site up-to-date so that employees always know who to contact about applications.
+
+Meanwhile, GitHub is fostering an innersource culture at SPH Media, particularly around platform engineering. Instead of solving the same problems again and again, engineers share Terraform files and contribute improvements to other teams’ files, reducing the amount of duplicative work.
+
+SPH Media’s developers have also begun accelerating their productivity with GitHub Copilot for Business. Chua says he’s able to work much faster than before. He’s found it especially helpful for writing more detailed code comments, which improves code readability and maintainability and makes it easier to collaborate. "The quality of suggestions from GitHub Copilot has been amazing," he says. "It literally knows what I am going to write before I write it."
+
+Copilot Chat is much faster than going to a separate tool to ask questions. Not only is there no context switching, GitHub Copilot Chat is able to understand the context and respond with more relevant answers.
+
+
+GitHub Copilot Chat, meanwhile, further turbocharges developer productivity by answering developer’s questions right within their code editors. "Copilot Chat is much faster than going to a separate tool to ask questions," Chua says. "Not only is there no context switching, GitHub Copilot Chat is able to understand the context and respond with more relevant answers."
+
+As SPH Media continues to adapt to the ever-changing media landscape, GitHub keeps the company’s engineers focused on building value. "GitHub helps us operate efficiently at scale as we transform our business," Chua says. "Everything from security to automation is now in one place for our developers."
+
+GitHub helps us operate efficiently at scale as we transform our business. Everything from security to automation is now in one place for our developers.

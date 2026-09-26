@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/model_runner_v2/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Model Runner V2 Design Document[¶](https://docs.vllm.ai#model-runner-v2-design-document)
 

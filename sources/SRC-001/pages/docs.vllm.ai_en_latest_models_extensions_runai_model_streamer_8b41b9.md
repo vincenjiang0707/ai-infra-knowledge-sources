@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/models/extensions/runai_model_streamer/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Loading models with Run:ai Model Streamer[¶](https://docs.vllm.ai#loading-models-with-runai-model-streamer)
 
@@ -36,11 +36,13 @@ Authentication uses `DefaultAzureCredential`
 
 To run model from a S3 compatible object store run:
 
+```bash
 RUNAI_STREAMER_S3_USE_VIRTUAL_ADDRESSING=0 \
 AWS_EC2_METADATA_DISABLED=true \
 AWS_ENDPOINT_URL=https://storage.googleapis.com \
 vllm serve s3://core-llm/Llama-3-8b \
 --load-format runai_streamer
+```
 
 
 ## Tunable parameters[¶](https://docs.vllm.ai#tunable-parameters)

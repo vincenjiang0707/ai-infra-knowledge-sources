@@ -1,7 +1,7 @@
 # NVlabs/kda
 
-- stars: 1071
-- forks: 98
+- stars: 1105
+- forks: 100
 - open_issues: 2
 - default_branch: main
 - archived: False

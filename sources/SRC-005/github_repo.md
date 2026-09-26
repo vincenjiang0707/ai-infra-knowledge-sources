@@ -1,12 +1,12 @@
 # sgl-project/sglang
 
-- stars: 36337
-- forks: 9070
-- open_issues: 5313
+- stars: 36408
+- forks: 9134
+- open_issues: 5380
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-23T03:16:51Z
+- pushed_at: 2026-09-25T03:14:46Z
 - homepage: https://sglang.io
 
 ## README
@@ -26,6 +26,7 @@
 --------------------------------------------------------------------------------
 
 <p align="center">
+```html
 <a href="https://www.sglang.io/"><b>🌐 Website</b></a> |
 <a href="https://lmsys.org/blog/"><b>Blog</b></a> |
 <a href="https://docs.sglang.io/"><b>Documentation</b></a> |
@@ -34,6 +35,7 @@
 <a href="https://meet.sglang.io/"><b>Weekly Dev Meeting</b></a> |
 <a href="https://github.com/sgl-project/sgl-learning-materials?tab=readme-ov-file#slides"><b>Slides</b></a>
 </p>
+```
 
 ## News
 - [2026/07] 🔥 SGLang and Miles add day-0 support for Kimi K3 ([blog](https://lmsys.org/blog/2026-07-27-kimi-k3-day0-support/)).
@@ -88,6 +90,7 @@ Its core features include:
 ## Getting Started
 - [Install SGLang](https://docs.sglang.io/get_started/install.html)
 - [Quick Start](https://docs.sglang.io/basic_usage/send_request.html)
+- [Cookbook](https://docs.sglang.io/cookbook) — the deployment command we recommend for each supported model
 - [Backend Tutorial](https://docs.sglang.io/basic_usage/openai_api_completions.html)
 - [Frontend Tutorial](https://docs.sglang.io/references/frontend/frontend_tutorial.html)
 - [Contribution Guide](https://docs.sglang.io/developer_guide/contribution_guide.html)

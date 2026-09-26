@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/grpc_server/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 async def serve_grpc(args: argparse.Namespace):
 """Main gRPC serving function.

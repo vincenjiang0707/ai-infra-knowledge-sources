@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/hy_v4/nvidia/attention/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class HYV4MLAAttention(nn.Module):
 """Multi-head latent attention with optional sparse lightning indexer.
@@ -13,7 +13,7 @@ weight is still loaded but the bias is disabled with a warning.
 def __init__(
 self,
 vllm_config: VllmConfig,
-config: PretrainedConfig,
+config: PreTrainedConfig,
 hidden_size: int,
 num_heads: int,
 qk_nope_head_dim: int,

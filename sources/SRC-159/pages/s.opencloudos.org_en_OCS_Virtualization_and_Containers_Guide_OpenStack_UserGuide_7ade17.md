@@ -1,0 +1,2947 @@
+source: https://docs.opencloudos.org/en/OCS/Virtualization_and_Containers_Guide/OpenStack_UserGuide/
+
+# 1 简介
+
+OpenStack 是一个开源的云计算平台，提供基础设施即服务（IaaS）的解决方案。它由一系列组件组成，包括计算、存储、网络、身份认证、编排、计量、告警和数据库等。OpenStack可以帮助用户构建和管理私有云、公有云和混合云等多种云计算环境。 本文简要介绍 Wallaby 版本 OpenStack 在本系统上的部署过程。
+
+# 2 环境准备
+
+## 2.1 拓扑介绍
+
+本文档基于 OpenStack 经典的三节点环境进行部署，用户首先需要安装本系统三台环境，三个节点分别是控制节点 (Controller)、计算节点 (Compute)、存储节点 (Storage)，其中存储节点一般只部署存储服务，在资源有限的情况下，可以不单独部署该节点，把存储节点上的服务部署到计算节点即可。
+
+另外，本文档关于存储节点的部署需要额外三块硬盘，因此在参考本文部署 OpenStack ，安装环境时，需要给存储环境预留好硬盘资源。
+
+本文假设三个节点的 IP 如下， 用户在部署的时候遇到这三个 IP 直接替换即可
+
+```
+controller：192.168.0.2
+compute： 192.168.0.3
+storage： 192.168.0.4
+```
+
+
+各个节点涉及的组件如下：
+
+| 节点名 | 涉及的组件 |
+|---|---|
+| controller | 所有组件 |
+| compute | Nova, Neutron, Ceilometer |
+| storage | Swift, Cinder |
+
+## 2.2 yum 源确认
+
+OpenStack 涉及的 rpm 包大多来自本系统的 EPOL 源，该源默认安装与使能，如果环境没有的用户需要手动安装
+
+```
+dnf install -y opencloudos-stream-epol-repos
+```
+
+
+## 2.3 调整主机名与映射
+
+分别在三台节点执行如下命令：
+
+1 controller 节点
+
+```
+hostnamectl set-hostname controller
+```
+
+
+2 compute 节点
+
+```
+hostnamectl set-hostname compute
+```
+
+
+3 storage 节点
+
+```
+hostnamectl set-hostname storage
+```
+
+
+更新三个节点的 `/etc/hosts`
+
+，**追加**如下内容
+
+```
+vim /etc/hosts
+192.168.0.2 controller
+192.168.0.3 compute
+192.168.0.4 storage
+```
+
+
+## 2.4 配置时钟同步
+
+### 2.4.1 controller 节点
+
+1 安装服务
+
+```
+dnf install -y chrony
+```
+
+
+2 修改 `/etc/chrony.conf`
+
+文件，**追加**如下内容：
+
+```
+# 表示允许哪些IP从本节点同步时钟
+# ip需要根据具体环境修改
+allow 192.168.0.0/24
+```
+
+
+4 重启服务
+
+```
+systemctl restart chronyd
+```
+
+
+### 2.4.2 其它节点
+
+1 安装服务
+
+```
+dnf install -y chrony
+```
+
+
+2 修改 `/etc/chrony.conf`
+
+文件，**追加**如下内容：
+
+```
+# 表示允许哪些IP从本节点同步时钟
+# 如果有 server XXXX iburst, 需要注掉
+# 如果有 pool pool.ntp.org iburst, 需要注掉, 表示不从公网同步时钟。
+server controller iburst
+```
+
+
+3 重启服务
+
+```
+systemctl restart chronyd
+```
+
+
+### 2.4.3 验证时钟同步
+
+在其他节点执行 `chronyc sources`
+
+，返回结果类似如下内容，表示成功从 controller 节点同步时钟。
+
+```
+chronyc sources
+MS Name/IP address Stratum Poll Reach LastRx Last sample
+===============================================================================
+^? controller 0 6 0 - +0ns[ +0ns] +/- 0ns
+```
+
+
+## 2.5 安装数据库
+
+OpenStack 中的许多服务都需要使用数据库来存储和管理数据，例如，Nova服务需要使用数据库来存储虚拟机的状态和元数据，Neutron 服务需要使用数据库来存储网络拓扑和配置信息，Cinder 服务需要使用数据库来存储卷和快照等。在 OpenStack 中，MariaDB 通常被用作这些服务的后端数据库，以提供高效、可靠和可扩展的数据存储和管理。
+
+MariaDB 数据库安装在 **controller 节点**，具体步骤如下：
+
+1 安装软件包
+
+```
+dnf install -y mariadb mariadb-server python3-PyMySQL
+```
+
+
+2 **新增** `/etc/my.cnf.d/openstack.cnf`
+
+配置文件，内容如下：
+
+```
+[mysqld]
+bind-address = 192.168.0.2
+default-storage-engine = innodb
+innodb_file_per_table = on
+max_connections = 4096
+collation-server = utf8_general_ci
+character-set-server = utf8
+```
+
+
+3 设置开机启动，并开启服务
+
+```
+systemctl enable mariadb.service
+systemctl start mariadb.service
+```
+
+
+4 初始化数据库（可选）
+
+这一步的目的是为数据库设置密码等，也可以不设置，此时密码为空，回车即可
+
+```
+mysql_secure_installation
+```
+
+
+## 2.6 安装消息队列
+
+OpenStack 使用消息队列在各个服务之间传递和处理消息，一般使用 RabbitMQ 来实现此功能。
+
+RabbitMQ 消息队列安装在 **controller 节点**，具体步骤如下：
+
+1 安装软件包
+
+```
+dnf install -y rabbitmq-server
+```
+
+
+2 设置开机启动，并开启服务
+
+```
+systemctl enable rabbitmq-server.service
+systemctl start rabbitmq-server.service
+```
+
+
+3 配置 OpenStack 用户
+
+```
+rabbitmqctl add_user openstack RABBIT_PASS
+```
+
+
+其中，`RABBIT_PASS`
+
+是 OpenStack 服务登录消息队列的密码，下文各个服务几乎都会用到，**务必要保持一致**。
+
+4 设置 OpenStack 用户权限，允许进行配置、写、读：
+
+```
+rabbitmqctl set_permissions openstack ".*" ".*" ".*"
+```
+
+
+## 2.7 安装内存对象缓存服务
+
+在 OpenStack 中，通常使用 Memcached 作为 Keystone 服务的缓存层，以提高身份验证和授权的性能和可扩展性。Keystone 服务需要频繁地访问数据库来验证用户身份和授权访问权限，使用 Memcached 缓存可以减少对数据库的访问次数，从而提高 Keystone 服务的性能和可靠性。
+
+Memcached 服务安装在 **controller 节点**，具体步骤如下：
+
+1 安装软件包
+
+```
+dnf install -y memcached python3-memcached
+```
+
+
+2 编辑 `/etc/sysconfig/memcached`
+
+配置文件，可用下文**替换**
+
+```
+PORT="11211"
+USER="memcached"
+MAXCONN="1024"
+CACHESIZE="64"
+OPTIONS="-l 127.0.0.1,::1,controller"
+```
+
+
+3 设置开机启动，并开启服务
+
+```
+systemctl enable memcached.service
+systemctl start memcached.service
+```
+
+
+4 验证服务，由于上文已经设置了 `/etc/hosts`
+
+，因此可以直接使用 controller
+
+```
+memcached-tool controller stats
+```
+
+
+# 3 部署 OpenStack
+
+## 3.1 Keystone 安装
+
+Keystone 是 OpenStack 核心组件，用于身份认证和授权。它提供了一个中央身份管理系统，可以管理 OpenStack中 的用户、角色和服务等。
+
+**Keystone 必须安装，部署在 controller 节点**，具体步骤如下：
+
+1 安装软件包
+
+```
+dnf install -y openstack-keystone httpd mod_wsgi
+dnf install -y python3-openstackclient
+```
+
+
+2 创建 Keystone 数据库并授权，其中 `KEYSTONE_DBPASS`
+
+为 Keystone 数据库密码
+
+```
+mysql -u root -p
+MariaDB [(none)]> CREATE DATABASE keystone;
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'localhost' IDENTIFIED BY 'KEYSTONE_DBPASS';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'KEYSTONE_DBPASS';
+MariaDB [(none)]> exit
+```
+
+
+3 配置 Keystone，在 `/etc/keystone/keystone.conf`
+
+中**替换**内容如下：
+
+```
+[database]
+connection = mysql+pymysql://keystone:KEYSTONE_DBPASS@controller/keystone
+[token]
+provider = fernet
+```
+
+
+**注： 替换 KEYSTONE_DBPASS**
+
+4 同步数据库
+
+```
+su -s /bin/sh -c "keystone-manage db_sync" keystone
+```
+
+
+5 初始化Fernet密钥仓库
+
+```
+keystone-manage fernet_setup --keystone-user keystone --keystone-group keystone
+keystone-manage credential_setup --keystone-user keystone --keystone-group keystone
+```
+
+
+6 启动服务，**需要替换 ADMIN_PASS**，为 admin 用户设置密码
+
+```
+keystone-manage bootstrap --bootstrap-password ADMIN_PASS \
+--bootstrap-admin-url http://controller:5000/v3/ \
+--bootstrap-internal-url http://controller:5000/v3/ \
+--bootstrap-public-url http://controller:5000/v3/ \
+--bootstrap-region-id RegionOne
+```
+
+
+7 配置 HTTP server，编辑 `/etc/httpd/conf/httpd.conf`
+
+，**替换或追加**如下项：
+
+```
+cat /etc/httpd/conf/httpd.conf
+...
+ServerName controller
+...
+```
+
+
+8 创建软连接
+
+```
+ln -s /usr/share/keystone/wsgi-keystone.conf /etc/httpd/conf.d/
+```
+
+
+9 设置开机启动，并开启服务
+
+```
+systemctl enable httpd.service
+systemctl start httpd.service
+```
+
+
+10 创建环境变量配置，**替换 ADMIN_PASS 为 admin 用户的密码**
+
+```
+cat << EOF >> ~/.admin-openrc
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_USER_DOMAIN_NAME=Default
+export OS_PROJECT_NAME=admin
+export OS_USERNAME=admin
+export OS_PASSWORD=ADMIN_PASS
+export OS_AUTH_URL=http://controller:5000/v3
+export OS_IDENTITY_API_VERSION=3
+export OS_IMAGE_API_VERSION=2
+EOF
+```
+
+
+11 依次创建 domain, projects, users, roles
+
+- 导入环境变量
+
+```
+source ~/.admin-openrc
+```
+
+
+**注：后续执行 OpenStack 命令显示密码错误多是因为没有执行这一步导致的**
+
+- 试着创建一个名为 example 的 domain
+
+```
+openstack domain create --description "An Example Domain" example
+```
+
+
+- 如果上面的命令正常，可以开始创建名为 service 的 project
+
+```
+openstack project create --domain default --description "Service Project" service
+```
+
+
+- 创建（non-admin）project
+`myproject`
+
+，user`myuser`
+
+和 role`myrole`
+
+，为`myproject`
+
+和`myuser`
+
+添加角色`myrole`
+
+
+```
+openstack project create --domain default --description "Demo Project" myproject
+openstack user create --domain default --password-prompt myuser
+openstack role create myrole
+openstack role add --project myproject --user myuser myrole
+```
+
+
+**注：包括下文中遇到 --password-prompt 的步骤都是需要用户来设置密码，部署过程一定要保证这些密码与配置文件中的一致。**
+
+12 验证
+
+- 取消临时环境变量OS_AUTH_URL和OS_PASSWORD：
+
+```
+source ~/.admin-openrc
+unset OS_AUTH_URL OS_PASSWORD
+```
+
+
+- 为admin用户请求token：
+
+```
+openstack --os-auth-url http://controller:5000/v3 \
+--os-project-domain-name Default --os-user-domain-name Default \
+--os-project-name admin --os-username admin token issue
+```
+
+
+- 为myuser用户请求token：
+
+```
+openstack --os-auth-url http://controller:5000/v3 \
+--os-project-domain-name Default --os-user-domain-name Default \
+--os-project-name myproject --os-username myuser token issue
+```
+
+
+## 3.2 Glance 安装
+
+Glance 是 OpenStack 的一个组件，提供了一个中央镜像管理系统，可以管理 OpenStack 中的虚拟机镜像。
+
+**Glance 必须安装，部署在 controller 节点**，具体步骤如下：
+
+1 安装软件包
+
+```
+dnf install -y openstack-glance
+```
+
+
+2 创建 Glance 数据库并授权，**需要替换 GLANCE_DBPASS 为 Glance 数据库设置密码**
+
+```
+mysql -u root -p
+MariaDB [(none)]> CREATE DATABASE glance;
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'localhost' IDENTIFIED BY 'GLANCE_DBPASS';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'GLANCE_DBPASS';
+MariaDB [(none)]> exit
+```
+
+
+3 创建用户，这一阶段会提示设置 `GLANCE_PASS`
+
+密码
+
+```
+source ~/.admin-openrc
+openstack user create --domain default --password-prompt glance
+User Password:
+Repeat User Password:
+```
+
+
+4 添加 Glance 用户到 service project 并指定 admin 的 role：
+
+```
+openstack role add --project service --user glance admin
+```
+
+
+5 创建 Glance 服务实体：
+
+```
+openstack service create --name glance --description "OpenStack Image" image
+```
+
+
+6 创建镜像服务API端点：
+
+```
+openstack endpoint create --region RegionOne image public http://controller:9292
+openstack endpoint create --region RegionOne image internal http://controller:9292
+openstack endpoint create --region RegionOne image admin http://controller:9292
+```
+
+
+7 编辑 Glance 配置文件，直接在 `/etc/glance/glance-api.conf`
+
+文件中输入如下内容
+
+**需要替换 GLANCE_DBPASS 为 Glance 数据库密码**
+
+**需要替换 GLANCE_PASS 为 Glance 用户密码**
+
+```
+[database]
+connection = mysql+pymysql://glance:GLANCE_DBPASS@controller/glance
+[keystone_authtoken]
+www_authenticate_uri = http://controller:5000
+auth_url = http://controller:5000
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = glance
+password = GLANCE_PASS
+[paste_deploy]
+flavor = keystone
+[glance_store]
+stores = file,http
+default_store = file
+filesystem_store_datadir = /var/lib/glance/images/
+```
+
+
+8 同步数据库
+
+```
+su -s /bin/sh -c "glance-manage db_sync" glance
+```
+
+
+9 使能并启动服务
+
+```
+systemctl enable openstack-glance-api.service
+systemctl start openstack-glance-api.service
+```
+
+
+10 验证
+
+- 下载镜像
+
+```
+x86镜像下载：
+wget http://download.cirros-cloud.net/0.4.0/cirros-0.4.0-x86_64-disk.img
+arm镜像下载：
+wget http://download.cirros-cloud.net/0.4.0/cirros-0.4.0-aarch64-disk.img
+```
+
+
+- 向Image服务上传镜像：
+
+```
+source ~/.admin-openrc
+openstack image create --disk-format qcow2 --container-format bare \
+--file cirros-0.4.0-x86_64-disk.img --public cirros
+```
+
+
+- 确认镜像上传并验证属性：
+
+```
+openstack image list
+```
+
+
+## 3.3 Placement 安装
+
+Placement 是 OpenStack 的一个组件，它提供了一个中央资源管理系统，用于资源调度和分配，可以管理 OpenStack 中的计算、存储和网络资源。
+
+**Placement 部署在 controller 节点**，具体步骤如下：
+
+1 安装软件包
+
+```
+dnf install -y openstack-placement-api
+```
+
+
+2 创建 Placement 数据库，**需要替换 PLACEMENT_DBPASS 为 Placement 数据库设置密码**
+
+```
+mysql -u root -p
+MariaDB [(none)]> CREATE DATABASE placement;
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON placement.* TO 'placement'@'localhost' IDENTIFIED BY 'PLACEMENT_DBPASS';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON placement.* TO 'placement'@'%' IDENTIFIED BY 'PLACEMENT_DBPASS';
+MariaDB [(none)]> exit
+```
+
+
+3 创建用户，这一阶段会提示设置 `PLACEMENT_PASS`
+
+密码
+
+```
+source ~/.admin-openrc
+openstack user create --domain default --password-prompt placement
+User Password:
+Repeat User Password:
+```
+
+
+4 添加 Placement 用户到 service project 并指定 admin 的 role：
+
+```
+openstack role add --project service --user placement admin
+```
+
+
+5 创建 Placement 服务实体：
+
+```
+openstack service create --name placement --description "Placement API" placement
+```
+
+
+6 创建 Placement 服务 API 端点：
+
+```
+openstack endpoint create --region RegionOne placement public http://controller:8778
+openstack endpoint create --region RegionOne placement internal http://controller:8778
+openstack endpoint create --region RegionOne placement admin http://controller:8778
+```
+
+
+7 编辑 Placement 配置文件，直接在 `/etc/placement/placement.conf`
+
+文件中输入如下内容
+
+**需要替换 PLACEMENT_DBPASS 为 Placement 数据库密码**
+
+**需要替换 PLACEMENT_PASS 为 Placement 用户密码**
+
+```
+[placement_database]
+connection = mysql+pymysql://placement:PLACEMENT_DBPASS@controller/placement
+[api]
+auth_strategy = keystone
+[keystone_authtoken]
+auth_url = http://controller:5000/v3
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = placement
+password = PLACEMENT_PASS
+```
+
+
+8 同步数据库
+
+```
+su -s /bin/sh -c "placement-manage db sync" placement
+```
+
+
+9 重启 httpd 服务
+
+```
+systemctl restart httpd
+```
+
+
+10 验证
+
+- 执行状态检查：
+
+```
+source ~/.admin-openrc
+placement-status upgrade check
+```
+
+
+- 验证 Placement API 运行命令：
+
+安装osc-placement插件：
+
+```
+dnf install -y python3-osc-placement
+```
+
+
+列出可用的资源类别及特性：
+
+```
+openstack --os-placement-api-version 1.2 resource class list --sort-column name
+openstack --os-placement-api-version 1.6 trait list --sort-column name
+```
+
+
+## 3.4 Nova 安装
+
+Nova 是 OpenStack 的一个组件，提供了一个中央计算管理系统，用于管理计算资源。它可以管理OpenStack中的虚拟机实例、网络和存储等资源。
+
+**Nova 部署在 controller 节点和 compute 节点**，步骤如下：
+
+### 3.4.1 controller 节点
+
+1 安装软件包
+
+```
+dnf install -y openstack-nova-api openstack-nova-conductor \
+openstack-nova-novncproxy openstack-nova-scheduler
+```
+
+
+2 创建 Nova 数据库并授权，**需要替换 NOVA_DBPASS 为 Nova 数据库设置密码**
+
+```
+mysql -u root -p
+MariaDB [(none)]> CREATE DATABASE nova_api;
+MariaDB [(none)]> CREATE DATABASE nova;
+MariaDB [(none)]> CREATE DATABASE nova_cell0;
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'localhost' IDENTIFIED BY 'NOVA_DBPASS';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_api.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' IDENTIFIED BY 'NOVA_DBPASS';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'localhost' IDENTIFIED BY 'NOVA_DBPASS';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_cell0.* TO 'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';
+MariaDB [(none)]> exit
+```
+
+
+3 创建用户，这一阶段会提示设置 `NOVA_PASS`
+
+密码
+
+```
+source ~/.admin-openrc
+openstack user create --domain default --password-prompt nova
+User Password:
+Repeat User Password:
+```
+
+
+4 添加 Nova 用户到 service project 并指定 admin 的 role：
+
+```
+openstack role add --project service --user nova admin
+```
+
+
+5 创建 Nova 服务实体：
+
+```
+openstack service create --name nova --description "OpenStack Compute" compute
+```
+
+
+6 创建 Nova 服务 API 端点：
+
+```
+openstack endpoint create --region RegionOne compute public http://controller:8774/v2.1
+openstack endpoint create --region RegionOne compute internal http://controller:8774/v2.1
+openstack endpoint create --region RegionOne compute admin http://controller:8774/v2.1
+```
+
+
+7 编辑 Nova 配置文件，直接在 `/etc/nova/nova.conf`
+
+文件中输入如下内容
+
+**注：**
+
+**需要替换** `RABBIT_PASS`
+
+**为 RabbitMQ 服务库密码**
+
+**需要替换** `NOVA_PASS`
+
+**为 Nova 账户密码**
+
+**需要替换** `NOVA_DBPASS`
+
+**为 Nova 数据库密码**
+
+**需要替换** `PLACEMENT_PASS`
+
+**为 Placement 用户密码**
+
+```
+[DEFAULT]
+enabled_apis = osapi_compute,metadata
+transport_url = rabbit://openstack:RABBIT_PASS@controller:5672/
+my_ip = 192.168.0.2
+log_dir = /var/log/nova
+[api_database]
+connection = mysql+pymysql://nova:NOVA_DBPASS@controller/nova_api
+[database]
+connection = mysql+pymysql://nova:NOVA_DBPASS@controller/nova
+[api]
+auth_strategy = keystone
+[keystone_authtoken]
+auth_url = http://controller:5000/v3
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = nova
+password = NOVA_PASS
+[vnc]
+enabled = true
+server_listen = $my_ip
+server_proxyclient_address = $my_ip
+[glance]
+api_servers = http://controller:9292
+[oslo_concurrency]
+lock_path = /var/lib/nova/tmp
+[placement]
+region_name = RegionOne
+project_domain_name = Default
+project_name = service
+auth_type = password
+user_domain_name = Default
+auth_url = http://controller:5000/v3
+username = placement
+password = PLACEMENT_PASS
+```
+
+
+8 数据库同步
+
+- 同步 nova-api 数据库：
+
+```
+su -s /bin/sh -c "nova-manage api_db sync" nova
+```
+
+
+- 注册cell0数据库：
+
+```
+su -s /bin/sh -c "nova-manage cell_v2 map_cell0" nova
+```
+
+
+- 创建cell1 cell：
+
+```
+su -s /bin/sh -c "nova-manage cell_v2 create_cell --name=cell1 --verbose" nova
+```
+
+
+- 同步nova数据库：
+
+```
+su -s /bin/sh -c "nova-manage db sync" nova
+```
+
+
+- 验证cell0和cell1注册正确：
+
+```
+su -s /bin/sh -c "nova-manage cell_v2 list_cells" nova
+```
+
+
+9 使能并启动服务
+
+```
+systemctl enable \
+openstack-nova-api.service \
+openstack-nova-scheduler.service \
+openstack-nova-conductor.service \
+openstack-nova-novncproxy.service
+systemctl start \
+openstack-nova-api.service \
+openstack-nova-scheduler.service \
+openstack-nova-conductor.service \
+openstack-nova-novncproxy.service
+```
+
+
+### 3.4.2 compute 节点
+
+1 安装软件包
+
+```
+dnf install -y openstack-nova-compute
+```
+
+
+2 编辑 Nova 配置文件，直接在 `/etc/nova/nova.conf`
+
+文件中输入如下内容
+
+**注：**
+
+**需要替换** `RABBIT_PASS`
+
+**为 RabbitMQ 服务库密码**
+
+**需要替换** `NOVA_PASS`
+
+**为 Nova 账户密码**
+
+**需要替换** `PLACEMENT_PASS`
+
+**为 Placement 用户密码**
+
+```
+[DEFAULT]
+enabled_apis = osapi_compute,metadata
+transport_url = rabbit://openstack:RABBIT_PASS@controller:5672/
+my_ip = 192.168.0.3
+compute_driver = libvirt.LibvirtDriver
+instances_path = /var/lib/nova/instances
+log_dir = /var/log/nova
+[api]
+auth_strategy = keystone
+[keystone_authtoken]
+auth_url = http://controller:5000/v3
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = nova
+password = NOVA_PASS
+[vnc]
+enabled = true
+server_listen = $my_ip
+server_proxyclient_address = $my_ip
+novncproxy_base_url = http://controller:6080/vnc_auto.html
+[glance]
+api_servers = http://controller:9292
+[oslo_concurrency]
+lock_path = /var/lib/nova/tmp
+[placement]
+region_name = RegionOne
+project_domain_name = Default
+project_name = service
+auth_type = password
+user_domain_name = Default
+auth_url = http://controller:5000/v3
+username = placement
+password = PLACEMENT_PASS
+[libvirt]
+virt_type = qemu
+```
+
+
+3 使能并启动服务
+
+```
+systemctl enable libvirtd.service openstack-nova-compute.service
+systemctl start libvirtd.service openstack-nova-compute.service
+```
+
+
+### 3.4.3 验证
+
+验证过程在 **controller 节点**，执行如下步骤：
+
+1 添加计算节点到 OpenStack 集群
+
+- 确认nova-compute服务已识别到数据库中：
+
+```
+source ~/.admin-openrc
+openstack compute service list --service nova-compute
+```
+
+
+- 发现计算节点，将计算节点添加到cell数据库：
+
+```
+su -s /bin/sh -c "nova-manage cell_v2 discover_hosts --verbose" nova
+```
+
+
+2 列出服务组件，验证每个流程都成功启动和注册：
+
+```
+openstack compute service list
+```
+
+
+3 列出身份服务中的API端点，验证与身份服务的连接：
+
+```
+openstack catalog list
+```
+
+
+4 列出镜像服务中的镜像，验证与镜像服务的连接：
+
+```
+openstack image list
+```
+
+
+5 检查cells是否运作成功
+
+```
+nova-status upgrade check
+```
+
+
+## 3.5 Neutron 安装
+
+Neutron 是 OpenStack 的一个组件，提供了一个中央网络管理系统，用于管理网络资源。可以管理 OpenStack 中的虚拟网络、子网、路由器和防火墙等资源。
+
+**Neutron 部署在 controller 节点和 compute 节点**，步骤如下：
+
+### 3.5.1 controller 节点
+
+1 安装软件包
+
+```
+dnf install -y openstack-neutron openstack-neutron-linuxbridge \
+iptables-nft ipset openstack-neutron-ml2
+```
+
+
+2 创建 Neutron 数据库并授权，**需要替换 NEUTRON_DBPASS 为 Neutron 数据库设置密码**
+
+```
+mysql -u root -p
+MariaDB [(none)]> CREATE DATABASE neutron;
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'localhost' IDENTIFIED BY 'NEUTRON_DBPASS';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON neutron.* TO 'neutron'@'%' IDENTIFIED BY 'NEUTRON_DBPASS';
+MariaDB [(none)]> exit
+```
+
+
+3 创建用户，这一阶段会提示设置 `Neutron_PASS`
+
+密码
+
+```
+source ~/.admin-openrc
+openstack user create --domain default --password-prompt neutron
+User Password:
+Repeat User Password:
+```
+
+
+4 添加 Neutron 用户到 service project 并指定 admin 的 role：
+
+```
+openstack role add --project service --user neutron admin
+```
+
+
+5 创建 Neutron 服务实体：
+
+```
+openstack service create --name neutron --description "OpenStack Networking" network
+```
+
+
+6 创建服务 API 端点：
+
+```
+openstack endpoint create --region RegionOne network public http://controller:9696
+openstack endpoint create --region RegionOne network internal http://controller:9696
+openstack endpoint create --region RegionOne network admin http://controller:9696
+```
+
+
+7 编辑 Neutron 配置文件，直接在 `/etc/neutron/neutron.conf`
+
+文件中输入如下内容
+
+**需要替换 NEUTRON_PASS 为 Neutron 用户密码**
+
+**需要替换 NOVA_PASS 为 Nova 用户密码**
+
+**需要替换 NEUTRON_DBPASS 为 Neutron 数据库密码**
+
+**需要替换 RABBIT_PASS 为 RabbitMQ 服务密码**
+
+```
+[database]
+connection = mysql+pymysql://neutron:NEUTRON_DBPASS@controller/neutron
+[DEFAULT]
+core_plugin = ml2
+service_plugins = router
+allow_overlapping_ips = true
+transport_url = rabbit://openstack:RABBIT_PASS@controller
+auth_strategy = keystone
+notify_nova_on_port_status_changes = true
+notify_nova_on_port_data_changes = true
+[keystone_authtoken]
+www_authenticate_uri = http://controller:5000
+auth_url = http://controller:5000
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = neutron
+password = NEUTRON_PASS
+[nova]
+auth_url = http://controller:5000
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+region_name = RegionOne
+project_name = service
+username = nova
+password = NOVA_PASS
+[oslo_concurrency]
+lock_path = /var/lib/neutron/tmp
+```
+
+
+8 配置 ML2，编辑 `/etc/neutron/plugins/ml2/ml2_conf.ini`
+
+文件，**直接输入**如下内容
+
+```
+[ml2]
+type_drivers = flat,vlan,vxlan
+tenant_network_types = vxlan
+mechanism_drivers = linuxbridge,l2population
+extension_drivers = port_security
+[ml2_type_flat]
+flat_networks = provider
+[ml2_type_vxlan]
+vni_ranges = 1:1000
+[securitygroup]
+enable_ipset = true
+```
+
+
+9 配置 `/etc/neutron/plugins/ml2/linuxbridge_agent.ini`
+
+文件，**直接输入**如下内容
+
+`physical_interface_mappings`
+
+需要替换成当前环境上物理网络接口的名称
+
+```
+[linux_bridge]
+physical_interface_mappings = provider:PROVIDER_INTERFACE_NAME
+[vxlan]
+enable_vxlan = true
+local_ip = 192.168.0.2
+l2_population = true
+[securitygroup]
+enable_security_group = true
+firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
+```
+
+
+10 配置 Layer-3 代理，编辑 `/etc/neutron/l3_agent.ini`
+
+文件，**直接输入**如下内容：
+
+```
+[DEFAULT]
+interface_driver = linuxbridge
+```
+
+
+11 配置 DHCP 代理，编辑 `/etc/neutron/dhcp_agent.ini`
+
+文件，**直接输入**如下内容：
+
+```
+[DEFAULT]
+interface_driver = linuxbridge
+dhcp_driver = neutron.agent.linux.dhcp.Dnsmasq
+enable_isolated_metadata = true
+```
+
+
+12 配置 metadata 代理，编辑 `/etc/neutron/metadata_agent.ini`
+
+文件，**直接输入**如下内容：
+
+```
+[DEFAULT]
+nova_metadata_host = controller
+metadata_proxy_shared_secret = METADATA_SECRET
+```
+
+
+```
+其中 `METADATA_SECRET` 为随机数，可以通过如下命令生成
+```
+
+
+```
+openssl rand -hex 10
+866069bfa4940c7b892a
+```
+
+
+13 配置 Nova 服务，在 `/etc/nova/nova.conf`
+
+文件中**追加**如下内容：
+
+```
+**其中，`METADATA_SECRET` 与上一步的相同**
+**需要替换 `NEUTRON_PASS` 为 Neutron 用户密码**
+```
+
+
+```
+...
+[neutron]
+auth_url = http://controller:5000
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+region_name = RegionOne
+project_name = service
+username = neutron
+password = NEUTRON_PASS
+service_metadata_proxy = true
+metadata_proxy_shared_secret = METADATA_SECRET
+```
+
+
+14 创建 `/etc/neutron/plugin.ini`
+
+的符号链接
+
+```
+ln -s /etc/neutron/plugins/ml2/ml2_conf.ini /etc/neutron/plugin.ini
+```
+
+
+15 同步数据库
+
+```
+su -s /bin/sh -c "neutron-db-manage --config-file /etc/neutron/neutron.conf \
+--config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head" neutron
+```
+
+
+16 重新启动 Nova api 服务
+
+```
+systemctl restart openstack-nova-api.service
+```
+
+
+17 启动网络服务
+
+```
+systemctl enable neutron-server.service neutron-linuxbridge-agent.service \
+neutron-dhcp-agent.service neutron-metadata-agent.service neutron-l3-agent.service
+systemctl start neutron-server.service neutron-linuxbridge-agent.service \
+neutron-dhcp-agent.service neutron-metadata-agent.service neutron-l3-agent.service
+```
+
+
+### 3.5.2 compute 节点
+
+1 安装软件包
+
+```
+dnf install -y openstack-neutron-linuxbridge ebtables ipset
+```
+
+
+2 编辑 Neutron 配置文件，直接在 `/etc/neutron/neutron.conf`
+
+文件中输入如下内容
+
+**需要替换 NEUTRON_PASS 为 Neutron 用户密码**
+
+**需要替换 RABBIT_PASS 为 RabbitMQ 服务密码**
+
+```
+[DEFAULT]
+transport_url = rabbit://openstack:RABBIT_PASS@controller
+auth_strategy = keystone
+[keystone_authtoken]
+www_authenticate_uri = http://controller:5000
+auth_url = http://controller:5000
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = neutron
+password = NEUTRON_PASS
+[oslo_concurrency]
+lock_path = /var/lib/neutron/tmp
+```
+
+
+3 编辑 `/etc/neutron/plugins/ml2/linuxbridge_agent.ini`
+
+文件，**直接输入**如下内容
+
+`physical_interface_mappings`
+
+需要替换成当前环境上物理网络接口的名称
+
+```
+[linux_bridge]
+physical_interface_mappings = provider:PROVIDER_INTERFACE_NAME
+[vxlan]
+enable_vxlan = true
+local_ip = 192.168.0.3
+l2_population = true
+[securitygroup]
+enable_security_group = true
+firewall_driver = neutron.agent.linux.iptables_firewall.IptablesFirewallDriver
+```
+
+
+4 配置 Nova 服务，在 `/etc/nova/nova.conf`
+
+文件中**追加**如下内容：
+
+**需要替换 NEUTRON_PASS 为 Neutron 用户密码**
+
+```
+...
+[neutron]
+auth_url = http://controller:5000
+auth_type = password
+project_domain_name = default
+user_domain_name = default
+region_name = RegionOne
+project_name = service
+username = neutron
+password = NEUTRON_PASS
+```
+
+
+5 重启 nova-compute 服务
+
+```
+systemctl restart openstack-nova-compute.service
+```
+
+
+6 使能并启动 Neutron linuxbridge agent 服务
+
+```
+systemctl enable neutron-linuxbridge-agent
+systemctl start neutron-linuxbridge-agent
+```
+
+
+### 3.5.3 验证
+
+验证在 controller 节点执行，通过如下命令确认 neutron 代理启动成功即可
+
+```
+openstack network agent list
+```
+
+
+## 3.6 Cinder 安装
+
+Cinder 提供了一个中央块存储管理系统，用于管理 OpenStack 中的块存储卷和快照等资源。
+
+**Cinder 部署在 controller 节点和 storage 节点**
+
+### 3.6.1 controller 节点
+
+1 安装软件包
+
+```
+dnf install openstack-cinder-api openstack-cinder-scheduler -y
+```
+
+
+2 创建 Cinder 数据库并授权，**需要替换 CINDER_DBPASS 为 Cinder 数据库设置密码**
+
+```
+mysql -u root -p
+MariaDB [(none)]> CREATE DATABASE cinder;
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'localhost' IDENTIFIED BY 'CINDER_DBPASS';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON cinder.* TO 'cinder'@'%' IDENTIFIED BY 'CINDER_DBPASS';
+MariaDB [(none)]> exit
+```
+
+
+3 创建用户，这一阶段会提示设置 `CINDER_PASS`
+
+密码
+
+```
+source ~/.admin-openrc
+openstack user create --domain default --password-prompt cinder
+User Password:
+Repeat User Password:
+```
+
+
+4 添加 Cinder 用户到 service project 并指定 admin 的 role：
+
+```
+openstack role add --project service --user cinder admin
+```
+
+
+5 创建 Cinder 服务实体：
+
+```
+openstack service create --name cinderv3 --description "OpenStack Block Storage" volumev3
+```
+
+
+6 创建服务 API 端点：
+
+```
+openstack endpoint create --region RegionOne volumev3 public http://controller:8776/v3/%\(project_id\)s
+openstack endpoint create --region RegionOne volumev3 internal http://controller:8776/v3/%\(project_id\)s
+openstack endpoint create --region RegionOne volumev3 admin http://controller:8776/v3/%\(project_id\)s
+```
+
+
+7 编辑 Cinder 配置文件，直接在 `/etc/cinder/cinder.conf`
+
+文件中输入如下内容
+
+**需要替换 RABBIT_PASS 为 RabbitMQ 服务密码**
+
+**需要替换 CINDER_DBPASS 为 Cinder 数据库密码**
+
+**需要替换 CINDER_PASS 为 Cinder 用户密码**
+
+```
+[DEFAULT]
+transport_url = rabbit://openstack:RABBIT_PASS@controller
+auth_strategy = keystone
+my_ip = 192.168.0.2
+[database]
+connection = mysql+pymysql://cinder:CINDER_DBPASS@controller/cinder
+[keystone_authtoken]
+www_authenticate_uri = http://controller:5000
+auth_url = http://controller:5000
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = cinder
+password = CINDER_PASS
+[oslo_concurrency]
+lock_path = /var/lib/cinder/tmp
+```
+
+
+8 数据库同步
+
+```
+su -s /bin/sh -c "cinder-manage db sync" cinder
+```
+
+
+9 配置 Nova 服务，在 `/etc/nova/nova.conf`
+
+文件中**追加**如下内容：
+
+```
+...
+[cinder]
+os_region_name = RegionOne
+```
+
+
+10 重启 nova-api 服务，并启动 Cinder 相关服务
+
+```
+systemctl restart openstack-nova-api
+systemctl start openstack-cinder-api openstack-cinder-scheduler
+```
+
+
+### 3.6.2 storage 节点
+
+Storage 节点要提前准备至少一块硬盘，作为 Cinder 的存储后端，本文设备名称为 `/dev/sdb`
+
+，用户在配置过程中，请按需替换。
+
+Cinder支持很多类型的后端存储，本指导使用最简单的 lvm 为参考。
+
+1 安装软件包
+
+```
+dnf install lvm2 device-mapper-persistent-data scsi-target-utils \
+rpcbind nfs-utils openstack-cinder-volume openstack-cinder-backup -y
+```
+
+
+2 配置lvm卷组
+
+```
+pvcreate /dev/sdb
+vgcreate cinder-volumes /dev/sdb
+```
+
+
+3 编辑 Cinder 配置文件，直接在 `/etc/cinder/cinder.conf`
+
+文件中输入如下内容
+
+**需要替换 RABBIT_PASS 为 RabbitMQ 服务密码**
+
+**需要替换 CINDER_PASS 为 Cinder 用户密码**
+
+**需要替换 CINDER_DBPASS 为 Cinder 数据库密码**
+
+```
+[DEFAULT]
+transport_url = rabbit://openstack:RABBIT_PASS@controller
+auth_strategy = keystone
+my_ip = 192.168.0.4
+enabled_backends = lvm
+glance_api_servers = http://controller:9292
+[keystone_authtoken]
+www_authenticate_uri = http://controller:5000
+auth_url = http://controller:5000
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = default
+user_domain_name = default
+project_name = service
+username = cinder
+password = CINDER_PASS
+[database]
+connection = mysql+pymysql://cinder:CINDER_DBPASS@controller/cinder
+[lvm]
+volume_driver = cinder.volume.drivers.lvm.LVMVolumeDriver
+volume_group = cinder-volumes
+target_protocol = iscsi
+target_helper = lioadm
+[oslo_concurrency]
+lock_path = /var/lib/cinder/tmp
+```
+
+
+4 启动服务
+
+```
+systemctl start openstack-cinder-volume target
+```
+
+
+### 3.6.3 验证
+
+验证在 controller 节点，执行如下命令确认 Cinder 是否正常部署
+
+```
+source ~/.admin-openrc
+openstack volume service list
+```
+
+
+## 3.7 Horizon 安装
+
+Horizon 提供了一个易于使用的Web界面，用于管理 OpenStack 中的计算、存储、网络和安全等资源。
+
+**Horizon 部署在 controller 节点**
+
+1 安装软件包
+
+```
+dnf install -y openstack-dashboard
+```
+
+
+2 编辑 Horizon 配置文件，直接在 `/etc/openstack-dashboard/local_settings`
+
+文件中输入如下内容
+
+```
+OPENSTACK_HOST = "controller"
+ALLOWED_HOSTS = ['*', ]
+OPENSTACK_KEYSTONE_URL = "http://controller:5000/v3"
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+CACHES = {
+'default': {
+'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+'LOCATION': 'controller:11211',
+}
+}
+OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = True
+OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = "Default"
+OPENSTACK_KEYSTONE_DEFAULT_ROLE = "member"
+WEBROOT = '/dashboard'
+POLICY_FILES_PATH = "/etc/openstack-dashboard"
+OPENSTACK_API_VERSIONS = {
+"identity": 3,
+"image": 2,
+"volume": 3,
+}
+```
+
+
+3 重启服务
+
+```
+systemctl restart httpd
+```
+
+
+4 验证
+
+打开浏览器，输入 `http://192.168.0.2/dashboard`
+
+，打开 Horizon 登录页面。
+
+## 3.8 Kolla 安装
+
+Kolla 提供了一组工具和脚本可以自动化地构建和部署 OpenStack 容器镜像，简化了OpenStack的部署和管理
+
+**Kolla 部署在 controller 节点**
+
+部署 Kolla 通过 dnf 安装如下 rpm 包即可
+
+```
+dnf install -y openstack-kolla openstack-kolla-ansible
+```
+
+
+## 3.9 Trove 安装
+
+Trove 提供数据库即服务（DBaaS）用于管理和查询数据库资源，帮助用户更轻松地部署和管理数据库，提高数据库的可用性和可扩展性。
+
+**Trove 部署在 controller 节点**
+
+1 安装软件包
+
+```
+dnf install -y openstack-trove python-troveclient
+```
+
+
+2 创建 Trove 数据库并授权，**需要替换 TROVE_DBPASS 为 Trove 数据库设置密码**
+
+```
+mysql -u root -p
+MariaDB [(none)]> CREATE DATABASE trove CHARACTER SET utf8;
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON trove.* TO 'trove'@'localhost' IDENTIFIED BY 'TROVE_DBPASS';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON trove.* TO 'trove'@'%' IDENTIFIED BY 'TROVE_DBPASS';
+MariaDB [(none)]> exit
+```
+
+
+3 创建用户，这一阶段会提示设置 `TROVE_PASS`
+
+密码
+
+```
+source ~/.admin-openrc
+openstack user create --domain default --password-prompt trove
+User Password:
+Repeat User Password:
+```
+
+
+4 添加 Trove 用户到 service project 并指定 admin 的 role：
+
+```
+openstack role add --project service --user trove admin
+```
+
+
+5 创建 Trove 服务实体：
+
+```
+openstack service create --name trove --description "Database service" database
+```
+
+
+6 创建服务 API 端点：
+
+`openstack endpoint`
+
+命令会自动解析 `tenant_id`
+
+字符串，因此无需替换
+
+```
+openstack endpoint create --region RegionOne database public http://controller:8779/v1.0/%\(tenant_id\)s
+openstack endpoint create --region RegionOne database internal http://controller:8779/v1.0/%\(tenant_id\)s
+openstack endpoint create --region RegionOne database admin http://controller:8779/v1.0/%\(tenant_id\)s
+```
+
+
+7 编辑 Trove 配置文件，直接在 `/etc/trove/trove.conf`
+
+文件中输入如下内容
+
+**需要替换 TROVE_DBPASS 为 Trove 数据库密码**
+
+**需要替换 RABBIT_PASS 为 RabbitMQ 服务密码**
+
+```
+[DEFAULT]
+bind_host = 192.168.0.2
+log_dir = /var/log/trove
+network_driver = trove.network.neutron.NeutronDriver
+management_security_groups = <manage security group>
+nova_keypair = trove-mgmt
+default_datastore = mysql
+taskmanager_manager = trove.taskmanager.manager.Manager
+trove_api_workers = 5
+transport_url = rabbit://openstack:RABBIT_PASS@controller:5672/
+reboot_time_out = 300
+usage_timeout = 900
+agent_call_high_timeout = 1200
+use_syslog = False
+debug = True
+# Set these if using Neutron Networking
+network_driver=trove.network.neutron.NeutronDriver
+network_label_regex=.*
+[database]
+connection = mysql+pymysql://trove:TROVE_DBPASS@controller/trove
+[keystone_authtoken]
+project_domain_name = Default
+project_name = service
+user_domain_name = Default
+password = trove
+username = trove
+auth_url = http://controller:5000/v3/
+auth_type = password
+[service_credentials]
+auth_url = http://controller:5000/v3/
+region_name = RegionOne
+project_name = service
+password = trove
+project_domain_name = Default
+user_domain_name = Default
+username = trove
+[mariadb]
+tcp_ports = 3306,4444,4567,4568
+[mysql]
+tcp_ports = 3306
+[postgresql]
+tcp_ports = 5432
+```
+
+
+8 编辑 `/etc/trove/trove-guestagent.conf`
+
+文件，**直接输入**如下内容
+
+**需要替换 TROVE_PASS 为 Trove 账户密码**
+
+**需要替换 RABBIT_PASS 为 RabbitMQ 服务密码**
+
+```
+[DEFAULT]
+log_file = trove-guestagent.log
+log_dir = /var/log/trove/
+ignore_users = os_admin
+control_exchange = trove
+transport_url = rabbit://openstack:RABBIT_PASS@controller:5672/
+rpc_backend = rabbit
+command_process_timeout = 60
+use_syslog = False
+debug = True
+[service_credentials]
+auth_url = http://controller:5000/v3/
+region_name = RegionOne
+project_name = service
+password = TROVE_PASS
+project_domain_name = Default
+user_domain_name = Default
+username = trove
+[mysql]
+docker_image = your-registry/your-repo/mysql
+backup_docker_image = your-registry/your-repo/db-backup-mysql:1.1.0
+```
+
+
+9 数据库同步
+
+```
+su -s /bin/sh -c "trove-manage db_sync" trove
+```
+
+
+10 使能并启动服务
+
+```
+systemctl enable openstack-trove-api.service openstack-trove-taskmanager.service \
+openstack-trove-conductor.service
+systemctl start openstack-trove-api.service openstack-trove-taskmanager.service \
+openstack-trove-conductor.service
+```
+
+
+## 3.10 Swift 安装
+
+Swift 提供了一个高度可扩展的对象存储系统，用于提供对象存储服务可以存储和检索大量的非结构化数据。
+
+**Swift 部署在 controller 节点和 storage 节点**
+
+### 3.10.1 controller 节点
+
+1 安装软件包
+
+```
+dnf install -y openstack-swift-proxy python3-swiftclient \
+python3-keystoneclient python3-keystonemiddleware memcached
+```
+
+
+2 创建用户，这一阶段会提示设置 `SIIFT_PASS`
+
+密码
+
+```
+source ~/.admin-openrc
+openstack user create --domain default --password-prompt swift
+```
+
+
+3 添加 Swift 用户到 service project 并指定 admin 的 role：
+
+```
+openstack role add --project service --user swift admin
+```
+
+
+4 创建 Swift 服务实体：
+
+```
+openstack service create --name swift --description "OpenStack Object Storage" object-store
+```
+
+
+5 创建服务 API 端点：
+
+```
+openstack endpoint create --region RegionOne object-store public http://controller:8080/v1/AUTH_%\(project_id\)s
+openstack endpoint create --region RegionOne object-store internal http://controller:8080/v1/AUTH_%\(project_id\)s
+openstack endpoint create --region RegionOne object-store admin http://controller:8080/v1
+```
+
+
+6 配置proxy，编辑 `/etc/swift/proxy-server.conf`
+
+文件，替换其中两项即可
+
+**需要替换 SWIFT_PASS 为 Swift 用户密码**
+
+```
+bind_port = 5000
+password = SWIFT_PASS
+```
+
+
+### 3.10.2 storage 节点
+
+Storage 节点要提前准备至少两块硬盘提供对象存储的能力，本文设备名称为 `/dev/sdc`
+
+和 `/dev/sdd`
+
+，用户在配置过程中，请按需替换。
+
+1 安装软件包
+
+```
+dnf install -y openstack-swift-account openstack-swift-container \
+openstack-swift-object xfsprogs rsync-daemon
+```
+
+
+2 将设备 `/dev/sdbc`
+
+和 `/dev/sdd`
+
+格式化为 XFS
+
+```
+mkfs.xfs /dev/sdc
+mkfs.xfs /dev/sdd
+```
+
+
+3 创建挂载点目录
+
+```
+mkdir -p /srv/node/sdc
+mkdir -p /srv/node/sdd
+```
+
+
+4 编辑 `/etc/fstab`
+
+文件并将以下内容追加到其中
+
+```
+UUID="<UUID-from-output-above>" /srv/node/sdc xfs noatime 0 2
+UUID="<UUID-from-output-above>" /srv/node/sdd xfs noatime 0 2
+```
+
+
+其中 `"<UUID-from-output-above>"`
+
+需要替换为两个存储设备的 UUID，可通过如下命令获取
+
+```
+blkid
+```
+
+
+5 挂载设备
+
+```
+mount /srv/node/sdc
+mount /srv/node/sdd
+```
+
+
+6 编辑 `/etc/rsyncd.conf`
+
+文件直接输入如下内容:
+
+```
+[DEFAULT]
+uid = swift
+gid = swift
+log file = /var/log/rsyncd.log
+pid file = /var/run/rsyncd.pid
+address = 192.168.0.4
+[account]
+max connections = 2
+path = /srv/node/
+read only = False
+lock file = /var/lock/account.lock
+[container]
+max connections = 2
+path = /srv/node/
+read only = False
+lock file = /var/lock/container.lock
+[object]
+max connections = 2
+path = /srv/node/
+read only = False
+lock file = /var/lock/object.lock
+```
+
+
+7 使能 rsyncd 服务并启动
+
+```
+systemctl enable rsyncd.service
+systemctl start rsyncd.service
+```
+
+
+8 配置存储节点
+
+编辑 `/etc/swift`
+
+目录的 `account-server.conf`
+
+、`container-server.conf`
+
+和 `object-server.conf`
+
+文件，替换 `bind_ip`
+
+为存储节点上的 IP 地址。
+
+```
+[DEFAULT]
+bind_ip = 192.168.0.4
+```
+
+
+确保挂载点目录结构的正确所有权
+
+```
+chown -R swift:swift /srv/node
+```
+
+
+创建 recon 目录并确保其拥有正确的所有权
+
+```
+mkdir -p /var/cache/swift
+chown -R root:swift /var/cache/swift
+chmod -R 775 /var/cache/swift
+```
+
+
+### 3.10.3 创建与分发环
+
+Swift 使用环来实现高可用性和可扩展性。Swift 中的环是指一组存储对象的容器，可以存储和检索大量的非结构化数据。环由多个存储节点组成，每个节点都可以存储和检索对象。可以自动将数据复制到多个节点上，以提高数据的可靠性和可用性。
+
+**创建与分发环的操作都在 controller 节点**
+
+- 账号环
+
+账号环用于存储账号信息，包括账号的元数据和访问控制信息，配置步骤如下：
+
+1 创建基础 `account.builder`
+
+文件
+
+```
+cd /etc/swift
+swift-ring-builder account.builder create 10 1 1
+```
+
+
+2 将**每个存储节点**添加到环中
+
+```
+**注：需要对每个存储节点上的每个存储设备重复此命令**
+```
+
+
+```
+swift-ring-builder account.builder add --region 1 --zone 1 \
+--ip 192.168.0.4 \
+--port 6202 --device /dev/sdc \
+--weight 100
+swift-ring-builder account.builder add --region 1 --zone 1 \
+--ip 192.168.0.4 \
+--port 6202 --device /dev/sdd \
+--weight 100
+```
+
+
+3 验证账号环内容
+
+```
+swift-ring-builder account.builder
+```
+
+
+4 重新平衡账号环
+
+```
+swift-ring-builder account.builder rebalance
+```
+
+
+- 容器环
+
+容器环用于存储容器信息，包括容器的元数据和访问控制信息。配置步骤如下：
+
+1 创建基础 `container.builder`
+
+文件
+
+```
+cd /etc/swift
+swift-ring-builder container.builder create 10 1 1
+```
+
+
+2 将**每个存储节点**添加到环中
+
+```
+**注：需要对每个存储节点上的每个存储设备重复此命令**
+```
+
+
+```
+swift-ring-builder container.builder add --region 1 --zone 1 \
+--ip 192.168.0.4 \
+--port 6201 --device /dev/sdc \
+--weight 100
+swift-ring-builder container.builder add --region 1 --zone 1 \
+--ip 192.168.0.4 \
+--port 6201 --device /dev/sdd \
+--weight 100
+```
+
+
+3 验证容器环内容
+
+```
+swift-ring-builder container.builder
+```
+
+
+4 重新平衡容器环
+
+```
+swift-ring-builder container.builder rebalance
+```
+
+
+- 对象环
+
+1 创建基础 `object.builder`
+
+文件
+
+```
+cd /etc/swift
+swift-ring-builder object.builder create 10 1 1
+```
+
+
+2 将**每个存储节点**添加到环中
+
+```
+**注：需要对每个存储节点上的每个存储设备重复此命令**
+```
+
+
+```
+swift-ring-builder object.builder add --region 1 --zone 1 \
+--ip 192.168.0.4 \
+--port 6200 --device /dev/sdc \
+--weight 100
+swift-ring-builder object.builder add --region 1 --zone 1 \
+--ip 192.168.0.4 \
+--port 6200 --device /dev/sdd \
+--weight 100
+```
+
+
+3 验证对象环内容
+
+```
+swift-ring-builder object.builder
+```
+
+
+4 重新平衡对象环
+
+```
+swift-ring-builder object.builder rebalance
+```
+
+
+完成环创建后执行如下步骤：
+
+1 分发环配置文件
+
+将 `account.ring.gz`
+
+，`container.ring.gz`
+
+以及 `object.ring.gz`
+
+文件复制到每个storage 节点和运行代理服务的任何其他节点上的 `/etc/swift`
+
+目录，本文不涉及代理服务器，复制到 storage 节点即可
+
+```
+scp account.ring.gz container.ring.gz object.ring.gz root@192.168.0.4:/etc/swift
+```
+
+
+2 编辑 `/etc/swift/swift.conf`
+
+配置文件，直接输入如下内容：
+
+```
+[swift-hash]
+swift_hash_path_suffix = test-hash
+swift_hash_path_prefix = test-hash
+[storage-policy:0]
+name = Policy-0
+default = yes
+```
+
+
+其中 `test-hash`
+
+为随机值，可以使用如下命令生成，两处可以一样
+
+```
+openssl rand -hex 10
+facd504f41922f136af8
+```
+
+
+3 将 `swift.conf`
+
+文件复制到 `/etc/swift`
+
+**每个**storage 节点和运行代理服务的任何其他节点上的目录，本文不涉及代理服务器，复制到 storage 节点即可
+
+```
+scp /etc/swift/swift.conf root@192.168.0.4:/etc/swift
+```
+
+
+4 在**所有**节点上，确保配置目录的正确所有权，因此要注意这一步**不止**要设置 controller 节点
+
+```
+chown -R root:swift /etc/swift
+```
+
+
+### 3.10.4 启动服务
+
+在 **controller 节点**上，使能对象存储代理服务及其依赖项，并将启动服务
+
+```
+systemctl enable openstack-swift-proxy.service memcached.service
+systemctl start openstack-swift-proxy.service memcached.service
+```
+
+
+在 **storage 节点**上，使能对象存储服务并启动
+
+```
+systemctl enable openstack-swift-account.service \
+openstack-swift-account-auditor.service \
+openstack-swift-account-reaper.service \
+openstack-swift-account-replicator.service \
+openstack-swift-container.service \
+openstack-swift-container-auditor.service \
+openstack-swift-container-replicator.service \
+openstack-swift-container-updater.service \
+openstack-swift-object.service \
+openstack-swift-object-auditor.service \
+openstack-swift-object-replicator.service \
+openstack-swift-object-updater.service
+systemctl start openstack-swift-account.service \
+openstack-swift-account-auditor.service \
+openstack-swift-account-reaper.service \
+openstack-swift-account-replicator.service \
+openstack-swift-container.service \
+openstack-swift-container-auditor.service \
+openstack-swift-container-replicator.service \
+openstack-swift-container-updater.service \
+openstack-swift-object.service \
+openstack-swift-object-auditor.service \
+openstack-swift-object-replicator.service \
+openstack-swift-object-updater.service
+```
+
+
+## 3.11 Cyborg 安装
+
+Cyborg 用于管理和查询包括 FPGA、GPU 和 ASIC 在内的加速器资源，可以帮助用户提高应用程序的性能和效率
+
+**Cyborg 部署在 controller 节点**
+
+1 安装软件包
+
+```
+dnf install -y openstack-cyborg
+```
+
+
+2 创建 Cyborg 数据库并授权，**需要替换 CYBORG_DBPASS 为 Cyborg 数据库设置密码**
+
+```
+mysql -u root -p
+MariaDB [(none)]> CREATE DATABASE cyborg;
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON cyborg.* TO 'cyborg'@'localhost' IDENTIFIED BY 'CYBORG_DBPASS';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON cyborg.* TO 'cyborg'@'%' IDENTIFIED BY 'CYBORG_DBPASS';
+MariaDB [(none)]> exit
+```
+
+
+3 创建用户，这一阶段会提示设置 `CYBORG_PASS`
+
+密码
+
+```
+source ~/.admin-openrc
+openstack user create --domain default --password-prompt cyborg
+User Password:
+Repeat User Password:
+```
+
+
+4 添加 Cyborg 用户到 service project 并指定 admin 的 role：
+
+```
+openstack role add --project service --user cyborg admin
+```
+
+
+5 创建 Cyborg 服务实体：
+
+```
+openstack service create --name cyborg --description "Acceleration Service" accelerator
+```
+
+
+6 创建服务 API 端点：
+
+```
+openstack endpoint create --region RegionOne accelerator public http://controller:6666/v1
+openstack endpoint create --region RegionOne accelerator internal http://controller:6666/v1
+openstack endpoint create --region RegionOne accelerator admin http://controller:6666/v1
+```
+
+
+7 编辑 Cyborg 配置文件，直接在 `/etc/cyborg/cyborg.conf`
+
+文件中输入如下内容
+
+**需要替换 RABBIT_PASS 为 RabbitMQ 服务密码**
+
+**需要替换 CYBORG_DBPASS 为 Cyborg 数据库密码**
+
+**需要替换 CYBORG_PASS 为 Cyborg 用户密码**
+
+**需要替换 PLACEMENT_PASS 为 Placement 用户密码**
+
+```
+[DEFAULT]
+transport_url = rabbit://openstack:RABBIT_PASS@controller
+use_syslog = False
+state_path = /var/lib/cyborg
+debug = True
+[database]
+connection = mysql+pymysql://cyborg:CYBORG_DBPASS@controller/cyborg
+[service_catalog]
+project_domain_id = default
+user_domain_id = default
+project_name = service
+password = CYBORG_PASS
+username = cyborg
+auth_url = http://controller:5000
+auth_type = password
+[placement]
+project_domain_name = Default
+project_name = service
+user_domain_name = Default
+password = PLACEMENT_PASS
+username = placement
+auth_url = http://controller:5000/v3
+auth_type = password
+[keystone_authtoken]
+memcached_servers = controller:11211
+project_domain_name = Default
+project_name = service
+user_domain_name = Default
+password = CYBORG_PASS
+username = cyborg
+auth_url = http://controller:5000
+auth_type = password
+```
+
+
+8 同步数据库
+
+```
+cyborg-dbsync --config-file /etc/cyborg/cyborg.conf upgrade
+```
+
+
+9 使能并启动服务
+
+```
+systemctl enable openstack-cyborg-api openstack-cyborg-conductor openstack-cyborg-agent
+systemctl start openstack-cyborg-api openstack-cyborg-conductor openstack-cyborg-agent
+```
+
+
+## 3.12 Aodh 安装
+
+Aodh 提供了告警服务，可以帮助用户监控 OpenStack 中的各种资源，如实例、卷和镜像等，以及自定义指标，提高OpenStack的可靠性和可用性。
+
+**Aodh 部署在 controller 节点**
+
+1 安装软件包
+
+```
+dnf install -y openstack-aodh-api openstack-aodh-evaluator \
+openstack-aodh-notifier openstack-aodh-listener \
+openstack-aodh-expirer python3-aodhclient
+```
+
+
+2 创建 Aodh 数据库并授权，**需要替换 AODH_DBPASS 为 Aodh 数据库设置密码**
+
+```
+mysql -u root -p
+MariaDB [(none)]> CREATE DATABASE aodh;
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON aodh.* TO 'aodh'@'localhost' IDENTIFIED BY 'AODH_DBPASS';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON aodh.* TO 'aodh'@'%' IDENTIFIED BY 'AODH_DBPASS';
+MariaDB [(none)]> exit
+```
+
+
+3 创建用户，这一阶段会提示设置 `AODH_PASS`
+
+密码
+
+```
+source ~/.admin-openrc
+openstack user create --domain default --password-prompt aodh
+User Password:
+Repeat User Password:
+```
+
+
+4 添加 Aodh 用户到 service project 并指定 admin 的 role：
+
+```
+openstack role add --project service --user aodh admin
+```
+
+
+5 创建 Aodh 服务实体：
+
+```
+openstack service create --name aodh --description "Telemetry" alarming
+```
+
+
+6 创建服务 API 端点：
+
+```
+openstack endpoint create --region RegionOne alarming public http://controller:8042
+openstack endpoint create --region RegionOne alarming internal http://controller:8042
+openstack endpoint create --region RegionOne alarming admin http://controller:8042
+```
+
+
+7 编辑 Aodh 配置文件，直接在 `/etc/aodh/aodh.conf`
+
+文件中输入如下内容
+
+**需要替换 AODH_DBPASS 为 Aodh 数据库密码**
+
+**需要替换 RABBIT_PASS 为 RabbitMQ 服务密码**
+
+**需要替换 AODH_PASS 为 Aodh 用户密码**
+
+```
+[database]
+connection = mysql+pymysql://aodh:AODH_DBPASS@controller/aodh
+[DEFAULT]
+transport_url = rabbit://openstack:RABBIT_PASS@controller
+auth_strategy = keystone
+[keystone_authtoken]
+www_authenticate_uri = http://controller:5000
+auth_url = http://controller:5000
+memcached_servers = controller:11211
+auth_type = password
+project_domain_id = default
+user_domain_id = default
+project_name = service
+username = aodh
+password = AODH_PASS
+[service_credentials]
+auth_type = password
+auth_url = http://controller:5000/v3
+project_domain_id = default
+user_domain_id = default
+project_name = service
+username = aodh
+password = AODH_PASS
+interface = internalURL
+region_name = RegionOne
+```
+
+
+8 同步数据库
+
+```
+aodh-dbsync
+```
+
+
+9 使能并启动服务
+
+```
+systemctl enable openstack-aodh-api.service \
+openstack-aodh-evaluator.service \
+openstack-aodh-notifier.service \
+openstack-aodh-listener.service
+systemctl start openstack-aodh-api.service \
+openstack-aodh-evaluator.service \
+openstack-aodh-notifier.service \
+openstack-aodh-listener.service
+```
+
+
+## 3.13 Gnocchi 安装
+
+Gnocchi 提供度量即服务（Metric-as-a-Service），可以帮助用户更好地管理 OpenStack 中的度量数据，如实例、卷和镜像等。
+
+**Gnocchi 部署在 controller 节点**
+
+1 安装软件包
+
+```
+dnf install -y openstack-gnocchi-api \
+openstack-gnocchi-metricd python3-gnocchiclient
+```
+
+
+2 创建 Gnocchi 数据库并授权，**需要替换 GNOCCHI_DBPASS 为 Gnocchi 数据库设置密码**
+
+```
+mysql -u root -p
+MariaDB [(none)]> CREATE DATABASE gnocchi;
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON gnocchi.* TO 'gnocchi'@'localhost' IDENTIFIED BY 'GNOCCHI_DBPASS';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON gnocchi.* TO 'gnocchi'@'%' IDENTIFIED BY 'GNOCCHI_DBPASS';
+MariaDB [(none)]> exit
+```
+
+
+3 创建用户，这一阶段会提示设置 `GNOCCHI_PASS`
+
+密码
+
+```
+source ~/.admin-openrc
+openstack user create --domain default --password-prompt gnocchi
+User Password:
+Repeat User Password:
+```
+
+
+4 添加 Gnocchi 用户到 service project 并指定 admin 的 role：
+
+```
+openstack role add --project service --user gnocchi admin
+```
+
+
+5 创建 Gnocchi 服务实体：
+
+```
+openstack service create --name gnocchi --description "Metric Service" metric
+```
+
+
+6 创建服务 API 端点：
+
+```
+openstack endpoint create --region RegionOne metric public http://controller:8041
+openstack endpoint create --region RegionOne metric internal http://controller:8041
+openstack endpoint create --region RegionOne metric admin http://controller:8041
+```
+
+
+7 编辑 Gnocchi 配置文件，直接在 `/etc/gnocchi/gnocchi.conf`
+
+文件中输入如下内容
+
+**需要替换 GNOCCHI_PASS 为 Gnocchi 用户密码**
+
+**需要替换 GNOCCHI_DBPASS 为 Gnocchi 数据库密码**
+
+```
+[api]
+auth_mode = keystone
+port = 8041
+uwsgi_mode = http-socket
+[keystone_authtoken]
+auth_type = password
+auth_url = http://controller:5000/v3
+project_domain_name = Default
+user_domain_name = Default
+project_name = service
+username = gnocchi
+password = GNOCCHI_PASS
+interface = internalURL
+region_name = RegionOne
+[indexer]
+url = mysql+pymysql://gnocchi:GNOCCHI_DBPASS@controller/gnocchi
+[storage]
+# coordination_url is not required but specifying one will improve
+# performance with better workload division across workers.
+# coordination_url = redis://controller:6379
+file_basepath = /var/lib/gnocchi
+driver = file
+```
+
+
+8 同步数据库
+
+```
+gnocchi-upgrade
+```
+
+
+9 使能并启动服务
+
+```
+systemctl enable openstack-gnocchi-api.service openstack-gnocchi-metricd.service
+systemctl start openstack-gnocchi-api.service openstack-gnocchi-metricd.service
+```
+
+
+## 3.14 Ceilometer 安装
+
+Ceilometer 提供计量即服务（Metering-as-a-Service）可以帮助用户更好地监控和管理 OpenStack 中的资源
+
+**Ceilometer 部署在 controller 节点和 compute 节点，并且依赖 Gnocchi 组件**，步骤如下：
+
+### 3.14.1 controller 节点
+
+1 安装软件包
+
+```
+dnf install -y openstack-ceilometer-notification openstack-ceilometer-central
+```
+
+
+2 创建用户，这一阶段会提示设置 `CEILOMETER_PASS`
+
+密码
+
+```
+source ~/.admin-openrc
+openstack user create --domain default --password-prompt ceilometer
+User Password:
+Repeat User Password:
+```
+
+
+3 添加 Ceilometer 用户到 service project 并指定 admin 的 role：
+
+```
+openstack role add --project service --user ceilometer admin
+```
+
+
+4 创建 Ceilometer 服务实体：
+
+```
+openstack service create --name ceilometer --description "Telemetry" metering
+```
+
+
+5 编辑配置文件 `/etc/ceilometer/pipeline.yaml`
+
+，**替换**如下内容：
+
+```
+publishers:
+# set address of Gnocchi
+# + filter out Gnocchi-related activity meters (Swift driver)
+# + set default archive policy
+- gnocchi://?filter_project=service&archive_policy=low
+```
+
+
+6 编辑配置文件 `/etc/ceilometer/ceilometer.conf`
+
+，直接输入如下内容：
+
+**需要替换 RABBIT_PASS 为 RabbitMQ 服务密码**
+
+**需要替换 CEILOMETER_PASS 为 Ceilometer 用户密码**
+
+```
+[DEFAULT]
+transport_url = rabbit://openstack:RABBIT_PASS@controller
+[service_credentials]
+auth_type = password
+auth_url = http://controller:5000/v3
+project_domain_id = default
+user_domain_id = default
+project_name = service
+username = ceilometer
+password = CEILOMETER_PASS
+interface = internalURL
+region_name = RegionOne
+```
+
+
+7 数据库同步
+
+```
+ceilometer-upgrade
+```
+
+
+8 启动并使能服务
+
+```
+systemctl enable openstack-ceilometer-notification.service openstack-ceilometer-central.service
+systemctl start openstack-ceilometer-notification.service openstack-ceilometer-central.service
+```
+
+
+### 3.14.2 compute 节点
+
+1 安装软件包
+
+```
+dnf install -y openstack-ceilometer-compute
+```
+
+
+2 编辑配置文件 `/etc/ceilometer/ceilometer.conf`
+
+，直接输入如下内容：
+
+**需要替换 RABBIT_PASS 为 RabbitMQ 服务密码**
+
+**需要替换 CEILOMETER_PASS 为 Ceilometer 用户密码**
+
+```
+[DEFAULT]
+transport_url = rabbit://openstack:RABBIT_PASS@controller
+[service_credentials]
+auth_url = http://controller:5000
+project_domain_id = default
+user_domain_id = default
+auth_type = password
+username = ceilometer
+project_name = service
+password = CEILOMETER_PASS
+interface = internalURL
+region_name = RegionOne
+```
+
+
+3 编辑配置文件 `/etc/nova/nova.conf`
+
+，**追加**如下内容：
+
+```
+[DEFAULT]
+instance_usage_audit = True
+instance_usage_audit_period = hour
+[notifications]
+notify_on_state_change = vm_and_task_state
+[oslo_messaging_notifications]
+driver = messagingv2
+```
+
+
+4 使能并启动服务
+
+```
+systemctl enable openstack-ceilometer-compute.service
+systemctl start openstack-ceilometer-compute.service
+```
+
+
+5 重启 nova-compute 服务
+
+```
+systemctl restart openstack-nova-compute.service
+```
+
+
+## 3.15 Heat 安装
+
+Heat 提供基础设施即服务（IaaS）的编排服务，通过一组 API 和命令行工具，用于创建、更新和删除 OpenStack 中的资源
+
+**Heat 部署在 controller 节点**
+
+1 安装软件包
+
+```
+dnf install -y openstack-heat-api openstack-heat-api-cfn openstack-heat-engine
+```
+
+
+2 创建 Heat 数据库并授权，**需要替换 HEAT_DBPASS 为 Heat 数据库设置密码**
+
+```
+mysql -u root -p
+MariaDB [(none)]> CREATE DATABASE heat;
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON heat.* TO 'heat'@'localhost' IDENTIFIED BY 'HEAT_DBPASS';
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON heat.* TO 'heat'@'%' IDENTIFIED BY 'HEAT_DBPASS';
+MariaDB [(none)]> exit
+```
+
+
+3 创建用户，这一阶段会提示设置 `HEAT_PASS`
+
+密码
+
+```
+source ~/.admin-openrc
+openstack user create --domain default --password-prompt heat
+User Password:
+Repeat User Password:
+```
+
+
+4 添加 Heat 用户到 service project 并指定 admin 的 role：
+
+```
+openstack role add --project service --user heat admin
+```
+
+
+5 创建 heat 和 heat-cfn 服务
+
+```
+openstack service create --name heat --description "Orchestration" orchestration
+openstack service create --name heat-cfn --description "Orchestration" cloudformation
+```
+
+
+6 创建服务 API 端点：
+
+```
+openstack endpoint create --region RegionOne orchestration public http://controller:8004/v1/%\(tenant_id\)s
+openstack endpoint create --region RegionOne orchestration internal http://controller:8004/v1/%\(tenant_id\)s
+openstack endpoint create --region RegionOne orchestration admin http://controller:8004/v1/%\(tenant_id\)s
+openstack endpoint create --region RegionOne cloudformation public http://controller:8000/v1
+openstack endpoint create --region RegionOne cloudformation internal http://controller:8000/v1
+openstack endpoint create --region RegionOne cloudformation admin http://controller:8000/v1
+```
+
+
+7 创建 stack 管理的账户，包括 heatdomain 及其对应 domain 的 admin 用户 heat_domain_admin， heat_stack_owner 角色，heat_stack_user 角色
+
+```
+# 这一步会提示设置 HEAT_DOMAIN_PASS 密码
+openstack user create --domain default --password-prompt heat_domain_admin
+openstack role add --domain default --user-domain default --user heat_domain_admin admin
+openstack role create heat_stack_owner
+openstack role create heat_stack_user
+```
+
+
+8 编辑配置文件 `/etc/heat/heat.conf`
+
+，直接输入如下内容：
+
+**需要替换 RABBIT_PASS 为 RabbitMQ 服务密码**
+
+**需要替换 HEAT_DOMAIN_PASS 为 heat_domain_admin 用户密码**
+
+**需要替换 HEAT_DBPASS 为 Heat 数据库密码**
+
+**需要替换 HEAT_PASS 为 Heat 用户密码**
+
+```
+[DEFAULT]
+transport_url = rabbit://openstack:RABBIT_PASS@controller
+heat_metadata_server_url = http://controller:8000
+heat_waitcondition_server_url = http://controller:8000/v1/waitcondition
+stack_domain_admin = heat_domain_admin
+stack_domain_admin_password = HEAT_DOMAIN_PASS
+stack_user_domain_name = heat
+[database]
+connection = mysql+pymysql://heat:HEAT_DBPASS@controller/heat
+[keystone_authtoken]
+www_authenticate_uri = http://controller:5000
+auth_url = http://controller:5000
+memcached_servers = controller:11211
+auth_type = password
+project_domain_name = default
+user_domain_name = default
+project_name = service
+username = heat
+password = HEAT_PASS
+[trustee]
+auth_type = password
+auth_url = http://controller:5000
+username = heat
+password = HEAT_PASS
+user_domain_name = default
+[clients_keystone]
+auth_uri = http://controller:5000
+```
+
+
+9 同步数据库
+
+```
+su -s /bin/sh -c "heat-manage db_sync" heat
+```
+
+
+10 使能并启动服务
+
+```
+systemctl enable openstack-heat-api.service openstack-heat-api-cfn.service openstack-heat-engine.service
+systemctl start openstack-heat-api.service openstack-heat-api-cfn.service openstack-heat-engine.service
+```
+
+
+# 4 典型问题场景
+
+## 4.1 Nova compute 节点 openstack-nova-compute 服务无法启动
+
+具体现象表现为卡在启动 openstack-nova-compute 服务这里，如果查询 `/var/log/nova/`
+
+目录下的日志可以看到有 `EHOSTUNREACH`
+
+错误
+
+此报错大概是防火墙导致的nova服务异常，用户可以使用 `curl ip:prot`
+
+命令确认，如果确实是端口无法访问，可以考虑设置防火墙白名单，步骤如下：
+
+1 将其它节点加入白名单
+
+```
+firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address=192.168.0.3 accept'
+firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address=192.168.0.4 accept'
+firewall-cmd --reload
+```
+
+
+2 确认添加成功
+
+```
+firewall-cmd --list-all
+public (active)
+target: default
+icmp-block-inversion: no
+interfaces: ens33
+sources:
+services: dhcpv6-client mdns ssh
+ports:
+protocols:
+forward: yes
+masquerade: no
+forward-ports:
+source-ports:
+icmp-blocks:
+rich rules:
+rule family="ipv4" source address="192.168.0.3" accept
+rule family="ipv4" source address="192.168.0.4" accept
+```

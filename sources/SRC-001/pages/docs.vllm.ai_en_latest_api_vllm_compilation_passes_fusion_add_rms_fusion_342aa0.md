@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/passes/fusion/add_rms_fusion/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 

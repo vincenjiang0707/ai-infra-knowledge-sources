@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/community/sponsors/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Sponsors[¶](https://docs.vllm.ai#sponsors)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/features/sharded_state/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Sharded State[¶](https://docs.vllm.ai#sharded-state)
 

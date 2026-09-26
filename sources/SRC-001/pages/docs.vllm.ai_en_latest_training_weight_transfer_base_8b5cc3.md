@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/training/weight_transfer/base/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Base Classes and Custom Engines[¶](https://docs.vllm.ai#base-classes-and-custom-engines)
 
@@ -146,11 +146,13 @@ keys each name on the **outermost index segment** it contains, so **a group is o
 
 ) forming groups of their own where they appear:
 
+```bash
 group 0 model.embed_tokens.weight
 group 1 model.layers.0.* <- one decoder layer
 group 2 model.layers.1.*
 ...
 group N+1 model.norm.weight, lm_head.weight
+```
 
 
 Keying on the index rather than a literal prefix means no per-architecture table: `model.layers.0.`
@@ -207,11 +209,13 @@ once at setup, then `start_weight_update`
 
 per round. Everything a trainer engine needs from the inference side goes through them.
 
+```python
 class VLLMWeightSyncClient(Protocol):
 def init_weight_transfer_engine(self, init_info: dict[str, Any]) -> None: ...
 def start_weight_update(self) -> None: ...
 def update_weights(self, update_info: dict[str, Any]) -> None: ...
 def finish_weight_update(self, weight_version: str | None = None) -> None: ...
+```
 
 
 It is a `@runtime_checkable`

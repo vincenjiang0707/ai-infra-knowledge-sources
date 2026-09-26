@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/adapters/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -68,7 +68,7 @@ Load Sentence-Transformers Dense projection layers.
 
 Resolve the label count for a sequence classification head.
 
-`PretrainedConfig.num_labels`
+`PreTrainedConfig.num_labels`
 
 is derived from `id2label`
 

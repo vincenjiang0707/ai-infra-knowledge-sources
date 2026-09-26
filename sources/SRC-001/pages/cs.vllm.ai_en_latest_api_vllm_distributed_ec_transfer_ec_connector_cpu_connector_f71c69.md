@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/cpu/connector/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class ECCPUConnector(ECConnectorBase):
 """EC connector that offloads encoder cache to a shared CPU mmap region."""

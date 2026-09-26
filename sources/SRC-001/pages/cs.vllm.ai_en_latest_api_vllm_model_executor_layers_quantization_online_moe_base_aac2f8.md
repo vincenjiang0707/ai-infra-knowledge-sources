@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/online/moe_base/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class OnlineMoEMethodBase(FusedMoEMethodBase):
 """Base for MoE methods that load full-precision weights on meta device

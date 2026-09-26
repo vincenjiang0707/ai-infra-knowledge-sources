@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/ops/cute_dsl/latent_moe_tail/fused_add_multicast_skinny_gemm/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class FusedAddMulticastSkinnyGemm:
 """SIMT GEMM adapted from the existing Skinny GEMM."""

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/contributing/ci/failures/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # CI Failures[¶](https://docs.vllm.ai#ci-failures)
 

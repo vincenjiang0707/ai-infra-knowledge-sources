@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/speculative_decoding/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Speculative Decoding[¶](https://docs.vllm.ai#speculative-decoding)
 
@@ -57,12 +57,14 @@ Use `--speculative-config`
 
 to pass speculative decoding settings as a JSON object on the CLI:
 
+```bash
 vllm serve <target-model> \
 --speculative-config '{
 "method": "draft_model",
 "model": "<draft-model>",
 "num_speculative_tokens": 5
 }'
+```
 
 
 The same keys are accepted from Python via `LLM(..., speculative_config={...})`
@@ -117,6 +119,7 @@ for a Gemma 4 assistant checkpoint, the installed vLLM version does not include 
 
 Example:
 
+```bash
 vllm serve <target-model> \
 --speculative-config '{
 "method": "ngram",
@@ -124,6 +127,7 @@ vllm serve <target-model> \
 "prompt_lookup_min": 2,
 "prompt_lookup_max": 5
 }'
+```
 
 
 #### Suffix decoding[¶](https://docs.vllm.ai#suffix-decoding)
@@ -137,6 +141,7 @@ vllm serve <target-model> \
 
 Example:
 
+```json
 vllm serve <target-model> \
 --speculative-config '{
 "method": "suffix",
@@ -146,6 +151,7 @@ vllm serve <target-model> \
 "suffix_decoding_max_spec_factor": 1.0,
 "suffix_decoding_min_token_prob": 0.1
 }'
+```
 
 
 #### Cross-Vocabulary Draft Models (TLI)[¶](https://docs.vllm.ai#cross-vocabulary-draft-models-tli)

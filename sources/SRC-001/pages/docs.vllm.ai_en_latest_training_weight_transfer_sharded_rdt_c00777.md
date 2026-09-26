@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/training/weight_transfer/sharded_rdt/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Sharded RDT Engine[¶](https://docs.vllm.ai#sharded-rdt-engine)
 
@@ -95,11 +95,13 @@ The trainer usually cannot serve its parameters as they sit: FSDP shards them, a
 
 after the last — as groups of their own:
 
+```bash
 group 0 model.embed_tokens.weight
 group 1 model.layers.0.* <- one decoder layer
 group 2 model.layers.1.*
 ...
 group N+1 model.norm.weight, lm_head.weight
+```
 
 
 The layer is the unit of everything that follows: the trainer gathers a layer, publishes it (immediately pullable), and moves on to the next while the consumers pull the one it just published. Once every consumer has signalled that it is done with a layer, the trainer drops it and gains a credit to gather another. `gather_lookahead`

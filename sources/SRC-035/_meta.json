@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:45:39Z",
- "finished_at": "2026-09-23T03:45:39Z",
- "duration_seconds": 65.3,
- "attempts": 1,
+ "finished_at": "2026-09-25T13:52:20Z",
+ "duration_seconds": 136.8,
+ "attempts": 6,
  "channels": {
   "gh_e85f7633": {
    "type": "github_repo",
@@ -20,12 +20,12 @@
    "issues": {
     "status": "ok",
     "count": 0,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
-    "count": 1,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -52,12 +52,12 @@
    "issues": {
     "status": "ok",
     "count": 0,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 0,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
@@ -78,25 +78,25 @@
   "ref_b997b9c8": {
    "type": "reference",
    "url": "https://github.com/Ascend/msmodelslim/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 2486
   },
   "ref_8f1ac166": {
    "type": "reference",
    "url": "https://github.com/Ascend/msmodelslim/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 547
+   "mode": "page",
+   "chars": 604
   },
   "ref_f9b80159": {
    "type": "reference",
    "url": "https://github.com/Ascend/msmodelslim/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 343
   }
  },

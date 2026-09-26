@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/cuda_graphs/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # CUDA Graphs[¶](https://docs.vllm.ai#cuda-graphs)
 

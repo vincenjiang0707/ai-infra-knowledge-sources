@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/minimax_m3/amd/model/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MiniMaxM3SparseAttention(nn.Module, AttentionLayerBase):
 """Block-sparse attention layer with the lightning-indexer branch.
@@ -16,7 +16,7 @@ projections (``sparse_disable_index_value`` set for every sparse layer), so
 """
 def __init__(
 self,
-config: PretrainedConfig,
+config: PreTrainedConfig,
 layer_id: int,
 quant_config: QuantizationConfig | None = None,
 prefix: str = "",

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/quantization/fp8_vit_attn/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # FP8 ViT Encoder Attention[¶](https://docs.vllm.ai#fp8-vit-encoder-attention)
 
@@ -73,10 +73,12 @@ Saved scales are multiplied by `--mm-encoder-fp8-scale-save-margin`
 
 ## Scale File Format[¶](https://docs.vllm.ai#scale-file-format)
 
+```json
 {
 "visual.blocks.0.attn.attn": {"q": 224.0, "k": 198.0, "v": 210.0},
 "visual.blocks.1.attn.attn": {"q": 218.0, "k": 195.0, "v": 207.0}
 }
+```
 
 
 Keys `q_scale`

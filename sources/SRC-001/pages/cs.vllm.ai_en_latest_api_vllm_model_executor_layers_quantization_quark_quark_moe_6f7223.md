@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/quark/quark_moe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class QuarkOCP_MX_MoEMethod(QuarkMoEMethod):
 supported_activation_quant_keys = [

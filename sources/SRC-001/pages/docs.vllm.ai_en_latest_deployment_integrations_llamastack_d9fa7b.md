@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/integrations/llamastack/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Llama Stack[¶](https://docs.vllm.ai#llama-stack)
 

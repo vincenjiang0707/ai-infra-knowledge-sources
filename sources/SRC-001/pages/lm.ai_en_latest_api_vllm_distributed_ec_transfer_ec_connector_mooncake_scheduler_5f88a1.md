@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/mooncake/scheduler/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class ECMooncakeScheduler:
 """Coordinate Mooncake transfers from the vLLM Scheduler process."""

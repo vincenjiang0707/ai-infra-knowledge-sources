@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_wNa8o8/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class CompressedTensorsWNA8O8Int(CompressedTensorsScheme):
 def __init__(

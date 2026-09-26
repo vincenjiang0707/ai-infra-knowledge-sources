@@ -1,12 +1,12 @@
 # kvcache-ai/Mooncake
 
-- stars: 6642
-- forks: 1260
-- open_issues: 597
+- stars: 6658
+- forks: 1267
+- open_issues: 607
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-23T03:22:02Z
+- pushed_at: 2026-09-24T09:02:54Z
 - homepage: https://kvcache-ai.github.io/Mooncake/
 
 ## README
@@ -227,6 +227,29 @@ pip install mooncake-transfer-engine
 ```bash
 pip install mooncake-transfer-engine-cuda13
 ```
+
+#### Master image
+
+The multi-architecture master image publishes explicit CUDA flavor tags:
+
+```bash
+# Fixed versions, recommended for production
+docker pull kvcacheai/mooncake:0.3.14-cuda12
+docker pull kvcacheai/mooncake:0.3.14-cuda13
+
+# CUDA 13 is the default flavor
+docker pull kvcacheai/mooncake:0.3.14
+docker pull kvcacheai/mooncake:latest
+
+# Floating flavor aliases
+docker pull kvcacheai/mooncake:cuda12
+docker pull kvcacheai/mooncake:cuda13
+```
+
+The unqualified `:<version>` and `:latest` tags point to CUDA 13 starting with the first
+release published by the new tagging workflow. Existing releases keep their original contents;
+use `:cuda12` or `:<version>-cuda12` when CUDA 12 is required. The former `:latest-cuda13` tag
+is deprecated and is not part of the new naming contract.
 
 In addition to CUDA, Mooncake also supports other accelerator backends, along with flexible installation and deployment options. See the guides below for details:
 

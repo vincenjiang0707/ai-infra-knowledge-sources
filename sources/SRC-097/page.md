@@ -1,5 +1,3 @@
-# NIXL
-
 source: https://github.com/ai-dynamo/nixl/releases
 
 # Releases: ai-dynamo/nixl

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/frameworks/cerebrium/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Cerebrium[¶](https://docs.vllm.ai#cerebrium)
 
@@ -25,6 +25,7 @@ for this example), add the following code to your `main.py`
 
 ## Code
 
+```bash
 from vllm import LLM, SamplingParams
 llm = LLM(model="mistralai/Mistral-7B-Instruct-v0.1")
 def run(prompts: list[str], temperature: float = 0.8, top_p: float = 0.95):
@@ -37,6 +38,7 @@ prompt = output.prompt
 generated_text = output.outputs[0].text
 results.append({"prompt": prompt, "generated_text": generated_text})
 return {"results": results}
+```
 
 
 Then, run the following code to deploy it to the cloud:
@@ -51,6 +53,7 @@ You should get a response like:
 
 ## Response
 
+```json
 {
 "run_id": "52911756-3066-9ae8-bcc9-d9129d1bd262",
 "result": {
@@ -75,6 +78,7 @@ You should get a response like:
 },
 "run_time_ms": 152.53663063049316
 }
+```
 
 
 You now have an autoscaling endpoint where you only pay for the compute you use!

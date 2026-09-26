@@ -1,5 +1,3 @@
-# 腾讯 Hunyuan
-
 source: https://github.com/PaddlePaddle/ERNIE/releases
 
 # Releases: PaddlePaddle/ERNIE

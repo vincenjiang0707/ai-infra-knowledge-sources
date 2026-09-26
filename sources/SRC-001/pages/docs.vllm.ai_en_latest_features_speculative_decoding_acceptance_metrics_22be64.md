@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/speculative_decoding/acceptance_metrics/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Per-Request Acceptance Metrics[¶](https://docs.vllm.ai#per-request-acceptance-metrics)
 
@@ -60,6 +60,7 @@ response's `metrics`
 
 looks like:
 
+```json
 {
 "choices": [ ... ],
 "usage": { ... },
@@ -75,6 +76,7 @@ looks like:
 }
 }
 }
+```
 
 
 | Field | Description |

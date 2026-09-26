@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/ops/ssd_bmm/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 def _bmm_chunk_fwd(a, b, chunk_size, cu_chunk_seqlens, causal=False, output_dtype=None):
 """Argument:

@@ -1,5 +1,3 @@
-# Ascend
-
 source: https://github.com/Ascend/msprof/releases
 
 # Releases: Ascend/msprof

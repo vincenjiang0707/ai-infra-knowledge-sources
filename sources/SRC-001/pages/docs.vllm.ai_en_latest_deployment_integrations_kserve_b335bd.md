@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/integrations/kserve/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # KServe[¶](https://docs.vllm.ai#kserve)
 

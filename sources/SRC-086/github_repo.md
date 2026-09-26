@@ -1,6 +1,6 @@
 # FasterDecoding/Medusa
 
-- stars: 2773
+- stars: 2771
 - forks: 205
 - open_issues: 57
 - default_branch: main

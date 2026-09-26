@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/deepseek_eagle3/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class DeepseekV2Eagle3DecoderLayer(nn.Module):
 """Eagle3 decoder layer for Deepseek that:

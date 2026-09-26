@@ -1,6 +1,6 @@
 # Changelog (aggregated from releases.body)
 
-> releases: 24
+> releases: 25
 
 ## moe-v1.0.0 (2024-09-10)
 
@@ -257,3 +257,7 @@ Branch cut for MLPerf 6.1 on DS v3
 ## mlperf6.1-dsv3-v3.0 (2026-09-22)
 
 mlperf6.1-dsv3-v3.0
+
+## mlperf6.1-dsv3-v4.0 (2026-09-24)
+
+mlperf6.1-dsv3-v4.0

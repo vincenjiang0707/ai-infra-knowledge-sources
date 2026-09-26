@@ -1,5 +1,3 @@
-# Ascend
-
 source: https://github.com/Ascend/samples/releases
 
 # Releases: Ascend/samples

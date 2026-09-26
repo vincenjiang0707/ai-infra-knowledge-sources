@@ -1,5 +1,3 @@
-# DeepGEMM
-
 source: https://github.com/flashinfer-ai/flashinfer/releases
 
 # Releases: flashinfer-ai/flashinfer
@@ -8,85 +6,138 @@ source: https://github.com/flashinfer-ai/flashinfer/releases
 
 ## Release v0.7.0
 
-## What's Changed
+*These highlights are also published at flashinfer.ai/releases.*
 
-- fix(sampling): reject unsafe multi-CTA top-k launches on low-SM GPUs by
-[@bkryu](https://github.com/bkryu)in[#4595](https://github.com/flashinfer-ai/flashinfer/pull/4595) - feat(cake_kda): optimize small-BH recurrent-KDA prefill by
-[@yyihuang](https://github.com/yyihuang)in[#4571](https://github.com/flashinfer-ai/flashinfer/pull/4571) - test: enable the unified MoE fuzzer by default and prune legacy UTs by
-[@feih-nv](https://github.com/feih-nv)in[#4475](https://github.com/flashinfer-ai/flashinfer/pull/4475) - feat(gdn): add pooled state and state checkpointing and dtype support for feature parity by
-[@guangyunh-nv](https://github.com/guangyunh-nv)in[#4436](https://github.com/flashinfer-ai/flashinfer/pull/4436) - feat(attention): add PrimTS Q64/KV256 and paged GQA block-sparse attention by
-[@heyuhhh](https://github.com/heyuhhh)in[#4474](https://github.com/flashinfer-ai/flashinfer/pull/4474) - add backward-compatible aliases for bsa_attn_fwd and bsa_attn_blk64_fwd by
-[@hsr1234563](https://github.com/hsr1234563)in[#4590](https://github.com/flashinfer-ai/flashinfer/pull/4590) - fix(moe): restore SM12x MoE kernels broken by self-resolved helper in borrowed dense methods by
-[@lucifer1004](https://github.com/lucifer1004)in[#4602](https://github.com/flashinfer-ai/flashinfer/pull/4602) - Add
-[@Anerudhan](https://github.com/Anerudhan)to CODEOWNERS for core review by[@aleozlx](https://github.com/aleozlx)in[#4622](https://github.com/flashinfer-ai/flashinfer/pull/4622) - fix(moe_ep): fix in_kernel_fc2_reduce livelock on zero-token launches (MXFP8 + NVFP4) by
-[@mhoqueanik](https://github.com/mhoqueanik)in[#4531](https://github.com/flashinfer-ai/flashinfer/pull/4531) - feat(moe_ep): SM100 BF16 CuTeDSL MegaMoE kernel by
-[@mhoqueanik](https://github.com/mhoqueanik)in[#4386](https://github.com/flashinfer-ai/flashinfer/pull/4386) - feat: CuTe DSL kernels for Rubin (SM107) and batched FP8 GEMM for Blackwell by
-[@Vinnie6167](https://github.com/Vinnie6167)in[#4526](https://github.com/flashinfer-ai/flashinfer/pull/4526) - Add back TRTLLM Gen MoE split-K by
-[@jiahanc](https://github.com/jiahanc)in[#4617](https://github.com/flashinfer-ai/flashinfer/pull/4617) - feat(kda): add CuTe DSL recurrent prefill backend by
-[@Observer007](https://github.com/Observer007)in[#4605](https://github.com/flashinfer-ai/flashinfer/pull/4605) - feat(cake_backend): accelerate DeepSeek fused routing by
-[@yyihuang](https://github.com/yyihuang)in[#4587](https://github.com/flashinfer-ai/flashinfer/pull/4587) - Stop legacy nightly release publishing by
-[@dierksen](https://github.com/dierksen)in[#4623](https://github.com/flashinfer-ai/flashinfer/pull/4623) - feat(cake_backend): add Blackwell Router GEMM by
-[@yyihuang](https://github.com/yyihuang)in[#4594](https://github.com/flashinfer-ai/flashinfer/pull/4594) - [feat]custom all reduce kernel by
-[@qsang-nv](https://github.com/qsang-nv)in[#4393](https://github.com/flashinfer-ai/flashinfer/pull/4393) - fix(attention): handle extreme negative logits in masked softmax by
-[@shoutoutuoadi325](https://github.com/shoutoutuoadi325)in[#4401](https://github.com/flashinfer-ai/flashinfer/pull/4401) - feat: trtllm-gen FMHA features for sm107 (spcompress, fp16softmax) by
-[@jimmyzho](https://github.com/jimmyzho)in[#4596](https://github.com/flashinfer-ai/flashinfer/pull/4596) - feat(moe_ep): SM100 W4A8 (MXFP8xMXFP4) CuTeDSL split kernel backend with MXFP8 packed dispatch by
-[@mhoqueanik](https://github.com/mhoqueanik)in[#4529](https://github.com/flashinfer-ai/flashinfer/pull/4529) - Add Qwen fused GDN decode step for sm120 by
-[@nv-yunzheq](https://github.com/nv-yunzheq)in[#4481](https://github.com/flashinfer-ai/flashinfer/pull/4481) - feat: collect a union of TEST_PATH targets in unit CI by
-[@kahyunnam](https://github.com/kahyunnam)in[#4641](https://github.com/flashinfer-ai/flashinfer/pull/4641) - fix(moe): correct unified fuzzer references by
-[@feih-nv](https://github.com/feih-nv)in[#4639](https://github.com/flashinfer-ai/flashinfer/pull/4639) - [perf] split TRT-LLM Gen routing kernels to reduce compile time by
-[@jiahanc](https://github.com/jiahanc)in[#4635](https://github.com/flashinfer-ai/flashinfer/pull/4635) - feat(moe): add SiTU-GLU activation to the CUTLASS fused-MoE backend by
-[@xuanyu-mistral](https://github.com/xuanyu-mistral)in[#4460](https://github.com/flashinfer-ai/flashinfer/pull/4460) - feat(cake_mamba): add Blackwell selective state update backend by
-[@yyihuang](https://github.com/yyihuang)in[#4616](https://github.com/flashinfer-ai/flashinfer/pull/4616) - ci: consolidate CUDA coverage and validate candidate images by
-[@dierksen](https://github.com/dierksen)in[#4469](https://github.com/flashinfer-ai/flashinfer/pull/4469) - feat(kda): add SM120a CuTe DSL prefill backend by
-[@JimpleMa](https://github.com/JimpleMa)in[#4633](https://github.com/flashinfer-ai/flashinfer/pull/4633) - feat(moe): standalone trtllm-gen routing op + decomposed tests/moe routing matrix by
-[@aleozlx](https://github.com/aleozlx)in[#4082](https://github.com/flashinfer-ai/flashinfer/pull/4082) - feat(cake_vsa): add optimized SM100/SM103 block-sparse attention (VSA) by
-[@yyihuang](https://github.com/yyihuang)in[#4593](https://github.com/flashinfer-ai/flashinfer/pull/4593) - feat(cake_kda): add paired recurrent training for SM100a and SM103a by
-[@yyihuang](https://github.com/yyihuang)in[#4636](https://github.com/flashinfer-ai/flashinfer/pull/4636) - perf(gemm): optimize CuTe DSL W4A16 dense GEMM by
-[@zianglih](https://github.com/zianglih)in[#4686](https://github.com/flashinfer-ai/flashinfer/pull/4686) - fix(sm120): align MXFP8 plain tactic and FP8 moe stage policy by
-[@CarstyYou](https://github.com/CarstyYou)in[#4660](https://github.com/flashinfer-ai/flashinfer/pull/4660) - feat(moe): align unified MoE do_finalize behavior with flat API by
-[@feih-nv](https://github.com/feih-nv)in[#4614](https://github.com/flashinfer-ai/flashinfer/pull/4614) - perf(gdn): reduce non-CP CuTeDSL launch overhead by
-[@guangyunh-nv](https://github.com/guangyunh-nv)in[#4699](https://github.com/flashinfer-ai/flashinfer/pull/4699) - feat(cake_mamba): add Blackwell Mamba SSDCombined by
-[@yyihuang](https://github.com/yyihuang)in[#4576](https://github.com/flashinfer-ai/flashinfer/pull/4576) - feat: SM120 NVFP4 SVDQuant Gemm in CuteDSL by
-[@rosenrodt](https://github.com/rosenrodt)in[#4420](https://github.com/flashinfer-ai/flashinfer/pull/4420) - ci: disable sccache for cu134 nvcc by
-[@dierksen](https://github.com/dierksen)in[#4682](https://github.com/flashinfer-ai/flashinfer/pull/4682) - Add paged MQA logits (attn_scores) kernels for Blackwell SM100 by
-[@dhiraj113](https://github.com/dhiraj113)in[#4365](https://github.com/flashinfer-ai/flashinfer/pull/4365) - perf(sm120): optimize NVFP4 attention with N64 score-slot reuse by
-[@tiffany940107](https://github.com/tiffany940107)in[#4502](https://github.com/flashinfer-ai/flashinfer/pull/4502) - feat(cake_msa): add Blackwell minimax sparse attention source kernels by
-[@yyihuang](https://github.com/yyihuang)in[#4355](https://github.com/flashinfer-ai/flashinfer/pull/4355) - perf(cake_kda): further optimize recurrent-KDA prefill on Blackwell by
-[@yyihuang](https://github.com/yyihuang)in[#4675](https://github.com/flashinfer-ai/flashinfer/pull/4675) - feat(moe): allow B12xMoEWrapper to share pre-allocated workspaces by
-[@lucifer1004](https://github.com/lucifer1004)in[#4603](https://github.com/flashinfer-ai/flashinfer/pull/4603) - (perf) add fused_GDN_step support for Qwen 3.6 35B A3B on sm120 by
-[@nv-yunzheq](https://github.com/nv-yunzheq)in[#4708](https://github.com/flashinfer-ai/flashinfer/pull/4708) - fix: SageAttention support block size doesn't divide sequence; support K-smoothing by
-[@xrq-phys](https://github.com/xrq-phys)in[#4654](https://github.com/flashinfer-ai/flashinfer/pull/4654) - ci: coordinate CUDA dependency policy by
-[@dierksen](https://github.com/dierksen)in[#4711](https://github.com/flashinfer-ai/flashinfer/pull/4711) - perf(msa): chunked top-k and in-kernel causal offsets for the SM12x indexer by
-[@yichengj0](https://github.com/yichengj0)in[#4030](https://github.com/flashinfer-ai/flashinfer/pull/4030) - perf(cake_kda): add recurrence-piece persistent M128 prefill by
-[@yyihuang](https://github.com/yyihuang)in[#4728](https://github.com/flashinfer-ai/flashinfer/pull/4728) - feat(moe): add remaining CUTLASS unified MoE runners by
-[@feih-nv](https://github.com/feih-nv)in[#4610](https://github.com/flashinfer-ai/flashinfer/pull/4610) - fix: Correctly wire scale_qkvo to cute-dsl fmha backends by
-[@xrq-phys](https://github.com/xrq-phys)in[#4665](https://github.com/flashinfer-ai/flashinfer/pull/4665) - fix(kda): fall back to Cake when CuTe DSL predates cutlass.experimental by
-[@kahyunnam](https://github.com/kahyunnam)in[#4667](https://github.com/flashinfer-ai/flashinfer/pull/4667) - fix(ci): skip source-only CUDA config test in nightlies by
-[@dierksen](https://github.com/dierksen)in[#4750](https://github.com/flashinfer-ai/flashinfer/pull/4750) - perf(activation): cap act_and_mul_kernel block size for ~17-19% speedup at large hidden dims by
-[@yekerr](https://github.com/yekerr)in[#4733](https://github.com/flashinfer-ai/flashinfer/pull/4733) - fix(fmha): select CGA reduction for MLA H512 decode by
-[@yihwang-nv](https://github.com/yihwang-nv)in[#4702](https://github.com/flashinfer-ai/flashinfer/pull/4702) - feat(norm): fused Add+RMSNorm+1x128 fp8 block-quant producer by
-[@NVShreyas](https://github.com/NVShreyas)in[#4480](https://github.com/flashinfer-ai/flashinfer/pull/4480) - chore(aot): exclude single prefill/decode modules from jit-cache prebuilds by
-[@bkryu](https://github.com/bkryu)in[#4760](https://github.com/flashinfer-ai/flashinfer/pull/4760) - build(jit): reduce JIT-cache wheel size by
-[@dierksen](https://github.com/dierksen)in[#4757](https://github.com/flashinfer-ai/flashinfer/pull/4757) - feat(moe): add unified activation parity by
-[@feih-nv](https://github.com/feih-nv)in[#4613](https://github.com/flashinfer-ai/flashinfer/pull/4613) - Support per-token NVFP4 ReLU2 MoE by
-[@xuantengh](https://github.com/xuantengh)in[#4618](https://github.com/flashinfer-ai/flashinfer/pull/4618) - feat: CUB
-`DeviceBatchedTopK`
+### v0.7.0 Highlights
 
-top-k backend with variable-length support by[@NaderAlAwar](https://github.com/NaderAlAwar)in[#4442](https://github.com/flashinfer-ai/flashinfer/pull/4442) - feat(cake_fmha): add native Blackwell DCP speculative decode by
-[@yyihuang](https://github.com/yyihuang)in[#4518](https://github.com/flashinfer-ai/flashinfer/pull/4518) - fix(cute_dsl): consult the arch gate in the GEMM and GDN dispatchers by
-[@Vinnie6167](https://github.com/Vinnie6167)in[#4649](https://github.com/flashinfer-ai/flashinfer/pull/4649) - feat(cake_activation): add fused Blackwell SwiGLU MXFP8 quantization by
-[@yyihuang](https://github.com/yyihuang)in[#4638](https://github.com/flashinfer-ai/flashinfer/pull/4638) - Adding var-window FMHA context support for PrimsTS. by
-[@mingxu1067](https://github.com/mingxu1067)in[#4599](https://github.com/flashinfer-ai/flashinfer/pull/4599) - Add bias support to cublast gemm backend and as fallback backend for cutedsl gemm backend by
-[@jiahanc](https://github.com/jiahanc)in[#4772](https://github.com/flashinfer-ai/flashinfer/pull/4772) - misc: multi-arch cubins (sm100, 103, 107) in a single artifact by
-[@jimmyzho](https://github.com/jimmyzho)in[#4648](https://github.com/flashinfer-ai/flashinfer/pull/4648) - refactor(mla): isolate planned FA2, FA3, and CUTLASS backends by
-[@saltyminty](https://github.com/saltyminty)in[#4697](https://github.com/flashinfer-ai/flashinfer/pull/4697) - Enable CuTe DSL MLA benchmarks for low head counts by
-[@lunarz-dev](https://github.com/lunarz-dev)in[#4656](https://github.com/flashinfer-ai/flashinfer/pull/4656) - fix(gemm): never move the shared cuDNN GEMM workspace by
-[@yanqinz2](https://github.com/yanqinz2)in[#4666](https://github.com/flashinfer-ai/flashinfer/pull/4666) - feat(cake_kda): add recurrent training template dispatch by
-[@yyihuang](https://github.com/yyihuang)in[#4726](https://github.com/flashinfer-ai/flashinfer/pull/4726) - fix(norm): limit add RMSNorm FP4 launch config heuristics to SM100 and SM103 by
-[@soodoshll](https://github.com/soodoshll)in[#4494](https://github.com/flashinfer-ai/flashinfer/pull/4494) - perf(cake_vsa): refresh Blackwell block-sparse WS kernel by
-[@yyihuang](https://github.com/yyihuang)in[#4804](https://github.com/flashinfer-ai/flashinfer/pull/4804) - feat(decode): add prims-ts backend and is_causal to paged decode by
-[@elwhyjay](https://github.com/elwhyjay)in[#4739](https://github.com/flashinfer-ai/flashinfer/pull/4739) - [Bugfix] Skip .item() readback for trtllm_ragged_attention_deepseek during CUDA graph capture (
-[#4609](https://github.com/flashinfer-ai/flashinfer/issues/4609)) by[@zhang-keliang](https://github.com/zhang-keliang)in[#4703](https://github.com/flashinfer-ai/flashinfer/pull/4703) - feat(cake_comm): Add a Cake Black...
+FlashInfer 0.7.0 makes the unified mixture-of-experts (MoE) API official, brings TRT-LLM Gen MoE kernels into readable Python source with PrimTS, and introduces Autotuner v2 and a formal experimental-API policy. It also expands sparse and linear attention, expert-parallel serving, and diffusion workloads across Blackwell GPUs.
+
+Read the [v0.7 overview](https://flashinfer.ai/2026/09/22/flashinfer-v07.html) and the accompanying deep dives on [MegaMoE](https://flashinfer.ai/2026/09/22/mega-moe.html), [Autotuner v2](https://flashinfer.ai/2026/09/22/autotuner-v2.html), and the [experimental path](https://flashinfer.ai/2026/09/22/experimental-path.html).
+
+**Unified MoE API is official**
+
+`MoELayer`
+
+is now an official FlashInfer API, with the lower-level kernel entry points supported alongside it. `QuantConfig`
+
+gives weights, activations, and output explicit `QuantFormat`
+
+fields: `QuantConfig(weight=QuantFormat.MXFP4)`
+
+selects MXFP4 weights with BF16 activations, while adding `activation=QuantFormat.MXFP8`
+
+selects W4A8. Backend coverage expands with quantization-specific CUTLASS runners, cuTile BF16 and NVFP4 MoE, and CuTe-DSL BF16 MoE on Hopper.
+
+**TRT-LLM Gen MoE kernels as Python source with PrimTS**
+
+The experimental PrimTS MoE backend exposes kernels built with the CUTLASS DSL Primitives and Task Scheduling APIs, making the expert GEMMs available as readable Python source. It supports BF16, per-tensor and block-scaled FP8, and NVFP4/MXFP4 combinations, while reusing TRT-LLM Gen routing and finalization. Accuracy qualification targets B200; B300 qualification is still pending, and supported configurations have backend-specific restrictions. PrimTS attention also gains paged block-sparse attention, variable-window attention, and a unified `plan()`
+
+/`run()`
+
+contract for reusable wrappers.
+
+**Autotuner v2 tunes the way you serve**
+
+`autotune_v2()`
+
+lets applications measure candidates in eager or CUDA-graph execution and persist the results in an environment-specific cache managed by FlashInfer. Atomic cache entries support concurrent rank writes, and `autotune_v2_reload()`
+
+lets homogeneous ranks converge on shared results. In the [reported vLLM validation](https://github.com/flashinfer-ai/flashinfer/issues/3920#issuecomment-5590875709), Qwen3-8B-FP8 at TP2 on B200 reduced its tuning window from 128 seconds on a cold start to 1 second on restart with the same cache; total startup was 410.7 seconds and 165.3 seconds, respectively. Applications opt in through the new API; `autotune()`
+
+remains available.
+
+**Experimental APIs and backends have an explicit opt-in path**
+
+Experimental APIs are marked with `@flashinfer_experimental_api`
+
+, and experimental backends have a dedicated `flashinfer.experimental`
+
+namespace. Calling an experimental API or explicitly selecting a marked backend emits a warning; automatic selection includes marked experimental backends only when `FLASHINFER_ALLOW_EXPERIMENTAL_AUTO_BACKENDS=1`
+
+is set. The policy defines admission and graduation criteria and keeps experimental implementations JIT-only, outside prebuilt packages.
+
+**Expert-parallel MoE expands across Blackwell**
+
+`moe_ep`
+
+adds an unquantized BF16 MegaMoE backend and a W4A8 split backend on B200, with MXFP8-packed dispatch for the latter. RTX PRO 6000 and DGX Spark gain an MXFP8 MegaMoE backend with functional correctness validated and performance tuning ongoing. The NCCL-EP split path supports CUDA-graph capture through a reusable handle with per-step `update()`
+
+, validated through vLLM on four B200 GPUs.
+
+**DeepSeek-V4 and MiniMax-M3 sparse attention**
+
+Blackwell gains paged FP8/MXFP4 indexer logits and more top-K choices, including a CUB backend with variable-length support. DeepSeek-V4 Flash sparse MLA supports an NVFP4 KV cache on SM120/SM121 through `kv_cache_format="nvfp4"`
+
+. MiniMax-M3 sparse attention gains source-distributed CAKE-generated kernels on SM100/SM103; the B200 kernel benchmark reports a 2.45× geometric-mean speedup over the MiniMax baseline across 11 comparable prefill, decode, speculative, and boundary cases.
+
+**Linear attention for Kimi K3, Qwen 3.6, and Nemotron-H**
+
+Kimi K3 gains a speculative-verification entry point compatible with vLLM's recurrent verifier, plus CuTe-DSL recurrent prefill on B200/B300 and SM120. The experimental `RecurrentKDAPrefillWrapper`
+
+supports planning and graph-safe prefix checkpoints. Qwen 3.6 gains experimental fused GDN decode steps on SM120 that combine projection, convolution, gating, and recurrent state updates. Nemotron-H gains source-built Mamba SSD-combined and selective-state-update backends on B200/GB300.
+
+**Diffusion and video attention on Blackwell**
+
+Video Sparse Attention gains generated SM100/SM103 kernels, and the block-64 path adds a native CuTe-DSL implementation with Sage FP8 support. SM120 gains a generated Sage block-sparse backend and an optimized NVFP4 attention path for Cosmos workloads. MiniMax-H3 gains a prepared MXFP8 pre-attention pipeline on B200/B300, while PrimTS block-sparse attention adds proxy compensation for Sol-Attn workloads.
+
+**Communication for PCIe and NVLink deployments**
+
+`PcieIpcAllReduceWorkspace`
+
+adds an intra-node CUDA-IPC all-reduce for two, four, or eight ranks on PCIe machines without NVLink. Blackwell fused all-gather matmul gains a `backend="cake"`
+
+option and a prepared callable for packed-QKV workloads, with tensor parallelism up to eight GPUs.
+
+**Notice: packaging and dependencies**
+
+`flashinfer-jit-cache`
+
+is now a small shim that depends on architecture-specific provider wheels. The usual installation command installs the provider set for the selected CUDA and CPU platform; to reduce image size, install only the provider needed for your GPU. If you mirror or vendor wheels, include the provider wheels as well as the shim, and keep their CUDA-specific versions aligned.
+
+| Dependency | 0.6.18.post1 | 0.7.0 |
+|---|---|---|
+`nvidia-cudnn-frontend` |
+`>=1.25.0` |
+`>=1.29.0` |
+`apache-tvm-ffi` |
+`>=0.1.6,!=0.1.8,!=0.1.8.post0,<0.2` |
+`>=0.1.11,<0.2` |
+| NCCL-EP Python packages | `nccl4py>=0.3.1` |
+`nccl4py>=0.4.1` and `nccl-extensions>=0.1.0` |
+`nvidia-cutlass-dsl` through `[cu12]` / `[cu13]` |
+`>=4.6.2a0` |
+`>=4.7.0a0` |
+
+The base `nvidia-cutlass-dsl`
+
+requirement remains `>=4.6.2a0`
+
+; the CUDA extras have the higher floor. Environments pinned to CUTLASS DSL 4.6.2 need compatible dependency pins before installing those extras.
+
+**Notice: small-batch FP8 groupwise GEMM**
+
+
+⚠️ The CUTLASS`gemm_fp8_nt_groupwise`
+
+path on SM100/SM103 can intermittently produce incorrect output for`M <= 32`
+
+with`scale_granularity_mnk=(1, 128, 128)`
+
+. This pre-existing issue remains in 0.7.0; see[#4396]for the investigation. Validate affected workloads before deployment. A different backend requires its own supported shapes and scale layout; there is no documented switch to disable only this CUTLASS fast path.
+
+**Notice: API removals and behavior changes**
+
+Update callers of the removed APIs before upgrading:
+
+| Removed | Replacement |
+|---|---|
+`comm.trtllm_custom_all_reduce` |
+`comm.trtllm_allreduce_fusion` |
+`comm.trtllm_create_ipc_workspace_for_all_reduce` |
+`comm.trtllm_create_ipc_workspace_for_all_reduce_fusion` |
+`BatchDecodeMlaWithPagedKVCacheWrapper` |
+`mla.BatchMLAPagedAttentionWrapper` |
+No-op `end_forward()` methods on dec... |
 
 [Read more](https://github.com/flashinfer-ai/flashinfer/releases/tag/v0.7.0)
 

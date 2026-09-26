@@ -1,12 +1,12 @@
 # Ascend/msmodelslim
 
-- stars: 5
+- stars: 6
 - forks: 3
 - open_issues: 0
 - default_branch: master
 - archived: False
 - license: MulanPSL-2.0
-- pushed_at: 2026-09-23T02:48:46Z
+- pushed_at: 2026-09-24T13:37:37Z
 - homepage: None
 
 ## README

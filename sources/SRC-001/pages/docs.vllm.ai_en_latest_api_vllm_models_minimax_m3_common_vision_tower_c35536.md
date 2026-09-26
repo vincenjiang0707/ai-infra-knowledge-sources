@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/minimax_m3/common/vision_tower/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class MiniMaxVLVisionTransformer(nn.Module):
 """CLIP-based ViT with 3D RoPE (t/h/w decomposed).
@@ -8,7 +8,7 @@ FLASHINFER backend is not supported; standard flash-attn is used.
 """
 def __init__(
 self,
-config: PretrainedConfig,
+config: PreTrainedConfig,
 num_hidden_layers_override: int | None = None,
 require_post_norm: bool | None = None,
 quant_config: QuantizationConfig | None = None,

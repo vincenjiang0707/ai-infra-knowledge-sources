@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/config/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -112,9 +112,9 @@ Methods:
 
 Configure attention for heterogeneous head dimensions.
 
-Gemma4 uses different head dimensions for sliding window vs full attention layers. The default FA3 on Hopper cannot handle head_dim > 256, which causes mixed backend selection and numerical divergence.
+Gemma4 uses different head dimensions for sliding window vs full attention layers. The default FA3 on Hopper cannot handle head_dim > 256.
 
-When FA4 is available we force it for ALL layers, giving a uniform kernel path and avoiding the mixed FA3+FA4 penalty. When FA4 is not available we fall back to Triton.
+On SM90 with FP8 KV cache, use FA3 for supported layers and let the generic FlashAttention selector upgrade larger head dimensions to FA4. The multimodal-prefix composite routes image masks to Triton and causal requests to this per-layer FA3/FA4 selection. For other configurations, force FA4 for all layers to avoid the mixed FA3+FA4 penalty. When FA4 is not available, fall back to Triton.
 
 ## Source code in `vllm/model_executor/models/config.py`
 

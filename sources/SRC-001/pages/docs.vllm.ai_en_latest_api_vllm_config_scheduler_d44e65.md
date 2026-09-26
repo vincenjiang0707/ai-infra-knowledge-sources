@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/config/scheduler/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -71,6 +71,11 @@ Attributes:
 ([long_prefill_token_threshold](https://docs.vllm.ai#vllm.config.scheduler.SchedulerConfig.long_prefill_token_threshold)
 
 ) –[int](https://docs.python.org/3/builtins/functions.html#int)For chunked prefill, a request is considered long if the prompt is
+
+-
+([long_prefill_token_threshold_adaptive](https://docs.vllm.ai#vllm.config.scheduler.SchedulerConfig.long_prefill_token_threshold_adaptive)
+
+) –[bool](https://docs.python.org/3/builtins/functions.html#bool)Floor the effective long prefill token threshold at a fair share of
 
 -
 ([max_num_active_seqs](https://docs.vllm.ai#vllm.config.scheduler.SchedulerConfig.max_num_active_seqs)
@@ -242,6 +247,18 @@ True if the model is multimodal.
 For chunked prefill, a request is considered long if the prompt is longer than this number of tokens. 0 disables the cap (default).
 
 The cap is not applied when the request is the only one in the batch, since there is no other request for it to starve.
+
+###
+
+`long_prefill_token_threshold_adaptive = Field(default=False)`
+
+`class-attribute`
+
+`instance-attribute`
+
+[¶](https://docs.vllm.ai#vllm.config.scheduler.SchedulerConfig.long_prefill_token_threshold_adaptive)
+
+Floor the effective long prefill token threshold at a fair share of the token budget: max_num_batched_tokens divided by the number of queued and running requests. Only applies when long_prefill_token_threshold is nonzero.
 
 ###
 

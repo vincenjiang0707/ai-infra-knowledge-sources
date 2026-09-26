@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/disaggregated/example_connector/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Disaggregated Prefill V1[¶](https://docs.vllm.ai#disaggregated-prefill-v1)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/nvidia/flashinfer_sparse/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class DeepseekV4FlashInferMLAAttention(DeepseekV4Attention):
 """FlashInfer TRTLLM-gen sparse MLA attention layer for SM100 DeepSeek V4."""
@@ -308,6 +308,7 @@ query=decode_query,
 swa_kv_cache=swa_k_cache,
 workspace_buffer=workspace,
 sparse_indices=sparse_indices[:num_decode_tokens],
+sparse_indices_are_storage_offsets=True,
 compressed_kv_cache=compressed_kv_cache,
 sparse_topk_lens=decode_topk_lens,
 seq_lens=decode_seq_lens,
@@ -332,6 +333,7 @@ query=query[num_decode_tokens:num_tokens],
 swa_kv_cache=swa_k_cache,
 workspace_buffer=workspace,
 sparse_indices=sparse_indices[num_decode_tokens:num_tokens],
+sparse_indices_are_storage_offsets=True,
 compressed_kv_cache=compressed_kv_cache,
 sparse_topk_lens=sparse_topk_lens[num_decode_tokens:num_tokens],
 seq_lens=seq_lens[num_decodes:num_reqs],

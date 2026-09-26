@@ -1,12 +1,12 @@
 # flashinfer-ai/flashinfer
 
-- stars: 6484
-- forks: 1488
-- open_issues: 1029
+- stars: 6502
+- forks: 1498
+- open_issues: 1042
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-23T03:22:45Z
+- pushed_at: 2026-09-25T07:10:44Z
 - homepage: https://flashinfer.ai
 
 ## README
@@ -263,6 +263,13 @@ FlashInfer powers inference in:
 - [LightLLM](https://github.com/ModelTC/lightllm)
 - [lorax](https://github.com/predibase/lorax)
 - [ScaleLLM](https://github.com/vectorch-ai/ScaleLLM)
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the development setup, pull request guidelines
+(PR template, performance numbers for optimizations), and how CI is triggered. Coding
+agents pick up the same guidance from [CLAUDE.md](CLAUDE.md) / [AGENTS.md](AGENTS.md);
+the review guidance is in [docs/code_review_guidance_human.md](docs/code_review_guidance_human.md).
 
 ## Acknowledgement
 

@@ -1,8 +1,8 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/interns1_vit/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class InternS1VisionEmbeddings(nn.Module):
-def __init__(self, config: PretrainedConfig):
+def __init__(self, config: PreTrainedConfig):
 super().__init__()
 self.config = config
 self.cls_token = nn.Parameter(torch.zeros(1, 1, config.hidden_size))

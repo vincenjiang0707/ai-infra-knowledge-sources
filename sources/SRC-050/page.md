@@ -1,5 +1,3 @@
-# GLM / Z.ai 官⽅
-
 source: https://github.com/zai-org
 
 # Z.ai

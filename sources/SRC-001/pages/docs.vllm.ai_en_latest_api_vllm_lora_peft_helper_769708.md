@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/peft_helper/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 A helper class for PEFT configurations, specifically designed for LoRA. This class handles configuration validation, compatibility checks for various LoRA implementations.
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/features/batch_invariance/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Batch Invariance[¶](https://docs.vllm.ai#batch-invariance)
 

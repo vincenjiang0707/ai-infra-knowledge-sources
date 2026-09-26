@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/compressor/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class DeepseekCompressor(nn.Module):
 """DeepSeek V4 KV/score compressor.

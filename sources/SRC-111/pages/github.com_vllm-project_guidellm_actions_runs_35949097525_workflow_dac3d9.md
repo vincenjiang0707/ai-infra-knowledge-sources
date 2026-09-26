@@ -1,0 +1,56 @@
+source: https://github.com/vllm-project/guidellm/actions/runs/35949097525/workflow
+
+# Nightly #795
+
+This file contains hidden or bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
+
+[Learn more about bidirectional Unicode characters](https://github.co/hiddenchars)| name: Nightly | |
+| on: | |
+| schedule: | |
+| - cron: '0 0 * * *' # Runs at midnight every night | |
+| workflow_dispatch: # Enables manual triggering of the workflow | |
+| jobs: | |
+| tests: | |
+| strategy: | |
+| matrix: | |
+| python: ["3.10", "3.13"] | |
+| uses: ./.github/workflows/testing.yml | |
+| with: | |
+| python: ${{ matrix.python }} | |
+| args: -m "smoke or sanity" | |
+| build-and-push-container: | |
+| needs: [tests] | |
+| permissions: | |
+| packages: write | |
+| uses: ./.github/workflows/build-multiarch-container.yml | |
+| with: | |
+| build-type: nightly | |
+| tag: nightly | |
+| docs-deploy: | |
+| needs: [tests] | |
+| runs-on: ubuntu-latest | |
+| permissions: | |
+| contents: write | |
+| steps: | |
+| - name: Checkout code | |
+| uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 | |
+| with: | |
+| fetch-depth: 0 | |
+| - name: Setup Python with UV | |
+| uses: ./.github/actions/python-uv | |
+| with: | |
+| python-version: "3.13" | |
+| - name: Install mkdocs dependencies | |
+| run: | | |
+| # Sync GuideLLM install | |
+| uv sync --frozen | |
+| # Install mkdocs | |
+| uv pip install "mkdocs<2.0.0" mkdocs-material mike \ | |
+| mkdocs-gen-files mkdocs-nav-weight mkdocs-section-index \ | |
+| mkdocs-minify-plugin "mkdocstrings[python]" mkdocs-api-autonav | |
+| - name: Deploy docs | |
+| run: | | |
+| uv run --no-sync python docs/scripts/check_translations.py | |
+| git config user.name "github-actions[bot]" | |
+| git config user.email "github-actions[bot]@users.noreply.github.com" | |
+| uv run --no-sync mike deploy main --push --update-aliases |

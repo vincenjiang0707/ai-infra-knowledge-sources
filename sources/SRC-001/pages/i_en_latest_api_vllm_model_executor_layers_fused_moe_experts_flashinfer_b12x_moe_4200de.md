@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/flashinfer_b12x_moe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class FlashInferB12xExperts(mk.FusedMoEExpertsModular):
 """FlashInfer CuteDSL fused MoE expert for SM12x (SM120/SM121,

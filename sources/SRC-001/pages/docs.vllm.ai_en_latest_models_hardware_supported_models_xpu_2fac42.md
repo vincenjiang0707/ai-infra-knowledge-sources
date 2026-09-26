@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/models/hardware_supported_models/xpu/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 [ ](https://github.com/vllm-project/vllm/edit/main/docs/models/hardware_supported_models/xpu.md) # XPU - Intel® GPUs
 

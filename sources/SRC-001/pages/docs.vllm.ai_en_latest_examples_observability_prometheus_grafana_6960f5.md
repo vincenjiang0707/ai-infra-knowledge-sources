@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/observability/prometheus_grafana/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Prometheus and Grafana[¶](https://docs.vllm.ai#prometheus-and-grafana)
 
@@ -19,6 +19,7 @@ Launch Prometheus and Grafana servers with `docker compose`
 
 Submit some sample requests to the server:
 
+```bash
 wget https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered/resolve/main/ShareGPT_V3_unfiltered_cleaned_split.json
 vllm bench serve \
 --model mistralai/Mistral-7B-v0.1 \
@@ -27,6 +28,7 @@ vllm bench serve \
 --dataset-name sharegpt \
 --dataset-path ShareGPT_V3_unfiltered_cleaned_split.json \
 --request-rate 3.0
+```
 
 
 Navigating to [ http://localhost:8000/metrics](http://localhost:8000/metrics) will show the raw Prometheus metrics being exposed by vLLM.
@@ -88,6 +90,7 @@ ports:
 
 ## grafana.json
 
+```json
 {
 "annotations": {
 "list": [
@@ -1781,3 +1784,4 @@ ports:
 "version": 8,
 "weekStart": ""
 }
+```

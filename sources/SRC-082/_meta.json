@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:00:56Z",
- "finished_at": "2026-09-23T04:00:56Z",
- "duration_seconds": 126.4,
- "attempts": 1,
+ "finished_at": "2026-09-24T18:09:06Z",
+ "duration_seconds": 87.2,
+ "attempts": 2,
  "channels": {
   "gh_f7eb06cb": {
    "type": "github_repo",
@@ -20,12 +20,12 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
@@ -52,12 +52,12 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -78,49 +78,49 @@
   "ref_285a3741": {
    "type": "reference",
    "url": "https://github.com/ModelCloud/GPTQModel/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 1730
   },
   "ref_d2e3db7a": {
    "type": "reference",
    "url": "https://github.com/ModelCloud/GPTQModel/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 2637
+   "mode": "page",
+   "chars": 2895
   },
   "ref_bde7e242": {
    "type": "reference",
    "url": "https://github.com/ModelCloud/GPTQModel/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 48388
   },
   "ref_f35fb220": {
    "type": "reference",
    "url": "https://github.com/mit-han-lab/llm-awq/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 869
   },
   "ref_59ecb771": {
    "type": "reference",
    "url": "https://github.com/mit-han-lab/llm-awq/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 5114
+   "mode": "page",
+   "chars": 5149
   },
   "ref_91b62756": {
    "type": "reference",
    "url": "https://github.com/mit-han-lab/llm-awq/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 345
   }
  },
@@ -129,7 +129,7 @@
    "last_updated_at": "2026-09-07T08:13:33Z"
   },
   "gh_f7eb06cb:pulls": {
-   "last_updated_at": "2026-09-22T09:33:00Z"
+   "last_updated_at": "2026-09-24T16:06:17Z"
   },
   "gh_f7eb06cb:releases": {
    "last_id": 388827104

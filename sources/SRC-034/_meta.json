@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:44:34Z",
- "finished_at": "2026-09-23T03:44:34Z",
- "duration_seconds": 71.1,
- "attempts": 1,
+ "finished_at": "2026-09-25T10:43:59Z",
+ "duration_seconds": 74.5,
+ "attempts": 5,
  "channels": {
   "gh_f37d2519": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 21,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 13,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 2,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 2,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -52,12 +62,17 @@
    "issues": {
     "status": "ok",
     "count": 0,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 1,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 1,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -78,25 +93,25 @@
   "ref_8ef4c39a": {
    "type": "reference",
    "url": "https://github.com/Ascend/samples/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 672
   },
   "ref_8ef7a2eb": {
    "type": "reference",
    "url": "https://github.com/Ascend/samples/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 3396
+   "mode": "page",
+   "chars": 2663
   },
   "ref_b832eaa5": {
    "type": "reference",
    "url": "https://github.com/Ascend/samples/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 582
   }
  },

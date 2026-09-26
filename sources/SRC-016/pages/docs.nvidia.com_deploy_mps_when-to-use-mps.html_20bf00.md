@@ -1,0 +1,799 @@
+source: https://docs.nvidia.com/deploy/mps/when-to-use-mps.html
+
+# When to Use MPS[#](https://docs.nvidia.com#when-to-use-mps)
+
+## Identifying Candidate Applications[#](https://docs.nvidia.com#identifying-candidate-applications)
+
+MPS is useful when each application process does not generate enough work to saturate the GPU. Multiple processes can be run per node using MPS to enable more concurrency. Applications like this are identified by having a small number of blocks-per-grid.
+
+Further, if the application shows a low GPU occupancy because of a small number of threads-per-grid, performance improvements may be achievable with MPS.Using fewer blocks-per-grid in the kernel invocation and more threads-per-block to increase the occupancy per block is recommended. MPS allows the leftover GPU capacity to be occupied with CUDA kernels running from other processes.
+
+These cases arise in strong-scaling situations, where the compute capacity (node, CPU core and/or GPU count) is increased while the problem size is held fixed. Though the total amount of computation work stays the same, the work per process decreases and may underutilize the available compute capacity while the application is running. With MPS, the GPU will allow kernel launches from different processes to run concurrently and remove an unnecessary point of serialization from the computation.
+
+## Considerations[#](https://docs.nvidia.com#considerations)
+
+### System Considerations[#](https://docs.nvidia.com#system-considerations)
+
+#### Limitations[#](https://docs.nvidia.com#limitations)
+
+MPS is only supported on the Linux and QNX operating systems. The MPS server will fail to start when launched on an operating system other than Linux.
+
+Exclusive-mode restrictions are applied to the MPS server, not MPS clients. GPU compute modes are not supported on Tegra platforms.
+
+Only one user on a system may have an active MPS server.
+
+The MPS control daemon will queue MPS server activation requests from separate users, leading to serialized exclusive access of the GPU between users regardless of GPU exclusivity settings.
+
+All MPS client behavior will be attributed to the MPS server process by system monitoring and accounting tools (for example,
+
+`nvidia-smi`
+
+, NVML API).
+
+#### GPU Compute Modes[#](https://docs.nvidia.com#gpu-compute-modes)
+
+Three Compute Modes are supported via settings accessible in `nvidia-smi`
+
+:
+
+`PROHIBITED`
+
+– the GPU is not available for compute applications.`EXCLUSIVE_PROCESS`
+
+— the GPU is assigned to only one process at a time, and individual process threads may submit work to the GPU concurrently.`DEFAULT`
+
+– multiple processes can use the GPU simultaneously. Individual threads of each process may submit work to the GPU simultaneously.
+
+Using MPS effectively causes `EXCLUSIVE_PROCESS`
+
+mode to behave like `DEFAULT`
+
+mode
+for all MPS clients using the same `CUDA_MPS_PIPE_DIRECTORY`
+
+. MPS will always allow multiple clients to use the GPU via the MPS server.
+
+When using MPS it is recommended to use `EXCLUSIVE_PROCESS`
+
+mode to ensure that
+only a single MPS server is using the GPU, which provides additional insurance that the
+MPS server is the single point of arbitration between all CUDA processes for that GPU.
+
+### Application Considerations[#](https://docs.nvidia.com#application-considerations)
+
+Only 64-bit applications are supported. The MPS server will fail to start if the CUDA application is not 64-bit. The MPS client will fail CUDA initialization.
+
+If an application uses the CUDA driver API, then it must use headers from CUDA 4.0 or later (that is, it must not have been built by setting
+
+`CUDA_FORCE_API_VERSION`
+
+to an earlier version). Context creation in the client will fail if the context version is older than 4.0.Dynamic parallelism is not supported. CUDA module load will fail if the module uses dynamic parallelism features.
+
+MPS server only supports clients running with the same UID as the server. The client application will fail to initialize if the server is not running with the same UID. Volta MPS may be launched in
+
+`-multiuser-server`
+
+mode to allow clients under different UIDs to connect to a single MPS server launched under the root user while dropping isolation between users. Refer to[Server](https://docs.nvidia.com/architecture.html#server)for details regarding`-multiuser-server`
+
+mode.Terminating an MPS client without synchronizing with all outstanding GPU work (via Ctrl-C / program exception such as segfault / signals, etc.) can leave the MPS server and other MPS clients in an undefined state, which may result in hangs, unexpected failures, or corruptions.
+
+MPS Client Termination, CUDA IPC and cooperative launches are not supported with MPS on Tegra platforms.
+
+
+### Memory Protection and Error Containment[#](https://docs.nvidia.com#memory-protection-and-error-containment)
+
+MPS client processes have fully isolated GPU address spaces. MPS supports a limited form of error containment:
+
+A fatal GPU fault generated by a Volta MPS client process will be contained within the subset of GPUs shared between all clients with the fatal fault-causing GPU.
+
+A fatal GPU fault generated by a Volta MPS client process will be reported to all the clients running on the subset of GPUs in which the fatal fault is contained, without indicating which client generated the error. Note that it is the responsibility of the affected clients to exit after being informed of the fatal GPU fault.
+
+Clients running on other GPUs remain unaffected by the fatal fault and will run as normal until completion.
+
+Once a fatal fault is observed, the MPS server will wait for all the clients associated with the affected GPUs to exit, prohibiting new client connecting to those GPUs from joining. The status of the MPS server changes from
+
+`ACTIVE`
+
+to`FAULT`
+
+. When all the existing clients associated with the affected GPUs have exited, the MPS server will recreate the GPU contexts on the affected GPUs and resume processing client requests to those GPUs. The MPS server status changes back to`ACTIVE`
+
+, indicating that it is able to process new clients.
+
+For example, if your system has devices 0, 1, and 2, and if there are four clients client A, client B, client C, and client D connected to the MPS server: client A runs on device 0, client B runs on device 0 and 1, client C runs on device 1, client D runs on device 2. If client A triggers a fatal GPU fault:
+
+Since device 0 and device 1 share a comment client, client B, the fatal GPU fault is contained within device 0 and 1.
+
+The fatal GPU fault will be reported to all the clients running on device 0 and 1, that is, client A, client B, and client C.
+
+Client D running on device 2 remain unaffected by the fatal fault and continue to run as normal.
+
+The MPS server will wait for client A, client B, and client C to exit and reject any new client requests will be rejected with error
+
+`CUDA_ERROR_MPS_SERVER_NOT_READY`
+
+while the server status is`FAULT`
+
+. After client A, client B, and client C have exited, the server recreates the GPU contexts on device 0 and device 1 and then resumes accepting client requests on all devices. The server status becomes`ACTIVE`
+
+again.
+
+Information about the fatal GPU fault containment will be logged, including:
+
+If the fatal GPU fault is a fatal memory fault, the PID of the client which triggered the fatal GPU memory fault.
+
+The device IDs of the devices which are affected by this fatal GPU fault.
+
+The PIDs of the clients which are affected by this fatal GPU fault. The status of each affected client becomes
+
+`INACTIVE`
+
+and the status of the MPS server becomes`FAULT`
+
+.The messages indicating the successful recreation of the affected devices after all the affected clients have exited.
+
+
+CUDA API errors generated on the CPU in the CUDA Runtime or CUDA Driver are delivered only to the calling client.
+
+### MPS on Multi-GPU Systems[#](https://docs.nvidia.com#mps-on-multi-gpu-systems)
+
+The MPS server supports using multiple GPUs. On systems with more than one GPU,
+you can use `CUDA_VISIBLE_DEVICES`
+
+to enumerate the GPUs you would like to use. Refer to
+[Appendix: Environment Variables](https://docs.nvidia.com/appendix-environment-variables.html#environment-variables) for more details.
+
+### Dynamic Execution Resource Provisioning[#](https://docs.nvidia.com#dynamic-execution-resource-provisioning)
+
+MPS supports limited execution resource provisioning. The client contexts can be set to only use a portion of the available threads. The provisioning capability is commonly used to achieve two goals:
+
+**Reduce client memory footprint:**Since each MPS client process has fully isolated address space, each client context allocates independent context storage and scheduling resources. Those resources scale with the amount of threads available to the client. By default, each MPS client has all available threads useable. As MPS is usually used with multiple processes running simultaneously, making all threads accessible to every client is often unnecessary, and therefore wasteful to allocate full context storage. Reducing the number of threads available will effectively reduce the context storage allocation size.**Improve QoS:**The provisioning mechanism can be used as a classic QoS mechanism to limit available compute bandwidth. Reducing the portion of available threads will also concentrate the work submitted by a client to a set of SMs, reducing destructive interference with other clients’ submitted work.
+
+Setting the limit does not reserve dedicated resources for any MPS client context. It simply limits how much resources can be used by a client context. Kernels launched from different MPS client contexts may execute on the same SM, depending on load-balancing.
+
+By default, each client is provisioned to have access to all available threads. This will
+allow the maximum degree of scheduling freedom, but at a cost of higher memory
+footprint due to wasted execution resource allocation. The memory usage of each client
+process can be queried through `nvidia-smi`
+
+.
+
+The provisioning limit can be set via a few different mechanisms for different effects. These mechanisms are categorized into two mechanisms: active thread percentage and programmatic interface. In particular, partitioning via active thread percentage are categorized into two strategies: uniform partitioning and non-uniform partitioning.
+
+The limit constrained by the uniform active thread percentage is configured for a client
+process when it starts and cannot be changed for the client process afterwards. The
+executed limit is reflected through device attribute
+`cudaDevAttrMultiProcessorCount`
+
+whose value remains unchanged throughout
+the client process.
+
+The MPS control utility provides 2 sets of commands to set/query the limit of all future MPS clients. Refer to
+
+[nvidia-cuda-mps-control](https://docs.nvidia.com/mpsv2-interface.html#nvidia-cuda-mps-control)for more details.Alternatively, the limit for all future MPS clients can be set by setting the environment variable
+
+`CUDA_MPS_ACTIVE_THREAD_PERCENTAGE`
+
+for the MPS control process. Refer to[MPS control daemon level](https://docs.nvidia.com/appendix-environment-variables.html#mps-control-daemon-level)for more details.The limit can be further constrained for new clients by solely setting the environment variable
+
+`CUDA_MPS_ACTIVE_THREAD_PERCENTAGE`
+
+for a client process. Refer to[client process level](https://docs.nvidia.com/appendix-environment-variables.html#client-process-level)for more details.
+
+The limit constrained by the non-uniform active thread percentage is configured for
+every client CUDA context and can be changed throughout the client process. The
+executed limit is reflected through device attribute
+`cudaDevAttrMultiProcessorCount`
+
+whose value returns the portion of available
+threads that can be used by the client CUDA context current to the calling thread.
+
+The limit constrained by the uniform partitioning mechanisms can be further constrained for new client CUDA contexts by setting the environment variable
+
+`CUDA_MPS_ACTIVE_THREAD_PERCENTAGE`
+
+in conjunction with the environment variable`CUDA_MPS_ENABLE_PER_CTX_DEVICE_MULTIPROCESSOR_PARTITIONING`
+
+. Refer to[client CUDA context level](https://docs.nvidia.com/appendix-environment-variables.html#client-cuda-context-level)and[CUDA_MPS_ENABLE_PER_CTX_DEVICE_MULTIPROCESSOR_PARTITIONING](https://docs.nvidia.com/appendix-environment-variables.html#cuda-mps-enable-per-ctx-device-multiprocessor-partitioning)for more details.
+
+The limit constrained by the programmatic partitioning is configured for a client CUDA
+context created via `cuCtxCreate_v3()`
+
+with the execution affinity `CUexecAffinityParam`
+
+which specifies the number of SMs that the context is limited to use. The executed limit
+of the context can be queried through `cuCtxGetExecAffinity()`
+
+. Refer to [Best Practices for SM Partitioning](https://docs.nvidia.com/common-tasks.html#best-practices-for-partitioning) for more details.
+
+A common provisioning strategy is to uniformly partition the available threads equally to each MPS client processes (i.e., set active thread percentage to 100% / n, for n expected MPS client processes). This strategy will allocate close to the minimum amount of execution resources, but it could restrict performance for clients that could occasionally make use of idle resources.
+
+A more optimal strategy is to uniformly partition the portion by half of the number of expected clients (i.e., set active thread percentage to 100% / 0.5n) to give the load balancer more freedom to overlap execution between clients when there are idle resources.
+
+The near optimal provision strategy is to non-uniformly partition the available threads based on the workloads of each MPS clients (i.e., set active thread percentage to 30% for client 1 and set active thread percentage to 70 % client 2 if the ratio of the client 1 workload and the client2 workload is 30%: 70%). This strategy will concentrate the work submitted by different clients to disjoint sets of the SMs and effectively minimize the interference between work submissions by different clients.
+
+The most optimal provision strategy is to precisely limit the number of SMs to use for each MPS clients knowing the execution resource requirements of each client (i.e., 24 SMs for client1 and 60 SMs for client 2 on a device with 84 SMs). This strategy provides finer grained and more flexible control over the set of SMs the work will be running on than the active thread percentage.
+
+If the active thread percentage is used for partitioning, the limit will be internally rounded down to the nearest hardware supported thread count limit. If the programmatic interface is used for partitioning, the limit will be internally rounded up to the nearest hardware supported SM count limit.
+
+### Limits[#](https://docs.nvidia.com#limits)
+
+#### Client-Server Connection Limits[#](https://docs.nvidia.com#client-server-connection-limits)
+
+Each MPS server supports up to 60 client CUDA contexts per-device when using the default CUDA_DEVICE_MAX_CONNECTIONS
+limit of 2. These contexts may be distributed over multiple processes but it’s recommended to use a single context
+(the primary device context) per process. Increasing CUDA_DEVICE_MAX_CONNECTIONS will decrease the total number of
+MPS clients possible per server. If the connection limit is exceeded, the CUDA application will fail to create a
+CUDA Context and return an API error from `cuCtxCreate()`
+
+or the first CUDA Runtime API call that triggers context creation.
+Failed connection attempts will be logged by the MPS server.
+
+#### MPS Device Memory Limit[#](https://docs.nvidia.com#mps-device-memory-limit)
+
+Users can enforce clients to adhere to allocate device memory up to a preset limit. This mechanism provides a facility
+to fractionalize GPU memory across MPS clients that run on the specific GPU, which enables scheduling and deployment
+systems to make decisions based on the memory usage for the clients. If a client attempts to allocate memory beyond
+the preset limit, the cuda memory allocation calls will return out of memory error. The memory limit specific will
+also account for CUDA internal device allocations which will help users make scheduling decisions for optimal GPU
+utilization. This can be accomplished through a hierarchy of control mechanisms for users to limit the pinned device
+memory on MPS clients. The `default`
+
+limit setting would enforce a device memory limit on all the MPS clients of all
+future MPS Servers spawned. The `per server`
+
+limit setting allows finer grained control on the memory resource limit
+whereby users have the option to set memory limit selectively using the server PID and thus all clients of the server.
+Additionally, MPS clients can further constrain the memory limit setting from the server by using the
+`CUDA_MPS_PINNED_DEVICE_MEM_LIMIT`
+
+environment variable.
+
+### Interaction with Tools[#](https://docs.nvidia.com#interaction-with-tools)
+
+#### CUDA-GDB[#](https://docs.nvidia.com#cuda-gdb)
+
+GPU coredumps can be generated and debugged using CUDA-GDB. Refer to the
+CUDA-GDB [documentation](https://docs.nvidia.com/cuda/cuda-gdb/index.html) for usage instructions.
+
+Debugging with cuda-gdb can only be done without MPS. To bypass MPS, set the `CUDA_MPS_PIPE_DIRECTORY`
+
+environment
+variable to an empty string or a non-existent directory.
+
+#### Compute Sanitizer[#](https://docs.nvidia.com#compute-sanitizer)
+
+The `compute-sanitizer`
+
+tool is supported on MPS. Refer to the `compute-sanitizer`
+
+[documentation](https://docs.nvidia.com/compute-sanitizer/ComputeSanitizer/index.html) for usage instructions.
+
+#### Profiling[#](https://docs.nvidia.com#profiling)
+
+CUDA profiling tools (such as nvprof and Nvidia Visual Profiler) and CUPTI-based
+profilers are supported under MPS. Refer to the MPS Profiling
+[documentation](https://docs.nvidia.com/cuda/profiler-users-guide/index.html#mps-profiling) for more details.
+
+### Client Early Termination[#](https://docs.nvidia.com#client-early-termination)
+
+Terminating an MPS client via CTRL-C or signals is not supported and will lead to
+undefined behavior. The user must guarantee that the MPS client is idle, by calling
+either `cudaDeviceSynchronize`
+
+or `cudaStreamSynchronize`
+
+on all streams, before the
+MPS client can be terminated. Early termination of a MPS client without synchronizing
+all outstanding GPU work may leave the MPS server in an undefined state and result in
+unexpected failures, corruptions, or hangs; as a result, the affected MPS server and all its
+clients must be restarted.
+
+A user can instruct the MPS server to terminate the MPS client process,
+regardless of whether the CUDA contexts are idle or not, by using
+the control command `terminate_client <server PID> <client PID>`
+
+in Legacy MPS v2, or
+`client terminate <client PID>`
+
+in MPS v3. This mechanism is safe
+to invoke without affecting the MPS server or its other MPS clients.
+The command sends a request to the MPS server which
+terminates the CUDA contexts of the target MPS client process on behalf of the user and
+returns after the MPS server has completed the request. The return value is
+`CUDA_SUCCESS`
+
+if the CUDA contexts of the target MPS client process have been
+successfully terminated; otherwise, a CUDA error describing the failure state. When the
+MPS server starts handling the request, each MPS client context running in the target
+MPS client process becomes `INACTIVE`
+
+; the status changes will be logged by the MPS
+server. Upon successful completion of the client termination, the target MPS client
+process will observe a sticky error `CUDA_ERROR_MPS_CLIENT_TERMINATED`
+
+, and
+it becomes safe to kill the target MPS client process with signals such as `SIGKILL`
+
+without affecting the rest of the MPS server and its MPS clients. Note that the MPS
+server is not responsible for killing the target MPS client process after the sticky error.
+
+If the user wants to terminate the GPU work of a MPS client process that is running inside a PID namespace different from the MPS control’s PID namespace, such as an MPS client process inside a container, the user must use the PID of the target MPS client process translated into the MPS control’s PID namespace. For example, the PID of an MPS client process inside the container is 6, and the PID of this MPS client process in the host PID namespace is 1024; the user must use 1024 to terminate the GPU work of the target MPS client process.
+
+The common workflow for terminating the client application `nbody`
+
+:
+
+Get the status of the current active MPS clients.
+
+```
+$ echo "ps" | nvidia-cuda-mps-control
+PID ID SERVER DEVICE NAMESPACE COMMAND
+9741 0 6472 GPU-cb1213a3-d6a4-be7f 4026531836 ./nbody
+9743 0 6472 GPU-cb1213a3-d6a4-be7f 4026531836 ./matrixMul
+```
+
+```
+$ nvidia-cuda-mps-control client list --all
+PID SERVER DEVICE MAWS-NS CMD
+9741 uid_0 GPU-cb1213a3-d6a4-be7f default ./nbody
+9743 uid_0 GPU-cb1213a3-d6a4-be7f default ./matrixMul
+```
+
+Terminate the target client by its PID in the host PID namespace:
+
+In Legacy MPS v2, `terminate_client`
+
+takes both the server PID and the client PID:
+
+```
+$ echo "terminate_client 6472 9741" | nvidia-cuda-mps-control
+#wait until terminate_client to return
+#upon successful termination 0 is returned
+0
+```
+
+In MPS v3, `client terminate`
+
+takes only the client PID:
+
+```
+$ nvidia-cuda-mps-control client terminate 9741
+```
+
+Now it is safe to kill `nbody`
+
+:
+
+```
+$ kill -9 9741
+```
+
+### Client Priority Level Control[#](https://docs.nvidia.com#client-priority-level-control)
+
+Users are normally only able to control the GPU priority level of their kernels by using
+the `cudaStreamCreateWithPriority()`
+
+API while the program is being written. The user can use
+the control command `set_default_client_priority <Priority Level>`
+
+to map the stream priorities of a given client to a different range of internal
+CUDA priorities. Changes to this setting do not take effect until the next client
+connection to the server is opened. The user can also set the
+`CUDA_MPS_CLIENT_PRIORITY`
+
+environment variable before starting the control
+daemon or any given client process to set this value.
+
+The allowed priority level values are `0`
+
+(normal) and `1`
+
+(below normal).
+Lower numbers map to higher priorities to match the behavior of the Linux kernel scheduler.
+
+Note
+
+CUDA priority levels are not guarantees of execution order–they are only a performance hint to the CUDA Driver.
+
+For example:
+
+Process A is launched at Normal priority and only uses the default CUDA Stream, which has the lowest priority of 0.
+
+Process B is launched at Below Normal priority and uses streams with custom Stream priority values, such as -3.
+
+
+Without this feature, the streams from Process B would be executed first by the CUDA driver. However, with the Client Priority Level feature, the streams from Process A will take precedence.
+
+### Locality Domains[#](https://docs.nvidia.com#locality-domains)
+
+On some Blackwell and newer GPUs, users are able to create locality domains.
+
+Note
+
+On Legacy MPS v2, locality domains and their associated commands and output are called
+MLOPart (for example, the `-mlopart`
+
+server option and the `MD`
+
+device attribute).
+
+Enable locality domains with the `-mlopart`
+
+server option:
+
+```
+echo "start_server -uid <UID> -mlopart" | nvidia-cuda-mps-control
+```
+
+Enable locality domains per-server. Refer to [Locality Domains](https://docs.nvidia.com/mpsv3-interface.html#mpsv3-locality-domains) for details.
+
+```
+nvidia-cuda-mps-control server create --uid=<UID> --locality-domains=true
+```
+
+When a server is created with this option, GPUs that are capable of creating locality domains will do so. Locality domain devices are CUDA devices that are derived from another GPU, and have been optimized for lower-latency and/or higher-bandwidth by ensuring that compute and memory resources are physically colocated.
+
+When using locality domain devices, users will note that there are multiple such devices for each underlying device, with the locality domain devices having fewer compute resources and available memory, and being optimized for memory locality.
+
+#### Locality Domain Device Enumeration[#](https://docs.nvidia.com#locality-domain-device-enumeration)
+
+Because a client created by a locality-domain enabled server may have more CUDA devices than it would otherwise, there
+is ambiguity in the device enumeration. This has consequences for other MPS control commands, as well as `CUDA_VISIBLE_DEVICES`
+
+.
+To resolve this ambiguity, use the device enumeration command to determine the device layout after taking locality domains into account.
+
+```
+$ echo device_query | nvidia-cuda-mps-control
+Default
+Device Ordinal PCI IDs UUID Name Attributes
+0 0000:20.00.00 GPU-1d925fce-3b7d NVIDIA B300
+1 0000:48.00.00 GPU-468af2de-d4f0 NVIDIA B300
+2 0000:57.00.00 GPU-a74f1c76-1ca2 NVIDIA B300
+3 0000:66.00.00 GPU-4fe2ee0e-71e4 NVIDIA B300
+4 0000:a2.00.00 GPU-ced3eaa1-26b0 NVIDIA B300
+5 0000:c8.00.00 GPU-118a6ac9-86d2 NVIDIA B300
+6 0000:d6.00.00 GPU-1ec93f24-564f NVIDIA B300
+Server 908527
+Device Ordinal PCI IDs UUID Name Attributes
+N/A 0000:20.00.00 GPU-1d925fce-3b7d NVIDIA B300 M
+0 0000:20.00.00 GPU-3b861d38-5e0c NVIDIA B300 MLOPart 0 MD
+1 0000:20.00.00 GPU-d74bb67a-2db6 NVIDIA B300 MLOPart 1 MD
+N/A 0000:48.00.00 GPU-468af2de-d4f0 NVIDIA B300 M
+2 0000:48.00.00 GPU-5b669fd8-1170 NVIDIA B300 MLOPart 0 MD
+3 0000:48.00.00 GPU-1e489f1a-6f85 NVIDIA B300 MLOPart 1 MD
+N/A 0000:57.00.00 GPU-a74f1c76-1ca2 NVIDIA B300 M
+4 0000:57.00.00 GPU-0384bea6-6424 NVIDIA B300 MLOPart 0 MD
+5 0000:57.00.00 GPU-be428d68-2cea NVIDIA B300 MLOPart 1 MD
+N/A 0000:66.00.00 GPU-4fe2ee0e-71e4 NVIDIA B300 M
+6 0000:66.00.00 GPU-2b3a2dae-3c97 NVIDIA B300 MLOPart 0 MD
+7 0000:66.00.00 GPU-405be3d0-f1b5 NVIDIA B300 MLOPart 1 MD
+N/A 0000:a2.00.00 GPU-ced3eaa1-26b0 NVIDIA B300 M
+8 0000:a2.00.00 GPU-2b3fa6b7-1e62 NVIDIA B300 MLOPart 0 MD
+9 0000:a2.00.00 GPU-ddf3743f-bed6 NVIDIA B300 MLOPart 1 MD
+N/A 0000:c8.00.00 GPU-118a6ac9-86d2 NVIDIA B300 M
+10 0000:c8.00.00 GPU-2dcf8afb-6f79 NVIDIA B300 MLOPart 0 MD
+11 0000:c8.00.00 GPU-1458f72b-8fdb NVIDIA B300 MLOPart 1 MD
+N/A 0000:d6.00.00 GPU-1ec93f24-564f NVIDIA B300 M
+12 0000:d6.00.00 GPU-9cfe5596-8fec NVIDIA B300 MLOPart 0 MD
+13 0000:d6.00.00 GPU-6bef62f3-40d9 NVIDIA B300 MLOPart 1 MD
+```
+
+In MPS v3, use `device list`
+
+. Output shown for one underlying GPU; the
+remaining GPUs follow the same pattern.
+
+```
+$ nvidia-cuda-mps-control device list
+Ordinal Server PCI ID Device UUID Name Total SMs Total Chunks Attributes
+N/A uid_0 0000:20.00.00 GPU-1d925fce-3b7d NVIDIA B300 128 16 LE
+0 uid_0 0000:20.00.00 GPU-3b861d38-5e0c NVIDIA B300 Locality Domain 0 64 8 LD
+1 uid_0 0000:20.00.00 GPU-d74bb67a-2db6 NVIDIA B300 Locality Domain 1 64 8 LD
+```
+
+The device enumeration displays important information, including the device ordinals after
+taking locality domains into account, the PCI IDs (which can be used to determine which devices belong to the same GPU), the
+device UUIDs, device names, and attributes. In Legacy MPS v2, the attribute `MD`
+
+indicates a locality domain device
+while `M`
+
+indicates the underlying GPU; in MPS v3, `LD`
+
+indicates a locality domain device and `LE`
+
+indicates the
+underlying GPU with locality domains enabled.
+
+The client listing is also capable of showing which device a process is using.
+
+```
+$ while1 -a &
+[1] 52845
+$ echo ps | nvidia-cuda-mps-control
+PID ID SERVER DEVICE NAMESPACE COMMAND ATTRIBUTES
+52845 1 52837 GPU-b13add01-c28c 4026531836 while1 MD
+```
+
+The attribute `MD`
+
+indicates that this is a locality domain device.
+
+```
+$ while1 -a &
+[1] 52845
+$ nvidia-cuda-mps-control client list --all
+PID SERVER DEVICE MAWS-NS CMD
+52845 uid_0 GPU-b13add01-c28c default while1
+```
+
+The MPS v3 client listing does not have an attributes column. The locality
+domain device is identified by its `DEVICE`
+
+UUID, which appears with the `LD`
+
+attribute in `device list`
+
+.
+
+#### P2P with Locality Domains[#](https://docs.nvidia.com#p2p-with-locality-domains)
+
+Locality domain devices that are derived from the same underlying GPU have the special property of sharing GPU memory. They are capable of directly addressing each other’s memory without enabling peer-to-peer access.
+
+When interacting with memory on another device (a locality domain device or otherwise), the access modifier set by `cuMemSetAccess`
+
+is
+shared for all locality domain devices belonging to the same underlying GPU, and is the least restrictive access type that is set. For
+example, if a pointer is desired to be set as read-only by a locality domain device, that access type should be set for all locality domain devices
+belonging the same underlying GPU. If it is only set for a single locality domain device, then it will have no effect since other locality domain
+devices still have the default read/write permission. Similarly, if there are two locality domain devices, and one of them has memory with
+read-only permission to a pointer while another has no-access to a pointer, they will both have read-only permission.
+
+#### Limitations of Locality Domains[#](https://docs.nvidia.com#limitations-of-locality-domains)
+
+There are some limitations when using locality domain devices:
+
+`nvidia-smi`
+
+is not aware of locality domain devices. For example, using`nvidia-smi -L`
+
+will not show locality domain devices, their UUIDs, or ordinals.Host allocations or allocations created through
+
+`cuMemAllocManaged`
+
+will see no benefit from using locality domain devices.When using NVLink Multicast, multiple locality domain devices from the same underlying device cannot join the same multicast group.
+
+Locality domain devices have less total memory than their underlying device. Each locality domain device tracks their free memory (queried through
+
+`cuMemGetInfo`
+
+) independently, however allocating memory on one locality domain device may affect the remaining free memory on another. Additionally, using`cuMemAllocManaged`
+
+may result in less free memory on any or all locality domain devices.
+
+Additionally, there are some configurations in which locality domains are not supported:
+
+In driver version 590, locality domains are only supported on x86-based systems.
+
+In driver version 595 and newer, locality domains are also supported on ARM-based systems when CDMM is enabled (kernel module paramater
+
+`NVreg_CoherentGPUMemoryMode=driver`
+
+).Locality domains cannot be used in conjunction with static SM partitioning. On Legacy MPS v2, the
+
+`-mlopart`
+
+option of`start_server`
+
+is ignored if static partitioning is enabled.Locality domains cannot be used in conjunction with NVIDIA vGPU.
+
+MIG devices do not support locality domains. Using MIG on one GPU does not prevent using locality domains on another GPU.
+
+
+### Static SM Partitioning[#](https://docs.nvidia.com#static-sm-partitioning)
+
+On NVIDIA Ampere architecture and newer GPUs, users can create static SM partitions for MPS clients. This feature provides deterministic resource allocation and spatial isolation between clients by allowing users to explicitly control which SMs each client can access.
+
+Static partitioning mode is enabled at MPS control daemon launch time using the
+`-S`
+
+or `--static-partitioning`
+
+command line parameter.
+
+```
+nvidia-cuda-mps-control -d -S
+```
+
+There is no special launch mode. Start the daemon and create a server to own the partitions.
+
+```
+nvidia-cuda-mps-control -d -p 3
+nvidia-cuda-mps-control server create <name>
+```
+
+Static partitioning mode uses “chunks” as the partitioning unit. The size of a chunk depends on the GPU architecture:
+
+**dGPU**: 8 SMs on Hopper and newer GPUs (Hopper+ chunks are cluster-capable). On pre-Hopper GPUs, a chunk is 4 SMs on Legacy MPS v2 and 2 SMs on MPS v3.**iGPU**: 2 SMs on all architectures
+
+#### Creating and Managing Partitions[#](https://docs.nvidia.com#creating-and-managing-partitions)
+
+Users create SM partitions by specifying the number of chunks. Upon successful creation, a unique partition ID is returned that can be used to assign clients to that partition:
+
+Use the `sm_partition add`
+
+command with the full device UUID or a unique partial
+UUID of the device.
+
+```
+$ echo "sm_partition add GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65 7" | nvidia-cuda-mps-control
+GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65/Dx4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+```
+
+Use the `sm-partition create`
+
+command, naming the partition and its server.
+
+```
+$ nvidia-cuda-mps-control sm-partition create large --server=training --device=GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65 --chunks=7
+SM partition 'large' created on device GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65 (sm-count=56)
+CUDA_MPS_SM_PARTITION=GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65/Kp8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+```
+
+Attempting to oversubscribe will result in an error message indicating the requested and available SM counts.
+
+```
+$ echo "sm_partition add GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65 20" | nvidia-cuda-mps-control
+Failed to fulfill the requested SM partition of 20 chunks, error CUDA_ERROR_INVALID_RESOURCE_CONFIGURATION
+```
+
+```
+$ nvidia-cuda-mps-control sm-partition create big --server=training --device=GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65 --chunks=20
+Error: Not enough free chunks on device GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65 to create SM partition 'big'.
+```
+
+To assign this partition to a client application, set the `CUDA_MPS_SM_PARTITION`
+
+environment variable:
+
+```
+$ export CUDA_MPS_SM_PARTITION=GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65/Dx4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+$ ./nbody
+```
+
+One or more MPS clients can run on the same partition. However, assigning more than
+one partition from the same device to the same client is prohibited and will fail with
+`CUDA_ERROR_INVALID_RESOURCE_CONFIGURATION`
+
+.
+When static partitioning mode is enabled, MPS client applications must set this
+environment variable before initializing the MPS client. Attempting to run a client without
+setting the SM partition will fail on client initialization with
+`CUDA_ERROR_INVALID_RESOURCE_CONFIGURATION`
+
+.
+Similarly, if the partition ID is invalid, client initialization will also fail with
+`CUDA_ERROR_INVALID_RESOURCE_CONFIGURATION`
+
+.
+
+View the current partitioning configuration:
+
+Use the `lspart`
+
+command.
+
+```
+$ echo "lspart" | nvidia-cuda-mps-control
+GPU Partition free used free used clients
+chunk chunk SM SM
+GPU-74d43ed3 - 0 8 74 56 -
+GPU-74d43ed3 Dx4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA - 7 - 56 Yes
+```
+
+Use the `sm-partition list`
+
+command.
+
+```
+$ nvidia-cuda-mps-control sm-partition list --server=training --all
+SERVER DEVICE NAME CHUNKS SM-COUNT INCLUDE-REMAINDER STATUS VISIBLE-UUID
+training GPU-74d43ed3 large 7 56 false created Kp8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+training GPU-74d43ed3 - 8 74 - unallocated -
+```
+
+Remove the partition when it is no longer needed. The command will fail if the partition is still in use.
+
+Specify the device UUID and the partition ID using `sm_partition rm`
+
+. It supports
+both `rm <device UUID>/<partition ID>`
+
+and `rm <device UUID> <partition ID>`
+
+formats.
+
+```
+$ echo "sm_partition rm GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65/Dx4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" | nvidia-cuda-mps-control
+Partition GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65/Dx4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA removed
+```
+
+If the partition is still in use:
+
+```
+$ echo "sm_partition rm GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65/Dx4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" | nvidia-cuda-mps-control
+Partition GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65/Dx4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA in use. Terminate all clients before removing.
+```
+
+Specify the partition name, its server, and the device using `sm-partition delete`
+
+.
+
+```
+$ nvidia-cuda-mps-control sm-partition delete large --server=training --device=GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65
+SM partition 'large' deleted from device GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65
+```
+
+If the partition is still in use:
+
+```
+$ nvidia-cuda-mps-control sm-partition delete large --server=training --device=GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65
+Error: Cannot delete SM partition 'large': device GPU-74d43ed3-cdf7-e667-3644-bf5b4f46ed65 has active clients.
+```
+
+#### Partition ID Determinism[#](https://docs.nvidia.com#partition-id-determinism)
+
+Partition IDs are determined by the partition size, the command sequence order, and the distribution of reserved SMs at the time of partitioning. This means that repeating the same command sequence from the same initial state on systems with identical GPU SKUs will reliably produce the same partition IDs, enabling reproducible configurations across different systems.
+
+#### Resource Distribution[#](https://docs.nvidia.com#resource-distribution)
+
+When static partitioning mode is enabled, after all chunks are allocated, any remaining SMs are automatically distributed to the least recently created partition when the first client connects.
+
+Remaining SMs are not distributed automatically. To include the remainder in a
+partition, create it with `--include-remainder=true`
+
+. Only one partition per device
+can claim the remainder; attempting to claim it from another partition fails with an
+error.
+
+#### API Behavior with Static Partitioning[#](https://docs.nvidia.com#api-behavior-with-static-partitioning)
+
+When a client is running on a static SM partition, CUDA API calls reflect the resources available to that partition:
+
+`cuDeviceGetAttribute`
+
+with`CU_DEVICE_ATTRIBUTE_MULTIPROCESSOR_COUNT`
+
+returns the total SM count of the partition.`cuOccupancyMaxActiveClusters`
+
+returns the cluster occupancy of the partition on Hopper and newer GPUs.
+
+#### Limitations of Static SM Partitioning[#](https://docs.nvidia.com#limitations-of-static-sm-partitioning)
+
+Static SM partitioning has the following limitations and requirements:
+
+Static partitioning mode is only supported on NVIDIA Ampere architecture and newer GPUs.
+
+When static partitioning mode is enabled, all MPS clients must set the
+
+`CUDA_MPS_SM_PARTITION`
+
+environment variable before creating a CUDA context. Failure to do so will result in context creation failing with`CUDA_ERROR_INVALID_RESOURCE_CONFIGURATION`
+
+.Assigning multiple partitions from the same device to a single client is prohibited and will fail with
+
+`CUDA_ERROR_INVALID_RESOURCE_CONFIGURATION`
+
+.Partitions cannot be removed while clients are actively using them.
+
+Attempting to create partitions that exceed available SM resources will fail with an error message indicating the requested and available SM counts.
+
+Static SM partitioning cannot be used in conjunction with locality domains. On Legacy MPS v2, the
+
+`-mlopart`
+
+option of`start_server`
+
+is ignored if static partitioning is enabled.When static partitioning mode is enabled, dynamic resource provisioning will be ignored, this includes but not limited to MPS active thread percentage and per-context device multiprocessor partitioning.

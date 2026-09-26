@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/vllm_ir/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # vLLM IR: Functional Intermediate Representation[¶](https://docs.vllm.ai#vllm-ir-functional-intermediate-representation)
 
@@ -576,11 +576,13 @@ return my_platform.rms_norm(x, weight, epsilon)
 
 Then configure priority to use your implementation:
 
+```bash
 class MyPlatform(Platform):
 def get_default_ir_op_priority(self):
 return IrOpPriorityConfig(rms_norm=['my_platform', 'native'])
 # Users can still override priority in the same way
 llm = LLM(ir_op_priority=IrOpPriorityConfig(rms_norm=['custom_oot_kernel']))
+```
 
 
 ### Debugging and Observability[¶](https://docs.vllm.ai#debugging-and-observability)

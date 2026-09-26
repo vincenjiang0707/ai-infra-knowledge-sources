@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/serving/integrations/langchain/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 To run inference on a single or multiple GPUs, use VLLM class from langchain.
 

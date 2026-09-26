@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp4/flashinfer/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class FlashInferMxFp4LinearKernel(MxFp4LinearKernel):
 """MXFP4 W4A4 GEMM via FlashInfer CUTLASS (SM100+)."""

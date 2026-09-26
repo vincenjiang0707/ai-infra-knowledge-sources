@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -1315,6 +1315,12 @@ MoE gate linear layer with multi-tier GEMM dispatch:
 The `out_dtype`
 
 attribute is mutable and can be set after init (e.g. when the required dtype depends on the expert quantization method which is only known later).
+
+A `quant_config`
+
+that actually quantizes the gate disables every specialized tier, leaving plain `ReplicatedLinear`
+
+behavior.
 
 Methods:
 

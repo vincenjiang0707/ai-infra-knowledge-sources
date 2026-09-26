@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/diffusion_gemma/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -113,7 +113,7 @@ Overrides `get_hf_config`
 
 to accept `DiffusionGemmaConfig`
 
-(which inherits from `PretrainedConfig`
+(which inherits from `PreTrainedConfig`
 
 , not `Gemma4Config`
 

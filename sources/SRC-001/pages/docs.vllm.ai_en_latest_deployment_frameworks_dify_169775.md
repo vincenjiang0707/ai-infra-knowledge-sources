@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/frameworks/dify/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Dify[¶](https://docs.vllm.ai#dify)
 

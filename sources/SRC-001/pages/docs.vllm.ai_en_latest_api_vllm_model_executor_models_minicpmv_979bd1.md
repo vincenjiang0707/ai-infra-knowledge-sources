@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/minicpmv/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class _MiniCPMVEncoderCudaGraphMixin(MiniCPMVBaseModel, SupportsEncoderCudaGraph):
 """SupportsEncoderCudaGraph for MiniCPM-V Idefics2 + resampler (not 2.0)."""

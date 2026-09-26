@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/contributing/jit_kernel_warmup/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # JIT Kernel Warmup[¶](https://docs.vllm.ai#jit-kernel-warmup)
 
@@ -21,6 +21,7 @@ Here, a **kernel wrapper** (or just **wrapper**) is an instance of a concrete [ 
 
 Expose one wrapper near the kernel's normal runtime entry point. Prefer this backend-agnostic shape:
 
+```bash
 class MyKernel(VllmJitKernel["MyKernel.CompileKey"]):
 @dataclass(frozen=True)
 class CompileKey:
@@ -37,6 +38,7 @@ def compile(self, compile_key: CompileKey) -> None:
 def __call__(self, ...):
 return self.kernel(...)
 _MY_KERNEL = MyKernel()
+```
 
 
 `CompileKey`

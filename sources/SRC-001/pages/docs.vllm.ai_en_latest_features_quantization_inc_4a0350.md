@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/quantization/inc/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # Intel Quantization Support[¶](https://docs.vllm.ai#intel-quantization-support)
 
@@ -45,10 +45,12 @@ Additional recipes and formats will be supported in future releases.
 ### Quantize with CLI[¶](https://docs.vllm.ai#quantize-with-cli)
 
 auto-round \
+```bash
 --model Qwen/Qwen3-0.6B \
 --scheme W4A16 \
 --format auto_round \
 --output_dir ./tmp_autoround
+```
 
 
 ### Quantize with Python API[¶](https://docs.vllm.ai#quantize-with-python-api)

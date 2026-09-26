@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 #
 
@@ -549,9 +549,9 @@ Parameters:
 
 , default:[str](https://docs.python.org/3/builtins/stdtypes.html#str)`'auto'`
 
-) –The tokenizer mode. "auto" will use the fast tokenizer if available, and "slow" will always use the slow tokenizer.
+) –The tokenizer mode. See
 
--
+[ModelConfig.tokenizer_mode](https://docs.vllm.ai/config/#vllm.config.ModelConfig.tokenizer_mode). -
 
 (`skip_tokenizer_init`
 

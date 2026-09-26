@@ -1,12 +1,12 @@
 # apache/tvm
 
-- stars: 13776
-- forks: 3989
-- open_issues: 254
+- stars: 13778
+- forks: 3991
+- open_issues: 270
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-23T00:44:46Z
+- pushed_at: 2026-09-25T11:12:32Z
 - homepage: https://tvm.apache.org/
 
 ## README

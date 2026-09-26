@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/launchers/utils/server_utils/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 Get the uvicorn log config based on the provided arguments.
 

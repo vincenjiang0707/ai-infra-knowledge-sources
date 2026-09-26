@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:19:00Z",
- "finished_at": "2026-09-23T03:19:00Z",
- "duration_seconds": 51.2,
- "attempts": 1,
+ "finished_at": "2026-09-25T04:10:28Z",
+ "duration_seconds": 666.6,
+ "attempts": 4,
  "channels": {
   "gh_de2bca71": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 33,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -46,10 +56,10 @@
  },
  "cursor": {
   "gh_de2bca71:issues": {
-   "last_updated_at": "2026-09-23T08:11:58Z"
+   "last_updated_at": "2026-09-24T22:56:44Z"
   },
   "gh_de2bca71:pulls": {
-   "last_updated_at": "2026-09-23T10:13:19Z"
+   "last_updated_at": "2026-09-25T03:42:25Z"
   },
   "gh_de2bca71:releases": {
    "last_id": 391064380

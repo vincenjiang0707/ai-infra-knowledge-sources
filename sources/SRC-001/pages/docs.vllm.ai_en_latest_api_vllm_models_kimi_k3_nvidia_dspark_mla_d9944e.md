@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/dspark_mla/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class K3DSparkModel(nn.Module):
 def __init__(

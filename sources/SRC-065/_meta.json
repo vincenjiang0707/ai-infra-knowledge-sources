@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:28:02Z",
- "finished_at": "2026-09-23T03:28:02Z",
- "duration_seconds": 69.9,
- "attempts": 1,
+ "finished_at": "2026-09-25T11:19:19Z",
+ "duration_seconds": 503.2,
+ "attempts": 4,
  "channels": {
   "gh_67164921": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 58,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -46,34 +56,34 @@
   "ref_e5a585c4": {
    "type": "reference",
    "url": "https://github.com/triton-lang/triton/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 880
+   "mode": "page",
+   "chars": 1037
   },
   "ref_8773c98d": {
    "type": "reference",
    "url": "https://github.com/triton-lang/triton/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 5204
+   "mode": "page",
+   "chars": 5474
   },
   "ref_e1d304a3": {
    "type": "reference",
    "url": "https://github.com/triton-lang/triton/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 67422
   }
  },
  "cursor": {
   "gh_67164921:issues": {
-   "last_updated_at": "2026-09-22T23:09:12Z"
+   "last_updated_at": "2026-09-25T06:54:18Z"
   },
   "gh_67164921:pulls": {
-   "last_updated_at": "2026-09-23T03:22:37Z"
+   "last_updated_at": "2026-09-25T09:40:50Z"
   },
   "gh_67164921:releases": {
    "last_id": 378170972

@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:25:36Z",
- "finished_at": "2026-09-23T03:25:36Z",
- "duration_seconds": 86.4,
- "attempts": 1,
+ "finished_at": "2026-09-25T03:57:26Z",
+ "duration_seconds": 808.1,
+ "attempts": 4,
  "channels": {
   "gh_98a8d706": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 82,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -46,34 +56,34 @@
   "ref_9ec9e287": {
    "type": "reference",
    "url": "https://github.com/llm-d/llm-d/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 1584
+   "mode": "page",
+   "chars": 1650
   },
   "ref_3c5a7451": {
    "type": "reference",
    "url": "https://github.com/llm-d/llm-d/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 5222
+   "mode": "page",
+   "chars": 5357
   },
   "ref_60b0a7d6": {
    "type": "reference",
    "url": "https://github.com/llm-d/llm-d/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 100714
   }
  },
  "cursor": {
   "gh_98a8d706:issues": {
-   "last_updated_at": "2026-09-23T01:29:21Z"
+   "last_updated_at": "2026-09-25T01:19:41Z"
   },
   "gh_98a8d706:pulls": {
-   "last_updated_at": "2026-09-23T02:23:51Z"
+   "last_updated_at": "2026-09-25T03:30:19Z"
   },
   "gh_98a8d706:releases": {
    "last_id": 372008005

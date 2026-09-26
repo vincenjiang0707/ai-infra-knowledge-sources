@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/nixl/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class NixlBaseConnectorWorker:
 """Base implementation of Worker side methods shared by pull and push."""

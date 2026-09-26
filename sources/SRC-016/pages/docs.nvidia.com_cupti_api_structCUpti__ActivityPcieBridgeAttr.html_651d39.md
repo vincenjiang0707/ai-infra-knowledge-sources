@@ -1,0 +1,3 @@
+source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityPcieBridgeAttr.html
+
+7.121. CUpti_ActivityPcieBridgeAttr# struct CUpti_ActivityPcieBridgeAttr# Attributes for more information about PCI Bridge (bridgeAttr). Public Members uint16_t secondaryBus# The downstream bus number, used to search downstream devices/bridges connected to this bridge. uint16_t deviceId# Device ID of the bridge. uint16_t vendorId# Vendor ID of the bridge. uint16_t pad0# Padding for alignment.

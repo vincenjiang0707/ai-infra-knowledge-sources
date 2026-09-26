@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:30:59Z",
- "finished_at": "2026-09-23T03:30:59Z",
- "duration_seconds": 61.8,
- "attempts": 1,
+ "finished_at": "2026-09-25T01:59:59Z",
+ "duration_seconds": 48.8,
+ "attempts": 3,
  "channels": {
   "gh_5c551e97": {
    "type": "github_repo",
@@ -20,12 +20,12 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at"
+    "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
     "status": "ok",
@@ -46,37 +46,37 @@
   "ref_7f20b177": {
    "type": "reference",
    "url": "https://github.com/LMCache/LMCache/issues",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 4261
+   "mode": "page",
+   "chars": 3945
   },
   "ref_1b8f618d": {
    "type": "reference",
    "url": "https://github.com/LMCache/LMCache/pulls",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
-   "chars": 5294
+   "mode": "page",
+   "chars": 5565
   },
   "ref_5a09216e": {
    "type": "reference",
    "url": "https://github.com/LMCache/LMCache/releases",
-   "mode": "page",
    "status": "ok",
    "output": "page.md",
+   "mode": "page",
    "chars": 4551
   }
  },
  "cursor": {
   "gh_5c551e97:issues": {
-   "last_updated_at": "2026-09-23T02:53:53Z"
+   "last_updated_at": "2026-09-25T01:46:37Z"
   },
   "gh_5c551e97:pulls": {
-   "last_updated_at": "2026-09-23T03:29:47Z"
+   "last_updated_at": "2026-09-25T01:46:44Z"
   },
   "gh_5c551e97:releases": {
-   "last_id": 393547610
+   "last_id": 395462584
   }
  },
  "notes": ""

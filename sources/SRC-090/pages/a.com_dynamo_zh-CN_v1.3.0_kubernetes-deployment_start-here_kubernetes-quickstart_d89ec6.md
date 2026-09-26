@@ -1,0 +1,121 @@
+source: https://docs.nvidia.com/dynamo/zh-CN/v1.3.0/kubernetes-deployment/start-here/kubernetes-quickstart
+lastmod: 2026-09-23T23:30:39.914Z
+
+# Kubernetes Quickstart
+
+Get a model running on Kubernetes in minutes.
+
+Dynamo’s production path is Kubernetes-native: you install the platform with Helm, submit Dynamo custom resources, and let the operator reconcile inference graphs into pods, services, routing, model-loading, and scaling resources. The local and container guides remain useful for development, but Kubernetes is the canonical path for shared GPU clusters and multi-node serving.
+
+**Request entry.** This quickstart uses Dynamo-native Frontend routing: the Dynamo Frontend
+receives requests and the integrated Dynamo Router selects workers. Dynamo can also integrate
+Kubernetes-natively with [Gateway API Inference Extension](https://github.com/kubernetes-sigs/gateway-api-inference-extension),
+where Gateway API receives requests and calls the Dynamo EPP for endpoint selection. See the
+[GAIE guide](https://docs.nvidia.com/dynamo/v1.3.0/kubernetes-deployment/request-routing/gateway-api-inference-extension/overview) for the Gateway API path.
+
+## Prerequisites
+
+[Helm](https://helm.sh/docs/intro/install/)(v3.0+) installed
+
+###### CUDA
+
+###### XPU
+
+- Kubernetes cluster (v1.30+) with GPU nodes
+[kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)(v1.30+)[NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html)installed on the cluster
+
+### HuggingFace token secret
+
+Create a HuggingFace token secret for model downloads. If you don’t have a token, see the HuggingFace [token guide](https://huggingface.co/docs/hub/en/security-tokens).
+
+### Accelerator resource setup
+
+###### CUDA
+
+###### XPU
+
+If you don’t have the GPU Operator yet:
+
+If your cluster already provides GPU drivers (e.g., GKE with `gpu-driver-version=latest`
+
+, or AKS), add:
+
+### Detailed installation
+
+CUDA deployments require the GPU Operator. XPU deployments require the Intel resource drivers for Kubernetes and DRA. For additional features like RDMA, Prometheus, or multinode scheduling with Grove/KAI Scheduler, see the [Installation Guide](https://docs.nvidia.com/dynamo/v1.3.0/kubernetes-deployment/start-here/installation-guide).
+
+If your GPU SKU and cloud provider are supported, you can use [AICR](https://github.com/NVIDIA/aicr) for rapid installation of prerequisites and the Dynamo Helm chart.
+
+### Verify cluster is ready
+
+Optionally, verify your cluster is ready:
+
+## Install Dynamo
+
+Wait for the platform pods:
+
+## Understand Dynamo Deployment Resources
+
+Before applying the first YAML, it helps to know the Kubernetes resources Dynamo uses. These are Dynamo’s native control-plane objects; you describe the inference graph, and the operator owns the Kubernetes deployments, services, and component rollout around it:
+
+This quickstart uses DGDR because it avoids hand-writing the first DGD. After DGDR generates and applies the DGD, the DGDR reaches a terminal state, similar to a Kubernetes Job. The DGD persists and serves your model.
+
+DGDR can also carry supported generated-deployment features such as
+`features.planner`
+
+for Planner configuration and `features.mocker`
+
+for mocker
+mode. KV-aware routing is not currently exposed as a DGDR feature field; use a
+direct DGD, a tuned recipe, or `overrides.dgd`
+
+when you need to set router mode
+or other graph-level details explicitly.
+
+For tuned production-style manifests, start from
+[Dynamo recipes](https://github.com/ai-dynamo/dynamo/tree/v1.3.0/recipes). For the
+full deployment model, see the [Deployment Overview](https://docs.nvidia.com/dynamo/v1.3.0/kubernetes-deployment/deploy-models/model-deployment-guide).
+
+## Deploy Your First Model
+
+###### CUDA
+
+###### XPU
+
+Save this DGDR to generate and deploy a DGD for `Qwen/Qwen3-0.6B`
+
+:
+
+The DGDR generates a DGD similar in shape to the following. If you already know the backend and runtime image you want, you can apply this canonical DGD object directly instead of using DGDR:
+
+Apply exactly one of the manifests.
+
+Option A: generate and apply a DGD with DGDR.
+
+Option B: apply the DGD directly.
+
+If you use DGDR, watch it progress from `Pending`
+
+to `Profiling`
+
+to `Deploying`
+
+to `Deployed`
+
+:
+
+In both paths, the DGD is the live serving resource:
+
+Dynamo supports vLLM, TensorRT-LLM, and SGLang backends. Setting `backend: auto`
+
+lets the profiler choose the best one for your model and hardware. See the [vLLM backend guide](https://docs.nvidia.com/dynamo/v1.3.0/backends/v-llm) for a backend guide example.
+
+## Send a Request
+
+Once the DGD is ready, it is serving the model:
+
+## Cleanup
+
+## Next Steps
+
+— Cloud provider setup, accelerator resource components, and optional components (Grove, RDMA, model caching, Prometheus)[Installation Guide](https://docs.nvidia.com/dynamo/v1.3.0/kubernetes-deployment/start-here/installation-guide)— DGD, DCD, DGDR, recipes, strategy selection, and common pitfalls[Deployment Overview](https://docs.nvidia.com/dynamo/v1.3.0/kubernetes-deployment/deploy-models/model-deployment-guide)— Spec reference, lifecycle phases, monitoring commands, and generated DGD behavior[DGDR Reference](https://docs.nvidia.com/dynamo/v1.3.0/kubernetes-deployment/deploy-models/dgdr-reference)— Hand-craft a DGD spec for full control[Creating Deployments](https://docs.nvidia.com/dynamo/v1.3.0/additional-resources/creating-deployments)

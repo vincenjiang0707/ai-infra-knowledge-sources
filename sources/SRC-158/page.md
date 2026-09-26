@@ -1,5 +1,3 @@
-# 海光 DTK 专区
-
 source: https://developer.sourcefind.cn/dtk
 
 驱动、HIP运行时全面适配深算三号BW1100系列DCU

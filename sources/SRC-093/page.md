@@ -1,5 +1,3 @@
-# AIBrix
-
 source: https://github.com/vllm-project/aibrix/releases
 
 # Releases: vllm-project/aibrix

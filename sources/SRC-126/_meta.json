@@ -7,17 +7,35 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:15:30Z",
- "finished_at": "2026-09-23T04:15:30Z",
- "duration_seconds": 12.0,
- "attempts": 2,
+ "finished_at": "2026-09-24T18:54:49Z",
+ "duration_seconds": 20.0,
+ "attempts": 12,
  "channels": {
   "site_b68cfc03": {
-   "type": "js",
+   "type": "blog",
    "url": "https://www.baseten.co/blog/",
+   "index_urls": [
+    "https://www.baseten.co/blog/"
+   ],
    "status": "ok",
-   "output": "page.md",
-   "mode": "js",
-   "chars": 1348
+   "mode": "blog",
+   "posts": [],
+   "total_chars": 0,
+   "post_urls": {
+    "https://www.baseten.co/blog/blaxel-is-joining-baseten-to-build-the-future-of-agentic-cloud/": "01_blaxel-is-joining-baseten-to-build-the-future-of-agentic-clo.md",
+    "https://www.baseten.co/blog/nvidia-nemotron-3-diarization/": "11_nvidia-nemotron-3-diarization.md",
+    "https://www.baseten.co/blog/baseten-leads-covals-voice-ai-benchmark/": "12_baseten-leads-covals-voice-ai-benchmark.md",
+    "https://www.baseten.co/blog/introducing-baseten-chains/": "13_introducing-baseten-chains.md",
+    "https://www.baseten.co/blog/building-performant-embedding-workflows-with-chroma-and-baseten/": "14_building-performant-embedding-workflows-with-chroma-and-base.md",
+    "https://www.baseten.co/blog/glm-53/": "15_glm-53.md",
+    "https://www.baseten.co/blog/introducing-baseten-hosted-tools/": "16_introducing-baseten-hosted-tools.md",
+    "https://www.baseten.co/blog/langchain-trains-custom-models-langsmith-engine-baseten-loops/": "17_langchain-trains-custom-models-langsmith-engine-baseten-loop.md",
+    "https://www.baseten.co/blog/deepseek-v41-flash-more-efficient-prefill-for-coding-agents/": "18_deepseek-v41-flash-more-efficient-prefill-for-coding-agents.md",
+    "https://www.baseten.co/blog/how-baseten-makes-pyannotes-diarization-models-96x-faster/": "19_how-baseten-makes-pyannotes-diarization-models-96x-faster.md",
+    "https://www.baseten.co/blog/optimizing-delta-weight-syncs-for-managed-rollouts/": "20_optimizing-delta-weight-syncs-for-managed-rollouts.md",
+    "https://www.baseten.co/blog/new-mcp-and-skill-for-coding-agents-to-use-baseten/": "21_new-mcp-and-skill-for-coding-agents-to-use-baseten.md"
+   },
+   "head_check": "no_update"
   }
  },
  "cursor": {},

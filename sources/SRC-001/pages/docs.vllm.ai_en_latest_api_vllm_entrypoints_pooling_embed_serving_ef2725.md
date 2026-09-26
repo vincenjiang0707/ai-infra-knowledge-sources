@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/pooling/embed/serving/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 class ServingEmbedding(PoolingServing):
 """Embedding API supporting both OpenAI and Cohere formats."""

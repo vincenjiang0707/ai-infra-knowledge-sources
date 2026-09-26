@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/debug_vllm_compile/
-lastmod: 2026-09-23
+lastmod: 2026-09-24
 
 # How to debug the vLLM-torch.compile integration[¶](https://docs.vllm.ai#how-to-debug-the-vllm-torchcompile-integration)
 
