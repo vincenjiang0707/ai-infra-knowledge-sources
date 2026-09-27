@@ -9,8 +9,9 @@
 #     数据保留在工作区, 修好后重跑即可
 #
 # 用法:
-#   bash scrape/daily_update.sh               # 全流程 (含 push)
-#   bash scrape/daily_update.sh --skip-push   # 到 commit 为止, 手动确认后再 push
+#   bash scrape/daily_update.sh                # 全流程 (含 push)
+#   bash scrape/daily_update.sh --skip-push    # 到 commit 为止, 手动确认后再 push
+#   bash scrape/daily_update.sh --skip-scrape  # 跳过抓取, 直接 fence→summary→index→commit→push
 #
 # 日志: scrape/logs/daily_YYYY-MM-DD.log (gitignored)
 # 锁:   scrape/logs/daily.lock (单实例)
@@ -22,7 +23,14 @@ LOGDIR="scrape/logs"
 LOG="$LOGDIR/daily_${DATE}.log"
 mkdir -p "$LOGDIR"
 SKIP_PUSH=0
-[ "${1:-}" = "--skip-push" ] && SKIP_PUSH=1
+SKIP_SCRAPE=0
+for a in "$@"; do
+    case "$a" in
+        --skip-push) SKIP_PUSH=1 ;;
+        --skip-scrape) SKIP_SCRAPE=1 ;;
+        *) echo "unknown arg: $a (支持 --skip-push / --skip-scrape)"; exit 2 ;;
+    esac
+done
 
 exec 9>"$LOGDIR/daily.lock"
 flock -n 9 || { echo "daily_update already running, exit"; exit 1; }
@@ -34,11 +42,15 @@ CRIT_FAIL=0   # summary/index 任一失败 → 不 commit
 
 # ① 全量 SRC 增量 (head-check, 无变化的 SRC 只花 1 次 API)
 # 失败: per-SRC 容错, 整体挂=网络/API 断, 已更新部分照用, 次日自愈
-log "step1: scrape.py 全量遍历"
-if python3 -u scrape/scrape.py >> "$LOG" 2>&1; then
-    log "step1 ok"
+if [ "$SKIP_SCRAPE" -eq 1 ]; then
+    log "step1 SKIPPED (--skip-scrape)"
 else
-    log "step1 FAILED (部分数据可能已入库, 明日重跑自愈) rc=$?"
+    log "step1: scrape.py 全量遍历"
+    if python3 -u scrape/scrape.py >> "$LOG" 2>&1; then
+        log "step1 ok"
+    else
+        log "step1 FAILED (部分数据可能已入库, 明日重跑自愈) rc=$?"
+    fi
 fi
 
 # ② 新增/变更 md 的代码块包裹 (增量状态自动跳过未变文件)
