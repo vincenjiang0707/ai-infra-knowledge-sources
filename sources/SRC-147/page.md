@@ -13,26 +13,16 @@ The open-source app everyone uses to manage agents at work
 
 Hindsight: Agent Memory That Learns
 
-A unified library of SOTA model optimization techniques like quantization, distillation, pruning, neural architecture search, speculative decoding, etc. It compresses deep learning models for downstream deployment frameworks like TensorRT-LLM, TensorRT, vLLM, etc. to optimize inference speed.
-
-The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.
-
-An Open Source Machine Learning Framework for Everyone
+VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.
 
 Learn it. Build it. Ship it for others.
 
-OpenBao is a software solution to manage, store, and distribute sensitive data including secrets, certificates, and keys.
+An open-source Android app to let you browse YouTube and other services freely.
 
-A hive mind communication platform
+TypeScript-to-Native Compiler
 
-Visual Studio Code
+Multi-agent harness that runs Claude Code and Codex together as one system
 
-Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-demand toolchain bootstrapping + Self-evolving knowledge base Supports Claude Code, Kiro, Cursor, Cline, and other AI coding clients 逆向/渗透/安全技能路由包 - AI 自动路由 + 按需自举工具链 + 自动进化经验库 | 支持 Claude Code / Kiro / Cursor / Cline 等代码 AI 客户端
+The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.
 
-The LLVM Project is a collection of modular and reusable compiler and toolchain technologies.
-
-GitHub Actions runner images
-
-Model Context Protocol Server for Mobile Automation and Scraping (iOS, Android, Emulators, Simulators and Real Devices)
-
-The React Framework
+Run x86-64 Windows PC games on jailed iOS via FEX-Emu + Wine + DXMT

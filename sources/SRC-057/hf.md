@@ -3,148 +3,148 @@
 models listed: 21
 
 ## MiniMaxAI/MiniMax-H3
-- downloads: 3657004
-- likes: 5705
+- downloads: 3672292
+- likes: 5710
 - pipeline: image-text-to-video
-- lastModified: 2026-08-13T01:46:29.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/MiniMax-H3
 
 ## MiniMaxAI/MiniMax-Music3
-- downloads: 10096
-- likes: 1409
+- downloads: 9796
+- likes: 1410
 - pipeline: text-to-audio
-- lastModified: 2026-08-14T10:51:40.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/MiniMax-Music3
 
 ## MiniMaxAI/MiniMax-M3
-- downloads: 165673
+- downloads: 164729
 - likes: 1552
 - pipeline: image-text-to-text
-- lastModified: 2026-07-23T04:25:20.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/MiniMax-M3
 
 ## MiniMaxAI/MiniMax-M2.5
-- downloads: 332983
+- downloads: 382079
 - likes: 1508
 - pipeline: text-generation
-- lastModified: 2026-03-10T13:42:23.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/MiniMax-M2.5
 
 ## MiniMaxAI/MiniMax-M3-MXFP8
-- downloads: 129849
+- downloads: 123307
 - likes: 58
 - pipeline: image-text-to-text
-- lastModified: 2026-07-11T09:09:23.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/MiniMax-M3-MXFP8
 
 ## MiniMaxAI/MiniMax-Text-01
 - downloads: 3285
 - likes: 657
 - pipeline: text-generation
-- lastModified: 2025-07-03T05:13:03.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/MiniMax-Text-01
 
 ## MiniMaxAI/MiniMax-VL-01
 - downloads: 32219
 - likes: 286
 - pipeline: image-text-to-text
-- lastModified: 2025-07-03T05:11:03.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/MiniMax-VL-01
 
 ## MiniMaxAI/SynLogic-32B
 - downloads: 320
 - likes: 17
 - pipeline: text-generation
-- lastModified: 2025-06-10T02:57:20.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/SynLogic-32B
 
 ## MiniMaxAI/SynLogic-Mix-3-32B
 - downloads: 250
 - likes: 20
 - pipeline: text-generation
-- lastModified: 2025-06-10T02:53:28.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/SynLogic-Mix-3-32B
 
 ## MiniMaxAI/SynLogic-7B
 - downloads: 746
 - likes: 29
 - pipeline: text-generation
-- lastModified: 2025-06-10T02:56:30.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/SynLogic-7B
 
 ## MiniMaxAI/MiniMax-Text-01-hf
 - downloads: 16066
 - likes: 11
 - pipeline: text-generation
-- lastModified: 2025-07-09T07:38:12.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/MiniMax-Text-01-hf
 
 ## MiniMaxAI/MiniMax-M1-40k
 - downloads: 14381
 - likes: 185
 - pipeline: text-generation
-- lastModified: 2025-07-07T07:50:30.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/MiniMax-M1-40k
 
 ## MiniMaxAI/MiniMax-M1-80k
 - downloads: 1667
 - likes: 692
 - pipeline: text-generation
-- lastModified: 2025-07-07T07:51:42.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/MiniMax-M1-80k
 
 ## MiniMaxAI/MiniMax-M1-80k-hf
 - downloads: 370
 - likes: 8
 - pipeline: text-generation
-- lastModified: 2025-07-09T07:37:23.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/MiniMax-M1-80k-hf
 
 ## MiniMaxAI/MiniMax-M1-40k-hf
 - downloads: 357
 - likes: 12
 - pipeline: text-generation
-- lastModified: 2025-07-11T02:07:58.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/MiniMax-M1-40k-hf
 
 ## MiniMaxAI/MiniMax-M2
 - downloads: 283100
 - likes: 1503
 - pipeline: text-generation
-- lastModified: 2025-12-23T08:37:43.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/MiniMax-M2
 
 ## MiniMaxAI/VTP-Small-f16d64
 - downloads: 365
 - likes: 15
 - pipeline: image-feature-extraction
-- lastModified: 2025-12-16T09:22:49.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/VTP-Small-f16d64
 
 ## MiniMaxAI/VTP-Base-f16d64
 - downloads: 171
 - likes: 21
 - pipeline: image-feature-extraction
-- lastModified: 2025-12-16T09:23:12.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/VTP-Base-f16d64
 
 ## MiniMaxAI/VTP-Large-f16d64
 - downloads: 967
 - likes: 19
 - pipeline: image-feature-extraction
-- lastModified: 2025-12-16T09:23:36.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/VTP-Large-f16d64
 
 ## MiniMaxAI/MiniMax-M2.1
 - downloads: 17283
 - likes: 1361
 - pipeline: text-generation
-- lastModified: 2026-02-13T09:24:21.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/MiniMax-M2.1
 
 ## MiniMaxAI/MiniMax-M2.7
-- downloads: 1237573
+- downloads: 1191260
 - likes: 1246
 - pipeline: text-generation
-- lastModified: 2026-04-20T04:28:14.000Z
+- lastModified: None
 - url: https://huggingface.co/MiniMaxAI/MiniMax-M2.7

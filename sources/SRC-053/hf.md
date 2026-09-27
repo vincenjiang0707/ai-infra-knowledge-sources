@@ -3,8 +3,8 @@
 models listed: 19
 
 ## moonshotai/Kimi-K3
-- downloads: 1701655
-- likes: 11526
+- downloads: 1647091
+- likes: 11529
 - pipeline: image-text-to-text
 - lastModified: 2026-09-02T02:22:41.000Z
 - url: https://huggingface.co/moonshotai/Kimi-K3
@@ -24,14 +24,14 @@ models listed: 19
 - url: https://huggingface.co/moonshotai/Kimi-K2.5
 
 ## moonshotai/Kimi-K2.6
-- downloads: 424027
+- downloads: 414951
 - likes: 1611
 - pipeline: image-text-to-text
 - lastModified: 2026-05-19T09:01:54.000Z
 - url: https://huggingface.co/moonshotai/Kimi-K2.6
 
 ## moonshotai/Kimi-K2.7-Code
-- downloads: 99560
+- downloads: 97027
 - likes: 1403
 - pipeline: image-text-to-text
 - lastModified: 2026-06-15T07:49:29.000Z

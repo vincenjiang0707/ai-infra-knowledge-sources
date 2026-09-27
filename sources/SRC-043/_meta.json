@@ -7,17 +7,40 @@
  "blocked_reason": null,
  "status": "partial",
  "started_at": "2026-09-23T04:25:38Z",
- "finished_at": "2026-09-27T08:49:52Z",
- "duration_seconds": 60.4,
- "attempts": 5,
+ "finished_at": "2026-09-27T13:53:31Z",
+ "duration_seconds": 92.0,
+ "attempts": 6,
  "channels": {
   "github_org_e55cee17": {
    "type": "github_org",
    "url": "https://github.com/Cambricon",
    "status": "ok",
-   "output": "page.md",
-   "mode": "page",
-   "chars": 512
+   "kind": "org",
+   "repos": 24,
+   "posts": [
+    "Cambricon_mlu-exporter.md",
+    "Cambricon_cambricon-k8s-device-plugin.md",
+    "Cambricon_mlu-ops.md",
+    "Cambricon_mlu-ops-proto.md",
+    "Cambricon_vllm-mlu.md",
+    "Cambricon_ffmpeg-mlu.md",
+    "Cambricon_easydk.md",
+    "Cambricon_CNStream.md",
+    "Cambricon_torch_mlu.md",
+    "Cambricon_triton-linalg.md",
+    "Cambricon_cnindex.md",
+    "Cambricon_tensorflow_modelzoo.md",
+    "Cambricon_magicmind_cloud.md",
+    "Cambricon_pytorch_modelzoo.md",
+    "Cambricon_catch.md",
+    "Cambricon_paddle_mlu.md",
+    "Cambricon_magicmind_edge.md",
+    "Cambricon_modelzoo.md",
+    "Cambricon_cnpeak.md",
+    "Cambricon_Cambricon-Gst.md",
+    "Cambricon_CN-GDB.md"
+   ],
+   "output": "gh.md"
   },
   "site_704f7601": {
    "type": "site",
@@ -27,6 +50,10 @@
    "mode": "page"
   }
  },
- "cursor": {},
+ "cursor": {
+  "github_org_e55cee17:repos": {
+   "count": 24
+  }
+ },
  "notes": ""
 }

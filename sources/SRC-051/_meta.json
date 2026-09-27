@@ -7,15 +7,61 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:11:15Z",
- "finished_at": "2026-09-27T08:31:19Z",
- "duration_seconds": 2.6,
- "attempts": 3,
+ "finished_at": "2026-09-27T13:46:18Z",
+ "duration_seconds": 158.8,
+ "attempts": 7,
  "channels": {
   "hf_a73b7890": {
    "type": "hf",
    "url": "https://huggingface.co/zai-org",
    "kind": "org",
    "models": 154,
+   "posts": [
+    "zai-org_GLM-5.2.md",
+    "zai-org_GLM-5.2-FP8.md",
+    "zai-org_GLM-5.1.md",
+    "zai-org_GLM-4.7.md",
+    "zai-org_GLM-4.5.md",
+    "zai-org_GLM-5.1-FP8.md",
+    "zai-org_GLM-ASR-Nano-2512.md",
+    "zai-org_GLM-4.5-Air-FP8.md",
+    "zai-org_GLM-4.5V.md",
+    "zai-org_GLM-Z1-32B-0414.md",
+    "zai-org_GLM-5.3-Flash-BF16.md",
+    "zai-org_GLM-5-FP8.md",
+    "zai-org_GLM-4.6.md",
+    "zai-org_GLM-4-9B-0414.md",
+    "zai-org_GLM-4.7-FP8.md",
+    "zai-org_GLM-4.5-Air-Base.md",
+    "zai-org_GLM-4.6V-FP8.md",
+    "zai-org_GLM-4.6-FP8.md",
+    "zai-org_CogView4-6B.md",
+    "zai-org_GLM-4-32B-0414.md",
+    "zai-org_GLM-4.6V.md",
+    "zai-org_glm-edge-1.5b-chat-gguf.md",
+    "zai-org_GLM-4.5V-FP8.md",
+    "zai-org_GLM-4.5-FP8.md",
+    "zai-org_CogVideoX1.5-5B.md",
+    "zai-org_AutoGLM-Phone-9B.md",
+    "zai-org_glm-edge-4b-chat.md",
+    "zai-org_glm-4-9b-hf.md",
+    "zai-org_glm-edge-4b-chat-gguf.md",
+    "zai-org_glm-edge-v-5b-gguf.md",
+    "zai-org_AutoGLM-Phone-9B-Multilingual.md",
+    "zai-org_glm-edge-v-2b-gguf.md",
+    "zai-org_GLM-Z1-Rumination-32B-0414.md",
+    "zai-org_GLM-4.1V-9B-Base.md",
+    "zai-org_GLM-4-32B-Base-0414.md",
+    "zai-org_GLM-4.5-Base.md",
+    "zai-org_UI2Code_N.md",
+    "zai-org_glm-edge-v-2b.md",
+    "zai-org_Glyph.md",
+    "zai-org_glm-edge-v-5b.md",
+    "zai-org_GLM-TTS.md",
+    "zai-org_SWE-Dev-32B.md",
+    "zai-org_cogagent-9b-20241220.md",
+    "zai-org_WebVIA-Agent.md"
+   ],
    "status": "ok",
    "output": "hf.md"
   }
@@ -23,6 +69,9 @@
  "cursor": {
   "hf_a73b7890:models": {
    "count": 154
+  },
+  "hf_a73b7890:readme_posts": {
+   "count": 44
   }
  },
  "notes": ""

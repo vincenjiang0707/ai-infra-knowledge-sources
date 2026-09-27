@@ -7,15 +7,19 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:11:37Z",
- "finished_at": "2026-09-27T08:31:51Z",
- "duration_seconds": 2.0,
- "attempts": 3,
+ "finished_at": "2026-09-27T13:41:18Z",
+ "duration_seconds": 213.6,
+ "attempts": 5,
  "channels": {
   "hf_f2ba250b": {
    "type": "hf",
    "url": "https://huggingface.co/deepseek-ai",
    "kind": "org",
    "models": 105,
+   "posts": [
+    "deepseek-ai_DeepSeek-V2-Lite.md",
+    "deepseek-ai_deepseek-llm-7b-chat.md"
+   ],
    "status": "ok",
    "output": "hf.md"
   }
@@ -23,6 +27,9 @@
  "cursor": {
   "hf_f2ba250b:models": {
    "count": 105
+  },
+  "hf_f2ba250b:readme_posts": {
+   "count": 2
   }
  },
  "notes": ""

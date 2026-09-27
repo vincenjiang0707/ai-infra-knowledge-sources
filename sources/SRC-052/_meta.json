@@ -7,19 +7,64 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:11:25Z",
- "finished_at": "2026-09-27T08:31:32Z",
- "duration_seconds": 13.1,
- "attempts": 3,
+ "finished_at": "2026-09-27T13:48:58Z",
+ "duration_seconds": 71.6,
+ "attempts": 4,
  "channels": {
   "github_org_8aeb1747": {
    "type": "github_org",
    "url": "https://github.com/MoonshotAI",
    "status": "ok",
-   "output": "page.md",
-   "mode": "page",
-   "chars": 4254
+   "kind": "org",
+   "repos": 43,
+   "posts": [
+    "MoonshotAI_kimi-code.md",
+    "MoonshotAI_kimi-help-center.md",
+    "MoonshotAI_MoonEP.md",
+    "MoonshotAI_Kimi-Vendor-Verifier.md",
+    "MoonshotAI_checkpoint-engine.md",
+    "MoonshotAI_walle.md",
+    "MoonshotAI_FlashKDA.md",
+    "MoonshotAI_Kimi-K2.5.md",
+    "MoonshotAI_Kimi-K3.md",
+    "MoonshotAI_PerceptionBench.md",
+    "MoonshotAI_minitriton.md",
+    "MoonshotAI_nano-kpu.md",
+    "MoonshotAI_kosong.md",
+    "MoonshotAI_CombiBench.md",
+    "MoonshotAI_kimi-agent-sdk.md",
+    "MoonshotAI_Attention-Residuals.md",
+    "MoonshotAI_K2-Vendor-Verifier.md",
+    "MoonshotAI_kimi-agent-rs.md",
+    "MoonshotAI_WorldVQA.md",
+    "MoonshotAI_Kimi-K2.md",
+    "MoonshotAI_kimi-code-zed-extension.md",
+    "MoonshotAI_pykaos.md",
+    "MoonshotAI_Kimi-Audio-Evalkit.md",
+    "MoonshotAI_Kimi-Linear.md",
+    "MoonshotAI_zsh-kimi-cli.md",
+    "MoonshotAI_Kimi-Dev.md",
+    "MoonshotAI_Moonlight.md",
+    "MoonshotAI_MoonshotAI-Cookbook.md",
+    "MoonshotAI_Kimi-VL.md",
+    "MoonshotAI_Kimina-Prover-Preview.md",
+    "MoonshotAI_Kimi-Audio.md",
+    "MoonshotAI_Kimi-Researcher.md",
+    "MoonshotAI_MoBA.md",
+    "MoonshotAI_Kimi-k1.5.md",
+    "MoonshotAI_moonpalace.md",
+    "MoonshotAI_awesome-moonshot-api.md",
+    "MoonshotAI_batched-benchmark.md",
+    "MoonshotAI_koishi-plugin-moonshot-api-plus.md",
+    "MoonshotAI_koishi-plugin-moonshot-api.md"
+   ],
+   "output": "gh.md"
   }
  },
- "cursor": {},
+ "cursor": {
+  "github_org_8aeb1747:repos": {
+   "count": 43
+  }
+ },
  "notes": ""
 }

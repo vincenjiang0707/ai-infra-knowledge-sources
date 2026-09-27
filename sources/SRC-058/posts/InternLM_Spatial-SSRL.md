@@ -1,0 +1,245 @@
+# InternLM/Spatial-SSRL
+
+source: https://github.com/InternLM/Spatial-SSRL
+
+<div align="center">
+  <h1 align="center">
+    <div style="display: flex; align-items: center; justify-content: center;">
+      <div style="text-align: left; line-height: 1.3;">
+        (CVPR 2026)Spatial-SSRL: Enhancing Spatial Understanding via Self-Supervised Reinforcement Learning
+      </div>
+    </div>
+  </h1>
+  <p align="center">
+    <a href="https://scholar.google.com/citations?hl=en&user=yQ8U3tUAAAAJ"><strong>Yuhong Liu</strong></a >
+    ·
+    <a href="https://beichenzbc.github.io/"><strong>Beichen Zhang</strong></a >
+    ·
+    <a href="https://yuhangzang.github.io/"><strong>Yuhang Zang<sup>&dagger;</sup></strong></a >
+    ·
+    <a href="https://scholar.google.com/citations?user=sJkqsqkAAAAJ"><strong>Yuhang Cao</strong></a >
+    ·
+    <a href="https://github.com/Cooperx521"><strong>Long Xing</strong></a >
+    </br>
+    <a href="https://lightdxy.github.io/"><strong>Xiaoyi Dong</strong></a >
+    ·
+    <a href="https://github.com/kennymckormick"><strong>Haodong Duan</strong></a >
+    ·
+    <a href="http://dahua.site/"><strong>Dahua Lin</strong></a >
+    ·
+     <a href="https://myownskyw7.github.io/"><strong>Jiaqi Wang<sup>&dagger;</sup></strong></a >
+  </p >
+  <p align="center" style="font-size: 1em; margin-top: -1em">  <sup>&dagger;</sup>Corresponding authors. </p >
+  <p align="center" style="font-size: 1.2em; margin-top: 0.5em">
+    📖<a href="https://arxiv.org/abs/2510.27606">Paper</a>
+  | 🏠<a href="https://github.com/InternLM/Spatial-SSRL">Homepage</a >
+  | 🤗<a href="https://huggingface.co/internlm/Spatial-SSRL-7B">Spatial-SSRL-7B Model</a >
+  | 🤗<a href="https://huggingface.co/internlm/Spatial-SSRL-3B">Spatial-SSRL-3B Model</a >
+  | 🤗<a href="https://huggingface.co/internlm/Spatial-SSRL-Qwen3VL-4B">Spatial-SSRL-Qwen3VL-4B Model</a >
+  | 🤗<a href="https://huggingface.co/datasets/internlm/Spatial-SSRL-81k">Spatial-SSRL-81k Dataset</a >
+  | 📰<a href="https://huggingface.co/papers/2510.27606">Daily Paper</a >
+  </p > 
+</div>
+
+## 📢 News
+- 🚀 [2026/04/05] We have released the training code of Spatial-SSRL.
+- 🚀 [2026/02/25] We have released the [🤗Spatial-SSRL-3B Model](https://huggingface.co/internlm/Spatial-SSRL-3B), initialized from Qwen2.5-VL-3B-Instruct.
+- 🚀 [2026/02/21] Our work has been accepted by CVPR 2026.
+- 🚀 [2025/11/24] We have released the [🤗Spatial-SSRL-Qwen3VL-4B Model](https://huggingface.co/internlm/Spatial-SSRL-Qwen3VL-4B), initialized from Qwen3-VL-4B-Instruct.
+- 🚀 [2025/11/03] Now you can try out Spatial-SSRL-7B on [🤗Spatial-SSRL Space](https://huggingface.co/spaces/yuhangzang/Spatial-SSRL).
+- 🚀 [2025/11/03] We have released the [Spatial-SSRL-7B Model](https://huggingface.co/internlm/Spatial-SSRL-7B), and [Spatial-SSRL-81k Dataset](https://huggingface.co/datasets/internlm/Spatial-SSRL-81k).
+- 🚀 [2025/11/02] We have released the Spatial-SSRL [repository](https://github.com/InternLM/Spatial-SSRL).
+
+  
+## 🌈 Overview
+We are thrilled to introduce <strong>Spatial-SSRL</strong>, a novel self-supervised RL paradigm aimed at enhancing LVLM spatial understanding. 
+By optimizing Qwen2.5-VL-7B with Spatial-SSRL, the model exhibits stronger spatial intelligence across seven spatial understanding benchmarks in both image and video settings.
+</p>
+<p style="text-align: center;"> 
+  <img src="assets/teaser_1029final.png" alt="Teaser" width="100%"> 
+</p>
+Spatial-SSRL is a <strong>lightweight</strong> tool-free framework that is natually compatible with the RLVR training paradigm and easy to extend to a multitude of pretext tasks.
+Five tasks are currently formulated in the framework, requiring only ordinary RGB and RGB-D images. <strong>And we welcome you to join Spatial-SSRL with effective pretext tasks to further strengthen the capabilities of LVLMs!</strong>
+
+<p style="text-align: center;"> 
+  <img src="assets/pipeline_1029final.png" alt="Pipeline" width="100%"> 
+</p>
+
+## 💡 Highlights
+- 🔥 **Highly Scalable:** Spatial-SSRL uses ordinary raw RGB and RGB-D images instead of richly-annotated public datasets or manual labels for data curation, making it highly scalable.
+- 🔥 **Cost-effective:** Avoiding the need for human labels or API calls for general LVLMs throughout the entire pipeline endows Spatial-SSRL with cost-effectiveness.
+- 🔥 **Lightweight:** Prior approaches for spatial understanding heavily rely on annotation of external tools, incurring inherent errors in training data and additional cost. In constrast, Spatial-SSRL is completely tool-free and can easily be extended to more self-supervised tasks. 
+- 🔥 **Naturally Verifiable:** Intrinsic supervisory signals determined by pretext objectives are naturally verifiable, aligning Spatial-SSRL well with the RLVR paradigm.
+<p style="text-align: center;"> 
+  <img src="assets/comparison_v2.png" alt="Teaser" width="100%"> 
+</p>
+
+## 📊 Results
+We train Qwen2.5-VL-3B and Qwen2.5-VL-7B with our Spatial-SSRL paradigm and the experimental results across seven spatial understanding benchmarks are shown below.
+<p style="text-align: center;"> 
+  <img src="assets/exp_result.png" alt="Pipeline" width="100%"> 
+</p>
+
+## ⭐️ Quick Start
+To directly experience <strong>Spatial-SSRL-7B</strong>, you can try it out on [🤗Spatial-SSRL Space](https://huggingface.co/spaces/yuhangzang/Spatial-SSRL)!
+
+Here we provide a code snippet for you to start a simple trial of <strong>Spatial-SSRL-7B</strong> on your own device. You can download the model from 🤗<a href="https://huggingface.co/internlm/Spatial-SSRL-7B">Spatial-SSRL-7B Model</a > before your trial!
+</p>
+
+```python
+from transformers import Qwen2_5_VLForConditionalGeneration, AutoTokenizer, AutoProcessor
+from qwen_vl_utils import process_vision_info
+
+model_path = "internlm/Spatial-SSRL-7B" #You can change it to your own local path if deployed already
+img_path = "examples/eg1.jpg"
+question = "Consider the real-world 3D locations of the objects. Which object has a higher location? A. yellow bear kite B. building"
+#We recommend using the format prompt to make the inference consistent with training
+format_prompt = "\n You FIRST think about the reasoning process as an internal monologue and then provide the final answer. The reasoning process MUST BE enclosed within <think> </think> tags. The final answer MUST BE put in \\boxed{}."
+
+model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
+    model_path, torch_dtype="auto", device_map="auto"
+)
+processor = AutoProcessor.from_pretrained(model_path)
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "image",
+                "image": img_path,
+            },
+            {"type": "text", "text": question + format_prompt},
+        ],
+    }
+]
+
+text = processor.apply_chat_template(
+    messages, tokenize=False, add_generation_prompt=True
+)
+image_inputs, video_inputs = process_vision_info(messages)
+inputs = processor(
+    text=[text],
+    images=image_inputs,
+    videos=video_inputs,
+    padding=True,
+    return_tensors="pt",
+)
+inputs = inputs.to("cuda")
+
+generated_ids = model.generate(**inputs, max_new_tokens=4096, do_sample=False)
+generated_ids_trimmed = [
+    out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
+]
+output_text = processor.batch_decode(
+    generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
+)
+print("Model Response:", output_text)
+```
+
+Here we provide a code snippet for you to start a simple trial of <strong>Spatial-SSRL-Qwen3VL-4B</strong> on your own device. You can download the model from 🤗<a href="https://huggingface.co/internlm/Spatial-SSRL-Qwen3VL-4B">Spatial-SSRL-Qwen3VL-4B Model</a > before your trial!
+</p>
+
+```python
+from transformers import AutoProcessor, AutoModelForImageTextToText #transformers==4.57.1
+from qwen_vl_utils import process_vision_info #0.0.14
+import torch
+
+model_path = "internlm/Spatial-SSRL-Qwen3VL-4B" #You can change it to your own local path if deployed already
+
+#Change the path of the input image
+img_path = "examples/eg_qwen3vl.jpg"
+
+#Change your question here
+question = "Question: Consider the real-world 3D locations and orientations of the objects. If I stand at the man's position facing where it is facing, is the menu on the left or right of me?\nOptions:\nA. on the left\nB. on the right\n"
+
+question += "Please select the correct answer from the options above. \n"
+#We recommend using the format prompt to make the inference consistent with training
+format_prompt = "You FIRST think about the reasoning process as an internal monologue and then provide the final answer. The reasoning process MUST BE enclosed within <think> </think> tags. The final answer MUST BE put in \\boxed{}."
+
+model = AutoModelForImageTextToText.from_pretrained(
+    model_path, torch_dtype=torch.float16, device_map='auto', attn_implementation='flash_attention_2'
+    )
+processor = AutoProcessor.from_pretrained(model_path)
+
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "image",
+                "image": img_path,
+            },
+            {"type": "text", "text": question + format_prompt},
+        ],
+    }
+]
+
+text = processor.apply_chat_template(
+    messages, tokenize=False, add_generation_prompt=True
+)
+image_inputs, video_inputs = process_vision_info(messages)
+inputs = processor(
+    text=[text],
+    images=image_inputs,
+    videos=video_inputs,
+    padding=True,
+    return_tensors="pt",
+)
+inputs = inputs.to("cuda")
+
+generated_ids = model.generate(**inputs, max_new_tokens=4096, do_sample=False)
+generated_ids_trimmed = [
+    out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
+]
+output_text = processor.batch_decode(
+    generated_ids_trimmed, skip_special_tokens=True, clean_up_tokenization_spaces=False
+)
+print("Model Response:", output_text[0])
+```
+## 🛠️ Training
+See <a href="https://github.com/InternLM/Spatial-SSRL/blob/main/training/training.md">training.md</a >
+
+## 🛠️ Evaluation
+Prepare your environment:
+```bash
+git clone https://github.com/InternLM/Spatial-SSRL.git
+conda create -n spatialssrl python==3.10
+conda activate spatialssrl
+cd Spatial-SSRL/evaluation
+pip install -r requirements.txt
+
+# Recommended
+pip install flash-attn --no-build-isolation
+```
+Start your evaluation by referring to the tutorials in <a href="https://github.com/InternLM/Spatial-SSRL/blob/main/evaluation/Eval.md">Eval.md</a >
+
+
+## Cases
+<p style="text-align: center;"> 
+  <img src="examples/case1.jpg" alt="Teaser" width="100%"> 
+</p>
+<p style="text-align: center;"> 
+  <img src="examples/case2.jpg" alt="Teaser" width="100%"> 
+</p>
+
+## ✒️Citation
+If you find this project useful, please kindly cite:
+```
+@article{liu2025spatial,
+  title={Spatial-SSRL: Enhancing Spatial Understanding via Self-Supervised Reinforcement Learning},
+  author={Liu, Yuhong and Zhang, Beichen and Zang, Yuhang and Cao, Yuhang and Xing, Long and Dong, Xiaoyi and Duan, Haodong and Lin, Dahua and Wang, Jiaqi},
+  journal={arXiv preprint arXiv:2510.27606},
+  year={2025}
+}
+```
+
+## 📄 License
+![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg) ![Data License](https://img.shields.io/badge/Data%20License-CC%20By%20NC%204.0-red.svg) 
+
+**Usage and License Notices**: The data and code are intended and licensed for research use only.
+
+## ❤️ Acknowledgement
+We extend our sincere gratitude to <a href="https://github.com/open-compass/VLMEvalKit">VLMEvalkit</a >, the powerful toolkit to evaluate a vast range of LMMs!
+
+The work is built upon <a href="https://github.com/hiyouga/EasyR1">EasyR1</a > and <a href="https://github.com/hiyouga/LLaMAFactory">LlaMaFactory</a >, two excellent codebase for LLM training!
+

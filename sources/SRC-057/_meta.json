@@ -7,15 +7,18 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:11:48Z",
- "finished_at": "2026-09-27T08:32:04Z",
- "duration_seconds": 1.9,
- "attempts": 3,
+ "finished_at": "2026-09-27T13:41:49Z",
+ "duration_seconds": 35.9,
+ "attempts": 5,
  "channels": {
   "hf_9f1c4cab": {
    "type": "hf",
    "url": "https://huggingface.co/MiniMaxAI",
    "kind": "org",
    "models": 21,
+   "posts": [
+    "MiniMaxAI_MiniMax-M3.md"
+   ],
    "status": "ok",
    "output": "hf.md"
   }
@@ -23,6 +26,9 @@
  "cursor": {
   "hf_9f1c4cab:models": {
    "count": 21
+  },
+  "hf_9f1c4cab:readme_posts": {
+   "count": 1
   }
  },
  "notes": ""
