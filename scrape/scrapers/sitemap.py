@@ -16,6 +16,7 @@ def try_run(src, ch_key, ch, meta_channels, cursor):
     url = ch['url'].rstrip('/')
     d = common.src_dir(src['src_id'])
     out = {'type': 'sitemap', 'url': ch['url']}
+    common.clog(src, ch_key, f"sitemap {url}")
 
     pages, mode = _find_pages(url)
     if pages is None:
@@ -46,6 +47,7 @@ def try_run(src, ch_key, ch, meta_channels, cursor):
     if pages and not todo:
         out.update(status='ok', pages_fetched=0, pages_failed=0,
                    output_dir='pages/', cap=PAGE_CAP, head_check='no_update')
+        common.clog(src, ch_key, f"sitemap no_update (head_check ok, {len(pages)} pages)")
         meta_channels[ch_key] = out
         return True
     for loc, lastmod in todo:
@@ -67,6 +69,7 @@ def try_run(src, ch_key, ch, meta_channels, cursor):
                output_dir='pages/', cap=PAGE_CAP)
     if max_lastmod:
         cursor[f'{ch_key}:sitemap'] = {'lastmod': max_lastmod}
+    common.clog(src, ch_key, f"sitemap {len(pages)} pages, fetched {fetched}, failed {failed}")
     meta_channels[ch_key] = out
     return True
 

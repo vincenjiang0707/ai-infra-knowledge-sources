@@ -18,6 +18,7 @@ def run(src, ch_key, ch, meta_channels, cursor):
     url = ch['url']
     d = common.src_dir(src['src_id'])
     out = {'type': 'js', 'url': url}
+    common.clog(src, ch_key, f"js {url}")
     from playwright.sync_api import sync_playwright
     try:
         launch_kwargs = {'headless': True, 'args': ['--no-sandbox']}
@@ -47,4 +48,5 @@ def run(src, ch_key, ch, meta_channels, cursor):
                 out.update(status='error', mode='js', chars=len(text), reason='no_md')
     except Exception as e:
         out.update(status='error', mode='js', error=str(e)[:200])
+    common.clog(src, ch_key, f"js -> {out.get('status')} ({out.get('chars', 0)}c)")
     meta_channels[ch_key] = out

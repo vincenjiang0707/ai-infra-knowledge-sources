@@ -23,6 +23,7 @@ def try_run(src, ch_key, ch, meta_channels, cursor):
     pages_dir = os.path.join(common.src_dir(src['src_id']), 'pages')
     os.makedirs(pages_dir, exist_ok=True)
     out = {'type': 'menu', 'url': seed, 'mode': 'menu_bfs'}
+    common.clog(src, ch_key, f"menu_bfs {seed}")
 
     prev = (cursor.get(f'{ch_key}:menu') or {})
     visited = set(prev.get('visited', []))
@@ -58,6 +59,7 @@ def try_run(src, ch_key, ch, meta_channels, cursor):
     out.update(status='ok' if md_count else 'error',
                pages_fetched=fetched, pages_failed=failed,
                md_written=md_count, output_dir='pages/', cap=CAP)
+    common.clog(src, ch_key, f"menu_bfs fetched {fetched}, failed {failed}, md {md_count}")
     if visited:
         cursor[f'{ch_key}:menu'] = {'visited': sorted(visited)}
     meta_channels[ch_key] = out

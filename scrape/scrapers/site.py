@@ -13,6 +13,7 @@ def run(src, ch_key, ch, meta_channels, cursor):
     url = ch['url'].rstrip('/') + '/'
     d = common.src_dir(src['src_id'])
     out = {'type': ch['type'], 'url': ch['url']}
+    common.clog(src, ch_key, f"site {ch['url']}")
 
     # raw text manifests (llms.txt etc.)
     if ch['url'].rstrip('/').endswith(('.txt', '.md')):
@@ -25,6 +26,7 @@ def run(src, ch_key, ch, meta_channels, cursor):
         else:
             out.update(status='blocked' if code in common.BLOCKED_HTTP else 'error',
                        http_code=code, mode='raw')
+        common.clog(src, ch_key, f"raw -> {out.get('status')}")
         meta_channels[ch_key] = out
         return
 
@@ -41,6 +43,7 @@ def run(src, ch_key, ch, meta_channels, cursor):
         _page_extract(d, ch, out)
     else:
         _page_extract(d, ch, out)
+    common.clog(src, ch_key, f"{out.get('mode')} -> {out.get('status')}")
     meta_channels[ch_key] = out
 
 

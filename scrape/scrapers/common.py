@@ -18,6 +18,11 @@ BROWSER_UA = ('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 '
               '(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36')
 
 
+def clog(src, ch_key, msg):
+    """通道级日志: [SRC-XXX ch_key] msg (与 github.py 格式一致)."""
+    print(f"[{src['src_id']} {ch_key}] {msg}", flush=True)
+
+
 def now():
     return datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 

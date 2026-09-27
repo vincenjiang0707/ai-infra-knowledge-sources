@@ -21,6 +21,7 @@ def run(src, ch_key, ch, meta_channels, cursor):
         site.run(src, ch_key, ch, meta_channels, cursor)
         return
 
+    common.clog(src, ch_key, f"hf {ident}")
     if not ident:
         out.update(status='error', error=f'unparsed HF url {url}')
         meta_channels[ch_key] = out
@@ -76,4 +77,5 @@ def run(src, ch_key, ch, meta_channels, cursor):
     with open(os.path.join(d, fn), 'w') as f:
         f.write('\n'.join(str(p) for p in parts))
     out.update(status='ok', output=fn)
+    common.clog(src, ch_key, f"hf {out.get('kind', '')} -> ok")
     meta_channels[ch_key] = out
