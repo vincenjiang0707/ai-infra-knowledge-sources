@@ -329,7 +329,13 @@ def run(src, ch_key, ch, meta_channels, cursor):
                 page = ctx.new_page()
                 time.sleep(_jit(2))
             try:
-                page.goto(url, wait_until=WAIT, timeout=15000)
+                try:
+                    page.goto(url, wait_until='networkidle', timeout=15000)
+                except Exception:
+                    # networkidle 过严 (挂起的评论 iframe/gtag 等永不 idle):
+                    # 降级 domcontentloaded + 渲染等待, 静态站正文已完整
+                    page.goto(url, wait_until='domcontentloaded', timeout=30000)
+                    time.sleep(_jit(2))
                 time.sleep(_jit(1))
                 post_html = page.content()
                 # detect Cloudflare challenge
