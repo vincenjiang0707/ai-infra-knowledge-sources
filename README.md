@@ -37,7 +37,7 @@
 ├── SCRAPE_REPORT.md            抓取逻辑、状态机、性能与已知边界
 ├── _registry.json              170 SRC 元数据（含 status / channel 状态）
 ├── _summary/                   汇总报告（index / fetched / partial / not_fetched / blocked）
-├── _runs/                      每次抓取的运行日志（RUN-*.json / DAY-*.json）
+├── _runs/                      每次抓取的运行日志（RUN-*.json / DAY-*.json，本地不入库）
 ├── scrape/                     抓取与维护脚本（见下方"更新方式"）
 └── sources/
     └── SRC-XXX/
