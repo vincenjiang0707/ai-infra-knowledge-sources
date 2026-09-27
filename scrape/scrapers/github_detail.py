@@ -214,10 +214,10 @@ def process_repo(owner_repo, ch_key, jsonl_rows, kind, ddir, src_id=''):
         existing = idx.get((kind, n))
         last_cid = (existing or {}).get('last_comment_id') or 0
         last_rid = (existing or {}).get('last_review_id') or 0
-        # Hard short-circuit: cursor populated + nothing changed since fetch
+        # Hard short-circuit: 已抓过且此后条目无变化 → 跳过 (无 API 调用).
+        # last_cid/last_rid 为 0 是合法游标 (0评论/0review), 不参与判定.
         if (existing and existing.get('fetched_at')
-                and (r.get('updated_at') or '') <= existing['fetched_at']
-                and last_cid and last_rid):
+                and (r.get('updated_at') or '') <= existing['fetched_at']):
             new_idx.append(existing)
             skipped += 1
             continue

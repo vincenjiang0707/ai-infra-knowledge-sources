@@ -3,9 +3,12 @@
 
 Usage:
   python3 scrape.py                     # all sources, incremental
-  python3 scrape.py SRC-003 SRC-140     # specific sources
+                                        #   同日已跑成 (new/no_update) 的 SRC 跳过
+  python3 scrape.py SRC-003 SRC-140     # specific sources (不受同日跳过限制)
   python3 scrape.py --retry-blocked     # also retry blocked/not_fetched
+  python3 scrape.py --rerun-today       # 忽略同日跳过, 全量重跑
 """
+import datetime
 import json
 import os
 import sys
@@ -176,9 +179,27 @@ def _merge_day_log(runs_dir, day, run_log):
         json.dump(day_log, f, ensure_ascii=False, indent=1)
 
 
+def _load_day_done():
+    """当天已跑成 (outcome new/no_update) 的 SRC: {sid: 状态行}.
+
+    用于无参全量运行的同日跳过: 一天内 daily_update 重复执行时,
+    已成功跑过的 SRC 不再重走通道与 per-item detail.
+    """
+    p = os.path.join(common.ROOT, '_runs',
+                     f'DAY-{datetime.date.today().isoformat()}.json')
+    try:
+        with open(p) as f:
+            d = json.load(f)
+    except (OSError, ValueError):
+        return {}
+    return {sid: s for sid, s in (d.get('srcs') or {}).items()
+            if s.get('outcome') in ('new', 'no_update')}
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
     retry_blocked = '--retry-blocked' in sys.argv
+    rerun_today = '--rerun-today' in sys.argv
     reg_path = os.path.join(common.ROOT, '_registry.json')
     with open(reg_path) as f:
         registry = json.load(f)
@@ -198,9 +219,25 @@ def main():
         return (0 if is_gh and n_ch == 1 else 1 if is_gh else 2, n_ch)
     registry.sort(key=order)
 
+    # 同日跳过: 仅无参全量 + 未指定 --rerun-today 时启用
+    day_done = {} if (args or rerun_today) else _load_day_done()
+    to_run = []
+    day_skipped = 0
+    for s in registry:
+        prev = day_done.get(s['src_id'])
+        if prev:
+            day_skipped += 1
+            print(f"{s['src_id']}: {prev.get('status', 'success')} (day-skip)",
+                  flush=True)
+        else:
+            to_run.append(s)
+    if day_skipped:
+        print(f'day-skip: {day_skipped} SRCs already ran ok today '
+              f'(--rerun-today to force)', flush=True)
+
     results = []
     with ThreadPoolExecutor(max_workers=2) as ex:
-        futs = {ex.submit(process, s, retry_blocked): s for s in registry}
+        futs = {ex.submit(process, s, retry_blocked): s for s in to_run}
         for fut in as_completed(futs):
             r = fut.result()
             results.append(r)
