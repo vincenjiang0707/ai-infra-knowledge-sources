@@ -22,8 +22,11 @@ def run(src, ch_key, ch, meta_channels, cursor):
     # If this channel has never had detail fetched, force-refresh jsonl
     # even if cursor head-check would otherwise short-circuit. Otherwise
     # first-time-detail SRCs get stuck at "no update" forever.
+    # Per-kind check: 缺 _index_{kind}.jsonl 即强制刷新该 kind —
+    # 通道目录存在但单 kind detail 缺失 (如 pulls 首次失败) 也能自愈.
     detail_dir = os.path.join(d, 'github_details', ch_key)
-    detail_missing = not os.path.isdir(detail_dir)
+    detail_missing_issue = not os.path.isfile(os.path.join(detail_dir, '_index_issue.jsonl'))
+    detail_missing_pull = not os.path.isfile(os.path.join(detail_dir, '_index_pr.jsonl'))
 
     # 1. repo meta
     data, st = common.gh_api(f'repos/{owner}/{repo}')
@@ -69,8 +72,8 @@ def run(src, ch_key, ch, meta_channels, cursor):
     prev_i = prev_c.get('last_updated_at', '')
     # 上次若已回退到上游, head-check 也对上游做
     hc_tgt_i = prev_c.get('from') or f'{owner}/{repo}'
-    head_i = 'zzz' if detail_missing else (_head_updated(hc_tgt_i, 'issues') or 'zzz')
-    if prev_i and head_i <= prev_i and not detail_missing:
+    head_i = 'zzz' if detail_missing_issue else (_head_updated(hc_tgt_i, 'issues') or 'zzz')
+    if prev_i and head_i <= prev_i and not detail_missing_issue:
         out['issues'] = {'status': 'ok', 'count': 'cached',
                          'note': 'head-check: no update since last run'}
         print(f'  [{src["src_id"]} {ch_key}] issues cached (head_check ok)', flush=True)
@@ -105,8 +108,8 @@ def run(src, ch_key, ch, meta_channels, cursor):
     prev_c = cursor.get(f'{ch_key}:pulls') or {}
     prev_p = prev_c.get('last_updated_at', '')
     hc_tgt_p = prev_c.get('from') or f'{owner}/{repo}'
-    head_p = 'zzz' if detail_missing else (_head_updated(hc_tgt_p, 'pulls') or 'zzz')
-    if prev_p and head_p <= prev_p and not detail_missing:
+    head_p = 'zzz' if detail_missing_pull else (_head_updated(hc_tgt_p, 'pulls') or 'zzz')
+    if prev_p and head_p <= prev_p and not detail_missing_pull:
         out['pulls'] = {'status': 'ok', 'count': 'cached',
                         'note': 'head-check: no update since last run'}
         print(f'  [{src["src_id"]} {ch_key}] pulls cached (head_check ok)', flush=True)
