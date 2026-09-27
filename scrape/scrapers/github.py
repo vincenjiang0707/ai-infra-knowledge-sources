@@ -18,7 +18,7 @@ def run(src, ch_key, ch, meta_channels, cursor):
     owner, repo = m.group(1), m.group(2)
     d = common.src_dir(src['src_id'])
     out = {'type': 'github_repo', 'url': url}
-    print(f'[{ch_key}] {owner}/{repo}', flush=True)
+    print(f'[{src["src_id"]} {ch_key}] {owner}/{repo}', flush=True)
     # If this channel has never had detail fetched, force-refresh jsonl
     # even if cursor head-check would otherwise short-circuit. Otherwise
     # first-time-detail SRCs get stuck at "no update" forever.
@@ -73,9 +73,9 @@ def run(src, ch_key, ch, meta_channels, cursor):
     if prev_i and head_i <= prev_i and not detail_missing:
         out['issues'] = {'status': 'ok', 'count': 'cached',
                          'note': 'head-check: no update since last run'}
-        print(f'  [{ch_key}] issues cached (head_check ok)', flush=True)
+        print(f'  [{src["src_id"]} {ch_key}] issues cached (head_check ok)', flush=True)
     else:
-        print(f'  [{ch_key}] fetching issues top-{CAP} (head={head_i[:10]}, prev={prev_i[:10] or "—"})', flush=True)
+        print(f'  [{src["src_id"]} {ch_key}] fetching issues top-{CAP} (head={head_i[:10]}, prev={prev_i[:10] or "—"})', flush=True)
         tgt = f'{owner}/{repo}'
         rows, st_i, last_upd = _list(d, f'repos/{tgt}/issues',
                                      'github_issues.jsonl',
@@ -83,7 +83,7 @@ def run(src, ch_key, ch, meta_channels, cursor):
                                      kind='issue', cap=CAP)
         # fork 仓库 issues 为空 → 回退到上游根仓库
         if st_i == 'ok' and not rows and upstream and upstream != tgt:
-            print(f'  [{ch_key}] fork issues empty -> fallback to {upstream}', flush=True)
+            print(f'  [{src["src_id"]} {ch_key}] fork issues empty -> fallback to {upstream}', flush=True)
             tgt = upstream
             rows, st_i, last_upd = _list(d, f'repos/{upstream}/issues',
                                          'github_issues.jsonl',
@@ -99,7 +99,7 @@ def run(src, ch_key, ch, meta_channels, cursor):
                 cur['from'] = upstream
             cursor[f'{ch_key}:issues'] = cur
         if st_i == 'ok' and rows:
-            _run_detail(d, ch_key, tgt, rows, 'issue', out, 'issues')
+            _run_detail(d, ch_key, tgt, rows, 'issue', out, 'issues', src['src_id'])
 
     # 4. pulls (top-100 by updated desc, mirror web UI default sort)
     prev_c = cursor.get(f'{ch_key}:pulls') or {}
@@ -109,16 +109,16 @@ def run(src, ch_key, ch, meta_channels, cursor):
     if prev_p and head_p <= prev_p and not detail_missing:
         out['pulls'] = {'status': 'ok', 'count': 'cached',
                         'note': 'head-check: no update since last run'}
-        print(f'  [{ch_key}] pulls cached (head_check ok)', flush=True)
+        print(f'  [{src["src_id"]} {ch_key}] pulls cached (head_check ok)', flush=True)
     else:
-        print(f'  [{ch_key}] fetching pulls top-{CAP} (head={head_p[:10]}, prev={prev_p[:10] or "—"})', flush=True)
+        print(f'  [{src["src_id"]} {ch_key}] fetching pulls top-{CAP} (head={head_p[:10]}, prev={prev_p[:10] or "—"})', flush=True)
         tgt_p = f'{owner}/{repo}'
         rows_p, st_p, last_upd_p = _list(d, f'repos/{tgt_p}/pulls',
                                          'github_pulls.jsonl',
                                          params='per_page=100&state=all&sort=updated&direction=desc',
                                          kind='pr', cap=CAP)
         if st_p == 'ok' and not rows_p and upstream and upstream != tgt_p:
-            print(f'  [{ch_key}] fork pulls empty -> fallback to {upstream}', flush=True)
+            print(f'  [{src["src_id"]} {ch_key}] fork pulls empty -> fallback to {upstream}', flush=True)
             tgt_p = upstream
             rows_p, st_p, last_upd_p = _list(d, f'repos/{upstream}/pulls',
                                              'github_pulls.jsonl',
@@ -134,10 +134,10 @@ def run(src, ch_key, ch, meta_channels, cursor):
                 cur['from'] = upstream
             cursor[f'{ch_key}:pulls'] = cur
         if st_p == 'ok' and rows_p:
-            _run_detail(d, ch_key, tgt_p, rows_p, 'pr', out, 'pulls')
+            _run_detail(d, ch_key, tgt_p, rows_p, 'pr', out, 'pulls', src['src_id'])
 
     # 5. releases (all)
-    print(f'  [{ch_key}] fetching releases', flush=True)
+    print(f'  [{src["src_id"]} {ch_key}] fetching releases', flush=True)
     rows_r, st_r, last_id = _list(d, f'repos/{owner}/{repo}/releases',
                                   'github_releases.jsonl',
                                   params='per_page=100', kind='release', cap=None)
@@ -244,11 +244,11 @@ def _aggregate_releases(rows):
     return '\n'.join(head)
 
 
-def _run_detail(d, ch_key, owner_repo, rows, kind, out, out_key):
+def _run_detail(d, ch_key, owner_repo, rows, kind, out, out_key, src_id=''):
     """Wire detail fetch into the main pipeline: migrate legacy flat files
     (one-time per SRC) then run per-item incremental fetch."""
     base = os.path.join(d, 'github_details')
     github_detail.migrate_legacy_flat(base, ch_key, owner_repo, kind, rows)
     ddir = os.path.join(base, ch_key)
     out[out_key]['details'] = github_detail.process_repo(
-        owner_repo, ch_key, rows, kind, ddir)
+        owner_repo, ch_key, rows, kind, ddir, src_id=src_id)

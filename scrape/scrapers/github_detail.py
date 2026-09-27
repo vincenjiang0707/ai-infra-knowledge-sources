@@ -186,7 +186,7 @@ def migrate_legacy_flat(ddir, ch_key, owner_repo, kind, kind_rows):
         atomic_write_jsonl(new_idx_path, rows)
 
 
-def process_repo(owner_repo, ch_key, jsonl_rows, kind, ddir):
+def process_repo(owner_repo, ch_key, jsonl_rows, kind, ddir, src_id=''):
     """Fetch per-item detail; append-only on re-runs.
 
     ddir: SRC-XXX/github_details/{ch_key}/
@@ -241,7 +241,8 @@ def process_repo(owner_repo, ch_key, jsonl_rows, kind, ddir):
             tag = f'appended +{len(new_c)}c/+{len(new_r)}r'
         else:
             tag = 'no new'
-        print(f'  [{ch_key}] {kind} #{n} [{i}/{len(todo)}] {tag}',
+        tag_pfx = f'{src_id} {ch_key}' if src_id else ch_key
+        print(f'  [{tag_pfx}] {kind} #{n} [{i}/{len(todo)}] {tag}',
               flush=True)
 
         new_idx.append({

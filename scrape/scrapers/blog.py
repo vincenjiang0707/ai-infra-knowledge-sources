@@ -261,13 +261,13 @@ def run(src, ch_key, ch, meta_channels, cursor):
                 try:
                     page.goto(idx_url, wait_until='domcontentloaded', timeout=TIMEOUT_MS * 2)
                 except Exception as e:
-                    print(f'  tab {idx_url} goto err: {str(e)[:80]}', flush=True)
+                    print(f'[{src["src_id"]}] tab {idx_url} goto err: {str(e)[:80]}', flush=True)
                     continue
             time.sleep(_jit(3))  # let Cloudflare challenge JS complete
             # detect Cloudflare bot challenge
             body_text = page.inner_text('body')[:500]
             if 'Performing security verification' in body_text or 'Ray ID:' in body_text:
-                print(f'  tab {idx_url} blocked by Cloudflare (skip)', flush=True)
+                print(f'[{src["src_id"]}] tab {idx_url} blocked by Cloudflare (skip)', flush=True)
                 continue
             for _ in range(8):
                 page.mouse.wheel(0, 1500)
@@ -280,7 +280,7 @@ def run(src, ch_key, ch, meta_channels, cursor):
             # channels are the len==1 special case of this).
             if idx_links and idx_links[0] in url_to_fn:
                 tabs_no_update += 1
-                print(f'  head-check: newest post already local — tab unchanged '
+                print(f'[{src["src_id"]}] head-check: newest post already local — tab unchanged '
                       f'({tabs_no_update}/{len(index_urls)})', flush=True)
                 if tabs_no_update == len(index_urls):
                     if not use_daemon:
@@ -299,7 +299,7 @@ def run(src, ch_key, ch, meta_channels, cursor):
             for l in new_links:
                 tab_map[l] = tab
             links.extend(new_links)
-            print(f'  index {idx_url} -> {len(idx_links)} links ({len(new_links)} new, total={len(links)})', flush=True)
+            print(f'[{src["src_id"]}] index {idx_url} -> {len(idx_links)} links ({len(new_links)} new, total={len(links)})', flush=True)
         if not links:
             # fallback to single-index URL behavior
             page.goto(index_url, wait_until='networkidle', timeout=TIMEOUT_MS)
@@ -309,12 +309,12 @@ def run(src, ch_key, ch, meta_channels, cursor):
         # extractor edge-cases that pass duplicates (e.g. trailing-slash
         # near-duplicates slipping past seen-set before normalization).
         links = list(dict.fromkeys(links))
-        print(f'  total {len(links)} post links across {len(index_urls)} index(es)', flush=True)
+        print(f'[{src["src_id"]}] total {len(links)} post links across {len(index_urls)} index(es)', flush=True)
 
         # 2. visit each post (skip URLs already in url_to_fn = cross-run dedup)
         for i, url in enumerate(links):
             if url in url_to_fn:
-                print(f'  [{i+1}/{len(links)}] skip (already fetched) {url}', flush=True)
+                print(f'[{src["src_id"]}] [{i+1}/{len(links)}] skip (already fetched) {url}', flush=True)
                 continue
             # rotate context every 20 posts to avoid bot detection (skipped in daemon mode)
             if not use_daemon and (len(posts_written) + len(written_urls)) > 0 and (len(posts_written) + len(written_urls)) % 20 == 0:
@@ -334,11 +334,11 @@ def run(src, ch_key, ch, meta_channels, cursor):
                 post_html = page.content()
                 # detect Cloudflare challenge
                 if 'Performing security verification' in post_html[:2000] or 'Ray ID:' in post_html[:2000]:
-                    print(f'  [{i+1}/{len(links)}] skip (cf block) {url}', flush=True)
+                    print(f'[{src["src_id"]}] [{i+1}/{len(links)}] skip (cf block) {url}', flush=True)
                     continue
                 md = common.extract_md(post_html, url)
                 if not md or len(md) < 100:
-                    print(f'  [{i+1}/{len(links)}] skip (no md) {url}', flush=True)
+                    print(f'[{src["src_id"]}] [{i+1}/{len(links)}] skip (no md) {url}', flush=True)
                     continue
                 # multi-tab SRC: file under posts/<tab>/NN_slug.md, numbering
                 # restarts per tab; single-index SRC stays at posts/ top level
@@ -355,9 +355,9 @@ def run(src, ch_key, ch, meta_channels, cursor):
                 posts_written.append(rel)
                 url_to_fn[url] = rel
                 written_urls.append(url)
-                print(f'  [{i+1}/{len(links)}] {len(md)}c {rel}', flush=True)
+                print(f'[{src["src_id"]}] [{i+1}/{len(links)}] {len(md)}c {rel}', flush=True)
             except Exception as e:
-                print(f'  [{i+1}/{len(links)}] error {url}: {e}', flush=True)
+                print(f'[{src["src_id"]}] [{i+1}/{len(links)}] error {url}: {e}', flush=True)
         if not use_daemon:
             browser.close()
         out.update(status='ok', mode='blog', posts=posts_written,
