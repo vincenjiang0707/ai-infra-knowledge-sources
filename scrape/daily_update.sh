@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 # 每日全量刷新一键流程:
-#   scrape.py 全 SRC 增量 → fence_md 代码块包裹 → summary → index → README 快照表
-#   → git commit → push
+#   scrape.py 全 SRC 增量 → [数据基线 commit] → fence_md 代码块包裹
+#   → summary → index → README 快照表 → git commit → push
+#
+# 两段 commit: fence 改写前先把当天新抓内容提交为基线 —
+#   fence 误改可回滚 (否则未提交的新文件被改坏无处找回)
 #
 # 失败策略:
 #   scrape / fence / README 快照失败 → 继续 (幂等, 次日自愈)
-#   summary / index 失败 → 中止 commit (避免"数据新文档旧"的误导性提交),
-#     数据保留在工作区, 修好后重跑即可
+#   summary / index 失败 → 中止第二段 commit (数据基线已入库, 不受影响)
 #
 # 用法:
 #   bash scrape/daily_update.sh                # 全流程 (含 push)
@@ -53,6 +55,21 @@ else
     fi
 fi
 
+# ①½ 数据基线 commit — fence 改写前把当天新抓内容入库, fence 有 git 基线可回滚
+log "step1b: data baseline commit (pre-fence)"
+git add -A >> "$LOG" 2>&1
+N_DATA=$(git status --short | wc -l)
+if [ "${N_DATA:-0}" -eq 0 ]; then
+    log "step1b: no pending changes"
+else
+    if git commit -m "data: scrape snapshot ${DATE} (${N_DATA} files, pre-fence baseline)" >> "$LOG" 2>&1; then
+        log "step1b: committed ${N_DATA} files (baseline)"
+    else
+        log "step1b FAILED — baseline 未落, fence 裸奔, 中止"
+        exit 1
+    fi
+fi
+
 # ② 新增/变更 md 的代码块包裹 (增量状态自动跳过未变文件)
 # 失败: 纯观感问题, 继续
 log "step2: fence_md --apply"
@@ -81,7 +98,7 @@ else
 fi
 
 if [ "$CRIT_FAIL" -eq 1 ]; then
-    log "== ABORT: summary/index 失败, 数据保留工作区未提交; 修复后重跑 (幂等) 后再 commit"
+    log "== ABORT: summary/index 失败 — 数据基线已入库(step1b), fence 变更留在工作区, 修好后重跑"
     exit 1
 fi
 
@@ -122,8 +139,8 @@ if [ "${CHANGED:-0}" -eq 0 ]; then
     log "== daily update ${DATE} done (clean)"
     exit 0
 fi
-git commit -m "chore: daily refresh ${DATE} (${CHANGED} files)" >> "$LOG" 2>&1
-log "step6 committed ${CHANGED} files"
+git commit -m "chore: fence + summary + index ${DATE} (${CHANGED} files)" >> "$LOG" 2>&1
+log "step6 committed ${CHANGED} files (fence/derived)"
 
 if [ "$SKIP_PUSH" -eq 1 ]; then
     log "--skip-push: 本地 commit 完成, 未推送 (git push origin main 手动推)"
