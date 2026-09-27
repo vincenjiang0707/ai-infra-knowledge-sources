@@ -38,7 +38,7 @@ def try_run(src, ch_key, ch, meta_channels, cursor):
     todo = todo[:PAGE_CAP]
     out['pages_total'] = len(pages)
 
-    fetched = failed = 0
+    fetched = failed = unchanged = 0
     max_lastmod = prev_lastmod
     # head-check: previous cursor already covers every page — nothing to do,
     # short-circuit with ok status (mirrors blog.py head-check pattern).
@@ -54,22 +54,35 @@ def try_run(src, ch_key, ch, meta_channels, cursor):
         code, html = common.fetch_url(loc, timeout=30)
         md = common.extract_md(html, loc) if code == 200 and html else ''
         if md:
-            with open(os.path.join(pages_dir, common.slugify(loc) + '.md'), 'w') as f:
+            path = os.path.join(pages_dir, common.slugify(loc) + '.md')
+            # 内容判变: 正文与本地一致则不覆写 — 高频部署文档站 (mkdocs 每次
+            # build 全站刷 lastmod) 下, lastmod-only 变化零 API 后续零 git diff
+            if os.path.exists(path):
+                try:
+                    with open(path, encoding='utf-8') as f:
+                        old_body = f.read().split('\n\n', 1)[-1]
+                except OSError:
+                    old_body = None
+                if old_body == md:
+                    unchanged += 1
+                    continue
+            with open(path, 'w') as f:
                 f.write(f"source: {loc}\nlastmod: {lastmod}\n\n{md}")
             fetched += 1
             if lastmod and lastmod > max_lastmod:
                 max_lastmod = lastmod
         else:
             failed += 1
-        if (fetched + failed) % 50 == 0:
+        if (fetched + failed + unchanged) % 50 == 0:
             time.sleep(0.5)
 
     out.update(status='ok' if (fetched or prev_lastmod) else 'error',
-               pages_fetched=fetched, pages_failed=failed,
+               pages_fetched=fetched, pages_failed=failed, pages_unchanged=unchanged,
                output_dir='pages/', cap=PAGE_CAP)
     if max_lastmod:
         cursor[f'{ch_key}:sitemap'] = {'lastmod': max_lastmod}
-    common.clog(src, ch_key, f"sitemap {len(pages)} pages, fetched {fetched}, failed {failed}")
+    common.clog(src, ch_key, f"sitemap {len(pages)} pages, fetched {fetched}, "
+                             f"unchanged {unchanged}, failed {failed}")
     meta_channels[ch_key] = out
     return True
 
