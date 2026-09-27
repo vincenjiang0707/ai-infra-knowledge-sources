@@ -5,7 +5,8 @@ import re
 
 from . import common
 
-FEED_PROBES = ['feed.xml', 'atom.xml', 'rss.xml', 'index.xml', 'feed/', 'rss/']
+# '.rss' 后缀: Reddit 等站点形如 {path}/.rss 的原生 feed
+FEED_PROBES = ['feed.xml', 'atom.xml', 'rss.xml', 'index.xml', '.rss', 'feed/', 'rss/']
 POST_CAP = 500
 
 
@@ -54,6 +55,11 @@ def _page_extract(d, ch, out):
                    http_code=code, mode='page')
         return
     md = common.extract_md(html, ch['url'])
+    # 反爬壳页 (如 Reddit 对非浏览器 UA): 200 但提取零字符 — 不写空文件, 不报假 ok
+    if not md:
+        out.update(status='error', mode='page', http_code=code, reason='no_md',
+                   chars=0)
+        return
     fn = 'page.md'
     with open(os.path.join(d, fn), 'w') as f:
         f.write(f"source: {ch['url']}\n\n{md}")
@@ -102,8 +108,19 @@ def _discover_feed(url):
 
 def _rss(d, src, feed_url, out, cursor, ch_key):
     import feedparser
-    fp = feedparser.parse(feed_url)
+    import time
+    # 预取 feed 体 (浏览器 UA) 再解析 — feedparser 自带 UA 会被部分站点
+    # (如 Reddit) 反爬拦截返回壳页 → entries=0
+    _c, _b = common.fetch_url(feed_url, timeout=30)
+    fp = feedparser.parse(_b if _c == 200 and _b else feed_url)
     entries = fp.entries or []
+    # feed 探测连发多请求后可能被限流 (空体/壳页) → 退避重试一次
+    if not entries:
+        time.sleep(2.5)
+        _c, _b = common.fetch_url(feed_url, timeout=30)
+        if _c == 200 and _b:
+            fp = feedparser.parse(_b)
+            entries = fp.entries or []
     last_pub = ''
     for e in entries:
         pub = e.get('published', '') or e.get('updated', '')
@@ -155,8 +172,19 @@ def _rss(d, src, feed_url, out, cursor, ch_key):
         if common.slugify(link) in local_slugs:
             continue  # already fetched in an earlier run
         pub = e.get('published', '') or e.get('updated', '')
-        code, html = common.fetch_url(link, timeout=30)
-        md = common.extract_md(html, link) if code == 200 and html else ''
+        # 优先 feed 自带内容 (Reddit 等的 .rss 每条含全文 HTML);
+        # 无内容才回退逐篇抓链接 (反爬壳页风险)
+        body_html = ''
+        try:
+            body_html = (e.content[0].value if getattr(e, 'content', None) else '') \
+                or e.get('summary', '')
+        except Exception:
+            pass
+        if body_html:
+            md = common.extract_md(body_html, link)
+        else:
+            code, html = common.fetch_url(link, timeout=30)
+            md = common.extract_md(html, link) if code == 200 and html else ''
         if md:
             pt = e.get('published_parsed') or e.get('updated_parsed')
             date = ('%04d%02d%02d' % pt[:3]) if pt else 'undated'
