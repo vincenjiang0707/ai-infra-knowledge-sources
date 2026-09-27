@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:44:34Z",
- "finished_at": "2026-09-25T10:43:59Z",
- "duration_seconds": 74.5,
- "attempts": 5,
+ "finished_at": "2026-09-27T02:41:38Z",
+ "duration_seconds": 57.5,
+ "attempts": 6,
  "channels": {
   "gh_f37d2519": {
    "type": "github_repo",
@@ -19,23 +19,13 @@
    "output": "github_repo.md",
    "issues": {
     "status": "ok",
-    "count": 21,
-    "note": "top-100 by updated_at desc (web default)",
-    "details": {
-     "fetched": 13,
-     "appended": 0,
-     "skipped": 0
-    }
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "pulls": {
     "status": "ok",
-    "count": 2,
-    "note": "top-100 by updated_at desc (web default)",
-    "details": {
-     "fetched": 2,
-     "appended": 0,
-     "skipped": 0
-    }
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -66,13 +56,8 @@
    },
    "pulls": {
     "status": "ok",
-    "count": 1,
-    "note": "top-100 by updated_at desc (web default)",
-    "details": {
-     "fetched": 1,
-     "appended": 0,
-     "skipped": 0
-    }
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",

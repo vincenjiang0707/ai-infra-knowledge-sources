@@ -103,6 +103,8 @@ def run(src, ch_key, ch, meta_channels, cursor):
             cursor[f'{ch_key}:issues'] = cur
         if st_i == 'ok' and rows:
             _run_detail(d, ch_key, tgt, rows, 'issue', out, 'issues', src['src_id'])
+        elif st_i == 'ok':
+            _touch_empty_index(d, ch_key, 'issue')
 
     # 4. pulls (top-100 by updated desc, mirror web UI default sort)
     prev_c = cursor.get(f'{ch_key}:pulls') or {}
@@ -138,6 +140,8 @@ def run(src, ch_key, ch, meta_channels, cursor):
             cursor[f'{ch_key}:pulls'] = cur
         if st_p == 'ok' and rows_p:
             _run_detail(d, ch_key, tgt_p, rows_p, 'pr', out, 'pulls', src['src_id'])
+        elif st_p == 'ok':
+            _touch_empty_index(d, ch_key, 'pr')
 
     # 5. releases (all)
     print(f'  [{src["src_id"]} {ch_key}] fetching releases', flush=True)
@@ -245,6 +249,16 @@ def _aggregate_releases(rows):
         head += [f"## {r['tag'] or r['name']} ({(r['published_at'] or '')[:10]})", '',
                  r['body'] or '(empty body)', '']
     return '\n'.join(head)
+
+
+def _touch_empty_index(d, ch_key, kind):
+    """rows 为空的 kind 落一个空 _index_{kind}.jsonl — 存在性检查通过,
+    后续走正常 head-check, 不再每轮强制刷新."""
+    ddir = os.path.join(d, 'github_details', ch_key)
+    os.makedirs(ddir, exist_ok=True)
+    idx = os.path.join(ddir, f'_index_{kind}.jsonl')
+    if not os.path.exists(idx):
+        open(idx, 'w').close()
 
 
 def _run_detail(d, ch_key, owner_repo, rows, kind, out, out_key, src_id=''):

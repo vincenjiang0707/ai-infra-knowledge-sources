@@ -196,11 +196,14 @@ def process_repo(owner_repo, ch_key, jsonl_rows, kind, ddir, src_id=''):
     # conversation lives on the reviews endpoint, comments_count is 0).
     todo = [r for r in jsonl_rows
             if kind != 'issue' or (r.get('comments_count') or 0) > 0]
-    if not todo:
-        return {'fetched': 0, 'appended': 0, 'skipped': 0}
-
     os.makedirs(ddir, exist_ok=True)
     idx_path = os.path.join(ddir, f'_index_{kind}.jsonl')
+    if not todo:
+        # 空 kind (rows 全被 filter) 也落空 index: 存在性检查通过,
+        # 不再触发每轮强制刷新
+        if not os.path.exists(idx_path):
+            open(idx_path, 'w').close()
+        return {'fetched': 0, 'appended': 0, 'skipped': 0}
     idx = load_index(idx_path)
 
     fetched = appended = skipped = 0
