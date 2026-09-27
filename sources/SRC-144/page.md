@@ -2,6 +2,10 @@ source: https://discuss.pytorch.org/
 
 |
 |
+2464
+|
+|
+|
 39949
 |
 Topics related to either pytorch/vision or vision research related topics
@@ -19,10 +23,6 @@ Tell the community how you’re using PyTorch!
 |
 |
 42
-|
-|
-|
-2464
 |
 |
 |

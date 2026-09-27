@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/configuration/optimization/
-lastmod: 2026-09-25
+lastmod: 2026-09-27
 
 # Optimization and Tuning[¶](https://docs.vllm.ai#optimization-and-tuning)
 

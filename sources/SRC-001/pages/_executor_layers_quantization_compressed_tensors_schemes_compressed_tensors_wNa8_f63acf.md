@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_wNa8/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class CompressedTensorsWNA8Int(CompressedTensorsScheme):
 _kernel_backends_being_used: set[str] = set()
@@ -94,8 +94,6 @@ layer.input_size_per_partition = input_size_per_partition
 layer.output_size_per_partition = output_size_per_partition
 layer.output_partition_sizes = output_partition_sizes
 layer.params_dtype = params_dtype
-if not hasattr(layer, "has_bias"):
-layer.has_bias = False
 mp_config = MPLinearLayerConfig(
 full_weight_shape=(input_size, output_size),
 partition_weight_shape=(

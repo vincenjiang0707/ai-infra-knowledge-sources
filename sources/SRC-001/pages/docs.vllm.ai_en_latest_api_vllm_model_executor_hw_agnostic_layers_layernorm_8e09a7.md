@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/hw_agnostic/layers/layernorm/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @CustomOp.register("rms_norm")
 class RMSNorm(CustomOp):

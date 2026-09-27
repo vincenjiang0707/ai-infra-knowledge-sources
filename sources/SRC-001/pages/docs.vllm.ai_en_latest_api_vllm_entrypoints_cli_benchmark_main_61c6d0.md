@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/cli/benchmark/main/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Bases: [CLISubcommand](../../types/#vllm.entrypoints.cli.types.CLISubcommand)
 

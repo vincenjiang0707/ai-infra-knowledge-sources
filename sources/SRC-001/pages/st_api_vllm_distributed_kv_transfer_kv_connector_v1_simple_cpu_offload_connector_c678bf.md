@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/simple_cpu_offload_connector/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class SimpleCPUOffloadConnector(KVConnectorBase_V1, SupportsHMA):
 """CPU KV cache offloading with custom kernel transfers and BlockPool LRU."""
@@ -98,6 +98,7 @@ scheduler_block_size=scheduler_block_size,
 hash_block_size=hash_block_size,
 lazy_offload=lazy_offload,
 disk_capacity_bytes=disk_capacity_bytes if disk_mode else 0,
+use_page_cache=use_page_cache if disk_mode else False,
 )
 elif role == KVConnectorRole.WORKER:
 self.worker_handler = SimpleCPUOffloadWorker(
@@ -221,6 +222,35 @@ def get_boundary_store_stats(self) -> BoundaryStoreStats | None:
 if self.scheduler_manager is not None:
 return self.scheduler_manager.get_boundary_store_stats()
 return None
+def get_kv_connector_stats(self) -> KVConnectorStats | None:
+# Worker-side callers may invoke this hook on connectors constructed
+# via __new__ (as in test_worker.py), which lack scheduler_manager.
+scheduler_manager: SimpleCPUOffloadScheduler | None = getattr(
+self, "scheduler_manager", None
+)
+if scheduler_manager is not None:
+return scheduler_manager.get_stats()
+return None
+@classmethod
+def build_kv_connector_stats(
+cls, data: dict[str, Any] | None = None
+) -> KVConnectorStats | None:
+return (
+SimpleCPUOffloadStats(data=data)
+if data is not None
+else SimpleCPUOffloadStats()
+)
+@classmethod
+def build_prom_metrics(
+cls,
+vllm_config: VllmConfig,
+metric_types: dict[type[PromMetric], type[PromMetricT]],
+labelnames: list[str],
+per_engine_labelvalues: dict[int, list[object]],
+) -> KVConnectorPromMetrics:
+return SimpleCPUOffloadPromMetrics(
+vllm_config, metric_types, labelnames, per_engine_labelvalues
+)
 def take_events(self) -> Iterable[KVCacheEvent]:
 if self.scheduler_manager is not None:
 return self.scheduler_manager.take_events()

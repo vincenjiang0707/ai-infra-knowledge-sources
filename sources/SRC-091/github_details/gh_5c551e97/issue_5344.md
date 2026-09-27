@@ -1,7 +1,7 @@
 # [Issue #5344] Batched L1 allocate failure commits a torn TP prefix; retrieve then silently returns corrupt KV
 
 source: https://github.com/LMCache/LMCache/issues/5344
-state: open | updated: 2026-09-25T00:58:47Z
+state: open | updated: 2026-09-27T03:45:03Z
 labels: 
 
 ## 正文
@@ -73,8 +73,31 @@ One chunk is 53.9 MiB. A long-prefix store/prefetch reserves every chunk in one 
 - Failure signature: `Failed to batched allocate N memory blocks of size 56524800 because no enough memory is available (short by M blocks)` on a subset of ranks, followed by `Stored` on the others, then a later `Retrieved` of a block-aligned token count with no exception and corrupt output
 
 
-## 评论 (1)
+## 评论 (4)
 
 ### Pilgrim132333333 · 2026-09-25
 
 I would like work on this issue
+
+### neevmodh · 2026-09-26
+
+This is a precise and well-instrumented report — the headroom math (9 GiB free vs. ~15 GiB needed for a 284-block reserve at your chunk size) makes the failure mode very believable, and the distinction you draw between "the torn commit is the danger" vs. "the allocation failure is just what triggers it" is the right framing.
+
+I looked at `_publish_token_bindings` (`lmcache_driven_transfer.py:1029`) to sanity-check the "independent per-rank" claim — the docstring itself confirms the store-submission and write-finished events are per-worker, with no cross-rank barrier visible in that path, which is consistent with what you're seeing (one rank publishing `MP_TOKENS` while a sibling rank's `batched_allocate` for the same chunk fails).
+
+That said, a real fix for (1) — cross-rank agreement before a worker publishes `MP_TOKENS` — means introducing a barrier or two-phase-commit across TP ranks that doesn't exist today, and I don't have a TP=4 hybrid Mamba/GDN setup to validate a fix against without risking shipping something that looks right in isolation but doesn't actually close the tear under load (or introduces a new stall if a rank never reports back). Given this is a correctness bug in the cross-rank commit protocol rather than a single-process logic error, I think this one specifically needs a maintainer who owns the MP transfer path to weigh in on where the barrier belongs before anyone sends a PR - happy to help implement or review once that's scoped, and (3) (refuse a reserve above watermark headroom) looks like a safe, independent mitigation that could land on its own in the meantime if that's of interest.
+
+
+### Pilgrim132333333 · 2026-09-27
+
+@neevmodh Hi, I have submitted a PR #5349. This PR has not address cross_rank agreement, but it makes each TP rank fail closed by detecting L1 allocation failures and rolling back locally staged objects instead of publishing a partial per-rank store. Can I get a review on it? Also, I'd also be happy to discuss and contribute to the follow-up work
+
+### neevmodh · 2026-09-27
+
+Reviewed #5349's diff. What it does: `reserve_write_with_status` now returns each key's `L1Error` instead of collapsing to just the successful keys, so the multiprocess store path can tell OOM apart from an intentionally-skipped key. In `lmcache_driven_transfer.store()`, if any key in a later object group hits `OUT_OF_MEMORY`, it raises, and the existing except path now calls the new `abort_write` on everything staged so far in `all_dict` — so a rank that partially reserved earlier groups before a later group OOMs no longer leaves those staged objects dangling or eligible to leak into a commit.
+
+That's a real, correctly-scoped fix for the *local* half of the bug — a single rank no longer ends up in an inconsistent staged state after a partial OOM. But to be clear about what it doesn't touch, since scope matters here: the actual torn-commit path in the report is two ranks succeeding and two failing on the *same* chunk, and worker 0 still publishing `MP_TOKENS` regardless of sibling rank outcomes — this PR doesn't add any cross-rank check before that publish, which matches what @Pilgrim132333333 already said in the PR description. So after #5349 merges, the specific repro in this issue (some ranks store, worker 0 publishes anyway, retrieve returns torn KV) is still open — item 1 (cross-rank agreement before `MP_TOKENS` publish) remains the real fix and still needs a maintainer to scope where that barrier belongs.
+
+Tests look right for what's being claimed (`test_abort_write_discards_staging_object`, `test_store_aborts_prior_reservations_after_later_group_oom`) — they verify local rollback, not cross-rank behavior, which is consistent with the PR's stated scope.
+
+Net: looks safe to merge as an incremental, honestly-scoped improvement, but it should probably say explicitly in the PR/issue that it does not close this issue on its own.

@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:41:12Z",
- "finished_at": "2026-09-24T16:45:52Z",
- "duration_seconds": 5231.5,
- "attempts": 2,
+ "finished_at": "2026-09-27T05:40:15Z",
+ "duration_seconds": 6574.9,
+ "attempts": 3,
  "channels": {
   "gh_de2bca71": {
    "type": "github_repo",
@@ -20,16 +20,26 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at desc (web default)"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 2,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at desc (web default)"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 73,
+     "appended": 20,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
-    "count": 42
+    "count": 43
    },
    "changelog": {
     "status": "ok",
@@ -57,7 +67,7 @@
    "status": "ok",
    "output": "page.md",
    "mode": "page",
-   "chars": 5905
+   "chars": 5558
   },
   "ref_188f4c22": {
    "type": "reference",
@@ -65,7 +75,7 @@
    "status": "ok",
    "output": "page.md",
    "mode": "page",
-   "chars": 50472
+   "chars": 59909
   },
   "site_6e0b3cb5": {
    "type": "sitemap",
@@ -73,21 +83,21 @@
    "mode": "sitemap.xml",
    "pages_total": 4682,
    "status": "ok",
-   "pages_fetched": 1953,
-   "pages_failed": 47,
+   "pages_fetched": 1951,
+   "pages_failed": 49,
    "output_dir": "pages/",
    "cap": 2000
   }
  },
  "cursor": {
   "gh_de2bca71:issues": {
-   "last_updated_at": "2026-09-24T14:36:53Z"
+   "last_updated_at": "2026-09-27T01:16:48Z"
   },
   "gh_de2bca71:pulls": {
-   "last_updated_at": "2026-09-24T15:17:54Z"
+   "last_updated_at": "2026-09-27T03:43:14Z"
   },
   "gh_de2bca71:releases": {
-   "last_id": 391064380
+   "last_id": 397072436
   }
  },
  "notes": ""

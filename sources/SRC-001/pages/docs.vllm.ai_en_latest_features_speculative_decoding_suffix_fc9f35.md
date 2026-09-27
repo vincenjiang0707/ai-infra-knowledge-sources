@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/speculative_decoding/suffix/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Suffix Decoding[¶](https://docs.vllm.ai#suffix-decoding)
 

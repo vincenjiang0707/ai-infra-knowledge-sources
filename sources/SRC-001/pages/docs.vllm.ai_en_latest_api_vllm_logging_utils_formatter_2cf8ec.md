@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/logging_utils/formatter/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Bases: [NewLineFormatter](#vllm.logging_utils.formatter.NewLineFormatter)
 
@@ -26,10 +26,19 @@ COLORS = {
 "CRITICAL": "\033[35m", # Magenta
 }
 GREY = "\033[90m" # Grey for timestamp and file info
+PROCESS_PREFIX_COLOR = "\033[0;36m"
+PROCESS_PREFIX_RESET = "\033[0;0m"
 RESET = "\033[0m"
-def __init__(self, fmt, datefmt=None, style="%"):
+def __init__(self, fmt, datefmt=None, style="%", *, log_level: str | None = None):
 # Inject grey color codes into format string for timestamp and file info
 if fmt:
+# Wrap process prefix with cyan
+fmt = fmt.replace(
+"(%(vllm_process_name)s pid=%(process)d)",
+f"{self.PROCESS_PREFIX_COLOR}"
+"(%(vllm_process_name)s pid=%(process)d)"
+f"{self.PROCESS_PREFIX_RESET}",
+)
 # Wrap %(asctime)s with grey
 fmt = fmt.replace("%(asctime)s", f"{self.GREY}%(asctime)s{self.RESET}")
 # Wrap [%(fileinfo)s:%(lineno)d] with grey
@@ -38,7 +47,7 @@ fmt = fmt.replace(
 f"{self.GREY}[%(fileinfo)s:%(lineno)d]{self.RESET}",
 )
 # Call parent __init__ with potentially modified format string
-super().__init__(fmt, datefmt, style)
+super().__init__(fmt, datefmt, style, log_level=log_level)
 def format(self, record):
 # Store original levelname to restore later (in case record is reused)
 orig_levelname = record.levelname

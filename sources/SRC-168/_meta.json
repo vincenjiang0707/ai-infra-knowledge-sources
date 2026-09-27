@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:57:10Z",
- "finished_at": "2026-09-25T23:49:35Z",
- "duration_seconds": 625.4,
- "attempts": 117,
+ "finished_at": "2026-09-27T10:39:58Z",
+ "duration_seconds": 50.2,
+ "attempts": 119,
  "channels": {
   "gh_c44348ad": {
    "type": "github_repo",
@@ -19,25 +19,13 @@
    "output": "github_repo.md",
    "issues": {
     "status": "ok",
-    "count": 12,
-    "note": "top-100 by updated_at desc (web default)",
-    "from": "xlite-dev/Awesome-LLM-Inference",
-    "details": {
-     "fetched": 12,
-     "appended": 0,
-     "skipped": 0
-    }
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "pulls": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at desc (web default)",
-    "from": "xlite-dev/Awesome-LLM-Inference",
-    "details": {
-     "fetched": 100,
-     "appended": 0,
-     "skipped": 0
-    }
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -82,11 +70,11 @@
  },
  "cursor": {
   "gh_c44348ad:issues": {
-   "last_updated_at": "2026-09-20T02:22:05Z",
+   "last_updated_at": "2026-09-27T02:30:37Z",
    "from": "xlite-dev/Awesome-LLM-Inference"
   },
   "gh_c44348ad:pulls": {
-   "last_updated_at": "2026-09-24T05:49:52Z",
+   "last_updated_at": "2026-09-27T01:44:43Z",
    "from": "xlite-dev/Awesome-LLM-Inference"
   }
  },

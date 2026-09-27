@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/hw_agnostic/layers/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Skip to content
 vLLM
@@ -116,6 +116,7 @@ RLHF Async New APIs
 RLHF Http IPC
 RLHF Http NCCL
 RLHF IPC Fsdp Ep
+RLHF M2N
 RLHF NCCL Fsdp Ep
 RLHF Sharded Rdt Small Ep
 RLHF Sparse NCCL
@@ -224,6 +225,7 @@ Weight Transfer
 Weight Transfer
 Base Classes and Custom Engines
 IPC Engine
+NCCL M2N Engine
 NCCL Engine
 Sharded RDT Engine
 Configuration
@@ -283,6 +285,7 @@ Multimodal Inputs
 NixlConnector Compatibility Matrix
 NixlConnector Usage Guide
 Per-Request Metrics
+Preload
 Prompt Embedding Inputs
 Reasoning Outputs
 Sleep Mode
@@ -317,6 +320,7 @@ Draft Models
 Dynamic Speculative Decoding
 EAGLE Draft Models
 Hidden State Extraction
+LiLiCorr
 MLP Draft Models
 MTP (Multi-Token Prediction)
 N-Gram Speculation
@@ -334,6 +338,7 @@ Incremental Compilation Workflow
 JIT Kernel Warmup
 Labels
 Profiling vLLM
+Releasing vLLM
 Vulnerability Management
 Model Implementation
 Model Implementation
@@ -509,6 +514,7 @@ kernel
 kv_events
 kv_transfer
 load
+logging
 lora
 mamba
 model
@@ -535,6 +541,7 @@ cvt
 mbarrier
 device_allocator
 device_allocator
+alloc_conf
 cumem
 sleep_mode_backend
 xpumem
@@ -734,6 +741,11 @@ base
 clients
 factory
 ipc_engine
+m2n_common
+m2n_engine
+m2n_layout
+m2n_source
+m2n_trainer
 nccl_common
 nccl_engine
 packed_tensor
@@ -765,6 +777,7 @@ collect_env
 launch
 main
 openai
+preload
 run_batch
 serve
 snapshot
@@ -1186,6 +1199,7 @@ flashinfer
 humming
 Mxfp8LinearKernel
 marlin
+rocm_block32_gemm
 rocm_native
 xpu
 nvfp4
@@ -1373,6 +1387,7 @@ shared_experts
 fusion
 fusion
 fused_act_quant
+mm_input_norm
 quant_activation
 relu2_fp8_quant
 hpc
@@ -1601,6 +1616,7 @@ llama3_rope
 llama4_vision_rope
 mrope
 mrope_interleaved
+mrope_vit_setup
 ntk_scaling_rope
 phi3_long_rope_scaled_rope
 yarn_scaling_rope
@@ -1685,6 +1701,7 @@ deepseek_ocr2
 deepseek_v2
 deepseek_vl2
 diffusion_gemma
+diffusion_gemma_sampler
 dots_ocr
 eagle2_5_vl
 ernie45
@@ -1778,6 +1795,7 @@ lfm2_moe
 lfm2_siglip2
 lfm2_vl
 lightonocr
+lilicorr
 llama
 llama4
 llama4_eagle
@@ -2092,8 +2110,14 @@ model_state
 vl_model
 ops
 ops
+fused_wo_a
 mega_mhc
 mhc
+o_proj
+cute_dsl
+cute_dsl
+all_reduce_mhc
+primitives
 dots3_note
 dots3_note
 common
@@ -2332,6 +2356,7 @@ qsa
 common
 common
 hyperconnection
+ngram_embedding
 ple
 qsa_cache
 nvidia
@@ -2404,6 +2429,7 @@ deepseek_v41
 gemma4
 glm47_moe
 granite
+granite_thinking
 harmony
 inkling
 kimi_k2
@@ -2472,6 +2498,7 @@ gemma4_utils
 glm47_moe_reasoning_parser
 gptoss_reasoning_parser
 granite_reasoning_parser
+granite_thinking_engine_reasoning_parser
 hunyuan_a13b_reasoning_parser
 hy_v3_reasoning_parser
 hy_v4_reasoning_parser
@@ -2613,6 +2640,7 @@ registry
 triton_utils
 triton_utils
 allocation
+dispatcher
 force_first_config
 importing
 tensor_descriptor
@@ -2740,6 +2768,7 @@ registry
 selector
 tokenspeed_mla
 trtllm_ragged
+zen_cpu_sdpa
 ops
 ops
 chunked_prefill_paged_decode
@@ -2937,6 +2966,7 @@ cuda_mem_ops
 disk_backend
 manager
 metadata
+metrics
 worker
 spec_decode
 spec_decode
@@ -3108,6 +3138,9 @@ utils
 gemma4
 gemma4
 speculator
+lilicorr
+lilicorr
+speculator
 mtp
 mtp
 speculator
@@ -3123,6 +3156,7 @@ vllm
 vllm
 chat
 complete
+preload
 run-batch
 serve
 bench

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/serve/instrumentator/offline_docs/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Offline FastAPI documentation support for air-gapped environments.
 

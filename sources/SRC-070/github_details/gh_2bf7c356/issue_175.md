@@ -14,8 +14,4 @@ def get_hidden_bytes(x: torch.Tensor) -> int:
 
 FP8 tensors use 1 byte per element, but the function forces a 2-byte minimum，Is there a memory/performance trade-off?
 
-## 评论 (1)
-
-### LyricZhao · 2025-05-27
-
-Dispatch can use FP8, but combine always uses BF16 (2 bytes). Using BF16 for combine is important for model performance/precision.
+## 评论 (0)

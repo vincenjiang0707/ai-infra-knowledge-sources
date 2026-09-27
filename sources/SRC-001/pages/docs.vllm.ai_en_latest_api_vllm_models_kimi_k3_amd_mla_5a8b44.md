@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/amd/mla/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class KimiK3MultiHeadLatentAttentionWrapper(MultiHeadLatentAttentionWrapper):
 """Kimi-K3 MLA wrapper with eager AITER q/kv RMSNorm fusion."""

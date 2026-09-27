@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/zh-CN/v1.3.0/recipes/browse
-lastmod: 2026-09-23T23:30:39.914Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 For AI agents: a documentation index is available at the root level at /llms.txt. Append /llms.txt to any URL for a page-level index, or .md for the markdown version of any page.
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/online/nvfp4/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class Nvfp4OnlineMoEMethod(OnlineMoEMethodBase):
 """Online NVFP4 MoE quantization with per-token activation scales.
@@ -89,6 +89,14 @@ backend=self.nvfp4_backend,
 routing_tables=layer._expert_routing_tables(),
 per_token_activation=True,
 )
+else:
+# Reload creates new scale tensors; derived kernel scales must use
+# their new values before layerwise reload restores captured storage.
+assert self.moe_quant_config is not None
+assert self.moe_quant_config.g1_alphas is not None
+assert self.moe_quant_config.g2_alphas is not None
+self.moe_quant_config.g1_alphas.copy_(w13_scale_2)
+self.moe_quant_config.g2_alphas.copy_(w2_scale_2)
 self.moe_kernel.fused_experts.process_weights_after_loading(layer)
 def get_fused_moe_quant_config(self, layer: torch.nn.Module) -> FusedMoEQuantConfig:
 return make_nvfp4_moe_quant_config(

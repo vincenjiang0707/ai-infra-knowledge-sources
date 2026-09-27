@@ -71,26 +71,4 @@ Any hints on how to solve the problem?
 
 
 
-## 评论 (3)
-
-### LyricZhao · 2025-03-25
-
-It seems something wrong with the compilation/link, runtime can not find the kernel symbol. We never run into such errors, I suggest you check your compilation toolchains/compilation flags/link flags, and you may reproduce this even for any kernel but not DeepEP. Or just try to Google "named symbol not found" :)
-
-### yuwenjingsei · 2025-03-25
-
-turns out modifying cuda arch value solved this problem.
-I was running tests on A100 and saw in setup.py line 12, "only support Hopper arch ...", 
-and in line 13, 9.0 is the cuda arch value for H series NV gpu (H100/H800/H200).
-```
- 12     # TODO: currently, we only support Hopper architecture, we may add Ampere support later
- 13     os.environ['TORCH_CUDA_ARCH_LIST'] = '9.0'
-```
-
-after replace 9.0 with 8.0, which represents A series NV gpu arch, intranode.py test run successfully, 
-although not so sure whether "only support Hopper arch", "may add Ampere support later" will effect the performance on A gpus     
-
-### yewentao256 · 2025-06-19
-
-https://github.com/deepseek-ai/DeepEP/issues/224#event-18220765845
-Fixed and can take a look, hopefully it is helpful
+## 评论 (0)

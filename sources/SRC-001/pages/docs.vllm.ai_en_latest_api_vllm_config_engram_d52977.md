@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/config/engram/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -62,6 +62,11 @@ Attributes:
 
 ) –[bool](https://docs.python.org/3/builtins/functions.html#bool)Shard embeddings across TP and all DP ranks when enabled.
 
+-
+([use_thp](https://docs.vllm.ai#vllm.config.engram.EngramConfig.use_thp)
+
+) –[bool](https://docs.python.org/3/builtins/functions.html#bool)Back private CPU-offloaded tables with transparent huge pages (best
+
 
 ## Source code in `vllm/config/engram.py`
 
@@ -101,6 +106,18 @@ Share CPU-offloaded embedding weights between co-located DP replicas. Each node 
 [¶](https://docs.vllm.ai#vllm.config.engram.EngramConfig.embedding_across_dp)
 
 Shard embeddings across TP and all DP ranks when enabled. Otherwise, each DP rank has a separate TP-sharded embedding replica.
+
+###
+
+`use_thp = False`
+
+`class-attribute`
+
+`instance-attribute`
+
+[¶](https://docs.vllm.ai#vllm.config.engram.EngramConfig.use_thp)
+
+Back private CPU-offloaded tables with transparent huge pages (best effort, falls back to ordinary pinned pages). Prefaulting the tables at startup takes longer. Requires cpu_offload without dp_shared_memory.
 
 ###
 

@@ -73,7 +73,7 @@ Notice that is still assuming lm_harness appends unknown responses after the 3 d
 
 Besides, I would suggest refactoring `doc_to_targets` to `doc_to_correct_indices`. The word "target" is used by BBQ (see `doc['target']` to refer to the "target" minority or bias being involved in the sample, so its quite misleading. 
 
-## 评论 (1)
+## 评论 (2)
 
 ### nata2627 · 2026-08-26
 
@@ -139,3 +139,6 @@ print(mis_scored)  # 0
 
 </details>
 
+### jayzuccarelli · 2026-09-25
+
+Picking this up. As @nata2627 showed, acc is unaffected, but two real bugs remain in lm_eval/tasks/bbq/utils.py. Line 406 builds range(2, 2 + len(UNKNOWN_RESPONSES) + 1), which yields index 12 over a 12-entry choice list, and doc_to_target (line 412) always returns index 2 ("Unknown") for ambiguous rows instead of the row's own phrasing, which is why log_samples targets don't match the dataset label. Fix: build the range as 2..11 and put the doc's own unknown phrasing first, so doc_to_target matches the gold answer with scores unchanged. I'll add tests/test_bbq.py covering all 10 unknown phrasings at each gold position (30/31 cases fail on main). I'll open a PR.

@@ -1,6 +1,6 @@
 # NVIDIA/nccl-tests
 
-- stars: 1667
+- stars: 1668
 - forks: 409
 - open_issues: 167
 - default_branch: master

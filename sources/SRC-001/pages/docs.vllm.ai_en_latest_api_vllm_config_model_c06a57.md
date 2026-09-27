@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/config/model/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @config(config=ConfigDict(arbitrary_types_allowed=True))
 class ModelConfig:

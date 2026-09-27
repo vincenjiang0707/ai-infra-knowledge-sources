@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/unquantized_fused_moe_method/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @CustomOp.register("unquantized_fused_moe")
 class UnquantizedFusedMoEMethod(FusedMoEMethodBase, CustomOp):

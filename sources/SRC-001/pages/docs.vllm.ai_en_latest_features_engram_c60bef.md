@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/engram/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Engram: conditional memory via n-gram lookups[¶](https://docs.vllm.ai#engram-conditional-memory-via-n-gram-lookups)
 

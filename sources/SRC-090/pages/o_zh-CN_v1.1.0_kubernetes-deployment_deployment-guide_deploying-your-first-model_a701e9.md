@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/zh-CN/v1.1.0/kubernetes-deployment/deployment-guide/deploying-your-first-model
-lastmod: 2026-09-23T23:30:39.914Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 # Deploying Your First Model
 

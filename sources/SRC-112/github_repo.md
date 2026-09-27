@@ -1,12 +1,12 @@
 # SemiAnalysisAI/InferenceX
 
-- stars: 1761
+- stars: 1765
 - forks: 305
-- open_issues: 267
+- open_issues: 277
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-25T18:56:23Z
+- pushed_at: 2026-09-27T10:13:39Z
 - homepage: https://inferencex.com/
 
 ## README
@@ -68,6 +68,7 @@ This pace of software advancement creates a challenge: benchmarks conducted at a
 
 | SKU | Status |
 | --- | --- |
+| Vera Rubin NVL72 | ✅ |
 | GB300 NVL72 | ✅ |
 | GB200 NVL72 | ✅ |
 | MI355X | ✅ |
@@ -77,9 +78,9 @@ This pace of software advancement creates a challenge: benchmarks conducted at a
 | MI300X | ✅ |
 | H200 | ✅ |
 | H100 | ✅ |
-| TPUv7x Ironwood Ghostfish | Coming Soon 🔜 |
+| TPUv7x Ironwood Ghostfish | ✅ |
+| RTX PRO 6000 Server | ✅ |
 | MI455 UALoE72 | Coming Soon 🔜 |
-| Vera Rubin NVL72 | Coming Soon 🔜 |
 | Rubin NVL8 | Coming Soon 🔜 |
 | Chip #1 from Hardware Vendor #1 | Coming Soon 🔜 |
 | Chip #2 from Hardware Vendor #1 | Coming Soon 🔜 |

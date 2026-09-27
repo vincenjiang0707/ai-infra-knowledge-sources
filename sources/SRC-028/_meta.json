@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:43:17Z",
- "finished_at": "2026-09-25T10:25:56Z",
- "duration_seconds": 717.9,
- "attempts": 4,
+ "finished_at": "2026-09-27T04:16:53Z",
+ "duration_seconds": 742.6,
+ "attempts": 5,
  "channels": {
   "gh_ddc6f33e": {
    "type": "github_repo",
@@ -22,8 +22,8 @@
     "count": 100,
     "note": "top-100 by updated_at desc (web default)",
     "details": {
-     "fetched": 40,
-     "appended": 0,
+     "fetched": 5,
+     "appended": 1,
      "skipped": 0
     }
    },
@@ -32,14 +32,14 @@
     "count": 100,
     "note": "top-100 by updated_at desc (web default)",
     "details": {
-     "fetched": 1,
-     "appended": 2,
-     "skipped": 67
+     "fetched": 32,
+     "appended": 11,
+     "skipped": 38
     }
    },
    "releases": {
     "status": "ok",
-    "count": 25
+    "count": 26
    },
    "changelog": {
     "status": "ok",
@@ -64,20 +64,15 @@
     "count": 30,
     "note": "top-100 by updated_at desc (web default)",
     "details": {
-     "fetched": 15,
+     "fetched": 0,
      "appended": 0,
      "skipped": 0
     }
    },
    "pulls": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at desc (web default)",
-    "details": {
-     "fetched": 100,
-     "appended": 0,
-     "skipped": 0
-    }
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -101,7 +96,7 @@
    "status": "ok",
    "output": "page.md",
    "mode": "page",
-   "chars": 1774
+   "chars": 2400
   },
   "ref_32343f60": {
    "type": "reference",
@@ -109,7 +104,7 @@
    "status": "ok",
    "output": "page.md",
    "mode": "page",
-   "chars": 5733
+   "chars": 5926
   },
   "ref_be9a98cb": {
    "type": "reference",
@@ -117,18 +112,18 @@
    "status": "ok",
    "output": "page.md",
    "mode": "page",
-   "chars": 20093
+   "chars": 20014
   }
  },
  "cursor": {
   "gh_ddc6f33e:issues": {
-   "last_updated_at": "2026-09-25T01:57:25Z"
+   "last_updated_at": "2026-09-27T01:03:32Z"
   },
   "gh_ddc6f33e:pulls": {
-   "last_updated_at": "2026-09-25T07:45:02Z"
+   "last_updated_at": "2026-09-27T03:47:16Z"
   },
   "gh_ddc6f33e:releases": {
-   "last_id": 396066825
+   "last_id": 397014315
   },
   "gh_2d4350d3:issues": {
    "last_updated_at": "2025-08-12T16:11:10Z"

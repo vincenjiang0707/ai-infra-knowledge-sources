@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/dev/kubernetes/kv-aware-routing/deploy-the-dc-kv-relay-experimental
-lastmod: 2026-09-24T19:58:16.636Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 # Deploy the DC KV Relay
 

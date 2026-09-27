@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/scheduler/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class MooncakeStoreScheduler:
 """Scheduler-side component for MooncakeStoreConnector."""

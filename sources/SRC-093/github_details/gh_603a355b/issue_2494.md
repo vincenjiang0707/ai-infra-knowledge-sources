@@ -27,4 +27,18 @@ This is complete when the mock model can be deployed from Console and reached th
 Related: #2202, #2198
 
 
-## 评论 (0)
+## 评论 (2)
+
+### dundysm · 2026-09-01
+
+I'll take this.
+
+Console-generated pod templates look like they're missing the canonical `model.aibrix.ai/*` labels the gateway uses for discovery. I'll map `serving_name`, the effective container port, and the engine onto the existing label constants, add a small rendering test, and open a PR.
+
+### dundysm · 2026-09-01
+
+Follow-up after looking at current `main`:
+
+#2501 already stamps `model.aibrix.ai/name`, `model.aibrix.ai/port`, and `model.aibrix.ai/engine` onto the generated Deployment, Service, and pod template. Names that are not valid Kubernetes label values (including `/models/mock` and Hugging Face IDs with `/`) go on the annotation instead, and both the cache and model-router resolve them through `ModelNameFromMetadata`. `apps/console/api/deployment/provider/kubernetes_test.go` covers the pod-template rendering.
+
+Unless there is a remaining gateway path that still ignores the annotation, I think this issue is done and can be closed.

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/llava_onevision/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @MULTIMODAL_REGISTRY.register_processor(
 LlavaOnevisionMultiModalProcessor,

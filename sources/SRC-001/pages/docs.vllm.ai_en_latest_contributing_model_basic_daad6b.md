@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/contributing/model/basic/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Basic Model[¶](https://docs.vllm.ai#basic-model)
 

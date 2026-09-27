@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/io_processor_plugins/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # IO Processor Plugins[¶](https://docs.vllm.ai#io-processor-plugins)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/getting_started/installation/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Installation[¶](https://docs.vllm.ai#installation)
 
@@ -13,4 +13,4 @@ repository. These follow the [Hardware-Pluggable RFC](https://docs.vllm.ai/desig
 
 A list of all supported hardware can be found on the vLLM website, see [Universal Compatibility - Hardware](https://vllm.ai/#compatibility).
 
-If you want to add new hardware, please contact us on [Slack](https://slack.vllm.ai/) or [Email](https://docs.vllm.ai/cdn-cgi/l/email-protection#53303c3f3f32313c2132273a3c3d13253f3f3e7d323a).
+If you want to add new hardware, please contact us on [Slack](https://slack.vllm.ai/) or [Email](https://docs.vllm.ai/cdn-cgi/l/email-protection#7615191a1a1714190417021f191836001a1a1b58171f).

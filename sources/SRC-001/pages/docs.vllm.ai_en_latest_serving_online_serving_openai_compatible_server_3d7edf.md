@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/serving/online_serving/openai_compatible_server/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # OpenAI-Compatible Server[¶](https://docs.vllm.ai#openai-compatible-server)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/contributing/profiling/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Profiling vLLM[¶](https://docs.vllm.ai#profiling-vllm)
 
@@ -95,14 +95,12 @@ vllm serve meta-llama/Llama-3.1-8B-Instruct --profiler-config '{"profiler": "tor
 vllm bench command:
 
 vllm bench serve \
-```bash
 --backend vllm \
 --model meta-llama/Llama-3.1-8B-Instruct \
 --dataset-name sharegpt \
 --dataset-path sharegpt.json \
 --profile \
 --num-prompts 2
-```
 
 
 Or use http request:
@@ -131,7 +129,6 @@ $ curl -X POST http://localhost:8000/stop_profile
 
 Start a server with a local output directory and graph attribution:
 
-```bash
 vllm serve meta-llama/Llama-3.1-8B-Instruct \
 --profiler-config '{
 "profiler": "proton",
@@ -140,7 +137,6 @@ vllm serve meta-llama/Llama-3.1-8B-Instruct \
 "proton_hook": "triton",
 "proton_graph_attribution": true
 }'
-```
 
 
 Then use `/start_profile`
@@ -259,13 +255,11 @@ Nsight systems is an advanced tool that exposes more profiling details, such as 
 [Install nsight-systems](https://docs.nvidia.com/nsight-systems/InstallationGuide/index.html) using your package manager. The following block is an example for Ubuntu.
 
 apt update
-```bash
 apt install -y --no-install-recommends gnupg
 echo "deb http://developer.download.nvidia.com/devtools/repos/ubuntu$(source /etc/lsb-release; echo "$DISTRIB_RELEASE" | tr -d .)/$(dpkg --print-architecture) /" | tee /etc/apt/sources.list.d/nvidia-devtools.list
 apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
 apt update
 apt install nsight-systems-cli
-```
 
 
 Tip
@@ -297,7 +291,6 @@ The following is an example using the `vllm bench latency`
 script:
 
 nsys profile \
-```bash
 --trace-fork-before-exec=true \
 --cuda-graph-trace=node \
 vllm bench latency \
@@ -307,7 +300,6 @@ vllm bench latency \
 --batch-size 16 \
 --input-len 512 \
 --output-len 8
-```
 
 
 #### OpenAI Server[¶](https://docs.vllm.ai#openai-server_1)
@@ -319,7 +311,6 @@ command with `nsys profile`
 just like for offline inference, but you will need to specify a few other arguments to enable dynamic capture similarly to the Torch Profiler:
 
 # server
-```bash
 nsys profile \
 --trace-fork-before-exec=true \
 --cuda-graph-trace=node \
@@ -334,7 +325,6 @@ vllm bench serve \
 --dataset-path sharegpt.json \
 --profile \
 --num-prompts 2
-```
 
 
 With `--profile`

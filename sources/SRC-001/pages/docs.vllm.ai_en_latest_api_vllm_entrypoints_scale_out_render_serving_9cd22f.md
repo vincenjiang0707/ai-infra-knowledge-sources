@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/scale_out/render/serving/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class ServingRender(BaseServing):
 def __init__(
@@ -18,9 +18,7 @@ request_logger=request_logger,
 self.online_renderer = online_renderer
 self.tool_server = tool_server
 self._merge_inline_system = (
-AnthropicServingMessages._detect_merge_inline_system(
-online_renderer.chat_template
-)
+AnthropicServingMessages._should_merge_inline_system(online_renderer)
 )
 self._placeholder_metadata_parser: MultiModalDataParser | None = None
 self._placeholder_metadata_parser_failed = False

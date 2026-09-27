@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:50:13Z",
- "finished_at": "2026-09-25T02:20:03Z",
- "duration_seconds": 73.1,
- "attempts": 4,
+ "finished_at": "2026-09-27T05:40:33Z",
+ "duration_seconds": 914.0,
+ "attempts": 5,
  "channels": {
   "gh_2d9028ec": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at desc (web default)"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 45,
+     "appended": 13,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at desc (web default)"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -49,7 +59,7 @@
    "status": "ok",
    "output": "page.md",
    "mode": "page",
-   "chars": 12115
+   "chars": 11931
   },
   "ref_7dc44c97": {
    "type": "reference",
@@ -57,7 +67,7 @@
    "status": "ok",
    "output": "page.md",
    "mode": "page",
-   "chars": 6912
+   "chars": 7555
   },
   "ref_7f928bf9": {
    "type": "reference",
@@ -78,10 +88,10 @@
  },
  "cursor": {
   "gh_2d9028ec:issues": {
-   "last_updated_at": "2026-09-25T02:18:54Z"
+   "last_updated_at": "2026-09-27T04:42:45Z"
   },
   "gh_2d9028ec:pulls": {
-   "last_updated_at": "2026-09-25T02:19:05Z"
+   "last_updated_at": "2026-09-27T05:27:33Z"
   },
   "gh_2d9028ec:releases": {
    "last_id": 380954849

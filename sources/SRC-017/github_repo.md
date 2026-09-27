@@ -1,8 +1,8 @@
 # NVIDIA/nccl
 
-- stars: 5117
-- forks: 1426
-- open_issues: 448
+- stars: 5122
+- forks: 1429
+- open_issues: 452
 - default_branch: master
 - archived: False
 - license: NOASSERTION

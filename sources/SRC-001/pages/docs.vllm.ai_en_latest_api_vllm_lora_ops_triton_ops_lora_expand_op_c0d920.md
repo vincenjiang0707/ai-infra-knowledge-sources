@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/ops/triton_ops/lora_expand_op/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @torch.inference_mode()
 def _lora_expand(

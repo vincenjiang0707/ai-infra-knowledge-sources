@@ -1,6 +1,6 @@
 # deepseek-ai/DeepGEMM
 
-- stars: 7867
+- stars: 7872
 - forks: 1276
 - open_issues: 147
 - default_branch: main

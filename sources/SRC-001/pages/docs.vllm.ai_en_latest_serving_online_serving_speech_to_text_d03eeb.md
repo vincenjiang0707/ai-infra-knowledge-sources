@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/serving/online_serving/speech_to_text/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Speech to Text APIs[¶](https://docs.vllm.ai#speech-to-text-apis)
 
@@ -51,14 +51,12 @@ print(transcription.text)
 
 ## Code
 
-```bash
 curl -X POST "http://localhost:8000/v1/audio/transcriptions" \
 -H "Authorization: Bearer token-abc123" \
 -F "[[email protected]](https://docs.vllm.ai/cdn-cgi/l/email-protection)" \
 -F "model=openai/whisper-large-v3-turbo" \
 -F "language=en" \
 -F "response_format=verbose_json"
-```
 
 
 **Supported Parameters:**
@@ -87,7 +85,6 @@ response format:
 
 ## Code
 
-```json
 {
 "text": "Hello, this is a transcription of the audio file.",
 "language": "en",
@@ -107,7 +104,6 @@ response format:
 }
 ]
 }
-```
 
 
 Currently “verbose_json” response format doesn’t support no_speech_prob.
@@ -118,7 +114,6 @@ returns OpenAI-compatible speaker segments. Currently, this is supported by `Ope
 
 .
 
-```json
 {
 "task": "transcribe",
 "duration": 6.1,
@@ -135,7 +130,6 @@ returns OpenAI-compatible speaker segments. Currently, this is supported by `Ope
 ],
 "usage": {"type": "duration", "seconds": 7}
 }
-```
 
 
 ### Extra Parameters[¶](https://docs.vllm.ai#extra-parameters)

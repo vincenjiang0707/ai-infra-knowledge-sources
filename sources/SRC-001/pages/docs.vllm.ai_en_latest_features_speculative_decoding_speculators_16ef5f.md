@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/speculative_decoding/speculators/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # vLLM-Project/Speculators[¶](https://docs.vllm.ai#vllm-projectspeculators)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/pooling/plugin/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Plugin[¶](https://docs.vllm.ai#plugin)
 

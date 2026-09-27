@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/transformers/fusers/glu/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @dataclass
 class GLUFuser(MergedColumnParallelFuser):

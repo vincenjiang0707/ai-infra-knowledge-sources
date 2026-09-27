@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/phimoe/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class PhiMoE(nn.Module):
 """A tensor-parallel MoE implementation for PhiMoE that shards each expert

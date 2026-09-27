@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/weight_transfer/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -24,6 +24,25 @@ implementations. -
 
 -
 –[ipc_engine](https://docs.vllm.ai/ipc_engine/#vllm.distributed.weight_transfer.ipc_engine)IPC-based weight transfer engine using CUDA IPC for communication.
+
+-
+–[m2n_common](https://docs.vllm.ai/m2n_common/#vllm.distributed.weight_transfer.m2n_common)Shared helpers for the NCCL M2N (
+
+`nccl_m2n`
+
+) weight transfer backend. -
+–[m2n_engine](https://docs.vllm.ai/m2n_engine/#vllm.distributed.weight_transfer.m2n_engine)Inference-side weight transfer engine built on NCCL M2N (
+
+`nccl_m2n`
+
+). -
+–[m2n_layout](https://docs.vllm.ai/m2n_layout/#vllm.distributed.weight_transfer.m2n_layout)Destination-layout resolution for the NCCL M2N weight transfer backend.
+
+-
+–[m2n_source](https://docs.vllm.ai/m2n_source/#vllm.distributed.weight_transfer.m2n_source)Trainer-side weight sources for the NCCL M2N backend.
+
+-
+–[m2n_trainer](https://docs.vllm.ai/m2n_trainer/#vllm.distributed.weight_transfer.m2n_trainer)Trainer-side weight transfer engine for the NCCL M2N backend.
 
 -
 –[nccl_common](https://docs.vllm.ai/nccl_common/#vllm.distributed.weight_transfer.nccl_common)Shared NCCL initialization helpers for weight transfer engines.

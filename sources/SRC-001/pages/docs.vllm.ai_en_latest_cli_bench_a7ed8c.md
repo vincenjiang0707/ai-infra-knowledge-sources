@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/cli/bench/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # vllm bench[¶](https://docs.vllm.ai#vllm-bench)
 

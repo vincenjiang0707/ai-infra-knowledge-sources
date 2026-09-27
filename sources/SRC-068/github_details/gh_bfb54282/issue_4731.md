@@ -52,7 +52,7 @@ Needle-in-haystack through the nvfp4 XQA path is 8/8 at ~24.5k and ~257k tokens 
 Is the masked multi-query path expected to support fp4 KV on sm_120, and if so, does the mask/e4m3-scale handling differ from the q=1 path in a way that could perturb later-position logits? Happy to build a standalone reproducer (fixed cache contents, q=4 masked call vs 4 sequential q=1 calls, compare logits) if that is the most useful next step — guidance on the expected tolerances for that comparison would help.
 
 
-## 评论 (3)
+## 评论 (4)
 
 ### ima-helikoptaaa · 2026-09-01
 
@@ -149,3 +149,17 @@ Worth adding, because it sharpens rather than repeats the coverage point: an fp8
 
 What the XQA window does support on its own is the part the retitle rests on: 0.530 per position over 4,993 drafts, 1.589 accepted tokens per draft, per-position 0.717 / 0.505 / 0.367. That is an ordinary spec-decode profile, not a collapse, which is why the original title was wrong. The throughput finding is unaffected: 35 to 107 tok/s across runs differing only in RNG, against 90 to 122 on the FA2 route reading the same cache, and 63.7 with MTP disabled entirely on the XQA route.
 
+### ssubbotin · 2026-09-26
+
+Update: I can no longer reproduce this. On the head of vllm-project/vllm#46329 (`40c9a82e`) with FlashInfer 0.6.18.post1, I wired nvfp4 KV into `xqa_batch_decode_with_kv_cache` again (packed data plus `kv_cache_sf`, verify batches captured as FULL cudagraphs) and ran MTP k=3 single-stream decode on the same RTX PRO 6000 with the same model, 1000-token decodes, contexts 2k to 185K, three runs each:
+
+| context | engine steps/s, runs 1 / 2 / 3 |
+|---|---|
+| 2k | 48.54 / 48.55 / 48.55 |
+| 32k | 47.80 / 47.73 / 47.73 |
+| 100k | 45.22 / 45.21 / 45.23 |
+| 185k | 42.74 / 42.65 / 42.78 |
+
+Run-to-run spread is under 0.3% in every cell. tok/s ranged from 92 to 141 as acceptance varied, with nothing like the 35 tok/s runs in the original report. On the same build the route is within 1% of fp8 KV at 2k and ahead of it from 32k up (fp8: 48.9 / 47.6 / 44.1 / 40.3), and needle retrieval is 4/4 at 187.6K. Full comparison: https://github.com/vllm-project/vllm/pull/46329#issuecomment-5844505227
+
+Two things changed since August: FlashInfer went from 0.6.16.post3 to 0.6.18.post1, and the vLLM side moved from a backport onto an older image to the PR head. I have not bisected which of the two made the difference. Unless someone can still reproduce this on a current build, I think it can be closed.

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/pooling/reward/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Reward[¶](https://docs.vllm.ai#reward)
 

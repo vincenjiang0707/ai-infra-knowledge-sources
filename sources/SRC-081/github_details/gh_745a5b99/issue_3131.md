@@ -73,4 +73,20 @@ with StreamingCheckpointWriter(save_dir) as writer:
 - Improved overall processing efficiency
 - Foundation for true single-pass pipeline processing
 
-## 评论 (0)
+## 评论 (1)
+
+### LOGO127 · 2026-09-08
+
+I'd like to help with this, subject to scope/assignment confirmation. I have not started a competing pipeline or writer implementation.
+
+I checked the current save path at `8f96fe61feb501b98c2f1c61de2053b50f8d8534` and the streaming pipeline in #3111 at `5e2340078593fa991a884287de812de4f3667b66`. A few integration constraints seem important:
+
+- `oneshot` finalizes the session after the pipeline returns; #3111 also materializes remaining/untraced modules before `calibration_end`. A traced-subgraph-only writer would not cover the complete model.
+- `modify_save_pretrained` currently performs compression, re-ties value-identical input/output embeddings, delegates serialization to Transformers, updates quantization config/recipe, and copies MTP tensors absent from the loaded model. Streaming output needs to preserve these behaviors, not just write each subgraph's state dict.
+- #3111 already covers adjacent staging/prefetch work but retains processed weights for final saving. I would prefer a shared, explicitly finalized-tensor/subgraph boundary over another streaming pipeline.
+
+Would you want #3131 built on #3111, or should the finalized-output contract be shared with the existing sequential pipeline first? Is someone already handling the writer/save-mapping side privately?
+
+If this is available, I can start with an RFC and real small-model serialization/reload parity tests: shard boundaries and oversized tensors, tied weights, untraced modules/buffers, save mappings, and injected save failures. The proposed complete feature would include bounded retention and an explicit incomplete-output/publication contract; a standalone writer utility would not by itself close this issue. We should agree on whether resumability is required versus safely marking failed outputs incomplete.
+
+My local resources support CPU/small-model correctness work, not representative very-large-model GPU/storage benchmarking. That performance validation would need later collaboration. This investigation was AI-assisted; no runtime or performance results are claimed yet.

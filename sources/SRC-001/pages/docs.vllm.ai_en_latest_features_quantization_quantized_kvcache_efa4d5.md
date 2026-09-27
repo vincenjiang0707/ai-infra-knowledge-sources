@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/quantization/quantized_kvcache/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Quantized KV Cache[¶](https://docs.vllm.ai#quantized-kv-cache)
 

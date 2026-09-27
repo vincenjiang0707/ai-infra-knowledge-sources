@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:45:39Z",
- "finished_at": "2026-09-25T13:52:20Z",
- "duration_seconds": 136.8,
- "attempts": 6,
+ "finished_at": "2026-09-27T04:22:39Z",
+ "duration_seconds": 75.6,
+ "attempts": 7,
  "channels": {
   "gh_e85f7633": {
    "type": "github_repo",

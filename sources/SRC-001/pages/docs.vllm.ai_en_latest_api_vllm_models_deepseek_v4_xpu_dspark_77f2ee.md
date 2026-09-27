@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/xpu/dspark/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class DSparkDeepseekV4ForCausalLM(nn.Module):
 """XPU DSpark draft model entry point for DeepSeek-V4."""

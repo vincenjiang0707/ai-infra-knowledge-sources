@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/frameworks/bentoml/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # BentoML[¶](https://docs.vllm.ai#bentoml)
 

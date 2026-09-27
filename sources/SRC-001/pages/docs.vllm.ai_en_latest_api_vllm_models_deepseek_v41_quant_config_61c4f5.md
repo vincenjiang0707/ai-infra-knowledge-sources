@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/quant_config/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class DeepseekV4FP8Config(Fp8Config):
 """FP8 config for DeepSeek V4 with expert-dtype-aware MoE dispatch.
@@ -96,15 +96,17 @@ and weight.get("group_size") == 32
 def override_quantization_method(
 cls, hf_quant_cfg, user_quant, hf_config=None
 ) -> QuantizationMethods | None:
+# Quark checkpoints are always handled by QuarkConfig, which knows
+# how to dispatch each per-layer scheme (MXFP4, MXFP8, etc.).
+# ``from_config`` below rewrites the config into a single global FP8
+# scheme, which would discard per-layer specs — so never claim Quark.
+if isinstance(hf_quant_cfg, dict) and (
+hf_quant_cfg.get("quant_method") == "quark"
+):
+return None
 if not (
 isinstance(hf_quant_cfg, dict)
-and (
-hf_quant_cfg.get("quant_method") in ("fp8", "deepseek_v4_fp8")
-or (
-hf_quant_cfg.get("quant_method") == "quark"
-and cls._is_quark_mxfp4_ocp(hf_quant_cfg)
-)
-)
+and hf_quant_cfg.get("quant_method") in ("fp8", "deepseek_v4_fp8")
 ):
 return None
 model_type = getattr(hf_config, "model_type", None)

@@ -1,6 +1,6 @@
 # Changelog (aggregated from releases.body)
 
-> releases: 32
+> releases: 33
 
 ## v0.2 (2018-01-31)
 
@@ -9189,12 +9189,10 @@ None.
 * [REFACTOR] Rename shared symbolic analysis namespace to sym by @tqchen in https://github.com/apache/tvm/pull/20381
 * [REFACTOR][IR] Unify constants with GenericConst and shared StringImm by @tqchen in https://github.com/apache/tvm/pull/20386
 * [FIX] Update v0.27.0 versions and FFI floor by @MasterJH5574 in https://github.com/apache/tvm/pull/20390
-* [REFACTOR][IR] Promote primitive bitwise and shift operations to nodes by @tqchen in https://github.com/apache/tvm/pull/20392
-* [FIX][TIRx] Avoid stale constraints from mutable memory predicates by @tlopex in https://github.com/apache/tvm/pull/20393
-* [TIRx][CUDA] Preserve kernel launch calls and add CUDA host source bundling by @tqchen in https://github.com/apache/tvm/pull/20395
-* [Fix][Metal][WebGPU] Preserve variable bindings when resolving allocation bounds by @akaashrp in https://github.com/apache/tvm/pull/20337
-* [Fix][Relax] Allow callers to specify scan index-width budget by @akaashrp in https://github.com/apache/tvm/pull/20336
-* [REFACTOR][TIRx] Group buffer APIs and remove generic composition by @tqchen in https://github.com/apache/tvm/pull/20402
+* [CherryPick] backporting new commits to v0.27.0 by @MasterJH5574 in https://github.com/apache/tvm/pull/20407
+* [FIX][Sym] Handle large masks in modular-set analysis by @MasterJH5574 in https://github.com/apache/tvm/pull/20434
+* [FIX][TIRx][CUDA] Reevaluate conditional wait predicates after each load by @jinhongyii in https://github.com/apache/tvm/pull/20441
+* [FIX][TIRx] Fix boolean bitwise-not codegen for C-like targets by @tlopex in https://github.com/apache/tvm/pull/20445
 
 ## New Contributors
 * @hahalfx made their first contribution in https://github.com/apache/tvm/pull/20091
@@ -9225,3 +9223,223 @@ None.
 * @PengYoun9 made their first contribution in https://github.com/apache/tvm/pull/20362
 
 **Full Changelog**: https://github.com/apache/tvm/compare/v0.26.0...v0.27.0.rc1
+
+## v0.27.0 (2026-09-25)
+
+## What's Changed
+* [Web] Bump tvmjs version to 0.27.0-dev0 on main by @MasterJH5574 in https://github.com/apache/tvm/pull/20095
+* [Fix][Relax][ONNX] Handle Split initializer with keep_params_in_input by @hahalfx in https://github.com/apache/tvm/pull/20091
+* [Fix][Arith] Isolate Z3 contexts and make memoization deterministic by @tlopex in https://github.com/apache/tvm/pull/20097
+* [Fix][TIRx] Fix MSVC build of IndexDataTypeNormalizer by @MasterJH5574 in https://github.com/apache/tvm/pull/20098
+* [Python] Bump apache-tvm-ffi floor to >=0.1.13.post2 by @MasterJH5574 in https://github.com/apache/tvm/pull/20094
+* [FIX][TIRx] Traverse pointer expressions in tile calls by @jinhongyii in https://github.com/apache/tvm/pull/20089
+* [FIX][TIRx] Remap typed buffer expressions during specialization by @jinhongyii in https://github.com/apache/tvm/pull/20090
+* [FIX][Relax][ONNX] Keep the static shape of a rank-0 Shape input by @adityasingh2400 in https://github.com/apache/tvm/pull/20092
+* [FIX][TIRx] Use typed buffer parameter in pointer config test by @tqchen in https://github.com/apache/tvm/pull/20102
+* [FIX][CUDA] Select NVRTC architecture for output format by @jinhongyii in https://github.com/apache/tvm/pull/20100
+* [TIRx][CUDA] Add a table-driven PTX dialect and retire tirx.ptx.* by @spectrometerHBH in https://github.com/apache/tvm/pull/20103
+* [BugFix][Metal] Preserve pointer address spaces for byte offsets by @GY-Bai in https://github.com/apache/tvm/pull/20101
+* [TIRx][CUDA] uint32 index dtypes, directive fixes, and PTX ISA coverage by @spectrometerHBH in https://github.com/apache/tvm/pull/20110
+* [SCRIPT] Support PEP 695 symbolic variables in Relax and TIR by @tqchen in https://github.com/apache/tvm/pull/20107
+* [Fix][WebGPU] Preserve read-only buffer access modes by @akaashrp in https://github.com/apache/tvm/pull/20113
+* [Relax][ONNX] Support lower-rank PRelu slopes by @Aharrypotter in https://github.com/apache/tvm/pull/20115
+* [TIRX] Split backend.cuda.intrinsics, fold tcgen05 descriptors, and fix two PTX dialect gaps by @spectrometerHBH in https://github.com/apache/tvm/pull/20120
+* [Feature][Relax] Support shared-KV attention with configurable sliding windows by @akaashrp in https://github.com/apache/tvm/pull/20121
+* [Web] Avoid redundant memory byte copies by @akaashrp in https://github.com/apache/tvm/pull/20127
+* [TIRx][CUDA] Replace source helpers with typed PTX forms by @jinhongyii in https://github.com/apache/tvm/pull/20140
+* [Fix][DLight] Reject GEMV accesses unsupported by scheduling by @akaashrp in https://github.com/apache/tvm/pull/20122
+* [Fix][Relax][ONNX] Fold Min/Max/Sum/Mean constants elementwise by @aryanputta in https://github.com/apache/tvm/pull/20119
+* [Relax][Frontend][TFLite] Support StableHLO shape ops by @Aharrypotter in https://github.com/apache/tvm/pull/20114
+* [TIRx][CUDA] Version-gate CUDA 12.8 tensor-map enums and fix registry-test lock leak by @spectrometerHBH in https://github.com/apache/tvm/pull/20154
+* [TIRx][CUDA] Add PTX address expressions with immediate byte offsets by @spectrometerHBH in https://github.com/apache/tvm/pull/20153
+* [Fix][DLight] Handle rank-one GEMV cache loads by @SamJSui in https://github.com/apache/tvm/pull/20158
+* [Relax][ONNX] Support scalar QDQ inputs by @Aharrypotter in https://github.com/apache/tvm/pull/20126
+* [BugFix][TE] Initialize nested reductions at the outermost reduction scope by @Gunse11er in https://github.com/apache/tvm/pull/20116
+* [Fix][Relax] Track lowered reshape storage aliases by @akaashrp in https://github.com/apache/tvm/pull/20134
+* [Fix][WebGPU] Validate and bound symbolic stack allocations by @akaashrp in https://github.com/apache/tvm/pull/20132
+* [Web] Avoid tensor-cache record copies by @akaashrp in https://github.com/apache/tvm/pull/20156
+* [Fix][TOPI] Fuse GPU scan blocks to avoid CUDA gridDim.y overflow by @chenmiaoming in https://github.com/apache/tvm/pull/20108
+* [TIRx][CUDA] Add register and cluster launch controls by @spectrometerHBH in https://github.com/apache/tvm/pull/20159
+* [Fix][Relax][Torch] Preserve derived exported input dimensions by @akaashrp in https://github.com/apache/tvm/pull/20128
+* [Web] Avoid copies when uploading WASM memory to WebGPU by @akaashrp in https://github.com/apache/tvm/pull/20165
+* [Web] Upload pass-through tensor-cache records directly to WebGPU by @akaashrp in https://github.com/apache/tvm/pull/20166
+* [IR][TIRX] Add first-class tuple expressions by @tqchen in https://github.com/apache/tvm/pull/20168
+* [TIRx][CUDA] Allow newer CUTLASS packages for IKET by @jinhongyii in https://github.com/apache/tvm/pull/20164
+* [Fix][Relax] Honor ONNX Reshape zero semantics by @tandede in https://github.com/apache/tvm/pull/20161
+* [TIRx][CUDA] Fix single-CTA clusterCtaIdx resolution and accept packed sub-byte tensor-map dtypes by @spectrometerHBH in https://github.com/apache/tvm/pull/20172
+* feat(lower-tirx): support PTX movmatrix by @spectrometerHBH in https://github.com/apache/tvm/pull/20171
+* [Fix][Relax] Run destructors for non-trivially-destructible types in Arena by @OmarAzizi in https://github.com/apache/tvm/pull/20163
+* [Fix][Relax] Lower non-contiguous WebGPU cumsum by @akaashrp in https://github.com/apache/tvm/pull/20133
+* [TIRx][CUDA] Preserve explicit single-CTA cluster launches by @spectrometerHBH in https://github.com/apache/tvm/pull/20180
+* [Fix][Relax][Frontend][ONNX] Fix Mean/Sum/Min/Max with all-constant inputs by @siyiweigeHEW in https://github.com/apache/tvm/pull/20147
+* [Runtime] Add PagedAttentionKVCache checkpoint primitives by @akaashrp in https://github.com/apache/tvm/pull/20035
+* [Fix][Relax][Frontend][ONNX] Support broadcastable multi-axis PRelu slopes by @siyiweigeHEW in https://github.com/apache/tvm/pull/20149
+* [Fix][Relax][Torch] Align retained expand dimensions by trailing rank by @akaashrp in https://github.com/apache/tvm/pull/20137
+* [Fix][Arith] Preserve nested floormod semantics by @tlopex in https://github.com/apache/tvm/pull/20181
+* [Feat][Web] Support per-parameter tensor cache encoding by @akaashrp in https://github.com/apache/tvm/pull/20136
+* [Codegen][LLVM] Add LLVM 23 compatibility by @tlopex in https://github.com/apache/tvm/pull/20189
+* [Web] Decode packed BF16 tensor records in place by @akaashrp in https://github.com/apache/tvm/pull/20167
+* [Fix][Relax][Frontend][ONNX] Fix Scatter with indices smaller than data by @siyiweigeHEW in https://github.com/apache/tvm/pull/20187
+* [Fix][Relax] Raise error on non-unit dim ONNX Squeeze axis by @OmarAzizi in https://github.com/apache/tvm/pull/20188
+* fix(tirx): stabilize multi-GPU correctness tests by @spectrometerHBH in https://github.com/apache/tvm/pull/20213
+* [Fix][Relax] Preserve tensor-derived symbols during fusion by @akaashrp in https://github.com/apache/tvm/pull/20139
+* [Fix][S-TIR][DLight] Guard non-affine reduction write-back by @Junius-Wynn in https://github.com/apache/tvm/pull/20057
+* [Fix][Relax][ONNX] Correct fmod mapping in Mod constant folding by @shoemoney in https://github.com/apache/tvm/pull/20170
+* [BugFix][Relax] Preserve take mode in ReorderTakeAfterMatmul by @katrinagui in https://github.com/apache/tvm/pull/20206
+* [Fix][Relax][Frontend][ONNX] Support Shape outputs as Gather indices by @Gunse11er in https://github.com/apache/tvm/pull/20179
+* [BugFix][Relax] Skip parallel matmul fusion for mixed output dtypes by @katrinagui in https://github.com/apache/tvm/pull/20208
+* [Fix][DLight] Localize private scalar reduction buffers by @SamJSui in https://github.com/apache/tvm/pull/20160
+* [Fix][Relax][Frontend][ONNX] Fix Softplus accuracy loss from hardcoded threshold by @siyiweigeHEW in https://github.com/apache/tvm/pull/20212
+* [Perf][Arith] Materialize Z3 solvers lazily on first query by @tlopex in https://github.com/apache/tvm/pull/20215
+* [Fix][Support] Use sbsa-linux CUDA include dir on ARM64 Linux by @spectrometerHBH in https://github.com/apache/tvm/pull/20222
+* [TIRx][CUDA] Support exact required block dimensions by @spectrometerHBH in https://github.com/apache/tvm/pull/20223
+* [Fix][Relax][ONNX] Where: broadcast size-1 shape expressions, materialize ShapeExpr inputs by @siyiweigeHEW in https://github.com/apache/tvm/pull/20210
+* [Fix][Relax] Skip ReorderPermuteDimsAfterConcat for unknown-rank inputs by @yanght27 in https://github.com/apache/tvm/pull/20216
+* [Fix][TIRx] Restore IterVar span reflection by @tlopex in https://github.com/apache/tvm/pull/20214
+* [Fix][Relax] Normalize negative indices in Gather/Scatter/OneHot Ops by @OmarAzizi in https://github.com/apache/tvm/pull/20219
+* [TIRx][CUDA] Align the PTX dialect with PTX ISA 9.2 by @spectrometerHBH in https://github.com/apache/tvm/pull/20224
+* [TIRx][CUDA] Allow launch bounds with required block size by @spectrometerHBH in https://github.com/apache/tvm/pull/20226
+* [Fix][Arith] Give each materialized Z3 solver a private context by @tlopex in https://github.com/apache/tvm/pull/20221
+* [REFACTOR][TE] Represent tensor loads with opaque callees by @tqchen in https://github.com/apache/tvm/pull/20225
+* [CUDA][TIRx] Preserve device state during cleanup and skip invalid Top-K references by @spectrometerHBH in https://github.com/apache/tvm/pull/20233
+* [Relax][Frontend][ONNX] Support symbolic shapes in Min/Max broadcast by @cchung100m in https://github.com/apache/tvm/pull/20218
+* [Fix][Relax] Preserve match-cast storage liveness by @zupengwang in https://github.com/apache/tvm/pull/20220
+* [Fix][Relax][Frontend][ONNX] Support Pad-18 axes input, keep wrap for Pad-19 by @siyiweigeHEW in https://github.com/apache/tvm/pull/20152
+* [Fix][TIRx] Preserve index semantics when narrowing to int32 by @akaashrp in https://github.com/apache/tvm/pull/20129
+* [Fix][Relax][Torch] Materialize runtime scalar shape values by @akaashrp in https://github.com/apache/tvm/pull/20138
+* [Fix][Relax][Frontend][ONNX] Validate Flatten axis range in `from_onnx` by @siyiweigeHEW in https://github.com/apache/tvm/pull/20145
+* [REFACTOR][TIR] Split masked buffer access into special calls by @tqchen in https://github.com/apache/tvm/pull/20244
+* [Docs][TIRx] Reorganize and align documentation with current APIs by @tlopex in https://github.com/apache/tvm/pull/20209
+* [REFACTOR][IR] Introduce TensorLoad in core IR by @tqchen in https://github.com/apache/tvm/pull/20247
+* [REFACTOR][IR] Unify expression subscription realization by @tqchen in https://github.com/apache/tvm/pull/20246
+* [BugFix] Align default (C) tirx.round lowering to ties-to-even by @LngelKyo in https://github.com/apache/tvm/pull/20131
+* [REFACTOR][IR] Consolidate expression operator overloading into the base layer by @tqchen in https://github.com/apache/tvm/pull/20248
+* [FIX][IR] Complete lazy subscript realization by @jinhongyii in https://github.com/apache/tvm/pull/20251
+* [TIRx][CUDA] Preserve local mbarrier predicate and count by @jinhongyii in https://github.com/apache/tvm/pull/20250
+* [REFACTOR][IR] Lift primitive expressions into core IR by @tqchen in https://github.com/apache/tvm/pull/20249
+* [Test] Run round ties-to-even test on every backend that implements it by @LngelKyo in https://github.com/apache/tvm/pull/20252
+* [REFACTOR][IR] Make expression subscription eager and remove SubscriptProxy by @tqchen in https://github.com/apache/tvm/pull/20257
+* [Fix][Relax][Frontend][PyTorch] Fix `x.split(int)` with a non-divisible `split_size` by @siyiweigeHEW in https://github.com/apache/tvm/pull/20240
+* [REFACTOR][TIRx] Make BufferRegion a typed expression by @tqchen in https://github.com/apache/tvm/pull/20256
+* [BugFix][Arith] Reject padded IterMapSimplify fallback by @zupengwang in https://github.com/apache/tvm/pull/20169
+* [Fix][Relax][Frontend][Torch] Honor the `dtype` argument of `aten.mean` (`torch.Tensor.mean` / `torch.mean`) by @siyiweigeHEW in https://github.com/apache/tvm/pull/20241
+* [Fix][S-TIR] Preserve general reduction predicates by @akaashrp in https://github.com/apache/tvm/pull/20242
+* [Fix][Relax][Metal] Constrain wide-head prefill tiling by @akaashrp in https://github.com/apache/tvm/pull/20235
+* [CUDA][TIRx] PTX ISA 9.4 / CUDA 13.4 support for SM103a and SM107a (Rubin) by @spectrometerHBH in https://github.com/apache/tvm/pull/20261
+* [CUDA] Add NVIDIA Jetson AGX Thor target tag by @tlopex in https://github.com/apache/tvm/pull/20259
+* [Fix][Metal] Bound symbolic stack allocations by @akaashrp in https://github.com/apache/tvm/pull/20236
+* [Relax][Frontend][ONNX] Support dynamic Range bounds by @napronald in https://github.com/apache/tvm/pull/20109
+* [CUDA][TIRx] Add collector-qualified tcgen05.mma block_scale forms and bind tcgen05.ld.red redval as output by @spectrometerHBH in https://github.com/apache/tvm/pull/20266
+* [TIRx][Test] Gate tcgen05.mma collector certification on nvcc >= 13.4 by @spectrometerHBH in https://github.com/apache/tvm/pull/20270
+* [CUDA][TIRx] Allow collector-A-only SM107 block-scale MMA and open cp.async wait_group immediates by @spectrometerHBH in https://github.com/apache/tvm/pull/20271
+* [TIRx][Test] Gate collector-A-only block-scale MMA test on CUDA 13.4 by @spectrometerHBH in https://github.com/apache/tvm/pull/20276
+* [REFACTOR][IR] Add structural hooks for Expr and Stmt by @tqchen in https://github.com/apache/tvm/pull/20275
+* [Fix][Relax][Frontend][Torch] Validate flatten dims in `from_fx` by @hiyufan in https://github.com/apache/tvm/pull/20245
+* [Test] Pin CUDA round ties-to-even on exact midpoints by @LngelKyo in https://github.com/apache/tvm/pull/20274
+* [S-TIR][Test] Use tvm.testing.main() so schedule tests can run standalone by @Anai-Guo in https://github.com/apache/tvm/pull/20283
+* [Relax][ONNX] Preserve bool dtype when folding constant comparisons by @StrongbodyStrongmind in https://github.com/apache/tvm/pull/20286
+* [Relax][ONNX] Import Min/Max/Sum/Mean when an input has no static shape by @arpitjain099 in https://github.com/apache/tvm/pull/20288
+* [Fix][LLVM] Preserve 64-bit AllocBuffer extents by @fallenmi in https://github.com/apache/tvm/pull/20141
+* [Fix][Relax] Preserve identity permute_dims in AdjustMatmulOrder by @emecii in https://github.com/apache/tvm/pull/20287
+* [TIR] Ignore None-valued pragma annotations by @StrongbodyStrongmind in https://github.com/apache/tvm/pull/20265
+* [FFI] Upgrade to latest tvm-ffi by @tqchen in https://github.com/apache/tvm/pull/20294
+* [FFI] Bump tvm-ffi for StructuralMap policy by @tqchen in https://github.com/apache/tvm/pull/20299
+* [Fix][TIRx] Fix buffer lifetime in LowerWarpMemory by @tlopex in https://github.com/apache/tvm/pull/20295
+* [REFACTOR][ARITH] Use StructuralWalk and Map in arith by @tqchen in https://github.com/apache/tvm/pull/20300
+* [REFACTOR][TIR] Remove IRTransform in favour of tvm_ffi.structural_map by @tqchen in https://github.com/apache/tvm/pull/20304
+* [REFACTOR][Arith] Delete IntGroupBounds::Substitute by @tqchen in https://github.com/apache/tvm/pull/20305
+* [REFACTOR][IR] Add structural hooks to remaining Type and Relax Expr nodes by @tqchen in https://github.com/apache/tvm/pull/20302
+* [REFACTOR][TIR] Use StructuralWalk in place of PostOrderVisit by @tqchen in https://github.com/apache/tvm/pull/20308
+* [REFACTOR][TIR] Inline StructuralWalk at variable-use checks by @tqchen in https://github.com/apache/tvm/pull/20306
+* [Fix][Relax] Canonicalize strided slice begin indices by @napronald in https://github.com/apache/tvm/pull/20284
+* [Relax] Preserve out_dtype in AdjustMatmulOrder by @StrongbodyStrongmind in https://github.com/apache/tvm/pull/20296
+* [Fix][Codegen] Avoid extraneous parentheses in if_then_else generated code by @fengz72 in https://github.com/apache/tvm/pull/20285
+* [Relax] Exclude R.null_value()-bound vars from KillAfterLastUse by @cchung100m in https://github.com/apache/tvm/pull/20267
+* [Fix][Relax][Frontend][Torch] Support `aten.diagonal` from decomposed repeated-subscript einsum by @siyiweigeHEW in https://github.com/apache/tvm/pull/20237
+* [Fix][Relax][Frontend][Torch] Fix `torch.round(x, decimals)` via `from_exported_program` and negative-decimals rounding by @siyiweigeHEW in https://github.com/apache/tvm/pull/20239
+* [TOPI] Use branchless boundary index for reflect/replicate pad by @junghyunpark2001 in https://github.com/apache/tvm/pull/19928
+* [TIRx][Schedule] Support rfactor for arg reducers selecting last index by @ZephyrLi-pro in https://github.com/apache/tvm/pull/19909
+* [REFACTOR][Python] Delete the TIR Py* functor trampoline by @tqchen in https://github.com/apache/tvm/pull/20309
+* [Relax][VM] Improve diagnostics for unlowered Relax operators by @yinli-systems in https://github.com/apache/tvm/pull/19899
+* [Relax][TensorRT] Build and embed engines during code generation by @zupengwang in https://github.com/apache/tvm/pull/20301
+* [Fix][Relax][Frontend][TFLite] Correct quantized SSD inference by @Aharrypotter in https://github.com/apache/tvm/pull/20291
+* [Relax][ONNX] Add CastLike support and dynamic-k Trilu to expand backend coverage by @Aharrypotter in https://github.com/apache/tvm/pull/19898
+* [REFACTOR][IR] Rename the uniform dispatch table to ObjectFunctor by @tqchen in https://github.com/apache/tvm/pull/20318
+* [REFACTOR][TIR] Use StructuralMap in place of Substitute by @tqchen in https://github.com/apache/tvm/pull/20317
+* [Relax][PyTorch] Support aten.scatter.src in ExportedProgram importer by @V-aerus in https://github.com/apache/tvm/pull/19935
+* [REFACTOR][IR] Colocate type hooks and registrations by @tqchen in https://github.com/apache/tvm/pull/20325
+* [REFACTOR][IR] New Functor/Visitor/Mutator Infra at Base Layer by @tqchen in https://github.com/apache/tvm/pull/20327
+* [FIX][TIRx][CUDA] Support SM100 weight-stationary B collectors by @jinhongyii in https://github.com/apache/tvm/pull/20329
+* [Fix][Relax][Frontend][Torch] Emit int64 indices for sort and argsort by @hiyufan in https://github.com/apache/tvm/pull/20254
+* [Relax][cuDNN] Do not offload causal / non-fp16 attention, and fix the default softmax scale by @YangXu1990uiuc in https://github.com/apache/tvm/pull/20078
+* [TOPI][CUDA] Fix topk/sort gridDim overflow by remapping grid axes in sort_ir by @cchung100m in https://github.com/apache/tvm/pull/19900
+* [ONNX] Preserve integer Div constant-fold precision by @Nanmur in https://github.com/apache/tvm/pull/20324
+* [ONNX] Fix initializer prefix stripping by @Nanmur in https://github.com/apache/tvm/pull/20323
+* [REFACTOR][IR] Unify structural mutation modes and native traversal entrypoints by @tqchen in https://github.com/apache/tvm/pull/20338
+* [REFACTOR] Default mutators to exceptions and migrate arithmetic passes by @tqchen in https://github.com/apache/tvm/pull/20339
+* [CLEANUP][IR] Simplify exception-first traversal by @tqchen in https://github.com/apache/tvm/pull/20347
+* [Fix][Relax][Frontend][Torch] Keep zero-sized dims when reshaping by @hiyufan in https://github.com/apache/tvm/pull/20255
+* [REFACTOR][IR] Share checked PrimVar view across dialects by @tqchen in https://github.com/apache/tvm/pull/20348
+* [REFACTOR][Arith] Inline bound-check Ramp expression by @tqchen in https://github.com/apache/tvm/pull/20349
+* [REFACTOR][S-TIR] Preserve schedule error payloads across FFI bridges by @tqchen in https://github.com/apache/tvm/pull/20351
+* [Fix][Relax][Frontend][Torch] Validate `num_classes` in the `one_hot` converters by @siyiweigeHEW in https://github.com/apache/tvm/pull/20320
+* [TIRx][CUDA] Add the declared synchronization-word wait by @Irfnfnkemed in https://github.com/apache/tvm/pull/20353
+* [REFACTOR][TIRx] Migrate visitors to shared expression traversal by @tqchen in https://github.com/apache/tvm/pull/20350
+* [REFACTOR][Arith] Evaluate iterator domains through Var maps by @tqchen in https://github.com/apache/tvm/pull/20354
+* [Refactor][Arith] Move conditional bounds into S-TIR by @tqchen in https://github.com/apache/tvm/pull/20355
+* [Arith] Remove vscale-specific simplification and analysis by @tqchen in https://github.com/apache/tvm/pull/20357
+* [Frontend][PyTorch] Simplify tests and support exported assertions by @tlopex in https://github.com/apache/tvm/pull/20360
+* [IR][TE] Share expression effects and register tensor loads by @tqchen in https://github.com/apache/tvm/pull/20359
+* [REFACTOR][RELAX] Own global device metadata in Relax by @tqchen in https://github.com/apache/tvm/pull/20363
+* [REFACTOR][TIRX] Share generic expression functor dispatch by @tqchen in https://github.com/apache/tvm/pull/20358
+* [Refactor][IR] Move ExprDeepEqual into shared primitive expressions by @tqchen in https://github.com/apache/tvm/pull/20356
+* [IR] Make function attribute updates generic via reflected shallow copy by @tqchen in https://github.com/apache/tvm/pull/20366
+* [REFACTOR][TIRX] Use single-inheritance typed StmtExprMutator by @tqchen in https://github.com/apache/tvm/pull/20365
+* [REFACTOR][IR] Share primitive helpers and Python expressions by @tqchen in https://github.com/apache/tvm/pull/20364
+* [CLEANUP][IR][Arith] Move CLZ to shared prim and remove dialect dependencies by @tqchen in https://github.com/apache/tvm/pull/20367
+* [REFACTOR][IR] Move dialect and codegen registrations to their owners by @tqchen in https://github.com/apache/tvm/pull/20368
+* [REFACTOR][IR] Share tensor region expressions across dialects by @tqchen in https://github.com/apache/tvm/pull/20369
+* [REFACTOR][TIRX] Migrate StmtFunctor dispatch and organize analyzer helpers by @tqchen in https://github.com/apache/tvm/pull/20370
+* [Fix][cuDNN] Avoid thread-local workspace pool for ConvEntry by @PengYoun9 in https://github.com/apache/tvm/pull/20362
+* [IR][Arith] Use BigInt-backed integer immediates and wide coefficients by @tqchen in https://github.com/apache/tvm/pull/20371
+* [CLEANUP][IR] Remove redundant functor helpers and CLZ float handling by @tqchen in https://github.com/apache/tvm/pull/20379
+* [Arith] Use native GCD for fitting BigInt operands by @tqchen in https://github.com/apache/tvm/pull/20380
+* Move S-TIR specific node and TensorIntrin out of TIRX by @tqchen in https://github.com/apache/tvm/pull/20378
+* [REFACTOR][IR] Move declared call results into TIRX builders by @tqchen in https://github.com/apache/tvm/pull/20382
+* [REFACTOR] Rename shared symbolic analysis namespace to sym by @tqchen in https://github.com/apache/tvm/pull/20381
+* [REFACTOR][IR] Unify constants with GenericConst and shared StringImm by @tqchen in https://github.com/apache/tvm/pull/20386
+* [FIX] Update v0.27.0 versions and FFI floor by @MasterJH5574 in https://github.com/apache/tvm/pull/20390
+* [CherryPick] backporting new commits to v0.27.0 by @MasterJH5574 in https://github.com/apache/tvm/pull/20407
+* [FIX][Sym] Handle large masks in modular-set analysis by @MasterJH5574 in https://github.com/apache/tvm/pull/20434
+* [FIX][TIRx][CUDA] Reevaluate conditional wait predicates after each load by @jinhongyii in https://github.com/apache/tvm/pull/20441
+* [FIX][TIRx] Fix boolean bitwise-not codegen for C-like targets by @tlopex in https://github.com/apache/tvm/pull/20445
+
+## New Contributors
+* @hahalfx made their first contribution in https://github.com/apache/tvm/pull/20091
+* @adityasingh2400 made their first contribution in https://github.com/apache/tvm/pull/20092
+* @GY-Bai made their first contribution in https://github.com/apache/tvm/pull/20101
+* @aryanputta made their first contribution in https://github.com/apache/tvm/pull/20119
+* @SamJSui made their first contribution in https://github.com/apache/tvm/pull/20158
+* @Gunse11er made their first contribution in https://github.com/apache/tvm/pull/20116
+* @chenmiaoming made their first contribution in https://github.com/apache/tvm/pull/20108
+* @tandede made their first contribution in https://github.com/apache/tvm/pull/20161
+* @siyiweigeHEW made their first contribution in https://github.com/apache/tvm/pull/20147
+* @Junius-Wynn made their first contribution in https://github.com/apache/tvm/pull/20057
+* @shoemoney made their first contribution in https://github.com/apache/tvm/pull/20170
+* @katrinagui made their first contribution in https://github.com/apache/tvm/pull/20206
+* @yanght27 made their first contribution in https://github.com/apache/tvm/pull/20216
+* @zupengwang made their first contribution in https://github.com/apache/tvm/pull/20220
+* @LngelKyo made their first contribution in https://github.com/apache/tvm/pull/20131
+* @hiyufan made their first contribution in https://github.com/apache/tvm/pull/20245
+* @Anai-Guo made their first contribution in https://github.com/apache/tvm/pull/20283
+* @StrongbodyStrongmind made their first contribution in https://github.com/apache/tvm/pull/20286
+* @arpitjain099 made their first contribution in https://github.com/apache/tvm/pull/20288
+* @fallenmi made their first contribution in https://github.com/apache/tvm/pull/20141
+* @emecii made their first contribution in https://github.com/apache/tvm/pull/20287
+* @fengz72 made their first contribution in https://github.com/apache/tvm/pull/20285
+* @junghyunpark2001 made their first contribution in https://github.com/apache/tvm/pull/19928
+* @YangXu1990uiuc made their first contribution in https://github.com/apache/tvm/pull/20078
+* @Irfnfnkemed made their first contribution in https://github.com/apache/tvm/pull/20353
+* @PengYoun9 made their first contribution in https://github.com/apache/tvm/pull/20362
+
+**Full Changelog**: https://github.com/apache/tvm/compare/v0.26.0...v0.27.0

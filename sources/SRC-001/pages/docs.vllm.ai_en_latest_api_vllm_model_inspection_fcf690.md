@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_inspection/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 def _format_module_tree(
 module: nn.Module,

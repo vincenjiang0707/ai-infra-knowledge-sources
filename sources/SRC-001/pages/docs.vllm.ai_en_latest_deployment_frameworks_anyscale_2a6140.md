@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/frameworks/anyscale/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Anyscale[¶](https://docs.vllm.ai#anyscale)
 

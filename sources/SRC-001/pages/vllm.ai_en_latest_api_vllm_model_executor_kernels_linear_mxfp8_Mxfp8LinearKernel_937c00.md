@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp8/Mxfp8LinearKernel/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -84,3 +84,5 @@ Return the input quantization key supported by this kernel. If the kernel does n
 Configuration for an MXFP8 linear layer.
 
 All MXFP8 layers share the same structure: FP8-E4M3 weights with uint8 (E8M0) per-block scales at block size 32.
+
+Attributes:

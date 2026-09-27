@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/inc/schemes/inc_ark_ops/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Return ARK availability, error details, cached module, and QuantLinear.
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/mla/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class MultiHeadLatentAttention(nn.Module, AttentionLayerBase):
 """Kimi-K3 Multi-head Latent Attention with optional RoPE and output gate."""

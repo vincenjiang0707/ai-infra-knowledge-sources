@@ -1,12 +1,12 @@
 # triton-lang/triton
 
-- stars: 20239
-- forks: 3218
-- open_issues: 1281
+- stars: 20246
+- forks: 3227
+- open_issues: 1276
 - default_branch: main
 - archived: False
 - license: MIT
-- pushed_at: 2026-09-25T09:40:50Z
+- pushed_at: 2026-09-27T03:02:57Z
 - homepage: https://triton-lang.org/
 
 ## README

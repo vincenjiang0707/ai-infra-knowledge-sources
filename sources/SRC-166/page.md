@@ -6,9 +6,13 @@ Announcements
 
 [Ascend 社区 Gitcode 迁移通用指导](https://gitcode.com/org/Ascend/discussions/1)Aug 22, 2025
 
+## README
+
+Collapse
+
 Popular repositories
 
-976
+977
 
 AscendNPU-IR是基于MLIR（Multi-Level Intermediate Representation）构建的，面向昇腾亲和算子编译时使用的中间表示，提供昇腾完备表达能力，通过编译优化提升昇腾AI处理器计算效率，支持通过生态框架使能昇腾AI处理器与深度调优
 
@@ -38,14 +42,14 @@ MindStudio-ModelSlim（msModelSlim）是MindStudio全流程工具链推出的模
 
 - TorchAir 支持用户基于PyTorch框架和torch_npu插件在昇腾NPU上使用图模式进行推理。Star
 - AscendNPU-IR是基于MLIR（Multi-Level Intermediate Representation）构建的，面向昇腾亲和算子编译时使用的中间表示，提供昇腾完备表达能力，通过编译优化提升昇腾AI处理器计算效率，支持通过生态框架使能昇腾AI处理器与深度调优Star
-- No descriptionStar
-- 可用于对 Ascend 进行全局 Issue 和 Pull Request 模板配置，提升用户反馈问题和贡献代码的体验。提供通用模板，支持项目通过特定目录定制模板，且项目模板优先级高于全局模板。【此简介由AI生成】Star
-- community 仓库是昇腾（Ascend）社区的核心管理仓库，用于实现组织级权限的统一管理。通过层级化的目录结构和配置文件，实现对项目、SIG组、代码仓库及成员权限的规范化管理。Star
 - ci-infra仓库用于介绍昇腾（Ascend）社区各项目持续集成（Continuous Integration）和持续发布（Continuous Delivery）的实施过程和要求Star
-- 作为 Ascend for PyTorch 社区的核心组件，TorchNPU 是昇腾专为 PyTorch 打造的深度学习适配插件，使 PyTorch 框架能够直接调用昇腾 NPU，为开发者提供昇腾 AI 处理器的超强算力。Star
-- AgentSDKStar
-- The official repository of Ascend for PyTorch ecological activities.Star
+- No descriptionStar
+- 提供昇腾优化的训练业务自定义算子实现Star
+- community 仓库是昇腾（Ascend）社区的核心管理仓库，用于实现组织级权限的统一管理。通过层级化的目录结构和配置文件，实现对项目、SIG组、代码仓库及成员权限的规范化管理。Star
 - 基于华为昇腾平台Index SDK实现了一个高效的向量特征检索引擎，用户可以在此引擎上实现面向应用场景的检索系统Star
+- 可用于对 Ascend 进行全局 Issue 和 Pull Request 模板配置，提升用户反馈问题和贡献代码的体验。提供通用模板，支持项目通过特定目录定制模板，且项目模板优先级高于全局模板。【此简介由AI生成】Star
+- 内存池化基础软件, 基于超节点总线、服务器网络实现DRAM与显存混合池化，提供极简的内存访问接口和高性能的内存直接访问能力，支撑多种场景下的数据共享与传输Star
+- 提供适配昇腾的TransformerEngine加速库Star
 
 [More >](https://gitcode.com/org/Ascend/repos)
 
@@ -55,15 +59,15 @@ Announcements
 
 Achievements
 
-9.58 K
+9.59 K
 
 Star
 
-10.93 K
+10.95 K
 
 Fork
 
-34.42 M
+34.74 M
 
 Download
 

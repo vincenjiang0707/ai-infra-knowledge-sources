@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/layers/column_parallel_linear/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 

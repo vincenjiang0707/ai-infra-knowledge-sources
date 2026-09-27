@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/optimization_levels/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Optimization Levels[¶](https://docs.vllm.ai#optimization-levels)
 

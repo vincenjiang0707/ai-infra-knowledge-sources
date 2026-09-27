@@ -5,53 +5,16 @@
  "priority": "扩",
  "scrape_type": "github_repo",
  "blocked_reason": null,
- "status": "success",
+ "status": "not_fetched",
  "started_at": "2026-09-23T03:19:16Z",
- "finished_at": "2026-09-25T04:22:03Z",
- "duration_seconds": 694.2,
- "attempts": 4,
+ "finished_at": "2026-09-27T00:57:53Z",
+ "duration_seconds": 0.0,
+ "attempts": 5,
  "channels": {
   "gh_ddc6f33e": {
    "type": "github_repo",
-   "url": "https://github.com/AI-Hypercomputer/maxtext",
-   "readme": "embedded",
-   "status": "ok",
-   "output": "github_repo.md",
-   "issues": {
-    "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at desc (web default)",
-    "details": {
-     "fetched": 32,
-     "appended": 0,
-     "skipped": 0
-    }
-   },
-   "pulls": {
-    "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at desc (web default)",
-    "details": {
-     "fetched": 100,
-     "appended": 0,
-     "skipped": 0
-    }
-   },
-   "releases": {
-    "status": "ok",
-    "count": 25
-   },
-   "changelog": {
-    "status": "ok",
-    "output": "github_changelog.md",
-    "from": "releases.body",
-    "probed": [
-     "CHANGELOG.md",
-     "CHANGES.md",
-     "HISTORY.md",
-     "NEWS.md"
-    ]
-   }
+   "status": "error",
+   "error": "BrokenPipeError(32, 'Broken pipe')"
   }
  },
  "cursor": {

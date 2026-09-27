@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/training/layerwise/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # What is Layerwise (Re)loading?[¶](https://docs.vllm.ai#what-is-layerwise-reloading)
 

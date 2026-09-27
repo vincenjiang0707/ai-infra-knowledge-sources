@@ -1,8 +1,8 @@
 # [Issue #4962] [Bug]
 
 source: https://github.com/InternLM/lmdeploy/issues/4962
-state: open | updated: 2026-09-15T12:08:37Z
-labels: awaiting response
+state: open | updated: 2026-09-23T06:30:07Z
+labels: awaiting response, Stale
 
 ## 正文
 

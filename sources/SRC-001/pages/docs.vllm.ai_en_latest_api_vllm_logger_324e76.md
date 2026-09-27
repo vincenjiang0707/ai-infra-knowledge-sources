@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/logger/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -12,12 +12,24 @@ Logging configuration for vLLM.
 Functions:
 
 -
+–[configure_logging](https://docs.vllm.ai#vllm.logger.configure_logging)Apply a logging configuration in the current process.
+
+-
+–[configure_logging_from_args](https://docs.vllm.ai#vllm.logger.configure_logging_from_args)Apply parsed logging arguments and retain them for child processes.
+
+-
+–[configure_logging_if_needed](https://docs.vllm.ai#vllm.logger.configure_logging_if_needed)Apply a logging configuration unless it is already active in this process.
+
+-
 –[enable_trace_function_call](https://docs.vllm.ai#vllm.logger.enable_trace_function_call)Enable tracing of every function call in code under
 
 `root_dir`
 
 . -
-–[init_logger](https://docs.vllm.ai#vllm.logger.init_logger)The main purpose of this function is to ensure that loggers are
+–[init_logger](https://docs.vllm.ai#vllm.logger.init_logger)Retrieve a logger and add vLLM's convenience logging methods.
+
+-
+–[set_vllm_process_name](https://docs.vllm.ai#vllm.logger.set_vllm_process_name)Set the vLLM process name added to subsequent log records.
 
 
 ##
@@ -93,6 +105,28 @@ As [ info](https://docs.python.org/3/library/logging.html#logging.Logger.info), 
 
 ##
 
+`_configure_vllm_root_logger(config=None)`
+
+[¶](https://docs.vllm.ai#vllm.logger._configure_vllm_root_logger)
+
+Configure logging from explicit config or bootstrap environment values.
+
+## Source code in `vllm/logger.py`
+
+
+##
+
+`_log_platform_warnings(config)`
+
+[¶](https://docs.vllm.ai#vllm.logger._log_platform_warnings)
+
+Emit platform diagnostics only after an enabled config is active.
+
+## Source code in `vllm/logger.py`
+
+
+##
+
 `_should_log_with_scope(scope)`
 
 [¶](https://docs.vllm.ai#vllm.logger._should_log_with_scope)
@@ -101,6 +135,47 @@ Decide whether to log based on scope.
 
 ## Source code in `vllm/logger.py`
 
+
+##
+
+`_vllm_log_record_factory(*args, **kwargs)`
+
+[¶](https://docs.vllm.ai#vllm.logger._vllm_log_record_factory)
+
+Add vLLM process metadata to each log record.
+
+## Source code in `vllm/logger.py`
+
+
+##
+
+`configure_logging(config)`
+
+[¶](https://docs.vllm.ai#vllm.logger.configure_logging)
+
+Apply a logging configuration in the current process.
+
+## Source code in `vllm/logger.py`
+
+
+##
+
+`configure_logging_from_args(args)`
+
+[¶](https://docs.vllm.ai#vllm.logger.configure_logging_from_args)
+
+Apply parsed logging arguments and retain them for child processes.
+
+## Source code in `vllm/logger.py`
+
+
+##
+
+`configure_logging_if_needed(config)`
+
+[¶](https://docs.vllm.ai#vllm.logger.configure_logging_if_needed)
+
+Apply a logging configuration unless it is already active in this process.
 
 ##
 
@@ -127,4 +202,15 @@ Note that this call is thread-level, any threads calling this function will have
 
 [¶](https://docs.vllm.ai#vllm.logger.init_logger)
 
-The main purpose of this function is to ensure that loggers are retrieved in such a way that we can be sure the root vllm logger has already been configured.
+Retrieve a logger and add vLLM's convenience logging methods.
+
+## Source code in `vllm/logger.py`
+
+
+##
+
+`set_vllm_process_name(process_name, *, skip_if_set=False)`
+
+[¶](https://docs.vllm.ai#vllm.logger.set_vllm_process_name)
+
+Set the vLLM process name added to subsequent log records.

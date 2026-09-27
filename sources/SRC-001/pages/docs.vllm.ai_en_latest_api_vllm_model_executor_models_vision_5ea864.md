@@ -1,17 +1,11 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/vision/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
 `vllm.model_executor.models.vision`
 
 [¶](https://docs.vllm.ai#vllm.model_executor.models.vision)
-
-Classes:
-
--
-–[FusedInputNorm](https://docs.vllm.ai#vllm.model_executor.models.vision.FusedInputNorm)Module that applies rescaling and normalization to input images.
-
 
 Functions:
 
@@ -43,22 +37,6 @@ when no engine -
 -
 –[run_dp_sharded_vision_model](https://docs.vllm.ai#vllm.model_executor.models.vision.run_dp_sharded_vision_model)Run a vision model with data parallelism (DP) sharding. The function
 
-
-##
-
-`FusedInputNorm`
-
-[¶](https://docs.vllm.ai#vllm.model_executor.models.vision.FusedInputNorm)
-
-Bases: [Module](https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module)
-
-Module that applies rescaling and normalization to input images. Equivalent to: output = (input * rescale_factor - mean) / std
-
-## Source code in `vllm/model_executor/models/vision.py`
-
-
-|
-|
 
 ##
 

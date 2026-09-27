@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/linear/bailing_linear_attn/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @PluggableLayer.register("bailing_moe_linear_attention")
 class BailingMoELinearAttention(LinearAttention):

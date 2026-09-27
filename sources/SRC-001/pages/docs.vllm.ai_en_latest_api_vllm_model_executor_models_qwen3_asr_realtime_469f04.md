@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/qwen3_asr_realtime/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Audio buffer for Qwen3-ASR realtime streaming.
 

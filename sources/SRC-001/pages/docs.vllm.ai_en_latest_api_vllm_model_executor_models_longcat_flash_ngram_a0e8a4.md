@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/longcat_flash_ngram/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 

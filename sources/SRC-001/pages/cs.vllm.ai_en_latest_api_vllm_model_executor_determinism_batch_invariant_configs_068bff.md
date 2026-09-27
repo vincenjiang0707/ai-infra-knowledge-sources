@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/determinism/batch_invariant_configs/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Select a config for the XPU descriptor matmul from shape and dtype.
 

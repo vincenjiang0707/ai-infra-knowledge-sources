@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/nvfp4/humming/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class HummingNvFp4LinearKernel(NvFp4LinearKernel):
 """Humming GEMM Kernel for NVFP4."""

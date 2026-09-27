@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/weight_transfer/nccl_common/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -151,13 +151,13 @@ to create a process group without considering the global process group in torch.
 
 ##
 
-`trainer_init(init_info)`
+`trainer_init(init_info, rank=0)`
 
 [¶](https://docs.vllm.ai#vllm.distributed.weight_transfer.nccl_common.trainer_init)
 
 Initialize NCCL process group for trainer-side weight transfer.
 
-The trainer is always rank 0 in the process group. Uses the current CUDA device (torch.accelerator.current_device_index()).
+Uses the current CUDA device (torch.accelerator.current_device_index()).
 
 Parameters:
 
@@ -171,7 +171,19 @@ Parameters:
 
 `NCCLRendezvous`
 
-fields (a trainer or worker NCCL init info), or a dict with keys: - master_address: str - master_port: int - world_size: int
+fields (a trainer or worker NCCL init info), or a dict with keys: - master_address: str - master_port: int - world_size: int -
+
+(`rank`
+
+[¶](https://docs.vllm.ai#vllm.distributed.weight_transfer.nccl_common.trainer_init(rank))
+
+, default:[int](https://docs.python.org/3/builtins/functions.html#int)`0`
+
+) –This trainer process's rank in the group. The broadcast backends have a single trainer at rank 0; multi-rank trainers (m2n) occupy ranks
+
+`[0, num_trainer_ranks)`
+
+and the workers start after them.
 
 Returns:
 

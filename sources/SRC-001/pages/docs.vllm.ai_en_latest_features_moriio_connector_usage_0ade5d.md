@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/moriio_connector_usage/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # MoRIIOConnector Usage Guide[¶](https://docs.vllm.ai#moriioconnector-usage-guide)
 
@@ -29,7 +29,6 @@ Start the proxy first; the producer and consumer instances will retry registrati
 
 Start a prefiller instance that produces KV caches
 
-```bash
 # Prefill instance (GPU 0-3)
 export VLLM_ROCM_USE_AITER=1
 export CUDA_VISIBLE_DEVICES=0,1,2,3
@@ -49,14 +48,12 @@ vllm serve Qwen/Qwen3-235B-A22B-FP8 \
 "notify_port": "6105"
 }
 }'
-```
 
 
 ### Consumer (decoder) configuration[¶](https://docs.vllm.ai#consumer-decoder-configuration)
 
 Start a decoder instance that consumes KV caches:
 
-```bash
 # Decode instance (GPU 4-7)
 export VLLM_ROCM_USE_AITER=1
 export CUDA_VISIBLE_DEVICES=4,5,6,7
@@ -76,7 +73,6 @@ vllm serve Qwen/Qwen3-235B-A22B-FP8 \
 "notify_port": "7501"
 }
 }'
-```
 
 
 ### Proxy server[¶](https://docs.vllm.ai#proxy-server)
@@ -102,13 +98,11 @@ vllm-router \
 
 **Manual install:**
 
-```bash
 pip install vllm-router
 vllm-router \
 --vllm-pd-disaggregation \
 --kv-connector moriio \
 --vllm-discovery-address "0.0.0.0:36367"
-```
 
 
 Alternatively, you can use the reference implementation proxy shipped with vLLM:
@@ -219,7 +213,6 @@ export DECODE_IP=<node2-ip>
 Start the proxy first as described in [Proxy server](https://docs.vllm.ai#proxy-server), then start the prefill instance:
 
 docker run \
-```bash
 --name moriio-prefill \
 --init --network host --ipc host --privileged \
 --security-opt seccomp=unconfined \
@@ -245,7 +238,6 @@ deepseek-ai/DeepSeek-R1-0528 \
 "notify_port": "61005"
 }
 }'
-```
 
 
 ### On node 2[¶](https://docs.vllm.ai#on-node-2)
@@ -253,7 +245,6 @@ deepseek-ai/DeepSeek-R1-0528 \
 Decode instance:
 
 docker run \
-```bash
 --name moriio-decode \
 --init --network host --ipc host --privileged \
 --security-opt seccomp=unconfined \
@@ -279,7 +270,6 @@ deepseek-ai/DeepSeek-R1-0528 \
 "notify_port": "61005"
 }
 }'
-```
 
 
 ## Troubleshooting[¶](https://docs.vllm.ai#troubleshooting)

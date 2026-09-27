@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:10:54Z",
- "finished_at": "2026-09-24T18:51:12Z",
- "duration_seconds": 6.4,
- "attempts": 2,
+ "finished_at": "2026-09-27T08:30:39Z",
+ "duration_seconds": 11.6,
+ "attempts": 3,
  "channels": {
   "github_org_763a34b6": {
    "type": "github_org",

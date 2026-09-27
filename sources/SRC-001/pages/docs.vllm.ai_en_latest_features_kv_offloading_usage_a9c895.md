@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/kv_offloading_usage/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # KV Offloading Usage Guide[¶](https://docs.vllm.ai#kv-offloading-usage-guide)
 
@@ -70,7 +70,6 @@ parameter allows larger chunks, yielding larger I/Os to the host and secondary t
 ## Single-Tier Setup (CPU Only)[¶](https://docs.vllm.ai#single-tier-setup-cpu-only)
 
 vllm serve <model> \
-```json
 --kv-transfer-config '{
 "kv_connector": "OffloadingConnector",
 "kv_role": "kv_both",
@@ -79,7 +78,6 @@ vllm serve <model> \
 "cpu_bytes_to_use": 1000000000
 }
 }'
-```
 
 
 ## Multi-Tier Setup[¶](https://docs.vllm.ai#multi-tier-setup)
@@ -97,7 +95,6 @@ key plus tier-specific fields (and an optional `module_path`
 for out-of-tree tiers). The list is ordered: tier 0 is consulted before tier 1, and so on. See [Secondary Tiers](https://docs.vllm.ai#secondary-tiers) for tier-specific keys.
 
 vllm serve <model> \
-```json
 --kv-transfer-config '{
 "kv_connector": "OffloadingConnector",
 "kv_role": "kv_both",
@@ -116,7 +113,6 @@ vllm serve <model> \
 ]
 }
 }'
-```
 
 
 `kv_connector_extra_config`
@@ -233,12 +229,10 @@ Implement [ CachePolicy](https://docs.vllm.ai/api/vllm/v1/kv_offload/cpu/policie
 ) in your own package — no vLLM fork or patch required — and point `kv_connector_extra_config`
 
 at it directly:{
-```json
 "cpu_bytes_to_use": 10737418240,
 "eviction_policy": "MyCachePolicy",
 "cache_policy_module_path": "my_package.my_module"
 }
-```
 
 
 `eviction_policy`
@@ -508,7 +502,6 @@ running in the same process.A producer parks a request's blocks until the consum
 
 `unbound_store_timeout_s`
 
-```json
 the blocks are released so they stop pinning primary-tier slots. Raise it when prefills legitimately take longer than the default:vllm serve <model> \
 --kv-transfer-config '{
 "kv_connector": "OffloadingConnector",
@@ -523,7 +516,6 @@ the blocks are released so they stop pinning primary-tier slots. Raise it when p
 ]
 }
 }'
-```
 
 
 #### Environment Variables[¶](https://docs.vllm.ai#environment-variables)
@@ -696,7 +688,6 @@ Implement [ SecondaryTierManager](https://docs.vllm.ai/api/vllm/v1/kv_offload/ti
 
 `vllm/v1/kv_offload/tiering/base.py`
 
-```json
 ) in your own package — no vLLM fork or patch required — and point the tier config at it directly:{
 "spec_name": "TieringOffloadingSpec",
 "cpu_bytes_to_use": 10737418240,
@@ -708,7 +699,6 @@ Implement [ SecondaryTierManager](https://docs.vllm.ai/api/vllm/v1/kv_offload/ti
 }
 ]
 }
-```
 
 
 `type`

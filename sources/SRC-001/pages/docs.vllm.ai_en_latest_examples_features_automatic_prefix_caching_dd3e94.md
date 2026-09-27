@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/features/automatic_prefix_caching/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Automatic Prefix Caching[¶](https://docs.vllm.ai#automatic-prefix-caching)
 

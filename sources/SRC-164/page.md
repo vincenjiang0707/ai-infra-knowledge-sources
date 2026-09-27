@@ -65,6 +65,7 @@ source: https://docs.sglang.io/llms.txt
 - [Rerank models](https://docs.sglang.io/docs/supported-models/rerank_models.md)
 - [Classification Models](https://docs.sglang.io/docs/supported-models/classify_models.md)
 - [Reward models](https://docs.sglang.io/docs/supported-models/reward_models.md)
+- [Decision models](https://docs.sglang.io/docs/supported-models/decision_models.md): Answer typed choice, score, and yes or no questions with a probability for every option from a chat model, without generating text.
 - [How to Support New Models](https://docs.sglang.io/docs/supported-models/support_new_models.md): This document explains how to add support for new language models and multimodal large language models (MLLMs) in SGLang. It also covers how to test new models and register external implementations.
 - [Transformers Fallback in SGLang](https://docs.sglang.io/docs/supported-models/transformers_fallback.md)
 - [Use Models From ModelScope](https://docs.sglang.io/docs/supported-models/modelscope.md)
@@ -276,8 +277,10 @@ source: https://docs.sglang.io/llms.txt
 - [Qwen-Image 2.1](https://docs.sglang.io/cookbook/diffusion/Qwen-Image/Qwen-Image-2.1.md): Run Qwen-Image 2.1 text-to-image and image-conditioned generation with SGLang Diffusion.
 - [Qwen-Image](https://docs.sglang.io/cookbook/diffusion/Qwen-Image/Qwen-Image.md)
 - [Qwen-Image-Edit-2511](https://docs.sglang.io/cookbook/diffusion/Qwen-Image/Qwen-Image-Edit.md)
+- [Anima](https://docs.sglang.io/cookbook/diffusion/CircleStone/Anima.md): Deploy Anima Base v1.0 with SGLang Diffusion for anime and illustration generation, using native components and single- or multi-GPU execution.
 - [SenseNova-U1.5-8B-MoT](https://docs.sglang.io/cookbook/diffusion/SenseNova/SenseNova-U1.5-8B-MoT.md)
 - [LongCat-Image](https://docs.sglang.io/cookbook/diffusion/LongCat/LongCat-Image.md)
+- [Ming-Image](https://docs.sglang.io/cookbook/diffusion/inclusionAI/Ming-Image.md): Deploy Ming-Image Design and Design-Layer with SGLang Diffusion for text-to-image, RGBA image editing, and ordered transparent layer decomposition.
 - [Z-Image-Turbo](https://docs.sglang.io/cookbook/diffusion/Z-Image/Z-Image-Turbo.md)
 - [Krea-2](https://docs.sglang.io/cookbook/diffusion/Krea/Krea-2.md)
 - [ERNIE-Image](https://docs.sglang.io/cookbook/diffusion/Ernie-Image/Ernie-Image.md)
@@ -302,7 +305,7 @@ source: https://docs.sglang.io/llms.txt
 - [OpenAI API](https://docs.sglang.io/docs/sglang-diffusion/api/openai_api.md): Image and video generation endpoints with LoRA adapter management.
 - [Realtime and Causal Video Models](https://docs.sglang.io/docs/sglang-diffusion/realtime_models.md)
 - [Diffusion models with autoregressive stages](https://docs.sglang.io/docs/sglang-diffusion/models_with_ar.md): Run diffusion pipelines with in-process or separately deployed autoregressive encoders.
-- [Diffusion Models with Prompt Enhancement (PE)](https://docs.sglang.io/docs/sglang-diffusion/models_with_pe.md): Run ERNIE-Image with built-in prompt enhancement or a separate SGLang-served PE model.
+- [Prompt enhancement](https://docs.sglang.io/docs/sglang-diffusion/models_with_pe.md): Connect an independently deployed SGLang LLM or VLM to diffusion image and video APIs.
 - [Post-Processing](https://docs.sglang.io/docs/sglang-diffusion/api/post_processing.md)
 - [Performance Optimization](https://docs.sglang.io/docs/sglang-diffusion/performance-optimization.md): Choose performance levers for SGLang Diffusion by latency, throughput, memory, and quality tradeoffs.
 - [Deployment and Performance Modes](https://docs.sglang.io/docs/sglang-diffusion/deployment_cookbook.md): Choose component residency, FSDP, CFG parallelism, SP, TP, and performance-mode presets in SGLang Diffusion.

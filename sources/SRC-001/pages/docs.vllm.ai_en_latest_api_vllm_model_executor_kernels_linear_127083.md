@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -499,9 +499,6 @@ MXFP8 W8A8 GEMM via FlashInfer CuTe-DSL (SM100/SM103).
 ## Source code in `vllm/model_executor/kernels/linear/mxfp8/flashinfer.py`
 
 
-|
-|
-
 ##
 
 `FlashInferCutlassMxfp8LinearKernel`
@@ -880,6 +877,8 @@ when activations must not be quantized.
 Configuration for an MXFP8 linear layer.
 
 All MXFP8 layers share the same structure: FP8-E4M3 weights with uint8 (E8M0) per-block scales at block size 32.
+
+Attributes:
 
 ## Source code in `vllm/model_executor/kernels/linear/mxfp8/Mxfp8LinearKernel.py`
 
@@ -1414,11 +1413,13 @@ Select and instantiate the best MXFP6 linear kernel for the current platform.
 
 ##
 
-`init_mxfp8_linear_kernel(*, bmm_batch_size=None)`
+`init_mxfp8_linear_kernel(*, weight_shape, bmm_batch_size=None)`
 
 [¶](https://docs.vllm.ai#vllm.model_executor.kernels.linear.init_mxfp8_linear_kernel)
 
-Select and instantiate the best MXFP8 linear kernel for the current platform.
+Select and instantiate the best MXFP8 linear kernel for the current platform and `(N, K)`
+
+weight shape.
 
 ## Source code in `vllm/model_executor/kernels/linear/__init__.py`
 

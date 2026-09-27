@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/nvidia/engram/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -101,11 +101,39 @@ Bases: [ParallelEngramEmbedding](https://docs.vllm.ai/common/engram/#vllm.models
 
 Extend TP lookup with DP head sharding or shared, CPU-offloaded TP slices.
 
+Methods:
+
+-
+–[collapse_huge_pages](https://docs.vllm.ai#vllm.models.deepseek_v41.nvidia.engram.ParallelEngramEmbedding.collapse_huge_pages)Best-effort MADV_COLLAPSE (Linux >= 6.1) of pages that faulted small.
+
+
 ## Source code in `vllm/models/deepseek_v41/nvidia/engram.py`
 
 
 |
 |
+
+###
+
+`collapse_huge_pages()`
+
+[¶](https://docs.vllm.ai#vllm.models.deepseek_v41.nvidia.engram.ParallelEngramEmbedding.collapse_huge_pages)
+
+Best-effort MADV_COLLAPSE (Linux >= 6.1) of pages that faulted small.
+
+## Source code in `vllm/models/deepseek_v41/nvidia/engram.py`
+
+
+##
+
+`_allocate_huge_page_storage(num_bytes)`
+
+[¶](https://docs.vllm.ai#vllm.models.deepseek_v41.nvidia.engram._allocate_huge_page_storage)
+
+Register prefaulted huge pages, or return None for pinned-memory fallback.
+
+## Source code in `vllm/models/deepseek_v41/nvidia/engram.py`
+
 
 ##
 

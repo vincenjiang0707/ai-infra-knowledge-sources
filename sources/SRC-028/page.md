@@ -4,6 +4,10 @@ source: https://github.com/AI-Hypercomputer/maxtext/releases
 
 ## Release list
 
+## mlperf6.1-dsv3-v5.0
+
+mlperf6.1-dsv3-v5.0
+
 ## mlperf6.1-dsv3-v4.0
 
 mlperf6.1-dsv3-v4.0
@@ -216,7 +220,3 @@ to unlock more efficient memory usage. - The GPT-OSS family of models (20B, 120B
 `tools/setup/setup_post_training_requirements.sh`
 
 for post training dependency installation is deprecated in favor of[pip installation](https://maxtext.readthedocs.io/en/latest/install_maxtext.html)
-
-## maxtext-tutorial-v1.5.0
-
-Merge pull request #2898 from AI-Hypercomputer:tests_docker_image PiperOrigin-RevId: 850456883

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/layers/fused_moe/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class FusedMoEWithLoRA(BaseLayerWithLoRA):
 def __init__(self, base_layer: MoERunner) -> None:

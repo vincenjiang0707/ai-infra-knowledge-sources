@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/cli/chat/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # vllm chat[¶](https://docs.vllm.ai#vllm-chat)
 

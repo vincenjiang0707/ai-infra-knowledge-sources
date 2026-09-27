@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/models/hardware_supported_models/cpu/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 CPU - Intel® Xeon® AMD Zen CPUs
 

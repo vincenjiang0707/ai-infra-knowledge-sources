@@ -1,8 +1,8 @@
 # NVIDIA/cutlass
 
-- stars: 10492
-- forks: 2101
-- open_issues: 756
+- stars: 10500
+- forks: 2105
+- open_issues: 767
 - default_branch: main
 - archived: False
 - license: NOASSERTION

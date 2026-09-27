@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/passes/fusion/mla_attn_quant_fusion/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class MLAAttnFp8GroupQuantPattern(
 VllmPatternReplacement[..., tuple[torch.Tensor, torch.Tensor]]

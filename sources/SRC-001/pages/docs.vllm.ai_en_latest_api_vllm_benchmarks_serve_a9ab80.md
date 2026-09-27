@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/benchmarks/serve/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 

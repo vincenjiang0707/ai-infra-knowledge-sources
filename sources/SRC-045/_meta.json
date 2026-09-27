@@ -5,43 +5,16 @@
  "priority": "",
  "scrape_type": "github_repo",
  "blocked_reason": null,
- "status": "success",
+ "status": "not_fetched",
  "started_at": "2026-09-23T03:19:55Z",
- "finished_at": "2026-09-25T01:51:56Z",
- "duration_seconds": 23.3,
- "attempts": 3,
+ "finished_at": "2026-09-27T00:57:53Z",
+ "duration_seconds": 0.0,
+ "attempts": 4,
  "channels": {
   "gh_85b6002c": {
    "type": "github_repo",
-   "url": "https://github.com/PaddlePaddle/Paddle",
-   "readme": "embedded",
-   "status": "ok",
-   "output": "github_repo.md",
-   "issues": {
-    "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at desc (web default)"
-   },
-   "pulls": {
-    "status": "ok",
-    "count": "cached",
-    "note": "head-check: no update since last run"
-   },
-   "releases": {
-    "status": "ok",
-    "count": 70
-   },
-   "changelog": {
-    "status": "ok",
-    "output": "github_changelog.md",
-    "from": "releases.body",
-    "probed": [
-     "CHANGELOG.md",
-     "CHANGES.md",
-     "HISTORY.md",
-     "NEWS.md"
-    ]
-   }
+   "status": "error",
+   "error": "BrokenPipeError(32, 'Broken pipe')"
   }
  },
  "cursor": {

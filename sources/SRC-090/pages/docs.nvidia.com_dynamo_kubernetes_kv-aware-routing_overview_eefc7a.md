@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/kubernetes/kv-aware-routing/overview
-lastmod: 2026-09-25T12:26:00.485Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 KV-Aware Routing on Kubernetes
 

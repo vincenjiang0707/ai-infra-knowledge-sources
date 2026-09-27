@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/moe_output/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -15,7 +15,7 @@ Classes:
 –[MoEOutput](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.moe_output.MoEOutput)A MoE layer's output with its final reduction still open.
 
 -
-–[UnfinalizedMoEOutput](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.moe_output.UnfinalizedMoEOutput)Unfinalized output of a monolithic MoE kernel.
+–[UnfinalizedMoEOutput](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.moe_output.UnfinalizedMoEOutput)Unfinalized output of a MoE kernel.
 
 
 Functions:
@@ -53,7 +53,7 @@ here means the fused path applies, and a consumer need not re-derive that.
 
 [¶](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.moe_output.UnfinalizedMoEOutput)
 
-Unfinalized output of a monolithic MoE kernel.
+Unfinalized output of a MoE kernel.
 
 Kernels that can stop after GEMM2 (the TRTLLM-Gen `do_finalize=False`
 

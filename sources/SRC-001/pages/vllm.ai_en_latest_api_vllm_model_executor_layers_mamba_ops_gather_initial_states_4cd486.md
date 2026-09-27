@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/ops/gather_initial_states/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 def gather_initial_states(
 state: torch.Tensor,

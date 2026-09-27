@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/config/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -77,6 +77,14 @@ Functions:
 Methods:
 
 -
+–[defer_moe_finalize](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.config.FusedMoEConfig.defer_moe_finalize)Ask the experts to leave the top-k reduction to the layer's consumer.
+
+-
+–[limit_deferred_moe_finalize](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.config.FusedMoEConfig.limit_deferred_moe_finalize)Finalize calls above
+
+`max_num_tokens`
+
+even when deferring. -
 –[should_defer_moe_finalize](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.config.FusedMoEConfig.should_defer_moe_finalize)Return whether this invocation may defer the top-k reduction.
 
 
@@ -111,9 +119,7 @@ Whether experts may return an unfinalized output on this deployment.
 
 Evaluated on read rather than in `__post_init__`
 
-because `defer_moe_finalize`
-
-is set after construction, like `skip_final_all_reduce`
+because deferral is requested after construction, like `skip_final_all_reduce`
 
 .
 
@@ -126,6 +132,73 @@ is set after construction, like `skip_final_all_reduce`
 [¶](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.config.FusedMoEConfig.w13_num_shards)
 
 Number of shards fused into w13: gate and up for gated, up only.
+
+###
+
+`defer_moe_finalize(max_num_tokens=-1)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.config.FusedMoEConfig.defer_moe_finalize)
+
+Ask the experts to leave the top-k reduction to the layer's consumer.
+
+A layer whose consumer can fuse the top-k reduction (e.g. into its TP all-reduce) calls this once while the model is built, and only when its experts are TRTLLM-Gen ones that can stop after GEMM2 (the `do_finalize=False`
+
+path). Other experts ignore the request and always finalize, which `should_defer_moe_finalize`
+
+can't see, so the layer checks the quant method's `experts_cls`
+
+first, as Kimi-K3 does. From then on:
+
+- The experts return an
+`UnfinalizedMoEOutput`
+
+instead of finalized states for every call`should_defer_moe_finalize`
+
+accepts. `should_defer_moe_finalize(num_tokens)`
+
+is the answer for a call: it requires a TP-only deployment without hidden-dim padding (`use_deferred_moe_finalize`
+
+), a non-empty call and at most`defer_moe_finalize_max_num_tokens`
+
+tokens. The cap starts at`max_num_tokens`
+
+and only ever goes down: experts that would split a larger call across kernel launches lower it to their single-launch size when they are built, since each launch permutes into its own buffer.- The model asks
+`should_defer_moe_finalize`
+
+before each call and takes the matching path. A deferred call runs the runner's`_forward_impl`
+
+directly, since the MoE custom op returns tensors only, and the consumer then owns the top-k reduction, the shared-expert add and the all-reduce.
+
+Parameters:
+
+-
+
+(`max_num_tokens`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.config.FusedMoEConfig.defer_moe_finalize(max_num_tokens))
+
+, default:[int](https://docs.python.org/3/builtins/functions.html#int)`-1`
+
+) –Most tokens per call the consumer can take in deferred form. Negative means no limit of its own.
+
+
+## Source code in `vllm/model_executor/layers/fused_moe/config.py`
+
+
+###
+
+`limit_deferred_moe_finalize(max_num_tokens)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.config.FusedMoEConfig.limit_deferred_moe_finalize)
+
+Finalize calls above `max_num_tokens`
+
+even when deferring.
+
+Negative means no limit, and leaves the current one in place.
+
+## Source code in `vllm/model_executor/layers/fused_moe/config.py`
+
 
 ###
 

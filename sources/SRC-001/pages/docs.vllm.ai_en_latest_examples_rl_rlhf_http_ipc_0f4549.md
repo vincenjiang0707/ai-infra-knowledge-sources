@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/rl/rlhf_http_ipc/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # RLHF Http IPC[¶](https://docs.vllm.ai#rlhf-http-ipc)
 

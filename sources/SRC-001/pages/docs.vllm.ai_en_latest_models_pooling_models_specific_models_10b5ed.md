@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/models/pooling_models/specific_models/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Specific Model Examples[¶](https://docs.vllm.ai#specific-model-examples)
 
@@ -57,26 +57,22 @@ curl -s http://localhost:8000/rerank -H "Content-Type: application/json" -d '{
 
 Or the score API:
 
-```json
 curl -s http://localhost:8000/score -H "Content-Type: application/json" -d '{
 "model": "answerdotai/answerai-colbert-small-v1",
 "text_1": "What is machine learning?",
 "text_2": ["Machine learning is a subset of AI.", "The weather is sunny."]
 }'
-```
 
 
 You can also get the raw token embeddings using the Pooling API with `token_embed`
 
 task:
 
-```json
 curl -s http://localhost:8000/pooling -H "Content-Type: application/json" -d '{
 "model": "answerdotai/answerai-colbert-small-v1",
 "input": "What is machine learning?",
 "task": "token_embed"
 }'
-```
 
 
 An example can be found here: [ examples/pooling/score/colbert_rerank_online.py](https://github.com/vllm-project/vllm/blob/main/examples/pooling/score/colbert_rerank_online.py)
@@ -114,13 +110,11 @@ Or the `/score`
 
 API:
 
-```json
 curl -s http://localhost:8000/score -H "Content-Type: application/json" -d '{
 "model": "TomoroAI/tomoro-colqwen3-embed-4b",
 "text_1": "What is the capital of France?",
 "text_2": ["The capital of France is Paris.", "Python is a programming language."]
 }'
-```
 
 
 ### Multi-modal scoring and reranking (text query × image documents)[¶](https://docs.vllm.ai#multi-modal-scoring-and-reranking-text-query-image-documents)
@@ -149,7 +143,6 @@ parts — the same format used by the OpenAI chat completion API:
 
 Score a text query against image documents:
 
-```
 curl -s http://localhost:8000/score -H "Content-Type: application/json" -d '{
 "model": "TomoroAI/tomoro-colqwen3-embed-4b",
 "data_1": "Retrieve the city of Beijing",
@@ -162,12 +155,10 @@ curl -s http://localhost:8000/score -H "Content-Type: application/json" -d '{
 }
 ]
 }'
-```
 
 
 Rerank image documents by a text query:
 
-```
 curl -s http://localhost:8000/rerank -H "Content-Type: application/json" -d '{
 "model": "TomoroAI/tomoro-colqwen3-embed-4b",
 "query": "Retrieve the city of Beijing",
@@ -187,7 +178,6 @@ curl -s http://localhost:8000/rerank -H "Content-Type: application/json" -d '{
 ],
 "top_n": 2
 }'
-```
 
 
 ### Raw token embeddings[¶](https://docs.vllm.ai#raw-token-embeddings)
@@ -198,20 +188,17 @@ API with `token_embed`
 
 task:
 
-```json
 curl -s http://localhost:8000/pooling -H "Content-Type: application/json" -d '{
 "model": "TomoroAI/tomoro-colqwen3-embed-4b",
 "input": "What is machine learning?",
 "task": "token_embed"
 }'
-```
 
 
 For **image inputs** via the Pooling API, use the chat-style `messages`
 
 field:
 
-```
 curl -s http://localhost:8000/pooling -H "Content-Type: application/json" -d '{
 "model": "TomoroAI/tomoro-colqwen3-embed-4b",
 "messages": [
@@ -224,7 +211,6 @@ curl -s http://localhost:8000/pooling -H "Content-Type: application/json" -d '{
 }
 ]
 }'
-```
 
 
 ### Examples[¶](https://docs.vllm.ai#examples)
@@ -258,13 +244,11 @@ curl -s http://localhost:8000/rerank -H "Content-Type: application/json" -d '{
 
 Or the score endpoint:
 
-```json
 curl -s http://localhost:8000/score -H "Content-Type: application/json" -d '{
 "model": "athrael-soju/colqwen3.5-4.5B",
 "text_1": "What is the capital of France?",
 "text_2": ["The capital of France is Paris.", "Python is a programming language."]
 }'
-```
 
 
 An example can be found here: [ examples/pooling/score/colqwen3_5_rerank_online.py](https://github.com/vllm-project/vllm/blob/main/examples/pooling/score/colqwen3_5_rerank_online.py)
@@ -310,7 +294,6 @@ for passages (prepends `passage:`
 
 Embed text queries:
 
-```
 curl -s http://localhost:8000/v1/embeddings -H "Content-Type: application/json" -d '{
 "model": "nvidia/llama-nemotron-embed-vl-1b-v2",
 "messages": [
@@ -322,14 +305,12 @@ curl -s http://localhost:8000/v1/embeddings -H "Content-Type: application/json" 
 }
 ]
 }'
-```
 
 
 Embed images via the chat-style `messages`
 
 field:
 
-```
 curl -s http://localhost:8000/v1/embeddings -H "Content-Type: application/json" -d '{
 "model": "nvidia/llama-nemotron-embed-vl-1b-v2",
 "messages": [
@@ -342,7 +323,6 @@ curl -s http://localhost:8000/v1/embeddings -H "Content-Type: application/json" 
 }
 ]
 }'
-```
 
 
 ### Reranker Model[¶](https://docs.vllm.ai#reranker-model)
@@ -357,12 +337,10 @@ Llama Nemotron VL reranker models combine the same bidirectional Llama + SigLIP 
 
 Start the server:
 
-```bash
 vllm serve nvidia/llama-nemotron-rerank-vl-1b-v2 \
 --runner pooling \
 --trust-remote-code \
 --chat-template examples/pooling/score/template/nemotron-vl-rerank.jinja
-```
 
 
 Note
@@ -373,7 +351,6 @@ The chat template bundled with this checkpoint's tokenizer is not suitable for t
 
 Score a text query against an image document:
 
-```
 curl -s http://localhost:8000/score -H "Content-Type: application/json" -d '{
 "model": "nvidia/llama-nemotron-rerank-vl-1b-v2",
 "data_1": "Find diagrams about autonomous robots",
@@ -386,12 +363,10 @@ curl -s http://localhost:8000/score -H "Content-Type: application/json" -d '{
 }
 ]
 }'
-```
 
 
 Rerank image documents by a text query:
 
-```
 curl -s http://localhost:8000/rerank -H "Content-Type: application/json" -d '{
 "model": "nvidia/llama-nemotron-rerank-vl-1b-v2",
 "query": "Find diagrams about autonomous robots",
@@ -411,7 +386,6 @@ curl -s http://localhost:8000/rerank -H "Content-Type: application/json" -d '{
 ],
 "top_n": 2
 }'
-```
 
 
 ## BAAI/bge-m3[¶](https://docs.vllm.ai#baaibge-m3)
@@ -434,12 +408,10 @@ The three retrieval modes map to concrete pooling tasks as follows:
 
 Serve one concrete mode by selecting its task at load time:
 
-```bash
 vllm serve BAAI/bge-m3 \
 --runner pooling \
 --hf-overrides '{"architectures": ["BgeM3EmbeddingModel"]}' \
 --pooler-config.task <task>
-```
 
 
 For dense embeddings, replace `<task>`
@@ -448,13 +420,11 @@ with `embed`
 
 and use the Embeddings API:
 
-```bash
 curl -s http://localhost:8000/v1/embeddings \
 -H "Content-Type: application/json" -d '{
 "model": "BAAI/bge-m3",
 "input": ["What is BGE M3?", "Definition of BM25"]
 }'
-```
 
 
 For lexical weights, replace `<task>`
@@ -463,13 +433,11 @@ with `token_classify`
 
 and use the Pooling API:
 
-```json
 curl -s http://localhost:8000/pooling -H "Content-Type: application/json" -d '{
 "model": "BAAI/bge-m3",
 "task": "token_classify",
 "input": ["What is BGE M3?", "Definition of BM25"]
 }'
-```
 
 
 Due to limitations in the output schema, the output consists of a list of token scores for each input. Call `/tokenize`
@@ -482,26 +450,22 @@ with `token_embed`
 
 and use the Pooling API:
 
-```json
 curl -s http://localhost:8000/pooling -H "Content-Type: application/json" -d '{
 "model": "BAAI/bge-m3",
 "task": "token_embed",
 "input": ["What is BGE M3?", "Definition of BM25"]
 }'
-```
 
 
 ### Dense and sparse output through an IO processor plugin[¶](https://docs.vllm.ai#dense-and-sparse-output-through-an-io-processor-plugin)
 
 The source tree includes a reference [ BGE-M3 IO processor plugin](https://github.com/vllm-project/vllm/tree/main/tests/plugins/bge_m3_sparse_plugin) that formats dense embeddings, sparse token weights, or both in one response. From a source checkout, install it in the vLLM environment and load it as follows:
 
-```bash
 uv pip install ./tests/plugins/bge_m3_sparse_plugin
 vllm serve BAAI/bge-m3 \
 --runner pooling \
 --hf-overrides '{"architectures": ["BgeM3EmbeddingModel"]}' \
 --io-processor-plugin bge_m3_sparse_plugin
-```
 
 
 The plugin selects the internal `embed&token_classify`
@@ -512,7 +476,6 @@ and put the plugin-specific fields under `data`
 
 :
 
-```json
 curl -s http://localhost:8000/pooling -H "Content-Type: application/json" -d '{
 "model": "BAAI/bge-m3",
 "task": "plugin",
@@ -522,7 +485,6 @@ curl -s http://localhost:8000/pooling -H "Content-Type: application/json" -d '{
 "return_tokens": true
 }
 }'
-```
 
 
 `embed_task`

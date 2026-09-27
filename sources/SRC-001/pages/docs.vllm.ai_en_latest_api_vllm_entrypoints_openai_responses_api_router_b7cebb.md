@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/openai/responses/api_router/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Convert the generator to a stream of events in SSE format.
 

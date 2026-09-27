@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/bailing_moe_linear/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @support_torch_compile(
 dynamic_arg_dims={

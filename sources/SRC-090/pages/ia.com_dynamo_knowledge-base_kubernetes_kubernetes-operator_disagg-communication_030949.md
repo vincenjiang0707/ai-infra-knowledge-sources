@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/knowledge-base/kubernetes/kubernetes-operator/disagg-communication
-lastmod: 2026-09-24T19:58:16.636Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 # Disaggregated Inference Communication Guide
 

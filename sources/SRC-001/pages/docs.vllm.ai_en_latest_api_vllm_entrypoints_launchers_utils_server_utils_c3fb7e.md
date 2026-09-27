@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/launchers/utils/server_utils/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Get the uvicorn log config based on the provided arguments.
 
@@ -17,7 +17,13 @@ the access log filter
 3. Otherwise, return None (use uvicorn defaults)
 """
 # First, try to load from file if specified
-log_config = load_log_config(args.log_config_file)
+logging_config = getattr(args, "logging_config", None)
+log_config_file = (
+logging_config.pylogging_config_file
+if logging_config is not None
+else getattr(args, "log_config_file", None)
+)
+log_config = load_log_config(log_config_file)
 if log_config is not None:
 return log_config
 # If endpoints to filter are specified, create a config with the filter

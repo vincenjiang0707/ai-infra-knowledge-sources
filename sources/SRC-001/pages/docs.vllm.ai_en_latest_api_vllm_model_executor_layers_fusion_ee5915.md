@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fusion/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -11,6 +11,9 @@ Modules:
 
 -
 –[fused_act_quant](https://docs.vllm.ai/fused_act_quant/#vllm.model_executor.layers.fusion.fused_act_quant)Producer side of the QuantizedActivation contract for activation layers.
+
+-
+–[mm_input_norm](https://docs.vllm.ai/mm_input_norm/#vllm.model_executor.layers.fusion.mm_input_norm)Fused Normalisation on the Device.
 
 -
 –[quant_activation](https://docs.vllm.ai/quant_activation/#vllm.model_executor.layers.fusion.quant_activation)A QuantizedActivation is a pre-quantized activation produced by a fused kernel

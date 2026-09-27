@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/moe_kernel_features/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Fused MoE Kernel Features[¶](https://docs.vllm.ai#fused-moe-kernel-features)
 

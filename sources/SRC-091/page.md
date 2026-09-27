@@ -4,33 +4,31 @@ source: https://github.com/LMCache/LMCache/releases
 
 ## Release list
 
-## Nightly 2026-09-24 · ROCm 7.2 (gfx942, gfx950)
+## Nightly 2026-09-27 · ROCm 7.2 (gfx942, gfx950)
 
 Nightly ROCm 7.2 wheels built from `dev`
 
-on 2026-09-24,
+on 2026-09-27,
 
 for AMD Instinct gfx942 (MI300X/MI325X) and gfx950 (MI350X/MI355X),
 
 ABI-matched to the upstream `vllm/vllm-openai-rocm`
 
-image
-
-(torch 2.11, cp312).
+image (torch 2.11, cp312).
 
 Install into an upstream vLLM ROCm container:
 
 ```
-pip install lmcache==0.5.6.dev98+rocm7.2 --no-deps \
+pip install lmcache==0.5.6.dev107+rocm7.2 --no-deps \
 --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/nightly-rocm
 ```
 
 
-## Nightly 2026-09-24 · Moore Threads MUSA
+## Nightly 2026-09-27 · Moore Threads MUSA
 
 Nightly MUSA wheel for LMCache, built from `dev`
 
-on 2026-09-24.
+on 2026-09-27.
 
 Built and smoke-tested in the validated public MUSA image. TorchMUSA,
 
@@ -41,15 +39,15 @@ in the wheel.
 Install inside the matching MUSA runtime image:
 
 ```
-pip install lmcache==0.5.6.dev98+musa --no-deps \
+pip install lmcache==0.5.6.dev107+musa --no-deps \
 --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/nightly-musa
 ```
 
-## Nightly 2026-09-24 · CUDA 12.9
+## Nightly 2026-09-27 · CUDA 12.9
 
 Nightly CUDA 12.9 wheels built from `dev`
 
-on 2026-09-24.
+on 2026-09-27.
 
 ```
 uv pip install lmcache --pre \
@@ -59,11 +57,11 @@ uv pip install lmcache --pre \
 ```
 
 
-## Nightly 2026-09-24 · CUDA 13.0
+## Nightly 2026-09-27 · CUDA 13.0
 
 Nightly CUDA 13.0 wheels built from `dev`
 
-on 2026-09-24.
+on 2026-09-27.
 
 ```
 uv pip install lmcache --pre \
@@ -73,29 +71,9 @@ uv pip install lmcache --pre \
 ```
 
 
-## operator-v0.5.5
+## Release v0.5.6rc1 · AMD ROCm 7.2.4 / torch 2.10.0 git3d3aa833 / cp312 / CXX11 ABI=1
 
-[good-first-issue] storage: convert f-string log calls in eic_connect…
-
-## Release v0.5.5rc7 · Intel XPU (SYCL)
-
-Intel XPU/SYCL wheel for LMCache v0.5.5rc7.
-
-Built against pinned torch-xpu + oneAPI toolchain; runtime binds to host oneAPI/SYCL libraries.
-
-Install into an upstream Intel vLLM XPU container:
-
-```
-VERSION=v0.5.5rc7
-pip install lmcache==0.5.5rc7+xpu --no-deps \
---no-index \
---find-links https://github.com/LMCache/LMCache/releases/expanded_assets/${VERSION}-xpu
-```
-
-
-## Release v0.5.5rc7 · AMD ROCm 7.2.4 / torch 2.10.0 git3d3aa833 / cp312 / CXX11 ABI=1
-
-ROCm wheel for LMCache v0.5.5rc7, built and tested in
+ROCm wheel for LMCache v0.5.6rc1, built and tested in
 
 `rocm/pytorch:rocm7.2.4_ubuntu24.04_py3.12_pytorch_release_2.10.0`
 
@@ -131,14 +109,14 @@ by the corresponding LMCache release.
 Install into the pinned AMD PyTorch container:
 
 ```
-VERSION=v0.5.5rc7
-pip install lmcache==0.5.5rc7+rocm7.2.4.torch2.10.git3d3aa833.cxx11abi1 --no-deps \
+VERSION=v0.5.6rc1
+pip install lmcache==0.5.6rc1+rocm7.2.4.torch2.10.git3d3aa833.cxx11abi1 --no-deps \
 --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/${VERSION}-rocm-torch210
 ```
 
-## Release v0.5.5rc7 · ROCm (gfx942, gfx950)
+## Release v0.5.6rc1 · ROCm (gfx942, gfx950)
 
-ROCm 7.2 wheel for LMCache v0.5.5rc7, built for AMD
+ROCm 7.2 wheel for LMCache v0.5.6rc1, built for AMD
 
 Instinct gfx942 (MI300X/MI325X) and gfx950 (MI350X/MI355X). ABI-matched
 
@@ -149,35 +127,42 @@ image (torch 2.11, cp312).
 Install into an upstream vLLM ROCm container:
 
 ```
-VERSION=v0.5.5rc7
-pip install lmcache==0.5.5rc7+rocm7.2 --no-deps \
+VERSION=v0.5.6rc1
+pip install lmcache==0.5.6rc1+rocm7.2 --no-deps \
 --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/${VERSION}-rocm
 ```
 
 
-## Release v0.5.5rc7 · Moore Threads MUSA
+## Release v0.5.6rc1 · Moore Threads MUSA
 
-MUSA-compatible wheel for LMCache v0.5.5rc7.
+MUSA-compatible wheel for LMCache v0.5.6rc1.
 
 Built and smoke-tested in the validated TorchMUSA/MUSA SDK image. TorchMUSA, musa_aiter, and the MUSA userspace runtime stay in the host image and are not installed from PyPI.
 
 Install inside the matching MUSA runtime image:
 
 ```
-VERSION=v0.5.5rc7
-pip install lmcache==0.5.5rc7+musa --no-deps \
+VERSION=v0.5.6rc1
+pip install lmcache==0.5.6rc1+musa --no-deps \
 --no-index \
 --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/${VERSION}-musa
 ```
 
-## Release v0.5.5rc7 · CUDA 12.9
+## Release v0.5.6rc1 · CUDA 12.9
 
-CUDA 12.9 wheel for LMCache v0.5.5rc7.
+CUDA 12.9 wheel for LMCache v0.5.6rc1.
 
 ```
-VERSION=v0.5.5rc7
+VERSION=v0.5.6rc1
 uv pip install lmcache== \
 --extra-index-url https://download.pytorch.org/whl/cu129 \
 --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/-cu129 \
 --index-strategy unsafe-best-match
 ```
+
+
+## v0.5.6rc1
+
+## operator-v0.5.5
+
+[good-first-issue] storage: convert f-string log calls in eic_connect…

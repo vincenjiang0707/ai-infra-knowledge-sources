@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:14:45Z",
- "finished_at": "2026-09-24T18:54:05Z",
- "duration_seconds": 13.3,
- "attempts": 5,
+ "finished_at": "2026-09-27T08:38:14Z",
+ "duration_seconds": 24.1,
+ "attempts": 6,
  "channels": {
   "site_47b8f5ab": {
    "type": "blog",
@@ -19,8 +19,10 @@
    ],
    "status": "ok",
    "mode": "blog",
-   "posts": [],
-   "total_chars": 0,
+   "posts": [
+    "101_2026-09-25-sglang-decision-models.md"
+   ],
+   "total_chars": 35756,
    "post_urls": {
     "https://lmsys.org/blog/2026-09-16-nvfp4-kv-cache": "01_2026-09-16-nvfp4-kv-cache.md",
     "https://lmsys.org/blog/2026-09-10-deepseek-v41": "02_2026-09-10-deepseek-v41.md",
@@ -121,9 +123,9 @@
     "https://lmsys.org/blog/2024-12-04-sglang-v0-4": "96_2024-12-04-sglang-v0-4.md",
     "https://lmsys.org/blog/2024-09-20-arena-new-site": "97_2024-09-20-arena-new-site.md",
     "https://lmsys.org/blog/2024-09-13-redteam-arena": "98_2024-09-13-redteam-arena.md",
-    "https://lmsys.org/blog/2024-09-04-sglang-v0-3": "99_2024-09-04-sglang-v0-3.md"
-   },
-   "head_check": "no_update"
+    "https://lmsys.org/blog/2024-09-04-sglang-v0-3": "99_2024-09-04-sglang-v0-3.md",
+    "https://lmsys.org/blog/2026-09-25-sglang-decision-models": "101_2026-09-25-sglang-decision-models.md"
+   }
   }
  },
  "cursor": {},

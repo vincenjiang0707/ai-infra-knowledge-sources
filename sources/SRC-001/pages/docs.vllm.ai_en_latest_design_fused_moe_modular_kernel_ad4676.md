@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/fused_moe_modular_kernel/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Fused MoE Modular Kernel[¶](https://docs.vllm.ai#fused-moe-modular-kernel)
 

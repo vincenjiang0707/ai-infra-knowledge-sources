@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mhc/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @CustomOp.register("mhc_fused_post_pre")
 class MHCFusedPostPreOp(CustomOp):

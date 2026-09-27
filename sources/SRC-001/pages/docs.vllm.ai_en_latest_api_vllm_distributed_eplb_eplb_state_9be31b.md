@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/eplb/eplb_state/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -148,6 +148,11 @@ Attributes:
 ) –[Tensor](https://pytorch.org/docs/stable/tensors.html#torch.Tensor)A sliding window of expert load.
 
 -
+([last_expert_load](https://docs.vllm.ai#vllm.distributed.eplb.eplb_state.EplbModelState.last_expert_load)
+
+) –[Tensor](https://pytorch.org/docs/stable/tensors.html#torch.Tensor)Global logical-expert totals from the last reshuffle; equal demand initially.
+
+-
 ([logical_replica_count](https://docs.vllm.ai#vllm.distributed.eplb.eplb_state.EplbModelState.logical_replica_count)
 
 ) –[Tensor](https://pytorch.org/docs/stable/tensors.html#torch.Tensor)Number of replicas for each logical expert.
@@ -268,6 +273,16 @@ A sliding window of expert load.
 Shape: (window_size, num_moe_layers, num_physical_experts)
 
 NOTE: The expert_load_view now records load for all physical experts rather than just local experts. This ensures consistent load statistics across different dispatch methods (naive all-to-all, DeepEP). The recorded load will be multiplied by dp_size when using naive all-to-all due to each DP rank contributing the same token set to the calculation. See: https://github.com/vllm-project/vllm/pull/22167#pullrequestreview-3086143856
+
+###
+
+`last_expert_load`
+
+`instance-attribute`
+
+[¶](https://docs.vllm.ai#vllm.distributed.eplb.eplb_state.EplbModelState.last_expert_load)
+
+Global logical-expert totals from the last reshuffle; equal demand initially.
 
 ###
 
@@ -772,7 +787,7 @@ is filled.
 
 ###
 
-`rearrange(is_profile=False, rank_mapping=None)`
+`rearrange(is_profile=False, rank_mapping=None, use_last_expert_load=False)`
 
 [¶](https://docs.vllm.ai#vllm.distributed.eplb.eplb_state.EplbState.rearrange)
 
@@ -803,6 +818,16 @@ to reserve enough memory, no memory movement will be performed. Default is False
 , default:[dict](https://docs.python.org/3/builtins/stdtypes.html#dict)[[int](https://docs.python.org/3/builtins/functions.html#int),[int](https://docs.python.org/3/builtins/functions.html#int)] | None`None`
 
 ) –The rank mapping when scaling is done in EEP.
+
+-
+
+(`use_last_expert_load`
+
+[¶](https://docs.vllm.ai#vllm.distributed.eplb.eplb_state.EplbState.rearrange(use_last_expert_load))
+
+, default:[bool](https://docs.python.org/3/builtins/functions.html#bool)`False`
+
+) –Use the last reshuffle's logical-expert totals.
 
 
 ## Source code in `vllm/distributed/eplb/eplb_state.py`

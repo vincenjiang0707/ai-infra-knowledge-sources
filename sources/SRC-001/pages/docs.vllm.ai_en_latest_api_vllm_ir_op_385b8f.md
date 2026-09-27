@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/ir/op/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -428,11 +428,9 @@ Returns:
 
 Example usage:
 
-```bash
 @vllm.ir.register_op
 def my_add(x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
 return x + y
 @vllm.ir.register_op(name="custom_mul")
 def multiply(x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
 return x * y
-```

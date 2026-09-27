@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/online/int8/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class Int8OnlineMoEMethod(OnlineMoEMethodBase):
 """Online per-channel INT8 MoE quantization.

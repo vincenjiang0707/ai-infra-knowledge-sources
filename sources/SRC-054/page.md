@@ -5,8 +5,8 @@ Loading
 DeepSeek Harness: Everything is a Plugin.
 
 TypeScript
-235k
-28.3k
+237k
+28.5k
 
 Repositories
 Showing 10 of 39 repositories
@@ -38,15 +38,15 @@ DeepSelect: TopK kernels for DeepSeek Sparse Attention (DSA) and Samplers
 
 deepseek-ai/DeepSelect's past year of commit activity
 Cuda
-388
+392
 MIT
-29
+30
 6
 10
 Updated Sep 10, 2026
 deepseek-ai/deepseek-recipe's past year of commit activity
 Rust
-347
+353
 MIT
 32
 4

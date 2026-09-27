@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/qwen3_omni_moe_thinker/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @MULTIMODAL_REGISTRY.register_processor(
 Qwen3OmniMoeThinkerMultiModalProcessor,
@@ -16,8 +16,8 @@ SupportsEagle3,
 Qwen3OmniMoeConditionalGenerationMixin,
 SupportsTranscription,
 ):
-is_3d_moe_weight: bool = True
-supports_tower_connector_lora: bool = True
+is_3d_moe_weight: ClassVar[bool] = True
+supports_tower_connector_lora: ClassVar[bool] = True
 hf_to_vllm_mapper = WeightsMapper(
 orig_to_new_prefix={
 "thinker.lm_head.": "language_model.lm_head.",
@@ -159,7 +159,13 @@ for idx in range(self.deepstack_num_level):
 self.deepstack_input_embeds[idx][:num_tokens].zero_()
 self.deepstack_input_embeds_num_tokens = 0
 def _parse_and_validate_multimodal_inputs(self, **kwargs: object) -> dict:
-mm_input_by_modality = {}
+mm_input_by_modality: dict[
+str,
+Qwen2_5_VLImageInputs
+| Qwen2_5_VLVideoInputs
+| Qwen2_5OmniAudioFeatureInputs
+| None,
+] = {}
 # Preserve the order of modalities if there are multiple of them
 # from the order of kwargs.
 for input_key in kwargs:
@@ -243,6 +249,7 @@ for embeddings in multimodal_embeddings
 if self.visual.deepstack_visual_indexes is not None and any(
 has_vision_embeddings
 ):
+multimodal_embeddings = list(multimodal_embeddings)
 multiscale_len = len(self.visual.deepstack_visual_indexes)
 multimodal_embeddings_multiscale = []
 if is_interleaved:
@@ -366,15 +373,18 @@ videos_with_audio = [
 f
 for f in mm_features
 if f.modality == "video"
+and f.data is not None
 and f.data.get("use_audio_in_video")
-and f.data["use_audio_in_video"].data.item()
+and _get_feature_tensor(f, "use_audio_in_video").item()
 ]
 audios = [f for f in mm_features if f.modality == "audio"]
 mapping: dict[int, int] = {}
 paired_audio_offsets: set[int] = set()
 for i, video_f in enumerate(videos_with_audio):
 if i < len(audios):
-audio_len = audios[i].data["audio_feature_lengths"].data.item()
+audio_len = int(
+_get_feature_tensor(audios[i], "audio_feature_lengths").item()
+)
 mapping[video_f.mm_position.offset] = audio_len
 paired_audio_offsets.add(audios[i].mm_position.offset)
 return mapping, paired_audio_offsets
@@ -398,8 +408,9 @@ sorted_features
 for mm_feature in sorted_features:
 offset = mm_feature.mm_position.offset
 modality = mm_feature.modality
+assert mm_feature.data is not None
 if modality == "image":
-t, h, w = mm_feature.data["image_grid_thw"].data.tolist()
+t, h, w = _get_feature_tensor(mm_feature, "image_grid_thw").tolist()
 yield (
 offset,
 "image",
@@ -411,15 +422,15 @@ offset,
 },
 )
 elif modality == "video":
-t, h, w = mm_feature.data["video_grid_thw"].data.tolist()
+t, h, w = _get_feature_tensor(mm_feature, "video_grid_thw").tolist()
 second_per_grid_ts = 2.0
 if mm_feature.data.get("second_per_grid_ts"):
-second_per_grid_ts = mm_feature.data[
-"second_per_grid_ts"
-].data.item()
+second_per_grid_ts = _get_feature_tensor(
+mm_feature, "second_per_grid_ts"
+).item()
 use_audio_in_video = bool(
 mm_feature.data.get("use_audio_in_video")
-and mm_feature.data["use_audio_in_video"].data.item()
+and _get_feature_tensor(mm_feature, "use_audio_in_video").item()
 )
 yield (
 offset,
@@ -435,7 +446,9 @@ offset,
 )
 elif modality == "audio":
 if offset not in paired_audio_offsets:
-audio_len = mm_feature.data["audio_feature_lengths"].data.item()
+audio_len = _get_feature_tensor(
+mm_feature, "audio_feature_lengths"
+).item()
 yield offset, "audio", {"audio_feature_length": audio_len}
 def _compute_interleaved_positions(
 self, start_idx: int, data: dict[str, Any]
@@ -509,8 +522,14 @@ instruction += " this audio"
 if task_type == "translate" and to_language is None:
 to_language = "en"
 # Get full language names from supported_languages mapping
-full_lang_name = cls.supported_languages.get(language, "")
-full_lang_name_to = cls.supported_languages.get(to_language, "")
+full_lang_name = (
+cls.supported_languages.get(language, "") if language is not None else ""
+)
+full_lang_name_to = (
+cls.supported_languages.get(to_language, "")
+if to_language is not None
+else ""
+)
 if task_type == "transcribe" and full_lang_name:
 instruction += f" into {full_lang_name}"
 elif task_type == "translate":
@@ -534,8 +553,11 @@ tokenize=False,
 add_generation_prompt=True,
 )
 audio_data = (audio, stt_config.sample_rate)
-prompts_dict = {"multi_modal_data": {"audio": audio_data}, "prompt": prompt}
-return cast(PromptType, prompts_dict)
+prompts_dict: TextPrompt = {
+"multi_modal_data": {"audio": audio_data},
+"prompt": prompt,
+}
+return prompts_dict
 def get_mrope_input_positions(
 self,
 input_tokens: list[int],

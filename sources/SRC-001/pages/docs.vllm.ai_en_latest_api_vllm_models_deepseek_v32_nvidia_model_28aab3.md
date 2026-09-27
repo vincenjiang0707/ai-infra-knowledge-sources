@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v32/nvidia/model/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Bases: `DeepseekV2ForCausalLM`
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/features/structured_outputs/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Structured Outputs[¶](https://docs.vllm.ai#structured-outputs)
 

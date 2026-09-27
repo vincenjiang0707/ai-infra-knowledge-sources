@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/cli/bench/serve/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # vllm bench serve[¶](https://docs.vllm.ai#vllm-bench-serve)
 
@@ -415,7 +415,7 @@ Default:
 
 - Specify the prefix of request id.
 - Default:
-`bench-14605add-`
+`bench-e359aa36-`
 
 
 `--served-model-name`
@@ -918,17 +918,17 @@ Download the dataset using:
 [¶](https://docs.vllm.ai#-speed-bench-dataset-subset)
 
 - Possible choices:
-`throughput_1k`
+`throughput_8k`
 
 ,`throughput_16k`
 
-,`throughput_8k`
-
 ,`throughput_32k`
 
-,`qualitative`
+,`throughput_1k`
 
 ,`throughput_2k`
+
+,`qualitative`
 
 - Subset of the SPEED-Bench dataset.
 - Default:

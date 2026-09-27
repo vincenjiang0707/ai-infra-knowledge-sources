@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/inc/schemes/inc_mxfp4_moe/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class INCMxfp4MoEMethod(FusedMoEMethodBase):
 """W4A4 MXFP4 group MoE for AutoRound ``auto_round:llm_compressor`` exports.
@@ -175,7 +175,7 @@ topk_weights: torch.Tensor,
 topk_ids: torch.Tensor,
 shared_experts: SharedExperts | None,
 shared_experts_input: torch.Tensor | None,
-) -> torch.Tensor:
+) -> torch.Tensor | UnfinalizedMoEOutput:
 assert self.moe_kernel is not None
 return self.moe_kernel.apply(
 x,

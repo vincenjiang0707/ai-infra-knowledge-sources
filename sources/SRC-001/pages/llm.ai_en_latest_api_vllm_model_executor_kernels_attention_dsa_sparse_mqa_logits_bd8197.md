@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/attention/dsa/sparse_mqa_logits/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/amd/linear/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class KimiMLAAttention(nn.Module):
 """Main reference: DeepseekV2 vllm Implementation."""

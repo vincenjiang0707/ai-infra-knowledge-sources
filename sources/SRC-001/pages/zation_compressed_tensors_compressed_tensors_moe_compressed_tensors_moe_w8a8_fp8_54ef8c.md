@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe_w8a8_fp8/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class CompressedTensorsW8A8Fp8MoEMethod(CompressedTensorsMoEMethod):
 """W8A8 FP8 MoE quantization using compressed tensors."""
@@ -303,7 +303,7 @@ topk_weights: torch.Tensor,
 topk_ids: torch.Tensor,
 shared_experts: SharedExperts | None,
 shared_experts_input: torch.Tensor | None,
-) -> torch.Tensor:
+) -> torch.Tensor | UnfinalizedMoEOutput:
 assert not self.is_monolithic
 assert self.moe_kernel is not None
 return self.moe_kernel.apply(

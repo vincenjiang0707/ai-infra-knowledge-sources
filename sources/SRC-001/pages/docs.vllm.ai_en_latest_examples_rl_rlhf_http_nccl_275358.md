@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/rl/rlhf_http_nccl/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # RLHF Http NCCL[¶](https://docs.vllm.ai#rlhf-http-nccl)
 

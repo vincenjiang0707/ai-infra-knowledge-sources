@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/latent_moe_runner/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class LatentMoERunner(MoERunner):
 """MoE runner for latent MoE with a replicated routed up-projection.
@@ -59,10 +59,11 @@ TrtLlmNvFp4ExpertsMonolithic,
 experts_cls = getattr(self._quant_method, "experts_cls", None)
 # The kernel instance is built after weight loading, while the tail
 # must register its CuTeDSL warmup units during runner construction.
-self.moe_config.defer_moe_finalize = (
+if (
 experts_cls is TrtLlmMxfp4ExpertsMonolithic
 or experts_cls is TrtLlmNvFp4ExpertsMonolithic
-) and self.moe_config.hidden_dim == self.moe_config.hidden_dim_unpadded
+) and self.moe_config.hidden_dim == self.moe_config.hidden_dim_unpadded:
+self.moe_config.defer_moe_finalize()
 from vllm.models.kimi_k3.nvidia.ops.latent_moe_tail import (
 KimiK3LatentMoETailOp,
 )
@@ -79,20 +80,13 @@ device=current_platform.current_device(),
 rms_eps=norm.variance_epsilon,
 )
 self._k3_latent_moe_tail_op = op
-self.moe_config.defer_moe_finalize_max_num_tokens = (
-op.contract.max_num_tokens
-if self.moe_config.use_deferred_moe_finalize
-else -1
-)
 if self.moe_config.use_deferred_moe_finalize:
+self.moe_config.limit_deferred_moe_finalize(op.contract.max_num_tokens)
 logger.info_once(
 "K3 latent-MoE tail fusion with deferred top-k finalization "
 "is enabled for up to %d tokens.",
 op.contract.max_num_tokens,
 )
-else:
-self.moe_config.defer_moe_finalize = False
-self.moe_config.defer_moe_finalize_max_num_tokens = -1
 def _get_zero_residual(
 self,
 hidden_states: torch.Tensor,

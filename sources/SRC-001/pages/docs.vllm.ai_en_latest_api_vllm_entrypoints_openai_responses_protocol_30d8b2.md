@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/openai/responses/protocol/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class ResponsesRequest(OpenAIBaseModel):
 # Ordered by official OpenAI API documentation
@@ -18,7 +18,15 @@ Literal[
 ]
 | None
 ) = None
-input: str | list[ResponseInputOutputItem]
+input: (
+str
+| list[
+Annotated[
+ResponseInputOutputItem,
+BeforeValidator(_default_input_image_details),
+]
+]
+)
 instructions: str | None = None
 max_output_tokens: int | None = None
 max_tool_calls: int | None = None

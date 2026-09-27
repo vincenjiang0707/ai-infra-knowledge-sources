@@ -1,12 +1,12 @@
 # sgl-project/sglang
 
-- stars: 36408
-- forks: 9134
-- open_issues: 5380
+- stars: 36457
+- forks: 9159
+- open_issues: 5375
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-25T03:14:46Z
+- pushed_at: 2026-09-27T00:53:35Z
 - homepage: https://sglang.io
 
 ## README
@@ -26,7 +26,6 @@
 --------------------------------------------------------------------------------
 
 <p align="center">
-```html
 <a href="https://www.sglang.io/"><b>🌐 Website</b></a> |
 <a href="https://lmsys.org/blog/"><b>Blog</b></a> |
 <a href="https://docs.sglang.io/"><b>Documentation</b></a> |
@@ -35,7 +34,6 @@
 <a href="https://meet.sglang.io/"><b>Weekly Dev Meeting</b></a> |
 <a href="https://github.com/sgl-project/sgl-learning-materials?tab=readme-ov-file#slides"><b>Slides</b></a>
 </p>
-```
 
 ## News
 - [2026/07] 🔥 SGLang and Miles add day-0 support for Kimi K3 ([blog](https://lmsys.org/blog/2026-07-27-kimi-k3-day0-support/)).

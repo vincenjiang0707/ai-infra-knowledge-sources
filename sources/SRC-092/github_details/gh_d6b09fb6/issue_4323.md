@@ -52,7 +52,7 @@ Related: #3446 (the TCP transport RFC, which touches the same staging code), and
 - [x] Ensure you searched for relevant issues and read the documentation
 
 
-## 评论 (3)
+## 评论 (6)
 
 ### github-actions[bot] · 2026-09-24
 
@@ -104,3 +104,141 @@ I also wrote a test that might be useful: `tcp_cuda_staging_test.cpp` gates the 
 
 Happy to work with you on this: I can push the branch and the test somewhere you can pull from, or rerun the repro on whatever you put up (with or without #4233). Let me know what's most useful.
 
+### he-yufeng · 2026-09-25
+
+Thanks for running this down, the regression row is real and I think your mechanism is the right one. `cudaMemcpyAsync` against pageable staging degrades: the driver stages it through an internal path that can wait behind an in-flight kernel, so the serving side's D2H picks up roughly half a queued matmul. The legacy-stream synchronous copy didn't hit that case because it never synchronized with your non-blocking compute stream in the first place.
+
+How I weigh the trade: what main does to the legacy-stream case is an unbounded stall behind the peer's entire queued GPU work (your 38 ms is just the queue you happened to have), while the regression is a bounded ~1.4 ms in a case that pinned staging should close entirely. So the stream change is still the right default, but the residual is worth closing rather than hand-waving.
+
+On composition: #4233's pinned buffers are exactly what makes the async copy fully async. #4324 keeps pageable staging on purpose to stay orthogonal, so whichever of the two lands second owns the re-measure. If you have a #4233 tree handy, the most useful single datapoint is your mc_w2w matrix on #4324 + #4233 together, especially the 8 B S-busy-on-non-blocking row.
+
+And yes please to the test: a `cudaLaunchHostFunc`-gated legacy-stream repro that skips without a GPU is exactly the shape this repo's CI can run. If you push `tcp_cuda_staging_test.cpp` somewhere I can pull from, I'll integrate it into #4324 with you credited in the commit; alternatively attach it here and I'll adapt it.
+
+### Gaurav-Shah05 · 2026-09-25
+
+Thanks, agreed on the trade. An unbounded stall behind the peer's whole queue is worse than a bounded ~1.4 ms that pinned staging should close.
+
+Here's the test. It adds one case to the existing `tests/tcp_cuda_staging_test.cpp`, so no CMake change: the target is already there from #3562. The diff applies cleanly to current main and on top of #4324.
+
+How it works: `LegacyStreamGate` puts a `cudaLaunchHostFunc` on `cudaStreamLegacy` that blocks until released, so the legacy stream stays busy as long as the test wants, with no kernel and no nvcc. Then a TCP WRITE and READ of device memory have to complete while it's blocked, which goes through all four staging sites. `runOne` already bounds each transfer at 15 s, and the gate's destructor releases the stream, so a failure can't hang CI. It skips without a GPU.
+
+On my side, on main both transfers come back TIMEOUT and the test fails (30.7 s total); with the stream change it passes 5/5. I haven't run it on your branch yet, but it should pass there too, since the per-copy stream isn't the legacy one.
+
+<details>
+<summary><code>tcp_cuda_staging_test.cpp</code>: add <code>StagingDoesNotWaitForTheLegacyStream</code> (git apply)</summary>
+
+```diff
+diff --git a/mooncake-transfer-engine/tests/tcp_cuda_staging_test.cpp b/mooncake-transfer-engine/tests/tcp_cuda_staging_test.cpp
+index b4e674a7..b898b913 100644
+--- a/mooncake-transfer-engine/tests/tcp_cuda_staging_test.cpp
++++ b/mooncake-transfer-engine/tests/tcp_cuda_staging_test.cpp
+@@ -17,6 +17,7 @@
+ #include <chrono>
+ #include <cstdlib>
+ #include <cstring>
++#include <future>
+ #include <memory>
+ #include <optional>
+ #include <string>
+@@ -71,6 +72,34 @@ class DeviceBuffer {
+     void* data_ = nullptr;
+ };
+ 
++// a host function blocked until release(), not a long kernel: this file builds
++// without nvcc, and the legacy stream stays busy however long the copy takes
++class LegacyStreamGate {
++   public:
++    ~LegacyStreamGate() {
++        release();
++        cudaStreamSynchronize(cudaStreamLegacy);
++    }
++
++    cudaError_t close() {
++        return cudaLaunchHostFunc(cudaStreamLegacy, &wait, this);
++    }
++
++    void release() {
++        if (!released_) open_.set_value();
++        released_ = true;
++    }
++
++   private:
++    static void wait(void* gate) {
++        static_cast<LegacyStreamGate*>(gate)->opened_.wait();
++    }
++
++    std::promise<void> open_;
++    std::future<void> opened_ = open_.get_future();
++    bool released_ = false;
++};
++
+ TransferStatusEnum runOne(TransferEngine* engine,
+                           const TransferRequest& request) {
+     auto batch_id = engine->allocateBatchID(1);
+@@ -183,4 +212,58 @@ TEST(TcpCudaStagingTest, ReusesStagingAcrossChunksAndRequests) {
+     engine.reset();
+ }
+ 
++TEST(TcpCudaStagingTest, StagingDoesNotWaitForTheLegacyStream) {
++    int device_count = 0;
++    cudaError_t cuda_status = cudaGetDeviceCount(&device_count);
++    if (cuda_status != cudaSuccess || device_count == 0) {
++        GTEST_SKIP() << "CUDA device unavailable";
++    }
++    ASSERT_EQ(cudaSetDevice(0), cudaSuccess);
++
++    constexpr size_t kTransferSize = 64 * 1024;
++    constexpr size_t kBufferSize = 2 * kTransferSize;
++
++    DeviceBuffer device_buffer;
++    ASSERT_EQ(cudaMalloc(device_buffer.out(), kBufferSize), cudaSuccess);
++
++    auto engine = std::make_unique<TransferEngine>(false);
++    const std::string server_name = "127.0.0.2:17932";
++    const auto hostname_port = parseHostNameWithPort(server_name);
++    ASSERT_EQ(engine->init(P2PHANDSHAKE, server_name,
++                           hostname_port.first.c_str(), hostname_port.second),
++              0);
++    ASSERT_NE(engine->installTransport("tcp", nullptr), nullptr);
++    ASSERT_EQ(
++        engine->registerLocalMemory(device_buffer.get(), kBufferSize, "cuda:0"),
++        0);
++
++    const auto segment_id = engine->openSegment(engine->getLocalIpAndPort());
++    const auto segment_desc =
++        engine->getMetadata()->getSegmentDescByID(segment_id);
++    ASSERT_NE(segment_desc, nullptr);
++    ASSERT_FALSE(segment_desc->buffers.empty());
++    const uint64_t remote_base = segment_desc->buffers[0].addr;
++
++    LegacyStreamGate gate;
++    ASSERT_EQ(gate.close(), cudaSuccess);
++
++    TransferRequest write;
++    write.opcode = TransferRequest::WRITE;
++    write.length = kTransferSize;
++    write.source = device_buffer.get();
++    write.target_id = segment_id;
++    write.target_offset = remote_base + kTransferSize;
++    EXPECT_EQ(runOne(engine.get(), write), TransferStatusEnum::COMPLETED)
++        << "a WRITE of device memory waited for the legacy default stream";
++
++    TransferRequest read = write;
++    read.opcode = TransferRequest::READ;
++    EXPECT_EQ(runOne(engine.get(), read), TransferStatusEnum::COMPLETED)
++        << "a READ of device memory waited for the legacy default stream";
++
++    gate.release();
++    EXPECT_EQ(engine->unregisterLocalMemory(device_buffer.get()), 0);
++    engine.reset();
++}
++
+ }  // namespace
+```
+
+</details>
+
+
+### he-yufeng · 2026-09-26
+
+Integrated into #4324 as f5b6889f8 with you credited in the commit message. Reviewed the gate mechanics before landing it: the launch blocks the legacy stream until release, the destructor releases and syncs so a failure can't hang CI, and the double-release guard covers the explicit-release path. One disclosure for reviewers: I can't compile the CUDA test target on this machine (no toolkit/GPU), so its verification is your two runs (main times out both transfers, patched build passes 5/5) plus GPU CI.

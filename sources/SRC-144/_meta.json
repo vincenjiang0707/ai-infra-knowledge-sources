@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:22:33Z",
- "finished_at": "2026-09-24T18:57:28Z",
- "duration_seconds": 21.4,
- "attempts": 2,
+ "finished_at": "2026-09-27T08:45:16Z",
+ "duration_seconds": 12.7,
+ "attempts": 3,
  "channels": {
   "site_4e99ed81": {
    "type": "site",

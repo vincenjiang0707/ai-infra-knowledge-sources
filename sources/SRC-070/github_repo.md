@@ -1,8 +1,8 @@
 # deepseek-ai/DeepEP
 
-- stars: 10207
+- stars: 10211
 - forks: 1451
-- open_issues: 289
+- open_issues: 291
 - default_branch: main
 - archived: False
 - license: MIT

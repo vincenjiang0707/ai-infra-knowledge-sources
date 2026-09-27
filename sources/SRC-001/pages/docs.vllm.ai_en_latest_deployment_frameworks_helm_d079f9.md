@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/frameworks/helm/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Helm[¶](https://docs.vllm.ai#helm)
 
@@ -28,7 +28,6 @@ To install the chart with the release name `test-vllm`
 
 :
 
-```bash
 helm upgrade --install --create-namespace \
 --namespace=ns-vllm test-vllm . \
 -f values.yaml \
@@ -36,7 +35,6 @@ helm upgrade --install --create-namespace \
 --set secrets.s3bucketname=$BUCKET \
 --set secrets.s3accesskeyid=$ACCESS_KEY \
 --set secrets.s3accesskey=$SECRET_KEY
-```
 
 
 ## Uninstalling the chart[¶](https://docs.vllm.ai#uninstalling-the-chart)

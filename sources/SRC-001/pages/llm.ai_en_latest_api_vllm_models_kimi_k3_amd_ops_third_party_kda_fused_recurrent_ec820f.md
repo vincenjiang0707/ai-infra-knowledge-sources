@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/amd/ops/third_party/kda/fused_recurrent/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -21,7 +21,7 @@ Functions:
 
 ##
 
-`fused_recurrent_kda(q, k, v, raw_g, raw_beta, A_log, dt_bias, lower_bound, initial_state, cu_seqlens, ssm_state_indices, num_accepted_tokens=None, out=None, fuse_gate=None)`
+`fused_recurrent_kda(q, k, v, raw_g, raw_beta, A_log, dt_bias, lower_bound, initial_state, cu_seqlens, ssm_state_indices, num_accepted_tokens=None, uniform_sequence_length=None, out=None, fuse_gate=None)`
 
 [¶](https://docs.vllm.ai#vllm.models.kimi_k3.amd.ops.third_party.kda.fused_recurrent.fused_recurrent_kda)
 
@@ -34,7 +34,7 @@ This vLLM wrapper applies the gate activation and beta sigmoid, selecting whethe
 
 ##
 
-`fused_recurrent_kda_fwd(q, k, v, g, beta, scale=None, initial_state=None, inplace_final_state=True, cu_seqlens=None, ssm_state_indices=None, num_accepted_tokens=None, use_qk_l2norm_in_kernel=True, A_log=None, dt_bias=None, lower_bound=None, use_gate_in_kernel=False, use_beta_sigmoid_in_kernel=False, out=None)`
+`fused_recurrent_kda_fwd(q, k, v, g, beta, scale=None, initial_state=None, inplace_final_state=True, cu_seqlens=None, ssm_state_indices=None, num_accepted_tokens=None, uniform_sequence_length=None, use_qk_l2norm_in_kernel=True, A_log=None, dt_bias=None, lower_bound=None, use_gate_in_kernel=False, use_beta_sigmoid_in_kernel=False, out=None)`
 
 [¶](https://docs.vllm.ai#vllm.models.kimi_k3.amd.ops.third_party.kda.fused_recurrent.fused_recurrent_kda_fwd)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/glm5next/common/attention/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -77,9 +77,9 @@ Bases: [DeepseekV32IndexerCache](https://docs.vllm.ai/model_executor/models/deep
 
 Paged circular buffer for the kpool indexer's in-progress (tail) pool.
 
-Holds the trailing incomplete pool's raw K + gate score: one block of `index_kpool`
+Holds the trailing incomplete pool's raw K + gate score: one block of `ring`
 
-slots per request, overwritten in place by `pos % kpool`
+slots per request, overwritten in place by `pos % ring`
 
 as decode/spec-decode advances. Prefill seeds it (instead of discarding the tail raw K+gate); the connector transfers it across PD; decode reads it to compress the boundary pool correctly. `KpoolTailSpec`
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/contributing/deprecation_policy/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Deprecation Policy[¶](https://docs.vllm.ai#deprecation-policy)
 

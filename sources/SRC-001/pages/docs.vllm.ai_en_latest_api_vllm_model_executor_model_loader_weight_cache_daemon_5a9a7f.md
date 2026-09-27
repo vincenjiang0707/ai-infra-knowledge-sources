@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/model_loader/weight_cache/daemon/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -14,7 +14,7 @@ One daemon process per GPU holds the post-quantized, TP-sharded weights of its r
 Launch one daemon per TP rank with a single command:
 
 ```
-python -m vllm.model_executor.model_loader.weight_cache.daemon \
+vllm preload \
 --model /path/to/model --tensor-parallel-size 4
 ```
 
@@ -43,12 +43,12 @@ distinct from the engine's `--master-port`
 
 ```
 # node 0 (8 local GPUs)
-python -m vllm.model_executor.model_loader.weight_cache.daemon \
+vllm preload \
 --model /path/to/model --tensor-parallel-size 16 \
 --nnodes 2 --node-rank 0 --master-addr 10.0.0.1 \
 --weight-cache-master-port 29600
 # node 1 (8 local GPUs)
-python -m vllm.model_executor.model_loader.weight_cache.daemon \
+vllm preload \
 --model /path/to/model --tensor-parallel-size 16 \
 --nnodes 2 --node-rank 1 --master-addr 10.0.0.1 \
 --weight-cache-master-port 29600
@@ -79,7 +79,7 @@ so the expert shards are laid out exactly as in the engine:
 
 ```
 # node r (4 local GPUs)
-python -m vllm.model_executor.model_loader.weight_cache.daemon \
+vllm preload \
 --model /path/to/model --tensor-parallel-size 1 --enable-expert-parallel \
 --data-parallel-size 16 --data-parallel-size-local 4 \
 --data-parallel-start-rank 4r --data-parallel-address 10.0.0.1 \
@@ -101,7 +101,7 @@ global ranks, e.g. TP8 x DP2 on 4 nodes:
 
 ```
 # node r (4 local GPUs)
-python -m vllm.model_executor.model_loader.weight_cache.daemon \
+vllm preload \
 --model /path/to/model --tensor-parallel-size 8 --enable-expert-parallel \
 --nnodes 4 --node-rank r --master-addr 10.0.0.1 \
 --data-parallel-size 2 --data-parallel-address 10.0.0.1 \

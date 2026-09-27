@@ -1,12 +1,12 @@
 # flashinfer-ai/flashinfer
 
-- stars: 6502
-- forks: 1498
-- open_issues: 1042
+- stars: 6507
+- forks: 1502
+- open_issues: 1031
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-25T07:10:44Z
+- pushed_at: 2026-09-27T04:20:30Z
 - homepage: https://flashinfer.ai
 
 ## README

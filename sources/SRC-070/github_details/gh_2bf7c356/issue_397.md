@@ -231,18 +231,4 @@ NIC Legend:
 ```
 
 
-## 评论 (3)
-
-### sphish · 2025-09-10
-
-The performance does not meet expectations. It seems that your IBGDA is not properly enabled. Please make sure you have enabled IBGDA support according to the instructions at https://github.com/deepseek-ai/DeepEP/tree/main/third-party.  
-
-In addition, I suggest you transfer this issue to the [NVIDIA/NVSHMEM](https://github.com/NVIDIA/NVSHMEM) repository for further assistance.
-
-### akhoroshev · 2025-09-10
-
-@sphish I forgot to mention: out network card is limited to 200Gb/s. For 200Gb/s network are the numbers good or not?
-
-### sphish · 2025-09-10
-
-Then I think that’s within expectations.
+## 评论 (0)

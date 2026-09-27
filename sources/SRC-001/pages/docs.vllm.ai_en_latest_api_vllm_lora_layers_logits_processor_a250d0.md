@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/layers/logits_processor/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class LogitsProcessorWithLoRA(BaseLayerWithLoRA):
 """LoRA wrapper for LogitsProcessor, with extra logic to handle the

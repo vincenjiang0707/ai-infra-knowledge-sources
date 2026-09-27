@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/dev/reference/components/dc-kv-relay-configuration
-lastmod: 2026-09-24T19:58:16.636Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 Multi-Datacenter KV Relay Configuration
 

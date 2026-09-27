@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/common/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @CustomOp.register("apply_rotary_emb")
 class ApplyRotaryEmb(CustomOp):

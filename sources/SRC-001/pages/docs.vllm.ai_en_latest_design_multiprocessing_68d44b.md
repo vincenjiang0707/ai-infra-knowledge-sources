@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/multiprocessing/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Python Multiprocessing[¶](https://docs.vllm.ai#python-multiprocessing)
 

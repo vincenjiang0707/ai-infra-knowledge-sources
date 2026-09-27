@@ -1,12 +1,12 @@
 # ai-dynamo/dynamo
 
-- stars: 8160
-- forks: 1621
-- open_issues: 1576
+- stars: 8166
+- forks: 1627
+- open_issues: 1587
 - default_branch: main
 - archived: False
 - license: NOASSERTION
-- pushed_at: 2026-09-25T15:37:11Z
+- pushed_at: 2026-09-27T05:33:56Z
 - homepage: https://docs.nvidia.com/dynamo/latest
 
 ## README

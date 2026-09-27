@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:35:19Z",
- "finished_at": "2026-09-25T18:39:41Z",
- "duration_seconds": 715.2,
- "attempts": 4,
+ "finished_at": "2026-09-27T10:34:35Z",
+ "duration_seconds": 62.3,
+ "attempts": 6,
  "channels": {
   "gh_751b47de": {
    "type": "github_repo",
@@ -22,20 +22,15 @@
     "count": 60,
     "note": "top-100 by updated_at desc (web default)",
     "details": {
-     "fetched": 49,
+     "fetched": 0,
      "appended": 0,
-     "skipped": 0
+     "skipped": 49
     }
    },
    "pulls": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at desc (web default)",
-    "details": {
-     "fetched": 100,
-     "appended": 0,
-     "skipped": 0
-    }
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",

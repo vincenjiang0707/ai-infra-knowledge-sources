@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:00:56Z",
- "finished_at": "2026-09-24T18:09:06Z",
- "duration_seconds": 87.2,
- "attempts": 2,
+ "finished_at": "2026-09-27T07:56:30Z",
+ "duration_seconds": 1828.1,
+ "attempts": 3,
  "channels": {
   "gh_f7eb06cb": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at desc (web default)"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 0,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at desc (web default)"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -52,12 +62,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at desc (web default)"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 56,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
-    "count": "cached",
-    "note": "head-check: no update since last run"
+    "count": 100,
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -89,7 +109,7 @@
    "status": "ok",
    "output": "page.md",
    "mode": "page",
-   "chars": 2895
+   "chars": 3196
   },
   "ref_bde7e242": {
    "type": "reference",
@@ -129,7 +149,7 @@
    "last_updated_at": "2026-09-07T08:13:33Z"
   },
   "gh_f7eb06cb:pulls": {
-   "last_updated_at": "2026-09-24T16:06:17Z"
+   "last_updated_at": "2026-09-27T06:23:06Z"
   },
   "gh_f7eb06cb:releases": {
    "last_id": 388827104

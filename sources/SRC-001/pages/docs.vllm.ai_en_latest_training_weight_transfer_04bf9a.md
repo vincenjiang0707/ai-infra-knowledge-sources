@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/training/weight_transfer/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Weight Transfer[¶](https://docs.vllm.ai#weight-transfer)
 
@@ -50,7 +50,7 @@ call per sync.Under the hood every round is the same **four-phase protocol**, wh
 |---|---|---|
 |
 
-[IPC](https://docs.vllm.ai/ipc/)[sparse_nccl](https://docs.vllm.ai/nccl/#sparse-nccl)[sharded_rdt](https://docs.vllm.ai/sharded_rdt/)## Quickstart[¶](https://docs.vllm.ai#quickstart)
+[IPC](https://docs.vllm.ai/ipc/)[sparse_nccl](https://docs.vllm.ai/nccl/#sparse-nccl)[sharded_rdt](https://docs.vllm.ai/sharded_rdt/)[nccl_m2n](https://docs.vllm.ai/m2n/)## Quickstart[¶](https://docs.vllm.ai#quickstart)
 
 ### Inference Side[¶](https://docs.vllm.ai#inference-side)
 
@@ -60,7 +60,8 @@ from vllm import LLM
 from vllm.config import WeightTransferConfig
 llm = LLM(
 model="my-model",
-weight_transfer_config=WeightTransferConfig(backend="nccl"), # or "ipc", "sparse_nccl", "sharded_rdt"
+# Other backends: "ipc", "sparse_nccl", "sharded_rdt", "nccl_m2n".
+weight_transfer_config=WeightTransferConfig(backend="nccl"),
 )
 
 

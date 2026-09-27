@@ -104,7 +104,7 @@ Grading:
 - Happy to share the extracted per-test data, or to dig further into any item, if that helps.
 
 
-## 评论 (3)
+## 评论 (5)
 
 ### github-actions[bot] · 2026-09-24
 
@@ -119,3 +119,15 @@ Opened #2815 addressing Item A2 (re-enabling `Test_LPRadixCacheE2E` and `Test_Ra
 ### qi-wutu · 2026-09-25
 
 I’d like to take A1. I traced the boundary flake to the counter key changing with the wall-clock bucket while its TTL is anchored to the first write. My plan is to keep the key stable for that window and add regression coverage for requests across the boundary. Please let me know if you’d prefer a different direction.
+
+### qi-wutu · 2026-09-25
+
+A1 is addressed in #2816. I went with option 1: the counter key stays stable for each configured window duration, and the window expires relative to its first write rather than a wall-clock bucket. The PR includes regression tests for this behavior and covers the shared limiter used by model RPS and user RPM/TPM.
+
+### hengguangcui11-cyber · 2026-09-27
+
+I'd like to take B2.
+
+Looking at `test/integration/controller/roleset_test.go`, the spec "applies topology policy updates only to newly created pods" does a bare Get + mutate + `Update` on the RoleSet twice (`:1096` and `:1118` on current main). Every other update in this file already runs inside `gomega.Eventually` with a fresh Get (for example `:460-465`), so a reconcile landing between the Get and the Update gets retried there, but not here. The `:1118` one is the one that hits the conflict because it runs right after `deletePodAndWaitForReplacement`, while the controller is still reconciling the replacement.
+
+Plan: wrap both updates in the same `Eventually(func(g gomega.Gomega) { Get; mutate; Update })` pattern the rest of the file uses. This is a test-only change, and the assertions stay the same. I'll link the PR here.

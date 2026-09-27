@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/integrations/kthena/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Kthena[¶](https://docs.vllm.ai#kthena)
 
@@ -406,7 +406,6 @@ Then:
 
 - Send a completion request (mirroring vLLM production stack docs):
 
-```bash
 curl -X POST http://localhost:30080/v1/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -414,7 +413,6 @@ curl -X POST http://localhost:30080/v1/completions \
 "prompt": "Once upon a time,",
 "max_tokens": 10
 }'
-```
 
 
 You should see an OpenAI-style response from vLLM.

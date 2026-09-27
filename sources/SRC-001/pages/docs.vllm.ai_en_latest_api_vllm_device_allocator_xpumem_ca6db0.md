@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/device_allocator/xpumem/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class XpuMemAllocator:
 """A singleton pluggable allocator helper for XPU.

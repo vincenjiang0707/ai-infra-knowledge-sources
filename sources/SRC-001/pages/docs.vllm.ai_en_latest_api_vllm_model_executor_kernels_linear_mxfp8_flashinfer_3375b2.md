@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp8/flashinfer/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -31,9 +31,6 @@ MXFP8 W8A8 GEMM via FlashInfer CuTe-DSL (SM100/SM103).
 
 ## Source code in `vllm/model_executor/kernels/linear/mxfp8/flashinfer.py`
 
-
-|
-|
 
 ##
 

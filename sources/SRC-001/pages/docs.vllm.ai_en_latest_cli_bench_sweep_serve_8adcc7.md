@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/cli/bench/sweep/serve/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # vllm bench sweep serve[¶](https://docs.vllm.ai#vllm-bench-sweep-serve)
 

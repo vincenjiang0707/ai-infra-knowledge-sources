@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/community/meetups/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Meetups[¶](https://docs.vllm.ai#meetups)
 

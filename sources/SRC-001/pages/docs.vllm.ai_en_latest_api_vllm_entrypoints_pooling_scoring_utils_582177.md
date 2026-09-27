@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/pooling/scoring/utils/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -164,4 +164,4 @@ This is used by late-interaction scoring where each query/document is encoded in
 
 Truncate text to a maximum number of content tokens.
 
-Uses offset_mapping to slice the original text at the exact character boundary, avoiding lossy encode→decode round-trips that can shift the token count by 1-3 tokens due to BPE merge boundary changes.
+Uses offset_mapping to slice the original text at the exact character boundary, avoiding lossy encode→decode round-trips that can shift the token count due to BPE merge boundary changes.

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/attention_backends/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Attention Backend Feature Support[¶](https://docs.vllm.ai#attention-backend-feature-support)
 
@@ -21,13 +21,11 @@ There are two ways to specify the backend from the command line:
 
 
 # Dot notation
-```bash
 vllm serve <model> --attention-config.backend FLASH_ATTN
 vllm serve <model> -ac.backend FLASH_ATTN
 # JSON format
 vllm serve <model> --attention-config '{"backend": "FLASH_ATTN"}'
 vllm serve <model> -ac '{"backend": "FLASH_ATTN"}'
-```
 
 
 

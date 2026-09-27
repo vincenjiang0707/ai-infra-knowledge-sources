@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/amd/vl_model/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @MULTIMODAL_REGISTRY.register_processor(
 DeepseekV4VLMultiModalProcessor,
@@ -21,6 +21,20 @@ delegates through ``language_model`` via the protocol defaults.
 implemented by ``DeepseekV4VLEncoderCudaGraphMixin``.
 """
 supports_encoder_tp_data = True
+# Both of these are read off the *class* by
+# ``configure_quant_config``/``SupportsQuant``, before ``__init__`` runs,
+# to translate a quantization config's checkpoint-style module names into
+# runtime prefixes. ``__init__`` later overwrites the instance
+# ``hf_to_vllm_mapper`` with the full weight-loading mapper; only the
+# prefix rules matter here. Without the class attributes, per-layer specs
+# naming ``layers.N.attn.wq_a`` never match this wrapper's
+# ``language_model.model.layers.N.attn.wq_a`` and silently fall back to
+# the global spec.
+packed_modules_mapping = DeepseekV41LLMForCausalLM.packed_modules_mapping
+hf_to_vllm_mapper = WeightsMapper(
+orig_to_new_prefix=dict(_VL_PREFIX_MAPPING),
+orig_to_new_substr={".shared_experts.w2": ".shared_experts.down_proj"},
+)
 # The MoE router needs raw token ids to detect image-span tokens
 # (all carrying image_token_id, see common/mm_preprocess.py) and apply
 # bias_vl.

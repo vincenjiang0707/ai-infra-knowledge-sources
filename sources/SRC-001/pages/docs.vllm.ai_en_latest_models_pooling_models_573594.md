@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/models/pooling_models/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Pooling Models[¶](https://docs.vllm.ai#pooling-models)
 

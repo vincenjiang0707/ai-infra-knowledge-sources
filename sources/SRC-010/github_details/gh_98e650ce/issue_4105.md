@@ -222,7 +222,6 @@ Here are the training parameters I used with ms-swift:
 # Use `--template default`
 nproc_per_node=1
 
-```bash
 CUDA_VISIBLE_DEVICES=0 \
 MASTER_PORT=29501 \
 NPROC_PER_NODE=$nproc_per_node \
@@ -253,7 +252,6 @@ swift sft \
     --model_author swift \
     --model_name swift-robot \
     --deepspeed zero2
-```
 ```
 
 Thanks again for taking the time to check this issue and for your help!
@@ -298,7 +296,6 @@ Below is the LoRA training script I created based on `internvl3_14b_dynamic_res_
 ```
 set -x
 
-```bash
 GPUS=${GPUS:-1}
 BATCH_SIZE=${BATCH_SIZE:-4}
 PER_DEVICE_BATCH_SIZE=${PER_DEVICE_BATCH_SIZE:-1}
@@ -309,7 +306,6 @@ export PYTHONPATH="${PYTHONPATH}:$(pwd)"
 export MASTER_PORT=34229
 export TF_CPP_MIN_LOG_LEVEL=3
 export LAUNCHER=pytorch
-```
 
 OUTPUT_DIR='work_dirs/internvl_chat_v3/internvl3_14b_dynamic_res_2nd_finetune_lora/test'
 

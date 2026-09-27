@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/generate/trace_replay_offline/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Trace Replay Offline[¶](https://docs.vllm.ai#trace-replay-offline)
 

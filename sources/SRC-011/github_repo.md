@@ -1,12 +1,12 @@
 # ggml-org/llama.cpp
 
-- stars: 129450
-- forks: 23696
-- open_issues: 2523
+- stars: 129655
+- forks: 23792
+- open_issues: 2546
 - default_branch: master
 - archived: False
 - license: MIT
-- pushed_at: 2026-09-25T00:06:06Z
+- pushed_at: 2026-09-27T10:08:39Z
 - homepage: https://llama.app
 
 ## README
@@ -49,7 +49,6 @@ llama cli -hf ggml-org/Qwen3.5-0.8B-GGUF
 llama serve -hf ggml-org/Qwen3.5-0.8B-GGUF
 ```
 
-```html
 <table align="center">
     <tr>
         <td align="center" width=50%>
@@ -62,7 +61,6 @@ llama serve -hf ggml-org/Qwen3.5-0.8B-GGUF
         </td>
     </tr>
 <table>
-```
 
 ## Description
 

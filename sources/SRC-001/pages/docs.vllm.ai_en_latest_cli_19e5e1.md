@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/cli/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # vLLM CLI Guide[¶](https://docs.vllm.ai#vllm-cli-guide)
 
@@ -146,13 +146,11 @@ Available Commands:
 Benchmark the latency of a single batch of requests.
 
 vllm bench latency \
-```bash
 --model meta-llama/Llama-3.2-1B-Instruct \
 --input-len 32 \
 --output-len 1 \
 --enforce-eager \
 --load-format dummy
-```
 
 
 See [vllm bench latency](https://docs.vllm.ai/bench/latency/) for the full reference of all available arguments.
@@ -162,14 +160,12 @@ See [vllm bench latency](https://docs.vllm.ai/bench/latency/) for the full refer
 Benchmark the online serving throughput.
 
 vllm bench serve \
-```bash
 --model meta-llama/Llama-3.2-1B-Instruct \
 --host server-host \
 --port server-port \
 --random-input-len 32 \
 --random-output-len 4 \
 --num-prompts 5
-```
 
 
 See [vllm bench serve](https://docs.vllm.ai/bench/serve/) for the full reference of all available arguments.
@@ -178,14 +174,12 @@ See [vllm bench serve](https://docs.vllm.ai/bench/serve/) for the full reference
 
 Benchmark offline inference throughput.
 
-```bash
 vllm bench throughput \
 --model meta-llama/Llama-3.2-1B-Instruct \
 --input-len 32 \
 --output-len 1 \
 --enforce-eager \
 --load-format dummy
-```
 
 
 See [vllm bench throughput](https://docs.vllm.ai/bench/throughput/) for the full reference of all available arguments.
@@ -215,6 +209,27 @@ vllm run-batch \
 
 
 See [vllm run-batch](https://docs.vllm.ai/run-batch/) for the full reference of all available arguments.
+
+## preload[¶](https://docs.vllm.ai#preload)
+
+Launch weight cache daemons (one per GPU) that hold the post-quantized, TP-sharded weights in GPU memory and serve CUDA IPC handles to vLLM engines over a Unix domain socket. Restarting engines then map the weights via zero-copy IPC instead of reloading from disk, enabling fast engine restarts.
+
+# Launch one daemon per GPU
+vllm preload --model meta-llama/Llama-3.2-1B-Instruct --tensor-parallel-size 4
+# Engines then load from the daemons
+vllm serve meta-llama/Llama-3.2-1B-Instruct --tensor-parallel-size 4 \
+--load-format ipc_cache
+
+
+The daemon accepts the standard engine arguments (model, dtype, quantization, tensor-parallel-size, ...) plus `--weight-cache-socket-dir`
+
+to override the directory holding the per-GPU Unix sockets, and `--weight-cache-master-port`
+
+/ `--weight-cache-draft-master-port`
+
+to pin the daemon rendezvous ports for multi-node and speculative-decoding setups. Tensor, expert and data parallelism are supported; pipeline parallelism is rejected at launch.
+
+See [Preload](https://docs.vllm.ai/features/preload/) for how it works, cache modes, and limitations, and [vllm preload](https://docs.vllm.ai/preload/) for the full reference of all available arguments.
 
 ## More Help[¶](https://docs.vllm.ai#more-help)
 

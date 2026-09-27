@@ -1,8 +1,8 @@
 # EleutherAI/lm-evaluation-harness
 
-- stars: 14074
-- forks: 3603
-- open_issues: 1033
+- stars: 14084
+- forks: 3610
+- open_issues: 1054
 - default_branch: main
 - archived: False
 - license: MIT

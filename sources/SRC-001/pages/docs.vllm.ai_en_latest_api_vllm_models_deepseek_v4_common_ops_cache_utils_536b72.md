@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/common/ops/cache_utils/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -34,7 +34,7 @@ Functions:
 
 ##
 
-`build_flashinfer_mixed_sparse_indices(decode_swa_indices, decode_compressed_indices, decode_compressed_topk_lens, prefill_topk_indices, query_start_loc, seq_lens, token_to_req_indices, swa_block_table, swa_block_size, compressed_block_table, compressed_block_size, window_size, compress_ratio, topk, decode_compressed_indices_are_local=False, decode_is_valid_token=None, swa_block_span=None, compressed_block_span=None, prefill_left_visible=None, prefill_right_visible=None, max_image_tokens=0)`
+`build_flashinfer_mixed_sparse_indices(decode_swa_indices, decode_compressed_indices, decode_compressed_topk_lens, prefill_topk_indices, query_start_loc, seq_lens, token_to_req_indices, swa_block_table, swa_block_size, compressed_block_table, compressed_block_size, window_size, compress_ratio, topk, decode_compressed_indices_are_local=False, decode_is_valid_token=None, swa_block_span=None, compressed_block_span=None, prefill_left_visible=None, prefill_right_visible=None, max_image_tokens=0, num_rows=None)`
 
 [¶](https://docs.vllm.ai#vllm.models.deepseek_v4.common.ops.cache_utils.build_flashinfer_mixed_sparse_indices)
 
@@ -49,6 +49,14 @@ of shape `[num_tokens, swa_total_width + padded_topk]`
 columns are SWA slot ids, the rest are compressed/top-k slot ids) and `sparse_topk_lens`
 
 (active length per token). Decode tokens read precomputed SWA/compressed indices; prefill tokens derive their SWA window from the position and translate local compressed indices to global slots via the block tables.
+
+`num_rows`
+
+(>= `num_tokens`
+
+) sizes both outputs for a kernel call that spans a CUDA-graph-padded batch; the rows past `num_tokens`
+
+stay unset.
 
 When `prefill_left_visible`
 

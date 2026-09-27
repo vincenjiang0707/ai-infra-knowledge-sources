@@ -60,7 +60,7 @@ Create `llm-d-incubation/llm-d-infra-providers` as an incubation repository. SIG
 /cc @liu-cong @gushob21 @ahg-g @chcost @robertgshaw2-redhat @xiaojun-zhang @chewong
 
 
-## 评论 (3)
+## 评论 (4)
 
 ### yangligt2 · 2026-09-18
 
@@ -105,3 +105,7 @@ Cannot apply the lgtm label because Error: yangligt2 is not included in the revi
 Background: I work on AI infrastructure at Oracle Cloud, maintain [oracle-quickstart/oci-hpc-oke](https://github.com/oracle-quickstart/oci-hpc-oke) (Terraform-based provisioning for GPU and RDMA clusters on OKE), and contribute OKE support to [kubernetes-sigs/dranet](https://github.com/kubernetes-sigs/dranet).
 
 I plan to start with guided docs under providers/oke/ that link out to oci-hpc-oke for provisioning, then add llmd-infra-check results from OKE.
+
+### robertgshaw2-redhat · 2026-09-25
+
+/approve

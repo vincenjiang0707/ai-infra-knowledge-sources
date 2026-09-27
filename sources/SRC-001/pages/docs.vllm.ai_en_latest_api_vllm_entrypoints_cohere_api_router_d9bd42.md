@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/cohere/api_router/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 FastAPI router for the Cohere Chat v2 API.
 

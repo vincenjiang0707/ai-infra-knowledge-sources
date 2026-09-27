@@ -19,7 +19,7 @@ Skip the local preprocessing step entirely and use a single vLLM instance for bo
 - How to efficiently return loss masks from the hidden-state extraction endpoint without a second pass
 - Currently speculators truncates input_ids to seq_length locally before sending them to vLLM. If we switch to sending raw messages and letting vLLM tokenize, we lose that truncation point. We need a strategy for enforcing length limits when speculators no longer owns the tokenization step.
 
-## 评论 (7)
+## 评论 (8)
 
 ### shanjiaz · 2026-06-24
 
@@ -83,5 +83,8 @@ Will make a followup PR to #655 to make sure claude agent follows the best pract
 
 ### shanjiaz · 2026-06-27
 
-Sounds good! Will take a look and try it out. 
+Sounds good! Will take a look and try it out.
 
+### github-actions[bot] · 2026-09-25
+
+This issue has been automatically marked as stale because it has not had any activity within 90 days. It will be automatically closed if no further activity occurs within 30 days. Leave a comment if you feel this issue should remain open. Thank you!

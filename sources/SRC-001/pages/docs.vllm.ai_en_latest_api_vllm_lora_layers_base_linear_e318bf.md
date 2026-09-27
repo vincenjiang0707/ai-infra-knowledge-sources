@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/layers/base_linear/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class BaseLinearLayerWithLoRA(BaseLayerWithLoRA):
 # The adapter branch consumes the original activation, independently of

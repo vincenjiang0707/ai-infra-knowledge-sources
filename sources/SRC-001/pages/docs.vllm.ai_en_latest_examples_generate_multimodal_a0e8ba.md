@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/generate/multimodal/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Multimodal[¶](https://docs.vllm.ai#multimodal)
 

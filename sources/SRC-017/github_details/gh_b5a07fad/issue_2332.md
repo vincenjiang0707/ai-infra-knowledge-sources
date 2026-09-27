@@ -81,7 +81,7 @@ index 96eae74..2043bfb 100644
 
 ```
 
-## 评论 (7)
+## 评论 (8)
 
 ### xiaofanl-nvidia · 2026-08-09
 
@@ -330,3 +330,27 @@ int main() {
 }
 
 ```
+
+### abhiMishra98 · 2026-09-25
+
+Thanks for the repro, @thearusable. This looks like a current-device issue rather than a VMM limitation.
+
+**What happens in the failing case**
+
+```cpp
+cudaSetDevice(1);                           // GPU 1 is current
+ncclCommRegister(comms[0], fail_buf, ...);  // comm and buffer are on GPU 0; GPU 1 has no access
+```
+
+`ncclRegister` never switches to `comm->cudaDev`, so `cuMemGetAddressRange` (`src/register/register.cc:42`) runs in GPU 1's context. That context has no mapping for `fail_buf`, so the call returns `CUDA_ERROR_NOT_FOUND`.
+
+This also explains:
+- why `cuMemRetainAllocationHandle` / `cuMemGetAllocationPropertiesFromHandle` succeed: they don't depend on the current context
+- why `pass_buf` works: GPU 1 was granted access, and the repro also switches to GPU 0 first
+- why it didn't reproduce on my side: one GPU per node, so the current device always matches the buffer
+
+**Suggested fix**
+
+`commDeregister` (`register.cc:183-197`) and `ncclCommWindowRegister` (`dev_runtime.cc:1350-1354`) already save the current device, switch to `comm->cudaDev`, and restore it afterwards. `ncclRegister` is missing this. Adding the same pattern there should fix it and keeps the sysmem-segment check intact. Ignoring `NOT_FOUND` would skip that check and hide other causes of the error.
+
+@KaimingOuyang does this sound like the right direction? I don't have a multi-GPU node to verify it, but I'm happy to put up a patch.

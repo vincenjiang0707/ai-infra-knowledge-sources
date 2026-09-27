@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/siglip2navit/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 

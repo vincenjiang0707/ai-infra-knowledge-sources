@@ -7,20 +7,17 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:24:03Z",
- "finished_at": "2026-09-24T19:00:46Z",
- "duration_seconds": 183.1,
- "attempts": 3,
+ "finished_at": "2026-09-27T08:48:19Z",
+ "duration_seconds": 11.1,
+ "attempts": 4,
  "channels": {
   "site_264a27b9": {
-   "type": "menu",
+   "type": "site",
    "url": "https://docs.opencloudos.org/OC9/ai-deployment/GPU-optimization-practice/hygon-deployment/",
-   "mode": "menu_bfs",
    "status": "ok",
-   "pages_fetched": 310,
-   "pages_failed": 0,
-   "md_written": 309,
-   "output_dir": "pages/",
-   "cap": 200
+   "output": "page.md",
+   "mode": "page",
+   "chars": 3236
   }
  },
  "cursor": {

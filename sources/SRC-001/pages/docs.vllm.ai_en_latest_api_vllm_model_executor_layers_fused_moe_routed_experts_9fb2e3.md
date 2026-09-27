@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/routed_experts/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @PluggableLayer.register("routed_experts")
 class RoutedExperts(PluggableLayer):
@@ -778,14 +778,20 @@ def load_weights(
 self, weights: Iterable[tuple[str, torch.Tensor]]
 ) -> Iterable[str]:
 expert_mapping = self.get_expert_mapping(include_fused=True)
+mapping_by_expert = _index_expert_mapping(expert_mapping)
 for expert_name, loaded_weight in weights:
 qual_name = f"{self.layer_name}.{expert_name}"
-# Fused expert weights can be identified by their 3D tensors
 is_fused = loaded_weight.dim() == 3
+# Fused tensors and ambiguous names keep the full mapping.
+candidates = expert_mapping
+if not is_fused and qual_name.count("experts.") == 1:
+expert_key = qual_name.partition("experts.")[2].partition(".")[0]
+candidates = mapping_by_expert.get(expert_key, expert_mapping)
 matched = False
-for param_name, weight_name, expert_id, shard_id in expert_mapping:
+for param_name, weight_name, expert_id, shard_id in candidates:
 if weight_name not in qual_name:
 if matched and is_fused:
+# Fused tensors use the first contiguous run of matches.
 break
 continue
 matched = True
@@ -1089,7 +1095,7 @@ topk_weights: torch.Tensor,
 topk_ids: torch.Tensor,
 shared_experts: "SharedExperts | None" = None,
 shared_experts_input: torch.Tensor | None = None,
-) -> torch.Tensor:
+) -> torch.Tensor | UnfinalizedMoEOutput:
 """Execute routed experts using the quantization method's apply function.
 This is called by the runner after router selection (for modular kernels)
 quant_method.apply() which accesses the weights on this RoutedExperts
@@ -1101,7 +1107,7 @@ topk_ids: Selected expert IDs from router (for modular kernels)
 shared_experts: The shared experts (if any)
 shared_experts_input: Input for shared experts (if any)
 Returns:
-Output tensor from routed experts.
+Finalized routed states or a deferred-finalize output.
 """
 assert not self.quant_method.is_monolithic
 # Modular kernels use pre-computed routing

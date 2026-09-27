@@ -275,7 +275,7 @@ basic benchmark results would be very helpful. We will handle the Sol
 Engine/SGLang integration and end-to-end evaluation.
 
 
-## 评论 (16)
+## 评论 (25)
 
 ### yyihuang · 2026-08-15
 
@@ -454,3 +454,129 @@ The experimental NVFP4 variant was evaluated but was not shipped because of the 
 
 Both FP8 and NVFP4 FC1 + SwiGLU variants are included in this merge. The separate persistent full-MLP candidate 5090-K5 and NVFP4 attention candidate 5090-K2 are not part of this PR.
 
+### yyihuang · 2026-09-26
+
+@Kim2026-dev Merged: https://github.com/flashinfer-ai/flashinfer/pull/5525
+
+This delivers candidate 4, the MiniMax-H3 direct-layout attention output projection, for SM100/SM103 (B200/B300):
+
+- Reads the inverse-Ulysses receive layout `[P, M, 56/P, 128]` directly, without a standalone unpack/transpose, and computes the 7168 -> 5376 projection plus indexed gate and residual into BF16 output.
+- Provides BF16, MXFP8, and NVFP4 variants, with P = 1/2/4/8 and runtime M/tail handling. BF16 uses one launch; the quantized variants use activation quantization followed by GEMM.
+- The PR reports 47 correctness rows and 40 timed rows per variant on each architecture. Complete-operator geometric-mean speedups over the fastest full-chain baseline are 1.515x / 1.967x / 2.856x on B200 and 1.495x / 1.972x / 2.802x on B300 for BF16 / MXFP8 / NVFP4 respectively.
+
+This update covers the standalone output-projection candidate; application integration and collectives remain outside its scope.
+
+
+### yyihuang · 2026-09-26
+
+@Kim2026-dev Merged: https://github.com/flashinfer-ai/flashinfer/pull/5529
+
+This advances candidate 2B, MiniMax-H3 NVFP4 W4A4 pre-attention on SM100/SM103 (B200/B300), following #5496 and #5516:
+
+- Fuses the QKV GEMM, Q/K RMSNorm, split-half RoPE, and destination-major NVFP4 packing into one generated stage. Together with the norm + AdaLN + activation-quantization stage, the prepared operation now uses two launches and avoids the intermediate BF16 QKV buffer.
+- Supports the destination partition counts P=1/2/4/8 with runtime M. The padded-tail RoPE loads are now clamped to valid rows; SM103 also uses an optimized 16-warp epilogue.
+- The PR reports byte-identical outputs against the segmented route on all 44 contract rows per architecture. On 24 production shapes, B200 shows a 1.346x geometric-mean speedup over the segmented route. The final B300 epilogue adds 1.032x over the previous fused revision in a separate paired comparison.
+
+The preparation API changes: `qkv_bf16`, `gemm_workspace`, and `gemm_backends` are removed, and `post_descriptor_workspace` becomes `gemm_descriptor_workspace`. Recreate the prepared instance when bound tensors or prepared scale values change.
+
+This is the standalone NVFP4 pre-attention path; attention itself, collectives, and application integration are separate. Performance qualification did not seal every export row (39/44 on SM100 and 36/44 on SM103), although all contract rows passed byte-exact validation.
+
+
+### yyihuang · 2026-09-26
+
+@Kim2026-dev Merged: https://github.com/flashinfer-ai/flashinfer/pull/5562
+
+This is a performance follow-up to #5525 for candidate 4, the MiniMax-H3 direct-layout attention output projection + indexed gate and residual on SM100/SM103 (B200/B300).
+
+- Optimizes NVFP4 activation quantization (the PR reports a 5–6% faster quantization pass) and changes the NVFP4 GEMM raster group from 16 to 8 (1–2% improvement on the measured shapes).
+- Changes the MXFP8/NVFP4 accumulator drain from 32 to 64 columns. BF16 execution is unchanged; APIs, layouts, and numerics are unchanged.
+- Retains the direct inverse-Ulysses receive layout `[P, M, 56/P, 128]`, 7168 → 5376 projection, BF16 output, P = 1/2/4/8, and runtime M/tail handling delivered by #5525.
+
+The PR reports 47 correctness shapes per variant on each GPU, bit-exact quantized activations against the reference quantizers, and 40/40 timed shapes faster than the fastest complete baseline chain per variant/GPU. NVFP4 complete-operator geometric-mean speedups are 2.887x on B200 and 2.806x on B300 **against that full-chain baseline**, not incremental speedups over #5525.
+
+This delivers further optimization of the standalone B200/B300 output-projection candidate. RTX 5090 support, application integration, and collectives remain outside this PR's scope.
+
+
+### yyihuang · 2026-09-26
+
+@Kim2026-dev Merged: https://github.com/flashinfer-ai/flashinfer/pull/5563
+
+This is a performance follow-up to #5529 for **candidate 2B: MiniMax-H3 NVFP4 W4A4 pre-attention**.
+
+- On B300 (SM103a), the fused QKV GEMM epilogue now shares one 16-warp role instead of duplicating the code across two eight-warp roles. The PR reports half the epilogue instruction footprint and no stack frame. The B200 (SM100a) device computation is unchanged.
+- Retains the prepared two-launch operation: norm + AdaLN + activation quantization, followed by QKV GEMM with fused Q/K RMSNorm, RoPE, and destination-major NVFP4 packing. Supports P = 1/2/4/8 and runtime M.
+- The paired B300 comparison against the previously shipped #5529 fused program reports **1.0103x geometric-mean speedup** across 24 production shapes (range 1.0026x–1.0230x), with zero mismatched bytes. This is the incremental improvement over the prior fused program.
+
+The PR reports byte-exact packed NVFP4 outputs and E4M3 scales against the segmented reference on all 44 contract shapes on both GPUs, 19 passing package tests per GPU, and clean synccheck/memcheck results. Separate source-versus-export timing qualification passed on 39/44 B200 and 41/44 B300 shapes; the remaining rows did not meet the measurement-window criteria, although all passed correctness.
+
+The delivered scope is the standalone NVFP4 pre-attention path, with this optimization targeting B300. Attention itself, collectives, and application integration remain separate.
+
+
+### yyihuang · 2026-09-26
+
+@Kim2026-dev Merged: https://github.com/flashinfer-ai/flashinfer/pull/5530
+
+This advances **candidates 3A/3C: experimental MiniMax-H3 packed-varlen BF16 and NVFP4 attention on SM100/SM103 (B200/B300)**, as a performance follow-up to #5499.
+
+- Adds K/V splitting for selected partial-wave workloads and a combine kernel that merges the partial softmax results. The planner uses splitting when the predicted benefit exceeds its overhead; plans without splits retain a dense attention path.
+- Improves NVFP4 quantization stores and adds a generated device-side `amax(V)` stage for the NVFP4-QK/FP8-PV route, replacing the two PyTorch reduction launches and overlapping work through programmatic dependent launch.
+- Preserves the experimental APIs, noncausal packed-varlen semantics, and existing tolerances. The NVFP4 path continues to offer FP8 or FP4 PV modes. Split workspace is prepared with the plan, and the combine stage runs only for split plans.
+
+The reported paired measurements show the largest split gains on underfilled partial waves; this is shape-dependent, not a uniform speedup for every row. The delivered-package tests report **625 passed on each GPU**. Source/export correctness and timing qualification passed for 120/120 rows on B200 and 119/120 on B300; the remaining B300 BF16 four-segment row passed correctness but could not qualify its timing because the sampled SM clock was below the required floor.
+
+This update covers the standalone experimental SM100/SM103 attention candidates. The separate SM120 attention candidates and application/collective integration are outside this PR's scope.
+
+
+### yyihuang · 2026-09-26
+
+@Kim2026-dev Merged: https://github.com/flashinfer-ai/flashinfer/pull/5571
+
+This is a follow-up to #5530 for **candidate 3C's NVFP4-QK / FP8-PV packed-varlen attention path** on SM100/SM103, with the main benefit on B300.
+
+- Reschedules the FP8-PV softmax work so scaling, exponentiation, and the initial E4M3 packing precede the free-buffer wait. The B300 split program now runs near the dense program's per-unit cost.
+- Recalibrates B300's split-program cost from 1.35 to 1.01, allowing more partial-wave workloads to use K/V splitting. BF16, FP4-PV, quantization, amax, and combine programs are unchanged; public APIs are unchanged.
+- The PR reports complete-call speedups over #5530 of 1.179x at M=6096/P=8, 1.184x at M=7368/P=8, and 1.155x at M=8368/P=4 on B300. Gains depend on the shape; B200 remains near parity.
+
+Reported package tests pass 625/625 on each GPU. Export correctness/timing qualification passes 120/120 rows on B200 and 118/120 on B300; two unchanged BF16 rows could not qualify their timing because the sampled SM clock was below the required floor.
+
+This advances the hybrid NVFP4 attention candidate; it does not introduce an all-FP8 attention variant or expand the SM120 scope.
+
+
+### yyihuang · 2026-09-26
+
+@Kim2026-dev Merged: https://github.com/flashinfer-ai/flashinfer/pull/5566
+
+This is a maintenance update to **candidate 2B: MiniMax-H3 NVFP4 W4A4 pre-attention** on SM100/SM103, following #5563.
+
+It refreshes the generated filenames, symbols, identity hashes, and route-table digests. After normalizing those identifiers, the production kernel and binding code matches #5563. There is no new API, shape coverage, numerical behavior, or performance improvement in this merge.
+
+The PR reports byte-exact outputs against the segmented reference on all 44 contract rows per GPU and 19 passing package tests on each GPU. Source/export timing qualification passed on 42/44 B200 and 43/44 B300 rows; the remaining rows failed only the sampled-clock criterion and passed correctness.
+
+The delivered operation remains the existing two-launch NVFP4 pre-attention path.
+
+
+### yyihuang · 2026-09-27
+
+@Kim2026-dev Merged: https://github.com/flashinfer-ai/flashinfer/pull/5545
+
+This delivers the **experimental NVFP4 portion of candidate 5090-K2**, alongside the FP8 operator from #5539, for SM120/GB202 (RTX 5090 and RTX PRO 6000 Blackwell): `flashinfer.diffusion_ops.minimax_h3_sm120_varlen_attention_nvfp4`.
+
+- Implements the SageAttention3 FP4 recipe for noncausal packed-varlen attention with BF16 input/output. Both QK and PV use block-scaled FP4 Tensor Core MMA; softmax remains FP32.
+- Uses three launches for statistics, quantization, and attention, with K/Q mean removal and the Q block-mean correction computed inside attention rather than a dense correction tensor.
+
+The PR reports 17 passed / 2 skipped route tests per board, and all 13 measured complete-operator rows faster than recipe-faithful ragged SageAttention3 on both boards. This comparison includes preprocessing.
+
+**Accuracy remains an experimental tradeoff:** measured relative-L2 error against the FP32 oracle is 0.186–0.193 on Gaussian inputs, versus about 0.05 for the FP8 operator. The FP4 tests use `atol=1.0, rtol=0.1` plus a relative-L2 bound; passing these tests does not establish application-level acceptance. The final implementation uses FP4 for both MMAs, replacing this PR's earlier hybrid FP4-QK/FP8-PV revision.
+
+
+### yyihuang · 2026-09-27
+
+@Kim2026-dev Merged: https://github.com/flashinfer-ai/flashinfer/pull/5583
+
+This is a performance follow-up to #5545 for **candidate 5090-K2: MiniMax-H3 SM120 NVFP4 packed-varlen attention** on RTX 5090 and RTX PRO 6000 Blackwell.
+
+- Optimizes softmax by computing per-16-key maxima from raw scores first and accumulating row sums through four independent partial chains. The generated CUDA implementation is the only changed file.
+- Retains the SageAttention3 FP4 recipe, noncausal BF16 `[T, 56, 128]` input/output, ragged segments and tails, FP4 Tensor Core MMA for both QK and PV, and FP32 softmax. The API and quantization recipe are unchanged.
+- The PR's paired cold-L2 CUPTI measurements report **1.039–1.046x complete-operator speedup on RTX PRO 6000 Blackwell and 1.015–1.027x on RTX 5090** across the six requested token-count centers, relative to #5545. All 12 contract rows measure at least 1.00x on both boards.
+
+The existing FlashInfer route tests are reported passing on both boards. The maximum output difference from #5545 is 2.4e-4; relative-L2 error against the FP32 reference and the FP4 tolerance remain unchanged. This improves the existing experimental operator's performance; application-level accuracy acceptance and Sol Engine/SGLang integration remain with the requester.

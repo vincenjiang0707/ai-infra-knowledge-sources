@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/prepare_finalize/nixl_ep/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class NixlEPPrepareAndFinalize(mk.FusedMoEPrepareAndFinalizeModular):
 """Prepare/Finalize using NIXL EP kernels."""

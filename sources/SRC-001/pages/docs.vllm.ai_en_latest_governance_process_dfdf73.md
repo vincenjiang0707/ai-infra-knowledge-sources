@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/governance/process/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Governance Process[¶](https://docs.vllm.ai#governance-process)
 

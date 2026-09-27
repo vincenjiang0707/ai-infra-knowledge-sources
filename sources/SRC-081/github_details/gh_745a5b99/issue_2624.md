@@ -108,4 +108,28 @@ Potenital research areas to be explored as part of Q2.
     - [Nemotron-3-Ultra-550B-A55B-BF16-FP8-BLOCK](https://huggingface.co/RedHatAI/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16-FP8-BLOCK)
     - [Nemotron-3-Ultra-550B-A55B-BF16-W4A16-G128](https://huggingface.co/RedHatAI/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16-W4A16-G128)
 
-## 评论 (0)
+## 评论 (5)
+
+### roycho96 · 2026-05-05
+
+Hi! I’m looking to contribute to vLLM.
+
+I’m particularly interested in performance, kernels, distributed/runtime behavior, scheduling/batching, and benchmark/test infrastructure. Are there any components or issue areas where maintainers would welcome help? I’d be happy to start with a small scoped PR and build from there.
+
+### CHNtentes · 2026-05-07
+
+Hi! Is AWQ support for DeepSeek V4 series going to happen?
+
+### soyr-redhat · 2026-06-05
+
+@roycho96, check out [GuideLLM](https://github.com/vllm-project/guidellm) and [vLLM](https://github.com/vllm-project/vllm), there are some dope advancements happening with benchmarking, and upstream runtime work as well. 
+
+If you're unsure where to start, you can check in the issues tabs for these projects for ones labeled as "good first issue" and start there. Good luck!
+
+### dsikka · 2026-06-16
+
+@claude ping
+
+### dsikka · 2026-07-13
+
+Closing this off, please refer to: https://github.com/vllm-project/llm-compressor/issues/2624

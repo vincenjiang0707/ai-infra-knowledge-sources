@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/frameworks/runpod/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # RunPod[¶](https://docs.vllm.ai#runpod)
 

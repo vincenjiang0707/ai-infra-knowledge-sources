@@ -32,4 +32,8 @@ Submission for #3088 (Qwen3.5-9B, priority 1, missing FP8 Block and NVFP4). The 
 - lm-eval results pending; will post them in this thread
 
 
-## 评论 (0)
+## 评论 (1)
+
+### Roderick-Wu · 2026-08-27
+
+hi @rishabhsinha17, unfortunately the bounty list is not really live at the moment. We were initially planning on rolling this out but we might not be able to because of licensing issues.

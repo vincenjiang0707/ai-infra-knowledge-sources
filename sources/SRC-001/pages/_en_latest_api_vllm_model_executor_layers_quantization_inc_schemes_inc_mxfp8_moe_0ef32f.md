@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/inc/schemes/inc_mxfp8_moe/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class INCMxfp8MoEMethod(FusedMoEMethodBase):
 """W8A8 MXFP8 MoE method for serialized AutoRound checkpoints."""
@@ -136,7 +136,7 @@ topk_weights: torch.Tensor,
 topk_ids: torch.Tensor,
 shared_experts: SharedExperts | None,
 shared_experts_input: torch.Tensor | None,
-) -> torch.Tensor:
+) -> torch.Tensor | UnfinalizedMoEOutput:
 assert self.moe_kernel is not None
 return self.moe_kernel.apply(
 x,

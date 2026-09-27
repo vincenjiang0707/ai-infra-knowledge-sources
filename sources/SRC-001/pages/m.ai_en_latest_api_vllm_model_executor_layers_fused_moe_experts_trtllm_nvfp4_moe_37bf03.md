@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/trtllm_nvfp4_moe/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -112,6 +112,19 @@ Modular version of the implementation (just the experts).
 
 |
 |
+
+###
+
+`_invoke_kernel(output, hidden_states, w1, w2, topk_weights, topk_ids, activation, global_num_experts, a1q_scale)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.experts.trtllm_nvfp4_moe.TrtLlmNvFp4ExpertsModular._invoke_kernel)
+
+Finalize into `output`
+
+, or stop after GEMM2 when it is None.
+
+## Source code in `vllm/model_executor/layers/fused_moe/experts/trtllm_nvfp4_moe.py`
+
 
 ###
 

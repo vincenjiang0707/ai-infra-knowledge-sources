@@ -399,7 +399,7 @@ Mooncake master command:
 mooncake_master --enable_http_metadata_server=true --eviction_high_watermark_ratio=0.95 --enable_metric_reporting=true
 ```
 
-## 评论 (20)
+## 评论 (21)
 
 ### ykwd · 2026-05-06
 
@@ -735,3 +735,7 @@ This branch is intentionally narrow. It is meant to make the failure mode more o
 ### github-actions[bot] · 2026-09-20
 
 This issue has had no activity for 90 days and will be closed in 7 days if there is no further activity. Please comment or react if it should stay open.
+
+### github-actions[bot] · 2026-09-27
+
+Closing due to 3 months of inactivity. If this is still relevant, please comment and we can reopen.

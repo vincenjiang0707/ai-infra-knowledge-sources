@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/qwen3_vl/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @MULTIMODAL_REGISTRY.register_processor(
 Qwen3VLMultiModalProcessor,
@@ -61,7 +61,7 @@ def __init__(self, *, vllm_config: VllmConfig, prefix: str = "model"):
 super().__init__()
 config: Qwen3VLConfig = vllm_config.model_config.hf_config
 quant_config = vllm_config.quant_config
-multimodal_config = vllm_config.model_config.multimodal_config
+multimodal_config = vllm_config.model_config.get_multimodal_config()
 self.config = config
 self.model_config = vllm_config.model_config
 self._tokenizer = cached_tokenizer_from_config(vllm_config.model_config)
@@ -204,6 +204,7 @@ raise AssertionError("This line should be unreachable.")
 def get_max_frames_per_video(self) -> int:
 mm_registry = MULTIMODAL_REGISTRY
 info = mm_registry.get_processing_info(self.model_config)
+assert isinstance(info, Qwen3VLProcessingInfo)
 max_frames_per_video = info.get_num_frames_with_most_features(
 seq_len=self.model_config.max_model_len,
 mm_counts={"video": self.multimodal_config.get_limit_per_prompt("video")},
@@ -426,7 +427,7 @@ type="pixel_values",
 pixel_values=pixel_values,
 image_grid_thw=image_grid_thw,
 )
-if image_embeds is not None:
+else:
 return Qwen2_5_VLImageEmbeddingInputs(
 type="image_embeds",
 image_embeds=image_embeds,
@@ -450,7 +451,7 @@ video_grid_thw=video_grid_thw,
 second_per_grid_ts=second_per_grid_ts,
 timestamps=timestamps,
 )
-if video_embeds is not None:
+else:
 return Qwen2_5_VLVideoEmbeddingInputs(
 type="video_embeds",
 video_embeds=video_embeds,
@@ -558,12 +559,14 @@ grid_thw_list = grid_thw.tolist()
 merge_size = self.visual.spatial_merge_size
 # Apply EVS to each video.
 video_embeds_out = []
+assert video_input.timestamps is not None
 for video_idx, (emb, size) in enumerate(zip(video_embeds_split, grid_thw_list)):
 # Compute positions.
 timestamps = video_input.timestamps[video_idx]
 num_frames = len(timestamps)
 t, h, w = size
 if self.is_multimodal_pruning_enabled:
+assert self.video_pruning_rate is not None
 # Compute the retention mask for each video (EVS or VidCom2).
 if self.video_pruning_method == "vidcom2":
 mask_fn = vidcom2_compute_retention_mask
@@ -716,7 +719,7 @@ data=MultiModalKwargsItem(
 {
 "video_grid_thw": MultiModalFieldElem(
 data=torch.tensor(video_grid_thw),
-field=None, # HACK.
+field=MultiModalFieldConfig.batched("video").field,
 ),
 }
 ),
@@ -741,7 +744,9 @@ expanded_positions[..., 3] = is_vision_start
 expanded_positions[..., 4] = is_video_embed
 return expanded_positions
 def _parse_and_validate_multimodal_inputs(self, **kwargs: object) -> dict:
-mm_input_by_modality = {}
+mm_input_by_modality: dict[
+str, Qwen2_5_VLImageInputs | Qwen2_5_VLVideoInputs | None
+] = {}
 for input_key in kwargs:
 if (
 input_key in ("pixel_values", "image_embeds")
@@ -785,14 +790,20 @@ actual_num_tokens: Actual number of video/image tokens in the placeholder.
 """
 for mm_feature in sorted(mm_features, key=lambda f: f.mm_position.offset):
 offset = mm_feature.mm_position.offset
+data = mm_feature.data
+assert data is not None
 if mm_feature.modality == "image":
-t, h, w = mm_feature.data["image_grid_thw"].data.tolist()
+grid = data["image_grid_thw"].data
+assert isinstance(grid, torch.Tensor)
+t, h, w = grid.tolist()
 assert t == 1, f"Image must have 1 frame, got {t}"
 llm_grid_h = h // spatial_merge_size
 llm_grid_w = w // spatial_merge_size
 yield offset, llm_grid_h, llm_grid_w, llm_grid_h * llm_grid_w
 elif mm_feature.modality == "video":
-t, h, w = mm_feature.data["video_grid_thw"].data.tolist()
+grid = data["video_grid_thw"].data
+assert isinstance(grid, torch.Tensor)
+t, h, w = grid.tolist()
 llm_grid_h = h // spatial_merge_size
 llm_grid_w = w // spatial_merge_size
 for _ in range(t):
@@ -842,7 +853,7 @@ input_tokens: list[int],
 mm_features: list[MultiModalFeatureSpec],
 config: Qwen3VLConfig,
 ):
-llm_pos_ids_list = []
+llm_pos_ids_list: list[np.ndarray] = []
 st = 0
 for (
 offset,

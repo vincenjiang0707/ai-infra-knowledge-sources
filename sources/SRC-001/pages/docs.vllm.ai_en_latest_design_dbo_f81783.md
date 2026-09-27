@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/dbo/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Dual Batch Overlap[¶](https://docs.vllm.ai#dual-batch-overlap)
 

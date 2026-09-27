@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -107,6 +107,9 @@ Modules:
 
 -
 –[diffusion_gemma](https://docs.vllm.ai/diffusion_gemma/#vllm.model_executor.models.diffusion_gemma)DiffusionGemma model, ModelState, and Sampler for vLLM.
+
+-
+–[diffusion_gemma_sampler](https://docs.vllm.ai/diffusion_gemma_sampler/#vllm.model_executor.models.diffusion_gemma_sampler)One-pass row statistics for the DiffusionGemma denoise sampler.
 
 -
 –[dots_ocr](https://docs.vllm.ai/dots_ocr/#vllm.model_executor.models.dots_ocr) -
@@ -317,6 +320,9 @@ Modules:
 
 -
 –[lfm2_vl](https://docs.vllm.ai/lfm2_vl/#vllm.model_executor.models.lfm2_vl) -
+–[lilicorr](https://docs.vllm.ai/lilicorr/#vllm.model_executor.models.lilicorr)DFlash backbone with the LiLiCorr candidate-lattice correlator.
+
+-
 –[llama](https://docs.vllm.ai/llama/#vllm.model_executor.models.llama)Inference-only LLaMA model compatible with HuggingFace weights.
 
 -

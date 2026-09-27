@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/zh-CN/dev/recipes/qwen-3-8-2-4t-a95b-fp8
-lastmod: 2026-09-24T19:58:16.636Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 Qwen3.8-2.4T-A95B
 

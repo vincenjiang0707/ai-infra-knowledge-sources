@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/gemma3n/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @support_torch_compile(
 enable_if=lambda vllm_config: vllm_config.cache_config.kv_sharing_fast_prefill

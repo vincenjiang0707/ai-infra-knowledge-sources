@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/configuration/env_vars/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Environment Variables[¶](https://docs.vllm.ai#environment-variables)
 
@@ -385,6 +385,11 @@ int(os.getenv("VLLM_USE_RAY_COMPILED_DAG_OVERLAP_COMM", "0"))
 "VLLM_USE_RAY_WRAPPED_PP_COMM": lambda: bool(
 int(os.getenv("VLLM_USE_RAY_WRAPPED_PP_COMM", "1"))
 ),
+# Using a flag to control microbatch on XPU device, users on XPU device can
+# decide to disable it when they needed.
+"VLLM_XPU_PP_MICROBATCH": lambda: bool(
+int(os.getenv("VLLM_XPU_PP_MICROBATCH", "1"))
+),
 # When True and distributed_executor_backend="ray", use RayExecutorV2
 # (MQ-based) instead of RayDistributedExecutor (compiled-graph backend).
 "VLLM_USE_RAY_V2_EXECUTOR_BACKEND": lambda: bool(
@@ -643,6 +648,11 @@ else os.environ["VLLM_PLUGINS"].split(",")
 os.environ.get("VLLM_TRITON_FORCE_FIRST_CONFIG", "0").strip().lower()
 in ("1", "true")
 ),
+# Maximum compiler threads per worker for registered CUDA Triton JIT warmup.
+# Set to 1 for serial warmup. Does not affect runtime JIT or autotuning.
+"VLLM_TRITON_JIT_WARMUP_NUM_THREADS": lambda: int(
+os.getenv("VLLM_TRITON_JIT_WARMUP_NUM_THREADS", "4")
+),
 # If set, allow loading or unloading lora adapters in runtime,
 "VLLM_ALLOW_RUNTIME_LORA_UPDATING": lambda: (
 os.environ.get("VLLM_ALLOW_RUNTIME_LORA_UPDATING", "0").strip().lower()
@@ -730,18 +740,13 @@ os.getenv("VLLM_ROCM_USE_AITER_LINEAR_HIPBMM", "False").lower() in ("true", "1")
 "VLLM_ROCM_USE_AITER_MOE": lambda: (
 os.getenv("VLLM_ROCM_USE_AITER_MOE", "True").lower() in ("true", "1")
 ),
-# Route K3 SiTU MXFP4 MoE through the FlyDSL SiTUv2 path (a4w4 fp4
-# activations, separated gate/up layout) instead of default a16w4. vLLM
-# sets AITER_SITUV2_A4W4 at init when this flag is on and clears any
-# legacy AITER_SITUV2_A8W4 override (AITER checks A8W4 first).
-# VLLM_ROCM_USE_AITER_MOE_SITUV2_A8W4 is a deprecated alias for existing
-# recipes; it does not select a8w4 kernels.
-# Needs AITER >= v0.1.20 (ROCm/aiter#4463) for the a4w4 dispatch flag
-# and tuned kimik3_a4w4_*_fmoe.csv rows; otherwise FlyDSL uses heuristics.
-"VLLM_ROCM_USE_AITER_MOE_SITUV2": lambda: (
-os.getenv("VLLM_ROCM_USE_AITER_MOE_SITUV2", "0").lower() in ("true", "1")
-or os.getenv("VLLM_ROCM_USE_AITER_MOE_SITUV2_A8W4", "0").lower()
-in ("true", "1")
+# Activation dtype for the Kimi-K3 SiTU MXFP4 MoE (AITER FlyDSL SiTUv2):
+# auto (= a4w4), a4w4, a8w4 or a16w4. Legacy 1/0 mean a4w4/a16w4.
+"VLLM_ROCM_USE_AITER_MOE_SITUV2": env_with_choices(
+"VLLM_ROCM_USE_AITER_MOE_SITUV2",
+"auto",
+["auto", "a4w4", "a8w4", "a16w4", "0", "1"],
+case_sensitive=False,
 ),
 # MoE sorting dispatch policy for AITER fused MoE kernels.
 # 0 = auto (default): single-pass for small batches, multi-pass

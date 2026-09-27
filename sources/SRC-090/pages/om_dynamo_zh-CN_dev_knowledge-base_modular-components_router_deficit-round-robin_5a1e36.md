@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/zh-CN/dev/knowledge-base/modular-components/router/deficit-round-robin
-lastmod: 2026-09-23T23:30:39.914Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 # Deficit Round Robin Queue Scheduling
 

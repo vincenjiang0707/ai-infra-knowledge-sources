@@ -1,12 +1,12 @@
 # vllm-project/guidellm
 
-- stars: 1643
-- forks: 239
+- stars: 1649
+- forks: 241
 - open_issues: 73
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-25T04:54:27Z
+- pushed_at: 2026-09-27T03:25:48Z
 - homepage: https://vllm-project.github.io/guidellm/
 
 ## README

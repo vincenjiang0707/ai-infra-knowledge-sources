@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/nvfp4/fbgemm/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class FbgemmNvFp4LinearKernel(NvFp4LinearKernel):
 """NVFP4 GEMM via FBGEMM."""

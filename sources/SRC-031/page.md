@@ -319,7 +319,7 @@ cd ${ATB_SPEED_HOME_PATH} bash examples/models/llama/run_pa.sh /data/Llama-3-8b
 
 # 指定当前机器上可用的逻辑NPU核心，多个核心间使用逗号相连 export ASCEND_RT_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 # 执行推理 torchrun --nproc_per_node 8 --master_port 20030 -m examples.run_pa --model_path /data/Llama-3-8b --input_texts "What's deep learning?" "Hello World." --max_batch_size 2
 
-说明环境变量说明见
+环境变量说明见
 
 [环境变量说明](https://www.hiascend.com/mindie_llm0416.html)。 - 用户可以通过传入Token id的方式进行推理。
 [新建一个py脚本（如test.py）用于生成Token id：]from transformers import AutoTokenizer tokenizer = AutoTokenizer.from_pretrained( pretrained_model_name_or_path="{
@@ -633,7 +633,7 @@ int
 
 动态加载卸载LoRA场景中，定义最大LoRA秩。动态LoRA场景下必须配置，静态LoRA场景中可以不配置。若传入数值过大，由于预留了过多权重空间，会出现out_of_memory报错信息，例如: "RuntimeError: NPU out of memory. Tried to allocate xxx GiB."
 
-说明此章节中的run_pa.py脚本用于纯模型快速测试，脚本中未增加强校验，出现异常情况时，会直接抛出异常信息。例如：
+此章节中的run_pa.py脚本用于纯模型快速测试，脚本中未增加强校验，出现异常情况时，会直接抛出异常信息。例如：
 
 - input_texts、input_ids、input_file、input_dict参数包含推理内容，程序进行数据处理的时间和传入数据量成正比。同时这些输入会被转换成token id搬运至NPU，传入数据量过大可能会导致这些NPU tensor占用显存过大，而出现由out of memory导致的报错信息，例如："req: xx input length: xx is too long, max_prefill_tokens: xx"等报错信息。
 - chat_template参数可以使用两种形式输入：模板文本或模板文件的路径。当以模板文本输入时，若文本长度过大，可能会导致运行缓慢。
@@ -647,7 +647,7 @@ int
 
 耗时结果会显示在终端中，并保存在./benchmark_result/benchmark.csv文件里。
 
-说明性能测试后，可使用msprof工具，进行性能数据采集和性能数据分析，达到性能调优目的。msprof工具的使用可参见《性能调优工具》的“
+性能测试后，可使用msprof工具，进行性能数据采集和性能数据分析，达到性能调优目的。msprof工具的使用可参见《性能调优工具》的“
 
 [msprof命令行工具](https://www.hiascend.com/document/detail/zh/mindstudio/700/T&ITools/Profiling/atlasprofiling_16_0010.html)”章节。
 

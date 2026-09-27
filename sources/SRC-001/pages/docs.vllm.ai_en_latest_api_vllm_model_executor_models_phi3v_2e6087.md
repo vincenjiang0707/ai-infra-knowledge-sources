@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/phi3v/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class Phi3HDImageEmbedding(nn.Module):
 """Phi3 Image embedding with HD transform."""

@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:15:40Z",
- "finished_at": "2026-09-24T18:56:54Z",
- "duration_seconds": 16.4,
- "attempts": 4,
+ "finished_at": "2026-09-27T08:48:27Z",
+ "duration_seconds": 253.6,
+ "attempts": 5,
  "channels": {
   "site_1fd10d56": {
    "type": "blog",
@@ -19,8 +19,10 @@
    ],
    "status": "ok",
    "mode": "blog",
-   "posts": [],
-   "total_chars": 0,
+   "posts": [
+    "62_CUDA-Device-Max-Connections.md"
+   ],
+   "total_chars": 5503,
    "post_urls": {
     "https://leimao.github.io/blog/CUDA-Thread-Block-Swizzle/": "01_CUDA-Thread-Block-Swizzle.md",
     "https://leimao.github.io/blog/CUDA-Thread-Block-Swizzle/#more": "02_CUDA-Thread-Block-Swizzle.md",
@@ -82,9 +84,9 @@
     "https://leimao.github.io/archives/2026/07/": "32_07.md",
     "https://leimao.github.io/archives/2026/06/": "33_06.md",
     "https://leimao.github.io/archives/2026/05/": "34_05.md",
-    "https://leimao.github.io/archives/": "35_archives.md"
-   },
-   "head_check": "no_update"
+    "https://leimao.github.io/archives/": "35_archives.md",
+    "https://leimao.github.io/blog/CUDA-Device-Max-Connections/#more": "62_CUDA-Device-Max-Connections.md"
+   }
   }
  },
  "cursor": {

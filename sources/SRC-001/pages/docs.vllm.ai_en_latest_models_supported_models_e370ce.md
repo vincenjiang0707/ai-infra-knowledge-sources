@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/models/supported_models/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Supported Models[¶](https://docs.vllm.ai#supported-models)
 
@@ -260,7 +260,6 @@ to your model's config class:
 
 ## configuration_my_model.py
 
-```bash
 from transformers import PreTrainedConfig
 class MyConfig(PreTrainedConfig):
 base_model_tp_plan = {
@@ -276,7 +275,6 @@ base_model_pp_plan = {
 "layers": (["hidden_states", "attention_mask"], ["hidden_states"]),
 "norm": (["hidden_states"], ["hidden_states"]),
 }
-```
 
 
 `base_model_tp_plan`

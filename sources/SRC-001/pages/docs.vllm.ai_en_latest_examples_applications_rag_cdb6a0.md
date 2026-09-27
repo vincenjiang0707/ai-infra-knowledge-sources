@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/applications/rag/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Rag[¶](https://docs.vllm.ai#rag)
 

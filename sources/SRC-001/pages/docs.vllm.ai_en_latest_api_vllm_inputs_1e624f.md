@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/inputs/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 

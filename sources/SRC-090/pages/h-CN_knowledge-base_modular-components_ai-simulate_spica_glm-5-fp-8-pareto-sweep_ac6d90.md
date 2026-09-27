@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/zh-CN/knowledge-base/modular-components/ai-simulate/spica/glm-5-fp-8-pareto-sweep
-lastmod: 2026-09-23T23:30:39.914Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 GLM-5-FP8 Disaggregated Pareto Sweep
 

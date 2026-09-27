@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/nvidia/flashinfer_sparse/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class DeepseekV4FlashInferMLAAttention(DeepseekV4Attention):
 """FlashInfer TRTLLM-gen sparse MLA attention layer for SM100 DeepSeek V4."""
@@ -9,7 +9,9 @@ use_fp8_ds_mla_layout: ClassVar[bool] = False
 @classmethod
 def get_padded_num_q_heads(cls, num_heads: int) -> int:
 return _pad_to_supported_q_heads(num_heads)
-def _o_proj(self, o: torch.Tensor, positions: torch.Tensor) -> torch.Tensor:
+def _o_proj(
+self, o: torch.Tensor | QuantizedActivation, positions: torch.Tensor
+) -> torch.Tensor:
 return deep_gemm_fp8_o_proj(
 o,
 positions,
@@ -24,9 +26,29 @@ o_lora_rank=self.o_lora_rank,
 einsum_recipe=self._einsum_recipe,
 tma_aligned_scales=self._tma_aligned_scales,
 )
-def __init__(self, *args, **kwargs) -> None:
-super().__init__(*args, **kwargs)
+def _alloc_attn_out(
+self, num_tokens: int, hidden_states: torch.Tensor
+) -> torch.Tensor | QuantizedActivation:
+if self._fuse_rope_quant:
+return rope_quant_attn_out(num_tokens, hidden_states.device)
+return super()._alloc_attn_out(num_tokens, hidden_states)
+def __init__(self, vllm_config: VllmConfig, *args, **kwargs) -> None:
+super().__init__(vllm_config, *args, **kwargs)
 self._einsum_recipe, self._tma_aligned_scales = compute_fp8_einsum_recipe()
+# RopeQuant derives each query's RoPE position as seq_len - q_len + i,
+# which matches `positions` for DSpark's non-causal draft block too,
+# since every call passes the real per-request seq_lens. The one
+# exception is a draft block running past max_model_len, whose clamped
+# positions it does not reproduce; that only costs those drafts.
+reason = rope_quant_unsupported_reason(self)
+self._fuse_rope_quant = reason is None
+if reason is None:
+logger.info_once(
+"FLASHINFER_MLA_SPARSE_DSV4 fuses the inverse RoPE and FP8 "
+"quant of the attention output."
+)
+else:
+logger.debug_once("FLASHINFER_MLA_SPARSE_DSV4 RopeQuant off: %s", reason)
 # Per-tensor FP8 scale buffers + precomputed scalar BMM scales. Only the
 # per-tensor FP8 cache path consumes these; bf16 reads ``self.scale``.
 if self.kv_cache_torch_dtype != torch.float8_e4m3fn:
@@ -57,13 +79,16 @@ self,
 q: torch.Tensor,
 kv: torch.Tensor,
 positions: torch.Tensor,
-output: torch.Tensor,
+output: torch.Tensor | QuantizedActivation,
 ) -> None:
-# The TRTLLM-gen kernel requires h_q in {64, 128}, so the output buffer
-# is allocated at the padded head count while q arrives at the local
-# head count; _forward pads q to match before the launcher.
+if isinstance(output, QuantizedActivation):
+assert output.data.shape[0] == q.shape[0]
+else:
+# The TRTLLM-gen kernel requires h_q in {64, 128}, so the output
+# buffer is allocated at the padded head count while q arrives at
+# the local head count; _forward pads q to match before the launcher.
 assert output.shape[0] == q.shape[0] and output.shape[-1] == q.shape[-1], (
-f"output buffer shape {output.shape} incompatible with q shape {q.shape}"
+f"output buffer shape {output.shape} incompatible with q {q.shape}"
 )
 assert output.shape[1] >= q.shape[1], (
 f"output heads {output.shape[1]} must be >= q heads {q.shape[1]}"
@@ -73,14 +98,18 @@ expected_output_dtype = (
 torch.bfloat16 if q.dtype == torch.float8_e4m3fn else q.dtype
 )
 assert output.dtype == expected_output_dtype, (
-f"output dtype {output.dtype} must match expected {expected_output_dtype} "
-f"for q dtype {q.dtype}"
+f"output dtype {output.dtype} must match expected "
+f"{expected_output_dtype} for q dtype {q.dtype}"
 )
 forward_context = get_forward_context()
 attn_metadata = forward_context.attn_metadata
 if attn_metadata is None:
 # Warmup dummy run: FlashInfer reads the cache directly and lazily
 # allocates its workspace, so nothing to reserve here.
+if isinstance(output, QuantizedActivation):
+output.data.zero_()
+output.scale.zero_()
+else:
 output.zero_()
 return
 assert isinstance(attn_metadata, dict)
@@ -112,10 +141,11 @@ swa_k_cache: torch.Tensor,
 swa_metadata: "DeepseekSparseSWAMetadata",
 attn_metadata: DeepseekV4FlashMLAMetadata | None,
 swa_only: bool,
+num_rows: int | None = None,
 ) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
 """Build the combined sparse-index tensors for the mixed batch.
 Returns ``(compressed_kv_cache, seq_lens, sparse_indices,
-sparse_topk_lens)``.
+sparse_topk_lens)``, sized ``num_rows`` (default: the real tokens).
 """
 num_decodes = swa_metadata.num_decodes
 num_prefills = swa_metadata.num_prefills
@@ -203,6 +233,8 @@ cache_key = (
 if swa_only
 else ("c128a" if self.compress_ratio == 128 else "c4a")
 )
+if num_rows is not None:
+cache_key = f"{cache_key}:{num_rows}"
 cached_sparse = swa_metadata.flashinfer_sparse_index_cache.get(cache_key, None)
 if cached_sparse is None:
 swa_block_span = _packed_block_span(swa_k_cache)
@@ -230,8 +262,9 @@ prefill_left_visible=swa_metadata.prefill_left_visible,
 prefill_right_visible=swa_metadata.prefill_right_visible,
 # getattr for tests that bypass __init__ via object.__new__.
 max_image_tokens=getattr(self, "max_image_tokens", 0),
+num_rows=num_rows,
 )
-if cache_key != "c4a":
+if not cache_key.startswith("c4a"):
 swa_metadata.flashinfer_sparse_index_cache[cache_key] = (
 sparse_indices,
 sparse_topk_lens,
@@ -247,7 +280,7 @@ swa_k_cache: torch.Tensor,
 swa_metadata: "DeepseekSparseSWAMetadata",
 attn_metadata: DeepseekV4FlashMLAMetadata | None,
 swa_only: bool,
-output: torch.Tensor,
+output: torch.Tensor | QuantizedActivation,
 ) -> None:
 assert self.kv_cache_torch_dtype in (torch.bfloat16, torch.float8_e4m3fn)
 num_decodes = swa_metadata.num_decodes
@@ -258,6 +291,11 @@ num_reqs = num_decodes + num_prefills
 num_tokens = num_decode_tokens + num_prefill_tokens
 if num_tokens == 0:
 return
+# RopeQuant's output is group-major with a group stride of exactly
+# sum_q tokens, so both calls span every row of the (CUDA-graph
+# padded) buffers and select their tokens through cum_seq_lens_q
+# alone; the kernel never touches rows outside it.
+rope_quant = isinstance(output, QuantizedActivation)
 (
 compressed_kv_cache,
 seq_lens,
@@ -269,11 +307,11 @@ swa_k_cache=swa_k_cache,
 swa_metadata=swa_metadata,
 attn_metadata=attn_metadata,
 swa_only=swa_only,
+num_rows=q.shape[0] if rope_quant else None,
 )
 # CUDA graph execution can pad q/output past the scheduled token count;
 # restrict to the real tokens (the launcher validates sparse indices).
-query = q[:num_tokens]
-output = output[:num_tokens]
+query = q if rope_quant else q[:num_tokens]
 bmm1_scale: float | torch.Tensor = self.scale
 bmm2_scale: float | torch.Tensor = 1.0
 if self.kv_cache_torch_dtype == torch.float8_e4m3fn:
@@ -286,7 +324,9 @@ query = query.contiguous()
 # The TRTLLM-gen sparse-MLA kernel requires h_q in {64, 128}; zero-pad
 # the query heads to the allocated output head count. Padded heads attend
 # to the shared KV and are sliced off downstream (output is padded too).
-padded_heads = output.shape[1]
+padded_heads = (
+output.shape[1] if isinstance(output, torch.Tensor) else self.padded_heads
+)
 if query.shape[1] < padded_heads:
 padded_query = query.new_zeros(
 (query.shape[0], padded_heads, query.shape[2])
@@ -297,48 +337,56 @@ workspace = _get_flashinfer_dsv4_workspace(q.device)
 query_start_loc = swa_metadata.query_start_loc
 query_start_loc_cpu = swa_metadata.query_start_loc_cpu
 assert query_start_loc is not None and query_start_loc_cpu is not None
+def run(
+rows: slice, reqs: slice, cum_seq_lens_q: torch.Tensor, max_q_len: int
+) -> None:
+if rope_quant:
+assert isinstance(output, QuantizedActivation)
+rows = slice(None)
+out_kwargs = dict(
+out=output.data,
+dsv4_output_scale=output.scale,
+dsv4_inv_rope_cos_sin_cache=self.rotary_emb.cos_sin_cache,
+)
+else:
+assert isinstance(output, torch.Tensor)
+out_kwargs = dict(out=output[rows])
+flashinfer_trtllm_batch_decode_sparse_mla_dsv4(
+query=query[rows],
+swa_kv_cache=swa_k_cache,
+workspace_buffer=workspace,
+sparse_indices=sparse_indices[rows],
+sparse_indices_are_storage_offsets=True,
+compressed_kv_cache=compressed_kv_cache,
+sparse_topk_lens=sparse_topk_lens[rows],
+seq_lens=seq_lens[reqs],
+bmm1_scale=bmm1_scale,
+bmm2_scale=bmm2_scale,
+sinks=self.attn_sink,
+cum_seq_lens_q=cum_seq_lens_q,
+max_q_len=max_q_len,
+**out_kwargs,
+)
 # Keep the TRTLLM-gen decode/prefill split: the launcher is tuned for
 # uniform-q batches, and this avoids flattening mixed batches into one call.
 if num_decode_tokens > 0:
-decode_cu = query_start_loc[: num_decodes + 1]
-flashinfer_trtllm_batch_decode_sparse_mla_dsv4(
-query=query[:num_decode_tokens],
-swa_kv_cache=swa_k_cache,
-workspace_buffer=workspace,
-sparse_indices=sparse_indices[:num_decode_tokens],
-sparse_indices_are_storage_offsets=True,
-compressed_kv_cache=compressed_kv_cache,
-sparse_topk_lens=sparse_topk_lens[:num_decode_tokens],
-seq_lens=seq_lens[:num_decodes],
-out=output[:num_decode_tokens],
-bmm1_scale=bmm1_scale,
-bmm2_scale=bmm2_scale,
-sinks=self.attn_sink,
-cum_seq_lens_q=decode_cu,
-max_q_len=swa_metadata.max_decode_query_len,
+run(
+slice(0, num_decode_tokens),
+slice(0, num_decodes),
+query_start_loc[: num_decodes + 1],
+swa_metadata.max_decode_query_len,
 )
 if num_prefill_tokens > 0:
+prefill_cu = query_start_loc[num_decodes : num_reqs + 1]
+if not rope_quant:
 # The prefill query view re-anchors at offset 0, so rebase the
 # cumulative query offsets to start at 0.
-prefill_cu = (
-query_start_loc[num_decodes : num_reqs + 1]
-- query_start_loc[num_decodes]
-)
+prefill_cu = prefill_cu - query_start_loc[num_decodes]
 prefill_cu_cpu = query_start_loc_cpu[num_decodes : num_reqs + 1]
 prefill_lens_cpu = prefill_cu_cpu[1:] - prefill_cu_cpu[:-1]
-flashinfer_trtllm_batch_decode_sparse_mla_dsv4(
-query=query[num_decode_tokens:num_tokens],
-swa_kv_cache=swa_k_cache,
-workspace_buffer=workspace,
-sparse_indices=sparse_indices[num_decode_tokens:num_tokens],
-sparse_indices_are_storage_offsets=True,
-compressed_kv_cache=compressed_kv_cache,
-sparse_topk_lens=sparse_topk_lens[num_decode_tokens:num_tokens],
-seq_lens=seq_lens[num_decodes:num_reqs],
-out=output[num_decode_tokens:num_tokens],
-bmm1_scale=bmm1_scale,
-bmm2_scale=bmm2_scale,
-sinks=self.attn_sink,
-cum_seq_lens_q=prefill_cu,
-max_q_len=int(prefill_lens_cpu.max().item()),
+run(
+slice(num_decode_tokens, num_tokens),
+slice(num_decodes, num_reqs),
+prefill_cu,
+int(prefill_lens_cpu.max().item()),
 )

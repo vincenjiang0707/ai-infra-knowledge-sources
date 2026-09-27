@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:48:53Z",
- "finished_at": "2026-09-25T02:17:40Z",
- "duration_seconds": 77.6,
- "attempts": 3,
+ "finished_at": "2026-09-27T04:58:42Z",
+ "duration_seconds": 1447.0,
+ "attempts": 4,
  "channels": {
   "gh_7f67186a": {
    "type": "github_repo",
@@ -20,12 +20,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at desc (web default)"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 1,
+     "appended": 1,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at desc (web default)"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 17,
+     "appended": 1,
+     "skipped": 35
+    }
    },
    "releases": {
     "status": "ok",
@@ -52,12 +62,22 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at desc (web default)"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 5,
+     "appended": 6,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at desc (web default)"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -89,7 +109,7 @@
    "status": "ok",
    "output": "page.md",
    "mode": "page",
-   "chars": 5428
+   "chars": 5610
   },
   "ref_970a16f4": {
    "type": "reference",
@@ -102,19 +122,19 @@
  },
  "cursor": {
   "gh_7f67186a:issues": {
-   "last_updated_at": "2026-09-24T23:06:42Z"
+   "last_updated_at": "2026-09-25T19:16:36Z"
   },
   "gh_7f67186a:pulls": {
-   "last_updated_at": "2026-09-24T23:14:00Z"
+   "last_updated_at": "2026-09-27T04:37:08Z"
   },
   "gh_7f67186a:releases": {
    "last_id": 394439454
   },
   "gh_bfb54282:issues": {
-   "last_updated_at": "2026-09-25T02:16:46Z"
+   "last_updated_at": "2026-09-27T04:33:23Z"
   },
   "gh_bfb54282:pulls": {
-   "last_updated_at": "2026-09-25T02:16:50Z"
+   "last_updated_at": "2026-09-27T04:36:46Z"
   },
   "gh_bfb54282:releases": {
    "last_id": 393391756

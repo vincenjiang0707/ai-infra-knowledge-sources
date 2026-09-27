@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/integrations/kubeai/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # KubeAI[¶](https://docs.vllm.ai#kubeai)
 

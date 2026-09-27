@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/kubernetes/kv-aware-routing/using-gaie-with-dynamo
-lastmod: 2026-09-25T12:26:00.485Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 # Using GAIE with Dynamo
 

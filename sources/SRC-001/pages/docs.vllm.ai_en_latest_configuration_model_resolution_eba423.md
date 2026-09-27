@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/configuration/model_resolution/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Model Resolution[¶](https://docs.vllm.ai#model-resolution)
 

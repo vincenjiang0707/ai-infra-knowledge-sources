@@ -1,8 +1,8 @@
 # modelscope/evalscope
 
-- stars: 3470
-- forks: 498
-- open_issues: 51
+- stars: 3474
+- forks: 499
+- open_issues: 54
 - default_branch: main
 - archived: False
 - license: Apache-2.0

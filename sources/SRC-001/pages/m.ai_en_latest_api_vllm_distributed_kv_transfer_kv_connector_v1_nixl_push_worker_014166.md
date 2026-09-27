@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/nixl/push_worker/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class NixlPushConnectorWorker(NixlBaseConnectorWorker):
 """Push-specific (WRITE) worker logic. See module docstring."""
@@ -89,6 +89,11 @@ meta.local_block_ids, self._physical_blocks_per_logical_kv_block
 )
 assert meta.remote is not None
 remote_engine_id = meta.remote.engine_id
+# Update last activity from this remote (same as pull), but only for
+# an already-connected engine so we never leave an _engine_last_active
+# entry without a _remote_agents entry (breaks _cleanup_remote_engine).
+if remote_engine_id in self._remote_agents:
+self._engine_last_active[remote_engine_id] = time.perf_counter()
 logger.debug(
 "start_load_kv (push) for request %s from remote engine %s. "
 "Num local_block_ids: %s. Num remote_block_ids: %s. ",

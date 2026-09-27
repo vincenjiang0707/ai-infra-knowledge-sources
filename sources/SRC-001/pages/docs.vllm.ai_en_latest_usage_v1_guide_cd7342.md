@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/usage/v1_guide/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # vLLM V1[¶](https://docs.vllm.ai#vllm-v1)
 

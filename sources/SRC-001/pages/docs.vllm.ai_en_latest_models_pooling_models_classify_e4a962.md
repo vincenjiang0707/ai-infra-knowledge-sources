@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/models/pooling_models/classify/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Classification Usages[¶](https://docs.vllm.ai#classification-usages)
 
@@ -535,7 +535,6 @@ curl -v "http://127.0.0.1:8000/classify" \
 
 ## Response
 
-```json
 {
 "id": "classify-7c87cac407b749a6935d8c7ce2a8fba2",
 "object": "list",
@@ -568,26 +567,22 @@ curl -v "http://127.0.0.1:8000/classify" \
 "prompt_tokens_details": null
 }
 }
-```
 
 
 You can also pass a string directly to the `input`
 
 field:
 
-```bash
 curl -v "http://127.0.0.1:8000/classify" \
 -H "Content-Type: application/json" \
 -d '{
 "model": "jason9693/Qwen2.5-1.5B-apeach",
 "input": "Loved the new café—coffee was great."
 }'
-```
 
 
 ## Response
 
-```json
 {
 "id": "classify-9bf17f2847b046c7b2d5495f4b4f9682",
 "object": "list",
@@ -611,7 +606,6 @@ curl -v "http://127.0.0.1:8000/classify" \
 "prompt_tokens_details": null
 }
 }
-```
 
 
 ## More examples[¶](https://docs.vllm.ai#more-examples)

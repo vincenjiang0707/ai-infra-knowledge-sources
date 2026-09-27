@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/nvidia/ops/fused_indexer_q_cutedsl/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @cute.jit
 def _load_q_and_rope(

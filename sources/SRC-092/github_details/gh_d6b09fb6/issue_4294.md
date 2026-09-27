@@ -31,7 +31,7 @@ adding retryable EGM cleanup. The generic mount/MR failure cleanup has its own
 existing work in #2336.
 
 
-## 评论 (1)
+## 评论 (2)
 
 ### github-actions[bot] · 2026-09-23
 
@@ -52,3 +52,11 @@ A maintainer will triage this when possible. To help us respond faster, please i
 Useful links: [Documentation](https://kvcache-ai.github.io/Mooncake/) · [Contributing guide](https://github.com/kvcache-ai/Mooncake/blob/main/CONTRIBUTING.md)
 
 > This message was posted automatically by the issue bot.
+
+### Id545 · 2026-09-26
+
+I'd like to pick this up. Looking at `store_py.cpp`, `init_real_client()` swaps `store_` before `setup_real()` runs, so a second `setup()` tears the old client down implicitly through its destructor (with the GIL held), and a failed setup leaves the half-initialized client as the active one.
+
+My suggestion would be the simplest contract: reject `setup()` / `setup(dict)` / `setup_dummy()` while a client is active (clear error, ask for `close()` first), and only commit the new client to the wrapper once setup succeeds. Then add Python tests for repeated setup, failed setup, and real↔dummy transitions.
+
+Does that match what you had in mind, or do you want replacement to stay supported?

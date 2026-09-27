@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/features/kv_events/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Kv Events[¶](https://docs.vllm.ai#kv-events)
 

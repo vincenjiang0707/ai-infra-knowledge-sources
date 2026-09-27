@@ -5,16 +5,16 @@
  "priority": "",
  "scrape_type": "github_repo",
  "blocked_reason": null,
- "status": "success",
+ "status": "partial",
  "started_at": "2026-09-23T03:56:04Z",
- "finished_at": "2026-09-25T19:31:39Z",
- "duration_seconds": 242.4,
- "attempts": 3,
+ "finished_at": "2026-09-27T06:54:52Z",
+ "duration_seconds": 165.4,
+ "attempts": 4,
  "channels": {
   "gh_a472ada0": {
    "type": "github_repo",
    "url": "https://github.com/gpu-mode/lectures",
-   "readme": "embedded",
+   "readme": "missing",
    "status": "ok",
    "output": "github_repo.md",
    "issues": {
@@ -22,20 +22,15 @@
     "count": 12,
     "note": "top-100 by updated_at desc (web default)",
     "details": {
-     "fetched": 10,
+     "fetched": 0,
      "appended": 0,
      "skipped": 0
     }
    },
    "pulls": {
     "status": "ok",
-    "count": 55,
-    "note": "top-100 by updated_at desc (web default)",
-    "details": {
-     "fetched": 55,
-     "appended": 0,
-     "skipped": 0
-    }
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -56,10 +51,9 @@
   "ref_9d8543ff": {
    "type": "reference",
    "url": "https://github.com/gpu-mode/lectures/issues",
-   "status": "ok",
-   "output": "page.md",
-   "mode": "page",
-   "chars": 501
+   "status": "error",
+   "http_code": 0,
+   "mode": "page"
   },
   "ref_db28bdeb": {
    "type": "reference",

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/nvfp4/b12x/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class B12xNvFp4LinearKernel(NvFp4LinearKernel):
 """ModelOpt NVFP4 linear through the native B12X SM120 dense GEMM."""

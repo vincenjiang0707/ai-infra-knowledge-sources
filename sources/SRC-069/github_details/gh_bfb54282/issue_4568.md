@@ -90,7 +90,7 @@ TP12 saturated-decode shape gaps are tracked separately in #4542.
 - vLLM NVFP4 SiTU scale fix: https://github.com/vllm-project/vllm/pull/52405
 
 
-## 评论 (7)
+## 评论 (20)
 
 ### aleozlx · 2026-08-31
 
@@ -171,3 +171,179 @@ This is a KDA prefill delivery, not completion of the full Kimi-K3-NVFP4 checkli
 
 This delivers the K3 router portion of the checklist for the supported shapes. It does not complete the separate SiTU expert, Stable LatentMoE, MLA, projection, or full-model integration requirements.
 
+### yyihuang · 2026-09-25
+
+@xinli-sw [PR #5548](https://github.com/flashinfer-ai/flashinfer/pull/5548) was merged on 2026-09-25 (UTC), as a performance follow-up to the Cake Kimi-K3 fused router delivered in [PR #5531](https://github.com/flashinfer-ai/flashinfer/pull/5531).
+
+- Removes a redundant per-thread device fence before the cooperative grid synchronization in the M256 and M512/M1024/M2048 routes on SM100/SM103. The grid join supplies the required release/acquire synchronization.
+- Preserves the routing semantics, expert-aligned plans, public APIs, and supported shape set.
+- The PR reports paired same-node improvements over the previous programs of about 3% at M256, 5–7% at M512, 5% at M1024, and 3–4% at M2048 on B200 and GB300.
+- Validation reported in the PR includes 44 public tests per architecture, bitwise source/export parity on all 28 shapes per architecture, and passing synchronization/race sanitizer checks.
+
+This updates the K3 router portion of the checklist; it does not complete the other Kimi-K3 kernel or model-integration requirements.
+
+
+### yyihuang · 2026-09-26
+
+@xinli-sw Merged: https://github.com/flashinfer-ai/flashinfer/pull/5543
+
+This follows up on #5452 for Cake KDA prepared prefill on SM100/SM103 (B200/B300):
+
+- Replaces the fixed affine-split threshold with architecture- and gate-specific measured cost models, and improves window allocation for packed long/short sequences.
+- Reduces prepared-plan cache/rebind overhead and combines affine index preparation into one kernel. The PR reports every tested Kimi-K3 bounded-gate row faster than the Triton reference on both architectures.
+- Separately adds the missing dense `[tokens, 12]` beta variants for the unbounded softplus gate (sequential, FP32 checkpoint, and affine paths), with 359/359 export-validation rows matching the source bitwise per architecture. This unbounded-gate extension is distinct from Kimi-K3's bounded-gate path.
+
+This advances the KDA prefill/serving portion of this issue; it does not complete the full end-to-end checklist. Some unbounded-gate long-pack cases still trail the reference, as documented in the PR.
+
+
+### yyihuang · 2026-09-26
+
+@xinli-sw Merged: https://github.com/flashinfer-ai/flashinfer/pull/5134
+
+The relevant part for this issue is Cake NVFP4 warp-decode support for the Kimi-K3 latent expert bank: H=3584, I=3072, 896 experts, top-16, SiTU with gate beta=4 and linear beta=25, for decode token counts 1–32 on SM100/SM103 (B200/B300).
+
+The PR reports correctness validation and separate synccheck/racecheck runs with zero errors for the exported routes. For this Kimi-K3 configuration, all 32 token-count rows on each architecture beat the official FlashInfer baseline and meet the export no-regression gate (at most 3% slower than the source implementation).
+
+This covers the standalone NVFP4 expert-bank decode path. It does not establish completion of the surrounding Stable LatentMoE projections/norm, shared experts, TP/EP communication, or end-to-end serving integration, and does not claim coverage across all requested backends.
+
+
+### yyihuang · 2026-09-26
+
+@xinli-sw [PR #5554](https://github.com/flashinfer-ai/flashinfer/pull/5554) was merged on 2026-09-26 (UTC), delivering the experimental Cake Kimi-K3 vision tower on SM100/SM103 (B200/B300).
+
+- Covers 14x14 patch embedding, the 27-layer MoonViT-3D attention/MLP encoder, final normalization, 2x2 spatial merge with temporal pooling, and PatchMergerV2 projection to BF16 `[N, 7168]` outputs.
+- Consumes normalized BF16 patches `[T, 3, 14, 14]` and packed image/video grids. Supported grids have `1 <= t <= 4` and positive even `h, w <= 512`. `prepare_kimi_k3_vision_tower` binds a grid layout and reusable buffers; its runner launches without allocation or host synchronization and supports CUDA Graph replay with updated pixel values in the bound buffer. A different grid layout requires its own prepared plan.
+- The PR reports 22/22 export-validation rows passing per architecture, bitwise source/export parity, and FP32-oracle accuracy checks. Reported geometric-mean speedup over the BF16 reference tower using the fastest measured FlashInfer attention route is 1.945x on B200 and 1.990x on B300.
+
+This delivers the standalone vision-tower portion of the multimodal checklist. Full-checkpoint vLLM integration without compatibility patches and the remaining text-model requirements are still separate acceptance criteria.
+
+
+### yyihuang · 2026-09-26
+
+@xinli-sw Merged: https://github.com/flashinfer-ai/flashinfer/pull/5564
+
+This is a performance follow-up to #5531 / #5548 for the **K3 router checklist item**, targeting the largest supported batches on SM100/SM103 (B200/GB300).
+
+- Optimizes the four combinations of `M = 4096 / 8192` and `block_m = 8 / 16` with warp-per-row top-16 selection and paired expert-segment sorting, using four CTAs per SM on both architectures.
+- Preserves routing over FP32 `[M, 896]` logits: bias affects selection only, returned weights normalize the selected unbiased sigmoid scores, and ties prefer the lower expert ID. Expert-aligned route plans, public APIs, and the supported shape set are unchanged; the other 24 shape programs per architecture are unchanged.
+- The PR reports source-side paired speedups over #5548 of **1.206–1.319x on B200** (geomean 1.266x) and **1.144–1.186x on GB300** (geomean 1.163x) across the four affected shapes. These are incremental kernel improvements over the previous Cake router.
+
+Reported validation includes 44 package tests per architecture, bitwise source/export parity on all 28 shapes per architecture, and clean synccheck/racecheck runs.
+
+This improves the standalone router for the specified batch sizes. The SiTU experts, Stable LatentMoE, MLA, projection kernels, and full-model integration requirements remain separate checklist items.
+
+
+### yyihuang · 2026-09-26
+
+@xinli-sw Merged: https://github.com/flashinfer-ai/flashinfer/pull/5565
+
+This follows #5543 for the Cake BF16 KDA prefill implementation on SM100/SM103 (B200/GB300), relevant to this issue's prefill and checkpoint/paging coverage.
+
+- Moves FP32 checkpoint writes off the recurrence's compute-warp critical path and improves the gate scan and state restore.
+- Fixes a page64 phase-tracking deadlock in the bounded-gate, FP32-pool checkpoint route: affected sequences longer than 128 tokens could hang on the route for sequences up to 256 tokens.
+- Fixes the nvcc host-pass guard for rank-3 TMA reduce-add and aligns the checkpoint-panel descriptor with the FP32 carrier layout. Public APIs, plan-cache behavior, and route selection are unchanged.
+
+The PR reports bitwise source/export agreement for output, final state, and checkpoint rows on all 359 validation rows per architecture, 71 passing package tests per architecture, and clean synccheck/memcheck runs. The benchmark coverage includes Kimi-K3 bounded-gate H12/H16 workloads; the separately reported unbounded-softplus improvements should not be read as Kimi-K3 bounded-gate speedups.
+
+This updates the KDA prefill implementation and its checkpoint handling; the remaining model-kernel and end-to-end integration checklist items remain separate.
+
+
+### yyihuang · 2026-09-26
+
+@xinli-sw Merged: https://github.com/flashinfer-ai/flashinfer/pull/5570
+
+This is the performance follow-up to #5554 for the experimental Cake Kimi-K3 vision tower on SM100/SM103 (B200/B300/GB300), covering the existing 27-layer MoonViT-3D encoder and PatchMergerV2 implementation.
+
+- Adds packed BF16 residual epilogues, residual/norm-weight prefetch, a packed FP16-pair RoPE table, and attention-descriptor prefetch.
+- Updates the tile-selection policy and enables programmatic dependent launch across the tower's stages in the generated bindings.
+
+The PR reports all 22 validation rows passing on each architecture, including bitwise source/export parity, the FP32-oracle comparison gates, and source/export timing qualification. Those timing ratios measure export parity, not incremental speedup over #5554 or full-model throughput.
+
+This updates the standalone vision-tower implementation. Checkpoint integration and end-to-end multimodal serving remain separate acceptance criteria.
+
+
+### yyihuang · 2026-09-26
+
+@xinli-sw Merged: https://github.com/flashinfer-ai/flashinfer/pull/5572
+
+This delivers an **experimental Cake backend for the Kimi-K3 serialized FP8_PB_WO KDA/MLA projection GEMMs** on SM100/SM103 (B200/B300).
+
+- Adds weight/workspace preparation, an allocation-free prepared runner with CUDA Graph capture, and `flashinfer.gemm.kimi_k3_fp8_projection`.
+- Consumes serialized E4M3 weights with ModelOpt 128x128 FP32 block scales, requantizes/prepacks weights to UE8M0 once, quantizes BF16 activations per token in 1x128 blocks, and returns BF16 outputs. Handles padded weights, valid-column trimming, fused-projection output views, and even output row strides.
+- Covers 22 representative TP1/TP8 KDA/MLA projection families across decode and prefill sizes. The report includes 132 performance rows and 88 additional correctness rows per architecture.
+
+The PR reports 220/220 rows correct and 30 passing package tests on each GPU. Against the fastest tested complete FP8 chain, reported geometric-mean speedups are 1.639x on B200 (131/132 rows faster; TP1 kv_b at M=256 is 0.976x) and 1.626x on B300 (132/132). Seven source/export rows did not pass timing qualification, although all passed correctness.
+
+This delivers the standalone projection backend. It does not by itself implement absorbed-MLA weight preparation, automatic vLLM integration, or the full checkpoint-serving acceptance criteria.
+
+
+### yyihuang · 2026-09-26
+
+@xinli-sw Merged: https://github.com/flashinfer-ai/flashinfer/pull/5568
+
+This follows #5564 for the **K3 router checklist item** on SM100/SM103 (B200/GB300).
+
+- Optimizes the 12 routed shapes with M = 256/512/1024/2048/4096/8192 and `block_m` = 8/16 using split cooperative barriers and, for the largest batches, a warp-level shortcut in the first radix-selection round.
+- Preserves top-16 selection over 896 biased sigmoid scores, normalization of the selected unbiased weights, tie ordering, and expert-aligned route plans. APIs and the supported shape set are unchanged; the 16 smaller shape routes keep the same kernel logic.
+- The PR reports paired kernel speedups over #5564 of approximately 1.057–1.061x geometric mean across the 12 affected shapes, with every changed row faster in both runs on each architecture.
+
+Reported validation includes bitwise source/export parity on all 28 shapes per architecture, 44 package tests per architecture, and clean synccheck/racecheck runs.
+
+This updates the standalone router; the SiTU expert, Stable LatentMoE, MLA, projection, and full-model integration requirements remain separate checklist items.
+
+
+### yyihuang · 2026-09-26
+
+@xinli-sw Merged: https://github.com/flashinfer-ai/flashinfer/pull/5573
+
+Scope clarification for this tracker: this follows #5565 in the shared Cake KDA prefill implementation on SM100/SM103, but its new performance route applies **only to the unbounded gate** (`lower_bound is None`). Kimi-K3's bounded-gate composite continues to use the #5565 correction chain, so this merge does not claim a new bounded-gate Kimi-K3 speedup.
+
+- Adds a fused-apply schedule for long unbounded-gate sequences, using exported chunk operators, pair-map/prefix processing, and one apply kernel in place of the additional correction/map chain passes.
+- Fixes the H12 beta-word export used by that new route, restricts the route to the unbounded gate, and retains the correction-chain fallback via `CAKE_KDA_AFFINE_APPLY=0`.
+
+The PR reports 359/359 source/export validation rows matching bitwise per architecture and 76 passing package tests on both B200 and GB300, including fallback and bounded-gate regression coverage. Apply-versus-chain validation is within one BF16 ulp on the tested H12/H16 outputs; it is not a claim of bitwise identity between the two schedules.
+
+This is a shared-prefill implementation follow-up; the remaining Kimi-K3 end-to-end acceptance criteria are unchanged.
+
+
+### yyihuang · 2026-09-27
+
+@xinli-sw Merged: https://github.com/flashinfer-ai/flashinfer/pull/5575
+
+This delivers the **experimental Stable LatentMoE front/tail projection backend** for Kimi-K3, through `flashinfer.kimi_k3_latent_moe` with `backend="cake"`.
+
+- Front: computes FP32 router logits `[T, 896]`, the BF16 7168-to-3584 routed projection, and the shared-expert SiTU intermediate in one launch.
+- Tail: sums caller-supplied routed partials, applies KimiRMSNorm, and combines the rank-local up-projection with the shared-down contribution into BF16 `[T, 7168]`. Decode uses one launch; prefill uses RMSNorm plus GEMM. The final cross-rank all-reduce remains the caller's responsibility.
+- Supports TP1/TP8 and model-layout BF16 weights, with prepared allocation-free runners and CUDA Graph replay. The current planner explicitly requires **148 SMs** on SM100/SM103; other SM counts, TP12, and EP are outside this delivery.
+
+The PR reports 39 passing package tests on each B200/B300 test configuration. Export timing qualification passed 49/60 rows per architecture; clock/drift failures remain disclosed, with those configurations covered by correctness tests.
+
+This delivers the projection groups around the routed experts, not the routed-expert computation, top-k router selection, communication, or full-model integration. It does not fulfill the separate TP12 tail request in #4542.
+
+
+### yyihuang · 2026-09-27
+
+@xinli-sw Merged: https://github.com/flashinfer-ai/flashinfer/pull/5552
+
+This adds the **Cake Kimi-K3 FP8 paged MLA attention backend** on SM100/SM103, accessible through `trtllm_batch_decode_with_kv_cache_mla(..., backend="cake")` and `flashinfer.mla.KimiK3MlaFp8PagedAttention`.
+
+- Accepts **FP8 E4M3 query and KV cache** with page size 64 and 512 latent + 64 additional QK channels, producing BF16 output. Query quantization is outside this attention operator.
+- Covers TP8-local H12 and global H96 decode, packed variable-Q/MTP cases through `cum_seq_lens_q` (tested q lengths up to 8), and incremental prefill with ragged KV, prefix reuse, and changing page tables. Prepared launches support caller-owned buffers and CUDA Graph replay.
+- DCP, LSE output, sparse top-k MLA, and NVFP4/uint8 caches are explicitly unsupported. This therefore does not fulfill the separate CuTe-DSL/DCP request #4658 or NVFP4 MLA request #4644.
+
+The PR reports 22 passing route tests per GPU and 27/28 export rows passing all gates per architecture; one long-prefill row fails only clock qualification. Performance is shape-dependent: 20/27 B200 and 16/27 B300 benchmark rows beat the fastest existing FlashInfer route, with regressions disclosed on other rows.
+
+This advances the FP8 MLA attention item; cache production and end-to-end serving integration remain separate.
+
+
+### yyihuang · 2026-09-27
+
+@xinli-sw Merged: https://github.com/flashinfer-ai/flashinfer/pull/5577
+
+This advances the **packed variable-Q MLA decode** item with a separate experimental Cake DCP implementation on SM100/SM103, complementing the non-DCP FP8 paged MLA route in #5552. The focused request is #4658.
+
+- `flashinfer.mla.cake_mla_varq_dcp_decode` / `prepare_cake_mla_varq_dcp_decode` support `cum_seq_lens_q`, rank-local paged KV, per-query global causal masking, and natural-log LSE for cross-rank merging. Prepared runners support caller-owned buffers and CUDA Graph replay.
+- Query and cache must share BF16 or FP8 E4M3 dtype; keys are 512 latent + 64 RoPE channels, outputs are BF16, and registered routes cover page sizes 32/64/128 with up to 128 heads. Low-head correctness tests include H12/H24/H48 in BF16; the published FP8 performance matrix does not establish FP8 H12 performance.
+- Query quantization, cache production, cross-rank communication/merging, and vLLM integration remain outside this operator. Access is through the explicit APIs above; #5552's existing dispatch does not acquire DCP/LSE support from this change.
+
+The PR reports **1.1791x B200 / 1.1817x GB300 geometric-mean speedup** versus CuTe-DSL across 24 performance rows, all faster on both GPUs, with 22 passing / 3 skipped package tests per GPU. These are attention-kernel results; the full end-to-end checklist remains open.

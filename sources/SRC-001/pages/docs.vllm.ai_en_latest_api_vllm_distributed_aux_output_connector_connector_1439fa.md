@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/aux_output_connector/connector/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class AuxOutputSchedulerConnector:
 """Build worker metadata without owning auxiliary output payloads or stores."""

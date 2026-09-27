@@ -1,11 +1,22 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/trtllm_mxfp4_moe/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class TrtLlmMxfp4ExpertsModular(TrtLlmMxfp4ExpertsBase, mk.FusedMoEExpertsModular):
 """Modular version of the MXFP4 TRTLLM kernel (just the experts).
 Wraps flashinfer.trtllm_fp4_block_scale_routed_moe().
 Moved from trtllm_moe.py.
 """
+def __init__(
+self,
+moe_config: FusedMoEConfig,
+quant_config: FusedMoEQuantConfig,
+**kwargs,
+):
+super().__init__(moe_config, quant_config, **kwargs)
+# Each launch permutes into its own buffer, so a chunked call finalizes.
+moe_config.limit_deferred_moe_finalize(
+self._max_supported_tokens(self.topk, moe_config.num_experts)
+)
 @staticmethod
 def _supports_parallel_config(
 moe_parallel_config: FusedMoEParallelConfig,
@@ -54,7 +65,7 @@ max_tokens = (MAX_GRID_Y - global_num_experts) * MIN_TILE_TOKENS_DIM // top_k
 return max(1, min(300000, max_tokens))
 def _invoke_kernel(
 self,
-output: torch.Tensor,
+output: torch.Tensor | None,
 x_quant: torch.Tensor,
 x_scale: torch.Tensor | None,
 topk_ids: torch.Tensor,
@@ -66,9 +77,10 @@ global_num_experts: int,
 local_num_experts: int,
 local_expert_offset: int,
 topk: int,
-) -> None:
+) -> UnfinalizedMoEOutput | None:
+"""Finalize into ``output``, or stop after GEMM2 when it is None."""
 from flashinfer import trtllm_fp4_block_scale_routed_moe
-trtllm_fp4_block_scale_routed_moe(
+flashinfer_output = trtllm_fp4_block_scale_routed_moe(
 topk_ids=(topk_ids, topk_weights),
 routing_bias=None,
 hidden_states=x_quant,
@@ -96,12 +108,22 @@ routed_scaling_factor=None,
 # Modular kernel receives pre-routed tokens, so routing is already
 # done. Use Renormalize as a safe default the TRTLLM kernel supports.
 routing_method_type=RoutingMethodType.Renormalize,
-do_finalize=True,
+do_finalize=output is not None,
 enable_pdl=True,
 activation_type=self._flashinfer_activation_type(activation),
 output=output,
 tune_max_num_tokens=fi_moe_largest_bucket(self.moe_config),
 )
+if output is not None:
+return None
+routed_output = convert_flashinfer_moe_output(
+flashinfer_output,
+do_finalize=False,
+num_tokens=x_quant.shape[0],
+top_k=topk,
+)
+assert isinstance(routed_output, UnfinalizedMoEOutput)
+return routed_output
 def apply(
 self,
 output: torch.Tensor,
@@ -119,7 +141,7 @@ workspace13: torch.Tensor,
 workspace2: torch.Tensor,
 expert_tokens_meta: mk.ExpertTokensMetadata | None,
 apply_router_weight_on_input: bool,
-):
+) -> UnfinalizedMoEOutput | None:
 topk_ids = topk_ids.to(dtype=torch.int32)
 topk = topk_ids.size(-1)
 local_num_experts = w1.size(0)
@@ -133,13 +155,17 @@ x_quant = hidden_states
 x_scale = None
 assert self.w1_scale is not None
 assert self.w2_scale is not None
-# Chunk tokens so the batched-GEMM grid stays within CUDA limits.
+# Chunk tokens so the batched-GEMM grid stays within CUDA limits. Each
+# launch permutes into its own buffer, so only a run that fits in one
+# launch can leave the top-k reduction to a deferring consumer.
 M = x_quant.size(0)
 chunk_size = self._max_supported_tokens(topk, global_num_experts)
+defer = chunk_size >= M and self.moe_config.should_defer_moe_finalize(M)
+unfinalized: UnfinalizedMoEOutput | None = None
 for start in range(0, M, chunk_size):
 end = min(start + chunk_size, M)
-self._invoke_kernel(
-output[start:end],
+unfinalized = self._invoke_kernel(
+None if defer else output[start:end],
 x_quant[start:end],
 None if x_scale is None else x_scale[start:end],
 topk_ids[start:end],
@@ -152,4 +178,4 @@ local_num_experts,
 local_expert_offset,
 topk,
 )
-return output
+return unfinalized

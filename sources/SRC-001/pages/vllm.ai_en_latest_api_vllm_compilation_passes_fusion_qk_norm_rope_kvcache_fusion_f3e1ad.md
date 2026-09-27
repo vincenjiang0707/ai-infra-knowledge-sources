@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/passes/fusion/qk_norm_rope_kvcache_fusion/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class QkNormRopeKvCachePattern:
 """Match the unfused sequence:

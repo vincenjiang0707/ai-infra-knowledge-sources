@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/config/load/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -138,10 +138,10 @@ The format of the model weights to load.
 - "pt" will load the weights in the pytorch bin format.
 - "safetensors" will load the weights in the safetensors format.
 - "instanttensor" will load the Safetensors weights on CUDA devices using InstantTensor, which enables distributed loading with pipelined prefetching and fast direct I/O.
-- "ipc_cache" will map post-quantized weights from a local weight cache daemon via CUDA IPC for fast engine restarts. See
-`vllm/model_executor/model_loader/weight_cache/daemon.py`
+- "ipc_cache" will map post-quantized weights from a local weight cache daemon via CUDA IPC for fast engine restarts. Launch the daemon with
+`vllm preload`
 
-for how to launch the daemon. - "npcache" will load the weights in pytorch format and store a numpy cache to speed up the loading.
+first. - "npcache" will load the weights in pytorch format and store a numpy cache to speed up the loading.
 - "dummy" will initialize the weights with random values, which is mainly for profiling.
 - "tensorizer" will use CoreWeave's tensorizer library for fast weight loading. See the Tensorize vLLM Model script in the Examples section for more information.
 - "runai_streamer" will load the Safetensors weights using Run:ai Model Streamer.

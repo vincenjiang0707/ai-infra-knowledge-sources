@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/integrations/aibrix/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # AIBrix[¶](https://docs.vllm.ai#aibrix)
 

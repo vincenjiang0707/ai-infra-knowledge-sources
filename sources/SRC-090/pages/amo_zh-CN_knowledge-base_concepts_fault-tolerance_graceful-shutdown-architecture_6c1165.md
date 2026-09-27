@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/zh-CN/knowledge-base/concepts/fault-tolerance/graceful-shutdown-architecture
-lastmod: 2026-09-24T19:58:16.636Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 # Graceful Shutdown Architecture
 

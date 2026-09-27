@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/hy_v4/nvidia/attention/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class HYV4MLAAttention(nn.Module):
 """Multi-head latent attention with optional sparse lightning indexer.

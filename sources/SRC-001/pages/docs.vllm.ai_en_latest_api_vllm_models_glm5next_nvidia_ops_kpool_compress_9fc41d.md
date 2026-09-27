@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/glm5next/nvidia/ops/kpool_compress/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -71,7 +71,7 @@ Each row uses fp32 butterflies and scaling, rounds to bf16, then applies absmax 
 
 ##
 
-`_kpool_decode_update_batched_kernel(buf_fp8_ptr, buf_fp32_ptr, tail_kv_ptr, tail_slot_mapping_ptr, key_ptr, key_stride_b, key_stride_t, slot_score_ptr, ss_stride_b, ss_stride_t, ape_ptr, ape_stride_0, slot_mapping_ptr, positions_ptr, NEXT_N, PAGE_SIZE, BUF_NUMEL_PER_PAGE, POOL_SIZE, TAIL_BLOCK_ELEMS, KPOOL_HEAD, HEAD_DIM, S_OFFSET_NBYTES_IN_PAGE, ROUND_SCALE, BLOCK_D)`
+`_kpool_decode_update_batched_kernel(buf_fp8_ptr, buf_fp32_ptr, tail_kv_ptr, tail_slot_mapping_ptr, key_ptr, key_stride_b, key_stride_t, slot_score_ptr, ss_stride_b, ss_stride_t, ape_ptr, ape_stride_0, slot_mapping_ptr, positions_ptr, NEXT_N, PAGE_SIZE, BUF_NUMEL_PER_PAGE, POOL_SIZE, RING, TAIL_BLOCK_ELEMS, KPOOL_HEAD, HEAD_DIM, S_OFFSET_NBYTES_IN_PAGE, ROUND_SCALE, BLOCK_D)`
 
 [¶](https://docs.vllm.ai#vllm.models.glm5next.nvidia.ops.kpool_compress._kpool_decode_update_batched_kernel)
 
@@ -79,7 +79,7 @@ One program per request; iterates its NEXT_N verify tokens in order.
 
 Replaces the caller's per-token sequential launch loop. The intra-request iteration MUST stay in position order: a pool-completion at token t* reads the tail-ring slots that tokens t < t* (same request) just stashed in this same invocation. `tl.range`
 
-iterates sequentially within the program, so those stashes are visible to the later completion read. Cross-request programs are independent (distinct tail blocks). With NEXT_N < POOL_SIZE (the spec-verify case: NEXT_N ~= num_spec+1, POOL_SIZE=16) at most one completion can occur per request per call, but the ordered loop is correct for any NEXT_N.
+iterates sequentially within the program, so those stashes are visible to the later completion read. Cross-request programs are independent (distinct tail blocks). RING >= POOL_SIZE.
 
 ## Source code in `vllm/models/glm5next/nvidia/ops/kpool_compress.py`
 
@@ -105,19 +105,19 @@ One program per pool. softmax(slot_score+ape)-weighted sum of slot_k -> Hadamard
 
 ##
 
-`_kpool_tail_seed_kernel(key_ptr, score_ptr, tslot_ptr, tail_ptr, n_tokens, TAIL_BLOCK_ELEMS, KPOOL_HEAD, HEAD_DIM, KPOOL, BLOCK_D)`
+`_kpool_tail_seed_kernel(key_ptr, score_ptr, tslot_ptr, tail_ptr, n_tokens, TAIL_BLOCK_ELEMS, KPOOL_HEAD, HEAD_DIM, KPOOL, RING, BLOCK_D)`
 
 [¶](https://docs.vllm.ai#vllm.models.glm5next.nvidia.ops.kpool_compress._kpool_tail_seed_kernel)
 
 Copy token `i`
 
-'s raw K + gate into its request's tail block.
+'s raw K + gate into its request's tail ring.
 
 Token `i`
 
-is among its request's last KPOOL tokens iff the token KPOOL ahead belongs to a different tail block (or is past the batch / padding, slot < 0). `tslot = block * KPOOL + pos % KPOOL`
+is among its request's last KPOOL tokens iff the token KPOOL ahead belongs to a different tail block (or is past the batch / padding, slot < 0). `tslot = block * RING + pos % RING`
 
-; the destination is `tail[block, {0:K, 1:score}, pos % KPOOL, :]`
+; the destination is `tail[block, {0:K, 1:score}, pos % RING, :]`
 
 .
 

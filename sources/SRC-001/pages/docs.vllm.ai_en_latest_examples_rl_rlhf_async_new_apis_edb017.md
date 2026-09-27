@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/rl/rlhf_async_new_apis/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # RLHF Async New APIs[¶](https://docs.vllm.ai#rlhf-async-new-apis)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/applications/api_server/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # API Server[¶](https://docs.vllm.ai#api-server)
 

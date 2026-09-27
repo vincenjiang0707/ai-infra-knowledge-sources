@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/nvidia/model/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class DeepseekV4Model(nn.Module, EagleModelMixin):
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
@@ -32,6 +32,8 @@ mhc_stream = torch.cuda.Stream() if supports_mhc_overlap(vllm_config) else None
 self.fuse_mhc_all_reduce = mhc_stream is not None and supports_mhc_all_reduce(
 vllm_config
 )
+if self.fuse_mhc_all_reduce:
+init_mhc_all_reduce(vllm_config)
 # Reserved topk indices buffer for all Indexer layers to reuse.
 self.topk_indices_buffer = torch.empty(
 vllm_config.scheduler_config.max_num_batched_tokens,
@@ -63,12 +65,28 @@ else:
 self.embed_tokens = PPMissingLayer()
 self.engram_layout = EngramLayout.from_config(config)
 engram_config = vllm_config.engram_config
+self.vllm_config = vllm_config
+engram_prefetch_stream = (
+torch.cuda.Stream()
+if self.engram_layout is not None
+and engram_config is not None
+and engram_config.cpu_offload
+else None
+)
 if (
 self.engram_layout is not None
 and engram_config is not None
 and engram_config.dp_shared_memory
 ):
 engram_config.dp_shared_memory = can_share_engram_tables(self.engram_layout)
+if self.engram_layout is not None and engram_config and engram_config.use_thp:
+# Release old checkpoint cache before allocating the Engram host tables.
+model_config = vllm_config.model_config
+drop_checkpoint_cache(
+model_config.model_weights or model_config.model,
+revision=model_config.revision,
+cache_dir=vllm_config.load_config.download_dir,
+)
 # GEMM-RS uses NCCL symmetric-memory multicast, which requires all TP
 # ranks to belong to one NVLink domain. Collective: run before layers.
 self.run_gemm_rs = maybe_init_gemm_rs(vllm_config, self.use_sequence_parallel)
@@ -81,12 +99,23 @@ topk_indices_buffer=self.topk_indices_buffer,
 aux_stream_list=aux_stream_list,
 candidate_block_buffer=self.candidate_block_buffer,
 engram_layout=self.engram_layout,
+engram_prefetch_stream=engram_prefetch_stream,
 run_gemm_rs=self.run_gemm_rs,
 mhc_stream=mhc_stream,
 fuse_mhc_all_reduce=self.fuse_mhc_all_reduce,
 ),
 prefix=f"{prefix}.layers",
 )
+if self.fuse_mhc_all_reduce:
+# A MoE's top-k finalize folds into the next layer's first mHC
+# boundary, which the last local layer lacks and an engram layer
+# replaces with its own all-reduce.
+local_layers = list(islice(self.layers, self.start_layer, self.end_layer))
+for layer, successor in zip(local_layers, local_layers[1:]):
+assert isinstance(layer, DeepseekV4DecoderLayer)
+assert isinstance(successor, DeepseekV4DecoderLayer)
+if successor.engram is None:
+layer.ffn.defer_finalize()
 # The n-gram hash needs a slot-keyed rolling store of compressed ids
 # (chunked prefill / decode lookback); key it off the first local
 # layer's sliding-window KV cache. Only PP ranks owning an engram
@@ -280,6 +309,8 @@ if previous_aux is not None:
 if self.use_sequence_parallel:
 previous_aux = sp_all_gather(previous_aux)[:full_num_tokens]
 aux_hidden_by_layer[idx] = previous_aux
+# Without a successor boundary, the last layer finalized its own MoE.
+assert isinstance(hidden_states, torch.Tensor)
 if layer is not None:
 # The last layer has no successor to fold its post into.
 if self.fuse_mhc_all_reduce:

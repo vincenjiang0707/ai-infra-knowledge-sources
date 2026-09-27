@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/device_communicators/pynccl/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class PyNcclCommunicator:
 # None for communicators built via `from_unique_id_bytes` (no process group).

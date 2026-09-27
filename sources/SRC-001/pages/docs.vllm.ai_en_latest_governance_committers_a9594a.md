@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/governance/committers/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Committers[¶](https://docs.vllm.ai#committers)
 

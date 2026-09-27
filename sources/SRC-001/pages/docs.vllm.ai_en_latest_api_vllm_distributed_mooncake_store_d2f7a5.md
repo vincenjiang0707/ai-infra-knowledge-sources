@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/mooncake_store/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Configuration for MooncakeDistributedStore.
 

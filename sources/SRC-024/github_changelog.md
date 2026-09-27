@@ -1,6 +1,6 @@
 # Changelog (aggregated from releases.body)
 
-> releases: 42
+> releases: 43
 
 ## v0.1.1 (2025-04-27)
 
@@ -2579,7 +2579,6 @@ Cross-compiled, marked **pre-release**. Not an official release artifact.
 
 Pinned to aiter commit **`b12a1904`** (`main` HEAD 2026-08-26, MHA v4 #4967).
 
-```bash
 > **Note on the version number.** An earlier attempt tagged this build `v0.1.20.dev1`.
 > Two things were wrong with it: the base version (`0.1.20.devN` sorts *before* `v0.1.20`,
 > but this build is 94 commits *after* it), and the custom `.devN`.
@@ -2590,7 +2589,6 @@ Pinned to aiter commit **`b12a1904`** (`main` HEAD 2026-08-26, MHA v4 #4967).
 > `v0.1.21.dev0` ends in `.dev0`, which setuptools_scm supports, and it also orders
 > correctly (`0.1.20 < 0.1.21.dev0 < 0.1.21`).
 > **If you tag aiter, avoid custom `.devN` — use `.dev0`, `-rcN`, or a plain version.**
-```
 
 ## Why this exists
 
@@ -3245,4 +3243,254 @@ Wheel assets are uploaded after the release page is created.
 
 
 **Full Changelog**: https://github.com/ROCm/aiter/compare/v0.1.22...v0.1.22.post1
+
+
+## v0.1.23 (2026-09-26)
+
+AITER v0.1.23 - bi-weekly release
+
+Scheduled release from `release/v0.1.23`.
+
+Diff base: `v0.1.22`
+
+## Wheels
+
+Prebuilt manylinux_2_28 wheels, `GPU_ARCHS=gfx942;gfx950`:
+
+| ROCm | Python | Wheel |
+|---|---|---|
+| ROCm 7.0 | cp310 | [amd_aiter-0.1.23+rocm7.0.manylinux.2.28-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl](https://github.com/ROCm/aiter/releases/download/v0.1.23/amd_aiter-0.1.23%2Brocm7.0.manylinux.2.28-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl) |
+| ROCm 7.0 | cp312 | [amd_aiter-0.1.23+rocm7.0.manylinux.2.28-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl](https://github.com/ROCm/aiter/releases/download/v0.1.23/amd_aiter-0.1.23%2Brocm7.0.manylinux.2.28-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl) |
+| ROCm 7.1 | cp310 | [amd_aiter-0.1.23+rocm7.1.manylinux.2.28-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl](https://github.com/ROCm/aiter/releases/download/v0.1.23/amd_aiter-0.1.23%2Brocm7.1.manylinux.2.28-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl) |
+| ROCm 7.1 | cp312 | [amd_aiter-0.1.23+rocm7.1.manylinux.2.28-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl](https://github.com/ROCm/aiter/releases/download/v0.1.23/amd_aiter-0.1.23%2Brocm7.1.manylinux.2.28-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl) |
+| ROCm 7.2 | cp310 | [amd_aiter-0.1.23+rocm7.2.manylinux.2.28-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl](https://github.com/ROCm/aiter/releases/download/v0.1.23/amd_aiter-0.1.23%2Brocm7.2.manylinux.2.28-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl) |
+| ROCm 7.2 | cp312 | [amd_aiter-0.1.23+rocm7.2.manylinux.2.28-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl](https://github.com/ROCm/aiter/releases/download/v0.1.23/amd_aiter-0.1.23%2Brocm7.2.manylinux.2.28-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl) |
+
+<details>
+<summary>What's Changed</summary>
+
+## Changes
+* [FlyDSL] [CI] add gfx942 FMHA varlen backward kernel for d_qk=192/d_v=128 by @amd-wangfan in https://github.com/ROCm/aiter/pull/4875
+* [Triton/Gluon] Add per-token-scaled grouped MoE GEMM kernel by @WuLei-AMD in https://github.com/ROCm/aiter/pull/5338
+* [HIP] Add FP4 output mode to indexer_qk_rope_quant_and_cache by @XiaobingSuper in https://github.com/ROCm/aiter/pull/5484
+* test(activation): skip fp4 silu_and_mul_quant on non-gfx950 archs by @zjin-lcf in https://github.com/ROCm/aiter/pull/4925
+* [Config] update gemm stage2 v2 kernel by @charlieguo1106 in https://github.com/ROCm/aiter/pull/4789
+* [Config] configs: GLM-5.3 PTPC qkv a8w8-bpreshuffle rows for gfx950 by @Raiden-Makoto in https://github.com/ROCm/aiter/pull/5421
+* [Triton/Gluon] Add MoE weight-gradient kernel by @WuLei-AMD in https://github.com/ROCm/aiter/pull/5339
+* [FlyDSL] Support runtime softmax scale in gfx950 FP8 FMHA by @gbyu-amd in https://github.com/ROCm/aiter/pull/5405
+* [FlyDSL] feat(topk): per-row top-k across five selectors behind one entry by @valarLip in https://github.com/ROCm/aiter/pull/5499
+* [Triton/Gluon] Fix gfx1250 Gluon MLA cache launch args by @amd-ruitang3 in https://github.com/ROCm/aiter/pull/5501
+* [FlyDSL] flydsl implementation of a16w16 gemm by @omuhamma in https://github.com/ROCm/aiter/pull/2725
+* [Triton/Gluon] Fix Triton backward autotune dimension keys by @brunomazzottiamd in https://github.com/ROCm/aiter/pull/5372
+* [Triton/Gluon] [GFX1250] fused_add_rmsnorm_pad() gluon equivalent function by @amd-jrosas in https://github.com/ROCm/aiter/pull/4146
+* [Triton/Gluon] bf16 persistent gemm by @amirumoAMD in https://github.com/ROCm/aiter/pull/4860
+* [CK] [FlyDSL] Clean up kernel IR and consolidate shared helpers by @coderfeli in https://github.com/ROCm/aiter/pull/5476
+* [Triton/Gluon] KDA K1 gluon opt and k2 fused affine by @Liang-jianhao97 in https://github.com/ROCm/aiter/pull/5436
+* [Triton/Gluon] Fix test_mha_v3 AssertionError on Mismatched elements by @leonling-ll in https://github.com/ROCm/aiter/pull/5463
+* [FlyDSL] Widen the FlyDSL gather + kv_b_proj backend past a 128+128 head by @XiaobingSuper in https://github.com/ROCm/aiter/pull/5494
+* [ASM] Tune 16x128, 16x256 mxfp4 kernels by @JohnNikolay84 in https://github.com/ROCm/aiter/pull/5388
+* [HIP] [FlyDSL] add mla for gfx1250 by @xiangM99 in https://github.com/ROCm/aiter/pull/4862
+* [CI] Enable ci:extended-test label to dispatch internal workflow by @gyohuangxin in https://github.com/ROCm/aiter/pull/5522
+* [CI] Reuse existing extended-test dispatch path by @gyohuangxin in https://github.com/ROCm/aiter/pull/5527
+* [Triton/Gluon] EP Routing fix by @k50112113 in https://github.com/ROCm/aiter/pull/5511
+* [Config] Extend the DeepSeek-V4 a8w8 blockscale GEMM tunings for gfx950 by @LiuYinfeng01 in https://github.com/ROCm/aiter/pull/5485
+* [Config] Retune Qwen3-VL MXFP4 MoE without stage-2 reduce kernels by @vorapolsiloai in https://github.com/ROCm/aiter/pull/5155
+* Capture FCLK in SMI data for micros by @JArnoldAMD in https://github.com/ROCm/aiter/pull/5509
+* [FlyDSL] fix bw formula by @yadaish in https://github.com/ROCm/aiter/pull/5528
+* [FlyDSL] topk_select: half formats for k=1, routing re-fit, and a barrier the streaming selector was missing by @valarLip in https://github.com/ROCm/aiter/pull/5526
+* [Triton/Gluon] Clean up MoE elementwise kernels by @vgokhale in https://github.com/ROCm/aiter/pull/5259
+* [Triton/Gluon] [Config] gfx942 config by @amirumoAMD in https://github.com/ROCm/aiter/pull/5516
+* [Triton/Gluon] [Bugfix] Guard RDNA unified attention against LDS overflow by @amd-xavierwang in https://github.com/ROCm/aiter/pull/4868
+* [Triton/Gluon] [GFX950] Add Return LSE/Softmax to the MHA Gluon Kernel by @lucas-santos-amd in https://github.com/ROCm/aiter/pull/5458
+* [Triton/Gluon] Fail on checkAllclose mismatches instead of only logging them by @Boss2002n in https://github.com/ROCm/aiter/pull/5422
+* [Config] Retune Kimi-K3 a8w4 fp8 route-out stage2 by @amd-wsung102 in https://github.com/ROCm/aiter/pull/5468
+* [OPUS] opus gemm 256tile ring by @demonsan in https://github.com/ROCm/aiter/pull/5397
+* [HIP] Perf/gfx1250 per group quant by @yzhou103 in https://github.com/ROCm/aiter/pull/5273
+* [FlyDSL] [gfx1250] Quantize each MoE source token once instead of once per route by @XingerZhu in https://github.com/ROCm/aiter/pull/5274
+* [HIP] [FlyDSL] feat: add packed BF16 mHC computation and gfx1250 tuning by @junhaha666 in https://github.com/ROCm/aiter/pull/5412
+* [FlyDSL] [JIT] [gfx1250] Add a8w8 mxfp8_128 GEMM A-preshuffle and fused split-k by @aoli26 in https://github.com/ROCm/aiter/pull/5406
+* [Triton/Gluon] Add DSV4 sparse-MLA training and indexer ops by @WuLei-AMD in https://github.com/ROCm/aiter/pull/5491
+* [FlyDSL] Revert " [gfx1250] Quantize each MoE source token once instead of once per route" by @junhaha666 in https://github.com/ROCm/aiter/pull/5581
+* Expose the fused_moe activation dtype resolution for dispatch dtype selection by @Duyi-Wang in https://github.com/ROCm/aiter/pull/5221
+* [Triton/Gluon] Add MHC forward and backward support for DSV4 by @WuLei-AMD in https://github.com/ROCm/aiter/pull/5492
+* fix(fused_moe): pad MXFP4 A4W4 MoE sort extent to a block_size multiple by @zejunchen-zejun in https://github.com/ROCm/aiter/pull/5573
+* [HIP] [FlyDSL] [Bugfix] Skip invalid expert IDs in MoE sorting by @tuukkjs in https://github.com/ROCm/aiter/pull/5295
+* [FlyDSL] fix: select FMoE GEMM2 A addressing by stored buffer size by @Bernard-Liu in https://github.com/ROCm/aiter/pull/5519
+* [Triton/Gluon] fix triton 3.8 regression for rmsnorm, cap blocked BLOCK_SIZE, raise forward occupancy by @nidal567 in https://github.com/ROCm/aiter/pull/5175
+* [Triton/Gluon] Fix MoE routing kernel compile failure by @micah-wil in https://github.com/ROCm/aiter/pull/5558
+* [Triton/Gluon] Route test print() output through the aiter logger by @Boss2002n in https://github.com/ROCm/aiter/pull/5423
+* Add FP8 MoE intermediate option for Kimi-K3 a4w4 by @amd-wsung102 in https://github.com/ROCm/aiter/pull/5439
+* [Triton/Gluon] no CSV under pytest, no leaked default device by @Boss2002n in https://github.com/ROCm/aiter/pull/5424
+* [Triton/Gluon] [GFX950] Add split-k support for fp8 mqa logits by @cagrikymk in https://github.com/ROCm/aiter/pull/5603
+* [Config] [gfx950][DSV4] Tune a8w8 blockscale bpreshuffle shared-expert down/gate_up large-M by @lixiufei-leo in https://github.com/ROCm/aiter/pull/5440
+* [Config] configs: add tuned configs for Qwen3.8-27B MXFP4 (gfx950) by @vorapolsiloai in https://github.com/ROCm/aiter/pull/5350
+* [FlyDSL] [Gfx1250][MoE] opt for dsv4 conc2048 decoding mega MoE by @Zzz9990 in https://github.com/ROCm/aiter/pull/5489
+* [HIP] [OPUS] Unify OPUS GEMM/BMM interfaces and use Torch workspaces by @Fyzyukk in https://github.com/ROCm/aiter/pull/4961
+* [ASM] [HIP] [gfx1250]asm mha bf16 hd192x128 by @shay-li77 in https://github.com/ROCm/aiter/pull/5043
+* [Bugfix] Fix ASM split-K semaphore deadlock under CUDA graph capture by @JohnQinAMD in https://github.com/ROCm/aiter/pull/4916
+* [ASM] [gfx1250] mla v4 prefill: rebuild sparse_pfl with the tail store rework by @junxiaguo in https://github.com/ROCm/aiter/pull/5580
+* [Triton/Gluon] Take the autotuning search out of the unit tests by @Boss2002n in https://github.com/ROCm/aiter/pull/5590
+* [Triton/Gluon] [JIT] # RDNA3 fp8 enablement + tuned DSV4 A8W8 block-scale GEMM configs by @amd-xavierwang in https://github.com/ROCm/aiter/pull/5217
+* [Triton/Gluon] Triton 3.6 FP8 MQA Logits gluon kernel fix by @cagrikymk in https://github.com/ROCm/aiter/pull/5627
+* [CI] Enable 2P1D cases for vllm DI CI tests and update vllm container to use latest v0.29.0 release version. by @lcskrishna in https://github.com/ROCm/aiter/pull/5596
+* [Perf] Route untuned a8w8 blockscale GEMMs to triton above a per-arch M by @ZhengGong-amd in https://github.com/ROCm/aiter/pull/5586
+* [Config] [GEMM] Tune GLM-5.2 native-MTP M=4 projections for gfx950 by @chrisaberger in https://github.com/ROCm/aiter/pull/5378
+* [CK] Add GLM-5.2 (TP4) a8w8 blockscale GEMM tunings for gfx942 (MI300X/MI325) by @jin-amd in https://github.com/ROCm/aiter/pull/5072
+* [Bugfix] Prevent resource leaks on repeated hipBLASLt extension initialization by @Mazukiri in https://github.com/ROCm/aiter/pull/5325
+* [HIP] Fix a missing block_reduce barrier and rewrite indexer_qk_rope_quant_and_cache around the wave by @XiaobingSuper in https://github.com/ROCm/aiter/pull/5576
+* [CK] [FlyDSL] Add FlyDSL FP8 MoE kernels (decode weight-decompression + prefill) for MI308 — Qwen3.5-35B/397B, Hunyuan3 by @luocheng25 in https://github.com/ROCm/aiter/pull/3987
+* [FlyDSL] Add flydsl radix topk one block kernel by @lirui927 in https://github.com/ROCm/aiter/pull/5363
+* [ASM] [HIP] Increase the MLA PS mode BF16 nhead96 perf by @minmengdie in https://github.com/ROCm/aiter/pull/5582
+* [ASM] [HIP] [OPUS] Add a gfx950 bf16 opus MLA decode path and consolidate the opus decode modules by @kaiyang-1 in https://github.com/ROCm/aiter/pull/5651
+* [FlyDSL] Bind comm-fused GEMM2 to the sorted-inter layout used by stage2 by @charlieguo1106 in https://github.com/ROCm/aiter/pull/5622
+* [FlyDSL] fix moe aux kernel ut by @Zzz9990 in https://github.com/ROCm/aiter/pull/5655
+* [HIP] [OPUS] [JIT] [gfx1250] Add auto-detect stepping and B0-only guard by @dbyoung18 in https://github.com/ROCm/aiter/pull/5107
+* [CK] [Bugfix] ck_batched_gemm_bf16: derive operand strides from the tensors by @heslami in https://github.com/ROCm/aiter/pull/5385
+* [CI] Bump triton from 111ff227 to 7cb7b059 by @yuyzhang512 in https://github.com/ROCm/aiter/pull/5612
+* [Triton/Gluon] Tune PA prefill/decode configs for triton 3.8 backend regres… by @mengfei-jiang in https://github.com/ROCm/aiter/pull/5613
+* [FlyDSL] [gfx1250] Quantize the MoE a1 scale and shuffle. by @lalala-sh in https://github.com/ROCm/aiter/pull/5507
+* [HIP] opt dynmic_per_group_scaled_quant by @yzhou103 in https://github.com/ROCm/aiter/pull/5631
+* [ASM] [gfx1250] avoid padded CSR tail replay in QH128 prefill by @junxiaguo in https://github.com/ROCm/aiter/pull/5635
+* [HIP] [Bugfix] Give the 4096<n<=6144 RMSNorm bucket a grouped-quant shape by @valarLip in https://github.com/ROCm/aiter/pull/5653
+* [FlyDSL] perf(hca): the gfx1250 hca_compress optimization by @XingerZhu in https://github.com/ROCm/aiter/pull/5373
+* [Triton/Gluon] Avoid vectorizing A16W4 upper clamp by @lijinpei-amd in https://github.com/ROCm/aiter/pull/5636
+* [FlyDSL] [MoE] Raise the stage-2 invalid-row sentinel from 2 GiB to 4 GiB by @Bernard-Liu in https://github.com/ROCm/aiter/pull/5660
+* [Triton/Gluon] [GFX950] Sparse paged attention and Sparse MLA by @cagrikymk in https://github.com/ROCm/aiter/pull/4919
+* [Triton/Gluon] [GFX12] Gluon BF16 GEMM config by @k50112113 in https://github.com/ROCm/aiter/pull/5639
+* [Triton/Gluon] Create benchmark for `fused_add_rmsnorm_pad.py` by @nidal567 in https://github.com/ROCm/aiter/pull/5574
+* [Config] Modify kimik3_bf16_tuned_gemm.csv by @hmahmad26 in https://github.com/ROCm/aiter/pull/5353
+* [CI] Use PR aiter when installing Flash Attention Triton by @gyohuangxin in https://github.com/ROCm/aiter/pull/5620
+* [Triton/Gluon] [CI] [GFX950] Fix mha_varlen_with_pe miscompile and optimize perf by @leonling-ll in https://github.com/ROCm/aiter/pull/5629
+* fix(tuned_gemm): honour otype instead of casting a BF16 result to it by @valarLip in https://github.com/ROCm/aiter/pull/5681
+* [CI] [Build] chore(flydsl): bump flydsl dependency to 0.3.4.1 by @coderfeli in https://github.com/ROCm/aiter/pull/5457
+* [HIP] [Perf] topk_gating: add E=512 prefill_n dispatch for softmax by @mjkvaak-amd in https://github.com/ROCm/aiter/pull/5334
+* [CI] [ut] support gfx950 wideEp moe test for a8w4 dsv4,a4w4 kimi k3 by @james-huang09 in https://github.com/ROCm/aiter/pull/5579
+* [FlyDSL] Enable FP8 FMHA split-K for short cached-prefix queries by @gbyu-amd in https://github.com/ROCm/aiter/pull/5508
+* [FlyDSL] [Feature] Support FP8 output in gather_kv_b_proj by @gbyu-amd in https://github.com/ROCm/aiter/pull/5400
+* [HIP] Add register-resident grouped topk for single-group MoE. by @lirui927 in https://github.com/ROCm/aiter/pull/5632
+* [Config] [Tune] Add GLM-5.3 Flash GEMM configs for gfx950 by @jamesETsmith in https://github.com/ROCm/aiter/pull/5602
+* [FlyDSL] [gfx1250] TDM dispatch for mega-moe EP by @XingerZhu in https://github.com/ROCm/aiter/pull/5447
+* [CI] CI: lower Kimi vLLM GPU memory utilization by @gyohuangxin in https://github.com/ROCm/aiter/pull/5697
+* [Triton/Gluon] [FlyDSL] [Perf] argmax: take the split count as an argument, not a build parameter by @valarLip in https://github.com/ROCm/aiter/pull/5703
+* [Config] configs: GLM-5.3 routed MoE rows for gfx950 by @Raiden-Makoto in https://github.com/ROCm/aiter/pull/5599
+* feat(mori-ep): add the low-latency kernels and a cached handle set by @JiaoliangYu in https://github.com/ROCm/aiter/pull/5493
+* [CI] Re enable contexted kv attention tests by @mengfei-jiang in https://github.com/ROCm/aiter/pull/5659
+* [HIP] Lift the 2 GiB limit on mla_reduce_v1 final output and LSE by @kaiyang-1 in https://github.com/ROCm/aiter/pull/5698
+* [FlyDSL] [fused_moe] Do not route MXFP4 MoE to CK-Tile when inter_dim % 256 != 0 by @xiaofei-zheng in https://github.com/ROCm/aiter/pull/5232
+* CI: run Kimi-K2.5 perf nightly only by @gyohuangxin in https://github.com/ROCm/aiter/pull/5716
+* [Config] Revert " Modify kimik3_bf16_tuned_gemm.csv" by @XiaobingSuper in https://github.com/ROCm/aiter/pull/5714
+* [Triton/Gluon] [Config] [Tune][gfx942] Add per-shape GEMM configs for MI308X (gfx942) by @WuLei-AMD in https://github.com/ROCm/aiter/pull/5691
+* [CI] CI: auto-update split test FILE_TIMES by @aiter-gh-app[bot] in https://github.com/ROCm/aiter/pull/5713
+* [CK] fix(moe): handle 64-aligned A16W16 shards in CK dispatch by @junna2016 in https://github.com/ROCm/aiter/pull/5630
+* [FlyDSL] Allocate split-K scratch buffers from a private MemPool by @XiaobingSuper in https://github.com/ROCm/aiter/pull/5430
+* [OPUS] fix(opus): prevent DSV4 DPA CI OOM with bounded route workspace buckets by @yifehuan in https://github.com/ROCm/aiter/pull/5710
+* [Triton/Gluon] Log with % placeholders instead of f-strings by @Boss2002n in https://github.com/ROCm/aiter/pull/5545
+* [Triton/Gluon] Create benchmark for `Norm/Layernorm` by @nidal567 in https://github.com/ROCm/aiter/pull/5608
+* [Triton/Gluon] Create benchmark for fused_rmsnorm_add_bench by @nidal567 in https://github.com/ROCm/aiter/pull/5676
+* [Config] Tune Kimi-K3 BF16 GEMMs for gfx950 by @XiaobingSuper in https://github.com/ROCm/aiter/pull/5702
+* [FlyDSL] Expose FP8 attention and gather capability checks by @gbyu-amd in https://github.com/ROCm/aiter/pull/5718
+* [FlyDSL] gfx950 FP8 MQA logits indexer kernel by @vpietila-amd in https://github.com/ROCm/aiter/pull/4538
+* [HIP] [JIT] Add a DSv4 paged K gather+dequant kernel by @akii96 in https://github.com/ROCm/aiter/pull/5680
+* Opt qk_norm_rope_group_quant in gfx1250 by @yzhou103 in https://github.com/ROCm/aiter/pull/5712
+* [Triton/Gluon] [FlyDSL] feat(flydsl): Add HSTU Backward kernel by @SamiAario-AMD in https://github.com/ROCm/aiter/pull/4885
+* [HIP] [OPUS] [JIT] [GFX950]OPUS PA MQA Logits MXFP4 by @shay-li77 in https://github.com/ROCm/aiter/pull/5332
+* [FlyDSL] [CI] [a16w4] Support MXFP4 weights on gfx942 (CDNA3) by @MHYangAMD in https://github.com/ROCm/aiter/pull/5583
+* [Config] [AMD][DSV4] [Tune][gfx950] a8w8 blockscale bpreshuffle configs for DSPARK by @karverma-amd in https://github.com/ROCm/aiter/pull/5575
+* [HIP] Add DSV4.1 A4W4 fused MoE configs for gfx950 by @yifehuan in https://github.com/ROCm/aiter/pull/5722
+* [HIP] [OPUS] [JIT] [GFX1250]OPUS PA MQA Logits MXFP4 by @shay-li77 in https://github.com/ROCm/aiter/pull/5656
+* [FlyDSL] Optimize gfx950 A8W8 preshuffle GEMM shape coverage by @XiaobingSuper in https://github.com/ROCm/aiter/pull/5690
+* [Triton/Gluon] [FlyDSL] [CI] feat(flydsl): Add paged-attention Tile kernel by @fsx950223 in https://github.com/ROCm/aiter/pull/4332
+* [CI] Cache Triton wheelhouse across test jobs by @gyohuangxin in https://github.com/ROCm/aiter/pull/5717
+* [Triton/Gluon] fix: avoid Python 3.10 source inspection failures in MXFP4 JIT imports by @junna2016 in https://github.com/ROCm/aiter/pull/5572
+* [CI] Fail the Triton test jobs if any kernel autotunes at runtime by @Boss2002n in https://github.com/ROCm/aiter/pull/5425
+* [Config] Add Qwen3.6 35B-A3B FMoE configs for gfx1201 by @keneoneth in https://github.com/ROCm/aiter/pull/4815
+* [FlyDSL] QRInt4: INT4 two-shot all-reduce for gfx942/gfx950 by @samremes in https://github.com/ROCm/aiter/pull/4970
+* [Triton/Gluon] [Kernel] Add gfx950 stochastic MXFP4 quantization by @DaiXindi-AMD in https://github.com/ROCm/aiter/pull/5531
+* [FlyDSL] gfx942 a16wi4 gemm2 atomic: use fx.atomic_add by @msaffari-amd in https://github.com/ROCm/aiter/pull/5755
+* [Triton/Gluon] fused KDA decode: order conv_state shifts after the tap loads by @Boss2002n in https://github.com/ROCm/aiter/pull/5619
+* [ASM] [HIP] [CI] Mixed MXFP6/MXFP4 GEMMs by @ksikiric in https://github.com/ROCm/aiter/pull/5587
+* [HIP] fix(custom_all_reduce): uniform trip count for the block barriers by @Arist12 in https://github.com/ROCm/aiter/pull/5694
+* [ASM] [HIP] MLA PS mode asm and opus kernel support nhead12,8 by @minmengdie in https://github.com/ROCm/aiter/pull/5695
+* [HIP] [Activation] Add standalone relu2 (Squared ReLU) elementwise kernel for non-gated MoE MLPs by @shantipriya-amd in https://github.com/ROCm/aiter/pull/5689
+* [HIP] Fix grouped topk tie handling for GLM-5.2 accuracy by @lirui927 in https://github.com/ROCm/aiter/pull/5726
+* [Config] configs: GLM-5.3 fused shared MoE rows for gfx950 by @Raiden-Makoto in https://github.com/ROCm/aiter/pull/5735
+* fused_moe: remove incorrect topk adjustment in get_2stage_cfgs for EP by @psakhamo in https://github.com/ROCm/aiter/pull/5734
+* [CI] ci: add @aiter-bot review (self-hosted GLM PR reviewer) by @zufayu in https://github.com/ROCm/aiter/pull/5666
+* [Triton/Gluon] [Kernel] Add 32x32 block-scaled MXFP4 quantization by @DaiXindi-AMD in https://github.com/ROCm/aiter/pull/5548
+* [FlyDSL] feat: add gfx1250 natural FP4 compressor scatter by @junhaha666 in https://github.com/ROCm/aiter/pull/5731
+* [Config] Revert 13 regressed Kimi-K3 A8W8 rows by @XiaobingSuper in https://github.com/ROCm/aiter/pull/5780
+* [ASM] [HIP] feat(fmha_fwd): add bf16 hd=256 forward ASM kernel for gfx950 by @alexioslyrakis-amd in https://github.com/ROCm/aiter/pull/5403
+* [ASM] [HIP] feat(fmha_bwd): add bf16 hd=256 fused dKdV+dQ ASM kernels for gfx950 by @alexioslyrakis-amd in https://github.com/ROCm/aiter/pull/5376
+* [Triton/Gluon] Merge MoE MXFP8 GEMM into existing _moe_gemm_a8w8 kernel by @WuLei-AMD in https://github.com/ROCm/aiter/pull/5658
+* [ASM][gfx1250] refresh QH128 sparse-prefill and fix softmax mlog order by @junxiaguo in https://github.com/ROCm/aiter/pull/5746
+* [CK] [FlyDSL] [FEAT] support fp8/fp4 quant in mega stage2 combine by @yanboshao in https://github.com/ROCm/aiter/pull/5176
+* [Triton/Gluon] [Bugfix] [Perf] Support page size 8 in paged MQA logits on both layouts, and fix large KV offsets by @zhiding512 in https://github.com/ROCm/aiter/pull/5749
+* [CI] review-pr: fix agent-timeout envelope so large-diff reviews do not spuriously time out by @zufayu in https://github.com/ROCm/aiter/pull/5785
+* [Triton/Gluon] Drop `GRID_MN` from the batched MXFP4 GEMM specialisation keys by @eppaneamd in https://github.com/ROCm/aiter/pull/5672
+* [OPUS] Optimize Opus integration flow by @yifehuan in https://github.com/ROCm/aiter/pull/5748
+* [ASM] [HIP] [Kernel] [gfx1250] Add F8GEMM 256x256 split-K and 128x128 AP0/AP1 kernels by @WangJessie926 in https://github.com/ROCm/aiter/pull/5699
+* [ASM] [MLA v4 nm] Swap gfx950 asm decode kernel by @liyjiang in https://github.com/ROCm/aiter/pull/5195
+* [FlyDSL] [JIT] AOT-compile the gfx950 FP8 flash-attention forward by @gbyu-amd in https://github.com/ROCm/aiter/pull/5796
+* [HIP] [Perf] Size the MLA metadata LDS scratch to the chunk, not the batch count by @ZhiweiYan-96 in https://github.com/ROCm/aiter/pull/5724
+* [HIP] [FlyDSL] [JIT] Support Conv3d for Qwen-Image / Wan2.1 VAE on MI35X by @huizzhan in https://github.com/ROCm/aiter/pull/5370
+* [CK] [Bugfix][Perf] fused_moe: tune the non-temporal load hint per tuned row by @ZhengGong-amd in https://github.com/ROCm/aiter/pull/5443
+* [HIP] opt inverse rope group quant gfx1250 by @yzhou103 in https://github.com/ROCm/aiter/pull/4991
+* [Config] Retune DSR1/V3 FP8 fmoe rows on gfx950 by @eky-amd in https://github.com/ROCm/aiter/pull/5641
+* [Triton/Gluon] Gluon MOE compatibility with upstream triton compiler by @k50112113 in https://github.com/ROCm/aiter/pull/5740
+* [FlyDSL] [CI] optimization perf of mega stage1 by @yanboshao in https://github.com/ROCm/aiter/pull/5814
+* [Triton/Gluon] [GFX950] Use a prefill launch config for sparse MLA launches by @cagrikymk in https://github.com/ROCm/aiter/pull/5797
+* [HIP] [Kernel] Fix group quant dispatch for hidden sizes in (4096, 6144] by @Fangzhou-Ai in https://github.com/ROCm/aiter/pull/5480
+* fix: custom_all_reduce ci hang by @TennyWang1223 in https://github.com/ROCm/aiter/pull/5813
+* fix mega ubench by @yanboshao in https://github.com/ROCm/aiter/pull/5838
+* [Triton/Gluon] [JIT] [Feature] Add tuned native group32 A8W8 Triton GEMM for gfx950 by @valarLip in https://github.com/ROCm/aiter/pull/5750
+* [Config] [Perf] [gfx950] Add MiniMax-M3-MXFP4 BF16 tuned GEMM configs by @amd-bishwoadhikari in https://github.com/ROCm/aiter/pull/5758
+* [FlyDSL] optimize mxfp4 moe kernels perf by @binding7012 in https://github.com/ROCm/aiter/pull/5482
+* [Triton/Gluon] [Config] Add gfx1250 gluon a16w16 config for MLA q_b_proj (N=24576, K=1536) by @karverma-amd in https://github.com/ROCm/aiter/pull/5828
+* [Triton/Gluon] [gfx1151] Enable unshuffled MXFP4 GEMM by @JeremiahM37 in https://github.com/ROCm/aiter/pull/5470
+* [Triton/Gluon] [Kernel] Add packed FP4 logical transpose by @DaiXindi-AMD in https://github.com/ROCm/aiter/pull/5538
+* [Triton/Gluon] drop stale use_aot flag from bench_gemm_afp4wfp4 --shuffle by @matthiasdiener in https://github.com/ROCm/aiter/pull/5647
+* [Triton/Gluon] [gfx950] [dsv4.1-flash] mHC fused kernel by @ahmed-bsod in https://github.com/ROCm/aiter/pull/5824
+* [CI] One backend per PR docs update by @Boss2002n in https://github.com/ROCm/aiter/pull/5853
+* [Triton/Gluon] FlashKDA in-kernel paged state_cache I/O by @Liang-jianhao97 in https://github.com/ROCm/aiter/pull/5754
+* [Triton/Gluon] Sparse MLA Improvements and Hardened Invalid index Handling by @cagrikymk in https://github.com/ROCm/aiter/pull/5833
+* [Triton/Gluon] [GFX950] Add Unified Attention Gluon Kernel by @cagrikymk in https://github.com/ROCm/aiter/pull/4614
+* [CI] copilot instructions update by @Boss2002n in https://github.com/ROCm/aiter/pull/5856
+* [Triton/Gluon] [Bugfix][MLA] Mask the >2GB global_load path in mla_gluon decode (fixes gfx950 IMA) by @Rohan138 in https://github.com/ROCm/aiter/pull/5648
+* [HIP] [Perf] Specialize partial tiles in two-stage custom all-reduce by @AndreasKaratzas in https://github.com/ROCm/aiter/pull/5807
+* [Triton/Gluon] [Config] Gfx1151 blockscale tuned jsons by @keneoneth in https://github.com/ROCm/aiter/pull/5557
+* [Triton/Gluon] [Config] gfx1151 gemma4 attn prefill tuning by @amd-xavierwang in https://github.com/ROCm/aiter/pull/5601
+* [CI] Add PRs to the AITER-triton Kernels board without relying on labels by @Boss2002n in https://github.com/ROCm/aiter/pull/5685
+* [Triton/Gluon] Add paged mxfp4 Gluon kernel with sparsity support and related kernels for vllm integration by @cagrikymk in https://github.com/ROCm/aiter/pull/5834
+* [Triton/Gluon] Gluon MoE A16W4 gfx950 kernels by @rahulbatra85 in https://github.com/ROCm/aiter/pull/5355
+* [Bugfix][MLA] Size PS prefill partial buffers from the real token budget by @simondanielsson in https://github.com/ROCm/aiter/pull/5759
+
+## New Contributors
+* @amd-wangfan made their first contribution in https://github.com/ROCm/aiter/pull/4875
+* @zjin-lcf made their first contribution in https://github.com/ROCm/aiter/pull/4925
+* @xiangM99 made their first contribution in https://github.com/ROCm/aiter/pull/4862
+* @JArnoldAMD made their first contribution in https://github.com/ROCm/aiter/pull/5509
+* @amd-xavierwang made their first contribution in https://github.com/ROCm/aiter/pull/4868
+* @Fyzyukk made their first contribution in https://github.com/ROCm/aiter/pull/4961
+* @chrisaberger made their first contribution in https://github.com/ROCm/aiter/pull/5378
+* @Mazukiri made their first contribution in https://github.com/ROCm/aiter/pull/5325
+* @heslami made their first contribution in https://github.com/ROCm/aiter/pull/5385
+* @hmahmad26 made their first contribution in https://github.com/ROCm/aiter/pull/5353
+* @james-huang09 made their first contribution in https://github.com/ROCm/aiter/pull/5579
+* @xiaofei-zheng made their first contribution in https://github.com/ROCm/aiter/pull/5232
+* @vpietila-amd made their first contribution in https://github.com/ROCm/aiter/pull/4538
+* @SamiAario-AMD made their first contribution in https://github.com/ROCm/aiter/pull/4885
+* @keneoneth made their first contribution in https://github.com/ROCm/aiter/pull/4815
+* @DaiXindi-AMD made their first contribution in https://github.com/ROCm/aiter/pull/5531
+* @Arist12 made their first contribution in https://github.com/ROCm/aiter/pull/5694
+* @shantipriya-amd made their first contribution in https://github.com/ROCm/aiter/pull/5689
+* @psakhamo made their first contribution in https://github.com/ROCm/aiter/pull/5734
+* @WangJessie926 made their first contribution in https://github.com/ROCm/aiter/pull/5699
+* @amd-bishwoadhikari made their first contribution in https://github.com/ROCm/aiter/pull/5758
+* @JeremiahM37 made their first contribution in https://github.com/ROCm/aiter/pull/5470
+* @matthiasdiener made their first contribution in https://github.com/ROCm/aiter/pull/5647
+* @AndreasKaratzas made their first contribution in https://github.com/ROCm/aiter/pull/5807
+
+**Full Changelog**: https://github.com/ROCm/aiter/compare/v0.1.22...v0.1.23
+
+</details>
 

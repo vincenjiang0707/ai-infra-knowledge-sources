@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/zh-CN/kubernetes/disaggregated-serving/size-with-ai-configurator
-lastmod: 2026-09-24T19:58:16.636Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 # Size a Kubernetes Deployment with AIConfigurator
 

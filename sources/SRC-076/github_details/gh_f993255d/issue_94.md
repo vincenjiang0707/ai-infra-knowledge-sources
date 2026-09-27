@@ -16,4 +16,27 @@ Also more than happy to see if i can contribute on bringing this, if the backend
 
 Thanks in advance!
 
-## 评论 (0)
+## 评论 (4)
+
+### simonguozirui · 2025-11-19
+
+Hi @rajuptvs thank you for reaching out! Indeed we found Mojo quite intersting (haven't had too much time to play around with it yet). I can add Mojo on the near roadmap.
+
+@nathanjpaek has been leading a lot of the DSL support (we have added `cute`, `triton`, and `tilelang` so far, there are so many DSLs!). Check out some of the PRs we did for different DSLs (#35 #80) as reference, feel free to start a PR on that and the team can work with it. We basically need a sample prompt and a backend logic for eval if it is any different from the current inline approach. 
+
+
+### rajuptvs · 2025-12-01
+
+> Hi [@rajuptvs](https://github.com/rajuptvs) thank you for reaching out! Indeed we found Mojo quite intersting (haven't had too much time to play around with it yet). I can add Mojo on the near roadmap.
+> 
+> [@nathanjpaek](https://github.com/nathanjpaek) has been leading a lot of the DSL support (we have added `cute`, `triton`, and `tilelang` so far, there are so many DSLs!). Check out some of the PRs we did for different DSLs ([#35](https://github.com/ScalingIntelligence/KernelBench/pull/35) [#80](https://github.com/ScalingIntelligence/KernelBench/pull/80)) as reference, feel free to start a PR on that and the team can work with it. We basically need a sample prompt and a backend logic for eval if it is any different from the current inline approach.
+
+Thanks for that.. will probably try to get started with a PR shortly as suggested above. 
+
+### simonguozirui · 2025-12-03
+
+Awesome, let us know! Would be curious to see what Mojo format would be like. Let me know if you want to discuss with the team (@nathanjpaek, Willy, and I, etc) on how backend implementation should look. 
+
+### rajuptvs · 2025-12-22
+
+hi @simonguozirui, that sounds awesome, it would be great if i could discuss how the backend might look like.

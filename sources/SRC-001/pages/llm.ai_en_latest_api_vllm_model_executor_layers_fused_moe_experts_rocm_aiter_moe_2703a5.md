@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/rocm_aiter_moe/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 def rocm_aiter_fused_experts(
 hidden_states: torch.Tensor,
@@ -141,10 +141,11 @@ intermediate_pad // 64 * 64 * (2 if moe_config.tp_size == 1 else 1)
 from aiter.ops.flydsl.moe_common import GateMode
 gate_mode = ""
 if activation == MoEActivation.SITU:
-# SiTUv2 flydsl (VLLM_ROCM_USE_AITER_MOE_SITUV2=1) uses a4w4
-# fp4 activations with separated gate/up weights (AITER #4463);
-# default a16w4 SiTU also stays separated.
-gate_mode = GateMode.SEPARATED.value
+gate_mode = (
+GateMode.INTERLEAVE.value
+if rocm_aiter_ops.is_fused_moe_situv2_gate_up_interleaved()
+else GateMode.SEPARATED.value
+)
 elif quant_config.use_mxfp4_w4a16:
 gate_mode = GateMode.INTERLEAVE.value
 elif activation_interleave is not None:

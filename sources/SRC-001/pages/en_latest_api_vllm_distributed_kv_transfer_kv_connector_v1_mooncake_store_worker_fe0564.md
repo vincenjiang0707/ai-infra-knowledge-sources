@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/worker/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -306,6 +306,9 @@ Methods:
 –[get_finished](https://docs.vllm.ai#vllm.distributed.kv_transfer.kv_connector.v1.mooncake.store.worker.MooncakeStoreWorker.get_finished)Get completed send/recv request IDs.
 
 -
+–[get_mem_pool_context](https://docs.vllm.ai#vllm.distributed.kv_transfer.kv_connector.v1.mooncake.store.worker.MooncakeStoreWorker.get_mem_pool_context)Return a context manager for the custom MemPool, or None if
+
+-
 –[get_transfer_results](https://docs.vllm.ai#vllm.distributed.kv_transfer.kv_connector.v1.mooncake.store.worker.MooncakeStoreWorker.get_transfer_results)Get completed sends/recvs plus requests whose remote KV load failed.
 
 -
@@ -421,6 +424,17 @@ Closing the store frees its TransferEngine, the registered RDMA buffers, and the
 Get completed send/recv request IDs.
 
 Loads are issued in start_load_kv() and stores in wait_for_save().
+
+## Source code in `vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/worker.py`
+
+
+###
+
+`get_mem_pool_context()`
+
+[¶](https://docs.vllm.ai#vllm.distributed.kv_transfer.kv_connector.v1.mooncake.store.worker.MooncakeStoreWorker.get_mem_pool_context)
+
+Return a context manager for the custom MemPool, or None if no custom pool is configured.
 
 ## Source code in `vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/worker.py`
 

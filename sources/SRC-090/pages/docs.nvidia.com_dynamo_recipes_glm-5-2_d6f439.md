@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/recipes/glm-5-2
-lastmod: 2026-09-24T19:58:16.636Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 GLM-5.3/5.2
 

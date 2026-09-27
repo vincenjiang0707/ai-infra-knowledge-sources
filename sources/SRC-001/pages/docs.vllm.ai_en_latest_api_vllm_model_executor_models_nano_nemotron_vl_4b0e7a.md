@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/nano_nemotron_vl/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @MULTIMODAL_REGISTRY.register_processor(
 NanoNemotronVLMultiModalProcessor,
@@ -10,6 +10,7 @@ class NemotronH_Nano_VL_V2(
 nn.Module,
 HasInnerState,
 IsHybrid,
+SupportsEagle3,
 SupportsMultiModal,
 SupportsMultiModalPruning,
 SupportsLoRA,

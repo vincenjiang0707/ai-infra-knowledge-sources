@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/kda_checkpoint/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @dataclass(frozen=True)
 class FlashKDAPrefillCheckpointExporter(MambaPrefillCheckpointExporter):

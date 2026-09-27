@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/gemma4_dspark/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @support_torch_compile
 class Gemma4DSparkModel(DFlashQwen3Model):
@@ -53,6 +53,18 @@ config.vocab_size,
 draft_vocab_size,
 config.markov_rank,
 prefix=maybe_prefix(prefix, "markov_head"),
+)
+self.confidence_head: DSparkConfidenceHead | None = None
+if getattr(config, "enable_confidence_head", False):
+with_markov = getattr(config, "confidence_head_with_markov", False)
+input_dim = config.hidden_size
+if with_markov:
+input_dim += config.markov_rank
+self.confidence_head = DSparkConfidenceHead(
+input_dim,
+prefix=maybe_prefix(prefix, "confidence_head"),
+bias=True,
+with_markov=with_markov,
 )
 def embed_input_ids(self, input_ids: torch.Tensor) -> torch.Tensor:
 return self.embed_tokens(input_ids) * self.normalizer

@@ -97,7 +97,7 @@ These are keyed by pod name on a router instance shared by all models. The two h
 - For the per-request maps, key by `namespace/name` or by pod pointer, and stop resolving the selected pod back through `FilterPodByName`.
 
 
-## 评论 (2)
+## 评论 (3)
 
 ### github-actions[bot] · 2026-09-24
 
@@ -121,3 +121,16 @@ Two small things on the Preble entry, in case they help. `tree.go:47` looks live
 
 The rest of the tree looks clean: the remaining hits are either `namespace/name` keys (`utils.GeneratePodKey`), lists already scoped to one namespace (`client.InNamespace`, `informers.WithNamespace`), test-only, or not pod-keyed maps at all.
 
+### hengguangcui11-cyber · 2026-09-27
+
+Hi @qidaye, I'd like to pick up the **Prefix hash index** item (Medium) as a follow-up to #2802, unless you're already planning to do it yourself. I didn't want to duplicate work.
+
+What I have in mind, based on current main:
+
+- Key `modelToPods` in `pkg/utils/prefixcacheindexer/hash.go` by `utils.GeneratePodKey(namespace, name)` instead of the bare pod name, and update the three writers (`prefix_cache.go` in both router paths, and the PD router in `pd_disaggregation.go`).
+- Switch the ready-pod set that `MatchPrefix` results are filtered against to the same key, so a prefix cached on `team-a/decode-0` is no longer credited to `team-b/decode-0`. The KV-event sync indexer already uses `namespace/name`, so this would bring the two indexers in line.
+- Add a test with two same-named pods in different namespaces, one holding the prefix and one not, and assert that only the right one matches.
+
+One question: since this index is synced across gateway replicas, is it OK for the key format to change in a single release? During a rolling upgrade, old and new replicas would briefly disagree on keys, and entries written by the old version would just stop matching until they're evicted by TTL. That seems acceptable to me since the only effect is lost cache hits, not wrong routing, but I'll follow your lead if you'd prefer a different migration.
+
+If this sounds good, I can also take `ListPortsForPod` (`pkg/utils/pod_array.go`) that @bolubo pointed out above, as a separate small PR.

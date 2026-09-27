@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/cpu/data/nixl/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class NixlDataTransport(DataTransport):
 """Adapts NixlWrapper to the DataTransport interface.

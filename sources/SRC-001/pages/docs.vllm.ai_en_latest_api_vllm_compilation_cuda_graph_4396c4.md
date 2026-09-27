@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/cuda_graph/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class CUDAGraphWrapper:
 """Wraps a runnable to add CUDA graph capturing and replaying ability. And
@@ -21,7 +21,7 @@ is done outside of the wrapper. That is because we do not make any
 assumption on the dynamic shape (batch size) of the runtime inputs, as a
 trade-off for staying orthogonal to compilation logic. Nevertheless,
 tracing and checking the input addresses to be consistent during replay is
-guaranteed when VLLM_LOGGING_LEVEL == "DEBUG".
+guaranteed when vLLM debug logging is enabled.
 """
 _all_instances: ClassVar[weakref.WeakSet["CUDAGraphWrapper"]] = weakref.WeakSet()
 @classmethod
@@ -41,7 +41,7 @@ self.vllm_config = vllm_config
 self.runtime_mode = runtime_mode
 self.compilation_config = vllm_config.compilation_config
 self.first_run_finished = False
-self.is_debugging_mode = envs.VLLM_LOGGING_LEVEL == "DEBUG"
+self.is_debugging_mode = logger.isEnabledFor(logging.DEBUG)
 self._runnable_str = str(runnable) if self.is_debugging_mode else None
 # assert runtime_mode is not NONE(no cudagraph), otherwise, we don't
 # need to initialize a CUDAGraphWrapper.

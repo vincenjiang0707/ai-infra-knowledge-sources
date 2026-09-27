@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/mxfp4/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class Mxfp4MoEMethod(FusedMoEMethodBase):
 """MXFP4 MoE quantization method."""
@@ -344,7 +344,7 @@ topk_weights: torch.Tensor,
 topk_ids: torch.Tensor,
 shared_experts: SharedExperts | None,
 shared_experts_input: torch.Tensor | None,
-) -> torch.Tensor:
+) -> torch.Tensor | UnfinalizedMoEOutput:
 assert not self.is_monolithic
 assert self.moe_kernel is not None
 return self.moe_kernel.apply(

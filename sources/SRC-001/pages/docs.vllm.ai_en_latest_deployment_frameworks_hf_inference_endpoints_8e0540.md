@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/frameworks/hf_inference_endpoints/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Hugging Face Inference Endpoints[¶](https://docs.vllm.ai#hugging-face-inference-endpoints)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/parallel_state/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -58,6 +58,13 @@ Functions:
 –[ensure_model_parallel_initialized](https://docs.vllm.ai#vllm.distributed.parallel_state.ensure_model_parallel_initialized)Helper to initialize model parallel groups if they are not initialized,
 
 -
+–[get_dcp_world_size_and_rank](https://docs.vllm.ai#vllm.distributed.parallel_state.get_dcp_world_size_and_rank)Return
+
+`(world_size, rank)`
+
+in the DCP group, or`(1, 0)`
+
+when disabled -
 –[get_engram_dp_group](https://docs.vllm.ai#vllm.distributed.parallel_state.get_engram_dp_group)Return the DP replicas that share one engram embedding table.
 
 -
@@ -817,6 +824,21 @@ Set the groups to none and destroy them.
 [¶](https://docs.vllm.ai#vllm.distributed.parallel_state.ensure_model_parallel_initialized)
 
 Helper to initialize model parallel groups if they are not initialized, or ensure tensor-parallel and pipeline-parallel sizes are equal to expected values if the model parallel groups are initialized.
+
+## Source code in `vllm/distributed/parallel_state.py`
+
+
+##
+
+`get_dcp_world_size_and_rank(enabled=True)`
+
+[¶](https://docs.vllm.ai#vllm.distributed.parallel_state.get_dcp_world_size_and_rank)
+
+Return `(world_size, rank)`
+
+in the DCP group, or `(1, 0)`
+
+when disabled (e.g. a replicated draft cache) or the group is uninitialized (unit tests).
 
 ## Source code in `vllm/distributed/parallel_state.py`
 

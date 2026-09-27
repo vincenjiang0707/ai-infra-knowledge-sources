@@ -21,8 +21,12 @@ English discovery page: https://lora-sys.github.io/nano-vllm-interactive-guide/e
 
 The project explicitly distinguishes concept simulations from real CUDA traces and benchmark claims. Since this list is strongly focused on inference papers and code, would a single entry in a Learning Resources or Tutorials subsection be in scope? If not, no action is needed; I would prefer to follow the list's intended taxonomy.
 
-## 评论 (1)
+## 评论 (2)
 
 ### github-actions[bot] · 2026-09-20
 
 This issue is stale because it has been open for 30 days with no activity.
+
+### github-actions[bot] · 2026-09-27
+
+This issue was closed because it has been inactive for 7 days since being marked as stale.

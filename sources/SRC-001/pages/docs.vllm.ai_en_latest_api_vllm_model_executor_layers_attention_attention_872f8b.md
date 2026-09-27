@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/attention/attention/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class Attention(nn.Module, AttentionLayerBase):
 """Attention layer.

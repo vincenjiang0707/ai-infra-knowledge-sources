@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/interns2_mobius/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class InternS2MobiusMetaMoeBlock(nn.Module):
 """A routed MoE bank shared by multiple decoder layers."""

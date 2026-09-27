@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/modular_kernel/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -372,6 +372,12 @@ Returns:
 [¶](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.modular_kernel.FusedMoEExpertsModular.apply)
 
 This function computes the intermediate result of a Mixture of Experts (MoE) layer using two sets of weights, w1 and w2.
+
+Writes into `output`
+
+and returns None, unless the implementation stopped after GEMM2 and left the top-k reduction to a fused consumer, in which case `output`
+
+is untouched and the unfinalized result is returned.
 
 Parameters:
 
@@ -884,7 +890,15 @@ Returns:
 
 -
 
-–[Tensor](https://pytorch.org/docs/stable/tensors.html#torch.Tensor)torch.Tensor: The output tensor after applying the MoE layer.
+–[Tensor](https://pytorch.org/docs/stable/tensors.html#torch.Tensor)|[UnfinalizedMoEOutput](https://docs.vllm.ai/moe_output/#vllm.model_executor.layers.fused_moe.moe_output.UnfinalizedMoEOutput)torch.Tensor: The output tensor after applying the MoE layer, or
+
+-
+
+–[Tensor](https://pytorch.org/docs/stable/tensors.html#torch.Tensor)|[UnfinalizedMoEOutput](https://docs.vllm.ai/moe_output/#vllm.model_executor.layers.fused_moe.moe_output.UnfinalizedMoEOutput)the unfinalized output when the experts left the top-k reduction to
+
+-
+
+–[Tensor](https://pytorch.org/docs/stable/tensors.html#torch.Tensor)|[UnfinalizedMoEOutput](https://docs.vllm.ai/moe_output/#vllm.model_executor.layers.fused_moe.moe_output.UnfinalizedMoEOutput)a fused consumer.
 
 
 ## Source code in `vllm/model_executor/layers/fused_moe/modular_kernel.py`
@@ -949,6 +963,11 @@ Methods:
 –[supports_async](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.modular_kernel.FusedMoEPrepareAndFinalize.supports_async)Indicates whether or not this class implements prepare_async and
 
 -
+–[supports_deferred_moe_finalize](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.modular_kernel.FusedMoEPrepareAndFinalize.supports_deferred_moe_finalize)Whether
+
+`finalize`
+
+can be skipped for a deferring consumer. -
 –[topk_indices_dtype](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.modular_kernel.FusedMoEPrepareAndFinalize.topk_indices_dtype)The PrepareFinalize All2All implementations generally constrain the
 
 
@@ -1016,6 +1035,23 @@ Initialize FusedMoEPrepareAndFinalizeModular settings that depend on FusedMoEExp
 [¶](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.modular_kernel.FusedMoEPrepareAndFinalize.supports_async)
 
 Indicates whether or not this class implements prepare_async and finalize_async.
+
+###
+
+`supports_deferred_moe_finalize()`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.modular_kernel.FusedMoEPrepareAndFinalize.supports_deferred_moe_finalize)
+
+Whether `finalize`
+
+can be skipped for a deferring consumer.
+
+An implementation opts in only if everything it does in `finalize`
+
+-- the top-k reduction, and any combine or reduce-scatter -- is work the consumer takes over.
+
+## Source code in `vllm/model_executor/layers/fused_moe/modular_kernel.py`
+
 
 ###
 

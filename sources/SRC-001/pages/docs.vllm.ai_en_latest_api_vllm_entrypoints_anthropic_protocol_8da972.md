@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/anthropic/protocol/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -49,6 +49,12 @@ Classes:
 
 -
 –[AnthropicStreamEvent](https://docs.vllm.ai#vllm.entrypoints.anthropic.protocol.AnthropicStreamEvent)Streaming event.
+
+-
+–[AnthropicThinkingConfigAdaptive](https://docs.vllm.ai#vllm.entrypoints.anthropic.protocol.AnthropicThinkingConfigAdaptive)Extended thinking whose depth the model chooses.
+
+-
+–[AnthropicThinkingConfigEnabled](https://docs.vllm.ai#vllm.entrypoints.anthropic.protocol.AnthropicThinkingConfigEnabled)Extended thinking with a fixed token budget.
 
 -
 –[AnthropicTool](https://docs.vllm.ai#vllm.entrypoints.anthropic.protocol.AnthropicTool)Tool definition.
@@ -168,6 +174,9 @@ Anthropic Messages API request.
 ## Source code in `vllm/entrypoints/anthropic/protocol.py`
 
 
+|
+|
+
 ##
 
 `AnthropicMessagesResponse`
@@ -206,6 +215,42 @@ Bases: `BaseModel`
 
 
 Streaming event.
+
+## Source code in `vllm/entrypoints/anthropic/protocol.py`
+
+
+##
+
+`AnthropicThinkingConfigAdaptive`
+
+[¶](https://docs.vllm.ai#vllm.entrypoints.anthropic.protocol.AnthropicThinkingConfigAdaptive)
+
+Bases: `BaseModel`
+
+
+Extended thinking whose depth the model chooses.
+
+`display`
+
+is accepted but ignored: reasoning is always returned.
+
+## Source code in `vllm/entrypoints/anthropic/protocol.py`
+
+
+##
+
+`AnthropicThinkingConfigEnabled`
+
+[¶](https://docs.vllm.ai#vllm.entrypoints.anthropic.protocol.AnthropicThinkingConfigEnabled)
+
+Bases: `BaseModel`
+
+
+Extended thinking with a fixed token budget.
+
+`display`
+
+is accepted but ignored: reasoning is always returned.
 
 ## Source code in `vllm/entrypoints/anthropic/protocol.py`
 

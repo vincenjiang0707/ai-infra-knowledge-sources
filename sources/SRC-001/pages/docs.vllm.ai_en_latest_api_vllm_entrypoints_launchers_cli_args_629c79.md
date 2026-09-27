@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/launchers/cli_args/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -49,6 +49,15 @@ Methods:
 Attributes:
 
 -
+([anthropic_disabled_thinking_effort](https://docs.vllm.ai#vllm.entrypoints.launchers.cli_args.BaseFrontendArgs.anthropic_disabled_thinking_effort)`AnthropicDisabledThinkingEffortOption`
+
+) –Anthropic
+
+`/v1/messages`
+
+only. The`reasoning_effort`
+
+used for -
 ([chat_template](https://docs.vllm.ai#vllm.entrypoints.launchers.cli_args.BaseFrontendArgs.chat_template)
 
 ) –[str](https://docs.python.org/3/builtins/stdtypes.html#str)| NoneThe file path to the chat template, or the template in single-line form
@@ -150,11 +159,6 @@ field on responses. -
 `--fingerprint-mode=custom`
 
 . -
-([log_config_file](https://docs.vllm.ai#vllm.entrypoints.launchers.cli_args.BaseFrontendArgs.log_config_file)
-
-) –[str](https://docs.python.org/3/builtins/stdtypes.html#str)| NonePath to logging config JSON file for both vllm and uvicorn
-
--
 ([log_error_stack](https://docs.vllm.ai#vllm.entrypoints.launchers.cli_args.BaseFrontendArgs.log_error_stack)
 
 ) –[bool](https://docs.python.org/3/builtins/functions.html#bool)If set to True, log the stack trace of error responses
@@ -218,12 +222,51 @@ is specified, represents single tokens as -
 
 ) –[bool](https://docs.python.org/3/builtins/functions.html#bool)Whether to trust the chat template provided in the request. If False,
 
+-
+([trust_request_mm_kwargs](https://docs.vllm.ai#vllm.entrypoints.launchers.cli_args.BaseFrontendArgs.trust_request_mm_kwargs)
+
+) –[bool](https://docs.python.org/3/builtins/functions.html#bool)Whether to trust per-request multimodal kwargs (
+
+`mm_processor_kwargs`
+
 
 ## Source code in `vllm/entrypoints/launchers/cli_args.py`
 
 
 |
 |
+
+###
+
+`anthropic_disabled_thinking_effort = 'auto'`
+
+`class-attribute`
+
+`instance-attribute`
+
+[¶](https://docs.vllm.ai#vllm.entrypoints.launchers.cli_args.BaseFrontendArgs.anthropic_disabled_thinking_effort)
+
+Anthropic `/v1/messages`
+
+only. The `reasoning_effort`
+
+used for requests with `thinking: {"type": "disabled"}`
+
+. `none`
+
+turns thinking off for models that support it; `low`
+
+suits models that always think (e.g. GLM-5.3) or reject `none`
+
+(e.g. gpt-oss). `auto`
+
+(default) uses `low`
+
+when the renderer rejects `none`
+
+or renders it the same as a thinking effort, and `none`
+
+otherwise.
 
 ###
 
@@ -498,18 +541,6 @@ Literal fingerprint string used when `--fingerprint-mode=custom`
 
 ###
 
-`log_config_file = envs.VLLM_LOGGING_CONFIG_PATH`
-
-`class-attribute`
-
-`instance-attribute`
-
-[¶](https://docs.vllm.ai#vllm.entrypoints.launchers.cli_args.BaseFrontendArgs.log_config_file)
-
-Path to logging config JSON file for both vllm and uvicorn
-
-###
-
 `log_error_stack = envs.VLLM_SERVER_DEV_MODE`
 
 `class-attribute`
@@ -684,6 +715,22 @@ additionally pins argument schemas, as if every tool were `strict: true`
 Whether to trust the chat template provided in the request. If False, the server will always use the chat template specified by `--chat-template`
 
 or the ones from tokenizer.
+
+###
+
+`trust_request_mm_kwargs = False`
+
+`class-attribute`
+
+`instance-attribute`
+
+[¶](https://docs.vllm.ai#vllm.entrypoints.launchers.cli_args.BaseFrontendArgs.trust_request_mm_kwargs)
+
+Whether to trust per-request multimodal kwargs (`mm_processor_kwargs`
+
+and `media_io_kwargs`
+
+). If False, the server rejects non-empty values because they can change multimodal preprocessing resource usage. Only enable this when API clients are trusted.
 
 ###
 

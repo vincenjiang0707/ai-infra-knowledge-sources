@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/ray_serving/ray_serve_deepseek/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Ray Serve Deepseek[¶](https://docs.vllm.ai#ray-serve-deepseek)
 

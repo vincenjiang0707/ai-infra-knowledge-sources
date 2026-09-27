@@ -16,4 +16,17 @@ ImportError: cannot import name 'REQUIRED' from 'pydra' (unknown location)
 I'm using pydra 0.24.
 
 
-## 评论 (0)
+## 评论 (3)
+
+### agnonchik · 2025-03-05
+
+pydra 0.25 gives the same error.
+
+### agnonchik · 2025-03-18
+
+The issue disappeared
+
+### simonguozirui · 2025-03-25
+
+Make sure you install `pydra` correctly with the `pip install pydra-config`.
+If that doesn't work, you can try building from source, see https://github.com/jordan-benjamin/pydra by @jordan-benjamin.

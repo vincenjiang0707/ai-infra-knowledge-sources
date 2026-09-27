@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/device_allocator/cumem/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class CuMemAllocator:
 """A singleton class that manages a memory pool for CUDA tensors.
@@ -254,13 +254,17 @@ tag = CuMemAllocator.default_tag
 assert isinstance(tag, str)
 # Expandable segments are incompatible with the memory pool used for
 # sleep mode (see https://github.com/pytorch/pytorch/issues/147851).
-# If the user has enabled expandable segments via
-# PYTORCH_CUDA_ALLOC_CONF, temporarily disable them for the duration
-# of the memory pool context and restore on exit.
-conf = os.environ.get("PYTORCH_CUDA_ALLOC_CONF", "")
-expandable_was_enabled = "expandable_segments:True" in conf
+# If the user has enabled expandable segments, temporarily disable
+# them for the duration of the memory pool context and restore on
+# exit. The whole config string is rewritten, not just this one
+# field: torch resets every option that is absent from the string it
+# is handed, so a bare "expandable_segments:False" would also drop
+# max_split_size_mb, garbage_collection_threshold and
+# roundup_power2_divisions for the rest of the process.
+prev_conf = current_alloc_conf()
+expandable_was_enabled = conf_flag_enabled(prev_conf, EXPANDABLE_SEGMENTS)
 if expandable_was_enabled:
-torch.cuda.memory._set_allocator_settings("expandable_segments:False")
+set_alloc_conf(with_conf_flag(prev_conf, EXPANDABLE_SEGMENTS, False))
 old_tag = self.current_tag
 self.current_tag = tag
 try:
@@ -293,7 +297,7 @@ unmap_and_release(handle)
 finally:
 self.current_tag = old_tag
 if expandable_was_enabled:
-torch.cuda.memory._set_allocator_settings("expandable_segments:True")
+set_alloc_conf(prev_conf)
 def get_current_usage(self) -> int:
 """Get the total number of bytes allocated in the memory pool."""
 sum_bytes: int = 0

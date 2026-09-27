@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/nvidia/ops/mhc/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -12,6 +12,9 @@ Dispatch DSV4.1 mHC operations and overlap coefficient generation.
 Functions:
 
 -
+–[init_mhc_all_reduce](https://docs.vllm.ai#vllm.models.deepseek_v41.nvidia.ops.mhc.init_mhc_all_reduce)Build the fused all-reduce + mHC kernel the overlap path reduces with.
+
+-
 –[mhc_pre_delayed_overlap](https://docs.vllm.ai#vllm.models.deepseek_v41.nvidia.ops.mhc.mhc_pre_delayed_overlap)Prepare the input on the caller stream and coefficients on another stream.
 
 -
@@ -19,6 +22,21 @@ Functions:
 
 -
 –[supports_mhc_overlap](https://docs.vllm.ai#vllm.models.deepseek_v41.nvidia.ops.mhc.supports_mhc_overlap)Check kernel requirements and safety of sharing the coefficient stream.
+
+
+##
+
+`init_mhc_all_reduce(vllm_config)`
+
+[¶](https://docs.vllm.ai#vllm.models.deepseek_v41.nvidia.ops.mhc.init_mhc_all_reduce)
+
+Build the fused all-reduce + mHC kernel the overlap path reduces with.
+
+Collective over the TP group, so every rank must call it, and only when `supports_mhc_all_reduce`
+
+holds.
+
+## Source code in `vllm/models/deepseek_v41/nvidia/ops/mhc.py`
 
 
 ##
@@ -45,7 +63,7 @@ Returns post mix, residual mix, normalized input, and next pre-mix. Only the inp
 
 Dispatch shifted post/pre to overlap, Mega-mHC, or fused TileLang.
 
-When stream is supplied, join it before consuming the returned coefficients.
+A MoE output left unfinalized is finalized inside the fused all-reduce. When stream is supplied, join it before consuming the returned coefficients.
 
 ## Source code in `vllm/models/deepseek_v41/nvidia/ops/mhc.py`
 

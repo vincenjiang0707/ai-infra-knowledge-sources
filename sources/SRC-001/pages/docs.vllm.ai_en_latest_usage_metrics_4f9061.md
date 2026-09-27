@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/usage/metrics/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Production Metrics[¶](https://docs.vllm.ai#production-metrics)
 
@@ -90,6 +90,33 @@ The following metrics are exposed:
 `vllm:nixl_num_descriptors` | Histogram | Histogram of number of descriptors per NIXL KV Cache transfers. |
 `vllm:nixl_post_time_seconds` | Histogram | Histogram of transfer post time for NIXL KV Cache transfers. |
 `vllm:nixl_xfer_time_seconds` | Histogram | Histogram of transfer duration for NIXL KV Cache transfers. |
+
+## Simple CPU Offload Connector Metrics[¶](https://docs.vllm.ai#simple-cpu-offload-connector-metrics)
+
+These metrics are exposed when the [ SimpleCPUOffloadConnector](https://docs.vllm.ai/api/vllm/distributed/kv_transfer/kv_connector/v1/simple_cpu_offload_connector/#vllm.distributed.kv_transfer.kv_connector.v1.simple_cpu_offload_connector.SimpleCPUOffloadConnector) KV connector is configured (e.g.
+
+`--kv-transfer-config='{"kv_connector": "SimpleCPUOffloadConnector", "kv_role": "kv_both", "kv_connector_extra_config": {"kv_offload_backend": "disk", "disk_path": "/mnt/nvme/kv"}}'`
+
+). They are updated once per engine step.Caveats to keep in mind when interpreting them:
+
+- A "completed" store means the write syscalls returned; it is
+**not**fsync-durable, and the disk backend's file is process-lifetime scratch, unlinked at startup and shutdown. `save_outcomes_total`
+
+classifies eager-mode boundary hand-off stores; lazy-mode stores are not classified.`used_blocks`
+
+counts blocks pinned by in-flight transfers or cache hits; warm cached blocks that are evictable are not counted. Use the`capacity_blocks`
+
+label of`simple_kv_offload_info`
+
+as the denominator.- Counters and gauges are quantized to engine steps. They are reported by the scheduler process and reflect engine-wide logical block counts, not values pooled from individual tensor-parallel workers.
+
+| Metric Name | Type | Description |
+|---|---|---|
+`vllm:simple_kv_offload_load_blocks_total` | Counter | KV blocks restored to GPU from the offload pool, counted when a load finishes. This is prefill work avoided through offload cache hits. |
+`vllm:simple_kv_offload_save_outcomes_total` | Counter | Store admission decisions in SimpleCPUOffloadConnector, by outcome. Outcomes classify eager-mode boundary hand-off stores; lazy-mode stores are not classified. |
+`vllm:simple_kv_offload_info` | Gauge | SimpleCPUOffloadConnector deployment facts. Value is always 1. backend is cpu or disk; page_cache and lazy_offload are true/false; capacity_blocks is the offload pool size. |
+`vllm:simple_kv_offload_pending_store_blocks` | Gauge | Offload blocks in pending stores: queued for dispatch, issued to workers, or awaiting release after a cache reset. A persistently growing value indicates a stuck transfer. |
+`vllm:simple_kv_offload_used_blocks` | Gauge | Offload-pool blocks currently pinned by in-flight transfers or cache hits (capacity minus free). Evictable cached blocks are not counted; capacity_blocks is on vllm:simple_kv_offload_info. |
 
 ## Model Flops Utilization (MFU) Performance Metrics[¶](https://docs.vllm.ai#model-flops-utilization-mfu-performance-metrics)
 

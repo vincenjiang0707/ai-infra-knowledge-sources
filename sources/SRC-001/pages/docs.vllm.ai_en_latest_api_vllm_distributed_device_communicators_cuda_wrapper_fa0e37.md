@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/device_communicators/cuda_wrapper/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class CudaRTLibrary:
 exported_functions = [

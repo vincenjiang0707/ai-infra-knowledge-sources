@@ -1,12 +1,12 @@
 # vllm-project/aibrix
 
 - stars: 5113
-- forks: 700
-- open_issues: 387
+- forks: 704
+- open_issues: 390
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-25T03:09:36Z
+- pushed_at: 2026-09-26T23:20:57Z
 - homepage: 
 
 ## README

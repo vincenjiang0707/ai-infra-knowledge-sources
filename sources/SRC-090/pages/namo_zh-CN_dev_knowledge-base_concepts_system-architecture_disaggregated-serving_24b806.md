@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/zh-CN/dev/knowledge-base/concepts/system-architecture/disaggregated-serving
-lastmod: 2026-09-23T23:30:39.914Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 分离式服务
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/olmoe/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class OlmoeMoE(nn.Module):
 """A tensor-parallel MoE implementation for Olmoe that shards each expert

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/serving/online_serving/derenderer/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Derenderer APIs[¶](https://docs.vllm.ai#derenderer-apis)
 

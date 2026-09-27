@@ -1,7 +1,10 @@
 source: https://docs.nvidia.com/dynamo/zh-CN/kubernetes/fault-tolerance/request-migration
-lastmod: 2026-09-24T19:58:16.636Z
+lastmod: 2026-09-26T16:50:12.551Z
 
-# 请求迁移
+请求迁移
+
+
+请求迁移
 
 本文档介绍 Dynamo 如何实现请求迁移，以便在 LLM 文本生成期间优雅地处理 worker 故障。请求迁移允许正在处理的请求在原始 worker 不可用时继续在其他 worker 上执行，从而提供故障容错能力并改善用户体验。
 

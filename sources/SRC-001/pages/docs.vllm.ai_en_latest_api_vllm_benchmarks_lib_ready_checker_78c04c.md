@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/benchmarks/lib/ready_checker/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Wait for an endpoint to become available before starting benchmarks.
 

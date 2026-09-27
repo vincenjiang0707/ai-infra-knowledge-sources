@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp8/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -17,6 +17,11 @@ Modules:
 –[flashinfer](https://docs.vllm.ai/flashinfer/#vllm.model_executor.kernels.linear.mxfp8.flashinfer) -
 –[humming](https://docs.vllm.ai/humming/#vllm.model_executor.kernels.linear.mxfp8.humming) -
 –[marlin](https://docs.vllm.ai/marlin/#vllm.model_executor.kernels.linear.mxfp8.marlin) -
+–[rocm_block32_gemm](https://docs.vllm.ai/rocm_block32_gemm/#vllm.model_executor.kernels.linear.mxfp8.rocm_block32_gemm)MXFP8 GEMM on 32x32 block-scaled weights for gfx950 (
+
+`tl.dot_scaled`
+
+). -
 –[rocm_native](https://docs.vllm.ai/rocm_native/#vllm.model_executor.kernels.linear.mxfp8.rocm_native)Native MXFP8 linear GEMM for AMD CDNA4 (gfx950) via Triton
 
 `tl.dot_scaled`
@@ -41,3 +46,5 @@ Classes:
 Configuration for an MXFP8 linear layer.
 
 All MXFP8 layers share the same structure: FP8-E4M3 weights with uint8 (E8M0) per-block scales at block size 32.
+
+Attributes:

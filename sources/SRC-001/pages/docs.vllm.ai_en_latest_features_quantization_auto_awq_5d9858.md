@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/quantization/auto_awq/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # AutoAWQ[¶](https://docs.vllm.ai#autoawq)
 

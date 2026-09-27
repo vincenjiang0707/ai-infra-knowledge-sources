@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/runner/moe_runner/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class MoERunner(MoERunnerInterface):
 """Standard MoE runner implementation for executing Mixture of Experts layers.

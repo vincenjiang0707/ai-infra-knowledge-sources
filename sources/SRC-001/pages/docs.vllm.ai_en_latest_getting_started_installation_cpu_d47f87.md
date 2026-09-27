@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/getting_started/installation/cpu/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # CPU[¶](https://docs.vllm.ai#cpu)
 
@@ -312,12 +312,10 @@ Before use vLLM CPU installed via wheels, make sure TCMalloc is installed and ad
 
 After installation of XCode and the Command Line Tools, which include Apple Clang, execute the following commands to build and install vLLM from source.
 
-```bash
 git clone https://github.com/vllm-project/vllm.git
 cd vllm
 uv pip install -r requirements/cpu.txt
 uv pip install -e .
-```
 
 
 Note
@@ -365,26 +363,22 @@ On Apple Clang 16 you should see:`#define __cplusplus 201703L`
 Install the following packages from the package manager before building the vLLM. For example on RHEL 9.6:
 
 dnf install -y \
-```bash
 which procps findutils tar vim git patch xz ninja-build \
 gcc-toolset-14 gcc-toolset-14-binutils gcc-toolset-14-libatomic-devel zlib-devel \
 libjpeg-turbo-devel libtiff-devel libpng-devel libwebp-devel freetype-devel harfbuzz-devel \
 openssl-devel openblas openblas-devel autoconf automake libtool cmake numpy libsndfile \
 clang llvm-devel llvm-static clang-devel
-```
 
 
 Build and install `numactl`
 
 from source:
 
-```bash
 curl -LO https://github.com/numactl/numactl/archive/refs/tags/v2.0.19.tar.gz
 tar -xvzf v2.0.19.tar.gz
 cd numactl-2.0.19
 ./autogen.sh && ./configure && make && make install
 cd ..
-```
 
 
 Install rust>=1.80 which is needed for `outlines-core`
@@ -421,7 +415,6 @@ requires LLVM 20, but UBI 9.6 repos ship LLVM 21 which is not compatible. You mu
 
 :
 
-```bash
 curl -LO https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.8/llvm-project-20.1.8.src.tar.xz
 tar -xf llvm-project-20.1.8.src.tar.xz
 cmake -G Ninja -S llvm-project-20.1.8.src/llvm -B llvm-build \
@@ -437,7 +430,6 @@ cmake -G Ninja -S llvm-project-20.1.8.src/llvm -B llvm-build \
 -DLLVM_INCLUDE_EXAMPLES=OFF \
 -DLLVM_INCLUDE_BENCHMARKS=OFF
 ninja -C llvm-build install
-```
 
 
 Then build `llvmlite`
@@ -545,12 +537,10 @@ Currently, there are no pre-built IBM Z CPU images.
 
 #### Building for your target CPU[¶](https://docs.vllm.ai#building-for-your-target-cpu)
 
-```bash
 docker build -f docker/Dockerfile.cpu \
 --build-arg VLLM_CPU_X86=<false (default)|true> \ # For cross-compilation
 --tag vllm-cpu-env \
 --target vllm-openai .
-```
 
 
 #### Building with AMD Zen optimizations[¶](https://docs.vllm.ai#building-with-amd-zen-optimizations)
@@ -577,13 +567,11 @@ The resulting image accepts the same arguments and environment variables as `vll
 
 #### Building for your target ARM CPU[¶](https://docs.vllm.ai#building-for-your-target-arm-cpu)
 
-```bash
 docker build -f docker/Dockerfile.cpu \
 --platform=linux/arm64 \
 --build-arg VLLM_CPU_ARM_BF16=<false (default)|true> \
 --tag vllm-cpu-env \
 --target vllm-openai .
-```
 
 
 Auto-detection by default
@@ -636,7 +624,6 @@ ARM BF16 support requires ARMv8.6-A or later (FEAT_BF16). Supported on AWS Gravi
 #### Launching the OpenAI server[¶](https://docs.vllm.ai#launching-the-openai-server_1)
 
 docker run --rm \
-```bash
 --security-opt seccomp=unconfined \
 --cap-add SYS_NICE \
 --shm-size=4g \
@@ -647,7 +634,6 @@ vllm-cpu-arm64 \
 meta-llama/Llama-3.2-1B-Instruct \
 --dtype=bfloat16 \
 other vLLM OpenAI server arguments
-```
 
 
 Alternative to --privileged
@@ -658,7 +644,6 @@ Instead of `--privileged=true`
 
 for better security.
 
-```bash
 docker build -f docker/Dockerfile.s390x \
 --tag vllm-cpu-env .
 # Launch OpenAI server
@@ -673,7 +658,6 @@ vllm-cpu-env \
 --model meta-llama/Llama-3.2-1B-Instruct \
 --dtype bfloat16 \
 other vLLM OpenAI server arguments
-```
 
 
 Tip

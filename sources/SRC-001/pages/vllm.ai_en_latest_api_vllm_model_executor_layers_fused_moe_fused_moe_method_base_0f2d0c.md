@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/fused_moe_method_base/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -134,7 +134,7 @@ Returns:
 
 -
 
-–[Tensor](https://pytorch.org/docs/stable/tensors.html#torch.Tensor)Output tensor from routed experts.
+–[Tensor](https://pytorch.org/docs/stable/tensors.html#torch.Tensor)|[UnfinalizedMoEOutput](https://docs.vllm.ai/moe_output/#vllm.model_executor.layers.fused_moe.moe_output.UnfinalizedMoEOutput)Finalized routed states or a deferred-finalize output.
 
 
 ## Source code in `vllm/model_executor/layers/fused_moe/fused_moe_method_base.py`

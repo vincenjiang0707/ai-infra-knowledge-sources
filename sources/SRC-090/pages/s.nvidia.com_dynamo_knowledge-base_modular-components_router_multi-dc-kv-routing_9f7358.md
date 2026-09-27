@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/knowledge-base/modular-components/router/multi-dc-kv-routing
-lastmod: 2026-09-24T19:58:16.636Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 Multi-DC KV Routing and the DC Relay
 

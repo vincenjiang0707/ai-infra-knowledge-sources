@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -80,6 +80,13 @@ can have significant overhead because it -
 –[get_cached_tcp_store_client](https://docs.vllm.ai#vllm.distributed.get_cached_tcp_store_client)Return a cached TCPStore client.
 
 -
+–[get_dcp_world_size_and_rank](https://docs.vllm.ai#vllm.distributed.get_dcp_world_size_and_rank)Return
+
+`(world_size, rank)`
+
+in the DCP group, or`(1, 0)`
+
+when disabled -
 –[get_engram_dp_group](https://docs.vllm.ai#vllm.distributed.get_engram_dp_group)Return the DP replicas that share one engram embedding table.
 
 -
@@ -113,7 +120,7 @@ is a context manager which should surround the code that -
 –[init_gloo_process_group](https://docs.vllm.ai#vllm.distributed.init_gloo_process_group)Stateless init ProcessGroup with gloo backend compatible with
 
 -
-–[init_logger](https://docs.vllm.ai#vllm.distributed.init_logger)The main purpose of this function is to ensure that loggers are
+–[init_logger](https://docs.vllm.ai#vllm.distributed.init_logger)Retrieve a logger and add vLLM's convenience logging methods.
 
 -
 –[initialize_model_parallel](https://docs.vllm.ai#vllm.distributed.initialize_model_parallel)Initialize model parallel groups.
@@ -1080,6 +1087,21 @@ evicts the old entry.
 
 ##
 
+`get_dcp_world_size_and_rank(enabled=True)`
+
+[¶](https://docs.vllm.ai#vllm.distributed.get_dcp_world_size_and_rank)
+
+Return `(world_size, rank)`
+
+in the DCP group, or `(1, 0)`
+
+when disabled (e.g. a replicated draft cache) or the group is uninitialized (unit tests).
+
+## Source code in `vllm/distributed/parallel_state.py`
+
+
+##
+
 `get_engram_dp_group()`
 
 [¶](https://docs.vllm.ai#vllm.distributed.get_engram_dp_group)
@@ -1218,7 +1240,7 @@ Stateless init ProcessGroup with gloo backend compatible with different torch ve
 
 [¶](https://docs.vllm.ai#vllm.distributed.init_logger)
 
-The main purpose of this function is to ensure that loggers are retrieved in such a way that we can be sure the root vllm logger has already been configured.
+Retrieve a logger and add vLLM's convenience logging methods.
 
 ## Source code in `vllm/logger.py`
 
@@ -1458,7 +1480,7 @@ server is created directly using the pre-bound socket. This is useful for elimin
 
 Suppress stdout from C libraries at the file descriptor level.
 
-Only suppresses stdout, not stderr, to preserve error messages. Suppression is disabled when VLLM_LOGGING_LEVEL is set to DEBUG.
+Only suppresses stdout, not stderr, to preserve error messages. Suppression is disabled when vLLM debug logging is enabled.
 
 ## Example
 

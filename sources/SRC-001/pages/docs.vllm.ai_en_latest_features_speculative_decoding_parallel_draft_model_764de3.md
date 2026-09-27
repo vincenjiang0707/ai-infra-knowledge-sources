@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/speculative_decoding/parallel_draft_model/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Parallel Draft Models[¶](https://docs.vllm.ai#parallel-draft-models)
 
@@ -29,7 +29,6 @@ print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
 
 ## PARD Online Mode Example[¶](https://docs.vllm.ai#pard-online-mode-example)
 
-```bash
 vllm serve Qwen/Qwen3-4B \
 --host 0.0.0.0 \
 --port 8000 \
@@ -38,4 +37,3 @@ vllm serve Qwen/Qwen3-4B \
 --max-model-len 2048 \
 --gpu-memory-utilization 0.8 \
 --speculative-config '{"model": "amd/PARD-Qwen3-0.6B", "num_speculative_tokens": 12, "method": "draft_model", "parallel_drafting": true}'
-```

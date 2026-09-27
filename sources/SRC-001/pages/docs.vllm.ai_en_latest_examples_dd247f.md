@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Examples[¶](https://docs.vllm.ai#examples)
 

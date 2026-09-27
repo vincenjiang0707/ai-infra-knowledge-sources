@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class CompressedTensorsConfig(QuantizationConfig):
 def __init__(
@@ -379,6 +379,13 @@ return is_8_bits and is_token and weight_quant.symmetric and is_dynamic
 def _is_dynamic_token_w4a8_int(
 weight_quant: QuantizationArgs, input_quant: QuantizationArgs
 ) -> bool:
+if not weight_quant or not input_quant:
+return False
+if (
+weight_quant.type != QuantizationType.INT
+or input_quant.type != QuantizationType.INT
+):
+return False
 is_weight_4_bits = weight_quant.num_bits == 4
 is_activation_8_bits = input_quant.num_bits == 8
 weight_strategy = (
@@ -436,6 +443,11 @@ def _is_fp8_w4a8(
 weight_quant: QuantizationArgs, input_quant: QuantizationArgs
 ) -> bool:
 if not weight_quant or not input_quant:
+return False
+if (
+weight_quant.type != QuantizationType.INT
+or input_quant.type != QuantizationType.FLOAT
+):
 return False
 is_weight_4_bits = weight_quant.num_bits == 4
 is_activation_8_bits = input_quant.num_bits == 8

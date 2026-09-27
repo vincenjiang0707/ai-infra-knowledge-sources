@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/kernels/helion/ops/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -20,7 +20,7 @@ which triggers that op's `@register_kernel`
 
 as an import side effect.
 
-Tools that need the full registry (e.g. scripts/autotune_helion_kernels.py) call `import_all_ops()`
+Tools that need the full registry (e.g. tools/autotune_helion_kernels.py) call `import_all_ops()`
 
 to force every op module to register.
 

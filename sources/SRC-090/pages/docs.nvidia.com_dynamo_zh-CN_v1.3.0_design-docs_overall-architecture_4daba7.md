@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/zh-CN/v1.3.0/design-docs/overall-architecture
-lastmod: 2026-09-23T23:30:39.914Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 总体架构
 

@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:02:41Z",
- "finished_at": "2026-09-24T18:11:28Z",
- "duration_seconds": 63.7,
- "attempts": 2,
+ "finished_at": "2026-09-27T08:44:07Z",
+ "duration_seconds": 1506.4,
+ "attempts": 3,
  "channels": {
   "gh_a9cbc32e": {
    "type": "github_repo",
@@ -19,13 +19,23 @@
    "output": "github_repo.md",
    "issues": {
     "status": "ok",
-    "count": "cached",
-    "note": "head-check: no update since last run"
+    "count": 100,
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 88,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
-    "count": "cached",
-    "note": "head-check: no update since last run"
+    "count": 100,
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 100,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",
@@ -51,13 +61,23 @@
    "output": "github_repo.md",
    "issues": {
     "status": "ok",
-    "count": "cached",
-    "note": "head-check: no update since last run"
+    "count": 100,
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 57,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
     "status": "ok",
-    "count": "cached",
-    "note": "head-check: no update since last run"
+    "count": 65,
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 65,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "releases": {
     "status": "ok",

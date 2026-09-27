@@ -5,20 +5,15 @@
  "priority": "",
  "scrape_type": "github_repo",
  "blocked_reason": null,
- "status": "partial",
+ "status": "success",
  "started_at": "2026-09-23T03:42:00Z",
- "finished_at": "2026-09-25T10:07:28Z",
- "duration_seconds": 810.0,
- "attempts": 4,
+ "finished_at": "2026-09-27T04:04:31Z",
+ "duration_seconds": 1263.7,
+ "attempts": 5,
  "channels": {
   "gh_b71d2e6d": {
    "type": "github_repo",
-   "status": "error",
-   "error": "FileNotFoundError(2, 'No such file or directory')"
-  },
-  "gh_bdd0b728": {
-   "type": "github_repo",
-   "url": "https://github.com/NVIDIA/TensorRT-LLM",
+   "url": "https://github.com/vllm-project/vllm-ascend",
    "readme": "embedded",
    "status": "ok",
    "output": "github_repo.md",
@@ -27,7 +22,7 @@
     "count": 100,
     "note": "top-100 by updated_at desc (web default)",
     "details": {
-     "fetched": 56,
+     "fetched": 8,
      "appended": 0,
      "skipped": 0
     }
@@ -40,6 +35,48 @@
      "fetched": 100,
      "appended": 0,
      "skipped": 0
+    }
+   },
+   "releases": {
+    "status": "ok",
+    "count": 42
+   },
+   "changelog": {
+    "status": "ok",
+    "output": "github_changelog.md",
+    "from": "releases.body",
+    "probed": [
+     "CHANGELOG.md",
+     "CHANGES.md",
+     "HISTORY.md",
+     "NEWS.md"
+    ]
+   }
+  },
+  "gh_bdd0b728": {
+   "type": "github_repo",
+   "url": "https://github.com/NVIDIA/TensorRT-LLM",
+   "readme": "embedded",
+   "status": "ok",
+   "output": "github_repo.md",
+   "issues": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 3,
+     "appended": 1,
+     "skipped": 0
+    }
+   },
+   "pulls": {
+    "status": "ok",
+    "count": 100,
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 29,
+     "appended": 21,
+     "skipped": 36
     }
    },
    "releases": {
@@ -64,7 +101,7 @@
    "status": "ok",
    "output": "page.md",
    "mode": "page",
-   "chars": 2587
+   "chars": 2209
   },
   "ref_9277a9cb": {
    "type": "reference",
@@ -72,7 +109,7 @@
    "status": "ok",
    "output": "page.md",
    "mode": "page",
-   "chars": 6150
+   "chars": 6241
   },
   "ref_9d36082a": {
    "type": "reference",
@@ -85,19 +122,19 @@
  },
  "cursor": {
   "gh_b71d2e6d:issues": {
-   "last_updated_at": "2026-09-25T09:40:57Z"
+   "last_updated_at": "2026-09-26T11:24:16Z"
   },
   "gh_b71d2e6d:pulls": {
-   "last_updated_at": "2026-09-25T09:54:06Z"
+   "last_updated_at": "2026-09-27T03:44:59Z"
   },
   "gh_b71d2e6d:releases": {
    "last_id": 393423406
   },
   "gh_bdd0b728:issues": {
-   "last_updated_at": "2026-09-25T08:35:19Z"
+   "last_updated_at": "2026-09-26T14:44:17Z"
   },
   "gh_bdd0b728:pulls": {
-   "last_updated_at": "2026-09-25T09:28:03Z"
+   "last_updated_at": "2026-09-27T03:57:05Z"
   },
   "gh_bdd0b728:releases": {
    "last_id": 394352519

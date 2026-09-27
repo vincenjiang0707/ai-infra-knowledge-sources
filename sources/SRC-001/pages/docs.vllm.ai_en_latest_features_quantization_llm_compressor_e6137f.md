@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/quantization/llm_compressor/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # LLM Compressor[¶](https://docs.vllm.ai#llm-compressor)
 

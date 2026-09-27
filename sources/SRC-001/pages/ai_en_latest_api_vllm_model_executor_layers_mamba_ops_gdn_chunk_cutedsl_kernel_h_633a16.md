@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/ops/gdn_chunk_cutedsl/kernel_h/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class Sm100ChunkHKernel:
 """For each sequence, compute the chunk recurrent update.

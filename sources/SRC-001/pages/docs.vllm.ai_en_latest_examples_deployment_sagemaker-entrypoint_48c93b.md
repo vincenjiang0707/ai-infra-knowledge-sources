@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/deployment/sagemaker-entrypoint/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Sagemaker-Entrypoint[¶](https://docs.vllm.ai#sagemaker-entrypoint)
 

@@ -17,7 +17,7 @@ ideally, we'd have:
 
 If any contributors are interested in taking this on, it'd be a huge help! Otherwise, I hope to get to this.
 
-## 评论 (10)
+## 评论 (11)
 
 ### zafstojano · 2024-05-27
 
@@ -123,3 +123,13 @@ I said "roughly 2.8x it". The sqrt(2) inside that constant is right: you are com
 So store N beside the reference sigma, use the t factor for that N, and re-derive it when the reference config changes. And if the resulting band is wider than the regressions you actually care about, that is the useful answer: the task cannot be regression-tested at that N, so either raise N or accept the coarser resolution deliberately. Assumes roughly normal, independent runs.
 
 (Same constant, same mistake, in two other threads this week. Correcting it wherever I put it.)
+
+### AbdulAliMamnun · 2026-09-26
+
+I'd like to build the numerical regression tier, since the other pieces are covered: #3858 (CLI wiring), #4027 (CPU exact-match snapshots at limit=10), #4107/#4114 (evaluator validation). This is the half @sinanezhadian designed the comparison rule for but nobody has picked up. Proposed shape:
+
+Reference manifest: tests/regression/references/<model>/<task>.json holding, per metric, the mean and sample std over N identical runs, plus the config the runs were produced under (harness version, model backend and version, dtype, batch size, --limit, seeds, device). A reference whose config doesn't match the current run is treated as stale and the test skips with a message, so references can't expire silently.
+Generation script: scripts/regression/generate_references.py that runs a pinned config N times and writes the manifest. Starting set: gpt2 and a small sentencepiece model on arc_easy, lambada_openai, wikitext, and an mmlu subset, with --limit so the tier is affordable; full-task references can be added later without changing the test.
+The test: re-run the pinned config once and assert |new − mean| ≤ t(0.975, N−1) · √2 · s per metric, reporting the band width alongside pass/fail so a task whose noise floor is wider than the regressions we care about is visible rather than silently green. Opt-in (nightly or workflow_dispatch), not per-PR.
+
+Questions before I start: (a) is that task set still what you'd call core, (b) is --limit acceptable for these references or do you want full-task, and (c) where should it run? I'll keep it disjoint from #4027 and reuse its snapshot layout where it makes sense. @baberabb

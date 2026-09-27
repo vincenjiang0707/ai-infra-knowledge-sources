@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/metrics/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Metrics[¶](https://docs.vllm.ai#metrics)
 

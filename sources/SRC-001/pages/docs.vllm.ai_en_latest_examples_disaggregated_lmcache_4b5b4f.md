@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/disaggregated/lmcache/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # LMCache Examples[¶](https://docs.vllm.ai#lmcache-examples)
 

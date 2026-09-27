@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/zh-CN/v1.2.1/user-guides/parsing/tool-calling-probe-snapshot-for-dynamo-1-2
-lastmod: 2026-09-23T23:30:39.914Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 # Tool Calling Probe Snapshot for Dynamo 1.2
 

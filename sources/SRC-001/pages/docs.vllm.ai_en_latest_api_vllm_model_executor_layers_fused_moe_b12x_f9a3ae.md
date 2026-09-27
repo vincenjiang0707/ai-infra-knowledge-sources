@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/b12x/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class B12xExperts(mk.FusedMoEExpertsModular):
 """FP4 MoE experts backed by the b12x SM12x planned API."""

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/cuda_graphs/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # CUDA Graphs[¶](https://docs.vllm.ai#cuda-graphs)
 
@@ -346,6 +346,18 @@ mode if the minimum capability is `UNIFORM_BATCH`
 mode if the minimum capability is `NEVER`
 
 for -O3 compilation mode. For the complete fallback policy, please see the code for [this](https://docs.vllm.ai/api/vllm/v1/worker/gpu_model_runner/#vllm.v1.worker.gpu_model_runner.GPUModelRunner._check_and_update_cudagraph_mode).
+
+Variable-length decode batches, where each request carries a different number of query tokens read from the device `query_start_loc`
+
+(as in adaptive verification), are declared separately and not ordered against the enum: `AttentionMetadataBuilder.get_varlen_cudagraph_max_query_len()`
+
+returns the largest per-request query length a FULL decode graph can replay. It returns `None`
+
+for builders reporting `ALWAYS`
+
+, which replay any batch, and for builders that cannot replay variable-length batches; FlashInfer returns `1 + num_speculative_tokens`
+
+when its TRTLLM-GEN varlen decode path is active. Batches with a prefill never replay these graphs.
 
 The following table lists backends that support full CUDA Graphs at the time of writing.
 

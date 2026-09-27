@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/deepseek_v2/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class DeepseekV2MLAAttention(nn.Module):
 """Main reference: DeepseekV2 paper, and FlashInfer Implementation

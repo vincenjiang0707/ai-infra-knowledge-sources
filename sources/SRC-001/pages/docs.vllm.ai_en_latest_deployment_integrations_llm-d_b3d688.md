@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/deployment/integrations/llm-d/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # llm-d[¶](https://docs.vllm.ai#llm-d)
 

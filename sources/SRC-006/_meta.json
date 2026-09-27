@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:39:42Z",
- "finished_at": "2026-09-25T09:51:57Z",
- "duration_seconds": 586.0,
- "attempts": 4,
+ "finished_at": "2026-09-27T10:50:17Z",
+ "duration_seconds": 619.1,
+ "attempts": 6,
  "channels": {
   "gh_3f18d6a6": {
    "type": "github_repo",
@@ -22,9 +22,9 @@
     "count": 100,
     "note": "top-100 by updated_at desc (web default)",
     "details": {
-     "fetched": 63,
-     "appended": 11,
-     "skipped": 0
+     "fetched": 2,
+     "appended": 3,
+     "skipped": 76
     }
    },
    "pulls": {
@@ -32,8 +32,8 @@
     "count": 100,
     "note": "top-100 by updated_at desc (web default)",
     "details": {
-     "fetched": 100,
-     "appended": 0,
+     "fetched": 62,
+     "appended": 10,
      "skipped": 0
     }
    },
@@ -64,20 +64,15 @@
     "count": 1,
     "note": "top-100 by updated_at desc (web default)",
     "details": {
-     "fetched": 1,
+     "fetched": 0,
      "appended": 0,
-     "skipped": 0
+     "skipped": 1
     }
    },
    "pulls": {
     "status": "ok",
-    "count": 24,
-    "note": "top-100 by updated_at desc (web default)",
-    "details": {
-     "fetched": 24,
-     "appended": 0,
-     "skipped": 0
-    }
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -109,7 +104,7 @@
    "status": "ok",
    "output": "page.md",
    "mode": "page",
-   "chars": 6099
+   "chars": 5712
   },
   "ref_8a6b928b": {
    "type": "reference",
@@ -122,10 +117,10 @@
  },
  "cursor": {
   "gh_3f18d6a6:issues": {
-   "last_updated_at": "2026-09-25T09:05:32Z"
+   "last_updated_at": "2026-09-27T10:31:58Z"
   },
   "gh_3f18d6a6:pulls": {
-   "last_updated_at": "2026-09-25T09:41:55Z"
+   "last_updated_at": "2026-09-27T10:39:34Z"
   },
   "gh_3f18d6a6:releases": {
    "last_id": 391825082

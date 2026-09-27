@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/fp8/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class Fp8MoEMethod(FusedMoEMethodBase):
 """MoE method for FP8.
@@ -65,7 +65,6 @@ params_dtype: torch.dtype,
 layer.num_experts = num_experts
 layer.orig_dtype = params_dtype
 layer.weight_block_size = None
-assert self.quant_config.is_checkpoint_fp8_serialized
 params_dtype = torch.float8_e4m3fn
 if self.block_quant:
 assert self.weight_block_size is not None
@@ -333,7 +332,7 @@ topk_weights: torch.Tensor,
 topk_ids: torch.Tensor,
 shared_experts: SharedExperts | None,
 shared_experts_input: torch.Tensor | None,
-) -> torch.Tensor:
+) -> torch.Tensor | UnfinalizedMoEOutput:
 assert not self.is_monolithic
 assert self.moe_kernel is not None
 return self.moe_kernel.apply(

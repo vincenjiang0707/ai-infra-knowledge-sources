@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/scale_out/example_mm_serve/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Example Mm Serve[¶](https://docs.vllm.ai#example-mm-serve)
 

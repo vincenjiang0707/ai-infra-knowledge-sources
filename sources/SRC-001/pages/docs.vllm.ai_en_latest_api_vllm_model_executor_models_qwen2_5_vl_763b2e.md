@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/qwen2_5_vl/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @MULTIMODAL_REGISTRY.register_processor(
 Qwen2_5_VLMultiModalProcessor,
@@ -50,17 +50,22 @@ spatial_merge_size = self.config.vision_config.spatial_merge_size
 tokens_per_second = getattr(self.config.vision_config, "tokens_per_second", 1.0)
 for mm_feature in sorted(mm_features, key=lambda f: f.mm_position.offset):
 offset = mm_feature.mm_position.offset
+data = mm_feature.data
+assert data is not None
 if mm_feature.modality == "image":
-t, h, w = mm_feature.data["image_grid_thw"].data.tolist()
+grid = data["image_grid_thw"].data
+assert isinstance(grid, torch.Tensor)
+t, h, w = grid.tolist()
 assert t == 1, f"Image must have 1 frame, got {t}"
 yield offset, 1, h // spatial_merge_size, w // spatial_merge_size, 1.0
 elif mm_feature.modality == "video":
-t, h, w = mm_feature.data["video_grid_thw"].data.tolist()
+grid = data["video_grid_thw"].data
+assert isinstance(grid, torch.Tensor)
+t, h, w = grid.tolist()
 second_per_grid_ts = 1.0
-if mm_feature.data.get("second_per_grid_ts", None):
-second_per_grid_ts = mm_feature.data[
-"second_per_grid_ts"
-].data.item()
+if seconds := data.get("second_per_grid_ts"):
+assert isinstance(seconds.data, torch.Tensor)
+second_per_grid_ts = seconds.data.item()
 t_factor = second_per_grid_ts * tokens_per_second
 yield (
 offset,
@@ -114,7 +119,7 @@ raise ValueError("Only image or video modality is supported")
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
 super().__init__()
 config: Qwen2_5_VLConfig = vllm_config.model_config.hf_config
-multimodal_config = vllm_config.model_config.multimodal_config
+multimodal_config = vllm_config.model_config.get_multimodal_config()
 self.use_data_parallel = multimodal_config.mm_encoder_tp_mode == "data"
 self.config = config
 self.model_config = vllm_config.model_config
@@ -129,7 +134,7 @@ self.visual = Qwen2_5_VisionTransformer(
 vision_config=config.vision_config,
 norm_eps=getattr(config, "rms_norm_eps", 1e-6),
 quant_config=self.quant_config,
-input_norm=FusedInputNorm.from_model_config(self.model_config),
+input_norm=build_mm_input_norm(self.model_config),
 prefix=maybe_prefix(prefix, "visual"),
 )
 with self._mark_language_model(vllm_config):
@@ -155,7 +160,7 @@ type="pixel_values",
 pixel_values=pixel_values,
 image_grid_thw=image_grid_thw,
 )
-if image_embeds is not None:
+else:
 return Qwen2_5_VLImageEmbeddingInputs(
 type="image_embeds",
 image_embeds=image_embeds,
@@ -177,7 +182,7 @@ pixel_values_videos=pixel_values_videos,
 video_grid_thw=video_grid_thw,
 second_per_grid_ts=second_per_grid_ts,
 )
-if video_embeds is not None:
+else:
 return Qwen2_5_VLVideoEmbeddingInputs(
 type="video_embeds",
 video_embeds=video_embeds,
@@ -234,8 +239,7 @@ compute_mrope_for_media(size, merge_size), emb.device
 )
 emb = torch.cat([emb, positions], dim=1)
 image_embeds_out.append(emb)
-image_embeds_split = image_embeds_out
-return tuple(image_embeds_split)
+return tuple(image_embeds_out)
 def _process_video_input(
 self, video_input: Qwen2_5_VLVideoInputs
 ) -> tuple[torch.Tensor, ...]:
@@ -289,6 +293,7 @@ raise ValueError(
 second_per_grid_ts = second_per_grid_ts.long()
 tokens_per_second = self.config.vision_config.tokens_per_second
 video_embeds_out = []
+assert self.video_pruning_rate is not None
 for emb, size, video_second_per_grid_t in zip(
 video_embeds_split, grid_thw_list, second_per_grid_ts
 ):
@@ -366,7 +371,9 @@ video_token_id,
 )
 return mm_embeddings_out, positions, mrope_positions_delta
 def _parse_and_validate_multimodal_inputs(self, **kwargs: object) -> dict:
-mm_input_by_modality = {}
+mm_input_by_modality: dict[
+str, Qwen2_5_VLImageInputs | Qwen2_5_VLVideoInputs | None
+] = {}
 # Preserve the order of modalities if there are multiple of them
 # from the order of kwargs.
 for input_key in kwargs:
@@ -462,6 +469,7 @@ raise AssertionError("This line should be unreachable.")
 def get_max_frames_per_video(self) -> int:
 mm_registry = MULTIMODAL_REGISTRY
 info = mm_registry.get_processing_info(self.model_config)
+assert isinstance(info, Qwen2VLProcessingInfo)
 max_frames_per_video = info.get_num_frames_with_most_features(
 seq_len=self.model_config.max_model_len,
 mm_counts={"video": self.multimodal_config.get_limit_per_prompt("video")},

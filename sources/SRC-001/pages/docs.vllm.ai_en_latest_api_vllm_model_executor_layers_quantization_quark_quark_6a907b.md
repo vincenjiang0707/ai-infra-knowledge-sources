@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/quark/quark/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class QuarkConfig(QuantizationConfig):
 def __init__(
@@ -58,6 +58,18 @@ quant_config_with_hf_to_vllm_mapper[k] = mapped_v_list[0]
 else:
 quant_config_with_hf_to_vllm_mapper[k] = v
 self.quant_config = quant_config_with_hf_to_vllm_mapper
+def _scale_block_rows(self, prefix: str, layer_type: type[torch.nn.Module]) -> int:
+"""How many weight rows one checkpoint scale row covers.
+1 for the canonical 1-D per-group MX spelling; ``block_size[0]`` for
+MXFP8 exports that spell the scale 2-D (DeepSeek-V4.1 uses 32). The
+scheme cannot work this out itself: it has no handle on the layer name,
+and tensor-parallel sharding narrows the loaded scale so the ratio is
+not recoverable from shapes either.
+"""
+config = self._find_matched_config(prefix, layer_type)
+weight = self._unwrap_single_quant_config(config.get("weight"))
+normalized = ocp_mx_weight_dtype_and_rows(weight)
+return normalized[1] if normalized is not None else 1
 def get_quant_method(
 self, layer: torch.nn.Module, prefix: str
 ) -> "QuantizeMethodBase | None":
@@ -74,6 +86,11 @@ scheme = self.init_scheme(
 scheme_cls,
 weight_quant_key=weight_quant_key,
 activation_quant_key=activation_quant_key,
+scale_block_rows=(
+self._scale_block_rows(prefix, type(layer))
+if scheme_cls is QuarkOCP_MX
+else 1
+),
 weight_config=self._find_matched_config(prefix, type(layer)).get(
 "weight"
 ),
@@ -494,47 +511,17 @@ The activation can be FP16/BF16, OCP MXFP4, MXFP8, FP8.
 The rationale for checking only the weight type is that
 the model loading concept and process primarily concerns the weights themselves.
 """
-# Confirm weights quantized.
-if not isinstance(weight_quant, dict):
+# Confirm weights quantized, and normalize the two OCP MX config
+# dialects (1-D per_group, and MXFP8's 2-D per_block) to a dtype.
+normalized = ocp_mx_weight_dtype_and_rows(weight_quant)
+if normalized is None:
 logger.debug(
-"Quark model's weight quantization is incompatible with OCP_MX format: "
-"weight_quant is not a dictionary."
+"Quark model's weight quantization is incompatible with OCP MX "
+"format: %s",
+weight_quant,
 )
 return QuantKeyMatch(False, None, None)
-# Input and weight qscheme needs to be per group.
-if weight_quant.get("qscheme") != "per_group":
-logger.debug(
-"Quark model's weight quantization is incompatible with OCP MX format: "
-"weight is not per_group."
-)
-return QuantKeyMatch(False, None, None)
-# Input and weight group size needs to be 32.
-if weight_quant.get("group_size") != 32:
-logger.debug(
-"Quark model's weight quantization is incompatible with OCP MX format: "
-"group_size of weight is not 32."
-)
-return QuantKeyMatch(False, None, None)
-# Activations and weight scales need to be in e8m0 format.
-if weight_quant.get("scale_format") != "e8m0":
-logger.debug(
-"Quark model's weight quantization is incompatible with OCP MX format: "
-"scale_format of weight is not e8m0."
-)
-return QuantKeyMatch(False, None, None)
-# Input and weight dtypes need to be any of fp4,
-# fp6_e3m2 or fp6_e3m2, possibly mixed.
-if weight_quant.get("dtype") not in {
-"fp4",
-"fp6_e3m2",
-"fp6_e2m3",
-}:
-logger.debug(
-"Quark model's weight quantization is incompatible with OCP MX format: "
-"dtype is not in {fp4, fp6_e3m2, fp6_e2m3}."
-)
-return QuantKeyMatch(False, None, None)
-weight_dtype = weight_quant["dtype"].replace("fp", "mxfp")
+weight_dtype, _ = normalized
 weight_quant_key = _WEIGHT_QUANT_KEY_MAP[weight_dtype]
 if input_quant is None:
 activation_quant_key = None
@@ -552,6 +539,14 @@ logger.debug(
 "input scales."
 )
 return QuantKeyMatch(False, None, None)
+elif (
+input_quant["dtype"] == "fp8_e4m3"
+and input_quant.get("qscheme") == "per_group"
+and input_quant.get("group_size") == OCP_MX_BLOCK_SIZE
+):
+# MXFP8 activations. Must be checked before the per-tensor FP8
+# branch below, which would otherwise claim them.
+activation_quant_key = _ACTIVATION_QUANT_KEY_MAP["mxfp8_e4m3"]
 elif input_quant["dtype"] == "fp8_e4m3":
 activation_quant_key = kFp8DynamicTensorSym
 else:
@@ -736,6 +731,7 @@ self,
 scheme_cls: type["QuarkScheme"],
 weight_quant_key: QuantKey | None,
 activation_quant_key: QuantKey | None,
+scale_block_rows: int = 1,
 weight_config: dict[str, Any] | None = None,
 ) -> "QuarkScheme":
 """Construct a Quark scheme selected by get_scheme_cls."""
@@ -771,6 +767,8 @@ QuarkW8A8Int8,
 QuarkOCP_MX,
 ):
 kwargs["weight_quant_key"] = weight_quant_key
+if scheme_cls is QuarkOCP_MX:
+kwargs["scale_block_rows"] = scale_block_rows
 scheme = scheme_cls(**kwargs)
 # Raise error if device does not support the scheme
 # (e.g. fp8 needs ada lovelace)

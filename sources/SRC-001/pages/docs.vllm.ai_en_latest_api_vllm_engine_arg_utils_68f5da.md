@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/engine/arg_utils/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @dataclass
 class EngineArgs:
@@ -279,6 +279,9 @@ KernelConfig, "enable_flashinfer_autotune"
 worker_cls: str = ParallelConfig.worker_cls
 worker_extension_cls: str = ParallelConfig.worker_extension_cls
 profiler_config: ProfilerConfig = get_field(VllmConfig, "profiler_config")
+logging_config: LoggingConfig | None = None
+log_level: LogLevel | None = None
+log_config_file: str | None = None
 kv_transfer_config: KVTransferConfig | None = None
 kv_events_config: KVEventsConfig | None = None
 ec_transfer_config: ECTransferConfig | None = None
@@ -1064,6 +1067,33 @@ lora_group.add_argument(
 "--enable-moe-shared-loras",
 **lora_kwargs["enable_moe_shared_loras"],
 )
+# Logging arguments
+logging_group = parser.add_argument_group(
+title="LoggingConfig",
+description=LoggingConfig.__doc__,
+)
+logging_config_kwargs = get_kwargs(VllmConfig)["logging_config"]
+logging_config_kwargs["default"] = argparse.SUPPRESS
+logging_group.add_argument("--logging-config", **logging_config_kwargs)
+logging_group.add_argument(
+"--log-level",
+choices=get_args(LogLevel),
+default=argparse.SUPPRESS,
+help=(
+"Shortcut for --logging-config.log_level. "
+"Overrides that field if both are specified."
+),
+)
+logging_group.add_argument(
+"--log-config-file",
+dest="log_config_file",
+default=argparse.SUPPRESS,
+metavar="PYLOGGING_CONFIG_FILE",
+action=DeprecatedLogConfigFileAction,
+help=_LOG_CONFIG_FILE_DEPRECATION_MESSAGE,
+)
+# Retain the warning in v0.31.0 and v0.32.0. Remove this option and its
+# compatibility mapping in create_logging_config() in v0.33.0.
 # Observability arguments
 observability_kwargs = get_kwargs(ObservabilityConfig)
 observability_group = parser.add_argument_group(
@@ -1568,6 +1598,15 @@ enable_logging_iteration_details=self.enable_logging_iteration_details,
 jit_monitor_mode=self.jit_monitor_mode,
 jit_monitor_verbose=self.jit_monitor_verbose,
 )
+def create_logging_config(self) -> LoggingConfig:
+config = self.logging_config or LoggingConfig()
+if self.log_level is not None:
+config = dataclasses.replace(config, log_level=self.log_level)
+if self.log_config_file is not None:
+config = dataclasses.replace(
+config, pylogging_config_file=self.log_config_file
+)
+return config
 def create_engine_config(
 self,
 usage_context: UsageContext | None = None,
@@ -1576,6 +1615,8 @@ headless: bool = False,
 """Create the VllmConfig.
 NOTE: If VllmConfig is incompatible, we raise an error.
 """
+logging_config = self.create_logging_config()
+configure_logging_if_needed(logging_config)
 current_platform.pre_register_and_update()
 device_config = DeviceConfig(device=cast(Device, current_platform.device_type))
 current_platform.validate_environ(self.fail_on_environ_validation)
@@ -2161,6 +2202,7 @@ watermark_config=watermark_config,
 diffusion_config=diffusion_config,
 structured_outputs_config=self.structured_outputs_config,
 observability_config=observability_config,
+logging_config=logging_config,
 compilation_config=compilation_config,
 kv_transfer_config=self.kv_transfer_config,
 kv_events_config=self.kv_events_config,

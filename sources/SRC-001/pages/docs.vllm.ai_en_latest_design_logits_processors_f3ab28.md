@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/logits_processors/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Logits Processors[¶](https://docs.vllm.ai#logits-processors)
 

@@ -2,35 +2,37 @@ source: https://github.com/trending
 
 ##
 [
-rohitg00 /
-ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch)
+paperclipai /
+paperclip](https://github.com/paperclipai/paperclip)
 
-Learn it. Build it. Ship it for others.
+The open-source app everyone uses to manage agents at work
 
 See what the GitHub community is most excited about today.
 
-Learn it. Build it. Ship it for others.
+The open-source app everyone uses to manage agents at work
 
 Hindsight: Agent Memory That Learns
 
-The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.
-
-Google's open agentic orchestration runtime
-
 A unified library of SOTA model optimization techniques like quantization, distillation, pruning, neural architecture search, speculative decoding, etc. It compresses deep learning models for downstream deployment frameworks like TensorRT-LLM, TensorRT, vLLM, etc. to optimize inference speed.
 
-Fix X/Twitter and Bluesky embeds! Use multiple images, videos, polls, translations and more on Discord, Telegram and others
+The Office Harness for AI Agents — Spreadsheets, Docs, Slides, Canvas, Relational Tables, and PDF in one runtime.
 
-"CLI-Anything: Making ALL Software Agent-Native" -- CLI-Hub: [https://clianything.cc/](https://clianything.cc/)
+An Open Source Machine Learning Framework for Everyone
 
-MVT (Mobile Verification Toolkit) helps with conducting forensics of mobile devices in order to find signs of a potential compromise.
+Learn it. Build it. Ship it for others.
 
-An agentic skills framework & software development methodology that works.
+OpenBao is a software solution to manage, store, and distribute sensitive data including secrets, certificates, and keys.
 
-Build an agent harness and control it end-to-end. Open-source SDK for production AI agents in Python & TypeScript - any model, any cloud.
+A hive mind communication platform
 
-An offline-first photo manager for large local libraries
+Visual Studio Code
 
-OpenRouter for agent tools. Join community here: [https://discord.gg/6mQYYfFMAn](https://discord.gg/6mQYYfFMAn)
+Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-demand toolchain bootstrapping + Self-evolving knowledge base Supports Claude Code, Kiro, Cursor, Cline, and other AI coding clients 逆向/渗透/安全技能路由包 - AI 自动路由 + 按需自举工具链 + 自动进化经验库 | 支持 Claude Code / Kiro / Cursor / Cline 等代码 AI 客户端
 
-Diffusion model(SD,Flux,Wan,Qwen Image,Z-Image,...) inference in pure C/C++
+The LLVM Project is a collection of modular and reusable compiler and toolchain technologies.
+
+GitHub Actions runner images
+
+Model Context Protocol Server for Mobile Automation and Scraping (iOS, Android, Emulators, Simulators and Real Devices)
+
+The React Framework

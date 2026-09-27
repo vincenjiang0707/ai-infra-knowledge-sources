@@ -62,44 +62,4 @@ num_rdma_token_sent = mask.sum().item()
 ```
 
 
-## 评论 (7)
-
-### oliverYoung2001 · 2025-03-06
-
-You are right! I found this problem, too.
-
-### LyricZhao · 2025-03-06
-
-You are absolutely correct.
-
-However, from a programming perspective, a lot of the code logic is shared across all ranks, and some operations even require a certain level of synchronization among all ranks. For example, during the combine kernels, if a token's reduce data source comes from both its own rank and other ranks, even if the data copy speed within its own rank is very fast, it will still be somewhat blocked by other ranks.
-
-Moreover, with only around 20 SMs, which also includes the copying of RDMA buffers from other ranks, the actual bandwidth for copying data to its own memory isn't that high (it's even comparable to the network card's bandwidth). To some extent, we have also considered the overall metrics as the speed of self-copying.
-
-During the debugging process of V3 training, we have been continuously tuning EP64 and EP128, and the gap between these two computation methods isn't significant. Therefore, we _consciously_ decided to keep this issue as is, but indeed, when there are very few ranks, the computational difference can be quite large.
-
-Thank you for your feedback :) We will have an internal discussion next week to consider whether to change the test metrics.
-
-### Fangjin98 · 2025-03-07
-
-Thanks for your reply. 
-
-It seems that the current metrics is showing the algorithm bandwidth (of RDMA send), while we thought it denotes the bus bandwidth. So these is a little gap.
-
-### jiangjiang-coder66 · 2025-04-10
-
-Hi @LyricZhao , I used tests/test_internode.py, the measured IB bandwidth using the original code under EP64 is 45 GB/s which closed to github performance, while the bandwidth tested with the code provided by @Fangjin98  is 32 GB/s. The difference is quite significant.
-
-### LyricZhao · 2025-04-11
-
-If the tokens are evenly distributed, I guess it should be `45 * 7/8 = 39.375`? Anyway, there is still some space for optimization, we will refactor the code for better IB utilization later.
-
-### jiangjiang-coder66 · 2025-04-18
-
-> If the tokens are evenly distributed, I guess it should be `45 * 7/8 = 39.375`? Anyway, there is still some space for optimization, we will refactor the code for better IB utilization later.
-
-Yes, you are right. I retested it with tokens are evenly distributed, the scale closed to 7/8. Thanks for replying.
-
-### LyricZhao · 2025-04-22
-
-Performance now has been optimized, see https://github.com/deepseek-ai/DeepEP/pull/130.
+## 评论 (0)

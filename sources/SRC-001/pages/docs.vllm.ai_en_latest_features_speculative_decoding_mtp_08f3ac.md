@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/speculative_decoding/mtp/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # MTP (Multi-Token Prediction)[¶](https://docs.vllm.ai#mtp-multi-token-prediction)
 
@@ -22,12 +22,10 @@ Use `"method": "mtp"`
 
 when serving Gemma 4 with an assistant checkpoint:
 
-```bash
 vllm serve google/gemma-4-E2B-it \
 --tensor-parallel-size 1 \
 --max-model-len 8192 \
 --speculative-config '{"method":"mtp","model":"gg-hf-am/gemma-4-E2B-it-assistant","num_speculative_tokens":1}'
-```
 
 
 The E2B, E4B, 12B, 26B-A4B, and 31B Gemma 4 IT assistant checkpoints are supported. Tower-based variants use `model_type: gemma4_assistant`

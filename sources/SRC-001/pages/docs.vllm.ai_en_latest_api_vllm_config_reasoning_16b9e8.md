@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/config/reasoning/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Configuration for reasoning models.
 

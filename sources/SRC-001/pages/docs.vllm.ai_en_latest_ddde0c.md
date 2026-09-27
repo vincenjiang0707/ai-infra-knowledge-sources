@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Welcome to vLLM[¶](https://docs.vllm.ai#welcome-to-vllm)
 

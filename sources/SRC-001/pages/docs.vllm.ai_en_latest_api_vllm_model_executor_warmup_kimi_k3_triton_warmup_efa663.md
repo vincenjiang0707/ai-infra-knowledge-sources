@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/warmup/kimi_k3_triton_warmup/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 

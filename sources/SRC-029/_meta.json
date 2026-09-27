@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:43:22Z",
- "finished_at": "2026-09-25T10:32:49Z",
- "duration_seconds": 412.2,
- "attempts": 5,
+ "finished_at": "2026-09-27T04:18:58Z",
+ "duration_seconds": 125.1,
+ "attempts": 6,
  "channels": {
   "gh_2d4350d3": {
    "type": "github_repo",
@@ -22,20 +22,15 @@
     "count": 30,
     "note": "top-100 by updated_at desc (web default)",
     "details": {
-     "fetched": 15,
+     "fetched": 0,
      "appended": 0,
      "skipped": 0
     }
    },
    "pulls": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at desc (web default)",
-    "details": {
-     "fetched": 100,
-     "appended": 0,
-     "skipped": 0
-    }
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",

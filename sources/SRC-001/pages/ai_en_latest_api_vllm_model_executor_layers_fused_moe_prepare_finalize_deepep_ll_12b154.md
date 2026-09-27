@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/prepare_finalize/deepep_ll/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class DeepEPLLPrepareAndFinalize(mk.FusedMoEPrepareAndFinalizeModular):
 """Prepare/Finalize using DeepEP low-latency kernels."""

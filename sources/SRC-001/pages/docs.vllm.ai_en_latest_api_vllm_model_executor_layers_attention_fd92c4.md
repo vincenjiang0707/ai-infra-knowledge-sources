@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/attention/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class MLAAttention(nn.Module, AttentionLayerBase):
 """Multi-Head Latent Attention layer.
@@ -286,13 +286,7 @@ def bind_kv_cache(self, kv_cache: torch.Tensor) -> None:
 self.kv_cache = kv_cache.squeeze(1)
 if (
 self._vllm_config.kernel_config.enable_jit_warmup
-and self.attn_backend.get_name()
-in (
-"FLASHMLA_SPARSE",
-"FLASHINFER_MLA_SPARSE",
-"FLASHINFER_MLA_SPARSE_SM120",
-"DEEPSEEK_V32_INDEXER",
-)
+and self._uses_flat_kv_cache()
 ):
 from vllm.v1.attention.backends.mla.sparse_utils import (
 _CONVERT_REQ_INDEX_TO_GLOBAL_INDEX_KERNEL,
@@ -302,6 +296,12 @@ assert self.kv_cache.stride(0) % row_width == 0
 _CONVERT_REQ_INDEX_TO_GLOBAL_INDEX_KERNEL.register_warmup(
 self._vllm_config,
 block_stride_rows=self.kv_cache.stride(0) // row_width,
+)
+def _uses_flat_kv_cache(self) -> bool:
+backend = self.attn_backend.get_name()
+return backend == "FLASHINFER_MLA_SPARSE" or (
+backend == "FLASHMLA_SPARSE"
+and self.kv_cache_dtype not in ("fp8_ds_mla", "nvfp4_ds_mla")
 )
 @property
 def chunked_prefill_workspace_size(self) -> int:
@@ -871,11 +871,20 @@ return SlidingWindowMLASpec(
 **common_kwargs,
 sliding_window=self.sliding_window,
 )
-return MLAAttentionSpec(
+spec = MLAAttentionSpec(
 **common_kwargs,
 is_index_group_leader=self.indexer is not None,
 non_causal_multi_token_decode=self.non_causal_multi_token_decode,
 )
+# SM100 FlashMLA paged kernels also express TMA coordinates in token rows.
+uses_tma_rows = (
+self.attn_backend.get_name() == "FLASHMLA_SPARSE"
+and self.kv_cache_dtype in ("fp8_ds_mla", "nvfp4_ds_mla")
+and current_platform.is_device_capability_family(100)
+)
+if self._uses_flat_kv_cache() or uses_tma_rows:
+spec = replace(spec, block_stride_alignment=spec.state_content_size_bytes)
+return spec
 def _v_up_proj(self, x: torch.Tensor, out: torch.Tensor):
 # Convert from (B, N, L) to (N, B, L)
 x = x.view(-1, self.num_heads, self.kv_lora_rank).transpose(0, 1)

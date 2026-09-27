@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/prompt_embeds/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Prompt Embedding Inputs[¶](https://docs.vllm.ai#prompt-embedding-inputs)
 
@@ -55,7 +55,6 @@ The Completions endpoint does **not** apply a chat template to `prompt_embeds`
 
 Prompt embeddings can be included as content parts in chat messages, interleaved with text:
 
-```
 {
 "messages": [
 {
@@ -74,7 +73,6 @@ Prompt embeddings can be included as content parts in chat messages, interleaved
 }
 ]
 }
-```
 
 
 Each `prompt_embeds`

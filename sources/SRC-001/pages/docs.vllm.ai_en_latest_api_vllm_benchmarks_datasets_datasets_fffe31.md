@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/benchmarks/datasets/datasets/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -749,7 +749,6 @@ Bases: [CustomDataset](https://docs.vllm.ai#vllm.benchmarks.datasets.datasets.Cu
 
 Implements the Custom image dataset. Loads data from a JSONL file and generates sample requests based on conversation turns. E.g.,
 
-```
 {
 "prompt": "How many red blocks in the given images?",
 "image_files": ["path/to/image1.png", "path/to/image2.png"],
@@ -766,7 +765,6 @@ Implements the Custom image dataset. Loads data from a JSONL file and generates 
 {"type": "image_url", "image_url": {"url": "path/to/image2.png"}},
 ],
 }
-```
 
 
 This is used to benchmark multimodal LLMs on arbitrary datasets.

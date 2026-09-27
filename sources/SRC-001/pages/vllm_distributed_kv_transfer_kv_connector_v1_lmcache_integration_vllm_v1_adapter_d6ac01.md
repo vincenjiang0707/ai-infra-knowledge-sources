@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/lmcache_integration/vllm_v1_adapter/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class LMCacheConnectorV1Impl:
 def __init__(
@@ -35,6 +35,7 @@ value,
 self.config = config
 self.async_loading = config.enable_async_loading
 self.layerwise_retrievers: list[Generator[torch.Tensor | None, None, None]] = []
+self.layerwise_storers: list[Generator[Any, None, None]] = []
 self._stats_monitor = LMCStatsMonitor.GetOrCreate()
 if role == KVConnectorRole.SCHEDULER:
 # Create lookup client using factory
@@ -198,6 +199,7 @@ the per-step state they consume must be reset here.
 """
 self.current_layer = 0
 self.layerwise_retrievers = []
+self.layerwise_storers = []
 @_lmcache_nvtx_annotate
 def register_kv_caches(self, kv_caches: dict[str, torch.Tensor]):
 logger.info("Registering KV caches")

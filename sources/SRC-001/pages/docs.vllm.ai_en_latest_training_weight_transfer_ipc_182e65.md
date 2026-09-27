@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/training/weight_transfer/ipc/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # IPC Engine[¶](https://docs.vllm.ai#ipc-engine)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -29,6 +29,7 @@ Modules:
 –[linear_scaling_rope](https://docs.vllm.ai/linear_scaling_rope/#vllm.model_executor.layers.rotary_embedding.linear_scaling_rope) -
 –[mrope](https://docs.vllm.ai/mrope/#vllm.model_executor.layers.rotary_embedding.mrope) -
 –[mrope_interleaved](https://docs.vllm.ai/mrope_interleaved/#vllm.model_executor.layers.rotary_embedding.mrope_interleaved) -
+–[mrope_vit_setup](https://docs.vllm.ai/mrope_vit_setup/#vllm.model_executor.layers.rotary_embedding.mrope_vit_setup) -
 –[ntk_scaling_rope](https://docs.vllm.ai/ntk_scaling_rope/#vllm.model_executor.layers.rotary_embedding.ntk_scaling_rope) -
 –[phi3_long_rope_scaled_rope](https://docs.vllm.ai/phi3_long_rope_scaled_rope/#vllm.model_executor.layers.rotary_embedding.phi3_long_rope_scaled_rope) -
 –[yarn_scaling_rope](https://docs.vllm.ai/yarn_scaling_rope/#vllm.model_executor.layers.rotary_embedding.yarn_scaling_rope)

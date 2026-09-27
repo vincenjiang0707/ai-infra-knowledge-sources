@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/zh-CN/knowledge-base/modular-components/ai-simulate/spica/search-space
-lastmod: 2026-09-23T23:30:39.914Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 # Spica Search Space
 

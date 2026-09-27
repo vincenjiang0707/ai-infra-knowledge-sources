@@ -18,7 +18,7 @@ LLM autoscaling
 
 _No response_
 
-## 评论 (12)
+## 评论 (14)
 
 ### Belyenochi · 2025-08-14
 
@@ -588,3 +588,19 @@ The replica formula is shared, so the two values `Auto` compares are the same ki
 
 I'd fold the status fields and the sample filtering into the API and predictor commits of #2804, with tests, and keep the rest as proposed.
 
+### bolubo · 2026-09-26
+
+The API piece you asked to settle first is up as a standalone PR: #2823. It carries the `spec.predictive` and `status.predictive` shape, the webhook validation and the docs page, so the contract can be reviewed on its own. The status block includes `metric`, `reactiveReplicas` and `wouldBeReplicas`, so `Preview` answers whether `Auto` would change the decision.
+
+Two behavior points from the #2804 review where I would value your read before the reshape:
+
+1. Zero replicas. With a nonzero `minReplicas` the reconciler returns before metric evaluation, and a long idle workload has no history to project from, so `Auto` cannot wake a workload parked at zero. I would keep wake-from-zero out of v1 and document it; if you would like it in scope, it is a separate design.
+2. The seam. The review argues for a single `Project` function in the prediction package instead of an interface, since there is one model today and a second model still lands locally. I lean to the review; if you would rather keep the interface, I keep it.
+
+### bolubo · 2026-09-27
+
+The implementation lands in two steps, so the projection can be reviewed as data before it influences a decision. #2804 now carries the observation half: on every reconcile it fits the recorded metric series and records the projection in `status.predictive` (`mode`, `metric`, `observedValue`, `predictedValue`, `predictedReplicas`, `reactiveReplicas`, `wouldBeReplicas`, `lastUpdated`), plus an envtest case for the recording. `Preview` and `Auto` report the same fields, and neither changes the decision in this piece.
+
+The decision piece follows separately: `max(reactive, projected)` as a scale-up floor, its tests, the real-workload E2E, and the wake-from-zero question that is still open. The API settled in #2823. On the two points from the earlier review: the prediction package stays a single `Project` function as the review suggested, and wake-from-zero stays deferred by default until the decision rules are on the table.
+
+The observation piece is ready for a look.

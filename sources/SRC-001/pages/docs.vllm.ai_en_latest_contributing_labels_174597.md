@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/contributing/labels/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Labels[¶](https://docs.vllm.ai#labels)
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/openai/completion/protocol/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class CompletionRequest(OpenAIBaseModel):
 # Ordered by official OpenAI API documentation

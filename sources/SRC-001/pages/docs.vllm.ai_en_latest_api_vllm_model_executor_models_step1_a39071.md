@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/step1/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Shared Step decoder blocks and the Step1 text model.
 

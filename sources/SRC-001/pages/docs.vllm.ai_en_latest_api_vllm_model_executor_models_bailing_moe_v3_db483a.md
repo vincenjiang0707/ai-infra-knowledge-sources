@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/bailing_moe_v3/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 vLLM implementation for BailingMoeV3ForCausalLM.
 

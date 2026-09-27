@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/moriio/moriio_connector/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class MoRIIOConnectorWorker:
 """Implementation of Worker side methods."""
@@ -244,6 +244,8 @@ layer_name: str,
 kv_layer: torch.Tensor,
 remote_notify_port: int,
 remote_ip: str,
+multi_pod_hosts: list[str],
+remote_dp_size_local: int,
 ) -> None:
 """Schedule a block write operation.
 Args:
@@ -256,6 +258,8 @@ layer_name: Name of the layer
 kv_layer: KV cache tensor
 remote_notify_port: Port for completion notification
 remote_ip: IP address of remote node
+multi_pod_hosts: List of pod IPs for multi-pod Wide-EP
+remote_dp_size_local: Per-pod DP size for multi-pod
 """
 # synchronization to prevent dirty reads between
 # transfer and attention operations
@@ -274,6 +278,8 @@ layer_name=layer_name,
 event=event,
 remote_notify_port=remote_notify_port,
 remote_ip=remote_ip,
+multi_pod_hosts=multi_pod_hosts,
+remote_dp_size_local=remote_dp_size_local,
 )
 self._writer.schedule_write(task)
 def _get_built_session(self, remote_engine_id):
@@ -1512,18 +1518,17 @@ chosen_tp=chosen_tp,
 flexible=flexible,
 )
 def _write_blocks_for_req(self, req_id: ReqId, meta: ReqMeta, layer_name, kv_layer):
-# Stash multi_pod_hosts + local DP size on the worker so
-# MoRIIOEngine._finalize_if_complete (which sees only the WriteTask,
-# not ReqMeta) can pick the per-rank pod IP for the completion notify.
-# Last-writer-wins is safe: all requests share the same topology.
-if meta.multi_pod_hosts:
-self.multi_pod_hosts = list(meta.multi_pod_hosts)
-else:
-self.multi_pod_hosts = [meta.remote_host]
-if meta.remote_dp_size_local:
-self.remote_dp_size_local = int(meta.remote_dp_size_local)
-else:
-self.remote_dp_size_local = int(meta.remote_dp_size)
+# Compute per-request values to pass through the task (no shared state).
+# This avoids race conditions when concurrent requests target different
+# decode pods - each WriteTask carries its own routing info.
+hosts = (
+list(meta.multi_pod_hosts) if meta.multi_pod_hosts else [meta.remote_host]
+)
+dp_local = (
+int(meta.remote_dp_size_local)
+if meta.remote_dp_size_local
+else int(meta.remote_dp_size)
+)
 # WRITE does not support HMA, so unwrap blocks into flat lists.
 # remote_block_ids can itself be empty so need to be careful when unwrapping.
 local_block_ids = meta.local_block_ids[0]
@@ -1538,6 +1543,8 @@ layer_name=layer_name,
 kv_layer=kv_layer,
 remote_notify_port=meta.remote_notify_port,
 remote_ip=meta.remote_host,
+multi_pod_hosts=hosts,
+remote_dp_size_local=dp_local,
 )
 def merge_contiguous_blocks(
 self,

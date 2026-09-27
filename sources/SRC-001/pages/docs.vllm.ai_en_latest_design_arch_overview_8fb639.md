@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/arch_overview/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Architecture Overview[¶](https://docs.vllm.ai#architecture-overview)
 

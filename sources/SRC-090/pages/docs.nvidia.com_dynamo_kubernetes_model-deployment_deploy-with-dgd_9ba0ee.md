@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/kubernetes/model-deployment/deploy-with-dgd
-lastmod: 2026-09-25T12:26:00.485Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 # Deploy with DGD
 

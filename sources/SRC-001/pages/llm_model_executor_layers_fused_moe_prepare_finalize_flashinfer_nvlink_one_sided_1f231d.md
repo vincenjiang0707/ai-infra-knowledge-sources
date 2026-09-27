@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/prepare_finalize/flashinfer_nvlink_one_sided/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class FlashInferNVLinkOneSidedPrepareAndFinalize(mk.FusedMoEPrepareAndFinalizeModular):
 """FlashInfer implementation using the Moe AlltoAll kernel."""

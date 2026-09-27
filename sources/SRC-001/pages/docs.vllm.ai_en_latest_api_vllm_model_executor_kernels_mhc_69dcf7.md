@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/mhc/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -92,7 +92,7 @@ Collapse BF16 residual streams with FP32 pre-mix coefficients.
 
 CPU-ported HC head reduction (see `test_hc_head_cpu`
 
-in tests/kernels/test_mhc_kernels.py for the eager reference this is tested against).
+in tests/kernels/mhc/test_mhc_kernels.py for the eager reference this is tested against).
 
 The ported kernel's C++ signature takes `(hc_eps, norm_eps)`
 

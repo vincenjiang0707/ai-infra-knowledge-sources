@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/registry/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @dataclass
 class _ModelRegistry:

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/usage/security/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Security[¶](https://docs.vllm.ai#security)
 
@@ -479,6 +479,22 @@ or`128`
 
 ) to limit the blast radius of a single request.**Reverse proxy layer:**In addition to vLLM's built-in limit, consider enforcing request body validation and rate limiting at your reverse proxy to further constrain abusive payloads.**Monitoring:**Monitor per-request resource consumption to detect anomalous patterns that may indicate abuse.
 
+### Per-request multimodal arguments[¶](https://docs.vllm.ai#per-request-multimodal-arguments)
+
+API server endpoints reject non-empty per-request `mm_processor_kwargs`
+
+and `media_io_kwargs`
+
+by default. These arguments can change image, video, or audio loading, sizing, sampling, and preprocessing behavior, causing excessive CPU, GPU, or memory use when controlled by an untrusted client. Server-level `--mm-processor-kwargs`
+
+and `--media-io-kwargs`
+
+remain available for deployment configuration.
+
+Only deployments whose API clients are trusted should start the server with `--trust-request-mm-kwargs`
+
+to restore per-request overrides. Do not enable this option on an endpoint exposed to untrusted clients.
+
 ## Tool Server and MCP Security[¶](https://docs.vllm.ai#tool-server-and-mcp-security)
 
 vLLM supports connecting to external tool servers via the `--tool-server`
@@ -908,7 +924,6 @@ extra_body={
 
 #### Usage with a raw request[¶](https://docs.vllm.ai#usage-with-a-raw-request)
 
-```json
 {
 "model": "meta-llama/Llama-3-8b",
 "messages": [
@@ -916,7 +931,6 @@ extra_body={
 ],
 "cache_salt": "per-user-or-per-tenant-secret"
 }
-```
 
 
 ### How to choose a salt value[¶](https://docs.vllm.ai#how-to-choose-a-salt-value)

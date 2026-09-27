@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/qwen3_dflash/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -169,6 +169,17 @@ When context_slot_mapping is None (e.g. during dummy_run) only the computation r
 
 |
 |
+
+##
+
+`_add_global_draft_layer_exclusions(quant_config, start_layer_id, num_hidden_layers)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.models.qwen3_dflash._add_global_draft_layer_exclusions)
+
+Add runtime layer aliases for checkpoint-local quant exclusions.
+
+## Source code in `vllm/model_executor/models/qwen3_dflash.py`
+
 
 ##
 

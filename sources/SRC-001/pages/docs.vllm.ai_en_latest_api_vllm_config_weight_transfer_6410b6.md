@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/config/weight_transfer/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -26,7 +26,7 @@ Attributes:
 -
 ([backend](https://docs.vllm.ai#vllm.config.weight_transfer.WeightTransferConfig.backend)
 
-) –[Literal](https://docs.python.org/3/library/typing.html#typing.Literal)['nccl', 'ipc', 'sparse_nccl', 'sharded_rdt'] |[str](https://docs.python.org/3/builtins/stdtypes.html#str)The backend to use for weight transfer. Validated against the
+) –[Literal](https://docs.python.org/3/library/typing.html#typing.Literal)['nccl', 'ipc', 'sparse_nccl', 'sharded_rdt', 'nccl_m2n'] |[str](https://docs.python.org/3/builtins/stdtypes.html#str)The backend to use for weight transfer. Validated against the
 
 
 ## Source code in `vllm/config/weight_transfer.py`

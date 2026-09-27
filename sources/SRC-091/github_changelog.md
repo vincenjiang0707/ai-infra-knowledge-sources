@@ -1,6 +1,6 @@
 # Changelog (aggregated from releases.body)
 
-> releases: 154
+> releases: 159
 
 ## v0.1.0-alpha (2024-09-03)
 
@@ -1541,7 +1541,7 @@ LMCache v0.3.8 is not stable with vLLM 0.11.0 and has been taken off of PyPI.
 
 Automated nightly operator build from `dev` branch.
 
-**Image:** `lmcache/lmcache-operator:nightly-2026-09-25`
+**Image:** `lmcache/lmcache-operator:nightly-2026-09-27`
 
 ```bash
 kubectl apply -f https://github.com/LMCache/LMCache/releases/download/operator-nightly-latest/install.yaml
@@ -4263,9 +4263,76 @@ pip install lmcache==0.5.5rc7+xpu --no-deps \
 
 (empty body)
 
-## nightly (2026-09-24)
+## v0.5.6rc1 (2026-09-26)
 
-Nightly CUDA 13.0 wheels built from `dev` on 2026-09-24.
+(empty body)
+
+## v0.5.6rc1-cu129 (2026-09-26)
+
+CUDA 12.9 wheel for LMCache v0.5.6rc1.
+
+```
+VERSION=v0.5.6rc1
+uv pip install lmcache== \
+  --extra-index-url https://download.pytorch.org/whl/cu129 \
+  --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/-cu129 \
+  --index-strategy unsafe-best-match
+```
+
+## v0.5.6rc1-musa (2026-09-26)
+
+MUSA-compatible wheel for LMCache v0.5.6rc1.
+
+Built and smoke-tested in the validated TorchMUSA/MUSA SDK image. TorchMUSA, musa_aiter, and the MUSA userspace runtime stay in the host image and are not installed from PyPI.
+
+Install inside the matching MUSA runtime image:
+```bash
+VERSION=v0.5.6rc1
+pip install lmcache==0.5.6rc1+musa --no-deps \
+  --no-index \
+  --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/${VERSION}-musa
+```
+
+## v0.5.6rc1-rocm (2026-09-26)
+
+ROCm 7.2 wheel for LMCache v0.5.6rc1, built for AMD
+Instinct gfx942 (MI300X/MI325X) and gfx950 (MI350X/MI355X). ABI-matched
+to the upstream `vllm/vllm-openai-rocm` image (torch 2.11, cp312).
+
+Install into an upstream vLLM ROCm container:
+```
+VERSION=v0.5.6rc1
+pip install lmcache==0.5.6rc1+rocm7.2 --no-deps \
+  --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/${VERSION}-rocm
+```
+
+## v0.5.6rc1-rocm-torch210 (2026-09-26)
+
+ROCm wheel for LMCache v0.5.6rc1, built and tested in
+`rocm/pytorch:rocm7.2.4_ubuntu24.04_py3.12_pytorch_release_2.10.0`
+at digest `sha256:4449f856653602317e4101a76fce599c7fcd58ccec2e539951fce5f73083179e`.
+
+Supported ABI (exact):
+- AMD torch wheel source: https://repo.radeon.com/rocm/manylinux/rocm-rel-7.2.4/torch-2.10.0%2Brocm7.2.4.lw.git3d3aa833-cp312-cp312-linux_x86_64.whl
+- torch runtime: `2.10.0+rocm7.2.4.git3d3aa833` (git `3d3aa833db84eed6b7f5595cb5f162c2f78300a4`)
+- ROCm: `7.2.4` (HIP runtime `7.2.53211`)
+- Python/platform: `cp312-cp312-manylinux_2_39_x86_64`
+- C++ ABI: `_GLIBCXX_USE_CXX11_ABI=1`
+
+It includes gfx942/gfx950 GPU code objects and all integrations shipped
+by the corresponding LMCache release.
+
+Install into the pinned AMD PyTorch container:
+```bash
+VERSION=v0.5.6rc1
+pip install lmcache==0.5.6rc1+rocm7.2.4.torch2.10.git3d3aa833.cxx11abi1 --no-deps \
+  --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/${VERSION}-rocm-torch210
+```
+
+
+## nightly (2026-09-27)
+
+Nightly CUDA 13.0 wheels built from `dev` on 2026-09-27.
 
 ```
 uv pip install lmcache --pre \
@@ -4274,9 +4341,9 @@ uv pip install lmcache --pre \
   --index-strategy unsafe-best-match
 ```
 
-## nightly-cu129 (2026-09-24)
+## nightly-cu129 (2026-09-27)
 
-Nightly CUDA 12.9 wheels built from `dev` on 2026-09-24.
+Nightly CUDA 12.9 wheels built from `dev` on 2026-09-27.
 
 ```
 uv pip install lmcache --pre \
@@ -4285,9 +4352,9 @@ uv pip install lmcache --pre \
   --index-strategy unsafe-best-match
 ```
 
-## nightly-musa (2026-09-24)
+## nightly-musa (2026-09-27)
 
-Nightly MUSA wheel for LMCache, built from `dev` on 2026-09-24.
+Nightly MUSA wheel for LMCache, built from `dev` on 2026-09-27.
 
 Built and smoke-tested in the validated public MUSA image. TorchMUSA,
 the MUSA SDK, and device drivers remain host-owned and are not bundled
@@ -4295,19 +4362,20 @@ in the wheel.
 
 Install inside the matching MUSA runtime image:
 ```bash
-pip install lmcache==0.5.6.dev98+musa --no-deps \
+pip install lmcache==0.5.6.dev107+musa --no-deps \
   --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/nightly-musa
 ```
 
-## nightly-rocm (2026-09-24)
 
-Nightly ROCm 7.2 wheels built from `dev` on 2026-09-24,
+## nightly-rocm (2026-09-27)
+
+Nightly ROCm 7.2 wheels built from `dev` on 2026-09-27,
 for AMD Instinct gfx942 (MI300X/MI325X) and gfx950 (MI350X/MI355X),
-ABI-matched to the upstream `vllm/vllm-openai-rocm` image
-(torch 2.11, cp312).
+ABI-matched to the upstream `vllm/vllm-openai-rocm` image (torch 2.11, cp312).
 
 Install into an upstream vLLM ROCm container:
 ```
-pip install lmcache==0.5.6.dev98+rocm7.2 --no-deps \
+pip install lmcache==0.5.6.dev107+rocm7.2 --no-deps \
   --find-links https://github.com/LMCache/LMCache/releases/expanded_assets/nightly-rocm
 ```
+

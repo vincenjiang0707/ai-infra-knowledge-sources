@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/benchmarking/sweeps/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Parameter Sweeps[¶](https://docs.vllm.ai#parameter-sweeps)
 
@@ -72,7 +72,6 @@ to control where to save the results.
 
 Example command:
 
-```bash
 vllm bench sweep serve \
 --serve-cmd 'vllm serve meta-llama/Llama-2-7b-chat-hf' \
 --bench-cmd 'vllm bench serve --model meta-llama/Llama-2-7b-chat-hf --backend vllm --endpoint /v1/completions --dataset-name sharegpt --dataset-path benchmarks/ShareGPT_V3_unfiltered_cleaned_split.json' \
@@ -80,7 +79,6 @@ vllm bench sweep serve \
 --bench-params benchmarks/bench_hparams.json \
 --output-dir benchmarks/results \
 --experiment-name demo
-```
 
 
 By default, each parameter combination is benchmarked 3 times to make the results more reliable. You can adjust the number of runs by setting `--num-runs`
@@ -135,7 +133,6 @@ The workload can be expressed in terms of request rate or concurrency (choose us
 
 Example command:
 
-```bash
 vllm bench sweep serve_workload \
 --serve-cmd 'vllm serve meta-llama/Llama-2-7b-chat-hf' \
 --bench-cmd 'vllm bench serve --model meta-llama/Llama-2-7b-chat-hf --backend vllm --endpoint /v1/completions --dataset-name sharegpt --dataset-path benchmarks/ShareGPT_V3_unfiltered_cleaned_split.json --num-prompts 100' \
@@ -145,7 +142,6 @@ vllm bench sweep serve_workload \
 --num-runs 1 \
 --output-dir benchmarks/results \
 --experiment-name demo
-```
 
 
 The algorithm for exploring different workload levels can be summarized as follows:
@@ -211,7 +207,6 @@ Example `--serve-params`
 :
 
 [
-```json
 {
 "_benchmark_name": "tp1",
 "model": "Qwen/Qwen3-0.6B",
@@ -225,7 +220,6 @@ Example `--serve-params`
 "gpu_memory_utilization": 0.9
 }
 ]
-```
 
 
 Example `--startup-params`
@@ -233,7 +227,6 @@ Example `--startup-params`
 :
 
 [
-```json
 {
 "_benchmark_name": "qwen3-0.6",
 "num_iters_cold": 2,
@@ -241,19 +234,16 @@ Example `--startup-params`
 "num_iters_warm": 2
 }
 ]
-```
 
 
 Example command:
 
-```bash
 vllm bench sweep startup \
 --startup-cmd 'vllm bench startup --model Qwen/Qwen3-0.6B' \
 --serve-params benchmarks/serve_hparams.json \
 --startup-params benchmarks/startup_hparams.json \
 --output-dir benchmarks/results \
 --experiment-name demo
-```
 
 
 Important
@@ -294,7 +284,6 @@ to the values. The plot is organized according to `--fig-by`
 
 Example commands for visualizing [Workload Explorer](https://docs.vllm.ai#workload-explorer) results:
 
-```bash
 EXPERIMENT_DIR=${1:-"benchmarks/results/demo"}
 # Latency increases as the workload increases
 vllm bench sweep plot $EXPERIMENT_DIR \
@@ -317,7 +306,6 @@ vllm bench sweep plot $EXPERIMENT_DIR \
 --col-by _benchmark_name \
 --curve-by max_num_seqs,max_num_batched_tokens \
 --fig-name latency_throughput
-```
 
 
 Tip

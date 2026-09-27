@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/nvfp4/emulation/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Bases: [NvFp4LinearKernel](../base/#vllm.model_executor.kernels.linear.nvfp4.base.NvFp4LinearKernel)
 

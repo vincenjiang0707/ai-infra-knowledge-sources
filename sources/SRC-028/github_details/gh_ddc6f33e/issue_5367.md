@@ -14,7 +14,7 @@ Commit: [e244b5752f93eb72da51937dd057431cd8e70c81](https://github.com/AI-Hyperco
 
 <sup><i>Created by [jayqi/failed-build-issue-action](https://github.com/jayqi/failed-build-issue-action)</i></sup>
 
-## 评论 (3)
+## 评论 (4)
 
 ### github-actions[bot] · 2026-09-24
 
@@ -120,3 +120,6 @@ To resolve the failure:
 1. Re-run the failed jobs (`TPU Pathways Integration Tests` and `Jupyter Notebook Tests / Execute native_lora_demo.ipynb`) in workflow run [#8323](https://github.com/AI-Hypercomputer/maxtext/actions/runs/36076571150).
 2. If the k8s container error persists, clean up redundant workflow pod cert secrets or restart the runner daemon on the `ml-east5-general-a` runner cluster.
 
+### Shuwen-Fang · 2026-09-25
+
+The original pylint failure on `tests/unit/quantizations_test.py` was resolved in #5361 (merge commit `192bd934`), and the subsequent runner failures in run #8323 were transient self-hosted runner infrastructure flakes. The scheduled CI pipeline has succeeded on runs #8344, #8345, and #8348 with all 68 jobs passing. Closing as resolved.

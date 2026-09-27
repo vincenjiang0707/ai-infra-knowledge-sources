@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/zh-CN/dev/cli/operations/benchmarking-with-ai-perf
-lastmod: 2026-09-23T23:30:39.914Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 # Benchmark a Local Deployment with AIPerf
 

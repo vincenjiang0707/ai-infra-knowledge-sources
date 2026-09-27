@@ -1,7 +1,7 @@
 # [Issue #5347] [Bug][MP] ARC eviction policy promotes every newly written L1 key to T2 because on_keys_created fires twice per write
 
 source: https://github.com/LMCache/LMCache/issues/5347
-state: open | updated: 2026-09-25T14:39:44Z
+state: open | updated: 2026-09-26T10:44:43Z
 labels: 
 
 ## 正文
@@ -84,8 +84,12 @@ Found by reading the code. I verified it by running upstream `arc.py` directly w
 cc @maobaolong (ARC, #4994) @ApostaC (#5247). Is there a fix already planned, or a preferred direction? I'm happy to send a PR.
 
 
-## 评论 (1)
+## 评论 (2)
 
 ### maobaolong · 2026-09-25
 
 @alany85 Thanks for raise this issue, i found there is already a PR related to this issue.
+
+### neevmodh · 2026-09-26
+
+Thanks for the detailed root-cause writeup — the reserve-vs-admission distinction and the `on_keys_reserved` hook proposal both look like the right direction to me. Saw @maobaolong's note that there's already a PR addressing this, so I'll leave the implementation to that rather than duplicate effort. The regression test you included (`test_l1_listener_reserve_then_finish_keeps_key_recent`) is a good one to make sure lands regardless of which PR gets merged, since the existing `test_l1_listener_drives_arc_lifecycle` doesn't cover the real call sequence.

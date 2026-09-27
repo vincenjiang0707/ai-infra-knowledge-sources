@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/rl/rlhf_sparse_nccl/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # RLHF Sparse NCCL[¶](https://docs.vllm.ai#rlhf-sparse-nccl)
 

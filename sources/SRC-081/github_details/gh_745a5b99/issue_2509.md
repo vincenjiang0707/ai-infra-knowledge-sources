@@ -164,4 +164,50 @@ Part 2 follows once the core QAT infrastructure is proven and stable.
 
 Happy to start implementing Part 1 once the design direction is confirmed.@kylesayrs 
 
-## 评论 (0)
+## 评论 (5)
+
+### kylesayrs · 2026-03-25
+
+1. I think that having a `train` entrypoint might be a slippery slope towards "owning the training lifecycle and process", which is something we should strongly avoid, as LLM Compressor is not equipped to be a training library.
+2. I would avoid integrated on the level of `SessionManagerMixIn` if possible. This mixin required a lot of effort to maintain and keep up to date with what HF was doing. I would start by targeting axolotl, as that is a state-of-the-art LLM training library, @ved1beta may have some insight here.
+3. `DistillationModifier` has been unused for almost two years now. While the implementation is good, it's severely out of date when it comes to supporting large model dispatches like TP/EP. For that reason, knowledge distillation is probably out of scope for LLM Compressor now.
+4. I and other vLLM community members have relationships with folks working on [SkyRL](https://github.com/NovaSky-AI/SkyRL) and [Axolotl](https://github.com/axolotl-ai-cloud/axolotl). IIRC there are some VeRL folks, we can publicize our work on #sig-reinforcement-learning (formerly #sig-post-training) on the vLLM slack.
+
+### dzhengAP · 2026-03-25
+
+@kylesayrs 
+
+It is clear, we are aligned. My follow-up proposal is to add a QATLifecycleHook in llm-compressor which is a minimal, framework-agnostic interface as below that any training library can use:
+```python
+class QATLifecycleHook:
+    def __init__(self, recipe):
+        self.recipe = recipe
+
+    def on_train_begin(self, model):
+        # initialize modifier, inject fake-quant ops into model
+        ...
+
+    def on_train_end(self, model):
+        # finalize modifier, convert fake-quant -> real compressed-tensors quant
+        ...
+```
+llm-compressor owns only this, without training loop, data loading, and Trainer subclass. Once the first part hook done, I will write a thin Axolotl plugin/callback that calls it.
+
+Meanwhile, I dig into the axolotl hub and found that Axolotl already ships QAT (since May 2025), built on torchao — not llm-compressor. It supports INT4/INT8/Float8/NVFP4 via a simple YAML config, with a two-step flow: axolotl train (fake-quant) → axolotl quantize (PTQ finalization). The output format is torchao/HuggingFace, not compressed-tensors.
+So there is a real gap identified: Axolotl QAT produces torchao-format checkpoints. llm-compressor/vLLM consumes compressed-tensors format. I plan to make a Bridge (narrower, higher immediate value): llm-compressor exposes a conversion utility that takes a model finalized by Axolotl's torchao QAT and re-serializes it in compressed-tensors format. Axolotl users get vLLM-compatible output without changing their training workflow.
+
+Let me know what you think. 
+
+### kylesayrs · 2026-03-25
+
+@dzhengAP If axolotl already provides QAT via torchao, there probably isn't any benefit from providing our own implementation. The bridge you mention would be a torchao -> compressed tensors converter, which I still see as providing some value.
+
+If a QAT implementation provided by LLM Compressor is not going to provide any benefit over their native torchao implementation, then it might be worth re-thinking where the value of LLM Compressor's implementation could come from.
+
+### github-actions[bot] · 2026-06-24
+
+This issue has been automatically marked as stale because it has not had any activity within 90 days. It will be automatically closed if no further activity occurs within 30 days. Leave a comment if you feel this issue should remain open. Thank you!
+
+### github-actions[bot] · 2026-07-25
+
+This issue has been automatically closed due to inactivity. Please feel free to reopen if you feel it is still relevant. Thank you!

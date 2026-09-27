@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/contributing/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Contributing to vLLM[¶](https://docs.vllm.ai#contributing-to-vllm)
 
@@ -76,6 +76,14 @@ is as easy as:
 vLLM's `pre-commit`
 
 hooks will now run automatically every time you commit.
+
+When running ShellCheck or markdownlint directly, or configuring an editor integration, use the configuration files in `tools/pre_commit/`
+
+: `--rcfile=tools/pre_commit/.shellcheckrc`
+
+for ShellCheck and `--config tools/pre_commit/.markdownlint.yaml`
+
+for markdownlint-cli2.
 
 Tips
 

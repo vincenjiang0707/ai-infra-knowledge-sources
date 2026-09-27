@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/kda/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class _KimiGDNMergedColumnParallelLinear(MergedColumnParallelLinear):
 """Merged projection with one output replicated across TP ranks."""

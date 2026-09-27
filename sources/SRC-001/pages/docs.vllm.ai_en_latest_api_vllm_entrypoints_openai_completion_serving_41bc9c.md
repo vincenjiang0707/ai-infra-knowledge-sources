@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/openai/completion/serving/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class OpenAIServingCompletion(GenerateBaseServing):
 def __init__(

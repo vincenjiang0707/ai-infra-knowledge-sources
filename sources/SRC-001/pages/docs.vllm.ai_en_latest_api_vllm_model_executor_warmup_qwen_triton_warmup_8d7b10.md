@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/warmup/qwen_triton_warmup/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Warm Qwen GDN Triton kernels reported by the JIT monitor.
 

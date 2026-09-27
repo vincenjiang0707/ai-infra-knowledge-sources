@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp8/marlin/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class MarlinMxfp8LinearKernel(Mxfp8LinearKernel):
 """MXFP8 W8A16 GEMM via Marlin (SM80+)."""
@@ -15,6 +15,16 @@ return True, None
 return False, "Marlin FP8 not available"
 @classmethod
 def can_implement(cls, c: Mxfp8LinearLayerConfig) -> tuple[bool, str | None]:
+N, K = c.weight_shape
+if N <= 0 or K <= 0:
+return False, f"Marlin MXFP8 requires positive N and K, got N={N}, K={K}."
+if K % MXFP8_BLOCK_SIZE != 0:
+return (
+False,
+f"Marlin MXFP8 requires K to be divisible by {MXFP8_BLOCK_SIZE}, "
+f"got K={K}.",
+)
+# Tile misalignment is fixed by zero-padding at weight prep.
 return True, None
 def process_weights_after_loading(self, layer: torch.nn.Module) -> None:
 from vllm.model_executor.layers.quantization.utils.marlin_utils_fp8 import (

@@ -167,7 +167,7 @@ If you are unsure about whom to tag, you can leave it blank, and we will make su
 - Any other details that may help: N/A
 
 
-## 评论 (2)
+## 评论 (3)
 
 ### hychiang-git · 2026-09-04
 
@@ -176,3 +176,7 @@ Root cause: [PR #1856](https://github.com/NVIDIA/Model-Optimizer/pull/1856) adde
 ### Lee-YNU · 2026-09-05
 
 I get it. To address the current issue, would it be more appropriate to modify the checker's logic, or to avoid storing effective_bits as _effective_bits?
+
+### Momoyeyu · 2026-09-26
+
+I'd like to take this. On Lee-YNU's question: `effective_bits` is an AutoQuantize cost-model hint, not a quantizer behavior attribute — it gets stored as `_effective_bits` while the checker looks for the bare name. The cleaner fix is to skip it in `_nvfp4_availability_check` (like `enable`), not to give the quantizer a public alias. I'll open a PR with that fix plus a regression test covering NVFP4 quantize + compress selecting the real-quant GEMM.

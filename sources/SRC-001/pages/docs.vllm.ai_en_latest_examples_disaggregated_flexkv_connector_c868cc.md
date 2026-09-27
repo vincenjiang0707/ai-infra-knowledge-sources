@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/disaggregated/flexkv_connector/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Flexkv Connector[¶](https://docs.vllm.ai#flexkv-connector)
 

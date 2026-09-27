@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/mooncake_store_connector_usage/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # MooncakeStoreConnector Usage Guide[¶](https://docs.vllm.ai#mooncakestoreconnector-usage-guide)
 
@@ -34,7 +34,6 @@ Create a JSON configuration file (e.g., `mooncake_config.json`
 ):
 
 {
-```json
 "mode": "embedded",
 "metadata_server": "P2PHANDSHAKE",
 "master_server_address": "127.0.0.1:50051",
@@ -44,7 +43,6 @@ Create a JSON configuration file (e.g., `mooncake_config.json`
 "device_name": "",
 "enable_offload": false
 }
-```
 
 
 `mode`
@@ -116,7 +114,6 @@ In disaggregated prefill-decode mode, use [ MultiConnector](https://docs.vllm.ai
 
 **Prefiller Node:**
 
-```bash
 MOONCAKE_CONFIG_PATH=mooncake_config.json \
 VLLM_MOONCAKE_BOOTSTRAP_PORT=50052 \
 vllm serve meta-llama/Llama-3.1-8B-Instruct \
@@ -137,12 +134,10 @@ vllm serve meta-llama/Llama-3.1-8B-Instruct \
 ]
 }
 }'
-```
 
 
 **Decoder Node:**
 
-```bash
 MOONCAKE_CONFIG_PATH=mooncake_config.json \
 VLLM_MOONCAKE_BOOTSTRAP_PORT=50053 \
 vllm serve meta-llama/Llama-3.1-8B-Instruct \
@@ -163,7 +158,6 @@ vllm serve meta-llama/Llama-3.1-8B-Instruct \
 ]
 }
 }'
-```
 
 
 To also offload newly completed decode KV blocks, add the following extra configuration to the decoder's [ MooncakeStoreConnector](https://docs.vllm.ai/api/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/connector/#vllm.distributed.kv_transfer.kv_connector.v1.mooncake.store.connector.MooncakeStoreConnector) entry.
@@ -225,7 +219,6 @@ Example `mooncake_config.json`
 for the vLLM side:
 
 {
-```json
 "mode": "standalone-store",
 "metadata_server": "P2PHANDSHAKE",
 "master_server_address": "127.0.0.1:50051",
@@ -235,7 +228,6 @@ for the vLLM side:
 "device_name": "mlx5_0",
 "enable_offload": true
 }
-```
 
 
 Steer this rank to the local owner segment with:
@@ -261,7 +253,6 @@ Set `tenant_id`
 in the Mooncake JSON config when different vLLM deployments should use separate Mooncake tenant namespaces:
 
 {
-```json
 "mode": "embedded",
 "metadata_server": "P2PHANDSHAKE",
 "master_server_address": "127.0.0.1:50051",
@@ -272,7 +263,6 @@ in the Mooncake JSON config when different vLLM deployments should use separate 
 "enable_offload": false,
 "tenant_id": "tenant-a"
 }
-```
 
 
 Strict isolation requires a Mooncake master started with `--enable_multi_tenants=true`

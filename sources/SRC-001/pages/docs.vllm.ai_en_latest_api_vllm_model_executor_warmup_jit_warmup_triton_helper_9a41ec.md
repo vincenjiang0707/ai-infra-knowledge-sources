@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/warmup/jit_warmup_triton_helper/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -108,6 +108,9 @@ Triton owner whose runtime launch specification is reused for warmup.
 Methods:
 
 -
+–[compile_many](https://docs.vllm.ai#vllm.model_executor.warmup.jit_warmup_triton_helper.VllmTritonJitKernel.compile_many)Compile CUDA startup warmup variants in parallel, then wait.
+
+-
 –[warmup_inputs](https://docs.vllm.ai#vllm.model_executor.warmup.jit_warmup_triton_helper.VllmTritonJitKernel.warmup_inputs)Return runtime-shaped inputs that reproduce one compile key.
 
 
@@ -116,6 +119,17 @@ Methods:
 
 |
 |
+
+###
+
+`compile_many(compile_keys)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.warmup.jit_warmup_triton_helper.VllmTritonJitKernel.compile_many)
+
+Compile CUDA startup warmup variants in parallel, then wait.
+
+## Source code in `vllm/model_executor/warmup/jit_warmup_triton_helper.py`
+
 
 ###
 

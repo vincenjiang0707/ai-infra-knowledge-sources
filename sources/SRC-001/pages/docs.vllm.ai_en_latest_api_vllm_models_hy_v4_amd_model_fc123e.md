@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/hy_v4/amd/model/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @support_torch_compile
 class HYV4Model(nn.Module):

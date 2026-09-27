@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/serving/integrations/claude_code/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Claude Code[¶](https://docs.vllm.ai#claude-code)
 
@@ -46,7 +46,6 @@ and the right `--tool-call-parser`
 
 Launch Claude Code with environment variables pointing to your vLLM server:
 
-```bash
 ANTHROPIC_BASE_URL=http://localhost:8000 \
 ANTHROPIC_API_KEY=dummy \
 ANTHROPIC_AUTH_TOKEN=dummy \
@@ -54,7 +53,6 @@ ANTHROPIC_DEFAULT_OPUS_MODEL=my-model \
 ANTHROPIC_DEFAULT_SONNET_MODEL=my-model \
 ANTHROPIC_DEFAULT_HAIKU_MODEL=my-model \
 claude
-```
 
 
 The environment variables:

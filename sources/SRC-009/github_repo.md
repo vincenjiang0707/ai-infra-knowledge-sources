@@ -1,12 +1,12 @@
 # NVIDIA/TensorRT-LLM
 
-- stars: 14713
-- forks: 2774
-- open_issues: 1507
+- stars: 14721
+- forks: 2777
+- open_issues: 1504
 - default_branch: main
 - archived: False
 - license: NOASSERTION
-- pushed_at: 2026-09-24T20:26:23Z
+- pushed_at: 2026-09-27T03:57:21Z
 - homepage: https://nvidia.github.io/TensorRT-LLM
 
 ## README

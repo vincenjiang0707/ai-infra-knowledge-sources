@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/models/pooling_models/scoring/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Scoring Usages[¶](https://docs.vllm.ai#scoring-usages)
 
@@ -776,7 +776,6 @@ library:
 
 ## Code
 
-```python
 import requests
 response = requests.post(
 "http://localhost:8000/v1/score",
@@ -811,7 +810,6 @@ response.raise_for_status()
 response_json = response.json()
 print("Scoring output:", response_json["data"][0]["score"])
 print("Scoring output:", response_json["data"][1]["score"])
-```
 
 
 Full example:
@@ -962,7 +960,6 @@ curl -X 'POST' \
 
 ## Response
 
-```json
 {
 "id": "rerank-fae51b2b664d4ed38f5969b612edff77",
 "model": "BAAI/bge-reranker-base",
@@ -986,7 +983,6 @@ curl -X 'POST' \
 }
 ]
 }
-```
 
 
 ## More examples[¶](https://docs.vllm.ai#more-examples)

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/interns1_vit/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class InternS1VisionEmbeddings(nn.Module):
 def __init__(self, config: PreTrainedConfig):

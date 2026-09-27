@@ -20,4 +20,45 @@ oneshot(
 量化得到的模型，在vllm中运行出现：KeyError: 'layers.0.self_attn.qkv.weight_scale'
 
 
-## 评论 (0)
+## 评论 (1)
+
+### winniewyz · 2026-08-27
+
+前面：
+import os
+import torch
+from transformers import AutoProcessor, AutoModelForMultimodalLM
+from llmcompressor import oneshot
+from llmcompressor.modifiers.quantization import QuantizationModifier
+
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+
+MODEL_ID = "./Qwen3-Omni-30B-A3B-Thinking"
+OUTPUT_DIR = "./Qwen3-Omni-30B-A3B-Thinking-FP8"
+
+processor = AutoProcessor.from_pretrained(MODEL_ID, trust_remote_code=True)
+
+model = AutoModelForMultimodalLM.from_pretrained(
+    MODEL_ID,
+    torch_dtype="auto",
+    device_map="auto",
+    max_memory={0: "80GB", 1: "80GB"},
+    trust_remote_code=True,
+    low_cpu_mem_usage=True,
+)
+
+if model.generation_config is not None:
+    model.generation_config.do_sample = True
+
+recipe = QuantizationModifier(
+    targets="Linear",
+    scheme="FP8_DYNAMIC",
+    ignore=[
+        "thinker.audio_tower.*",
+        "thinker.visual.*",
+        "thinker.lm_head",
+    ]
+)
+
+后面：
+processor.save_pretrained(OUTPUT_DIR)

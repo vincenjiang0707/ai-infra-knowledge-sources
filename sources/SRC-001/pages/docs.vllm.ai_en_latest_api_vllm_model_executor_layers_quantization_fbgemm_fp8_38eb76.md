@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/fbgemm_fp8/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Bases: [QuantizationConfig](../base_config/#vllm.model_executor.layers.quantization.base_config.QuantizationConfig)
 

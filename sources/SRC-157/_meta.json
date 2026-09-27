@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:04:39Z",
- "finished_at": "2026-09-25T19:35:32Z",
- "duration_seconds": 109.9,
- "attempts": 3,
+ "finished_at": "2026-09-27T08:23:27Z",
+ "duration_seconds": 112.9,
+ "attempts": 4,
  "channels": {
   "gh_53c37c6d": {
    "type": "github_repo",
@@ -22,20 +22,15 @@
     "count": 2,
     "note": "top-100 by updated_at desc (web default)",
     "details": {
-     "fetched": 2,
+     "fetched": 0,
      "appended": 0,
      "skipped": 0
     }
    },
    "pulls": {
     "status": "ok",
-    "count": 11,
-    "note": "top-100 by updated_at desc (web default)",
-    "details": {
-     "fetched": 11,
-     "appended": 0,
-     "skipped": 0
-    }
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -71,13 +66,8 @@
    },
    "pulls": {
     "status": "ok",
-    "count": 2,
-    "note": "top-100 by updated_at desc (web default)",
-    "details": {
-     "fetched": 2,
-     "appended": 0,
-     "skipped": 0
-    }
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",

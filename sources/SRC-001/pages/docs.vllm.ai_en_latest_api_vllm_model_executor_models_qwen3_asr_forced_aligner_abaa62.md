@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/qwen3_asr_forced_aligner/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @default_pooling_type(tok_pooling_type="ALL")
 @MULTIMODAL_REGISTRY.register_processor(
@@ -44,8 +44,9 @@ config = vllm_config.model_config.hf_config
 thinker_config = config.thinker_config
 # Remove the unused generation head created by the base class;
 # the forced aligner uses a classifier head instead.
-self.language_model.lm_head = None
-self.language_model.logits_processor = None
+language_model: nn.Module = self.language_model
+language_model.lm_head = None
+language_model.logits_processor = None
 self.classify_num = thinker_config.classify_num
 # Classification head replaces lm_head for time-bin prediction.
 # Use model dtype (not head_dtype which defaults to float32 for

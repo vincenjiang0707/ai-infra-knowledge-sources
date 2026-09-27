@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe_w4a4_nvfp4/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class CompressedTensorsW4A4Nvfp4MoEMethod(CompressedTensorsMoEMethod):
 def __init__(
@@ -239,7 +239,7 @@ topk_weights: torch.Tensor,
 topk_ids: torch.Tensor,
 shared_experts: SharedExperts | None,
 shared_experts_input: torch.Tensor | None,
-) -> torch.Tensor:
+) -> torch.Tensor | UnfinalizedMoEOutput:
 assert self.moe_kernel is not None
 return self.moe_kernel.apply(
 x,

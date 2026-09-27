@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/features/structured_diffusion/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Structured reads on DiffusionGemma[¶](https://docs.vllm.ai#structured-reads-on-diffusiongemma)
 
@@ -17,14 +17,18 @@ on the OpenAI server) expose that:
 `diffusion_pinned` | `list[int]` of canvas positions | held at their seed value on every denoise step, so a read past one step keeps its template |
 `diffusion_max_steps` | `int` | denoise steps before the canvas is emitted |
 `diffusion_read_only` | `bool` | emit the argmax canvas as soon as the cap is reached, end the request there, and return temperature-1 logprobs at every position |
+`diffusion_constrained` | `bool` | run the unembedding, sampler and self-conditioning over the request's `logprob_token_ids` only. Logprobs are normalized over that set. A step uses this only when every read in it has the same set |
 
 `structured_server.py`
 
-turns a question schema into those fields. It serves `/v1/chat/completions`
+turns a question schema into those fields, with `diffusion_constrained`
+
+on for every read (`--no-constrained`
+
+turns it off). It serves `/v1/chat/completions`
 
 : the system message is the schema, the user message is the state JSON, and the reply content is one distribution per question with a standard error over a few noise draws.
 
-```bash
 vllm serve google/diffusiongemma-26B-A4B-it \
 --diffusion-config '{"canvas_length": 64}' --max-logprobs 32 --enable-prefix-caching
 python examples/features/structured_diffusion/structured_server.py \
@@ -34,7 +38,6 @@ curl -s localhost:8011/v1/chat/completions -H 'content-type: application/json' -
 {"role": "system", "content": "{\"questions\": [{\"id\": \"urgent\", \"type\": \"noul\", \"instructions\": \"Does the customer need a reply within the hour?\"}]}"},
 {"role": "user", "content": "{\"ticket\": \"Everything is down and we have a demo at noon.\"}"}
 ]}'
-```
 
 
 The attention backend is picked as for Gemma 4: FlashAttention 4 on every layer when available, otherwise Triton. FlashInfer cannot serve this model (a batch mixes causal prefill with bidirectional denoising), and `--attention-backend FLASHINFER`
@@ -101,12 +104,10 @@ and each image as a file part, or as an `images`
 
 array of data URLs.
 
-```bash
 curl -s localhost:8011/v1/systemone -H 'content-type: application/json' -d '{
 "model": "jev-latest",
 "state": {"ticket": "Everything is down and we have a demo at noon."},
 "questions": {"urgent": {"type": "noul", "instructions": "Does the customer need a reply within the hour?"}}}'
-```
 
 
 `"think": N`
@@ -480,6 +481,12 @@ def canvas_width(template):
 """Smallest multiple of CANVAS_STEP that holds the template and the turn close."""
 need = len(template) + 1
 return min(CANVAS_LEN, -(-need // CANVAS_STEP) * CANVAS_STEP)
+def constrained_xargs():
+"""Read over the labels only. The engine runs the unembedding, sampler and
+self-conditioning over the request's logprob_token_ids instead of the whole
+vocabulary. Same argmax, about a quarter less GPU time per read. Logprobs
+come back normalized over the labels."""
+return {"diffusion_constrained": True} if ARGS.constrained else {}
 def pin_xargs(template, slots, steps):
 """Past one denoise step the template must be held, or accept/renoise
 rewrites it: pin every canvas position that is not an answer slot."""
@@ -617,6 +624,7 @@ body = {
 "diffusion_max_steps": schema["steps"],
 "diffusion_read_only": True,
 **pin_xargs(template, slots, schema["steps"]),
+**constrained_xargs(),
 },
 }
 d = upstream_chat(body)
@@ -662,6 +670,7 @@ body = {
 "diffusion_max_steps": schema["steps"],
 "diffusion_read_only": True,
 **pin_xargs(template, slots, schema["steps"]),
+**constrained_xargs(),
 },
 }
 d = upstream_completions(body)
@@ -1503,6 +1512,12 @@ p.add_argument(
 type=int,
 default=16,
 help="request widths round up to a multiple of this",
+)
+p.add_argument(
+"--no-constrained",
+dest="constrained",
+action="store_false",
+help="read over the whole vocabulary instead of the labels",
 )
 p.add_argument("--host", default="0.0.0.0")
 p.add_argument("--port", type=int, default=8011)

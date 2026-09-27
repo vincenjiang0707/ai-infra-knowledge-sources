@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/generate/base/protocol/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -24,6 +24,9 @@ overrides to`structured_outputs`
 
 . -
 –[validate_cache_salt](https://docs.vllm.ai#vllm.entrypoints.generate.base.protocol.validate_cache_salt)Validate cache salts before they reach downstream cache backends.
+
+-
+–[validate_request_mm_kwargs](https://docs.vllm.ai#vllm.entrypoints.generate.base.protocol.validate_request_mm_kwargs)Reject untrusted per-request multimodal kwarg overrides.
 
 -
 –[validate_structural_tag_response_format](https://docs.vllm.ai#vllm.entrypoints.generate.base.protocol.validate_structural_tag_response_format)Validate structural tags before they are sent to the engine.
@@ -73,6 +76,17 @@ overrides to `structured_outputs`
 [¶](https://docs.vllm.ai#vllm.entrypoints.generate.base.protocol.validate_cache_salt)
 
 Validate cache salts before they reach downstream cache backends.
+
+## Source code in `vllm/entrypoints/generate/base/protocol.py`
+
+
+##
+
+`validate_request_mm_kwargs(*, mm_processor_kwargs, media_io_kwargs, trust_request_mm_kwargs)`
+
+[¶](https://docs.vllm.ai#vllm.entrypoints.generate.base.protocol.validate_request_mm_kwargs)
+
+Reject untrusted per-request multimodal kwarg overrides.
 
 ## Source code in `vllm/entrypoints/generate/base/protocol.py`
 

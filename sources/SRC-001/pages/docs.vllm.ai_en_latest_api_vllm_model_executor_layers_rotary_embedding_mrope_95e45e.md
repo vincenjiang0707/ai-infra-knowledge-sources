@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/mrope/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class MRotaryEmbedding(RotaryEmbeddingBase):
 """Rotary Embedding with Multimodal Sections."""

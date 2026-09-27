@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/kubernetes/operations/dynosim/live-simulation-with-mocker
-lastmod: 2026-09-25T12:26:00.485Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 # Simulate a Kubernetes Deployment with Mocker
 

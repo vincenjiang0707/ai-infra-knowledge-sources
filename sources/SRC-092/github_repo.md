@@ -1,12 +1,12 @@
 # kvcache-ai/Mooncake
 
-- stars: 6658
-- forks: 1267
-- open_issues: 607
+- stars: 6665
+- forks: 1270
+- open_issues: 620
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-09-24T09:02:54Z
+- pushed_at: 2026-09-25T20:15:03Z
 - homepage: https://kvcache-ai.github.io/Mooncake/
 
 ## README

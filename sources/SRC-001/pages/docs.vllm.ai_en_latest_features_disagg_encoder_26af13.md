@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/disagg_encoder/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Disaggregated Encoder[¶](https://docs.vllm.ai#disaggregated-encoder)
 

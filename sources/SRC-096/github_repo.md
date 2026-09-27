@@ -1,6 +1,6 @@
 # openucx/ucx
 
-- stars: 1715
+- stars: 1716
 - forks: 604
 - open_issues: 884
 - default_branch: master

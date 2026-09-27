@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T04:20:07Z",
- "finished_at": "2026-09-24T18:55:39Z",
- "duration_seconds": 21.3,
- "attempts": 2,
+ "finished_at": "2026-09-27T08:41:18Z",
+ "duration_seconds": 28.6,
+ "attempts": 3,
  "channels": {
   "site_11c7c0f2": {
    "type": "blog",
@@ -20,10 +20,11 @@
    "status": "ok",
    "mode": "blog",
    "posts": [
-    "134_trillion-tokens-trillion-parameters.md"
+    "135_quail-billion-tpm.md"
    ],
-   "total_chars": 51901,
+   "total_chars": 31182,
    "post_urls": {
+    "https://modal.com/blog/trillion-tokens-trillion-parameters": "134_trillion-tokens-trillion-parameters.md",
     "https://modal.com/blog/soc2": "20230615_modal.com_blog_soc2_8de2bf.md",
     "https://modal.com/blog/general-availability-and-series-a-press-release": "20231010_modal.com_blog_general-availability-and-series-a-press-release_7b2380.md",
     "https://modal.com/blog/general-availability-and-series-a": "20231010_modal.com_blog_general-availability-and-series-a_68b671.md",
@@ -157,7 +158,7 @@
     "https://modal.com/blog/botika-case-study": "20260902_modal.com_blog_botika-case-study_ce38af.md",
     "https://modal.com/blog/modal-europe-expansion": "20260902_modal.com_blog_modal-europe-expansion_94a47f.md",
     "https://modal.com/blog/product-updates-sidecars-models-dashboard": "20260914_modal.com_blog_product-updates-sidecars-models-dashboard_8fe1ae.md",
-    "https://modal.com/blog/trillion-tokens-trillion-parameters": "134_trillion-tokens-trillion-parameters.md"
+    "https://modal.com/blog/quail-billion-tpm": "135_quail-billion-tpm.md"
    }
   }
  },

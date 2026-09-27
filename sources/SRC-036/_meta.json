@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:45:55Z",
- "finished_at": "2026-09-25T13:54:24Z",
- "duration_seconds": 122.8,
- "attempts": 6,
+ "finished_at": "2026-09-27T04:23:52Z",
+ "duration_seconds": 72.3,
+ "attempts": 7,
  "channels": {
   "gh_918dad7a": {
    "type": "github_repo",

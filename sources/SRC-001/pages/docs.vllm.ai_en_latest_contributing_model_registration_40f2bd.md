@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/contributing/model/registration/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Registering a Model[¶](https://docs.vllm.ai#registering-a-model)
 

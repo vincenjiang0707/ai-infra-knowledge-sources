@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/eplb/policy/default/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class DefaultEplbPolicy(AbstractEplbPolicy):
 @classmethod

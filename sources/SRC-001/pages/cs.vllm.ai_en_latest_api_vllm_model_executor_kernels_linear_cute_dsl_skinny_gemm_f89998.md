@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/cute_dsl/skinny_gemm/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class ShapeDynamicSkinnyGemm:
 def __init__(self) -> None:

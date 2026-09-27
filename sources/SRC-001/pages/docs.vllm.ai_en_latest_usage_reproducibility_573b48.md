@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/usage/reproducibility/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Reproducibility[¶](https://docs.vllm.ai#reproducibility)
 

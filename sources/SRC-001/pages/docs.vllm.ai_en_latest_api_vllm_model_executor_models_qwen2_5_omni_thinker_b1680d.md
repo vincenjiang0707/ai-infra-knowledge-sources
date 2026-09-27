@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/qwen2_5_omni_thinker/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -176,7 +176,7 @@ Yields: (offset, modality, feature_data) where feature_data contains: - image: {
 
 [¶](https://docs.vllm.ai#vllm.model_executor.models.qwen2_5_omni_thinker.Qwen2_5OmniThinkerMultiModalProcessor)
 
-Bases: [BaseMultiModalProcessor](https://docs.vllm.ai/multimodal/processing/processor/#vllm.multimodal.processing.processor.BaseMultiModalProcessor)[[Qwen2_5OmniThinkerProcessingInfo](https://docs.vllm.ai#vllm.model_executor.models.qwen2_5_omni_thinker.Qwen2_5OmniThinkerProcessingInfo)]
+Bases: [BaseMultiModalProcessor](https://docs.vllm.ai/multimodal/processing/processor/#vllm.multimodal.processing.processor.BaseMultiModalProcessor)[_I]
 
 Methods:
 

@@ -86,7 +86,7 @@ Expert parallelism is the final milestone, after single-rank coverage is stable.
 - [ ] Multi-GPU correctness and CUDA Graph support
 - [ ] Representative EP performance characterization
 
-## 评论 (6)
+## 评论 (7)
 
 ### elwhyjay · 2026-09-03
 
@@ -133,3 +133,7 @@ Current status:
 1. Waiting for https://github.com/flashinfer-ai/flashinfer/pull/4952 to be merged.
   a. PR enables expression of more flexible data types. 
 2. https://github.com/bkryu/flashinfer/tree/cutile_moe_fp4_matrix adds support for `[weight, actvation] = [mxfp4, mxfp4], [mxfp4, bf16], and [nvfp4, bf16]` support, which completes the [fp4, bf16] matrix.
+
+### leonardHONG · 2026-09-26
+
+Hi @bkryu, I’d like to take the cuTile MoE expert-parallelism and DeepSeek-style block-scaled FP8 (W8A8/W8A16) items, split into separate PRs. I have access to 8×B300 and plan to coordinate SM103 enablement with #5008, cover local-expert routing and EP2/4/8 correctness/CUDA Graph replay, and provide benchmarks for the FP8 paths. Please let me know if either item overlaps with work already in progress.

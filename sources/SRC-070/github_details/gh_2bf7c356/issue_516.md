@@ -10,8 +10,4 @@ it uses kineto to capture kernel durations. does it still work along with `nsys 
 
 if it doesn't, can we add a command line option or some env variable to by-pass kineto data capturing and calculation, so `nsys profile` can work?
 
-## 评论 (1)
-
-### polarstormx · 2026-09-18
-
-Current main already provides `EP_USE_NVIDIA_TOOLS=1` to bypass the internal Kineto profiling, as documented in the README.
+## 评论 (0)

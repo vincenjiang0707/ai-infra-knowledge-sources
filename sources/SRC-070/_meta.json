@@ -7,9 +7,9 @@
  "blocked_reason": null,
  "status": "success",
  "started_at": "2026-09-23T03:58:58Z",
- "finished_at": "2026-09-24T18:07:39Z",
- "duration_seconds": 83.5,
- "attempts": 2,
+ "finished_at": "2026-09-27T07:26:02Z",
+ "duration_seconds": 556.6,
+ "attempts": 3,
  "channels": {
   "gh_30d8214c": {
    "type": "github_repo",
@@ -18,14 +18,14 @@
    "status": "ok",
    "output": "github_repo.md",
    "issues": {
-    "status": "ok",
-    "count": 100,
+    "status": "partial",
+    "count": 22,
     "note": "top-100 by updated_at desc (web default)"
    },
    "pulls": {
     "status": "ok",
-    "count": 100,
-    "note": "top-100 by updated_at desc (web default)"
+    "count": "cached",
+    "note": "head-check: no update since last run"
    },
    "releases": {
     "status": "ok",
@@ -52,16 +52,21 @@
    "issues": {
     "status": "ok",
     "count": 100,
-    "note": "top-100 by updated_at desc (web default)"
+    "note": "top-100 by updated_at desc (web default)",
+    "details": {
+     "fetched": 72,
+     "appended": 0,
+     "skipped": 0
+    }
    },
    "pulls": {
-    "status": "ok",
-    "count": 100,
+    "status": "error",
+    "count": 0,
     "note": "top-100 by updated_at desc (web default)"
    },
    "releases": {
-    "status": "ok",
-    "count": 1
+    "status": "error",
+    "count": 0
    },
    "changelog": {
     "status": "ok",
@@ -113,7 +118,7 @@
    "status": "ok",
    "output": "page.md",
    "mode": "page",
-   "chars": 5232
+   "chars": 5196
   },
   "ref_f8e600e4": {
    "type": "reference",

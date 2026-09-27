@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/scale_out/token_in_token_out/mm_serde/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 Encode/decode utilities for multimodal tensors and field metadata over JSON/HTTP, used by the disaggregated generate endpoint.
 

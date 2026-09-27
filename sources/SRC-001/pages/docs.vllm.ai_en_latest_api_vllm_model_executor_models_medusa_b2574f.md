@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/medusa/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class Medusa(nn.Module):
 """This class implements the Medusa draft model from the paper: https://arxiv.org/abs/2401.10774

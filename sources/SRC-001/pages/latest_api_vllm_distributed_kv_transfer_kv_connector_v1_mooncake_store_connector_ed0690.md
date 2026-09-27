@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/connector/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class MooncakeStoreConnector(KVConnectorBase_V1, SupportsHMA):
 """KV connector using MooncakeDistributedStore as shared KV pool."""
@@ -173,6 +173,15 @@ yield from events
 # ============================================================
 # Worker-side methods
 # ============================================================
+def get_mem_pool_context(self) -> AbstractContextManager | None:
+"""Return a context manager for the custom MemPool, or None.
+Called by the Worker before ``initialize_kv_cache`` so that KV
+cache is allocated from the Mooncake-managed pool when
+``custom_mem_pool`` is set in ``kv_connector_extra_config``.
+"""
+if self.connector_worker is None:
+return None
+return self.connector_worker.get_mem_pool_context()
 def register_kv_caches(self, kv_caches: dict[str, torch.Tensor]):
 assert self.connector_worker is not None
 self.connector_worker.register_kv_caches(kv_caches)

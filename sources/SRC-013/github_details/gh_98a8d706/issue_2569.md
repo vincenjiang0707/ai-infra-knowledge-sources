@@ -98,7 +98,7 @@ Yes, I can submit a PR
 
 _No response_
 
-## 评论 (2)
+## 评论 (3)
 
 ### PlateauGao · 2026-09-23
 
@@ -116,3 +116,18 @@ Thanks @PlateauGao for driving this. From the SIG-Observability side, the direct
 5. 2.3: `llm_d_epp_request_cached_tokens` corresponds to `gen_ai.usage.cache_read.input_tokens`, not server-side prefix cache queries/hits.
 
 It's also worth noting that `gen_ai.request.id` is a key llm-d defines itself until [#231](https://github.com/open-telemetry/semantic-conventions-genai/issues/231) lands. When presenting, I'd frame llm-d as evidence that these signals are available across engines, not as an existing implementation of `gen_ai.server.*`.
+
+### PlateauGao · 2026-09-25
+
+Thanks @gyliu513 for the thorough review and the clear distinction between llm-d-router-measured and engine-measured signals! Thanks for your insights! Agreed on all points (I have wrong assumptions about some metrics due to lack of expertise in llm-d here) — I updated both this issue description and the proposal doc before sharing with the OTel GenAI SIG. 
+
+Tl;dr: all wrong/missing metrics references are fixed by removing the reference and stating the non-existing in llm-d. But I still keep them in the proposal as an unified signals across heterogeneous backend engines. 
+
+Detailed changelog:
+
+1. bucket 1: moved `llm_d_epp_request_{duration,ttft,streaming_tpot}_seconds` and `llm_d_epp_request_{input,output}_tokens` to Bucket 3 (kept under `llm_d_epp_*`) in the doc , 
+2. **2.1 (`gen_ai.server.request.count`):** removed `llm_d_epp_request_running` (EPP in-flight count) and keep only the per-server `MappingRegistry` fields `WaitingQueueSize` and `RunningRequestsSize`.
+3. **2.3 (`gen_ai.server.prefix_cache.queries` / `.hits`):** IIUC ,the server side prefix cache is not scraped yet within llm-d. If yes then let me separate `llm_d_epp_request_cached_tokens`)and note that `llm-d` only extracts `CachePrefixMatchUnit` (`prefix_match_unit`) today rather than engine-level prefix cache hit/query counters. (but still include it in this proposal) 
+4. **2.5 (`gen_ai.server.phase.duration`):** removed `llm_d_epp_flow_control_request_queue_duration_seconds` (EPP queueing) and mark engine-side phase breakdown as not currently scraped by `llm-d`.
+5. **2.6 (`gen_ai.server.kv_transfer.duration` / `.size`):** Will remove `flow_control_pool_saturation` and `pd_proxy.coordinator_overhead_ms`, and explicitly mark 2.6 as having no reference metric in `llm-d` today.
+6. **`gen_ai.request.id` & Framing for the OTel SIG:** Will explicitly note that `gen_ai.request.id` is self-defined in `llm-d` pending [open-telemetry/semantic-conventions-genai#231](https://github.com/open-telemetry/semantic-conventions-genai/issues/231), and will frame `llm-d`'s `MappingRegistry` strictly as cross-engine evidence that these runtime signals exist across engines, rather than as an existing implementation of `gen_ai.server.*`.

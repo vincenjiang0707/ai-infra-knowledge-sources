@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/features/speculative_decoding/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Speculative Decoding[¶](https://docs.vllm.ai#speculative-decoding)
 

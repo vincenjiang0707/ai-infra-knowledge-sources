@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/pooling/pooling/io_processor/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class PluginWithIOProcessorPlugins(PoolingIOProcessor):
 """IO Processor plugins are a feature that allows pre- and post-processing

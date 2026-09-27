@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/v1.3.0/kubernetes-deployment/advanced-platform/shadow-engine-failover
-lastmod: 2026-09-24T19:58:16.636Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 # Shadow Engine Failover
 

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/speech_to_text/realtime/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Realtime[¶](https://docs.vllm.ai#realtime)
 

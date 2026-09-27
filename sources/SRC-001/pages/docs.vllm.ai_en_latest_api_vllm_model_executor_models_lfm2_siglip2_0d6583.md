@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/lfm2_siglip2/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 

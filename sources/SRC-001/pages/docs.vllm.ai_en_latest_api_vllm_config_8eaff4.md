@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/config/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -28,6 +28,7 @@ Modules:
 –[kv_events](https://docs.vllm.ai/kv_events/#vllm.config.kv_events) -
 –[kv_transfer](https://docs.vllm.ai/kv_transfer/#vllm.config.kv_transfer) -
 –[load](https://docs.vllm.ai/load/#vllm.config.load) -
+–[logging](https://docs.vllm.ai/logging/#vllm.config.logging) -
 –[lora](https://docs.vllm.ai/lora/#vllm.config.lora) -
 –[mamba](https://docs.vllm.ai/mamba/#vllm.config.mamba) -
 –[model](https://docs.vllm.ai/model/#vllm.config.model) -
@@ -111,6 +112,11 @@ Classes:
 –[LoadConfig](https://docs.vllm.ai#vllm.config.LoadConfig)Configuration for loading the model weights.
 
 -
+–[LoggingConfig](https://docs.vllm.ai#vllm.config.LoggingConfig)vLLM logging. Default
+
+`dictConfig`
+
+adds a formatted stream handler. -
 –[MambaConfig](https://docs.vllm.ai#vllm.config.MambaConfig)Configuration for Mamba SSM backends.
 
 -
@@ -3055,6 +3061,11 @@ Attributes:
 
 ) –[bool](https://docs.python.org/3/builtins/functions.html#bool)Shard embeddings across TP and all DP ranks when enabled.
 
+-
+([use_thp](https://docs.vllm.ai#vllm.config.EngramConfig.use_thp)
+
+) –[bool](https://docs.python.org/3/builtins/functions.html#bool)Back private CPU-offloaded tables with transparent huge pages (best
+
 
 ## Source code in `vllm/config/engram.py`
 
@@ -3094,6 +3105,18 @@ Share CPU-offloaded embedding weights between co-located DP replicas. Each node 
 [¶](https://docs.vllm.ai#vllm.config.EngramConfig.embedding_across_dp)
 
 Shard embeddings across TP and all DP ranks when enabled. Otherwise, each DP rank has a separate TP-sharded embedding replica.
+
+###
+
+`use_thp = False`
+
+`class-attribute`
+
+`instance-attribute`
+
+[¶](https://docs.vllm.ai#vllm.config.EngramConfig.use_thp)
+
+Back private CPU-offloaded tables with transparent huge pages (best effort, falls back to ordinary pinned pages). Prefaulting the tables at startup takes longer. Requires cpu_offload without dp_shared_memory.
 
 ###
 
@@ -4275,10 +4298,10 @@ The format of the model weights to load.
 - "pt" will load the weights in the pytorch bin format.
 - "safetensors" will load the weights in the safetensors format.
 - "instanttensor" will load the Safetensors weights on CUDA devices using InstantTensor, which enables distributed loading with pipelined prefetching and fast direct I/O.
-- "ipc_cache" will map post-quantized weights from a local weight cache daemon via CUDA IPC for fast engine restarts. See
-`vllm/model_executor/model_loader/weight_cache/daemon.py`
+- "ipc_cache" will map post-quantized weights from a local weight cache daemon via CUDA IPC for fast engine restarts. Launch the daemon with
+`vllm preload`
 
-for how to launch the daemon. - "npcache" will load the weights in pytorch format and store a numpy cache to speed up the loading.
+first. - "npcache" will load the weights in pytorch format and store a numpy cache to speed up the loading.
 - "dummy" will initialize the weights with random values, which is mainly for profiling.
 - "tensorizer" will use CoreWeave's tensorizer library for fast weight loading. See the Tensorize vLLM Model script in the Examples section for more information.
 - "runai_streamer" will load the Safetensors weights using Run:ai Model Streamer.
@@ -4387,6 +4410,101 @@ Provide a hash that uniquely identifies all the configs that affect the structur
 
 ## Source code in `vllm/config/load.py`
 
+
+##
+
+`LoggingConfig`
+
+[¶](https://docs.vllm.ai#vllm.config.LoggingConfig)
+
+vLLM logging. Default `dictConfig`
+
+adds a formatted stream handler.
+
+Supply a JSON object with `--logging-config`
+
+or individual fields with dotted arguments such as `--logging-config.log_level DEBUG`
+
+and `--logging-config.pylogging_config_file logging.json`
+
+. `--log-level`
+
+and legacy `--log-config-file`
+
+override their matching fields. Set `configure_logging`
+
+to false to skip applying a `dictConfig`
+
+.
+
+Attributes:
+
+-
+([configure_logging](https://docs.vllm.ai#vllm.config.LoggingConfig.configure_logging)
+
+) –[bool](https://docs.python.org/3/builtins/functions.html#bool)Whether to apply a Python logging configuration.
+
+-
+([log_level](https://docs.vllm.ai#vllm.config.LoggingConfig.log_level)`LogLevel`
+
+) –Log level used when no custom logging configuration is provided.
+
+-
+([pylogging_config_file](https://docs.vllm.ai#vllm.config.LoggingConfig.pylogging_config_file)
+
+) –[str](https://docs.python.org/3/builtins/stdtypes.html#str)| NonePath to a Python logging JSON file using
+
+
+## Source code in `vllm/config/logging.py`
+
+
+###
+
+`configure_logging = Field(default_factory=(lambda: envs.VLLM_CONFIGURE_LOGGING))`
+
+`class-attribute`
+
+`instance-attribute`
+
+[¶](https://docs.vllm.ai#vllm.config.LoggingConfig.configure_logging)
+
+Whether to apply a Python logging configuration.
+
+With no `pylogging_config_file`
+
+, the default config adds a formatted stream handler to the `vllm`
+
+logger. A custom Python logging configuration file also requires this to be enabled.
+
+###
+
+`log_level = Field(default_factory=(lambda: cast(LogLevel, envs.VLLM_LOGGING_LEVEL)))`
+
+`class-attribute`
+
+`instance-attribute`
+
+[¶](https://docs.vllm.ai#vllm.config.LoggingConfig.log_level)
+
+Log level used when no custom logging configuration is provided.
+
+###
+
+`pylogging_config_file = Field(default_factory=(lambda: envs.VLLM_LOGGING_CONFIG_PATH))`
+
+`class-attribute`
+
+`instance-attribute`
+
+[¶](https://docs.vllm.ai#vllm.config.LoggingConfig.pylogging_config_file)
+
+Path to a Python logging JSON file using [ dictConfig schema](https://docs.python.org/3/library/logging.config.html#configuration-file-format).
+
+A custom `dictConfig`
+
+is authoritative over `log_level`
+
+for logger, handler, and formatter settings.
 
 ##
 
@@ -12008,6 +12126,11 @@ and cudagraph capture configuration for the model. -
 ) –[LoadConfig](https://docs.vllm.ai/load/#vllm.config.load.LoadConfig)Load configuration.
 
 -
+([logging_config](https://docs.vllm.ai#vllm.config.VllmConfig.logging_config)
+
+) –[LoggingConfig](https://docs.vllm.ai/logging/#vllm.config.logging.LoggingConfig)Logging configuration.
+
+-
 ([lora_config](https://docs.vllm.ai#vllm.config.VllmConfig.lora_config)
 
 ) –[LoRAConfig](https://docs.vllm.ai/lora/#vllm.config.lora.LoRAConfig)| NoneLoRA configuration.
@@ -12309,6 +12432,18 @@ The configurations for distributed KV cache transfer.
 [¶](https://docs.vllm.ai#vllm.config.VllmConfig.load_config)
 
 Load configuration.
+
+###
+
+`logging_config = Field(default_factory=LoggingConfig)`
+
+`class-attribute`
+
+`instance-attribute`
+
+[¶](https://docs.vllm.ai#vllm.config.VllmConfig.logging_config)
+
+Logging configuration.
 
 ###
 
@@ -12668,11 +12803,11 @@ Collect features not yet supported by the V2 model runner.
 
 ###
 
-`_is_dflash2_draft()`
+`_is_dflash_candidate_draft()`
 
-[¶](https://docs.vllm.ai#vllm.config.VllmConfig._is_dflash2_draft)
+[¶](https://docs.vllm.ai#vllm.config.VllmConfig._is_dflash_candidate_draft)
 
-Whether the DFlash draft is a DFlash2 one, by the architecture the speculator selects on (v1/worker/gpu/spec_decode/**init**.py).
+Whether the DFlash draft has a candidate head, by the architecture the speculator selects on (v1/worker/gpu/spec_decode/**init**.py).
 
 ## Source code in `vllm/config/vllm.py`
 
@@ -13195,7 +13330,7 @@ Attributes:
 -
 ([backend](https://docs.vllm.ai#vllm.config.WeightTransferConfig.backend)
 
-) –[Literal](https://docs.python.org/3/library/typing.html#typing.Literal)['nccl', 'ipc', 'sparse_nccl', 'sharded_rdt'] |[str](https://docs.python.org/3/builtins/stdtypes.html#str)The backend to use for weight transfer. Validated against the
+) –[Literal](https://docs.python.org/3/library/typing.html#typing.Literal)['nccl', 'ipc', 'sparse_nccl', 'sharded_rdt', 'nccl_m2n'] |[str](https://docs.python.org/3/builtins/stdtypes.html#str)The backend to use for weight transfer. Validated against the
 
 
 ## Source code in `vllm/config/weight_transfer.py`

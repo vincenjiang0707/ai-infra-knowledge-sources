@@ -1,12 +1,12 @@
 # ROCm/aiter
 
-- stars: 569
-- forks: 594
-- open_issues: 1030
+- stars: 571
+- forks: 596
+- open_issues: 1042
 - default_branch: main
 - archived: False
 - license: MIT
-- pushed_at: 2026-09-25T02:47:17Z
+- pushed_at: 2026-09-27T07:11:14Z
 - homepage: https://rocm.github.io/aiter/
 
 ## README
@@ -87,7 +87,7 @@ AITER is the **default kernel backend for LLM inference on AMD GPUs**, integrate
 | AMD AI Max and Max Pro 400/300 Series | gfx1151 (RDNA3.5) | Experimental<sup>1</sup> |
 | AMD Radeon AI PRO R9700 | gfx1201 (RDNA4) | Experimental<sup>1</sup> |
 
-<sup>1</sup> On RDNA, Triton and most FlyDSL kernels run, as do most HIP kernels (norm, RoPE, quant, activation, plus some GEMM/attention). Most CK and ASM kernels are CDNA-only.
+<sup>1</sup> On RDNA, Triton and most FlyDSL kernels run, as do most HIP kernels (norm, RoPE, quant, activation, plus some GEMM/attention). Most CK and ASM kernels are CDNA-only. Experimental does not mean suboptimal: AITER often ships faster kernels than the defaults in upstream frameworks such as vLLM, so installing it is **strongly recommended** on these parts. Ongoing RDNA optimization work — attention, MoE, GEMM and beyond — lands here first.
 
 ## Operators
 
@@ -168,3 +168,13 @@ pip install -r requirements-triton-comms.txt
 ```
 
 For more details, see [docs/triton_comms.md](docs/triton_comms.md).
+
+## Contributing
+
+See [CONTRIBUTE.md](CONTRIBUTE.md) for setup, code style, testing and the PR
+process. One rule up front: **a pull request changes one kernel backend**:
+Triton/Gluon (Triton and Gluon count as one), HIP, ASM, CK, OPUS or FlyDSL.
+Work that spans two backends is two PRs; when one cannot land without the
+other, open them as
+[stacked pull requests](https://docs.github.com/en/pull-requests/get-started/about-stacked-prs)
+so each is reviewed on its own and they merge in order.

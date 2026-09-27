@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/serving/online_serving/trace_replay/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Trace Replay[¶](https://docs.vllm.ai#trace-replay)
 

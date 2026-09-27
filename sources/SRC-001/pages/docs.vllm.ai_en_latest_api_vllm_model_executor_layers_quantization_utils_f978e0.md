@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/utils/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -37,4 +37,5 @@ Modules:
 –[mxfp8_utils](https://docs.vllm.ai/mxfp8_utils/#vllm.model_executor.layers.quantization.utils.mxfp8_utils) -
 –[nvfp4_emulation_utils](https://docs.vllm.ai/nvfp4_emulation_utils/#vllm.model_executor.layers.quantization.utils.nvfp4_emulation_utils) -
 –[nvfp4_utils](https://docs.vllm.ai/nvfp4_utils/#vllm.model_executor.layers.quantization.utils.nvfp4_utils) -
+–[ocp_mx_utils](https://docs.vllm.ai/ocp_mx_utils/#vllm.model_executor.layers.quantization.utils.ocp_mx_utils) -
 –[quant_utils](https://docs.vllm.ai/quant_utils/#vllm.model_executor.layers.quantization.utils.quant_utils)This file is used for /tests and /benchmarks.

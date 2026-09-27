@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/model_loader/weight_utils/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -147,6 +147,9 @@ Start prefetching checkpoint files into page cache in a background thread.
 
 ## Source code in `vllm/model_executor/model_loader/weight_utils.py`
 
+
+|
+|
 
 ##
 

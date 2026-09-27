@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/glm4_moe_mtp/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class Glm4MoeMTP(nn.Module, Glm4MixtureOfExperts):
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):

@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/torch_compile_multimodal/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # torch.compile with Multimodal Encoders[¶](https://docs.vllm.ai#torchcompile-with-multimodal-encoders)
 

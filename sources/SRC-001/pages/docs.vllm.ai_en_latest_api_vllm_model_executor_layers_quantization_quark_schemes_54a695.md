@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/quark/schemes/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -15,6 +15,7 @@ Classes:
 –[QuarkNVFP4](https://docs.vllm.ai#vllm.model_executor.layers.quantization.quark.schemes.QuarkNVFP4)Quark NVFP4 quantization scheme.
 
 -
+–[QuarkOCP_MX](https://docs.vllm.ai#vllm.model_executor.layers.quantization.quark.schemes.QuarkOCP_MX) -
 –[QuarkScheme](https://docs.vllm.ai#vllm.model_executor.layers.quantization.quark.schemes.QuarkScheme)Abstract class used to describe the weight creation and forward pass
 
 -
@@ -41,6 +42,37 @@ Supports loading NVFP4 checkpoints with the following structure: - weight: uint8
 
 |
 |
+
+##
+
+`QuarkOCP_MX`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.quark.schemes.QuarkOCP_MX)
+
+Bases: [QuarkScheme](https://docs.vllm.ai/quark_scheme/#vllm.model_executor.layers.quantization.quark.schemes.quark_scheme.QuarkScheme)
+
+## Source code in `vllm/model_executor/layers/quantization/quark/schemes/quark_ocp_mx.py`
+
+
+|
+|
+
+###
+
+`_expanding_scale_loader(weight_loader)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.layers.quantization.quark.schemes.QuarkOCP_MX._expanding_scale_loader)
+
+Expand a 2-D block scale to one row per weight row.
+
+A `block_size=[R, 32]`
+
+export carries one e8m0 value per R weight rows; the kernels want one per row. At `R == 1`
+
+the layouts already coincide, so the loader is passed through untouched.
+
+## Source code in `vllm/model_executor/layers/quantization/quark/schemes/quark_ocp_mx.py`
+
 
 ##
 

@@ -12,22 +12,4 @@ I also know that NCCL wasn't well-optimized for all-to-all which EP requires, an
 
 Thanks.
 
-## 评论 (3)
-
-### sphish · 2025-10-11
-
-TP essentially consists of two communication patterns: **allgather** and **reduce-scatter**, both of which NCCL has optimized very effectively.  
-
-Both EP and TP communication patterns have extremely high latency and bandwidth requirements. In fact, because NCCL’s latency optimization is not particularly strong, in many low-latency scenarios (primarily inference), people may replace NCCL with custom communication kernels.
-
-### terrificdm · 2025-10-12
-
-> TP essentially consists of two communication patterns: **allgather** and **reduce-scatter**, both of which NCCL has optimized very effectively.
-> 
-> Both EP and TP communication patterns have extremely high latency and bandwidth requirements. In fact, because NCCL’s latency optimization is not particularly strong, in many low-latency scenarios (primarily inference), people may replace NCCL with custom communication kernels.
-
-Well noted. Thank you for your clarification.
-
-### polarstormx · 2026-09-18
-
-Closing as answered, as [the author confirmed](https://github.com/deepseek-ai/DeepEP/issues/445#issuecomment-3393871238) that the explanation clarified the question.
+## 评论 (0)

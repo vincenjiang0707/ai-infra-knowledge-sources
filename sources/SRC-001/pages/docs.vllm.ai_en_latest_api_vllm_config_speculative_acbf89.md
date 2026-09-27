@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/config/speculative/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @config
 class SpeculativeConfig:
@@ -222,6 +222,8 @@ uses_aux_hidden_states = self.method in (
 "dspark",
 )
 factors.append(uses_aux_hidden_states)
+if self.method == "dspark":
+factors.append(self.enable_adaptive_verification)
 if self.draft_model_config is not None:
 factors.append(self.draft_model_config.compute_hash())
 # The specific layers used also affect the computation graph.

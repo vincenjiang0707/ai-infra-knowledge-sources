@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/training/trl/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Transformers Reinforcement Learning[¶](https://docs.vllm.ai#transformers-reinforcement-learning)
 

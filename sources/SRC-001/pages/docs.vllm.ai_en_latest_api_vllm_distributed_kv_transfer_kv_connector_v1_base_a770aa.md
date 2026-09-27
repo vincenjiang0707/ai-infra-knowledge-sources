@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/base/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -19,7 +19,7 @@ Worker-side: runs in each worker, loads/saves KV cache to/from the Connector bas
 start_load_kv() - starts loading all KVs (maybe async)
 wait_for_layer_load() - blocks until layer i load is done
 save_kv_layer() - starts saving KV for layer i (maybe async)
-wait_for_save() - blocks until all saves are done
+wait_for_save() - submits saves and performs required synchronization
 get_transfer_results() - returns async send/receive completions and
 receive failures in one snapshot.
 build_connector_worker_meta() - builds metadata to be sent
@@ -106,6 +106,9 @@ Methods:
 –[get_kv_connector_stats](https://docs.vllm.ai#vllm.distributed.kv_transfer.kv_connector.v1.base.KVConnectorBase_V1.get_kv_connector_stats)Get the KV connector stats collected during the last interval.
 
 -
+–[get_mem_pool_context](https://docs.vllm.ai#vllm.distributed.kv_transfer.kv_connector.v1.base.KVConnectorBase_V1.get_mem_pool_context)Return a custom KV cache allocation context, if configured.
+
+-
 –[get_num_new_matched_tokens](https://docs.vllm.ai#vllm.distributed.kv_transfer.kv_connector.v1.base.KVConnectorBase_V1.get_num_new_matched_tokens)Get number of new tokens that can be loaded from the
 
 -
@@ -178,7 +181,7 @@ Methods:
 –[wait_for_layer_load](https://docs.vllm.ai#vllm.distributed.kv_transfer.kv_connector.v1.base.KVConnectorBase_V1.wait_for_layer_load)Block until the KV for a specific layer is loaded into vLLM's
 
 -
-–[wait_for_save](https://docs.vllm.ai#vllm.distributed.kv_transfer.kv_connector.v1.base.KVConnectorBase_V1.wait_for_save)Block until all the save operations is done. This is called
+–[wait_for_save](https://docs.vllm.ai#vllm.distributed.kv_transfer.kv_connector.v1.base.KVConnectorBase_V1.wait_for_save)Submit saves and perform required synchronization.
 
 
 Attributes:
@@ -501,6 +504,16 @@ Get the KV connector kv cache events collected during the last interval. This fu
 `get_kv_connector_stats()`
 
 [¶](https://docs.vllm.ai#vllm.distributed.kv_transfer.kv_connector.v1.base.KVConnectorBase_V1.get_kv_connector_stats)
+
+###
+
+`get_mem_pool_context()`
+
+[¶](https://docs.vllm.ai#vllm.distributed.kv_transfer.kv_connector.v1.base.KVConnectorBase_V1.get_mem_pool_context)
+
+Return a custom KV cache allocation context, if configured.
+
+Returning None uses the engine's default memory pool.
 
 ###
 
@@ -1025,9 +1038,11 @@ Parameters:
 
 [¶](https://docs.vllm.ai#vllm.distributed.kv_transfer.kv_connector.v1.base.KVConnectorBase_V1.wait_for_save)
 
-Block until all the save operations is done. This is called as the forward context exits to ensure that the async saving from save_kv_layer is complete before finishing the forward.
+Submit saves and perform required synchronization.
 
-This prevents overwrites of paged KV buffer before saving done.
+Called once per step, including empty steps, after any target and draft forwards. Metadata remains bound during this call. Do nothing if there is no save work.
+
+Async saves must retain their source blocks until completion is reported to the scheduler. Otherwise, wait for saves to finish before returning.
 
 ## Source code in `vllm/distributed/kv_transfer/kv_connector/v1/base.py`
 

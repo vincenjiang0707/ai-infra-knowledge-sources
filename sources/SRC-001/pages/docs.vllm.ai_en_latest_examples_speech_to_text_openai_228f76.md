@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/speech_to_text/openai/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # OpenAI[¶](https://docs.vllm.ai#openai)
 

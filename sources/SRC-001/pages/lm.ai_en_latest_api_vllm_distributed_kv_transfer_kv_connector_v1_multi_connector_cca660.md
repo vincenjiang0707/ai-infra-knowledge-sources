@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/multi_connector/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class MultiConnector(KVConnectorBase_V1, SupportsHMA):
 """A wrapper for using multiple KVConnectors at the same time.
@@ -146,6 +146,23 @@ raise exception
 # ==============================
 # Worker-side methods
 # ==============================
+def get_mem_pool_context(self) -> AbstractContextManager | None:
+"""Forward a custom KV cache memory pool from a child connector.
+KV cache is allocated once and can only live in one pool, so at
+most one child may provide a context.
+"""
+found: list[tuple[str, AbstractContextManager]] = []
+for connector in self._connectors:
+if (ctx := connector.get_mem_pool_context()) is not None:
+found.append((type(connector).__name__, ctx))
+if len(found) > 1:
+names = [name for name, _ in found]
+raise ValueError(
+f"Multiple connectors provide a KV cache memory pool {names}; "
+"KV cache is allocated once and can only live in one pool. "
+"Configure custom_mem_pool on at most one connector."
+)
+return found[0][1] if found else None
 def start_load_kv(self, forward_context: "ForwardContext", **kwargs) -> None:
 for c in self._connectors:
 c.start_load_kv(forward_context, **kwargs)

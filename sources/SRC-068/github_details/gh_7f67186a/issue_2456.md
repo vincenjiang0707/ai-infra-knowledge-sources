@@ -152,7 +152,7 @@ Operational notes:
 Cc: @tzadouri @tridao
 
 
-## 评论 (3)
+## 评论 (4)
 
 ### Johnsonms · 2026-05-20
 
@@ -164,4 +164,8 @@ https://github.com/Dao-AILab/flash-attention/pull/2810
 
 ### sudhakarsingh27 · 2026-09-18
 
-https://github.com/Dao-AILab/flash-attention/pull/2891 proposes enabling `seqused_q/k` for backward for d256 in SM100. Could you take a look @Johnsonms? 
+https://github.com/Dao-AILab/flash-attention/pull/2891 proposes enabling `seqused_q/k` for backward for d256 in SM100. Could you take a look @Johnsonms?
+
+### Johnsonms · 2026-09-25
+
+SplitKV for the hd256 2CTA forward kernel- #2916 https://github.com/Dao-AILab/flash-attention/pull/2917

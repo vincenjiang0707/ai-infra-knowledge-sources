@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_mxfp8/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class CompressedTensorsW8A8Mxfp8(CompressedTensorsScheme):
 """Compressed tensors scheme for MXFP8 quantization (W8A8).
@@ -10,8 +10,6 @@ MXFP8 format:
 - Per-group E8M0 scales (uint8) with group_size=32
 - Activations dynamically quantized to MXFP8 during inference
 """
-def __init__(self):
-self.kernel = init_mxfp8_linear_kernel()
 @classmethod
 def get_min_capability(cls) -> int:
 return 75
@@ -51,6 +49,7 @@ output_dim=0,
 weight_loader=weight_loader,
 )
 layer.register_parameter("weight_scale", weight_scale)
+self.kernel = init_mxfp8_linear_kernel(weight_shape=layer.weight.shape)
 def process_weights_after_loading(self, layer: torch.nn.Module) -> None:
 self.kernel.process_weights_after_loading(layer)
 def apply_weights(

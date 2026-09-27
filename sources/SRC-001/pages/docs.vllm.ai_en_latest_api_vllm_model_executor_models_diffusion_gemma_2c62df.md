@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/diffusion_gemma/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 #
 
@@ -137,11 +137,19 @@ Follows the indexed-slot pattern used by `RequestState`
 Methods:
 
 -
+–[allowed_tensor](https://docs.vllm.ai#vllm.model_executor.models.diffusion_gemma.DiffusionGemmaRequestStates.allowed_tensor)`ids`
+
+as an int64 tensor on the device, built once per tuple. -
 –[apply_seed_canvases](https://docs.vllm.ai#vllm.model_executor.models.diffusion_gemma.DiffusionGemmaRequestStates.apply_seed_canvases)Replace the canvas of every seeded slot among
 
 `slots_gpu`
 
 . -
+–[batch_allowed](https://docs.vllm.ai#vllm.model_executor.models.diffusion_gemma.DiffusionGemmaRequestStates.batch_allowed)The allowed ids shared by every one of
+
+`slots`
+
+, or None. -
 –[init_canvas](https://docs.vllm.ai#vllm.model_executor.models.diffusion_gemma.DiffusionGemmaRequestStates.init_canvas)Initialize canvas with random tokens for the given slots.
 
 -
@@ -162,6 +170,19 @@ covers the slot's canvas width; positions past it are never
 
 ###
 
+`allowed_tensor(ids)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.models.diffusion_gemma.DiffusionGemmaRequestStates.allowed_tensor)
+
+`ids`
+
+as an int64 tensor on the device, built once per tuple.
+
+## Source code in `vllm/model_executor/models/diffusion_gemma.py`
+
+
+###
+
 `apply_seed_canvases(slots_np, slots_gpu)`
 
 [¶](https://docs.vllm.ai#vllm.model_executor.models.diffusion_gemma.DiffusionGemmaRequestStates.apply_seed_canvases)
@@ -169,6 +190,21 @@ covers the slot's canvas width; positions past it are never
 Replace the canvas of every seeded slot among `slots_gpu`
 
 .
+
+## Source code in `vllm/model_executor/models/diffusion_gemma.py`
+
+
+###
+
+`batch_allowed(slots)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.models.diffusion_gemma.DiffusionGemmaRequestStates.batch_allowed)
+
+The allowed ids shared by every one of `slots`
+
+, or None.
+
+None means the step runs over the full vocabulary. The sampler then masks each constrained slot's logit rows to its own set, so a constrained request reads the same way whoever shares its batch.
 
 ## Source code in `vllm/model_executor/models/diffusion_gemma.py`
 
@@ -273,15 +309,13 @@ Initializes their canvas, seeds draft tokens, and flips is_encoder_phase to Fals
 
 ##
 
-`_compiled_sample_step(logits, decode_slots, decode_idx, all_slots, valid_canvas_len, canvas, argmax_canvas, step_tensor, is_encoder_phase, confident_tensor, sc_embeds, embed_weight, normalizer, history, history_len_tensor, max_steps_tensor, pin_mask, seed_canvas, read_only, sampled, num_sampled, draft_tokens, max_denoising_steps, t_min, t_max, confidence_threshold, vocab_size, CL, ST, entropy_bound, sc_vocab_start, sc_vocab_end, tp_size, tp_group_name, compute_sc=True)`
+`_compiled_sample_step(new_tokens, argmax_tokens, token_entropy, probs, decode_slots, decode_idx, all_slots, valid_canvas_len, canvas, argmax_canvas, step_tensor, is_encoder_phase, confident_tensor, sc_embeds, embed_weight, normalizer, history, history_len_tensor, max_steps_tensor, pin_mask, seed_canvas, read_only, sampled, num_sampled, draft_tokens, confidence_threshold, vocab_size, CL, ST, entropy_bound, sc_vocab_start, sc_vocab_end, tp_size, tp_group_name, compute_sc=True)`
 
 [¶](https://docs.vllm.ai#vllm.model_executor.models.diffusion_gemma._compiled_sample_step)
 
-Compiled decode step: temperature → Gumbel sample → probs/confidence → accept/renoise → convergence, all as vectorized PyTorch ops.
+Compiled decode step: confidence → accept/renoise → convergence, as vectorized PyTorch ops over [num_decode, CL] tensors. The per-position statistics (argmax, Gumbel-max sample, entropy, softmax) come from one pass over the logits in `sample_row_stats`
 
-Returns the temperature-scaled logits `[num_decode, CL, vocab]`
-
-so the caller can compute logprobs outside the compiled region.
+.
 
 ## Source code in `vllm/model_executor/models/diffusion_gemma.py`
 
@@ -298,3 +332,27 @@ so the caller can compute logprobs outside the compiled region.
 Join the logprobs stashed for the requests committing this step.
 
 Each stash is as wide as the widest logprobs request in the batch at the step that request converged, so stashes from different steps can differ in width. Pad the narrow ones the way compute_topk_scores pads a mixed batch: token id 0 at -inf, which the output processor never reports.
+
+## Source code in `vllm/model_executor/models/diffusion_gemma.py`
+
+
+##
+
+`_denoise_temperature(step_tensor, slots, max_denoising_steps, t_min, t_max)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.models.diffusion_gemma._denoise_temperature)
+
+The schedule's temperature for each slot at its current step.
+
+## Source code in `vllm/model_executor/models/diffusion_gemma.py`
+
+
+##
+
+`_mask_rows_to_allowed(logits, row_starts, row_lens, allowed_per_row)`
+
+[¶](https://docs.vllm.ai#vllm.model_executor.models.diffusion_gemma._mask_rows_to_allowed)
+
+Mask every column outside a request's allowed ids on that request's rows. Request i owns rows [row_starts[i], +row_lens[i]); None leaves its rows alone. Returns a copy when any row is masked, so the caller's tensor (possibly the runner's) is never written.
+
+Softmax over a masked row equals the K-space distribution the shared fast path computes, so both paths give the same reads. The mask value is a large finite negative rather than -inf: the entropy is probs times log-probs, and 0 * -inf is NaN, while 0 * -1e20 is 0. It stays finite after the greedy temperature clamp (1e-10) scales it by 1e10.

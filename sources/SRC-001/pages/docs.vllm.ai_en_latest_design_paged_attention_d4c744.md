@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/design/paged_attention/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Paged Attention[¶](https://docs.vllm.ai#paged-attention)
 
@@ -242,27 +242,23 @@ for all `qk`
 
 s that are calculated by current thread group.
 
-```bash
 if (thread_group_offset == 0) {
 const bool mask = token_idx >= context_len;
 logits[token_idx - start_token_idx] = mask ? 0.f : qk;
 qk_max = mask ? qk_max : fmaxf(qk_max, qk);
 }
-```
 
 
 Please note that the `logits`
 
 here is on shared memory, so each thread group will set the fields for its own assigned context tokens. Overall, the size of logits should be number of context tokens.
 
-```bash
 for (int mask = WARP_SIZE / 2; mask >= THREAD_GROUP_SIZE; mask /= 2) {
 qk_max = fmaxf(qk_max, VLLM_SHFL_XOR_SYNC(qk_max, mask));
 }
 if (lane == 0) {
 red_smem[warp_idx] = qk_max;
 }
-```
 
 
 Then we need to get the reduced `qk_max`
@@ -271,12 +267,10 @@ across each warp. The main idea is to make threads in warp to communicate with e
 
 .
 
-```bash
 for (int mask = NUM_WARPS / 2; mask >= 1; mask /= 2) {
 qk_max = fmaxf(qk_max, VLLM_SHFL_XOR_SYNC(qk_max, mask));
 }
 qk_max = VLLM_SHFL_SYNC(qk_max, 0);
-```
 
 
 Finally, we can get the reduced `qk_max`
@@ -417,7 +411,6 @@ within each warp. This process allows each thread to accumulate the `accs`
 
 for the assigned head positions of all tokens in one block.
 
-```bash
 for (int i = 0; i < NUM_ROWS_PER_THREAD; i++) {
 float acc = accs[i];
 for (int mask = NUM_V_VECS_PER_ROW / 2; mask >= 1; mask /= 2) {
@@ -425,7 +418,6 @@ acc += VLLM_SHFL_XOR_SYNC(acc, mask);
 }
 accs[i] = acc;
 }
-```
 
 
 Next, we perform reduction for `accs`
@@ -470,14 +462,12 @@ First, we need to define the `out_ptr`
 
 variable, which points to the start address of the assigned sequence and assigned head.
 
-```bash
 for (int i = 0; i < NUM_ROWS_PER_THREAD; i++) {
 const int row_idx = lane / NUM_V_VECS_PER_ROW + i * NUM_ROWS_PER_ITER;
 if (row_idx < HEAD_SIZE && lane % NUM_V_VECS_PER_ROW == 0) {
 from_float(*(out_ptr + row_idx), accs[i]);
 }
 }
-```
 
 
 Finally, we need to iterate over different assigned head positions and write out the corresponding accumulated result based on the `out_ptr`

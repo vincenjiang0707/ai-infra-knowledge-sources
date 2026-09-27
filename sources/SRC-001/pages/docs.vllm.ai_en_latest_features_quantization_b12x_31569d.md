@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/quantization/b12x/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # b12x Linear and MoE Backends[¶](https://docs.vllm.ai#b12x-linear-and-moe-backends)
 

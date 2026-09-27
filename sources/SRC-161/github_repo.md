@@ -6,7 +6,7 @@
 - default_branch: main
 - archived: False
 - license: Apache-2.0
-- pushed_at: 2026-05-01T00:34:11Z
+- pushed_at: 2026-09-25T20:05:00Z
 - homepage: https://bench.flashinfer.ai
 
 ## README

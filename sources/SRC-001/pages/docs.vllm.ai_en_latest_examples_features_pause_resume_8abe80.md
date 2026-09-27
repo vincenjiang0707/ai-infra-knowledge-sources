@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/features/pause_resume/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Pause Resume[¶](https://docs.vllm.ai#pause-resume)
 

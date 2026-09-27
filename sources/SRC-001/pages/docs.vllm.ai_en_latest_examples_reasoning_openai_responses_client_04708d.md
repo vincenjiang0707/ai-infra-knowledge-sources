@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/examples/reasoning/openai_responses_client/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # OpenAI Responses Client[¶](https://docs.vllm.ai#openai-responses-client)
 

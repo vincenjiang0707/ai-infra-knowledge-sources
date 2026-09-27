@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/qwen3_5/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 @MULTIMODAL_REGISTRY.register_processor(
 Qwen3VLMultiModalProcessor,
@@ -21,7 +21,7 @@ def __init__(self, *, vllm_config: VllmConfig, prefix: str = "model"):
 nn.Module.__init__(self)
 config: Qwen3_5Config = vllm_config.model_config.hf_config
 quant_config = vllm_config.quant_config
-multimodal_config = vllm_config.model_config.multimodal_config
+multimodal_config = vllm_config.model_config.get_multimodal_config()
 self.config = config
 self.model_config = vllm_config.model_config
 self.multimodal_config = multimodal_config

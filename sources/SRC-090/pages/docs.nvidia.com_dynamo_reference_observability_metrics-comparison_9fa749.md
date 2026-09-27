@@ -1,5 +1,5 @@
 source: https://docs.nvidia.com/dynamo/reference/observability/metrics-comparison
-lastmod: 2026-09-24T19:58:16.636Z
+lastmod: 2026-09-26T16:50:12.551Z
 
 **REQUEST STATE & QUEUE** | | | | |
 | Running requests | `num_requests_running` | `num_running_reqs` | - |

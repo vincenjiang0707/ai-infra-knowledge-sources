@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/features/reasoning_outputs/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 # Reasoning Outputs[¶](https://docs.vllm.ai#reasoning-outputs)
 
@@ -95,6 +95,12 @@ vLLM currently supports the following reasoning models:
 
 [IBM Granite 3.2 language models](https://huggingface.co/collections/ibm-granite/granite-32-language-models-67b3bc8c13508f6d064cff9a)`granite`
 
+[IBM Granite 4.2 language models](https://huggingface.co/ibm-granite/granite-4.2-30b)`granite_thinking_parser`
+
+`json`
+
+, `regex`
+
 [MiniMax-M2](https://huggingface.co/MiniMaxAI/MiniMax-M2)`minimax_m2_append_think`
 
 `json`
@@ -116,6 +122,10 @@ vLLM currently supports the following reasoning models:
 Note
 
 IBM Granite 3.2 and DeepSeek-V3.1 reasoning is disabled by default; to enable it, you must also pass `thinking=True`
+
+in your `chat_template_kwargs`
+
+. IBM Granite 4.2 reasoning is enabled by default. To disable it, you must pass `enable_thinking=False`
 
 in your `chat_template_kwargs`
 
@@ -185,7 +195,6 @@ field in [chat completion response chunks](https://platform.openai.com/docs/api-
 
 ## Json
 
-```json
 {
 "id": "chatcmpl-123",
 "object": "chat.completion.chunk",
@@ -204,7 +213,6 @@ field in [chat completion response chunks](https://platform.openai.com/docs/api-
 }
 ]
 }
-```
 
 
 OpenAI Python client library does not officially support `reasoning`
@@ -412,7 +420,6 @@ Then make a request with `thinking_token_budget`
 
 to limit the reasoning tokens:
 
-```bash
 curl http://localhost:8000/v1/chat/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -422,7 +429,6 @@ curl http://localhost:8000/v1/chat/completions \
 ],
 "thinking_token_budget": 10
 }'
-```
 
 
 ### Offline Inference[¶](https://docs.vllm.ai#offline-inference)

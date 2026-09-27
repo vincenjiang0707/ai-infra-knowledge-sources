@@ -1,5 +1,5 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/generate/beam_search/online/
-lastmod: 2026-09-24
+lastmod: 2026-09-27
 
 class BeamSearchOnlineMixin(ABC):
 """online serving for beam search."""

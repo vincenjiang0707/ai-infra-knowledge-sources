@@ -1,7 +1,7 @@
 # [Issue #4953] [Bug]  Slower decode speed in v0.17  when compared to v0.14
 
 source: https://github.com/InternLM/lmdeploy/issues/4953
-state: open | updated: 2026-09-22T06:25:50Z
+state: open | updated: 2026-09-25T15:08:28Z
 labels: 
 
 ## 正文
@@ -231,7 +231,7 @@ NIC Legend:
 
 ```
 
-## 评论 (4)
+## 评论 (5)
 
 ### lvhan028 · 2026-09-10
 
@@ -259,4 +259,10 @@ Hi, @Viji2029 could you share the model url so that we can reproduce it at our s
 
 Hi, 
        It is a custom test model (Qwen 3.8-27B) that was quantized using compressed-tensors library.
+
+
+### Viji2029 · 2026-09-25
+
+Hi,
+       Any updates on this?
 
