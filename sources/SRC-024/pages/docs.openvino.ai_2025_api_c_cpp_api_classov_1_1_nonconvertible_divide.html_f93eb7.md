@@ -4,8 +4,10 @@ lastmod:
 # Class ov::NonconvertibleDivide[#](https://docs.openvino.ai#class-ov-nonconvertibledivide)
 
 -
+```python
 class NonconvertibleDivide : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[RuntimeAttribute](https://docs.openvino.ai/classov_1_1_runtime_attribute.html#_CPPv4N2ov16RuntimeAttributeE)[#](https://docs.openvino.ai#_CPPv4N2ov20NonconvertibleDivideE) [NonconvertibleDivide](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_nonconvertible_divide)class represents runtime info attribute that marks a Divide as prohibitted to transform it to power.
+```
 
 Site Navigation
 

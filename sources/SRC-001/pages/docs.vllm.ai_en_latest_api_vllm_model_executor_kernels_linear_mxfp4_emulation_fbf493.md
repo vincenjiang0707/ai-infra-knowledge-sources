@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp4/emulation/
 lastmod: 2026-09-27
 
+```python
 class EmulationMxfp4LinearKernel(MxFp4LinearKernel):
 """Software emulation fallback for OCP MXFP4/MXFP6 (dequant + F.linear)."""
 def __init__(self, config: MxFp4LinearLayerConfig) -> None:
@@ -73,3 +74,4 @@ if layer.weight.element_size() >= 2:
 return F.linear(qdq_x, layer.weight.to(x.dtype), bias)
 dq_w = dequant_mxfp4(layer.weight, layer.weight_scale, x.dtype)
 return F.linear(qdq_x, dq_w, bias)
+```

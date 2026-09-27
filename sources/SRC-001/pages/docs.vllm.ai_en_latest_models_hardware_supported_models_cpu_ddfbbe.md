@@ -15,8 +15,10 @@ and `env.sh`
 
 Load the generated environment before starting vLLM:
 
+```bash
 source env.sh
 vllm serve --config config.yaml
+```
 
 Recommended Models Text-only Language Models Model Architecture Supported Recipe openai/gpt-oss-20b GptOssForCausalLM ✅ Xeon 6 meta-llama/Llama-3.1-8B LlamaForCausalLM ✅ Xeon 6 meta-llama/Llama-3.1-8B-Instruct LlamaForCausalLM ✅ Xeon 6 meta-llama/Llama-3.2-1B LlamaForCausalLM ✅ Xeon 6 meta-llama/Llama-3.2-1B-Instruct LlamaForCausalLM ✅ Xeon 6 meta-llama/Llama-3.2-3B-Instruct LlamaForCausalLM ✅ Xeon 6 meta-llama/Llama-3.3-70B-Instruct LlamaForCausalLM ✅ Xeon 6 RedHatAI/Meta-Llama-3.1-8B-quantized.w8a8 LlamaForCausalLM ✅ Xeon 6 RedHatAI/Meta-Llama-3.1-8B-Instruct-quantized.w8a8 LlamaForCausalLM ✅ Xeon 6 RedHatAI/Llama-3.2-1B-Instruct-quantized.w8a8 LlamaForCausalLM ✅ Xeon 6 RedHatAI/Llama-3.2-3B-Instruct-quantized.w8a8 LlamaForCausalLM ✅ Xeon 6 RedHatAI/DeepSeek-R1-Distill-Llama-70B-quantized.w8a8 LlamaForCausalLM ✅ — hugging-quants/Meta-Llama-3.1-8B-Instruct-AWQ-INT4 LlamaForCausalLM ✅ Xeon 6 AMead10/Llama-3.2-1B-Instruct-AWQ LlamaForCausalLM ✅ Xeon 6 AMead10/Llama-3.2-3B-Instruct-AWQ LlamaForCausalLM ✅ Xeon 6 TheBloke/TinyLlama-1.1B-Chat-v1.0-AWQ LlamaForCausalLM ✅ — TheBloke/TinyLlama-1.1B-Chat-v1.0-GPTQ LlamaForCausalLM ✅ — ibm-granite/granite-3.2-2b-instruct GraniteForCausalLM ✅ Xeon 6 Qwen/Qwen3-1.7B Qwen3ForCausalLM ✅ Xeon 6 Qwen/Qwen3-4B Qwen3ForCausalLM ✅ Xeon 6 Qwen/Qwen3-8B Qwen3ForCausalLM ✅ Xeon 6 Qwen/Qwen3-14B Qwen3ForCausalLM ✅ Xeon 6 Qwen/Qwen3-14B-FP8 Qwen3ForCausalLM ✅ Xeon 6 Qwen/Qwen3-14B-AWQ Qwen3ForCausalLM ✅ Xeon 6 Qwen/Qwen3-30B-A3B Qwen3MoeForCausalLM ✅ Xeon 6 Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 Qwen3MoeForCausalLM ✅ — Qwen/QwQ-32B Qwen2ForCausalLM ✅ Xeon 6 Qwen/QwQ-32B-AWQ Qwen2ForCausalLM ✅ Xeon 6 Qwen/Qwen1.5-0.5B-Chat-GPTQ-Int4 Qwen2ForCausalLM ✅ — RedHatAI/QwQ-32B-quantized.w8a8 Qwen2ForCausalLM ✅ Xeon 6 zai-org/glm-4-9b-hf GLMForCausalLM ✅ Xeon 6 google/gemma-7b GemmaForCausalLM ✅ — microsoft/Phi-4-reasoning Phi3ForCausalLM ✅ Xeon 6 mistralai/Mistral-7B-Instruct-v0.2 MistralForCausalLM ✅ — TheBloke/Mistral-7B-Instruct-v0.2-AWQ MistralForCausalLM ✅ —
 

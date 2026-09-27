@@ -9,9 +9,11 @@ labels:
 I'm experiencing poor performance with HybridEP on a dual-node setup with 16 B300 GPUs (8 GPUs per node). The Roce bandwidth is significantly lower than expected, causing performance degradation in cross-node communication.
 
 Environment
+```yaml
 Hardware: Dual-node setup, 16x NVIDIA B300 GPUs (8 GPUs per node)
 Network: RoCE + NVLink (NVL) 
 Test Configuration：
+```
   Processes per node: 8
   Token size: 4096
   Local experts: 8

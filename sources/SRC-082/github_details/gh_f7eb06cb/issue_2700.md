@@ -9,11 +9,13 @@ labels:
 When I follow the instruction to quantize qwen3.5-MoE (35B), the time required seems unusual; the quantification process appears to have stalled.
 
 My code:
+```python
 from datasets import load_dataset
 from gptqmodel import QuantizeConfig, GPTQModel
 
 model_id = "/data/models/Qwen/Qwen3.5-35B-A3B"
 quant_path = "Qwen3.5-35B-A3B-GPTQ-Int4"
+```
 
 local_file_path = "c4-train.00001-of-01024.json.gz"
 
@@ -32,10 +34,12 @@ model.quantize(calibration_dataset, batch_size=1)
 model.save(quant_path)
 
 My Environment:
+```yaml
 GPT-QModel   : 5.8.0
 Transformers : 5.5.0
 Torch        : 2.10.0+cu128
 Triton       : 3.6.0
+```
 
 The time consuming:
 Quantizing mlp.shared_expert.down_proj in layer ['p' to ||] [1 of 39] ██████▍░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░| 1:56:15 / 1 day, 14:45:00 [2/40] 5.0%

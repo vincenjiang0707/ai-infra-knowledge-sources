@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/amd/model/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV4DecoderLayer(nn.Module):
 def __init__(
 self,
@@ -237,3 +238,4 @@ x, positions, input_ids, post_mix, res_mix, residual
 return self._forward_fused_post_pre(
 x, positions, input_ids, post_mix, res_mix, residual
 )
+```

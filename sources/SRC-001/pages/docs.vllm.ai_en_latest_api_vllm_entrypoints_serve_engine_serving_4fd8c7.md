@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/serve/engine/serving/
 lastmod: 2026-09-27
 
+```python
 class BaseServing:
 def __init__(
 self,
@@ -148,3 +149,4 @@ if self._is_model_supported(request.model):
 return None
 # if _check_model has been called earlier, this will be unreachable
 raise VLLMNotFoundError(f"The model `{request.model}` does not exist.")
+```

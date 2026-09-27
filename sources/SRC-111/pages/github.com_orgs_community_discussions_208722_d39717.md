@@ -5,8 +5,10 @@ Feature request: serve PDF files with `content-type: application/pdf`
 
 instead of `application/octet-stream`
 
+```python
 from raw.githubusercontent.com
 #208722
+```
 
 [toughengineer](https://github.com/toughengineer)asked this question in
 

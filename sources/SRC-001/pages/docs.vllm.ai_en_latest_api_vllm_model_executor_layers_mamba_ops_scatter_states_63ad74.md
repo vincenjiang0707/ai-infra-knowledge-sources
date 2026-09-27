@@ -18,11 +18,13 @@ is the read-side counterpart.
 ## Source code in `vllm/model_executor/layers/mamba/ops/scatter_states.py`
 
 
+```python
 | @triton_kernel_dispatcher_with_warmup(
 kernel=_scatter_states_kernel,
 warmup_inputs=_scatter_states_warmup_inputs,
 )
 def scatter_states(
+```
 state: torch.Tensor,
 src: torch.Tensor,
 indices: torch.Tensor,

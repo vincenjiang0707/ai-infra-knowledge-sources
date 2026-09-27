@@ -111,8 +111,10 @@ py -3.12 -m venv .venv312
 python -m pip install --pre -U -f https://mlc.ai/wheels mlc-llm-nightly-cpu mlc-ai-nightly-cpu
 
 # Verification
+```bash
 python -c "import tvm.relax; print('TVM Relax: OK')"
 python -c "import mlc_llm; print('MLC LLM: OK')"
+```
 
 # What is installed
 pip list | findstr /I "mlc tvm"

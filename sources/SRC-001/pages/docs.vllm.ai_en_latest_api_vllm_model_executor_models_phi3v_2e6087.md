@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/phi3v/
 lastmod: 2026-09-27
 
+```python
 class Phi3HDImageEmbedding(nn.Module):
 """Phi3 Image embedding with HD transform."""
 def __init__(
@@ -152,3 +153,4 @@ image_features_hd_newline = torch.cat(
 [image_features_hd, newline_embeddings], dim=2
 ).reshape(num_images, -1, hid_dim)
 return image_features_hd_newline
+```

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/nvidia/flashmla/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV4FlashMLAAttention(DeepseekV4Attention):
 """FlashMLA sparse MLA attention layer for DeepSeek V4 (CUDA)."""
 backend_cls = DeepseekV4FlashMLABackend
@@ -323,3 +324,4 @@ attn_sink=self.attn_sink,
 topk_length=combined_lens,
 out=output[query_start:query_end],
 )
+```

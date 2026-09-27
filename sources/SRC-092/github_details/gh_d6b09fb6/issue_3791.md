@@ -17,9 +17,11 @@ error:
 **running health when global_segment_size <= 32GB**
 
 **environment**
+```json
 export ASCEND_AUTO_CONNECT=1
 export ASCEND_GLOBAL_RESOURCE_CONFIG='{"comm_resource_config.protocol_desc": ["roce:device"]}'
 export HCCL_INTRA_ROCE_ENABLE=1
+```
 
 910B(A2)，mooncake-master（v0.3.12.post1）、mooncake-client（v0.3.12.post1）
 

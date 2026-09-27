@@ -10,6 +10,7 @@ When I try to run patch_model_for_compiled_runtime on 8bit + aten, the program r
 ![image](https://github.com/user-attachments/assets/f0a85477-f36e-4081-bf45-833ca3fa5eec)
 
 # code
+```python
 import torch
 import torch.fx
 import time
@@ -34,6 +35,7 @@ HQQLinear.set_backend(HQQBackend.ATEN_FORWARD)
 
 #Inference
 from hqq.utils.generation_hf import patch_model_for_compiled_runtime
+```
 
 patch_model_for_compiled_runtime(model, tokenizer, warmup=True)
 
@@ -102,15 +104,19 @@ I haven't used ATEN with axis=0 since months : D !
 
 
 
+```python
 from hqq.engine.hf import HQQModelForCausalLM, AutoTokenizer
 import torch
 import transformers  # Make sure transformers is imported
 from threading import Thread  # Make sure Thread is imported
+```
 
 # Load the model
+```bash
 model_id = 'mobiuslabsgmbh/Llama-2-7b-chat-hf_1bitgs8_hqq'
 model = HQQModelForCausalLM.from_quantized(model_id, adapter='adapter_v0.1.lora', compute_dtype=torch.float16, device="cuda")
 tokenizer = AutoTokenizer.from_pretrained(model_id)
+```
 
 # Define the device before using it
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -118,17 +124,20 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
 
 # Setup Inference Mode
+```
 tokenizer.add_bos_token = False
 tokenizer.add_eos_token = False
 if not tokenizer.pad_token:
     tokenizer.add_special_tokens({'pad_token': '[PAD]'})
 model.config.use_cache = True
 model.eval()
+```
 
 # Optional: torch compile for faster inference
 # model = torch.compile(model)  # You might want to enable this for potential speedup
 
 def chat_processor(chat, max_new_tokens=100, do_sample=True, device='cuda'):
+```bash
     tokenizer.use_default_system_prompt = False
     streamer = transformers.TextIteratorStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True)
 
@@ -164,10 +173,13 @@ def chat_processor(chat, max_new_tokens=100, do_sample=True, device='cuda'):
     torch.cuda.empty_cache()
 
     return outputs
+```
 
 # Now you can call the function:
+```bash
 results = chat_processor("What is the solution to x^2 - 1 = 0", max_new_tokens=100, device=device)
 print(results)
+```
 
 
 
@@ -209,8 +221,10 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py", line 285, in __getattr__
     raise AttributeError
 AttributeError
+```yaml
 User:  What is the solution to x^2 - 1 = 0
 Assistant: 
+```
 
 
 

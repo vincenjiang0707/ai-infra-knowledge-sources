@@ -15,11 +15,13 @@ GLM-ASR-Nano-2512 is a robust, open-source speech recognition model with 1.5B pa
 
 ## Installing Dependencies[¶](https://docs.vllm.ai#installing-dependencies)
 
+```bash
 uv venv
 source .venv/bin/activate
 # Install transformers from source (required)
 uv pip install git+https://github.com/huggingface/transformers.git
 uv pip install -U "vllm[audio]" --torch-backend auto # vllm>=0.14.1 is required
+```
 
 
 ## Running with vLLM[¶](https://docs.vllm.ai#running-with-vllm)
@@ -30,6 +32,7 @@ uv pip install -U "vllm[audio]" --torch-backend auto # vllm>=0.14.1 is required
 
 #### Using OpenAI SDK[¶](https://docs.vllm.ai#using-openai-sdk)
 
+```python
 import base64
 import httpx
 from openai import OpenAI
@@ -61,6 +64,7 @@ messages=[
 max_tokens=500
 )
 print(response.choices[0].message.content)
+```
 
 
 #### Using cURL[¶](https://docs.vllm.ai#using-curl)
@@ -93,6 +97,7 @@ curl http://localhost:8000/v1/chat/completions \
 
 #### Using Local Audio File[¶](https://docs.vllm.ai#using-local-audio-file)
 
+```python
 import base64
 from openai import OpenAI
 client = OpenAI(
@@ -121,10 +126,12 @@ messages=[
 max_tokens=500
 )
 print(response.choices[0].message.content)
+```
 
 
 #### Using Transcribe Endpoint[¶](https://docs.vllm.ai#using-transcribe-endpoint)
 
+```python
 import httpx
 from openai import OpenAI
 client = OpenAI(
@@ -139,6 +146,7 @@ model="zai-org/GLM-ASR-Nano-2512",
 file=("audio.wav", audio_file),
 )
 print(response.text)
+```
 
 
 #### Transcribe with cURL[¶](https://docs.vllm.ai#transcribe-with-curl)

@@ -1504,8 +1504,10 @@ Accepts any `BaseEngine`
 (token pipeline)
 or a `DiffusionEngine`
 
+```
 (raw media pipeline). The request adapter is
 selected from the engine kind (`raw=isinstance(engine, RawEngine)`
+```
 
 );
 `WorkerConfig.model_input`

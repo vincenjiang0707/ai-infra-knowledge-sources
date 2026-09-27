@@ -94,6 +94,7 @@ Below is an example of what the generated `CMakeUserPresets.json`
 
 might look like. The script will tailor these values based on your system and any input you provide.
 
+```json
 {
 "version": 6,
 "cmakeMinimumRequired": {
@@ -128,6 +129,7 @@ might look like. The script will tailor these values based on your system and an
 }
 ]
 }
+```
 
 
 **What do the various configurations mean?**

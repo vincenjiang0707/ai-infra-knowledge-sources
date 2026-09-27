@@ -114,8 +114,10 @@ max_offset = 8 if cutlass.const_expr(self.q_dtype.width == 8) else 0
 
 e4m3 and e5m2 are both 8-bit, so they silently shared one constant tuned (via rescale_threshold=4, added later in commit cbbab83/related tuning work) without re-checking it against e4m3's much lower saturation ceiling (448 vs. e5m2's 57344). Stronger evidence: in tests/cute/test_flash_attn.py:99-100, the fp8 dtype is commented out of the default test parametrize —
 
+```python
 @pytest.mark.parametrize("dtype", [torch.float16, torch.bfloat16, torch.float8_e4m3fn])
 @pytest.mark.parametrize("dtype", [torch.bfloat16])
+```
 
 — meaning e4m3 has never run in this suite's normal sweep. I ran it anyway on main with the issue's own geometry and got the same ~1.13–1.60× excess error the reporter saw. So: e4m3 was accepted by the API but not numerically validated; e5m2 wasn't specially "intended" either, it just happened not to saturate.
 

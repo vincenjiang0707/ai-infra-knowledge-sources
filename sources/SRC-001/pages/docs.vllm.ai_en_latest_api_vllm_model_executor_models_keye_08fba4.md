@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/keye/
 lastmod: 2026-09-27
 
+```python
 class BaseKeyeModule(nn.Module, SupportsMultiModal):
 packed_modules_mapping = {
 "qkv_proj": [
@@ -266,3 +267,4 @@ num_mm_embeds: int,
 del modality, mm_kwargs
 merge_size = self.config.vision_config.spatial_merge_size
 return num_mm_embeds * merge_size**2, num_mm_embeds
+```

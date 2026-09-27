@@ -2029,8 +2029,10 @@ was used as a workaround for disaggregated serving), `prefill`
 
 and `decode`
 
+```
 are first-class values: users can set them directly and downstream consumers
 (e.g., the EPP) can filter on the pod label `nvidia.com/dynamo-component-type`
+```
 
 .
 

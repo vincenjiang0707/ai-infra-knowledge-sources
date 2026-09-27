@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/quark/schemes/quark_ocp_mx/
 lastmod: 2026-09-27
 
+```python
 class QuarkOCP_MX(QuarkScheme):
 ocp_mx_linear: MxFp6LinearKernel | MxFp4LinearKernel | Mxfp8LinearKernel
 supported_activation_quant_keys = [*_ACTIVATION_QUANT_KEY_MAP.values(), None]
@@ -196,3 +197,4 @@ x: torch.Tensor,
 bias: torch.Tensor | None = None,
 ) -> torch.Tensor:
 return self.ocp_mx_linear.apply_weights(layer, x, bias)
+```

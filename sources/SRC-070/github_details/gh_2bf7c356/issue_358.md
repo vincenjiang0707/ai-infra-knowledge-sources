@@ -10,11 +10,13 @@ Hi, DeepEP team,
 
 I'm a collaborator to the TensorRT-LLM project. First, thank you for creating such a performant library. We have successfully integrated it into our project. To better align with TensorRT-LLM's data format, we've made a few modifications to DeepEP. The specific commit we are using is [515a311](https://github.com/deepseek-ai/DeepEP/commits/515a311f290eb6d9592fcccfcc80c40f5123ca72/). The main changes are as follows:
 
+```
 (1) Besides `torch.distributed.ProcessGroup`, support for initializing buffers with `mpi4py.MPI.Comm` ( @yuantailing )
 (2) Change the dtype of `topk_idx` from `int64_t` to `int` and add an offset to expert id  ( @yifeizhang-c )
 (3) Avoid cleaning after each change in hidden_size/token_num (Already merged in #313, @yilin-void )
 (4) Add an FP4 low-latency dispatch kernel, where the tensor is quantized outside of the kernel ( @yilin-void )
 (5) Add an FP4 low-latency combine kernel, where the tensor is quant/dequant inside of the kernel ( @yilin-void )
+```
 
 **Before we create pull requests, we would like to discuss whether the community would be open to these changes and how we can make them more general, especially for (2), (4), and (5).**
 

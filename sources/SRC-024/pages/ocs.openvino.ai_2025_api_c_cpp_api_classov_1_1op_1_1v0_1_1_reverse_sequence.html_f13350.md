@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v0::ReverseSequence[#](https://docs.openvino.ai#class-ov-op-v0-reversesequence)
 
 -
+```python
 class ReverseSequence : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v015ReverseSequenceE) [ReverseSequence](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_reverse_sequence)operation.Public Functions
+```
 
 -
 ReverseSequence(const

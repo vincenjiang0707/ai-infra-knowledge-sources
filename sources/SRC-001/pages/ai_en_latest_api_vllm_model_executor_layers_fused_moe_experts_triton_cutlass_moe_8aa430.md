@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/triton_cutlass_moe/
 lastmod: 2026-09-27
 
+```python
 class TritonOrCutlassExperts(FallbackExperts):
 """Cutlass with fallback to Triton for low latency shapes on SM100."""
 def __init__(
@@ -64,3 +65,4 @@ if self.is_sm100 and hidden_states.shape[0] <= 8:
 return self.fallback_experts
 else:
 return self.experts
+```

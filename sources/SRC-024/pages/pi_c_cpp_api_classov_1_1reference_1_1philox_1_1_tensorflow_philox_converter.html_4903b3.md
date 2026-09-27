@@ -4,8 +4,10 @@ lastmod:
 # Class ov::reference::philox::TensorflowPhiloxConverter[#](https://docs.openvino.ai#class-ov-reference-philox-tensorflowphiloxconverter)
 
 -
+```python
 class TensorflowPhiloxConverter : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[reference](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9referenceE)::[philox](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9reference6philoxE)::[PhiloxConverter](https://docs.openvino.ai/classov_1_1reference_1_1philox_1_1_philox_converter.html#_CPPv4N2ov9reference6philox15PhiloxConverterE)[#](https://docs.openvino.ai#_CPPv4N2ov9reference6philox25TensorflowPhiloxConverterE) Public Functions
+```
 
 -
 virtual size_t get_converted_elements_count() const override

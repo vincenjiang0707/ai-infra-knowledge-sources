@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/mooncake/state/
 lastmod: 2026-09-27
 
+```python
 class SchedulerTransferTable:
 """Own Scheduler transfer state, lookup indexes, and dispatch queues.
 The Scheduler is single-threaded, so direct transitions are sufficient;
@@ -315,7 +316,9 @@ self._unavailable_requests.add(request_id)
 def _transition(
 self,
 record: SchedulerTransfer,
+```
 state: SchedulerTransferState,
+```python
 now: float | None = None,
 ) -> None:
 if record.state is SchedulerTransferState.RESIDENT:
@@ -361,3 +364,4 @@ transfer_ids = self._hash_index[record.mm_hash]
 transfer_ids.remove(transfer_id)
 if not transfer_ids:
 self._hash_index.pop(record.mm_hash)
+```

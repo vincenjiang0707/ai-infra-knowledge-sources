@@ -117,6 +117,7 @@ There are two cases in which the dimensions are equivalent:
 1. The dimensions are equal (both integers)
 2. The dimensions both correspond to the same SymInt
 """
+```python
 # Case 1
 return statically_known_true(dim == i_dim) # type: ignore[no-any-return]
 def all_dims_equivalent(
@@ -129,6 +130,7 @@ if len(dims_) != len(i_dims_):
 return False
 return all(self.dims_equivalent(s, i_s) for s, i_s in zip(dims, i_dims))
 |
+```
 
 ###
 
@@ -180,6 +182,8 @@ There are two cases in which the dimensions are equivalent:
 1. The dimensions are equal (both integers)
 2. The dimensions both correspond to the same SymInt
 """
+```python
 # Case 1
 return statically_known_true(dim == i_dim) # type: ignore[no-any-return]
 |
+```

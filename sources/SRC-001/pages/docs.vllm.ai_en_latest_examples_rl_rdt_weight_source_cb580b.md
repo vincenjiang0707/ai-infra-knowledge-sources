@@ -6,6 +6,7 @@ lastmod: 2026-09-27
 Source [https://github.com/vllm-project/vllm/blob/main/examples/rl/rdt_weight_source.py](https://github.com/vllm-project/vllm/blob/main/examples/rl/rdt_weight_source.py).
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """The ``WeightSource`` for ``rlhf_sharded_rdt_small_ep.py``.
 A trainer's producer job is to present its weights under the names the inference
@@ -84,3 +85,4 @@ half = full.shape[1] // 2
 for e in range(full.shape[0]):
 yield f"{prefix}.{e}.gate_proj.weight", full[e, :half, :]
 yield f"{prefix}.{e}.up_proj.weight", full[e, half:, :]
+```

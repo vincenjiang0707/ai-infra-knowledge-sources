@@ -194,9 +194,11 @@ complete class and cache-bucket resolution rules.
 
 ### Observe the Premium Share
 
+```python
 The regression workload releases 320 distinct 512-token prompts from each
 class at the same time. This keeps both queues backlogged with identical
 request costs. An equal-share control changes the regular quantum from `128`
+```
 
 to `512`
 

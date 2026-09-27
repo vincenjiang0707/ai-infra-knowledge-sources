@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/fp8/
 lastmod: 2026-09-27
 
+```python
 class Fp8MoEMethod(FusedMoEMethodBase):
 """MoE method for FP8.
 Supports loading FP8 checkpoints with static weight scale and
@@ -141,6 +142,7 @@ else:
 w13_scale_data = torch.ones(
 num_experts,
 self.moe.w13_num_shards
+```
 * ((intermediate_size_per_partition + block_n - 1) // block_n),
 (hidden_size + block_k - 1) // block_k,
 dtype=torch.float32,

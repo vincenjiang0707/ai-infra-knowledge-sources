@@ -187,8 +187,10 @@ exactly once after their final operation. Every thread in the session’s cooper
 - The NCCL 2.31.2 device IR issue reported in nccl4py v0.5.0, which could prevent
 `Gin.put()`
 
+```python
 from JIT-compiling with EFA GDA enabled, is resolved in the matching NCCL 2.32.3 IR. - Added a
 `py.typed`
+```
 
 marker so compatible static type checkers can use`nccl.core`
 

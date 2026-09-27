@@ -9,12 +9,14 @@ labels:
 Has anyone performed inference on a GLM-5 model quantized with AWQ+INT4 using VLLM?
 代码如下：
 `vllm serve /path_to/glm5_bf16-W4A16-SYM-AWQ-cuda-compressed-tensors \
+```bash
     --tensor-parallel-size 8 \
     --enable-expert-parallel \
     --host 172.16.20.29 \
     --port 8009 \
     --no-enable-prefix-caching \
     --max_num_seqs 32
+```
 `
 遇到了如下问题：
 (Worker_TP1_EP1 pid=1874769) ERROR 03-24 09:46:59 [multiproc_executor.py:852] WorkerProc failed to start.
@@ -65,12 +67,14 @@ Are you targeting the weights_proj layer? I've been skipping quantizing that lay
 > 你是针对weights_proj层吗？我在deepseek3.2里跳过了那一层的量化，可以参考[我正在](https://github.com/vllm-project/llm-compressor/pull/2491/changes#diff-d01a405d3c59813946a5764a9b24e497b1ef07c2d0a896136a44671368ae9f74R54-R72)进行的示例
 
 代码：
+```python
 from datasets import load_dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from llmcompressor import oneshot
 from llmcompressor.modifiers.awq import AWQModifier
 import argparse
+```
 
 
 if __name__ == "__main__":
@@ -293,6 +297,7 @@ if __name__ == "__main__":
   "qk_nope_head_dim": 192,
   "qk_rope_head_dim": 64,
   "quantization_config": {
+```json
     "config_groups": {
       "group_0": {
         "format": "pack-quantized",
@@ -328,6 +333,7 @@ if __name__ == "__main__":
     "sparsity_config": {},
     "transform_config": {},
     "version": "0.13.1.a20260225"
+```
   },
   "rms_norm_eps": 1e-05,
   "rope_interleave": true,
@@ -353,6 +359,7 @@ if __name__ == "__main__":
     "total_size": 1462687544736
   },
   "weight_map": {
+```json
     "lm_head.weight": "model-00001-of-00038.safetensors",
     "model.embed_tokens.weight": "model-00001-of-00038.safetensors",
     "model.layers.0.input_layernorm.weight": "model-00001-of-00038.safetensors",
@@ -394,6 +401,7 @@ if __name__ == "__main__":
     "model.layers.0.self_attn.q_b_proj.weight_packed": "model-00001-of-00038.safetensors",
     "model.layers.0.self_attn.q_b_proj.weight_scale": "model-00001-of-00038.safetensors",
     "model.layers.0.self_attn.q_b_proj.weight_shape": "model-00001-of-00038.safetensors",
+```
 
 
 

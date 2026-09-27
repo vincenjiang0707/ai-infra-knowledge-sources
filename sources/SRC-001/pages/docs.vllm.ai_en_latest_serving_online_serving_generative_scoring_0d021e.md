@@ -39,15 +39,18 @@ if`item_first=true`
 
 To find the token IDs for your labels, use the tokenizer:
 
+```python
 from transformers import AutoTokenizer
 tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen3-0.6B")
 yes_id = tokenizer.encode("Yes", add_special_tokens=False)[0]
 no_id = tokenizer.encode("No", add_special_tokens=False)[0]
 print(f"Yes: {yes_id}, No: {no_id}")
+```
 
 
 ## Example[¶](https://docs.vllm.ai#example)
 
+```json
 curl -X POST http://localhost:8000/generative_scoring \
 -H "Content-Type: application/json" \
 -d '{
@@ -56,6 +59,7 @@ curl -X POST http://localhost:8000/generative_scoring \
 "items": ["Paris", "London", "Berlin"],
 "label_token_ids": [9454, 2753]
 }'
+```
 
 
 Here, each item is appended to the query to form prompts like `"Is this city the capital of France? Paris"`
@@ -66,6 +70,7 @@ Here, each item is appended to the query to form prompts like `"Is this city the
 
 ## Response
 
+```json
 {
 "id": "generative-scoring-abc123",
 "object": "list",
@@ -78,3 +83,4 @@ Here, each item is appended to the query to form prompts like `"Is this city the
 ],
 "usage": {"prompt_tokens": 45, "total_tokens": 48, "completion_tokens": 3}
 }
+```

@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::VariableValue[#](https://docs.openvino.ai#class-ov-op-util-variablevalue)
 
 -
+```python
 class VariableValue
 [#](https://docs.openvino.ai#_CPPv4N2ov2op4util13VariableValueE) [VariableValue](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_variable_value)stores data and state (reset flag) for a[Variable](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_variable), and provides an interface for changing them.Public Functions
+```
 
 -
 VariableValue()

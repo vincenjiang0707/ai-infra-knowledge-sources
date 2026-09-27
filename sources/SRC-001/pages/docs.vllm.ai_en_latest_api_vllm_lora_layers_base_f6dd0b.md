@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/layers/base/
 lastmod: 2026-09-27
 
+```python
 class BaseLayerWithLoRA(nn.Module):
 def __getattr__(self, name):
 d = self.__dict__
@@ -84,3 +85,4 @@ model_config: PreTrainedConfig | None = None,
 ) -> bool:
 """Returns True if the layer can be replaced by this LoRA layer."""
 raise NotImplementedError
+```

@@ -45,6 +45,7 @@ Dependencies:
 - torch
 - openai
 """
+```python
 import transformers
 from openai import OpenAI
 from vllm.utils.serial_utils import tensor2base64
@@ -135,6 +136,7 @@ client, model_name, tokenizer, embedding_layer, messages
 )
 if __name__ == "__main__":
 main()
+```
 
 
 ## Prompt Embed Offline[¶](https://docs.vllm.ai#prompt-embed-offline)
@@ -151,6 +153,7 @@ https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct
 Requirements:
 - vLLM
 - transformers
+```python
 Run:
 python examples/features/prompt_embed/prompt_embed_offline.py
 """
@@ -213,3 +216,4 @@ single_prompt_inference(llm, tokenizer, embedding_layer)
 batch_prompt_inference(llm, tokenizer, embedding_layer)
 if __name__ == "__main__":
 main()
+```

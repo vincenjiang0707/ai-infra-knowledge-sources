@@ -20,9 +20,11 @@ Here, we take GLM-4.5-Air as an example, and similarly, this applies to other mo
 ## Installing vLLM[¶](https://docs.vllm.ai#installing-vllm)
 
 # install the nightly build of vLLM for GLM-4.7
+```bash
 uv pip install -U vllm --pre --extra-index-url https://wheels.vllm.ai/nightly
 # install transformers from source
 uv pip install git+https://github.com/huggingface/transformers.git
+```
 
 
 ## Running GLM-4.5-Air with FP8 or BF16[¶](https://docs.vllm.ai#running-glm-45-air-with-fp8-or-bf16)
@@ -32,11 +34,13 @@ There are two ways to parallelize the model over multiple GPUs: (1) Tensor-paral
 run tensor-parallel like this:
 
 # Start server with FP8 model on 4 GPUs. the model can also changed to BF16 as zai-org/GLM-4.5-Air
+```bash
 vllm serve zai-org/GLM-4.5-Air-FP8 \
 --tensor-parallel-size 8 \
 --tool-call-parser glm45 \
 --reasoning-parser glm45 \
 --enable-auto-tool-choice
+```
 
 
 - You can set
@@ -65,6 +69,7 @@ To enable MTP speculative decoding, add the `--speculative-config`
 flags to your server command:
 
 # Start server with FP8 model on 4xH200
+```bash
 vllm serve zai-org/GLM-4.7-FP8 \
 --tensor-parallel-size 4 \
 --speculative-config.method mtp \
@@ -72,6 +77,7 @@ vllm serve zai-org/GLM-4.7-FP8 \
 --tool-call-parser glm47 \
 --reasoning-parser glm45 \
 --enable-auto-tool-choice
+```
 
 
 ### Recommended Settings[¶](https://docs.vllm.ai#recommended-settings)
@@ -96,6 +102,7 @@ to the server command.
 ### FP8 Benchmark[¶](https://docs.vllm.ai#fp8-benchmark)
 
 # Prompt-heavy benchmark (8k/1k)
+```bash
 vllm bench serve \
 --model zai-org/GLM-4.5-FP8 \
 --dataset-name random \
@@ -104,6 +111,7 @@ vllm bench serve \
 --request-rate 10000 \
 --num-prompts 16 \
 --ignore-eos
+```
 
 
 ### Benchmark Configurations[¶](https://docs.vllm.ai#benchmark-configurations)

@@ -90,6 +90,7 @@ Version: 3.6.0
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+```python
 import json
 import os
 from typing import List, Dict, Any
@@ -98,10 +99,12 @@ import argparse
 from gptqmodel import GPTQModel
 from gptqmodel.quantization.config import ParoConfig
 from gptqmodel.quantization import QuantizeConfig, FORMAT, METHOD
+```
 
 
 
 
+```
     p.add_argument("--bits", type=int, default=4, help="量化位宽")
     p.add_argument("--group-size", type=int, default=128, help="分组大小")
     p.add_argument("--max-samples", type=int, default=128, help="最多使用多少条样本做校准")
@@ -114,6 +117,7 @@ from gptqmodel.quantization import QuantizeConfig, FORMAT, METHOD
     p.add_argument("--drop-assistant", action="store_true", help="是否丢弃 assistant 回复")
 
     return p.parse_args()
+```
 
 
 def main():

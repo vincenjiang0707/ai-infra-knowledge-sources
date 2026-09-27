@@ -42,9 +42,11 @@ wget https://raw.githubusercontent.com/vllm-project/vllm/main/examples/features/
 
 Once you've created your batch file it should look like this
 
+```json
 cat examples/features/openai_batch/openai_example_batch.jsonl
 {"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "meta-llama/Meta-Llama-3-8B-Instruct", "messages": [{"role": "system", "content": "You are a helpful assistant."},{"role": "user", "content": "Hello world!"}],"max_completion_tokens": 1000}}
 {"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "meta-llama/Meta-Llama-3-8B-Instruct", "messages": [{"role": "system", "content": "You are an unhelpful assistant."},{"role": "user", "content": "Hello world!"}],"max_completion_tokens": 1000}}
+```
 
 
 ### Step 2: Run the batch[¶](https://docs.vllm.ai#step-2-run-the-batch)
@@ -54,18 +56,22 @@ The batch running tool is designed to be used from the command line.
 You can run the batch with the following command, which will write its results to a file called `results.jsonl`
 
 
+```bash
 python -m vllm.entrypoints.launchers.run_batch \
 -i examples/features/openai_batch/openai_example_batch.jsonl \
 -o results.jsonl \
 --model meta-llama/Meta-Llama-3-8B-Instruct
+```
 
 
 or use command-line:
 
+```bash
 vllm run-batch \
 -i examples/features/openai_batch/openai_example_batch.jsonl \
 -o results.jsonl \
 --model meta-llama/Meta-Llama-3-8B-Instruct
+```
 
 
 ### Step 3: Check your results[¶](https://docs.vllm.ai#step-3-check-your-results)
@@ -75,9 +81,11 @@ You should now have your results at `results.jsonl`
 . You can check your results by running `cat results.jsonl`
 
 
+```json
 cat results.jsonl
 {"id":"vllm-383d1c59835645aeb2e07d004d62a826","custom_id":"request-1","response":{"id":"cmpl-61c020e54b964d5a98fa7527bfcdd378","object":"chat.completion","created":1715633336,"model":"meta-llama/Meta-Llama-3-8B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"Hello! It's great to meet you! I'm here to help with any questions or tasks you may have. What's on your mind today?"},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":25,"total_tokens":56,"completion_tokens":31}},"error":null}
 {"id":"vllm-42e3d09b14b04568afa3f1797751a267","custom_id":"request-2","response":{"id":"cmpl-f44d049f6b3a42d4b2d7850bb1e31bcc","object":"chat.completion","created":1715633336,"model":"meta-llama/Meta-Llama-3-8B-Instruct","choices":[{"index":0,"message":{"role":"assistant","content":"*silence*"},"logprobs":null,"finish_reason":"stop","stop_reason":null}],"usage":{"prompt_tokens":27,"total_tokens":32,"completion_tokens":5}},"error":null}
+```
 
 
 ## Example 2: Using remote files[¶](https://docs.vllm.ai#example-2-using-remote-files)
@@ -88,18 +96,22 @@ For example, to run against our example input file located at `https://raw.githu
 
 , you can run
 
+```bash
 python -m vllm.entrypoints.launchers.run_batch \
 -i https://raw.githubusercontent.com/vllm-project/vllm/main/examples/features/openai_batch/openai_example_batch.jsonl \
 -o results.jsonl \
 --model meta-llama/Meta-Llama-3-8B-Instruct
+```
 
 
 or use command-line:
 
+```bash
 vllm run-batch \
 -i https://raw.githubusercontent.com/vllm-project/vllm/main/examples/features/openai_batch/openai_example_batch.jsonl \
 -o results.jsonl \
 --model meta-llama/Meta-Llama-3-8B-Instruct
+```
 
 
 ## Example 3: Integrating with AWS S3[¶](https://docs.vllm.ai#example-3-integrating-with-aws-s3)
@@ -131,9 +143,11 @@ wget https://raw.githubusercontent.com/vllm-project/vllm/main/examples/features/
 
 Once you've created your batch file it should look like this
 
+```json
 cat examples/features/openai_batch/openai_example_batch.jsonl
 {"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "meta-llama/Meta-Llama-3-8B-Instruct", "messages": [{"role": "system", "content": "You are a helpful assistant."},{"role": "user", "content": "Hello world!"}],"max_completion_tokens": 1000}}
 {"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "meta-llama/Meta-Llama-3-8B-Instruct", "messages": [{"role": "system", "content": "You are an unhelpful assistant."},{"role": "user", "content": "Hello world!"}],"max_completion_tokens": 1000}}
+```
 
 
 Now upload your batch file to your S3 bucket.
@@ -153,6 +167,7 @@ placeholders with your bucket and file names.
 
 (The script is adapted from [https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/python/example_code/s3/s3_basics/presigned_url.py](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/python/example_code/s3/s3_basics/presigned_url.py))
 
+```python
 import boto3
 from botocore.exceptions import ClientError
 def generate_presigned_url(s3_client, client_method, method_parameters, expires_in):
@@ -188,30 +203,37 @@ expires_in=3600,
 )
 print(f"{input_url=}")
 print(f"{output_url=}")
+```
 
 
 This script should output
 
+```bash
 input_url='https://s3.us-west-2.amazonaws.com/MY_BUCKET/MY_INPUT_FILE.jsonl?AWSAccessKeyId=ABCDEFGHIJKLMNOPQRST&Signature=abcdefghijklmnopqrstuvwxyz12345&Expires=1715800091'
 output_url='https://s3.us-west-2.amazonaws.com/MY_BUCKET/MY_OUTPUT_FILE.jsonl?AWSAccessKeyId=ABCDEFGHIJKLMNOPQRST&Signature=abcdefghijklmnopqrstuvwxyz12345&Expires=1715800091'
+```
 
 
 ### Step 3: Run the batch runner using your presigned urls[¶](https://docs.vllm.ai#step-3-run-the-batch-runner-using-your-presigned-urls)
 
 You can now run the batch runner, using the urls generated in the previous section.
 
+```bash
 python -m vllm.entrypoints.launchers.run_batch \
 -i "https://s3.us-west-2.amazonaws.com/MY_BUCKET/MY_INPUT_FILE.jsonl?AWSAccessKeyId=ABCDEFGHIJKLMNOPQRST&Signature=abcdefghijklmnopqrstuvwxyz12345&Expires=1715800091" \
 -o "https://s3.us-west-2.amazonaws.com/MY_BUCKET/MY_OUTPUT_FILE.jsonl?AWSAccessKeyId=ABCDEFGHIJKLMNOPQRST&Signature=abcdefghijklmnopqrstuvwxyz12345&Expires=1715800091" \
 --model meta-llama/Meta-Llama-3-8B-Instruct
+```
 
 
 or use command-line:
 
+```bash
 vllm run-batch \
 -i "https://s3.us-west-2.amazonaws.com/MY_BUCKET/MY_INPUT_FILE.jsonl?AWSAccessKeyId=ABCDEFGHIJKLMNOPQRST&Signature=abcdefghijklmnopqrstuvwxyz12345&Expires=1715800091" \
 -o "https://s3.us-west-2.amazonaws.com/MY_BUCKET/MY_OUTPUT_FILE.jsonl?AWSAccessKeyId=ABCDEFGHIJKLMNOPQRST&Signature=abcdefghijklmnopqrstuvwxyz12345&Expires=1715800091" \
 --model meta-llama/Meta-Llama-3-8B-Instruct
+```
 
 
 ### Step 4: View your results[¶](https://docs.vllm.ai#step-4-view-your-results)
@@ -231,8 +253,10 @@ Your results are now on S3. You can view them in your terminal by running
 
 Add embedding requests to your batch file. The following is an example:
 
+```json
 {"custom_id": "request-1", "method": "POST", "url": "/v1/embeddings", "body": {"model": "intfloat/e5-mistral-7b-instruct", "input": "You are a helpful assistant."}}
 {"custom_id": "request-2", "method": "POST", "url": "/v1/embeddings", "body": {"model": "intfloat/e5-mistral-7b-instruct", "input": "You are an unhelpful assistant."}}
+```
 
 
 You can even mix chat completion and embedding requests in the batch file, as long as the model you are using supports both chat completion and embeddings (note that all requests must use the same model).
@@ -246,8 +270,10 @@ You can run the batch using the same command as in earlier examples.
 You can check your results by running `cat results.jsonl`
 
 
+```json
 cat results.jsonl
 {"id":"vllm-db0f71f7dec244e6bce530e0b4ef908b","custom_id":"request-1","response":{"status_code":200,"request_id":"vllm-batch-3580bf4d4ae54d52b67eee266a6eab20","body":{"id":"embd-33ac2efa7996430184461f2e38529746","object":"list","created":444647,"model":"intfloat/e5-mistral-7b-instruct","data":[{"index":0,"object":"embedding","embedding":[0.016204833984375,0.0092010498046875,0.0018358230590820312,-0.0028228759765625,0.001422882080078125,-0.0031147003173828125,...]}],"usage":{"prompt_tokens":8,"total_tokens":8,"completion_tokens":0}}},"error":null}
+```
 ...
 
 
@@ -264,8 +290,10 @@ cat results.jsonl
 
 Add score requests to your batch file. The following is an example:
 
+```json
 {"custom_id": "request-1", "method": "POST", "url": "/v1/score", "body": {"model": "BAAI/bge-reranker-v2-m3", "queries": "What is the capital of France?", "documents": ["The capital of Brazil is Brasilia.", "The capital of France is Paris."]}}
 {"custom_id": "request-2", "method": "POST", "url": "/v1/score", "body": {"model": "BAAI/bge-reranker-v2-m3", "queries": "What is the capital of France?", "documents": ["The capital of Brazil is Brasilia.", "The capital of France is Paris."]}}
+```
 
 
 You can mix chat completion, embedding, and score requests in the batch file, as long as the model you are using supports them all (note that all requests must use the same model).
@@ -279,14 +307,18 @@ You can run the batch using the same command as in earlier examples.
 You can check your results by running `cat results.jsonl`
 
 
+```json
 cat results.jsonl
 {"id":"vllm-f87c5c4539184f618e555744a2965987","custom_id":"request-1","response":{"status_code":200,"request_id":"vllm-batch-806ab64512e44071b37d3f7ccd291413","body":{"id":"score-4ee45236897b4d29907d49b01298cdb1","object":"list","created":1737847944,"model":"BAAI/bge-reranker-v2-m3","data":[{"index":0,"object":"score","score":0.0010900497436523438},{"index":1,"object":"score","score":1.0}],"usage":{"prompt_tokens":37,"total_tokens":37,"completion_tokens":0,"prompt_tokens_details":null}}},"error":null}
 {"id":"vllm-41990c51a26d4fac8419077f12871099","custom_id":"request-2","response":{"status_code":200,"request_id":"vllm-batch-73ce66379026482699f81974e14e1e99","body":{"id":"score-13f2ffe6ba40460fbf9f7f00ad667d75","object":"list","created":1737847944,"model":"BAAI/bge-reranker-v2-m3","data":[{"index":0,"object":"score","score":0.001094818115234375},{"index":1,"object":"score","score":1.0}],"usage":{"prompt_tokens":37,"total_tokens":37,"completion_tokens":0,"prompt_tokens_details":null}}},"error":null}
+```
 
 
 ## Example materials[¶](https://docs.vllm.ai#example-materials)
 
 ## openai_example_batch.jsonl
 
+```json
 {"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "meta-llama/Meta-Llama-3-8B-Instruct", "messages": [{"role": "system", "content": "You are a helpful assistant."},{"role": "user", "content": "Hello world!"}],"max_completion_tokens": 1000}}
 {"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "meta-llama/Meta-Llama-3-8B-Instruct", "messages": [{"role": "system", "content": "You are an unhelpful assistant."},{"role": "user", "content": "Hello world!"}],"max_completion_tokens": 1000}}
+```

@@ -4,8 +4,10 @@ lastmod:
 # Class ov::preprocess::PrePostProcessor[#](https://docs.openvino.ai#class-ov-preprocess-prepostprocessor)
 
 -
+```python
 class PrePostProcessor
 [#](https://docs.openvino.ai#_CPPv4N2ov10preprocess16PrePostProcessorE) Main class for adding pre- and post- processing steps to existing
+```
 
 [ov::Model](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_model).This is a helper class for writing easy pre- and post- processing operations on
 

@@ -45,6 +45,7 @@ The number of send/recv channels is controlled by `NCCL_MAX_P2P_NCHANNELS`. `NCC
 
 @sjeaugey Thanks for your reply! I also try NCCL_MAX_P2P_NCHANNELS, the result is the same as NCCL_MAX_CTAS.
 
+```bash
 export NCCL_MAX_NCHANNELS=20
 export NCCL_MIN_NCHANNELS=20
 export NCCL_MAX_P2P_NCHANNELS=20
@@ -54,6 +55,7 @@ export NCCL_MIN_CTAS=20
  111291944…        1320695    9148  32    1     1     640   1     1     96       0.007         0.082                                                            NVIDIA A100-SXM4-80GB (2)    3              40  ncclDevKernel_SendRecv(nccl…
  111357154…        1328515    9151  32    1     1     640   1     1     96       0.007         0.082                                                            NVIDIA A100-SXM4-80GB (1)    2              28  ncclDevKernel_SendRecv(nccl…
  111424034…        1325155    9154  32    1     1     640   1     1     96       0.007         0.082                                                            NVIDIA A100-SXM4-80GB (0)    1              16  ncclDevKernel_SendRecv(nccl…
+```
 
 
 Weird, when i change limit num to 8, it works again
@@ -61,10 +63,12 @@ export NCCL_MAX_P2P_NCHANNELS=8
 export NCCL_MAX_CTAS=8
 export NCCL_MIN_CTAS=8
 
+```
 118547991…        4539163    4333  8     1     1     640   1     1     96       0.007         0.082                                                            NVIDIA A100-SXM4-80GB (3)    4              52  ncclDevKernel_SendRecv(nccl…
  118594824…        4535010    4336  8     1     1     640   1     1     96       0.007         0.082                                                            NVIDIA A100-SXM4-80GB (2)    3              40  ncclDevKernel_SendRecv(nccl…
  118706158…        3941193    4339  8     1     1     640   1     1     96       0.007         0.082                                                            NVIDIA A100-SXM4-80GB (1)    2              28  ncclDevKernel_SendRecv(nccl…
  118815569…        3940011    4342  8     1     1     640   1     1     96       0.007         0.082                                                            NVIDIA A100-SXM4-80GB (0)    1              16  ncclDevKernel_SendRecv(nccl…
+```
 
 ### sjeaugey · 2025-02-10
 

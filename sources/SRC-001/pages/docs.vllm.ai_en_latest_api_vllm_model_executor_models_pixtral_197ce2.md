@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/pixtral/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 PixtralMultiModalProcessor,
 info=PixtralProcessingInfo,
@@ -277,3 +278,4 @@ if getattr(self, "patch_merger", None) is None:
 return num_mm_embeds, num_mm_embeds
 merge_size = self.vision_args.spatial_merge_size
 return num_mm_embeds * (merge_size**2), num_mm_embeds
+```

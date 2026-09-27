@@ -12,27 +12,36 @@ labels:
 
 ### gitzlc · 2025-07-04
 
+```bash
 python -m fastdeploy.entrypoints.openai.api_server --model /workspace/ERNIE-4.5-300B-A47B-Paddle --port 8188 --tensor-parallel-size 8 --max-model-len 32768 --max-num-seqs 64 --quantization wint4 --gpu-memory-utilization 0.9拉起
 #!/bin/bash
+```
 
 # 参数集合
+```python
 NUM_PROMPTS_LIST=(1 8 64 512 1024)
 TOKEN_LEN_LIST=(512 1024 2048 4096 8192 16384)
+```
 
 # 固定参数
+```bash
 HOST="0.0.0.0"
 PORT=8188            # 不同模型需要修改端口
 BACKEND="vllm"
 MODEL_PATH="/workspace/ERNIE-4.5-300B-A47B-Paddle"     # 修改为需要测试的模型目录
 DATASET="random"
+```
 
 # 输出目录
+```bash
 LOG_DIR="/workspace/benchmark_logs"       # 日志输出目录，可查看压测性能结果
 mkdir -p $LOG_DIR
+```
 
 # 顺序运行所有组合
 for PROMPTS in "${NUM_PROMPTS_LIST[@]}"; do
   for TOKENS in "${TOKEN_LEN_LIST[@]}"; do
+```bash
     LOG_FILE="${LOG_DIR}/benchmark_p${PROMPTS}_t${TOKENS}.log"
     echo "Running benchmark: num-prompts=${PROMPTS}, token-len=${TOKENS} -> ${LOG_FILE}"
 
@@ -51,6 +60,7 @@ for PROMPTS in "${NUM_PROMPTS_LIST[@]}"; do
 
     echo "Finished benchmark_p${PROMPTS}_t${TOKENS}"
     echo "========================================="
+```
   done
 done
 

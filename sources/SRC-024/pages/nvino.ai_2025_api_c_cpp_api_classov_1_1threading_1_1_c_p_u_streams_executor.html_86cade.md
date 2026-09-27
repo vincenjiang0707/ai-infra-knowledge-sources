@@ -4,8 +4,10 @@ lastmod:
 # Class ov::threading::CPUStreamsExecutor[#](https://docs.openvino.ai#class-ov-threading-cpustreamsexecutor)
 
 -
+```python
 class CPUStreamsExecutor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[threading](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9threadingE)::[IStreamsExecutor](https://docs.openvino.ai/group__ov__dev__api__threading.html#_CPPv4N2ov9threading16IStreamsExecutorE)[#](https://docs.openvino.ai#_CPPv4N2ov9threading18CPUStreamsExecutorE) CPU Streams executor implementation. The executor splits the CPU into groups of threads, that can be pinned to cores or NUMA nodes. It uses custom threads to pull tasks from single queue.
+```
 
 Public Types
 

@@ -25,6 +25,7 @@ Documentation should clearly warn against using high --max-requests values with 
 
 ### Steps to Reproduce
 
+```yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -33,6 +34,7 @@ spec:
   template:
     spec:
       containers:
+```
       - name: guidellm
         image: quay.io/jhurlocker/guidellm:latest
         args:

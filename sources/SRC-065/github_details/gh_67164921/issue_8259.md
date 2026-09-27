@@ -66,8 +66,10 @@ In general, does Triton have guarantee that all runnable kernels produce correct
 
 ### Environment details
 
+```yaml
 Triton: 3.5.0
 GPU: H100
+```
 
 ## 评论 (6)
 

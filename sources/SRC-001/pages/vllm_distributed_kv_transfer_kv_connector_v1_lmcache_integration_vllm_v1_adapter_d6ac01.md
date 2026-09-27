@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/lmcache_integration/vllm_v1_adapter/
 lastmod: 2026-09-27
 
+```python
 class LMCacheConnectorV1Impl:
 def __init__(
 self,
@@ -250,6 +251,7 @@ token_mask = torch.ones(len(tokens), dtype=torch.bool)
 masked_token_count = (
 request.load_spec.vllm_cached_tokens
 // self._lmcache_chunk_size
+```
 * self._lmcache_chunk_size
 )
 token_mask[:masked_token_count] = False

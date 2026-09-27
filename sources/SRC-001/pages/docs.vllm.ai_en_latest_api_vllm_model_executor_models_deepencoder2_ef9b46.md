@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/deepencoder2/
 lastmod: 2026-09-27
 
+```python
 @PluggableLayer.register("qwen2_decoder")
 class CustomQwen2Decoder(PluggableLayer):
 """Qwen2 visual encoder
@@ -167,3 +168,4 @@ token_type_ids=token_type_ids,
 attention_mask=attention_mask,
 **kwargs,
 )
+```

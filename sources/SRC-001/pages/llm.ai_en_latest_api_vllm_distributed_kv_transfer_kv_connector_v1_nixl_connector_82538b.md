@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/nixl/connector/
 lastmod: 2026-09-27
 
+```python
 class NixlBaseConnector(KVConnectorBase_V1, SupportsHMA):
 """Base connector with common logic shared by pull and push modes."""
 @property
@@ -227,3 +228,4 @@ and not self.connector_worker.pcp_dcp_sharded
 ):
 return None
 return self.connector_worker.xfer_handshake_metadata
+```

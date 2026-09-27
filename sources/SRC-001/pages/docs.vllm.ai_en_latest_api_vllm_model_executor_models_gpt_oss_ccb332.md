@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/gpt_oss/
 lastmod: 2026-09-27
 
+```python
 @support_torch_compile
 class GptOssModel(nn.Module, EagleModelMixin):
 # Override to swap in an alternative TransformerBlock subclass.
@@ -842,3 +843,4 @@ head_start,
 weights,
 stacked_params_mapping,
 )
+```

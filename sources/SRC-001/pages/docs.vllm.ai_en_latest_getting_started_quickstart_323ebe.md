@@ -64,9 +64,11 @@ is also a very fast Python environment manager, to create and manage Python envi
 
 , you can create a new Python environment and install vLLM using the following commands:
 
+```bash
 uv venv --python 3.12 --seed
 source .venv/bin/activate
 uv pip install vllm --extra-index-url https://wheels.vllm.ai/rocm/
+```
 
 
 Note
@@ -170,11 +172,13 @@ Now, the fun part! The outputs are generated using `llm.generate`
 
 . It adds the input prompts to the vLLM engine's waiting queue and executes the vLLM engine to generate the outputs with high throughput. The outputs are returned as a list of [ RequestOutput](https://docs.vllm.ai/api/vllm/outputs/#vllm.outputs.RequestOutput) objects, which include all of the output tokens.
 
+```python
 outputs = llm.generate(prompts, sampling_params)
 for output in outputs:
 prompt = output.prompt
 generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+```
 
 
 Note
@@ -190,6 +194,7 @@ method and pass a list of messages which have the same format as those passed to
 ## Code
 
 # Using tokenizer to apply chat template
+```python
 from transformers import AutoTokenizer
 tokenizer = AutoTokenizer.from_pretrained("/path/to/chat_model")
 messages_list = [
@@ -214,6 +219,7 @@ for idx, output in enumerate(outputs):
 prompt = prompts[idx]
 generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+```
 
 
 ## Online Serving[¶](https://docs.vllm.ai#online-serving)
@@ -256,6 +262,7 @@ to enable the server to check for API key in the header. You can pass multiple k
 
 Once your server is started, you can query the model with input prompts:
 
+```json
 curl http://localhost:8000/v1/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -264,6 +271,7 @@ curl http://localhost:8000/v1/completions \
 "max_tokens": 7,
 "temperature": 0
 }'
+```
 
 
 Since this server is compatible with OpenAI API, you can use it as a drop-in replacement for any applications using OpenAI API. For example, another way to query the server is via the `openai`
@@ -272,6 +280,7 @@ Python package:
 
 ## Code
 
+```python
 from openai import OpenAI
 # Modify OpenAI's API key and API base to use vLLM's API server.
 openai_api_key = "EMPTY"
@@ -285,6 +294,7 @@ model="Qwen/Qwen2.5-1.5B-Instruct",
 prompt="San Francisco is a",
 )
 print("Completion result:", completion)
+```
 
 
 A more detailed client example can be found here: [ examples/basic/offline_inference/basic.py](https://github.com/vllm-project/vllm/blob/main/examples/basic/offline_inference/basic.py)
@@ -295,6 +305,7 @@ vLLM is designed to also support the OpenAI Chat Completions API. The chat inter
 
 You can use the [create chat completion](https://platform.openai.com/docs/api-reference/chat/completions/create) endpoint to interact with the model:
 
+```json
 curl http://localhost:8000/v1/chat/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -304,6 +315,7 @@ curl http://localhost:8000/v1/chat/completions \
 {"role": "user", "content": "Who won the world series in 2020?"}
 ]
 }'
+```
 
 
 Alternatively, you can use the `openai`
@@ -312,6 +324,7 @@ Python package:
 
 ## Code
 
+```python
 from openai import OpenAI
 # Set OpenAI's API key and API base to use vLLM's API server.
 openai_api_key = "EMPTY"
@@ -328,6 +341,7 @@ messages=[
 ],
 )
 print("Chat response:", chat_response)
+```
 
 
 ## On Attention Backends[¶](https://docs.vllm.ai#on-attention-backends)

@@ -80,18 +80,22 @@ The following table summarizes the models that have been trained end-to-end by o
 <table>
 <thead>
 <tr>
+```html
 <th>Verifier Architecture</th>
 <th>Verifier Size</th>
 <th>Training Support</th>
 <th>vLLM Deployment Support</th>
+```
 </tr>
 </thead>
 <tbody>
 <tr>
+```html
 <td rowspan="2">Llama</td>
 <td>8B-Instruct</td>
 <td><a href="https://huggingface.co/RedHatAI/Llama-3.1-8B-Instruct-speculator.eagle3">EAGLE-3</a> ✅</td>
 <td>✅</td>
+```
 </tr>
 <tr>
 <td>70B-Instruct</td>
@@ -99,10 +103,12 @@ The following table summarizes the models that have been trained end-to-end by o
 <td>✅</td>
 </tr>
 <tr>
+```html
 <td rowspan="3">Qwen3</td>
 <td>8B</td>
 <td><a href="https://huggingface.co/RedHatAI/Qwen3-8B-speculator.eagle3">EAGLE-3</a> ✅<br/><a href="https://huggingface.co/RedHatAI/Qwen3-8B-speculator.dflash">DFlash</a> ✅<br/><a href="https://huggingface.co/RedHatAI/Qwen3-8B-speculator.peagle">P-EAGLE</a> ✅</td>
 <td>✅</td>
+```
 </tr>
 <tr>
 <td>14B</td>
@@ -115,10 +121,12 @@ The following table summarizes the models that have been trained end-to-end by o
 <td>✅</td>
 </tr>
 <tr>
+```html
 <td rowspan="2">gpt-oss</td>
 <td>20b</td>
 <td><a href="https://huggingface.co/RedHatAI/gpt-oss-20b-speculator.eagle3">EAGLE-3</a> ✅</td>
 <td>✅</td>
+```
 </tr>
 <tr>
 <td>120b</td>
@@ -165,52 +173,68 @@ The following table summarizes the models that have been trained end-to-end by o
 <td>✅</td>
 </tr>
 <tr>
+```html
 <td>Mistral Small 4</td>
 <td>119B</td>
 <td><a href="https://huggingface.co/RedHatAI/Mistral-Small-4-119B-2603.dflash">DFlash</a> ✅<br/><a href="https://huggingface.co/RedHatAI/Mistral-Small-4-119B-2603-speculator.dspark">DSpark</a> ✅</td>
 <td>✅</td>
+```
 </tr>
 <tr>
+```html
 <td>Gemma 4</td>
 <td>31B-it</td>
 <td><a href="https://huggingface.co/RedHatAI/gemma-4-31B-it-speculator.eagle3">EAGLE-3</a> ✅<br/><a href="https://huggingface.co/RedHatAI/gemma-4-31B-it-speculator.dflash">DFlash</a> ✅</td>
 <td>✅</td>
+```
 </tr>
 <tr>
+```html
 <td>Gemma 4 MoE</td>
 <td>26B-A4B-it</td>
 <td><a href="https://huggingface.co/RedHatAI/gemma-4-26B-A4B-it-speculator.eagle3">EAGLE-3</a> ✅</td>
 <td>✅</td>
+```
 </tr>
 <tr>
+```html
 <td>NVIDIA Nemotron 3 Ultra</td>
 <td>550B-A55B</td>
 <td><a href="https://huggingface.co/RedHatAI/NVIDIA-Nemotron-3-Ultra-550B-A55B-speculator.dflash">DFlash</a> ✅</td>
 <td>✅</td>
+```
 </tr>
 <tr>
+```html
 <td>NVIDIA Nemotron 3 Super</td>
 <td>120B-A12B</td>
 <td><a href="https://huggingface.co/RedHatAI/NVIDIA-Nemotron-3-Super-120B-A12B-speculator.dflash">DFlash</a> ✅</td>
 <td>✅</td>
+```
 </tr>
 <tr>
+```html
 <td>Kimi K3</td>
 <td>-</td>
 <td><a href="https://huggingface.co/RedHatAI/Kimi-K3-speculator.dspark">DSpark</a> ✅</td>
 <td>✅</td>
+```
 </tr>
 <tr>
+```html
 <td>Qwen3.6 MoE</td>
 <td>35B-A3B</td>
 <td><a href="https://huggingface.co/RedHatAI/Qwen3.6-35B-A3B-speculator.dspark">DSpark</a> ✅</td>
 <td>✅</td>
+```
 </tr>
 <tr>
+```html
 <td>GLM 5.2</td>
 <td>-</td>
 <td><a href="https://huggingface.co/RedHatAI/GLM-5.2-speculator.dspark">DSpark</a> ✅</td>
 <td>✅</td>
+```
 </tr>
 </tbody>
 </table>

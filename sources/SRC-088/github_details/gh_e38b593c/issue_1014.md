@@ -64,11 +64,13 @@ cc @jianc99 @xiziqiao @zhijian-liu
 <details>
 <summary>🔗 Related PRs</summary>
 
+```
 vllm-project/speculators#589 - feat(dflash): selectable attention backend (sdpa/eager) with dense mask [merged]
 vllm-project/speculators#736 - Add D-PACE loss implementation for D-Flash training [merged]
 vllm-project/speculators#760 - Add support sample_from_anchor logic to DFlash/DSpark  [merged]
 vllm-project/speculators#986 - Add Muse Glimmer training support [open]
 vllm-project/speculators#992 - feat(train): add --gradient-checkpointing for DFlash/DSpark [open]
+```
 </details>
 
 ---

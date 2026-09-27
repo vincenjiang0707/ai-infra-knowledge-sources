@@ -152,8 +152,10 @@ and each call’s `name`
 
 and `id`
 
+```
 (arguments are never stored). Active
 whenever `DYN_AGENT_TRACE=1`
+```
 
 and the worker runs a tool-call parser (`--dyn-tool-call-parser …`
 

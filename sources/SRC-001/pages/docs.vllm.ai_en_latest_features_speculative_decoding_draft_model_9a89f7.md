@@ -5,6 +5,7 @@ lastmod: 2026-09-27
 
 The following code configures vLLM in an offline mode to use speculative decoding with a draft model, speculating 5 tokens at a time.
 
+```python
 from vllm import LLM, SamplingParams
 prompts = ["The future of AI is"]
 sampling_params = SamplingParams(temperature=0.8, top_p=0.95)
@@ -22,10 +23,12 @@ for output in outputs:
 prompt = output.prompt
 generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+```
 
 
 To perform the equivalent launch in online mode, use the following server-side code:
 
+```json
 vllm serve Qwen/Qwen3-4B-Thinking-2507 \
 --host 0.0.0.0 \
 --port 8000 \
@@ -34,12 +37,14 @@ vllm serve Qwen/Qwen3-4B-Thinking-2507 \
 --max-model-len 2048 \
 --gpu-memory-utilization 0.8 \
 --speculative-config '{"model": "Qwen/Qwen3-0.6B", "num_speculative_tokens": 5, "method": "draft_model"}'
+```
 
 
 The code used to request completions as a client remains unchanged:
 
 ## Code
 
+```python
 from openai import OpenAI
 # Modify OpenAI's API key and API base to use vLLM's API server.
 openai_api_key = "EMPTY"
@@ -66,6 +71,7 @@ for c in completion:
 print(c)
 else:
 print(completion)
+```
 
 
 ## Draft Model Method with heterogeneous vocabs[¶](https://docs.vllm.ai#draft-model-method-with-heterogeneous-vocabs)

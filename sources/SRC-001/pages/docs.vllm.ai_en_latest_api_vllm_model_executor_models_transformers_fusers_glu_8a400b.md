@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/transformers/fusers/glu/
 lastmod: 2026-09-27
 
+```python
 @dataclass
 class GLUFuser(MergedColumnParallelFuser):
 """Fuser for the GLU pattern `act(gate(x)) * up(x)`."""
@@ -131,3 +132,4 @@ down, "rowwise", vllm_config.quant_config, prefix=down_prefix
 )
 setattr(module, self.down_name, new_down)
 log_replacement(down_prefix, down, new_down)
+```

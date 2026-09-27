@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/siglip/
 lastmod: 2026-09-27
 
+```python
 @default_pooling_type(seq_pooling_type="CLS")
 @MULTIMODAL_REGISTRY.register_processor(
 SiglipMultiModalProcessor,
@@ -222,3 +223,4 @@ self,
 ignore_unexpected_prefixes=["logit_scale.", "logit_bias."],
 )
 return loader.load_weights(weights, mapper=self.hf_to_vllm_mapper)
+```

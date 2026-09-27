@@ -24,6 +24,7 @@ for Better Performance on AMD GPUs. The default is `export VLLM_ROCM_USE_AITER=0
 
 ### Chat with Pure-Text[¶](https://docs.vllm.ai#chat-with-pure-text)
 
+```python
 from openai import OpenAI
 client = OpenAI(api_key='', base_url='http://0.0.0.0:8000/v1')
 model_name = client.models.list().data[0].id
@@ -41,12 +42,14 @@ temperature=0.6,
 top_p=0.95,
 )
 print(response.choices[0].message.content)
+```
 
 
 ### Chat with Image[¶](https://docs.vllm.ai#chat-with-image)
 
 #### Single Image[¶](https://docs.vllm.ai#single-image)
 
+```python
 from openai import OpenAI
 client = OpenAI(api_key='', base_url='http://0.0.0.0:8000/v1')
 model_name = client.models.list().data[0].id
@@ -66,10 +69,12 @@ messages=[{
 temperature=0.0
 )
 print(response.choices[0].message.content)
+```
 
 
 #### Multiple Images[¶](https://docs.vllm.ai#multiple-images)
 
+```python
 from openai import OpenAI
 client = OpenAI(api_key='', base_url='http://0.0.0.0:8000/v1')
 model_name = client.models.list().data[0].id
@@ -92,6 +97,7 @@ messages=[{
 temperature=0.0
 )
 print(response.choices[0].message.content)
+```
 
 
 ### Thinking Mode[¶](https://docs.vllm.ai#thinking-mode)
@@ -100,11 +106,13 @@ To enable thinking mode, please set the system prompt to our **Thinking System P
 
 to mitigate undesired repetition.
 
+```python
 from openai import OpenAI
 client = OpenAI(api_key='', base_url='http://0.0.0.0:8000/v1')
 model_name = client.models.list().data[0].id
 THINKING_SYSTEM_PROMPT = """
 You are an AI assistant that rigorously follows this response protocol:
+```
 1. First, conduct a detailed analysis of the question. Consider different angles, potential solutions, and reason through the problem step-by-step. Enclose this entire thinking process within <think> and </think> tags.
 2. After the thinking section, provide a clear, concise, and direct answer to the user's question. Separate the answer from the think section with a newline.
 Ensure that the thinking process is thorough but remains focused on the query. The final answer should be standalone and not reference the thinking section.

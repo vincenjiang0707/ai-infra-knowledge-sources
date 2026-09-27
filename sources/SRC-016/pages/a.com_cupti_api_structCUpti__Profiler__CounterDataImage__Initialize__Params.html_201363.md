@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__Profiler__CounterDataImag
 # 7.172. CUpti_Profiler_CounterDataImage_Initialize_Params[#](https://docs.nvidia.com#cupti-profiler-counterdataimage-initialize-params)
 
 -
+```rust
 struct CUpti_Profiler_CounterDataImage_Initialize_Params
 [#](https://docs.nvidia.com#_CPPv449CUpti_Profiler_CounterDataImage_Initialize_Params) Params for cuptiProfilerCounterDataImageInitialize.
+```
 
 Public Members
 

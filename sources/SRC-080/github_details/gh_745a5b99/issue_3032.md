@@ -16,6 +16,7 @@ The current dataset pipeline and examples appear primarily designed around text 
 For multimodal calibration, the model must receive all processor-generated inputs, for example:
 
 {
+```json
     "input_ids": ...,
     "attention_mask": ...,
     "pixel_values": ...,
@@ -23,6 +24,7 @@ For multimodal calibration, the model must receive all processor-generated input
     "input_features": ...,
     "input_features_mask": ...,
     "mm_token_type_ids": ...,
+```
 }
 
 This is important even when only the language decoder is quantized. The vision and audio encoders may remain in BF16, but their outputs must still pass through the model so that activation observers on the decoder see realistic image- and audio-conditioned distributions.

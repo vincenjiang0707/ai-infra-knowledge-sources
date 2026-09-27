@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/minimax_m3/common/mm_preprocess/
 lastmod: 2026-09-24
 
+```python
 class MiniMaxM3VLProcessingInfo(BaseProcessingInfo):
 IMAGE_TOKEN = "]<]image[>["
 VIDEO_TOKEN = "]<]video[>["
@@ -189,3 +190,4 @@ num_frames=self.get_num_frames_with_most_features(seq_len, mm_counts),
 image_processor=video_processor,
 mm_kwargs={},
 )
+```

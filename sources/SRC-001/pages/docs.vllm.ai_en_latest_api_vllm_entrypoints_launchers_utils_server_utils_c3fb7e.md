@@ -16,6 +16,7 @@ Priority:
 the access log filter
 3. Otherwise, return None (use uvicorn defaults)
 """
+```python
 # First, try to load from file if specified
 logging_config = getattr(args, "logging_config", None)
 log_config_file = (
@@ -41,3 +42,4 @@ log_level=args.uvicorn_log_level,
 )
 return None
 |
+```

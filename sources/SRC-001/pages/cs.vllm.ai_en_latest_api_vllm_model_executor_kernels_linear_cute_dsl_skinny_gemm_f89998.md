@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/cute_dsl/skinny_gemm/
 lastmod: 2026-09-27
 
+```python
 class ShapeDynamicSkinnyGemm:
 def __init__(self) -> None:
 self._compiled: dict[tuple[torch.dtype, SkinnyGemmConfig, bool], Any] = {}
@@ -198,3 +199,4 @@ output = torch.empty((a.shape[0], b.shape[0]), dtype=a.dtype, device=a.device)
 residual_arg = output if residual is None else residual
 self._compiled[cache_key](a, b, residual_arg, output, self._stream())
 return output
+```

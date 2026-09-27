@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/compute-sanitizer/api/struct_sanitizer___batch_m
 # Sanitizer_BatchMultiEntryPushData[#](https://docs.nvidia.com#sanitizer-batchmultientrypushdata)
 
 -
+```rust
 struct Sanitizer_BatchMultiEntryPushData
 [#](https://docs.nvidia.com#_CPPv433Sanitizer_BatchMultiEntryPushData) Data passed into a batch memcpy multientry push begin/end function.
+```
 
 Public Members
 

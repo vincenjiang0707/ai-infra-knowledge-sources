@@ -70,9 +70,11 @@ pip install torch==2.6.0.dev20240923+cu121 --index-url https://download.pytorch.
 
 @larin92 did you set your environment to use cuda 12.1 ? Make sure you are using the right version:
 ```Python
+```bash
 export CUDA_HOME=/usr/local/cuda-12.1 # or the path where you have cuda-12.1
 export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:$LD_LIBRARY_PATH
 export PATH=${CUDA_HOME}/bin:${PATH}
+```
 ```
 
 ### larin92 · 2024-09-23
@@ -252,6 +254,7 @@ Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
 
 
 ```
+```python
 import torch
 from transformers import AutoTokenizer
 from hqq.models.hf.base import AutoHQQHFModel
@@ -262,9 +265,11 @@ from hqq.utils.generation_hf import HFGenerator
 
 import os
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
+```
 
 model_id  = "VPTQ-community/Qwen2.5-7B-Instruct-v8-k256-256-woft"
 
+```bash
 compute_dtype = torch.bfloat16
 device     = "cuda"
 cache_path = "."
@@ -279,6 +284,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_id,cache_dir=cache_path)
 
 quant_config = BaseQuantizeConfig(nbits=4, group_size=64, quant_scale=False, quant_zero=False, axis=1) 
 AutoHQQHFModel.quantize_model(model, quant_config=quant_config, compute_dtype=compute_dtype, device=device)
+```
 
 prepare_for_inference(model,backend="torchao_int4")
 #prepare_for_inference(model, backend="bitblas") #takes a while to init...
@@ -288,11 +294,13 @@ prepare_for_inference(model,backend="torchao_int4")
 #For longer context, make sure to allocate enough cache via the cache_size= parameter
 gen = HFGenerator(model, tokenizer, max_new_tokens=1000, do_sample=True, compile="partial").warmup() #Warm-up takes a while
 
+```python
 import time
 t1 = time.time()
 gen.generate("Write an essay about large language models", print_tokens=True)
 t2 = time.time()
 print('Took', t2-t1, 'secs')
+```
 ```
 
 RTX 4090
@@ -318,6 +326,7 @@ If you are using a vision-language model:
 I tried with Qwen, it's working fine like this, had to change a bit the chat template since Qwen has that system prompt:
 
 ```Python
+```bash
 #pip install torch==2.4.1 hqq; #2.4.1+cu124 
 #OMP_NUM_THREADS=16 CUDA_VISIBLE_DEVICES=0 ipython3 ......
 ########################################################################
@@ -355,11 +364,14 @@ prepare_for_inference(model, backend=backend, verbose=False)
 ########################################################################
 # from hqq.utils.generation_hf import HFGenerator
 # gen = HFGenerator(model, tokenizer, max_new_tokens=1000, do_sample=True, compile="partial").warmup() 
+```
 # out = gen.generate("Write an essay about large language models.", print_tokens=False)
 
+```python
 ######################################################################
 #Using HF model.generate()
 from hqq.utils.generation_hf import patch_model_for_compiled_runtime
+```
 
 patch_model_for_compiled_runtime(model, tokenizer, warmup=True)
 
@@ -371,10 +383,12 @@ messages = [
 ]
 inputs = tokenizer([tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)], return_tensors="pt").to(model.device)
 
+```python
 import time
 t1 = time.time()
 outputs = model.generate(**inputs, max_new_tokens=1000, cache_implementation="static", pad_token_id=tokenizer.pad_token_id) 
 t2 = time.time()
 print('End-2-end speed:', str(int((inputs['input_ids'].numel() + outputs[0].numel()) / (t2-t1))) + ' tokens/sec') #165 tokens/sec | 4090 RTX
 #print(tokenizer.decode(outputs[0]))
+```
 ```

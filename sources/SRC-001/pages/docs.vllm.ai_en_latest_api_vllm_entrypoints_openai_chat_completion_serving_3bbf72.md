@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/openai/chat_completion/serving/
 lastmod: 2026-09-27
 
+```python
 class OpenAIServingChat(GenerateBaseServing):
 def __init__(
 self,
@@ -1086,3 +1087,4 @@ return_all=bool(logprob_token_ids),
 )
 )
 return ChatCompletionLogProbs(content=logprobs_content)
+```

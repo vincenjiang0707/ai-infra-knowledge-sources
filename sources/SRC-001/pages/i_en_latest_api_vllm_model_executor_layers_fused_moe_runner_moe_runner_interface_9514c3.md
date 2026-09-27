@@ -13,6 +13,7 @@ This class defines the interface that all MoE runner implementations must follow
 ## Source code in `vllm/model_executor/layers/fused_moe/runner/moe_runner_interface.py`
 
 
+```python
 | class MoERunnerInterface(PluggableLayer, ABC):
 """Abstract base class for Mixture of Experts (MoE) runners.
 This class defines the interface that all MoE runner implementations must follow.
@@ -111,3 +112,4 @@ logical_replica_count: torch.Tensor,
 ) -> None:
 raise NotImplementedError
 |
+```

@@ -42,6 +42,7 @@ directory and the prompts from`output.txt`
 ## decode_example.py
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 from vllm import LLM, SamplingParams
 from vllm.config import KVTransferConfig
@@ -82,11 +83,13 @@ print(f"Prompt: {prompt!r}\nGenerated text: {generated_text!r}")
 print("-" * 30)
 if __name__ == "__main__":
 main()
+```
 
 
 ## prefill_example.py
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 from vllm import LLM, SamplingParams
 from vllm.config import KVTransferConfig
@@ -132,6 +135,7 @@ f.write(prompt + "\n")
 print(f"Saved {len(new_prompts)} prompts to output.txt")
 if __name__ == "__main__":
 main()
+```
 
 
 ## run.sh

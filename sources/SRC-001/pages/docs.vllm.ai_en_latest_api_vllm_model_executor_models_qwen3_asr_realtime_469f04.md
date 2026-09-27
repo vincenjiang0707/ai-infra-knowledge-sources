@@ -8,6 +8,7 @@ Accumulates audio samples and yields segments when enough audio has been buffere
 ## Source code in `vllm/model_executor/models/qwen3_asr_realtime.py`
 
 
+```python
 | class Qwen3ASRRealtimeBuffer:
 """Audio buffer for Qwen3-ASR realtime streaming.
 Accumulates audio samples and yields segments when enough
@@ -47,3 +48,4 @@ audio = self._buffer[: self._filled_len].copy()
 self._filled_len = 0
 return audio
 |
+```

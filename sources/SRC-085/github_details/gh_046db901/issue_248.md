@@ -10,6 +10,7 @@ labels:
 
 when run here in cnets.py:
 -------
+```bash
 with torch.no_grad():
 	# hidden_states_target = padding(hidden_states, left=False)
 	target_head = target
@@ -30,6 +31,7 @@ logits = self.lm_head(hidden_states_out)
 logits = logits.float()
 out_logp = nn.LogSoftmax(dim=2)(logits)
 plogp = target_p * out_logp
+```
 ----
 
 error happen due target_p'shape and out_logp'shape not equal.

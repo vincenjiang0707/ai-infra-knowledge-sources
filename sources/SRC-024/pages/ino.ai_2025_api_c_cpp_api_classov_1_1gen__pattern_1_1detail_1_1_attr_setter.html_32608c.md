@@ -4,8 +4,10 @@ lastmod:
 # Class ov::gen_pattern::detail::AttrSetter[#](https://docs.openvino.ai#class-ov-gen-pattern-detail-attrsetter)
 
 -
+```python
 class AttrSetter : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[AttributeVisitor](https://docs.openvino.ai/classov_1_1_attribute_visitor.html#_CPPv4N2ov16AttributeVisitorE)[#](https://docs.openvino.ai#_CPPv4N2ov11gen_pattern6detail10AttrSetterE) Public Functions
+```
 
 -
 inline virtual void on_adapter(const std::string &name,

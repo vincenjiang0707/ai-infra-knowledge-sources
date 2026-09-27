@@ -20,17 +20,22 @@ GPTQModel 5.7.1 (commit 83a9a06ee0d9e97f84f68f5996589a642b1e5080)
 
 **To Reproduce**
 
+```python
 from gptqmodel import GPTQModel
 from gptqmodel.quantization import QuantizeConfig, FORMAT, METHOD
 from datasets import load_dataset
+```
 
 quantize_config = QuantizeConfig(
+```bash
     bits=4,
     group_size=128,
     format=FORMAT.LLM_AWQ,
     quant_method=METHOD.AWQ,
+```
 )
 
+```python
 dataset = load_dataset("allenai/c4", "en", split="train", streaming=True)
 calibration_data = []
 for sample in dataset:
@@ -38,6 +43,7 @@ for sample in dataset:
         calibration_data.append(sample["text"])
     if len(calibration_data) >= 256:
         break
+```
 
 model = GPTQModel.load(
     "Qwen/Qwen3.5-27B",  # or any Qwen3.5 model

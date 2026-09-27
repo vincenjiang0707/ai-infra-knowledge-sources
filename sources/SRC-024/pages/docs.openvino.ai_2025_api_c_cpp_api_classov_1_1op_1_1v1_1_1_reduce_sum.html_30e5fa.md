@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v1::ReduceSum[#](https://docs.openvino.ai#class-ov-op-v1-reducesum)
 
 -
+```python
 class ReduceSum : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ArithmeticReductionKeepDims](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_arithmetic_reduction_keep_dims.html#_CPPv4N2ov2op4util27ArithmeticReductionKeepDimsE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v19ReduceSumE) [Tensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_tensor)sum operation.Element-wise sums the input tensor, eliminating the specified reduction axes. For example:
+```
 
 \[\begin{split} \mathit{sum}\left(\{0\}, \left[ \begin{array}{ccc} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{array} \right]\right) = \left[ (1 + 3 + 5), (2 + 4 + 6) \right] = \left[ 9, 12 \right]~~~\text{(dimension 0 (rows) is eliminated)} \end{split}\]\[\begin{split} \mathit{sum}\left(\{1\}, \left[ \begin{array}{ccc} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{array} \right]\right) = \left[ (1 + 2), (3 + 4), (5 + 6) \right] = \left[ 3, 7, 11 \right]~~~\text{(dimension 1 (columns) is eliminated)} \end{split}\]\[\begin{split} \mathit{sum}\left(\{0,1\}, \left[ \begin{array}{ccc} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{array} \right]\right) = (1 + 2) + (3 + 4) + (5 + 6) = 21~~~\text{(both dimensions (rows and columns) are eliminated)} \end{split}\]*Parameters*Description
 

@@ -28,6 +28,7 @@ The Android app is crashing with an exception -
 I'm using a Galaxy S9 with 64GB of memory. 
 package-config.json
 ``{
+```json
     "device": "android",
     "model_list": [
         {
@@ -38,6 +39,7 @@ package-config.json
                 "prefill_chunk_size": 128
             }
         }
+```
    `
 ``
 I also noticed there was a crash at runtime because the linker couldn't find the .so output. I renamed the .so to the file name it was looking for and it worked. 

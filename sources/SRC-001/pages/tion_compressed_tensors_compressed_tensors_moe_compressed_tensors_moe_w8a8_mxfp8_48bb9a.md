@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe_w8a8_mxfp8/
 lastmod: 2026-09-27
 
+```python
 class CompressedTensorsW8A8Mxfp8MoEMethod(CompressedTensorsMoEMethod):
 """Compressed-tensors MoE method for pre-quantized MXFP8 (W8A8) checkpoints.
 Loads FP8 (E4M3) weights with E8M0 uint8 per-group scales (group_size=32)
@@ -159,3 +160,4 @@ apply_router_weight_on_input=layer.apply_router_weight_on_input,
 shared_experts=shared_experts,
 shared_experts_input=shared_experts_input,
 )
+```

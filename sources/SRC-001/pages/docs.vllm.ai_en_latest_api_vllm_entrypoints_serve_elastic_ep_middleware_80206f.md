@@ -8,6 +8,7 @@ This middleware applies to all HTTP requests and prevents processing when the mo
 ## Source code in `vllm/entrypoints/serve/elastic_ep/middleware.py`
 
 
+```python
 | class ScalingMiddleware:
 """Middleware that checks if the model is currently scaling and
 returns a 503 Service Unavailable response if it is.
@@ -31,3 +32,4 @@ status_code=503,
 return response(scope, receive, send)
 return self.app(scope, receive, send)
 |
+```

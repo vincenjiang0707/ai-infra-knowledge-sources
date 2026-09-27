@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/wrapper/
 lastmod: 2026-09-27
 
+```python
 class TorchCompileWithNoGuardsWrapper:
 """A wrapper class for torch.compile, it ensures that all guards are dropped
 when CompilationMode is not CompilationMode.STOCK_TORCH_COMPILE.
@@ -211,3 +212,4 @@ try:
 yield
 finally:
 self.__class__.forward.__code__ = original
+```

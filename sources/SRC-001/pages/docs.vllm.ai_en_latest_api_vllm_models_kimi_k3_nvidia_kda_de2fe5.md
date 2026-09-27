@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/kda/
 lastmod: 2026-09-27
 
+```python
 class _KimiGDNMergedColumnParallelLinear(MergedColumnParallelLinear):
 """Merged projection with one output replicated across TP ranks."""
 def __init__(
@@ -59,3 +60,4 @@ finally:
 self.tp_rank = tp_rank
 if param_tp_rank is not None:
 param.tp_rank = param_tp_rank
+```

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/amd/rocm/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV4ROCMAiterMLAAttention(DeepseekV4Attention):
 """ROCm sparse MLA attention layer for DeepSeek V4."""
 backend_cls = DeepseekV4ROCMAiterMLASparseBackend
@@ -797,3 +798,4 @@ rope_head_dim=self.rope_head_dim,
 attn_sink=self.attn_sink,
 output=output[query_start:query_end],
 )
+```

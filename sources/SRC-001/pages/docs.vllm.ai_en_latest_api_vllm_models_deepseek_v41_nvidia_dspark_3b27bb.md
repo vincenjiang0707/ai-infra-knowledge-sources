@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/nvidia/dspark/
 lastmod: 2026-09-27
 
+```python
 class DSparkDeepseekV4ForCausalLM(nn.Module):
 # Draft weights ship in the target checkpoint (mtp.*) without embed/head, so
 # load_dspark_model always aliases the target's.
@@ -245,3 +246,4 @@ head_prefixes
 ):
 return f"model.{rest}"
 return f"model.layers.{stage}.{rest}"
+```

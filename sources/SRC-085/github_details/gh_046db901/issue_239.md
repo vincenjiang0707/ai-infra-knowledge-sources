@@ -8,9 +8,11 @@ labels:
 
 I notice train code for eagle3:
 
+```bash
 hidden_states0 = outs.hidden_states[0]
 hidden_states1 = outs.hidden_states[1]
 hidden_states2 = outs.hidden_states[2]
+```
 
 why use 0,1,2 ? I understand that this is the 0th layer, the 1st layer, and the 2th layer，not the low layer，medium layer and high layer  mentioned in the paper ？
 

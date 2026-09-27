@@ -6,6 +6,7 @@ lastmod: 2026-09-27
 Source [https://github.com/vllm-project/vllm/blob/main/examples/scale_out/token_generation_client.py](https://github.com/vllm-project/vllm/blob/main/examples/scale_out/token_generation_client.py).
 
 # SPDX-License-Identifier: Apache-2.0
+```bash
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """Call a token-in/token-out server started with:
 vllm serve Qwen/Qwen3-0.6B --enable-scale-out
@@ -52,3 +53,4 @@ print(res)
 print("-" * 50)
 if __name__ == "__main__":
 main(client)
+```

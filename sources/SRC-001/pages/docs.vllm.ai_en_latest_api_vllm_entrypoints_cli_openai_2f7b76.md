@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/cli/openai/
 lastmod: 2026-09-27
 
+```python
 class ChatCommand(CLISubcommand):
 """The `chat` subcommand for the vLLM CLI."""
 name = "chat"
@@ -71,3 +72,4 @@ description="Generate chat completions via the running API server.",
 usage="vllm chat [options]",
 )
 return ChatCommand.add_cli_args(parser)
+```

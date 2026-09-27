@@ -156,6 +156,7 @@ Custom dummy backend for the sconv sliding-window cache management.
 ## Source code in `vllm/models/inkling/amd/sconv_swa_attn.py`
 
 
+```python
 | class InklingSconvBackend(AttentionBackend):
 """Custom dummy backend for the sconv sliding-window cache management."""
 @staticmethod
@@ -170,3 +171,4 @@ raise NotImplementedError(
 def get_builder_cls() -> type[InklingSconvMetadataBuilder]:
 return InklingSconvMetadataBuilder
 |
+```

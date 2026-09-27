@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__SassMetricsGetDataPropert
 # 7.220. CUpti_SassMetricsGetDataProperties_Params[#](https://docs.nvidia.com#cupti-sassmetricsgetdataproperties-params)
 
 -
+```rust
 struct CUpti_SassMetricsGetDataProperties_Params
 [#](https://docs.nvidia.com#_CPPv441CUpti_SassMetricsGetDataProperties_Params) Params for cuptiSassMetricsGetDataProperties.
+```
 
 Public Members
 

@@ -98,8 +98,10 @@ Methods:
 
 `cudagraph_mode`
 
+```rust
 enum type from string. -
 –[validate_mode_before](https://docs.vllm.ai#vllm.config.compilation.CompilationConfig.validate_mode_before)Enable parsing the
+```
 
 `mode`
 

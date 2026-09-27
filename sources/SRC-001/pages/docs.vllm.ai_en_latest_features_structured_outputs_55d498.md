@@ -87,6 +87,7 @@ Now let's see an example for each of the cases, starting with the `choice`
 
 ## Code
 
+```python
 from openai import OpenAI
 client = OpenAI(
 base_url="http://localhost:8000/v1",
@@ -101,6 +102,7 @@ messages=[
 extra_body={"structured_outputs": {"choice": ["positive", "negative"]}},
 )
 print(completion.choices[0].message.content)
+```
 
 
 The next example shows how to use the `regex`
@@ -119,6 +121,7 @@ module. The idea is to generate an email address, given a simple regex template:
 
 ## Code
 
+```bash
 completion = client.chat.completions.create(
 model=model,
 messages=[
@@ -130,6 +133,7 @@ messages=[
 extra_body={"structured_outputs": {"regex": r"\w+@\w+\.com\n"}, "stop": ["\n"]},
 )
 print(completion.choices[0].message.content)
+```
 
 
 One of the most relevant features in structured text generation is the option to generate a valid JSON with pre-defined fields and formats. For this we can use the `json`
@@ -146,6 +150,7 @@ parameter with a Pydantic model:
 
 ## Code
 
+```python
 from pydantic import BaseModel
 from enum import Enum
 class CarType(str, Enum):
@@ -175,6 +180,7 @@ response_format={
 },
 )
 print(completion.choices[0].message.content)
+```
 
 
 Tip
@@ -218,6 +224,7 @@ Note that you can use reasoning with any provided structured outputs feature. Th
 
 ## Code
 
+```python
 from pydantic import BaseModel
 class People(BaseModel):
 name: str
@@ -240,6 +247,7 @@ response_format={
 )
 print("reasoning: ", completion.choices[0].message.reasoning)
 print("content: ", completion.choices[0].message.content)
+```
 
 
 See also: [ full example](https://github.com/vllm-project/vllm/blob/main/examples/features/structured_outputs/README.md)
@@ -269,6 +277,7 @@ Here is a simple example demonstrating how to get structured output using Pydant
 
 ## Code
 
+```python
 from pydantic import BaseModel
 from openai import OpenAI
 class Info(BaseModel):
@@ -294,12 +303,14 @@ print("Age:", message.parsed.age)
 ParsedChatCompletionMessage[Testing](content='{"name": "Cameron", "age": 28}', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=[], parsed=Testing(name='Cameron', age=28))
 Name: Cameron
 Age: 28
+```
 
 
 Here is a more complex example using nested Pydantic models to handle a step-by-step math solution:
 
 ## Code
 
+```python
 from typing import List
 from pydantic import BaseModel
 from openai import OpenAI
@@ -323,15 +334,18 @@ assert message.parsed
 for i, step in enumerate(message.parsed.steps):
 print(f"Step #{i}:", step)
 print("Answer:", message.parsed.final_answer)
+```
 
 
 Output:
 
+```json
 ParsedChatCompletionMessage[MathResponse](content='{ "steps": [{ "explanation": "First, let\'s isolate the term with the variable \'x\'. To do this, we\'ll subtract 31 from both sides of the equation.", "output": "8x + 31 - 31 = 2 - 31"}, { "explanation": "By subtracting 31 from both sides, we simplify the equation to 8x = -29.", "output": "8x = -29"}, { "explanation": "Next, let\'s isolate \'x\' by dividing both sides of the equation by 8.", "output": "8x / 8 = -29 / 8"}], "final_answer": "x = -29/8" }', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=[], parsed=MathResponse(steps=[Step(explanation="First, let's isolate the term with the variable 'x'. To do this, we'll subtract 31 from both sides of the equation.", output='8x + 31 - 31 = 2 - 31'), Step(explanation='By subtracting 31 from both sides, we simplify the equation to 8x = -29.', output='8x = -29'), Step(explanation="Next, let's isolate 'x' by dividing both sides of the equation by 8.", output='8x / 8 = -29 / 8')], final_answer='x = -29/8'))
 Step #0: explanation="First, let's isolate the term with the variable 'x'. To do this, we'll subtract 31 from both sides of the equation." output='8x + 31 - 31 = 2 - 31'
 Step #1: explanation='By subtracting 31 from both sides, we simplify the equation to 8x = -29.' output='8x = -29'
 Step #2: explanation="Next, let's isolate 'x' by dividing both sides of the equation by 8." output='8x / 8 = -29 / 8'
 Answer: x = -29/8
+```
 
 
 An example of using `structural_tag`
@@ -363,6 +377,7 @@ parameter is shown below:
 
 ## Code
 
+```python
 from vllm import LLM, SamplingParams
 from vllm.sampling_params import StructuredOutputsParams
 llm = LLM(model="HuggingFaceTB/SmolLM2-1.7B-Instruct")
@@ -373,6 +388,7 @@ prompts="Classify this sentiment: vLLM is wonderful!",
 sampling_params=sampling_params,
 )
 print(outputs[0].outputs[0].text)
+```
 
 
 See also: [ full example](https://github.com/vllm-project/vllm/blob/main/examples/features/structured_outputs/structured_outputs_offline.py)

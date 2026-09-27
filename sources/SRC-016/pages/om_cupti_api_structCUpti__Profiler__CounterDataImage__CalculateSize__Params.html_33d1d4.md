@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__Profiler__CounterDataImag
 # 7.170. CUpti_Profiler_CounterDataImage_CalculateSize_Params[#](https://docs.nvidia.com#cupti-profiler-counterdataimage-calculatesize-params)
 
 -
+```rust
 struct CUpti_Profiler_CounterDataImage_CalculateSize_Params
 [#](https://docs.nvidia.com#_CPPv452CUpti_Profiler_CounterDataImage_CalculateSize_Params) Params for cuptiProfilerCounterDataImageCalculateSize.
+```
 
 Public Members
 

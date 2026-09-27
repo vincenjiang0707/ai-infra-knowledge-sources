@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityMemDecompress.htm
 # 7.72. CUpti_ActivityMemDecompress[#](https://docs.nvidia.com#cupti-activitymemdecompress)
 
 -
+```rust
 struct CUpti_ActivityMemDecompress
 [#](https://docs.nvidia.com#_CPPv427CUpti_ActivityMemDecompress) The activity record for trace of decompression operations.
+```
 
 This activity record represents execution for a batch of decompression operatios. The activity kind is CUPTI_ACTIVITY_KIND_MEM_DECOMPRESS
 

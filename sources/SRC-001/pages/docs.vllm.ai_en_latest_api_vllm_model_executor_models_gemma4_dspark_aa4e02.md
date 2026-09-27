@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/gemma4_dspark/
 lastmod: 2026-09-27
 
+```python
 @support_torch_compile
 class Gemma4DSparkModel(DFlashQwen3Model):
 """Gemma4 DSpark draft backbone (Gemma4 layers + DSpark Markov head)."""
@@ -137,3 +138,4 @@ self.embed_input_ids(input_ids) if input_embeds is None else input_embeds
 for layer in self.layers:
 hidden_states, _ = layer(positions, hidden_states, None)
 return self.norm(hidden_states)
+```

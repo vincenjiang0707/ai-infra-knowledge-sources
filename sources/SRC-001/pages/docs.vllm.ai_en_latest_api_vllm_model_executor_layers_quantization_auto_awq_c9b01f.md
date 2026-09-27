@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/auto_awq/
 lastmod: 2026-09-27
 
+```python
 class AutoAWQMoEMethod(FusedMoEMethodBase):
 def __init__(
 self,
@@ -43,6 +44,7 @@ torch.empty(
 num_experts,
 hidden_size,
 self.moe.w13_num_shards
+```
 * intermediate_size_per_partition
 // self.quant_config.pack_factor,
 dtype=torch.int32,

@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::TopKBase[#](https://docs.openvino.ai#class-ov-op-util-topkbase)
 
 -
+```python
 class TopKBase : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util8TopKBaseE) Subclassed by
+```
 
 [ov::op::v11::TopK](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v11_1_1_top_k),[ov::op::v1::TopK](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_top_k),[ov::op::v3::TopK](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v3_1_1_top_k)Public Functions
 

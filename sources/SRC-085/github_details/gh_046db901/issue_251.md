@@ -169,11 +169,14 @@ Hello. I have run this on vLLM with num_spec_tokens=1(draft token=1). When testi
 
 training script:
 
+```bash
 DS_CONFIG=ds_config.json
 #DS_CONFIG=ds_config_zero3.json
 #DS_CONFIG=ds_config_zero3_offload.json
+```
 
 torchrun \
+```bash
     --nnodes ${WORLD_SIZE} \
     --nproc_per_node=${GPU_NUM} \
     --node_rank ${RANK} \
@@ -185,6 +188,7 @@ torchrun \
         --testpath $test_data_set \
         --savedir $savedir \
         --deepspeed_config $DS_CONFIG
+```
 
 
 
@@ -223,6 +227,7 @@ config.json
 
 ds_config.json :
 
+```json
     "bf16": {
         "enabled": "true"
     },
@@ -247,6 +252,7 @@ ds_config.json :
             "total_num_steps": 800000
         }
     },
+```
 
 
 

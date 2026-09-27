@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/xpu/model/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV4ForCausalLM(nn.Module, SupportsPP, SupportsEagle3, SupportsLoRA):
 model_cls = DeepseekV4Model
 # Default mapper assumes the original FP4-expert checkpoint layout.
@@ -66,3 +67,4 @@ self.model.finalize_mega_moe_weights()
 return loaded_params
 def get_expert_mapping(self) -> list[tuple[str, str, int, str]]:
 return self.model.get_expert_mapping()
+```

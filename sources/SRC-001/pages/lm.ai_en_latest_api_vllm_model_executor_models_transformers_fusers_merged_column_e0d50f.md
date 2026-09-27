@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/transformers/fusers/merged_column/
 lastmod: 2026-09-27
 
+```python
 @dataclass
 class MergedColumnParallelFuser(StackedFuser):
 """Fuser for merging column-parallel linear projections."""
@@ -109,3 +110,4 @@ logger.debug(
 self.merged_name,
 merged,
 )
+```

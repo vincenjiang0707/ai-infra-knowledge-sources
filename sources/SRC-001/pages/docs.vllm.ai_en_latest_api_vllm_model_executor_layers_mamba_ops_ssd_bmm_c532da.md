@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/ops/ssd_bmm/
 lastmod: 2026-09-27
 
+```python
 def _bmm_chunk_fwd(a, b, chunk_size, cu_chunk_seqlens, causal=False, output_dtype=None):
 """Argument:
 a: (seqlen, ngroups, k)
@@ -35,6 +36,7 @@ else tl.float32
 )
 grid = lambda META: (
 triton.cdiv(chunk_size, META["BLOCK_SIZE_M"])
+```
 * triton.cdiv(chunk_size, META["BLOCK_SIZE_N"]),
 nchunks * ngroups,
 )

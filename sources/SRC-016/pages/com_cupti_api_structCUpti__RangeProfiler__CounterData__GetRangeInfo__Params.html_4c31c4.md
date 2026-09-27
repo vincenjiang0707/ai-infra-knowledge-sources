@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__RangeProfiler__CounterDat
 # 7.204. CUpti_RangeProfiler_CounterData_GetRangeInfo_Params[#](https://docs.nvidia.com#cupti-rangeprofiler-counterdata-getrangeinfo-params)
 
 -
+```rust
 struct CUpti_RangeProfiler_CounterData_GetRangeInfo_Params
 [#](https://docs.nvidia.com#_CPPv451CUpti_RangeProfiler_CounterData_GetRangeInfo_Params) Params for cuptiRangeProfilerCounterDataGetRangeInfo.
+```
 
 Public Members
 

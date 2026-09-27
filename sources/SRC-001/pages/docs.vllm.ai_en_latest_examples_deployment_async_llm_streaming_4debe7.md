@@ -6,6 +6,7 @@ lastmod: 2026-09-27
 Source [https://github.com/vllm-project/vllm/blob/main/examples/deployment/async_llm_streaming.py](https://github.com/vllm-project/vllm/blob/main/examples/deployment/async_llm_streaming.py).
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """Simple example demonstrating streaming offline inference with AsyncLLM (V1 engine).
 This script shows the core functionality of vLLM's AsyncLLM engine for streaming
@@ -22,6 +23,7 @@ from vllm.v1.engine.async_llm import AsyncLLM
 async def stream_response(engine: AsyncLLM, prompt: str, request_id: str) -> None:
 """Stream response from AsyncLLM and display tokens as they arrive.
 This function demonstrates the core streaming pattern:
+```
 1. Create SamplingParams with DELTA output kind
 2. Call engine.generate() and iterate over the async generator
 3. Print new tokens as they arrive

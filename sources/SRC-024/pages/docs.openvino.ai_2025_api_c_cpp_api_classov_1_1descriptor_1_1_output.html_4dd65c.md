@@ -4,8 +4,10 @@ lastmod:
 # Class ov::descriptor::Output[#](https://docs.openvino.ai#class-ov-descriptor-output)
 
 -
+```python
 class Output
 [#](https://docs.openvino.ai#_CPPv4N2ov10descriptor6OutputE) Public Functions
+```
 
 - Parameters:
 **node**–[Node](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_node)that owns this output.**index**– Position of the output tensor in all output tensors**tensor**– The tensor where the value will be written

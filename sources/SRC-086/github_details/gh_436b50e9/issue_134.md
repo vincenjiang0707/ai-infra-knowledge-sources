@@ -40,6 +40,7 @@ I added num_items_in_batch=none to the compute_loss method in the CustomizedTrai
 
 My run code is （I have two GPU card ,so I change nproc_per_node is 2 ）：
 torchrun --nproc_per_node=2 medusa/train/train_legacy.py --model_name_or_path /data/models/Mistral-7B-Instruct-v0.2 \
+```bash
     --data_path mistral.json \
     --bf16 True \
     --output_dir test \
@@ -60,6 +61,7 @@ torchrun --nproc_per_node=2 medusa/train/train_legacy.py --model_name_or_path /d
     --medusa_num_heads 3 \
     --medusa_num_layers 1 \
     --deepspeed deepspeed.json
+```
 
 And result :
 

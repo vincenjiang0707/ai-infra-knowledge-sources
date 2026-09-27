@@ -15,6 +15,7 @@ lastmod: 2026-04-27
 
 In this guide, we demonstrate how to set up DeepSeek-OCR-2 for offline OCR batch processing tasks.
 
+```python
 from vllm import LLM, SamplingParams
 from vllm.model_executor.models.deepseek_ocr import NGramPerReqLogitsProcessor
 from PIL import Image
@@ -56,6 +57,7 @@ model_outputs = llm.generate(model_input, sampling_param)
 # Print output
 for output in model_outputs:
 print(output.outputs[0].text)
+```
 
 
 ### Online OCR serving[¶](https://docs.vllm.ai#online-ocr-serving)
@@ -65,6 +67,7 @@ In this guide, we demonstrate how to set up DeepSeek-OCR-2 for online OCR servin
 vllm serve deepseek-ai/DeepSeek-OCR-2 --logits_processors vllm.model_executor.models.deepseek_ocr:NGramPerReqLogitsProcessor --no-enable-prefix-caching --mm-processor-cache-gb 0
 
 
+```python
 import time
 from openai import OpenAI
 client = OpenAI(
@@ -108,6 +111,7 @@ extra_body={
 )
 print(f"Response costs: {time.time() - start:.2f}s")
 print(f"Generated text: {response.choices[0].message.content}")
+```
 
 
 ## Configuration Tips[¶](https://docs.vllm.ai#configuration-tips)

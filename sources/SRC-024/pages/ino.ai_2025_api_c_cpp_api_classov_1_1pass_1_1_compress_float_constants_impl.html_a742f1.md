@@ -4,8 +4,10 @@ lastmod:
 # Class ov::pass::CompressFloatConstantsImpl[#](https://docs.openvino.ai#class-ov-pass-compressfloatconstantsimpl)
 
 -
+```python
 class CompressFloatConstantsImpl : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[pass](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4passE)::[MatcherPass](https://docs.openvino.ai/classov_1_1pass_1_1_matcher_pass.html#_CPPv4N2ov4pass11MatcherPassE)[#](https://docs.openvino.ai#_CPPv4N2ov4pass26CompressFloatConstantsImplE) [CompressFloatConstantsImpl](https://docs.openvino.ai/group__ov__dev__exec__model.html#classov_1_1pass_1_1_compress_float_constants_impl)transformation replaces FP32/FP64 Constants with FP16 ones.Public Functions
+```
 
 -
 CompressFloatConstantsImpl(bool postponed = false)

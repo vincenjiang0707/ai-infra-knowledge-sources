@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/quark/schemes/quark_w4a16_int4/
 lastmod: 2026-09-27
 
+```python
 class QuarkW4A16Int4(QuarkScheme):
 """Quark packed INT4 weight-only linear scheme via MPLinearKernel."""
 supported_activation_quant_keys: list[QuantKey | None] = [None]
@@ -161,3 +162,4 @@ bias: torch.Tensor | None = None,
 ):
 assert self.kernel is not None
 return self.kernel.apply_weights(layer, x, bias)
+```

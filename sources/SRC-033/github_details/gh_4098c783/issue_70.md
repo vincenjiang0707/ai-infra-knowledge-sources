@@ -100,6 +100,7 @@ Root Cause (first observed failure):
 --操作系统版本 (e.g., Ubuntu 18.04): euler_2.10.11-aarch64
 
 三、测试步骤：
+```bash
 num_npus=2
 ./distributed_train.sh $num_npus path/to/dataset/ImageNet-1000 \
     --device npu \
@@ -112,6 +113,7 @@ num_npus=2
     --remode pixel \
     --batch-size 32 \
     --amp -j 4
+```
 
 
 四、日志信息:

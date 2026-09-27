@@ -4,8 +4,10 @@ lastmod:
 # Class ov::frontend::Place[#](https://docs.openvino.ai#class-ov-frontend-place)
 
 -
+```python
 class Place
 [#](https://docs.openvino.ai#_CPPv4N2ov8frontend5PlaceE) An interface for identifying a place in a graph and iterate over it; can refer to an operation node, tensor, port etc.
+```
 
 [Place](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1frontend_1_1_place)can refer to[Tensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_tensor),[Input](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_input)Edge,[Input](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_input)Port, Operation,[Output](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_output)Port,[Output](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_output)Edge[Tensor A] | | [Input Edge] | V ------------------- [ [Input Port 0] ] [ ] [ Operation A ] [ ] [ [Output Port 0] ] ------------------- | | [Output Edge] | V [Tensor B] | | [Input Edge] | V ------------------- [ [Input Port 0] ] [ ] [ Operation B ] [ ] [ [Output Port 0] ] ------------------- | | [Output Edge] | V [Tensor C]
 

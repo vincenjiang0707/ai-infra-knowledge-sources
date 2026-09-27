@@ -74,8 +74,10 @@ model = HQQModelForCausalLM.from_quantized(
 However it fails to load the weights by throwing the above error. I have tried with both backends `PYTORCH` and `PYTORCH_COMPILE`. 
 
 My environment:
+```yaml
 HQQ: Installed from source `pip install git+https://github.com/mobiusml/hqq`
 Pytorch:
+```
 ```
 torch                    2.3.0
 torchaudio               2.3.0

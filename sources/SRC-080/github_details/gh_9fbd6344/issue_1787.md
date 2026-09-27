@@ -41,12 +41,14 @@ the same freezing issue occurs for evaluating of vanilla hf model:
 
   Running 1 shell command…
   ⎿  $ PYTHONPATH=.:$PYTHONPATH python examples/llm_eval/lm_eval_hf.py \
+```bash
      --model hf \
      --model_args pretrained=/workspace/hf_models/meta-llama/Llama-3.2-3B-Instruct,dtype=bfloat16 \
      --tasks mmlu \
      --num_fewshot 5 \
      --batch_size 4 \
      --output_path /workspace/hf_models/meta-llama/Llama-3.2-3B-Instruct/eval_…
+```
 ```
 
 ### danielkorzekwa · 2026-06-30

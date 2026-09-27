@@ -173,8 +173,10 @@ is a no-op when the directory is absent by[@feiiiiii5](https://github.com/feiiii
 [@SkyR0ver](https://github.com/SkyR0ver)in[#3992](https://github.com/EleutherAI/lm-evaluation-harness/pull/3992); string dictionary arguments parse correctly by[@tandede](https://github.com/tandede)in[#4020](https://github.com/EleutherAI/lm-evaluation-harness/pull/4020) - A scalar
 `seed`
 
+```python
 from a config file is normalized the same way the CLI does by[@winklemad](https://github.com/winklemad)in[#4003](https://github.com/EleutherAI/lm-evaluation-harness/pull/4003) - Sample counts no longer depend on metric ordering by
 [@arthi-arumugam-git](https://github.com/arthi-arumugam-git)in[#4068](https://github.com/EleutherAI/lm-evaluation-harness/pull/4068) `scripts/requests_caching.py`
+```
 
 entrypoint repaired — bad kwargs and a helper defined after its use by[@Anai-Guo](https://github.com/Anai-Guo)in[#4059](https://github.com/EleutherAI/lm-evaluation-harness/pull/4059)**chrF++**aggregation and metric (`word_order=2`
 
@@ -379,9 +381,11 @@ by[@juliafalcao](https://github.com/juliafalcao)in[#3631](https://github.com/Ele
 **init**.py by[@adrian-sauter](https://github.com/adrian-sauter)in[#3592](https://github.com/EleutherAI/lm-evaluation-harness/pull/3592) - fix: Update
 `WatsonxLLM`
 
+```python
 class mapping and errors by[@Rafal-Chrzanowski-IBM](https://github.com/Rafal-Chrzanowski-IBM)in[#3591](https://github.com/EleutherAI/lm-evaluation-harness/pull/3591) - Add Intel Gaudi support by
 [@12010486](https://github.com/12010486)in[#3550](https://github.com/EleutherAI/lm-evaluation-harness/pull/3550) - [fix] Disallow
 `enable_thinking`
+```
 
 with`output_type: multiple_choice`
 
@@ -389,10 +393,12 @@ tasks / loglikelihood tasks; raise error in case`think_end_token`
 
 is not provided with`enable_thinking=True`
 
+```
 by[@fxmarty-amd](https://github.com/fxmarty-amd)in[#3675](https://github.com/EleutherAI/lm-evaluation-harness/pull/3675) - fix(vllm): fix dp with ray. remove mp distribution; pin vllm >=0.18 by
 [@baberabb](https://github.com/baberabb)in[#3725](https://github.com/EleutherAI/lm-evaluation-harness/pull/3725) - refactor(utils): fix mistral tokenizer error; improve doc-strings by
 [@baberabb](https://github.com/baberabb)in[#3728](https://github.com/EleutherAI/lm-evaluation-harness/pull/3728) - fix(vllm): fix vllm tokenizer for Mistral; rm default
 `gpu_memory_utilization=0.9`
+```
 
 by[@baberabb](https://github.com/baberabb)in[#3732](https://github.com/EleutherAI/lm-evaluation-harness/pull/3732) - Fix GPQA preprocess stripping mathematical bracket expressions by
 [@Chessing234](https://github.com/Chessing234)in[#3735](https://github.com/EleutherAI/lm-evaluation-harness/pull/3735) - Guard vLLM tok_encode against prefix_token_id being None by
@@ -594,9 +600,11 @@ issue by[@baberabb](https://github.com/baberabb)in[#3526](https://github.com/Ele
 error by[@baberabb](https://github.com/baberabb)in[#3503](https://github.com/EleutherAI/lm-evaluation-harness/pull/3503) - Resolved deprecated
 `vllm.transformers_utils.get_tokenizer`
 
+```python
 import by[@DarkLight1337](https://github.com/DarkLight1337)in[#3482](https://github.com/EleutherAI/lm-evaluation-harness/pull/3482) - Fixed SGLang import and removed duplicate tasks by
 [@baberabb](https://github.com/baberabb)in[#3492](https://github.com/EleutherAI/lm-evaluation-harness/pull/3492) - Removed deprecated
 `AutoModelForVision2Seq`
+```
 
 by[@baberabb](https://github.com/baberabb)in[#3522](https://github.com/EleutherAI/lm-evaluation-harness/pull/3522) - Fixed Anthropic chat model mapping by
 [@lucafossen](https://github.com/lucafossen)in[#3453](https://github.com/EleutherAI/lm-evaluation-harness/pull/3453) - Fixed bug preventing
@@ -703,9 +711,11 @@ endpoint to avoid manual duplication by[@m-misiura](https://github.com/m-misiura
 - Remove
 `trust_remote_code: True`
 
+```python
 from updated datasets by[@Avelina9X](https://github.com/Avelina9X)in[#3213](https://github.com/EleutherAI/lm-evaluation-harness/pull/3213) - Add support for evaluating with fine-tuned Gemma3 by
 [@LearnerSXH](https://github.com/LearnerSXH)in[#3234](https://github.com/EleutherAI/lm-evaluation-harness/pull/3234) - Fix
 `add_bos_token`
+```
 
 not updated for Gemma tokenizer by[@DarkLight1337](https://github.com/DarkLight1337)in[#3206](https://github.com/EleutherAI/lm-evaluation-harness/pull/3206) - remove incomplete compilation instructions, solves
 [#3233](https://github.com/EleutherAI/lm-evaluation-harness/issues/3233)by[@ceferisbarov](https://github.com/ceferisbarov)in[#3242](https://github.com/EleutherAI/lm-evaluation-harness/pull/3242) - Update utils.py by
@@ -857,6 +867,7 @@ by using kwargs by[@kiersten-stokes](https://github.com/kiersten-stokes)in[#3079
 for chat_template by[@baberabb](https://github.com/baberabb)in[#3076](https://github.com/EleutherAI/lm-evaluation-harness/pull/3076) - feat / fix: Properly make use of
 `subfolder`
 
+```python
 from HF models by[@younesbelkada](https://github.com/younesbelkada)in[#3072](https://github.com/EleutherAI/lm-evaluation-harness/pull/3072) - [HF] fix quantization config by
 [@baberabb](https://github.com/baberabb)in[#3039](https://github.com/EleutherAI/lm-evaluation-harness/pull/3039) - FixBug: Align the Humaneval with official results for Llama-3.1-70B-Instruct by
 [@userljz](https://github.com/userljz)in[#3092](https://github.com/EleutherAI/lm-evaluation-harness/pull/3092) - Truthfulqa multi harness by
@@ -869,6 +880,7 @@ from HF models by[@younesbelkada](https://github.com/younesbelkada)in[#3072](htt
 [@baberabb](https://github.com/baberabb)in[#3108](https://github.com/EleutherAI/lm-evaluation-harness/pull/3108) - Fixed
 [#3005](https://github.com/EleutherAI/lm-evaluation-harness/issues/3005): Processes both formats of model_args: string and dictionay by[@DebjyotiRay](https://github.com/DebjyotiRay)in[#3097](https://github.com/EleutherAI/lm-evaluation-harness/pull/3097) - add image hashing and
 `LMEVAL_HASHMM`
+```
 
 envar by[@artemorloff](https://github.com/artemorloff)in[#2973](https://github.com/EleutherAI/lm-evaluation-harness/pull/2973) - removal of Neural Magic models by
 [@baberabb](https://github.com/baberabb)in[#3112](https://github.com/EleutherAI/lm-evaluation-harness/pull/3112) - Neuralmagic by
@@ -901,9 +913,11 @@ to vllm by[@Avelina9X](https://github.com/Avelina9X)in[#3164](https://github.com
 [@weireweire](https://github.com/weireweire)in[#3182](https://github.com/EleutherAI/lm-evaluation-harness/pull/3182) - [hotfix] vllm: pop
 `device`
 
+```python
 from kwargs by[@baberabb](https://github.com/baberabb)in[#3181](https://github.com/EleutherAI/lm-evaluation-harness/pull/3181) - Update vLLM compatibility by
 [@DarkLight1337](https://github.com/DarkLight1337)in[#3024](https://github.com/EleutherAI/lm-evaluation-harness/pull/3024) - Fix
 `mmlu_continuation`
+```
 
 subgroup names to fit Readme and other variants by[@lamalunderscore](https://github.com/lamalunderscore)in[#3137](https://github.com/EleutherAI/lm-evaluation-harness/pull/3137) - Fix humaneval_instruct by
 [@idantene](https://github.com/idantene)in[#3201](https://github.com/EleutherAI/lm-evaluation-harness/pull/3201) - Update README.md for mlqa by
@@ -1168,6 +1182,7 @@ by[@bzantium](https://github.com/bzantium)in[#2652](https://github.com/EleutherA
 [@baberabb](https://github.com/baberabb)in[#2660](https://github.com/EleutherAI/lm-evaluation-harness/pull/2660) - remove
 `group`
 
+```python
 from bigbench task configs by[@baberabb](https://github.com/baberabb)in[#2663](https://github.com/EleutherAI/lm-evaluation-harness/pull/2663) - Add Histoires Morales task by
 [@upunaprosk](https://github.com/upunaprosk)in[#2662](https://github.com/EleutherAI/lm-evaluation-harness/pull/2662) - MMLU Pro Plus by
 [@asgsaeid](https://github.com/asgsaeid)in[#2366](https://github.com/EleutherAI/lm-evaluation-harness/pull/2366) - fix early return for multiple dict in task process_results by
@@ -1181,6 +1196,7 @@ from bigbench task configs by[@baberabb](https://github.com/baberabb)in[#2663](h
 [@artemorloff](https://github.com/artemorloff)in[#2691](https://github.com/EleutherAI/lm-evaluation-harness/pull/2691) - Set defaults for BLiMP scores by
 [@jmichaelov](https://github.com/jmichaelov)in[#2692](https://github.com/EleutherAI/lm-evaluation-harness/pull/2692) - Update remaining references to
 `assistant_prefill`
+```
 
 in docs to`gen_prefix`
 

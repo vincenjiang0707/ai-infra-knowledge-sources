@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/ops/latent_moe_tail/
 lastmod: 2026-09-24
 
+```python
 class KimiK3LatentMoETailOp:
 """Process-wide cached K3 latent-MoE tail implementation."""
 _instances: ClassVar[
@@ -230,3 +231,4 @@ if any(tensor.dtype != contract.dtype for tensor in tensors):
 raise ValueError("All inputs must use the contract dtype.")
 if any(not tensor.is_contiguous() for tensor in tensors):
 raise ValueError("All inputs must be contiguous.")
+```

@@ -7,6 +7,7 @@ The following code configures vLLM to use speculative decoding where proposals a
 
 ## PARD Offline Mode Example[¶](https://docs.vllm.ai#pard-offline-mode-example)
 
+```python
 from vllm import LLM, SamplingParams
 prompts = ["The future of AI is"]
 sampling_params = SamplingParams(temperature=0.8, top_p=0.95)
@@ -25,10 +26,12 @@ for output in outputs:
 prompt = output.prompt
 generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+```
 
 
 ## PARD Online Mode Example[¶](https://docs.vllm.ai#pard-online-mode-example)
 
+```json
 vllm serve Qwen/Qwen3-4B \
 --host 0.0.0.0 \
 --port 8000 \
@@ -37,3 +40,4 @@ vllm serve Qwen/Qwen3-4B \
 --max-model-len 2048 \
 --gpu-memory-utilization 0.8 \
 --speculative-config '{"model": "amd/PARD-Qwen3-0.6B", "num_speculative_tokens": 12, "method": "draft_model", "parallel_drafting": true}'
+```

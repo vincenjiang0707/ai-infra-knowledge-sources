@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/mooncake/producer/
 lastmod: 2026-09-27
 
+```python
 class ProducerPushManager:
 """Own Producer push records, transitions, and source tensor leases.
 Terminal records are retained for duplicate-metadata idempotency. Separate
@@ -290,3 +291,4 @@ self._active_ids.pop(transfer_id, None)
 if record.error is not None:
 self._unreported_ids[transfer_id] = None
 self._mark_reapable(record)
+```

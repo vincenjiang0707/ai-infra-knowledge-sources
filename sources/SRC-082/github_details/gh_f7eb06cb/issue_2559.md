@@ -823,6 +823,7 @@ Quanted model config.json:
   "pad_token_id": 248044,
   "partial_rotary_factor": 0.25,
   "quantization_config": {
+```json
     "bits": 4,
     "checkpoint_format": "gptq",
     "desc_act": false,
@@ -863,6 +864,7 @@ Quanted model config.json:
     "pack_dtype": "int32",
     "quant_method": "gptq",
     "sym": true
+```
   },
   "rms_norm_eps": 1e-06,
   "rope_parameters": {

@@ -19,6 +19,7 @@ Selection strategy:
 1. Find the closest intermediate_size among available configs
 (exact match preferred).
 2. Among the num_tokens values tuned for that intermediate_size, pick
+```python
 the smallest num_tokens >= the input's num_tokens. If the input is
 larger than all available num_tokens, fall back to the largest.
 """
@@ -45,3 +46,4 @@ result = CaseKey({"intermediate": best_isize, "numtokens": best_ntokens})
 _pick_cache[cache_key] = result
 return result
 |
+```

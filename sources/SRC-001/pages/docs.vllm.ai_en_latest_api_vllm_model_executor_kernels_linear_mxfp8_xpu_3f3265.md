@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp8/xpu/
 lastmod: 2026-09-27
 
+```python
 class XPUMxFp8LinearKernel(Mxfp8LinearKernel):
 """MXFP8 W8A8 GEMM on XPU."""
 @classmethod
@@ -62,3 +63,4 @@ x_scale,
 layer.weight_scale.t(),
 bias,
 )
+```

@@ -24,6 +24,7 @@ deepseek = 37B active params
 
 MFU = realized_model_tflops / theortical_tflops
 
+```bash
 theortical_tflops dense is
 h100 fp8 = 1,979 TFLOP/s
 h200 fp8 = 1,979 TFLOP/s
@@ -40,6 +41,7 @@ mi300 fp8 = 2,615 TFLOP/s
 mi325 fp8 = 2,615 TFLOP/s
 mi355 fp8 = 5,033 TFLOP/s
 mi355 fp4 = 10,066 TFLOP/s
+```
 
 ## 中文说明
 跟踪所有集群上的软件版本 (BKC)。

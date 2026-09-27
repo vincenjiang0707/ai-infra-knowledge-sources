@@ -913,6 +913,7 @@ endpoint.
 
 #### Usage with the OpenAI Python client[¶](https://docs.vllm.ai#usage-with-the-openai-python-client)
 
+```json
 response = client.chat.completions.create(
 model=model,
 messages=messages,
@@ -920,10 +921,12 @@ extra_body={
 "cache_salt": "per-user-or-per-tenant-secret",
 },
 )
+```
 
 
 #### Usage with a raw request[¶](https://docs.vllm.ai#usage-with-a-raw-request)
 
+```json
 {
 "model": "meta-llama/Llama-3-8b",
 "messages": [
@@ -931,6 +934,7 @@ extra_body={
 ],
 "cache_salt": "per-user-or-per-tenant-secret"
 }
+```
 
 
 ### How to choose a salt value[¶](https://docs.vllm.ai#how-to-choose-a-salt-value)

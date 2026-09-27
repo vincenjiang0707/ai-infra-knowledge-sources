@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/ovis/
 lastmod: 2026-09-27
 
+```python
 class VisualTokenizer(torch.nn.Module):
 def __init__(
 self,
@@ -20,6 +21,7 @@ head_dim = config.vocab_size - len(IMAGE_INDICATOR_IDS)
 self.head = torch.nn.Sequential(
 ReplicatedLinear(
 config.backbone_config.hidden_size
+```
 * config.hidden_stride
 * config.hidden_stride,
 head_dim,

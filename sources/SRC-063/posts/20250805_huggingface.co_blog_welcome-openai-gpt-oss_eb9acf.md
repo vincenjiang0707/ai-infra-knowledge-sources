@@ -189,6 +189,7 @@ torch_dtype="auto",
 + # Flash Attention with Sinks
 + attn_implementation="kernels-community/vllm-flash-attn3",
 )
+```bash
 messages = [
 {"role": "user", "content": "How many rs are in the word 'strawberry'?"},
 ]
@@ -200,6 +201,7 @@ return_dict=True,
 ).to(model.device)
 generated = model.generate(**inputs, max_new_tokens=100)
 print(tokenizer.decode(generated[0][inputs["input_ids"].shape[-1]:]))
+```
 ```
 
 
@@ -223,6 +225,7 @@ If your GPU is not compatible with
 , then we recommend you use MegaBlocks MoE kernels for a nice speed bump. To do so, you just need to adjust your inference code like this:
 
 ```
+```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 model_id = "openai/gpt-oss-20b"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
@@ -230,9 +233,11 @@ model = AutoModelForCausalLM.from_pretrained(
 model_id,
 device_map="auto",
 torch_dtype="auto",
+```
 + # Optimize MoE layers with downloadable` MegaBlocksMoeMLP
 + use_kernels=True,
 )
+```bash
 messages = [
 {"role": "user", "content": "How many rs are in the word 'strawberry'?"},
 ]
@@ -245,6 +250,7 @@ return_dict=True,
 ).to(model.device)
 generated = model.generate(**inputs, max_new_tokens=100)
 print(tokenizer.decode(generated[0][inputs["input_ids"].shape[-1]:]))
+```
 ```
 
 
@@ -296,6 +302,7 @@ or `torchrun`
 on a system with 4 GPUs:
 
 ```
+```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.distributed import DistributedConfig
 import torch
@@ -323,6 +330,7 @@ outputs = model.generate(**inputs, max_new_tokens=1000)
 # Decode and print
 response = tokenizer.decode(outputs[0])
 print("Model response:", response.split("<|channel|>final<|message|>")[-1].strip())
+```
 ```
 
 
@@ -370,9 +378,11 @@ vllm serve openai/gpt-oss-120b --tensor-parallel-size 2
 Or, use it in Python directly like:
 
 ```
+```python
 from vllm import LLM
 llm = LLM("openai/gpt-oss-120b", tensor_parallel_size=2)
 output = llm.generate("San Francisco is a")
+```
 ```
 
 
@@ -456,6 +466,7 @@ GPT OSS models are reasoning models: they therefore require a very large generat
 Here’s an example on how to evaluate the models with lighteval (you need to install from source).
 
 ```
+```json
 git clone https://github.com/huggingface/lighteval
 pip install -e .[dev] # make sure you have the correct transformers version installed!
 lighteval accelerate \
@@ -463,6 +474,7 @@ lighteval accelerate \
 "extended|ifeval|0|0,lighteval|aime25|0|0" \
 --save-details --output-dir "openai_scores" \
 --remove-reasoning-tags --reasoning-tags="[('<|channel|>analysis<|message|>','<|end|><|start|>assistant<|channel|>final<|message|>')]"
+```
 ```
 
 
@@ -492,6 +504,7 @@ Most of the time, you should ignore everything except the text after **<|channel
 If you’re formatting examples for training, you generally want to include the chain of thought in the final message. The right place to do this is in the **thinking** key.
 
 ```
+```json
 chat = [
 {"role": "user", "content": "Hi there!"},
 {"role": "assistant", "content": "Hello!"},
@@ -500,6 +513,7 @@ chat = [
 ]
 # add_generation_prompt=False is generally only used in training, not inference
 inputs = tokenizer.apply_chat_template(chat, add_generation_prompt=False)
+```
 ```
 
 
@@ -543,6 +557,7 @@ Tool Use With transformers
 GPT OSS supports two kinds of tools: The “builtin” tools **browser** and **python**, and custom tools supplied by the user. To enable builtin tools, pass their names in a list to the **builtin_tools** argument of the chat template, as shown below. To pass custom tools, you can pass them either as JSON schema or as Python functions with type hints and docstrings using the tools argument. See the [chat template tools documentation](https://huggingface.co/docs/transformers/en/chat_extras) for more details, or you can just modify the example below:
 
 ```
+```python
 def get_current_weather(location: str):
 """
 Returns the current weather status at a given location as a string.
@@ -561,12 +576,14 @@ add_generation_prompt=True,
 return_tensors="pt"
 )
 ```
+```
 
 
 If the model chooses to call a tool (indicated by a message ending in `<|call|>`
 
 ), then you should add the tool call to the chat, call the tool, then add the tool result to the chat and generate again:
 
+```
 ```
 tool_call_message = {
 "role": "assistant",
@@ -592,6 +609,7 @@ tool_result_message = {
 chat.append(tool_result_message)
 # You can now apply_chat_template() and generate() again, and the model can use
 # the tool result in conversation.
+```
 ```
 
 

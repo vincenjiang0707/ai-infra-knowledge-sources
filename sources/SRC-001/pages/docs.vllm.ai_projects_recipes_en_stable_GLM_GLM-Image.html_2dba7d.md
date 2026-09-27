@@ -36,12 +36,14 @@ pip install git+https://github.com/huggingface/diffusers.git
 Run the text-to-image generation script:
 
 # Text to Image
+```bash
 cd examples/offline_inference/text_to_image
 python3 text_to_image.py --model zai-org/GLM-Image --output t2i_output.png
 # Image to Image
 cd examples/offline_inference/image_to_image
 wget https://vllm-public-assets.s3.us-west-2.amazonaws.com/omni-assets/qwen-bear.png
 python3 image_to_image.py --model zai-org/GLM-Image --image qwen-bear.png --output i2i_output.png
+```
 
 
 ### Generation Configuration[¶](https://docs.vllm.ai#generation-configuration)
@@ -61,6 +63,7 @@ Image size: 1024x1024
 
 ### Custom Text-to-Image Example[¶](https://docs.vllm.ai#custom-text-to-image-example)
 
+```python
 from vllm_omni import Omni
 # Initialize the model
 omni = Omni(model="zai-org/GLM-Image")
@@ -72,6 +75,7 @@ for output in outputs:
 for req_output in output.request_output:
 if req_output.images:
 req_output.images[0].save("output.png")
+```
 
 
 ### Notes[¶](https://docs.vllm.ai#notes)
@@ -107,6 +111,7 @@ curl -s http://localhost:8000/v1/chat/completions \
 
 #### Using OpenAI SDK[¶](https://docs.vllm.ai#using-openai-sdk)
 
+```python
 import base64
 from openai import OpenAI
 # Initialize client
@@ -129,10 +134,12 @@ image_data = base64.b64decode(image_url.split(",")[1])
 with open("output.png", "wb") as f:
 f.write(image_data)
 print("Image saved to output.png")
+```
 
 
 #### Text with Specific Rendering[¶](https://docs.vllm.ai#text-with-specific-rendering)
 
+```python
 import base64
 from openai import OpenAI
 client = OpenAI(
@@ -152,6 +159,7 @@ image_url = response.choices[0].message.content[0].image_url.url
 image_data = base64.b64decode(image_url.split(",")[1])
 with open("menu_board.png", "wb") as f:
 f.write(image_data)
+```
 
 
 ### Image-to-Image[¶](https://docs.vllm.ai#image-to-image)
@@ -185,6 +193,7 @@ curl -s http://localhost:8000/v1/chat/completions \
 
 #### Using OpenAI SDK[¶](https://docs.vllm.ai#using-openai-sdk_1)
 
+```python
 import base64
 from openai import OpenAI
 client = OpenAI(
@@ -219,6 +228,7 @@ image_data = base64.b64decode(image_url.split(",")[1])
 with open("output.png", "wb") as f:
 f.write(image_data)
 print("Image saved to output.png")
+```
 
 
 ## Notes[¶](https://docs.vllm.ai#notes_1)

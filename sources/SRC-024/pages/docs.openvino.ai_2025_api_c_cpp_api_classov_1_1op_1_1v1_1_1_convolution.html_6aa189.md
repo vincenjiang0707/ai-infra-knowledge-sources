@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v1::Convolution[#](https://docs.openvino.ai#class-ov-op-v1-convolution)
 
 -
+```python
 class Convolution : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ConvolutionFwdPropBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_convolution_fwd_prop_base.html#_CPPv4N2ov2op4util22ConvolutionFwdPropBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v111ConvolutionE) Batched convolution operation, with optional window dilation and stride.
+```
 
 Public Functions
 

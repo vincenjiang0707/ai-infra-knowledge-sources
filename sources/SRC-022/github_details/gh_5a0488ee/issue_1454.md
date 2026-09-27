@@ -8,6 +8,7 @@ labels: Under Investigation
 
 ### Problem Description
 
+```yaml
 System:
 GPUS: 3x MI100 GFX908
 AMD EPYC 7452
@@ -15,6 +16,7 @@ OS: Ubuntu 24.04 and Archlinux (same behavior)
 Kernel: 6.12.3
 Rocm: 6.2.4
 rccl: 2.20.5
+```
 
 # Tests: 
 

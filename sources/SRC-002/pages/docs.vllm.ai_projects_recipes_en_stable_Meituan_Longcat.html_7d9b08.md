@@ -14,6 +14,7 @@ This guide describes how to run LongCat-Image-Edit.
 ## Installation[¶](https://docs.vllm.ai#installation)
 
 # Clone and install vllm-omni
+```bash
 git clone https://github.com/vllm-project/vllm-omni.git
 cd vllm-omni
 uv venv
@@ -25,6 +26,7 @@ uv pip install -U xformers --index-url https://download.pytorch.org/whl/cu128
 git clone https://github.com/huggingface/diffusers.git
 cd diffusers
 uv pip install -e .
+```
 
 
 ## Usage[¶](https://docs.vllm.ai#usage)

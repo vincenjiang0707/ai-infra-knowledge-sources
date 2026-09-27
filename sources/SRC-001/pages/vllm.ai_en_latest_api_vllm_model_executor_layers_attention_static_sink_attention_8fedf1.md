@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/attention/static_sink_attention/
 lastmod: 2026-09-27
 
+```python
 @CustomOp.register("static_sink_attention")
 class StaticSinkAttention(Attention, CustomOp):
 """Attention with static sink tokens."""
@@ -101,3 +102,4 @@ sink_len=self.sink_len,
 dtype=self.kv_cache_torch_dtype,
 kv_quant_mode=get_kv_quant_mode(self.kv_cache_dtype),
 )
+```

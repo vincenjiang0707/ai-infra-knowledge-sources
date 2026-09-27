@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::DeformableConvolutionBase[#](https://docs.openvino.ai#class-ov-op-util-deformableconvolutionbase)
 
 -
+```python
 class DeformableConvolutionBase : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ConvolutionBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_convolution_base.html#_CPPv4N2ov2op4util15ConvolutionBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util25DeformableConvolutionBaseE) Base class for operations DeformableConvolution
+```
 
 [v1](https://docs.openvino.ai/group__ov__transformation__common__api.html#namespaceov_1_1op_1_1v1)and DeformableConvolution[v8](https://docs.openvino.ai/group__ov__transformation__common__api.html#namespaceov_1_1op_1_1v8).Subclassed by
 

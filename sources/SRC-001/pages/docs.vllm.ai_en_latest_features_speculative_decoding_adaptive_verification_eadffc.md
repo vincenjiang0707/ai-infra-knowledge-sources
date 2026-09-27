@@ -25,6 +25,7 @@ Adaptive verification needs per-position acceptance estimates, so today it is on
 
 It is off by default. Enable it in the speculative config:
 
+```json
 vllm serve deepseek-ai/DeepSeek-V4-Flash-DSpark \
 --tokenizer-mode deepseek_v4 --trust-remote-code \
 --speculative-config '{
@@ -34,6 +35,7 @@ vllm serve deepseek-ai/DeepSeek-V4-Flash-DSpark \
 "draft_sample_method": "probabilistic",
 "enable_adaptive_verification": true
 }'
+```
 
 
 Set `enable_adaptive_verification: false`

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/ops/recoverssm/
 lastmod: 2026-09-24
 
+```python
 @dataclass
 class KDARecoverSSMCommitContext:
 conv_states: tuple[torch.Tensor, ...]
@@ -323,3 +324,4 @@ ALIGN_MODE=block_table is not None,
 num_warps=4,
 num_stages=2,
 )
+```

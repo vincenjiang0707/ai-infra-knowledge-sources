@@ -4,8 +4,10 @@ lastmod:
 # Class ov::pass::pattern::op::Pattern[#](https://docs.openvino.ai#class-ov-pass-pattern-op-pattern)
 
 -
+```python
 class Pattern : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Node](https://docs.openvino.ai/classov_1_1_node.html#_CPPv4N2ov4NodeE)[#](https://docs.openvino.ai#_CPPv4N2ov4pass7pattern2op7PatternE) Subclassed by
+```
 
 [ov::pass::pattern::op::Any](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1pattern_1_1op_1_1_any),[ov::pass::pattern::op::AnyOf](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1pattern_1_1op_1_1_any_of),[ov::pass::pattern::op::AnyOutput](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1pattern_1_1op_1_1_any_output),[ov::pass::pattern::op::Block](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1pattern_1_1op_1_1_block),[ov::pass::pattern::op::Label](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1pattern_1_1op_1_1_label),[ov::pass::pattern::op::Optional](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1pattern_1_1op_1_1_optional),[ov::pass::pattern::op::Or](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1pattern_1_1op_1_1_or),[ov::pass::pattern::op::True](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1pattern_1_1op_1_1_true),[ov::pass::pattern::op::WrapType](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1pattern_1_1op_1_1_wrap_type)Public Functions
 

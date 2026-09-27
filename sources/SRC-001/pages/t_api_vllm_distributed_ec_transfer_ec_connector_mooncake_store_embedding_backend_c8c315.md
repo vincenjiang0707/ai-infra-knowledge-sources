@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/mooncake_store_embedding/backend/
 lastmod: 2026-09-27
 
+```python
 class MooncakeEmbeddingStoreBackend:
 """Resolve immutable encoder outputs and publish misses asynchronously."""
 def __init__(
@@ -161,3 +162,4 @@ self._closed = True
 self._executor.shutdown(wait=True, cancel_futures=False)
 self.reap()
 self.store_client.close()
+```

@@ -42,6 +42,7 @@ To start a vLLM server with batch invariance enabled:
 
 Then use the OpenAI-compatible client:
 
+```python
 from openai import OpenAI
 client = OpenAI(
 api_key="EMPTY",
@@ -57,12 +58,14 @@ temperature=0.7,
 seed=42,
 )
 print(response.choices[0].text)
+```
 
 
 ### Offline Inference[¶](https://docs.vllm.ai#offline-inference)
 
 For offline batch inference with batch invariance:
 
+```python
 import os
 os.environ["VLLM_BATCH_INVARIANT"] = "1"
 from vllm import LLM, SamplingParams
@@ -88,6 +91,7 @@ prompt = output.prompt
 generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}")
 print(f"Generated: {generated_text!r}\n")
+```
 
 
 ## Tested Models[¶](https://docs.vllm.ai#tested-models)

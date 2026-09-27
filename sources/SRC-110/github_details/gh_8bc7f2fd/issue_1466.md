@@ -40,6 +40,7 @@ v1.9.0
 
 使用的 wrapper 内部调用 evalscope.perf.main.run_perf_benchmark，核心参数如下：
 
+```python
     from evalscope.perf.main import run_perf_benchmark
     from evalscope.perf.arguments import Arguments
 
@@ -63,6 +64,7 @@ v1.9.0
     )
 
     run_perf_benchmark(task_cfg)
+```
 
 请求发往 OpenAI-compatible completions 接口：
 
@@ -70,6 +72,7 @@ v1.9.0
 
 请求体中确认包含：
 
+```json
     {
       "model": "DeepSeek-V4-Flash-DSpark",
       "max_tokens": 256,
@@ -77,6 +80,7 @@ v1.9.0
       "temperature": 0.0,
       "ignore_eos": true
     }
+```
 
 ## 错误日志
 
@@ -100,10 +104,12 @@ v1.9.0
 
 Debug 日志中可以看到服务端返回的是 SSE 字符串，例如：
 
+```json
     data: {"id":"cmpl-xxx","object":"text_completion","created":...,"model":"DeepSeek-V4-Flash-DSpark","choices":[...]}
     ...
     data: {"id":"cmpl-xxx","object":"text_completion","choices":[],"usage":{"prompt_tokens":256,"total_tokens":512,"completion_tokens":256}}
     data: [DONE]
+```
 
 ## 运行环境
 
@@ -119,6 +125,7 @@ Debug 日志中可以看到服务端返回的是 SSE 字符串，例如：
 
 这个问题和后端模型本身关系不大。服务端返回里包含合法的 usage 字段：
 
+```json
     {
       "usage": {
         "prompt_tokens": 256,
@@ -126,6 +133,7 @@ Debug 日志中可以看到服务端返回的是 SSE 字符串，例如：
         "completion_tokens": 256
       }
     }
+```
 
 本地临时 workaround 是在 evalscope/perf/plugin/api/openai_api.py 的 parse_responses() 开头对 responses 做归一化：
 

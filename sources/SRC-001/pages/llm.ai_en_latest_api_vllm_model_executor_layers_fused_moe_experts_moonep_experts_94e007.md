@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/moonep_experts/
 lastmod: 2026-09-27
 
+```python
 class MoonEPExperts(mk.FusedMoEExpertsModular):
 """Grouped-GEMM experts over MoonEP's ``[NvS, H]`` layout (BF16)."""
 def __init__(
@@ -144,3 +145,4 @@ if not apply_router_weight_on_input:
 act.mul_(route_weights_nvs.to(act.dtype).unsqueeze(-1))
 # Padding rows past the last segment come out zero-filled.
 output.copy_(moonep_grouped_gemm(act, w2, cu_seqlens))
+```

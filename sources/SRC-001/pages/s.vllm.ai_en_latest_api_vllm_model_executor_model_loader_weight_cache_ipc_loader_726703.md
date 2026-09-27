@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/model_loader/weight_cache/ipc_loader/
 lastmod: 2026-09-27
 
+```python
 class IpcModelLoader(BaseModelLoader):
 """Loads a model by mapping the weight cache daemon's tensors via CUDA IPC.
 The model is initialized on the meta device and every parameter/buffer is
@@ -10,6 +11,7 @@ engine shares the daemon's GPU memory; in "copy" mode the tensors are
 cloned into engine-owned memory and the daemon is asked to release its
 cache afterwards.
 Extra config keys (via --model-loader-extra-config):
+```
 - socket_path: explicit daemon socket path. Defaults to a per-GPU path
 derived from the physical GPU uuid and the cache role (target/draft).
 - socket_dir: directory containing the daemon sockets.
@@ -177,6 +179,7 @@ def _apply_entries(
 self,
 model: nn.Module,
 state: WeightCacheState,
+```python
 device_index: int,
 ) -> None:
 # remove_duplicate=False keeps tied module aliases reachable by name:
@@ -342,3 +345,4 @@ loader = DefaultModelLoader(self._fallback_load_config())
 return loader.load_model(
 vllm_config=vllm_config, model_config=model_config, prefix=prefix
 )
+```

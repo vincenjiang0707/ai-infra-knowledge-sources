@@ -65,11 +65,13 @@ counter_dimensions(counter_id);
 [dim.id](http://dim.id/), &pos), "Count not retrieve dimension");
             ss << " {" << dim.id << ": " << dim.name << ": " << pos <<
 "/" << dim.instance_size << "},";
+```
         }
 
         ss << ") Value= " << record_data[i].counter_value << ")\n";
         std::cerr << ss.str() << std::endl;
     }
+```
 }
 
 ### (Optional for Linux users) Output of /opt/rocm/bin/rocminfo --support

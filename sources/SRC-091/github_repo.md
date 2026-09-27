@@ -21,11 +21,13 @@
     <hr width="78%">
 
   <h3 align="center">
+```html
     <a href="https://blog.lmcache.ai/">Blog</a> |
     <a href="https://docs.lmcache.ai/">Documentation</a> |
     <a href="https://join.slack.com/t/lmcacheworkspace/shared_invite/zt-3zxjao8h0-lRfBfnLqbALOtLsWn2ITxA">Join Slack</a> |
     <a href="https://docs.lmcache.ai/community/meetings.html">Community Meeting</a> |
     <a href="https://github.com/LMCache/LMCache/issues/2923">Roadmap</a>
+```
   </h3>
 
   [![GitHub Repo stars](https://img.shields.io/github/stars/LMCache/LMCache?style=flat&logo=github)](https://github.com/LMCache/LMCache/stargazers)

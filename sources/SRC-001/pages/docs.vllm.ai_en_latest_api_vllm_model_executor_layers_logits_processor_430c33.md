@@ -1,10 +1,12 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/logits_processor/
 lastmod: 2026-09-27
 
+```python
 @PluggableLayer.register("logits_processor")
 class LogitsProcessor(PluggableLayer):
 """Process logits and apply logits processors from sampling metadata.
 This layer does the following:
+```
 1. Gather logits from model hidden_states.
 2. Scale logits if needed.
 3. Apply logits processors (if any).

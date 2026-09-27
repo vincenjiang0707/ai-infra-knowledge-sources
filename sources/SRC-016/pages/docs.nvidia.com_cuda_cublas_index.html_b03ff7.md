@@ -2926,10 +2926,12 @@ defines the following predefined values for the matrix \(H\) entries
 |
 |
 |---|---|---|---|
+```
 \(\begin{pmatrix} h_{11} & h_{12} \\ h_{21} & h_{22} \\ \end{pmatrix}\) |
 \(\begin{pmatrix} {1.0} & h_{12} \\ h_{21} & {1.0} \\ \end{pmatrix}\) |
 \(\begin{pmatrix} h_{11} & {1.0} \\ {- 1.0} & h_{22} \\ \end{pmatrix}\) |
 \(\begin{pmatrix} {1.0} & {0.0} \\ {0.0} & {1.0} \\ \end{pmatrix}\) |
+```
 
 Notice that the values -1.0, 0.0 and 1.0 implied by the flag are not stored in param.
 
@@ -3008,10 +3010,12 @@ defines the following predefined values for the matrix \(H\) entries
 |
 |
 |---|---|---|---|
+```
 \(\begin{pmatrix} h_{11} & h_{12} \\ h_{21} & h_{22} \\ \end{pmatrix}\) |
 \(\begin{pmatrix} {1.0} & h_{12} \\ h_{21} & {1.0} \\ \end{pmatrix}\) |
 \(\begin{pmatrix} h_{11} & {1.0} \\ {- 1.0} & h_{22} \\ \end{pmatrix}\) |
 \(\begin{pmatrix} {1.0} & {0.0} \\ {0.0} & {1.0} \\ \end{pmatrix}\) |
+```
 
 Notice that the values -1.0, 0.0 and 1.0 implied by the flag are not stored in param.
 

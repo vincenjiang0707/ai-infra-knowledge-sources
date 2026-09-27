@@ -120,6 +120,7 @@ custom argument associated with each request:
 
 ## Example custom logits processor definition
 
+```python
 import torch
 from vllm.config import VllmConfig
 from vllm.sampling_params import SamplingParams
@@ -156,6 +157,7 @@ kept = logits[rows, cols[rows]].clone()
 logits[rows] = float("-inf")
 logits[rows, cols[rows]] = kept
 return logits
+```
 
 
 Per-request state is keyed by the request slot index, and slots are recycled through a free list. The example keeps a per-slot state where `-1`
@@ -271,6 +273,7 @@ in Python
 `AsyncLLM`
 
 # Import custom logits processor
+```python
 from some.module import TargetTokenLogitsProcessor
 # ...or...
 # Define custom logits processor locally
@@ -287,6 +290,7 @@ logits_processors=[TargetTokenLogitsProcessor],
 engine_args = AsyncEngineArgs(model="facebook/opt-125m",
 logits_processors=[TargetTokenLogitsProcessor])
 async_llm = AsyncLLM.from_engine_args(engine_args)
+```
 
 
 ## Invoking a Custom Logits Processor Against a Request[¶](https://docs.vllm.ai#invoking-a-custom-logits-processor-against-a-request)

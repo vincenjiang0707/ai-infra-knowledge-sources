@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__BufferCallbackCompleteInf
 # 7.134. CUpti_BufferCallbackCompleteInfo[#](https://docs.nvidia.com#cupti-buffercallbackcompleteinfo)
 
 -
+```rust
 struct CUpti_BufferCallbackCompleteInfo
 [#](https://docs.nvidia.com#_CPPv432CUpti_BufferCallbackCompleteInfo) Public Members
+```
 
 -
 size_t structSize

@@ -21,16 +21,19 @@ Start the server with tool calling enabled. This example uses Meta's Llama 3.1 8
 
 tool calling chat template from the vLLM examples directory:
 
+```bash
 vllm serve meta-llama/Llama-3.1-8B-Instruct \
 --enable-auto-tool-choice \
 --tool-call-parser llama3_json \
 --chat-template examples/tool_chat_template_llama3.1_json.jinja
+```
 
 
 Next, make a request that triggers the model to use the available tools:
 
 ## Code
 
+```python
 from openai import OpenAI
 import json
 client = OpenAI(base_url="http://localhost:8000/v1", api_key="dummy")
@@ -64,6 +67,7 @@ tool_call = response.choices[0].message.tool_calls[0].function
 print(f"Function called: {tool_call.name}")
 print(f"Arguments: {tool_call.arguments}")
 print(f"Result: {tool_functions[tool_call.name](**json.loads(tool_call.arguments))}")
+```
 
 
 Example output:
@@ -848,6 +852,7 @@ Here is a summary of a plugin file:
 ## Code
 
 # import the required packages
+```python
 # define a tool parser and register it to vllm
 # the name list in register_module can be used
 # in --tool-call-parser. you can define as many
@@ -886,6 +891,7 @@ name="example",
 module_path="vllm.tool_parsers.example",
 class_name="ExampleToolParser",
 )
+```
 
 
 Then you can use this plugin in the command line like this.

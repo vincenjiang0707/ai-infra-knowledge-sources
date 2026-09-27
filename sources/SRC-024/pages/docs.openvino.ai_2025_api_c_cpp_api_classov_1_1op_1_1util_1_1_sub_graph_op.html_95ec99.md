@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::SubGraphOp[#](https://docs.openvino.ai#class-ov-op-util-subgraphop)
 
 -
+```python
 class SubGraphOp : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[MultiSubGraphOp](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_multi_sub_graph_op.html#_CPPv4N2ov2op4util15MultiSubGraphOpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util10SubGraphOpE) Abstract base class for sub-graph based ops, i.e ops that have only one sub-graph.
+```
 
 Subclassed by
 

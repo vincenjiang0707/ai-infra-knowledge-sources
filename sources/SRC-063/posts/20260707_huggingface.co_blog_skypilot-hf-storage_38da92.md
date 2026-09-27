@@ -142,14 +142,18 @@ accelerators: H100:1 # or whatever the cloud has
 file_mounts:
 /base-model:
 source: hf://Qwen/Qwen3.5-4B # read-only, lazy-mounted from the Hub
+```yaml
 store: hf
 mode: MOUNT
 /checkpoints:
+```
 source: hf://buckets/my-org/qwen-sft # read-write Bucket
+```yaml
 store: hf
 mode: MOUNT
 run: |
 python train.py --model /base-model --output_dir /checkpoints
+```
 ```
 
 
@@ -188,8 +192,10 @@ How much you save depends on how much your artifacts overlap, but the deduplicat
 Get started
 
 ```
+```
 pip install "skypilot[huggingface]"
 hf auth login # or: export HF_TOKEN=<your-token>
+```
 ```
 
 

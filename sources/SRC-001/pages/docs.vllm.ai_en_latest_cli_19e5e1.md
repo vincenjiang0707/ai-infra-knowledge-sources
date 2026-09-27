@@ -145,12 +145,14 @@ Available Commands:
 
 Benchmark the latency of a single batch of requests.
 
+```bash
 vllm bench latency \
 --model meta-llama/Llama-3.2-1B-Instruct \
 --input-len 32 \
 --output-len 1 \
 --enforce-eager \
 --load-format dummy
+```
 
 
 See [vllm bench latency](https://docs.vllm.ai/bench/latency/) for the full reference of all available arguments.
@@ -159,6 +161,7 @@ See [vllm bench latency](https://docs.vllm.ai/bench/latency/) for the full refer
 
 Benchmark the online serving throughput.
 
+```bash
 vllm bench serve \
 --model meta-llama/Llama-3.2-1B-Instruct \
 --host server-host \
@@ -166,6 +169,7 @@ vllm bench serve \
 --random-input-len 32 \
 --random-output-len 4 \
 --num-prompts 5
+```
 
 
 See [vllm bench serve](https://docs.vllm.ai/bench/serve/) for the full reference of all available arguments.
@@ -174,12 +178,14 @@ See [vllm bench serve](https://docs.vllm.ai/bench/serve/) for the full reference
 
 Benchmark offline inference throughput.
 
+```bash
 vllm bench throughput \
 --model meta-llama/Llama-3.2-1B-Instruct \
 --input-len 32 \
 --output-len 1 \
 --enforce-eager \
 --load-format dummy
+```
 
 
 See [vllm bench throughput](https://docs.vllm.ai/bench/throughput/) for the full reference of all available arguments.
@@ -194,18 +200,22 @@ Run batch prompts and write results to file.
 
 Running with a local file:
 
+```bash
 vllm run-batch \
 -i examples/features/openai_batch/openai_example_batch.jsonl \
 -o results.jsonl \
 --model meta-llama/Meta-Llama-3-8B-Instruct
+```
 
 
 Using remote file:
 
+```bash
 vllm run-batch \
 -i https://raw.githubusercontent.com/vllm-project/vllm/main/examples/features/openai_batch/openai_example_batch.jsonl \
 -o results.jsonl \
 --model meta-llama/Meta-Llama-3-8B-Instruct
+```
 
 
 See [vllm run-batch](https://docs.vllm.ai/run-batch/) for the full reference of all available arguments.
@@ -215,10 +225,12 @@ See [vllm run-batch](https://docs.vllm.ai/run-batch/) for the full reference of 
 Launch weight cache daemons (one per GPU) that hold the post-quantized, TP-sharded weights in GPU memory and serve CUDA IPC handles to vLLM engines over a Unix domain socket. Restarting engines then map the weights via zero-copy IPC instead of reloading from disk, enabling fast engine restarts.
 
 # Launch one daemon per GPU
+```bash
 vllm preload --model meta-llama/Llama-3.2-1B-Instruct --tensor-parallel-size 4
 # Engines then load from the daemons
 vllm serve meta-llama/Llama-3.2-1B-Instruct --tensor-parallel-size 4 \
 --load-format ipc_cache
+```
 
 
 The daemon accepts the standard engine arguments (model, dtype, quantization, tensor-parallel-size, ...) plus `--weight-cache-socket-dir`

@@ -252,6 +252,7 @@ This fixes the specific issues you flagged:
 On the reuse question: while the event
 That said, if you'd still prefer inlining, I'm happy to go that route. Let me know which direction you'd like. |
 
+```python
 I think this makes sense however because the usage pattern is still different from HTTP, I think its better to have a separate base class for websocket handlers. You could do a mixin pattern for some of the shared functions, so maybe something like: ```
 class RequestHandlerMixin(Protocol):
 def format(...): ...
@@ -262,6 +263,7 @@ def add_streaming_line(...): ...
 class OpenAIWSRequestHandler(Protocol, RequestHandlerMixin):
 def add_streaming_event(event: dict) -> int | None: ...
 class OpenAIHandlerFactory(RegistryMixin[type[OpenAIHTTPRequestHandler] | type[OpenAIWSRequestHandler]]): ...
+```
 ``` Maybe even take this further and have separate mixins for streaming vs non-streaming which are added at the concrete handler implementation rather then the base protocol. Also might make more sense for now to have separate |
 
 |

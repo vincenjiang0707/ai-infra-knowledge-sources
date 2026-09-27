@@ -39,9 +39,11 @@ CRD available.- A valid
 
 ### 1.1 Install Volcano[¶](https://docs.vllm.ai#11-install-volcano)
 
+```bash
 helm repo add volcano-sh https://volcano-sh.github.io/helm-charts
 helm repo update
 helm install volcano volcano-sh/volcano -n volcano-system --create-namespace
+```
 
 
 Volcano provides the gang scheduling used in this example. It is optional for Kthena deployments that do not use Volcano scheduling.
@@ -105,6 +107,7 @@ command:
 - sh
 - -c
 - >
+```bash
 vllm serve meta-llama/Llama-3.1-405B-Instruct
 --tensor-parallel-size 8
 --pipeline-parallel-size 2
@@ -112,6 +115,7 @@ vllm serve meta-llama/Llama-3.1-405B-Instruct
 --node-rank=0
 --master-addr=$(ENTRY_ADDRESS)
 --port 8080
+```
 
 
 Worker:
@@ -122,9 +126,11 @@ Worker:
 
 **Recommended**: use a Secret instead of a raw env var:
 
+```bash
 kubectl create secret generic hf-token \
 -n default \
 --from-literal=HUGGING_FACE_HUB_TOKEN='<your-token>'
+```
 
 
 ### 3.2 Apply the `ModelServing`
@@ -137,6 +143,7 @@ Save one of the following manifests to `modelserving.yaml`
 
 ## modelserving.yaml
 
+```yaml
 apiVersion: workload.serving.volcano.sh/v1alpha1
 kind: ModelServing
 metadata:
@@ -151,23 +158,31 @@ gangPolicy:
 minRoleReplicas:
 llama-405b: 1
 roles:
+```
 - name: llama-405b
+```yaml
 replicas: 2
 entryTemplate:
 spec:
 containers:
+```
 - name: leader
+```yaml
 image: vllm/vllm-openai:latest
 env:
+```
 - name: HUGGING_FACE_HUB_TOKEN
+```yaml
 valueFrom:
 secretKeyRef:
 name: hf-token
 key: HUGGING_FACE_HUB_TOKEN
 command:
+```
 - sh
 - -c
 - "vllm serve meta-llama/Llama-3.1-405B-Instruct --tensor-parallel-size 8 --pipeline-parallel-size 2 --nnodes 2 --node-rank 0 --master-addr $(ENTRY_ADDRESS) --distributed-executor-backend mp --port 8080"
+```yaml
 resources:
 limits:
 nvidia.com/gpu: "8"
@@ -177,17 +192,23 @@ requests:
 ephemeral-storage: 800Gi
 cpu: 125
 ports:
+```
 - containerPort: 8080
+```yaml
 readinessProbe:
 tcpSocket:
 port: 8080
 initialDelaySeconds: 15
 periodSeconds: 10
 volumeMounts:
+```
 - mountPath: /dev/shm
+```yaml
 name: dshm
 volumes:
+```
 - name: dshm
+```yaml
 emptyDir:
 medium: Memory
 sizeLimit: 15Gi
@@ -195,12 +216,16 @@ workerReplicas: 1
 workerTemplate:
 spec:
 containers:
+```
 - name: worker
+```yaml
 image: vllm/vllm-openai:latest
 command:
+```
 - sh
 - -c
 - "vllm serve meta-llama/Llama-3.1-405B-Instruct --tensor-parallel-size 8 --pipeline-parallel-size 2 --nnodes 2 --node-rank 1 --master-addr $(ENTRY_ADDRESS) --distributed-executor-backend mp --headless"
+```yaml
 resources:
 limits:
 nvidia.com/gpu: "8"
@@ -210,16 +235,22 @@ requests:
 ephemeral-storage: 800Gi
 cpu: 125
 env:
+```
 - name: HUGGING_FACE_HUB_TOKEN
+```yaml
 valueFrom:
 secretKeyRef:
 name: hf-token
 key: HUGGING_FACE_HUB_TOKEN
 volumeMounts:
+```
 - mountPath: /dev/shm
+```yaml
 name: dshm
 volumes:
+```
 - name: dshm
+```yaml
 emptyDir:
 medium: Memory
 sizeLimit: 15Gi
@@ -239,23 +270,31 @@ gangPolicy:
 minRoleReplicas:
 llama-405b: 1
 roles:
+```
 - name: llama-405b
+```yaml
 replicas: 2
 entryTemplate:
 spec:
 containers:
+```
 - name: leader
+```yaml
 image: vllm/vllm-openai:latest
 env:
+```
 - name: HUGGING_FACE_HUB_TOKEN
+```yaml
 valueFrom:
 secretKeyRef:
 name: hf-token
 key: HUGGING_FACE_HUB_TOKEN
 command:
+```
 - sh
 - -c
 - "bash /vllm-workspace/examples/ray_serving/multi-node-serving.sh leader --ray_cluster_size=2;
+```yaml
 vllm serve meta-llama/Llama-3.1-405B-Instruct --port 8080 --tensor-parallel-size 8 --pipeline-parallel-size 2 --distributed-executor-backend ray"
 resources:
 limits:
@@ -266,17 +305,23 @@ requests:
 ephemeral-storage: 800Gi
 cpu: 125
 ports:
+```
 - containerPort: 8080
+```yaml
 readinessProbe:
 tcpSocket:
 port: 8080
 initialDelaySeconds: 15
 periodSeconds: 10
 volumeMounts:
+```
 - mountPath: /dev/shm
+```yaml
 name: dshm
 volumes:
+```
 - name: dshm
+```yaml
 emptyDir:
 medium: Memory
 sizeLimit: 15Gi
@@ -284,12 +329,16 @@ workerReplicas: 1
 workerTemplate:
 spec:
 containers:
+```
 - name: worker
+```yaml
 image: vllm/vllm-openai:latest
 command:
+```
 - sh
 - -c
 - "bash /vllm-workspace/examples/ray_serving/multi-node-serving.sh worker --ray_address=$(ENTRY_ADDRESS)"
+```yaml
 resources:
 limits:
 nvidia.com/gpu: "8"
@@ -299,19 +348,26 @@ requests:
 ephemeral-storage: 800Gi
 cpu: 125
 env:
+```
 - name: HUGGING_FACE_HUB_TOKEN
+```yaml
 valueFrom:
 secretKeyRef:
 name: hf-token
 key: HUGGING_FACE_HUB_TOKEN
 volumeMounts:
+```
 - mountPath: /dev/shm
+```yaml
 name: dshm
 volumes:
+```
 - name: dshm
+```yaml
 emptyDir:
 medium: Memory
 sizeLimit: 15Gi
+```
 
 
 Kthena will:
@@ -337,18 +393,24 @@ Use the snippet from the Kthena docs:
 
 You should see something like:
 
+```yaml
 status:
 availableReplicas: 1
 conditions:
+```
 - type: Available
+```yaml
 status: "True"
 reason: AllGroupsReady
 message: All Serving groups are ready
+```
 - type: Progressing
+```yaml
 status: "False"
 ...
 replicas: 1
 updatedReplicas: 1
+```
 
 
 ### 4.2 Check Pods[¶](https://docs.vllm.ai#42-check-pods)
@@ -382,6 +444,7 @@ Save the following Service as `service.yaml`
 
 to expose the entry pods:
 
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -392,10 +455,13 @@ selector:
 modelserving.volcano.sh/name: llama-multinode
 modelserving.volcano.sh/entry: "true"
 ports:
+```
 - name: http
+```yaml
 port: 80
 targetPort: 8080
 type: ClusterIP
+```
 
 
 Apply the Service, then port-forward from your local machine:
@@ -406,6 +472,7 @@ Then:
 
 - Send a completion request (mirroring vLLM production stack docs):
 
+```json
 curl -X POST http://localhost:30080/v1/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -413,6 +480,7 @@ curl -X POST http://localhost:30080/v1/completions \
 "prompt": "Once upon a time,",
 "max_tokens": 10
 }'
+```
 
 
 You should see an OpenAI-style response from vLLM.
@@ -423,8 +491,10 @@ To remove the deployment and its resources:
 
 If you’re done with the entire stack:
 
+```bash
 helm uninstall kthena -n kthena-system # or your Kthena release name
 helm uninstall volcano -n volcano-system
+```
 
 
 For model-aware routing and prefill-decode disaggregation, see the [Kthena documentation](https://kthena.volcano.sh/docs/user-guide/router-routing).

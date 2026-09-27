@@ -6,6 +6,7 @@ labels: awaiting response, Stale
 
 ## 正文
 
+```bash
 lmdeploy serve api_server /home/cheng/model/Qwen3.5-27B-AWQ \
 --tp 4 \
 --cache-max-entry-count 0.8 \
@@ -17,6 +18,7 @@ lmdeploy serve api_server /home/cheng/model/Qwen3.5-27B-AWQ \
 --api-key abc123 \
 --server-port 8000 \
 --cache-block-seq-len 32 \
+```
 
 
 

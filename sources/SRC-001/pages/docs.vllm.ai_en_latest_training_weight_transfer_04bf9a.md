@@ -56,6 +56,7 @@ call per sync.Under the hood every round is the same **four-phase protocol**, wh
 
 The inference side takes only a backend name. Everything else about the transfer is decided by the trainer and shipped over at the init handshake.
 
+```python
 from vllm import LLM
 from vllm.config import WeightTransferConfig
 llm = LLM(
@@ -63,6 +64,7 @@ model="my-model",
 # Other backends: "ipc", "sparse_nccl", "sharded_rdt", "nccl_m2n".
 weight_transfer_config=WeightTransferConfig(backend="nccl"),
 )
+```
 
 
 Or, for online serving:
@@ -73,6 +75,7 @@ Build the engine once, then call `send_weights()`
 
 once per sync:
 
+```python
 from vllm.distributed.weight_transfer import (
 ModuleSource,
 HTTPVLLMWeightSyncClient,
@@ -95,6 +98,7 @@ source=ModuleSource(model),
 for step in range(num_steps):
 train_one_step(model)
 engine.send_weights()
+```
 
 
 `send_weights()`
@@ -150,12 +154,14 @@ all-gather, a Megatron export) that would deadlock if some ranks skipped it.Pass
 
 on the init info. It is explicit rather than read from a global process group, which is ambiguous once several groups (FSDP / TP / PP / EP) exist.
 
+```bash
 engine = WeightTransferTrainerFactory.trainer_init(
 init_info=NCCLTrainerInitInfo(..., rank=torch.distributed.get_rank()),
 client=client,
 source=ModuleSource(model),
 )
 engine.send_weights() # called on every rank
+```
 
 
 ## API Endpoints[¶](https://docs.vllm.ai#api-endpoints)

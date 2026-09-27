@@ -6,6 +6,7 @@ labels: bug
 
 ## 正文
 
+```bash
 when i run cmd below, there is an " Input data file is malformed" Error
 genai-perf profile \
 	-m ensemble \
@@ -24,6 +25,7 @@ genai-perf profile \
 	--measurement-interval 2000 \
 	--profile-export-file qwen2_7b_export.json \
 	--url localhost:8001
+```
 
 the input data is below
 root@iv-ydge5uwdtsxjd1ti241r:~/artifacts/ensemble-triton-tensorrtllm-concurrency1# cat inputs.json 

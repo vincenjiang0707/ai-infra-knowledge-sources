@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/xpu/dspark/
 lastmod: 2026-09-27
 
+```python
 class DSparkDeepseekV4ForCausalLM(nn.Module):
 """XPU DSpark draft model entry point for DeepSeek-V4."""
 has_own_embed_tokens = False
@@ -189,3 +190,4 @@ head_prefixes
 ):
 return f"model.{rest}"
 return f"model.layers.{stage}.{rest}"
+```

@@ -496,8 +496,10 @@ The `vllm:time_in_queue_requests`
 
 Histogram metric was added by [ Pull Request #9659](https://github.com/vllm-project/vllm/pull/9659) and its calculation is:
 
+```
 self.metrics.first_scheduled_time = now
 self.metrics.time_in_queue = now - self.metrics.arrival_time
+```
 
 
 Two weeks later, [ Pull Request #4464](https://github.com/vllm-project/vllm/pull/4464) added `vllm:request_queue_time_seconds`

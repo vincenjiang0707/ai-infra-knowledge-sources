@@ -182,8 +182,10 @@ typedef struct Sanitizer_Subscriber_st *Sanitizer_SubscriberHandle
 ## Enumerations[#](https://docs.nvidia.com#id2)
 
 -
+```rust
 enum Sanitizer_ApiCallbackSite
 [#](https://docs.nvidia.com#_CPPv425Sanitizer_ApiCallbackSite) Specifies the point in an API call that a callback is issued.
+```
 
 Specifies the point in an API that a callback is issued. This value is communicated to the callback function via Sanitizer_CallbackData::CallbackSize.
 
@@ -205,8 +207,10 @@ enumerator SANITIZER_API_CBSITE_FORCE_INT
 enumerator SANITIZER_API_ENTER
 
 -
+```rust
 enum Sanitizer_BatchMemopAtomicOp
 [#](https://docs.nvidia.com#_CPPv428Sanitizer_BatchMemopAtomicOp) Specifies the type of atomic operation for batch memory atomic reduction.
+```
 
 Specifies the type ofatomic operation for batch memory atomic reduction reported by a callback in domain SANITIZER_CB_DOMAIN_BATCH_MEMOP. This value is communicated to the callback function via
 

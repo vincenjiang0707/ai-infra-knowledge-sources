@@ -23,6 +23,7 @@ you can install it manually by following these steps:
 2. Rename the downloaded file to: frpc_linux_amd64_v0.3
 3. Move the file to this location: /home/user/.cache/huggingface/gradio/frpc
 """
+```python
 import argparse
 import gradio as gr
 from openai import OpenAI
@@ -95,6 +96,7 @@ server_name=args.host, server_port=args.port, share=True
 )
 if __name__ == "__main__":
 main()
+```
 
 
 ## Gradio Webserver[¶](https://docs.vllm.ai#gradio-webserver)
@@ -115,6 +117,7 @@ you can install it manually by following these steps:
 2. Rename the downloaded file to: frpc_linux_amd64_v0.3
 3. Move the file to this location: /home/user/.cache/huggingface/gradio/frpc
 """
+```python
 import argparse
 import json
 import gradio as gr
@@ -157,6 +160,7 @@ demo.queue().launch(server_name=args.host, server_port=args.port, share=True)
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```
 
 
 ## Streamlit OpenAI Chatbot Webserver[¶](https://docs.vllm.ai#streamlit-openai-chatbot-webserver)
@@ -172,6 +176,7 @@ Features:
 - Configurable API endpoint
 - Real-time chat history
 - Reasoning Display: Optional thinking process visualization
+```python
 Requirements:
 pip install streamlit openai
 Usage:
@@ -209,6 +214,7 @@ st.session_state.api_base_url = openai_api_base
 def create_new_chat_session():
 """Create a new chat session with timestamp as unique identifier.
 This function initializes a new chat session by:
+```
 1. Generating a timestamp-based session ID
 2. Creating an empty message list for the new session
 3. Setting the new session as both current and active session

@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::FrameworkNode[#](https://docs.openvino.ai#class-ov-op-util-frameworknode)
 
 -
+```python
 class FrameworkNode : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[MultiSubGraphOp](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_multi_sub_graph_op.html#_CPPv4N2ov2op4util15MultiSubGraphOpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util13FrameworkNodeE) Subclassed by
+```
 
 [ov::frontend::ComplexTypeMark](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1frontend_1_1_complex_type_mark),[ov::frontend::SequenceMark](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1frontend_1_1_sequence_mark),[ov::frontend::Variable](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1frontend_1_1_variable)Public Functions
 

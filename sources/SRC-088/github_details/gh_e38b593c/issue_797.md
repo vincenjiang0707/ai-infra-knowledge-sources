@@ -31,8 +31,10 @@ Below are the data plots for both models during training.
 <img width="398" height="430" alt="Image" src="https://github.com/user-attachments/assets/fa79ea46-e843-4931-9e72-8262f59fc8d6" />
 
 train scripts:
+```bash
 python scripts/train.py --verifier-name-or-path /llm/model/Qwen3-4B-Instruct-2507 --data-path ./output/dflash_qwen3_4b_medium_10k --hidden-states-path ./output/dflash_qwen3_4b_medium_10k/hidden_states --save-path ./output/dflash_qwen3_4b_medium_10k/checkpoints --speculator-type dflash --block-size 8 --num-layers 5 --target-layer-ids 2 10 18 26 34 --epochs 30 --lr 5e-4 --total-seq-len 8192 --on-missing raise --seed 42 --draft-arch qwen3 --scheduler-type cosine --max-anchors 512 --prefetch-factor 2 --num-workers 8 --logger tensorboard --run-name dflash_qwen3_4b_medium_10k --log-freq 4
 python scripts/train.py --verifier-name-or-path /llm/model/Qwen3.5-4B --data-path ./output/dflash_qwen3_5_4b_medium_10k --hidden-states-path ./output/dflash_qwen3_5_4b_medium_10k/hidden_states_new --save-path ./output/dflash_qwen3_5_4b_medium_10k_new_1/checkpoints --speculator-type dflash --block-size 8 --num-layers 5 --target-layer-ids 2 9 16 23 30 --epochs 30 --lr 5e-4 --total-seq-len 8192 --on-missing raise --seed 42 --draft-arch qwen3 --scheduler-type cosine --max-anchors 512 --prefetch-factor 2 --num-workers 8 --logger tensorboard --run-name dflash_qwen3_5_4b_medium_10k_new_1 --log-freq 4 
+```
 
 ## 评论 (10)
 

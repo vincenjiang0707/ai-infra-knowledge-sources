@@ -397,11 +397,13 @@ Infra is hard
 
 This project is mostly infra. A run needs a trainer, two Spaces, an inference router and a websocket to stay healthy for hours straight, and every piece that fails quietly turns into a wrong number somewhere else. Half the work is checking that the number you read matches what actually happened.
 
+```python
 **Failures of the infrastructure were entering the reward as zeros.** A render that
 timed out or a scorer that did not answer scored the same as a bad painting, 0.0 inside
 the group. Across all my runs that was about 1.5% of rollouts, and in the worst run it
 reached 5.2%. That trains the model on noise, so those paths now
 return `None`
+```
 
 and the rollout is excluded from the group.
 

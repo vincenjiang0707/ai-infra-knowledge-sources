@@ -1,10 +1,12 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/medusa/
 lastmod: 2026-09-27
 
+```python
 class Medusa(nn.Module):
 """This class implements the Medusa draft model from the paper: https://arxiv.org/abs/2401.10774
 Reference implementation: https://github.com/FasterDecoding/Medusa
 Differences from reference implementation:
+```
 1. Currently this only supports generating proposals from top-1 tokens.
 2. We have an optional token_map which reduces draft vocab to most
 frequently used tokens to give some additional speed-up by reducing
@@ -81,6 +83,7 @@ else:
 logits_lst.append(
 -torch.inf
 * torch.ones(
+```python
 size=(*_logits.shape[:-1], self.orig_vocab_size),
 device=_logits.device,
 dtype=_logits.dtype,
@@ -140,3 +143,4 @@ assert (self.truncated_vocab_size == self.orig_vocab_size) or (
 self.token_map is not None
 )
 return loaded_params
+```

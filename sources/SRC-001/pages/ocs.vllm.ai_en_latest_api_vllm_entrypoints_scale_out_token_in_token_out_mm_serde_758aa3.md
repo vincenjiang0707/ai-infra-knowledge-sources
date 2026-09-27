@@ -15,11 +15,13 @@ Deserialize a base64 string back to a MultiModalKwargsItem.
 ## Source code in `vllm/entrypoints/scale_out/token_in_token_out/mm_serde.py`
 
 
+```python
 | def decode_mm_kwargs_item(data: str) -> MultiModalKwargsItem:
 """Deserialize a base64 string back to a MultiModalKwargsItem."""
 raw = pybase64.b64decode(data)
 return _decoder.decode(raw)
 |
+```
 
 ##
 

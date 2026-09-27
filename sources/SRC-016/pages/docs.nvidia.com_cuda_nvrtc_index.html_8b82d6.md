@@ -111,8 +111,10 @@ nvrtcGetErrorString is a helper function that returns a string describing the gi
 3.1.1. Enumerations[](https://docs.nvidia.com#enumerations)
 
 -
+```rust
 enum nvrtcResult
 [](https://docs.nvidia.com#_CPPv411nvrtcResult)
+```
 
 -
 The enumerated type nvrtcResult defines API call result codes.
@@ -2158,8 +2160,10 @@ will be set to point to a string describing the error cause. Note: subsequent AP
 
 
 -
+```rust
 struct nvrtcBundledHeadersInfo
 [](https://docs.nvidia.com#_CPPv423nvrtcBundledHeadersInfo)
+```
 
 -
 Structure containing information about bundled headers.

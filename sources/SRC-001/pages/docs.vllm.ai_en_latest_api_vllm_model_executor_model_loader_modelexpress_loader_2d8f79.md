@@ -9,6 +9,7 @@ Thin vLLM loader wrapper for ModelExpress.
 ## Source code in `vllm/model_executor/model_loader/modelexpress_loader.py`
 
 
+```python
 | class ModelExpressModelLoader(BaseModelLoader):
 """Thin vLLM loader wrapper for ModelExpress."""
 def __init__(self, load_config: LoadConfig):
@@ -42,3 +43,4 @@ prefix=prefix,
 )
 return model.eval()
 |
+```

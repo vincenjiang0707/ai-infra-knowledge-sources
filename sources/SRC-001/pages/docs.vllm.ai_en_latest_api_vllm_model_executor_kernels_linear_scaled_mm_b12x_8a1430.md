@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/scaled_mm/b12x/
 lastmod: 2026-09-27
 
+```python
 class B12xTensorFP8ScaledMMLinearKernel(FP8ScaledMMLinearKernel):
 """Static per-tensor FP8 linear through the B12X SM12x dense GEMM."""
 @classmethod
@@ -52,6 +53,7 @@ tensor_fp8 = _import_b12x_tensor_fp8()
 assert tensor_fp8 is not None
 output_scale = (
 input_scale.detach().to(torch.float32).reshape(1)
+```
 * weight_scale.detach().to(torch.float32).reshape(1)
 ).contiguous()
 packed_weight = tensor_fp8.pack_weight(

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/inkling/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 InklingMultiModalProcessor,
 info=InklingProcessingInfo,
@@ -130,3 +131,4 @@ def get_language_model(self) -> nn.Module:
 # language model is self — callers expect a module exposing ``.model``
 # and ``.lm_head``.
 return self
+```

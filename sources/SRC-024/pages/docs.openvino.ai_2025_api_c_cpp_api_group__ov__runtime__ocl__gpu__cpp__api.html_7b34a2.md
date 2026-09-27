@@ -107,8 +107,10 @@ static constexpr Property<uint32_t> va_plane = {"VA_PLANE"}
 
 
 -
+```python
 class D3DBufferTensor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[intel_gpu](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9intel_gpuE)::[ocl](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9intel_gpu3oclE)::[ClBufferTensor](https://docs.openvino.ai/classov_1_1intel__gpu_1_1ocl_1_1_cl_buffer_tensor.html#_CPPv4N2ov9intel_gpu3ocl14ClBufferTensorE)[#](https://docs.openvino.ai#_CPPv4N2ov9intel_gpu3ocl15D3DBufferTensorE) *#include <dx.hpp>*This class represents an abstraction for GPU plugin remote tensor which is shared with Direct3D 11 buffer. The plugin object derived from this class can be obtained with
+```
 
 [D3DContext::create_tensor()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1intel__gpu_1_1ocl_1_1_d3_d_context_1a20f1fdfe8e231908be276cec21253acc)call.Note
 
@@ -129,8 +131,10 @@ Pointer to underlying ID3D11Buffer interface
 inline operator ID3D11Buffer*()
 
 -
+```python
 class D3DSurface2DTensor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[intel_gpu](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9intel_gpuE)::[ocl](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9intel_gpu3oclE)::[ClImage2DTensor](https://docs.openvino.ai/classov_1_1intel__gpu_1_1ocl_1_1_cl_image2_d_tensor.html#_CPPv4N2ov9intel_gpu3ocl15ClImage2DTensorE)[#](https://docs.openvino.ai#_CPPv4N2ov9intel_gpu3ocl18D3DSurface2DTensorE) *#include <dx.hpp>*This class represents an abstraction for GPU plugin remote tensor which is shared with Direct3D 11 2D texture. The plugin object derived from this class can be obtained with
+```
 
 [D3DContext::create_tensor()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1intel__gpu_1_1ocl_1_1_d3_d_context_1a20f1fdfe8e231908be276cec21253acc)call.Note
 
@@ -160,8 +164,10 @@ Plane ID
 inline operator ID3D11Texture2D*()
 
 -
+```python
 class D3DContext : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[intel_gpu](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9intel_gpuE)::[ocl](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9intel_gpu3oclE)::[ClContext](https://docs.openvino.ai/classov_1_1intel__gpu_1_1ocl_1_1_cl_context.html#_CPPv4N2ov9intel_gpu3ocl9ClContextE)[#](https://docs.openvino.ai#_CPPv4N2ov9intel_gpu3ocl10D3DContextE) *#include <dx.hpp>*This class represents an abstraction for GPU plugin remote context which is shared with Direct3D 11 device. The plugin object derived from this class can be obtained either with
+```
 
 [CompiledModel::get_context()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_compiled_model_1a22c5537d4c7182072d327077c386b01a)or[Core::create_context()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_core_1ab9a3eef07c3471037070242f8da2fb01)calls.Note
 
@@ -246,8 +252,10 @@ static inline void type_check(const
 inline operator ID3D11Device*()
 
 -
+```python
 class ClBufferTensor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[RemoteTensor](https://docs.openvino.ai/classov_1_1_remote_tensor.html#_CPPv4N2ov12RemoteTensorE)[#](https://docs.openvino.ai#_CPPv4N2ov9intel_gpu3ocl14ClBufferTensorE) *#include <ocl.hpp>*This class represents an abstraction for GPU plugin remote tensor which can be shared with user-supplied OpenCL buffer. The plugin object derived from this class can be obtained with
+```
 
 [ClContext::create_tensor()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1intel__gpu_1_1ocl_1_1_cl_context_1ad9eb11f702e791114f2dc591a3abcb16)call.Note
 
@@ -289,8 +297,10 @@ object
 inline cl_mem get()
 
 -
+```python
 class ClImage2DTensor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[RemoteTensor](https://docs.openvino.ai/classov_1_1_remote_tensor.html#_CPPv4N2ov12RemoteTensorE)[#](https://docs.openvino.ai#_CPPv4N2ov9intel_gpu3ocl15ClImage2DTensorE) *#include <ocl.hpp>*This class represents an abstraction for GPU plugin remote tensor which can be shared with user-supplied OpenCL 2D Image. The plugin object derived from this class can be obtained with
+```
 
 [ClContext::create_tensor()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1intel__gpu_1_1ocl_1_1_cl_context_1ad9eb11f702e791114f2dc591a3abcb16)call.Note
 
@@ -301,8 +311,10 @@ Subclassed by
 [ov::intel_gpu::ocl::D3DSurface2DTensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1intel__gpu_1_1ocl_1_1_d3_d_surface2_d_tensor),[ov::intel_gpu::ocl::VASurfaceTensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1intel__gpu_1_1ocl_1_1_v_a_surface_tensor)
 
 -
+```python
 class USMTensor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[RemoteTensor](https://docs.openvino.ai/classov_1_1_remote_tensor.html#_CPPv4N2ov12RemoteTensorE)[#](https://docs.openvino.ai#_CPPv4N2ov9intel_gpu3ocl9USMTensorE) *#include <ocl.hpp>*This class represents an abstraction for GPU plugin remote tensor which can be shared with user-supplied USM device pointer. The plugin object derived from this class can be obtained with
+```
 
 [ClContext::create_tensor()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1intel__gpu_1_1ocl_1_1_cl_context_1ad9eb11f702e791114f2dc591a3abcb16)call.Note
 
@@ -323,8 +335,10 @@ underlying USM pointer
 inline void *get()
 
 -
+```python
 class ClContext : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[RemoteContext](https://docs.openvino.ai/classov_1_1_remote_context.html#_CPPv4N2ov13RemoteContextE)[#](https://docs.openvino.ai#_CPPv4N2ov9intel_gpu3ocl9ClContextE) *#include <ocl.hpp>*This class represents an abstraction for GPU plugin remote context which is shared with OpenCL context object. The plugin object derived from this class can be obtained either with
+```
 
 [CompiledModel::get_context()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_compiled_model_1a22c5537d4c7182072d327077c386b01a)or[Core::create_context()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_core_1ab9a3eef07c3471037070242f8da2fb01)calls.Subclassed by
 
@@ -448,8 +462,10 @@ static inline void type_check(const
 inline ClContext(
 
 -
+```python
 class VASurfaceTensor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[intel_gpu](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9intel_gpuE)::[ocl](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9intel_gpu3oclE)::[ClImage2DTensor](https://docs.openvino.ai/classov_1_1intel__gpu_1_1ocl_1_1_cl_image2_d_tensor.html#_CPPv4N2ov9intel_gpu3ocl15ClImage2DTensorE)[#](https://docs.openvino.ai#_CPPv4N2ov9intel_gpu3ocl15VASurfaceTensorE) *#include <va.hpp>*This class represents an abstraction for GPU plugin remote tensor which is shared with VA output surface. The plugin object derived from this class can be obtained with
+```
 
 [VAContext::create_tensor()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1intel__gpu_1_1ocl_1_1_v_a_context_1ab0216bc65aae095a60f06da22cd8ba59)call.Note
 
@@ -480,8 +496,10 @@ Plane ID
 inline operator VASurfaceID()
 
 -
+```python
 class VAContext : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[intel_gpu](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9intel_gpuE)::[ocl](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9intel_gpu3oclE)::[ClContext](https://docs.openvino.ai/classov_1_1intel__gpu_1_1ocl_1_1_cl_context.html#_CPPv4N2ov9intel_gpu3ocl9ClContextE)[#](https://docs.openvino.ai#_CPPv4N2ov9intel_gpu3ocl9VAContextE) *#include <va.hpp>*This class represents an abstraction for GPU plugin remote context which is shared with VA display object. The plugin object derived from this class can be obtained either with
+```
 
 [CompiledModel::get_context()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_compiled_model_1a22c5537d4c7182072d327077c386b01a)or[Core::create_context()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_core_1ab9a3eef07c3471037070242f8da2fb01)calls.Note
 

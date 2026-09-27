@@ -30,6 +30,7 @@ def save_model(self, output_dir=None, merge_tensor_parallel=False):
             ) as of:
                 of.write(json.dumps(self.static_name_to_dyg_name))
 `
+```yaml
 2、配置文件为
 `
 ### data
@@ -46,8 +47,10 @@ sft_replace_ids: True
 sft_image_normalize: True
 sft_image_rescale: True
 image_dtype: "float32"
+```
 
 ### model
+```yaml
 # model_name_or_path: PaddlePaddle/PaddleOCR-VL
 model_name_or_path: "./pretrainmodel"
 fine_tuning: LoRA
@@ -56,8 +59,10 @@ fuse_rope: True
 multimodal: True
 use_flash_attention: True
 use_sparse_flash_attn: True
+```
 
 ### finetuning
+```yaml
 # base
 stage: OCR-VL-SFT
 seed: 23
@@ -85,22 +90,28 @@ gradient_accumulation_steps: 8
 logging_dir: ./PaddleOCR-VL-SFT-lora/tensorboard_logs/
 output_dir: ./PaddleOCR-VL-SFT-lora
 disable_tqdm: True
+```
 
 # train
+```yaml
 warmup_steps: 10
 learning_rate: 1.0e-4
 lr_scheduler_type: cosine
 min_lr: 1.0e-5
 layerwise_lr_decay_bound: 1.0
 from_scratch: 0
+```
 
 # optimizer
+```yaml
 weight_decay: 0.1
 adam_epsilon: 1.0e-8
 adam_beta1: 0.9
 adam_beta2: 0.95
+```
 
 # performance
+```yaml
 tensor_parallel_degree: 1
 pipeline_parallel_degree: 1
 sharding_parallel_degree: 1
@@ -115,6 +126,7 @@ fp16_opt_level: O2
 disable_ckpt_quant: True
 # amp_master_grad: True
 amp_custom_white_list:
+```
   - lookup_table
   - lookup_table_v2
   - flash_attn
@@ -137,6 +149,7 @@ save_to_hf: True
 
 <img width="502" height="722" alt="Image" src="https://github.com/user-attachments/assets/f89a1f7e-2d0a-4272-8bca-b0d99559fc6e" />
 4、采用如下进行测试
+```python
 `import json
 import os
 import shutil
@@ -144,6 +157,7 @@ from pathlib import Path
 import paddle
 from paddlex import create_model
 import time
+```
 
 def batch_process_ocr(val_path, model_dir, output_folder="./output", batch_size=8):
     """批量处理OCR检测"""

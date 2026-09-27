@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/nemotron_h_mtp/
 lastmod: 2026-09-27
 
+```python
 class NemotronHMTP(nn.Module, SupportsPP, SupportsQuant):
 """NemotronH MTP model."""
 hf_to_vllm_mapper = WeightsMapper(
@@ -199,3 +200,4 @@ loaded_params.update(
 name for name in params_dict if name.startswith("lm_head.")
 )
 return loaded_params
+```

@@ -18,6 +18,7 @@ Current limitations compared to /v1/chat/completions:
 - Tool use is not supported.
 - Beam search is not supported.
 """
+```python
 import json
 import os
 import httpx
@@ -183,3 +184,4 @@ book = json.loads(choice["message"]["content"])
 print(f" [{choice['index']}] {book}")
 if __name__ == "__main__":
 main()
+```

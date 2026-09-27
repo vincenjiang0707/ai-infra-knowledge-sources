@@ -4,8 +4,10 @@ lastmod:
 # Class ov::pass::ConvToBinaryConv[#](https://docs.openvino.ai#class-ov-pass-convtobinaryconv)
 
 -
+```python
 class ConvToBinaryConv : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[pass](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4passE)::[MatcherPass](https://docs.openvino.ai/classov_1_1pass_1_1_matcher_pass.html#_CPPv4N2ov4pass11MatcherPassE)[#](https://docs.openvino.ai#_CPPv4N2ov4pass16ConvToBinaryConvE) This transformation converts Convolution to BinaryConvolution under following conditions:
+```
 
 first input to Convolution is a FakeQuantize with levels==2 with output low,high being either (0, 1) or (-1, 1)
 

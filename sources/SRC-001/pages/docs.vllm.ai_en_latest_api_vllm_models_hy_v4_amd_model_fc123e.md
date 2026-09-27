@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/hy_v4/amd/model/
 lastmod: 2026-09-27
 
+```python
 @support_torch_compile
 class HYV4Model(nn.Module):
 """HY V4 backbone."""
@@ -377,3 +378,4 @@ else:
 weight_loader(param, loaded_weight, stacked_shard_id)
 loaded_params.add(name)
 return loaded_params
+```

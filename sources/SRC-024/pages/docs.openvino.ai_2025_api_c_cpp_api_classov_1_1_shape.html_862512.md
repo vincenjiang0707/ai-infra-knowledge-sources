@@ -4,8 +4,10 @@ lastmod:
 # Class ov::Shape[#](https://docs.openvino.ai#class-ov-shape)
 
 -
+```python
 class Shape : public std::vector<size_t>
 [#](https://docs.openvino.ai#_CPPv4N2ov5ShapeE) [Shape](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_shape)for a tensor.Public Functions
+```
 
 - OPENVINO_API Shape::reference operator[] (std::ptrdiff_t i)
 Gets dimension at index.

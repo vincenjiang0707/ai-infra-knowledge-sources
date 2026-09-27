@@ -804,9 +804,11 @@ FIG_003 · BFOUNDATIONAL PAPERS COVERED |
 [FORKING.md](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/FORKING.md)[LESSON_TEMPLATE.md](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/LESSON_TEMPLATE.md)[ROADMAP.md](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/ROADMAP.md)[glossary/terms.md](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/glossary/terms.md)[CODE_OF_CONDUCT.md](https://github.com/rohitg00/ai-engineering-from-scratch/blob/main/CODE_OF_CONDUCT.md)Before submitting a lesson, run the invariant check:
 
 ```
+```bash
 python3 scripts/audit_lessons.py # full curriculum
 python3 scripts/audit_lessons.py --phase 14 # single phase
 python3 scripts/audit_lessons.py --json # CI-friendly output
+```
 ```
 
 Exit code is non-zero when any rule fails. Rules (L001–L010) validate directory

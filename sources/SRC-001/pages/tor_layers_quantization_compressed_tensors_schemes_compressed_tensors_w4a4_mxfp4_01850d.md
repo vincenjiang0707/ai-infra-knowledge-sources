@@ -1,11 +1,13 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_w4a4_mxfp4/
 lastmod: 2026-09-27
 
+```python
 class CompressedTensorsW4A4Mxfp4(CompressedTensorsScheme):
 """Compressed tensors scheme for MXFP4.
 Supports models quantized with the compressed-tensors mxfp4-pack-quantized
 format.
 MXFP4 format:
+```
 - 4-bit float weights (E2M1) packed into uint8
 - Per-group E8M0 scales with group_size=32
 - No global scale (unlike NVFP4)

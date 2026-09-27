@@ -71,8 +71,10 @@ The `dynamo-planner`
 
 image installs the published `aisimulate==0.12.0`
 
+```
 wheel from its local
 wheelhouse. Dynamo builds `aisimulate-core==0.12.0`
+```
 
 from crates.io instead of vendoring the
 AISimulate source tree.

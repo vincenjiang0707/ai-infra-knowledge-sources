@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/aux_output_connector/routed_experts/
 lastmod: 2026-09-27
 
+```python
 class RoutedExpertsBuffer:
 """Own incomplete and unkeyed full routed-experts blocks."""
 def __init__(
@@ -122,3 +123,4 @@ def reset(self) -> None:
 self._requests.clear()
 self._owned_slots.clear()
 self._free_slots[:] = range(len(self._rows) - 1, -1, -1)
+```

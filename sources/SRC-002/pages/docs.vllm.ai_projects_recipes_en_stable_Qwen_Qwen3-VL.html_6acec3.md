@@ -115,6 +115,7 @@ vllm bench serve \
 
 ### Consume the OpenAI API Compatible Server[¶](https://docs.vllm.ai#consume-the-openai-api-compatible-server)
 
+```python
 import time
 from openai import OpenAI
 client = OpenAI(
@@ -147,6 +148,7 @@ max_tokens=2048
 )
 print(f"Response costs: {time.time() - start:.2f}s")
 print(f"Generated text: {response.choices[0].message.content}")
+```
 
 
 For more usage examples, check out the [vLLM user guide for multimodal models](https://docs.vllm.ai/en/latest/features/multimodal_inputs.html) and the [official Qwen3-VL GitHub Repository](https://github.com/QwenLM/Qwen3-VL)!

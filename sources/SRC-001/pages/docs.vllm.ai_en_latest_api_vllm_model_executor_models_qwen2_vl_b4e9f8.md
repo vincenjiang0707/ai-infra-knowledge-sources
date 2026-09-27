@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/qwen2_vl/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 Qwen2VLMultiModalProcessor,
 info=Qwen2VLProcessingInfo,
@@ -518,3 +519,4 @@ hf_config = self.config
 vision_config = hf_config.vision_config
 merge_size = vision_config.spatial_merge_size
 return num_mm_embeds * merge_size**2, num_mm_embeds
+```

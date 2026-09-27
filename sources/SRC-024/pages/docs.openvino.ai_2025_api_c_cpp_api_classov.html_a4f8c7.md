@@ -7,8 +7,10 @@ lastmod:
 Public Types
 
 -
+```rust
 enum ColumnOfProcessorTypeTable
 [#](https://docs.openvino.ai#_CPPv4N19PhonyNameDueToError26ColumnOfProcessorTypeTableE) This enum contains definition of each columns in processor type table which bases on cpu core types. Will extend to support other CPU core type like ARM.
+```
 
 The following are two example of processor type table.
 
@@ -64,8 +66,10 @@ enumerator PROC_TYPE_TABLE_SIZE
 
 
 -
+```rust
 enum ProcessorUseStatus
 [#](https://docs.openvino.ai#_CPPv4N19PhonyNameDueToError18ProcessorUseStatusE) Definition of CPU_MAP_USED_FLAG column in CPU mapping table.
+```
 
 *Values:*-
 enumerator CPU_BLOCKED
@@ -86,8 +90,10 @@ enumerator CPU_USED
 enumerator CPU_BLOCKED
 
 -
+```rust
 enum ColumnOfCPUMappingTable
 [#](https://docs.openvino.ai#_CPPv4N19PhonyNameDueToError23ColumnOfCPUMappingTableE) This enum contains definition of each columns in CPU mapping table which use processor id as index.
+```
 
 GROUP_ID is generated according to the following rules.
 
@@ -149,8 +155,10 @@ enumerator CPU_MAP_TABLE_SIZE
 
 
 -
+```rust
 enum ColumnOfCpuStreamsInfoTable
 [#](https://docs.openvino.ai#_CPPv4N19PhonyNameDueToError27ColumnOfCpuStreamsInfoTableE) This enum contains definition of each columns in cpu streams information table.
+```
 
 The following are two example of processor type table.
 
@@ -191,8 +199,10 @@ enumerator CPU_STREAMS_TABLE_SIZE
 
 
 -
+```rust
 enum class PropertyMutability
 [#](https://docs.openvino.ai#_CPPv4N19PhonyNameDueToError18PropertyMutabilityE) Enum to define property value mutability.
+```
 
 *Values:*-
 enumerator RO
@@ -413,8 +423,10 @@ False will not involve additional tbb operations when core destruction
 
 
 -
+```json
 static constexpr Property<bool,
 [PropertyMutability](https://docs.openvino.ai#_CPPv4N19PhonyNameDueToError18PropertyMutabilityE)::[RW](https://docs.openvino.ai#_CPPv4N19PhonyNameDueToError18PropertyMutability2RWE)> enable_mmap = {"ENABLE_MMAP"}[#](https://docs.openvino.ai#_CPPv4N19PhonyNameDueToError11enable_mmapE) Read-write property to configure
+```
 
 `mmap()`
 

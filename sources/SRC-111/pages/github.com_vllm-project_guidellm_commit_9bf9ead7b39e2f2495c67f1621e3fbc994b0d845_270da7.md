@@ -2,10 +2,12 @@ source: https://github.com/vllm-project/guidellm/commit/9bf9ead7b39e2f2495c67f16
 
 You signed in with another tab or window. Reload to refresh your session.You signed out in another tab or window. Reload to refresh your session.You switched accounts on another tab or window. Reload to refresh your session.Dismiss alert
 
+```yaml
 Add inline and file-backed API key sources for the OpenAI HTTP backend and coordinate round-robin allocation across worker processes.
 Generated-by: Cursor GPT-5.6 Terra
 Co-authored-by: Cursor <cursoragent@cursor.com>
 Signed-off-by: Hrushikesh Patil <hrushi2900@gmail.com>
+```
 
 Flat settings can be specified using comma-separated key=value pairs; for nested settings use serialized JSON or YAML. Common `openai_http` parameters include `target`, `model`, `request_format`, `api_key`, `stream`, `verify`, `timeout`, and nested `extras` for request body, headers, and query parameters:
 

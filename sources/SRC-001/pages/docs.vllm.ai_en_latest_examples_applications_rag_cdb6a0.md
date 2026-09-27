@@ -37,6 +37,7 @@ Notes:
 - Default ports: 8000 (embedding), 8001 (chat)
 - First run may take time to download models
 """
+```python
 import argparse
 from argparse import Namespace
 from typing import Any
@@ -206,6 +207,7 @@ print(output)
 print("-" * 50)
 if __name__ == "__main__":
 main()
+```
 
 
 ## Retrieval Augmented Generation With Llamaindex[¶](https://docs.vllm.ai#retrieval-augmented-generation-with-llamaindex)
@@ -224,10 +226,12 @@ Features:
 3. Query Processing
 Requirements:
 1. Install dependencies:
+```bash
 pip install llama-index llama-index-readers-web \
 llama-index-llms-openai-like \
 llama-index-embeddings-openai-like \
 llama-index-vector-stores-milvus \
+```
 2. Start services:
 # Start embedding service (port 8000)
 vllm serve ssmits/Qwen2-7B-Instruct-embed-base
@@ -240,6 +244,7 @@ Notes:
 - Default ports: 8000 (embedding), 8001 (chat)
 - First run may take time to download models
 """
+```python
 import argparse
 from argparse import Namespace
 from typing import Any
@@ -395,3 +400,4 @@ print(response)
 print("-" * 50)
 if __name__ == "__main__":
 main()
+```

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/hpc_moe/
 lastmod: 2026-09-27
 
+```python
 class HPCExperts(mk.FusedMoEExpertsModular):
 """MoE implementation powered by [HPC](https://github.com/Tencent/hpc-ops).
 Only supported on NVIDIA Hopper GPUs (e.g. H20, H200), and currently limited to
@@ -87,6 +88,7 @@ and activation in the fused expert function. Since the gemms are
 independent, the workspace for the first gemm can be shared with the
 workspace for the last gemm.
 Returns a tuple of:
+```
 - workspace13 shape tuple: must be large enough to hold the
 result of either expert gemm.
 - workspace2 shape tuple: must be large enough to hold the

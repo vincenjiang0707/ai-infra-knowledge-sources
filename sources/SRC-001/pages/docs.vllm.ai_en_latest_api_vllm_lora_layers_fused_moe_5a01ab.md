@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/layers/fused_moe/
 lastmod: 2026-09-27
 
+```python
 class FusedMoEWithLoRA(BaseLayerWithLoRA):
 def __init__(self, base_layer: MoERunner) -> None:
 super().__init__()
@@ -390,3 +391,4 @@ model_config: PreTrainedConfig | None = None,
 # source_layer is MoERunner
 moe_cls = maybe_get_oot_by_class(MoERunner)
 return isinstance(source_layer, moe_cls) and len(packed_modules_list) == 2
+```

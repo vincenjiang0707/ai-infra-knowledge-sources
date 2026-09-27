@@ -11,10 +11,12 @@ This guide provides instructions for running Wan2.2 video generation models usin
 
 ## Installing vLLM-Omni[¶](https://docs.vllm.ai#installing-vllm-omni)
 
+```bash
 uv venv
 source .venv/bin/activate
 uv pip install vllm==0.12.0
 uv pip install git+https://github.com/vllm-project/vllm-omni.git@ef01223c42be10ee260b9f6e5ec31894cd09d86e
+```
 
 
 The CLI examples below are from the vLLM-Omni repo. If you want to run them directly, clone that repo and run the scripts from its `examples/offline_inference`
@@ -25,6 +27,7 @@ directory.
 
 ### Basic Usage[¶](https://docs.vllm.ai#basic-usage)
 
+```python
 from vllm_omni.entrypoints.omni import Omni
 omni = Omni(model="Wan-AI/Wan2.2-T2V-A14B-Diffusers")
 frames = omni.generate(
@@ -35,6 +38,7 @@ num_frames=81,
 num_inference_steps=40,
 guidance_scale=4.0,
 )
+```
 
 
 ### CLI Usage[¶](https://docs.vllm.ai#cli-usage)
@@ -57,6 +61,7 @@ python examples/offline_inference/text_to_video/text_to_video.py \
 
 ### Basic Usage[¶](https://docs.vllm.ai#basic-usage_1)
 
+```python
 import PIL.Image
 from vllm_omni.entrypoints.omni import Omni
 omni = Omni(model="Wan-AI/Wan2.2-I2V-A14B-Diffusers")
@@ -70,6 +75,7 @@ num_frames=81,
 num_inference_steps=50,
 guidance_scale=5.0,
 )
+```
 
 
 ### CLI Usage[¶](https://docs.vllm.ai#cli-usage_1)
@@ -108,6 +114,7 @@ vLLM-Omni supports Cache-DiT acceleration for Wan2.2 models, which can significa
 
 ### Enabling Cache-DiT[¶](https://docs.vllm.ai#enabling-cache-dit)
 
+```python
 from vllm_omni.entrypoints.omni import Omni
 omni = Omni(
 model="Wan-AI/Wan2.2-T2V-A14B-Diffusers",
@@ -120,12 +127,14 @@ width=1280,
 num_frames=81,
 num_inference_steps=40,
 )
+```
 
 
 ### Custom Cache-DiT Configuration[¶](https://docs.vllm.ai#custom-cache-dit-configuration)
 
 For fine-tuned control over the acceleration:
 
+```json
 omni = Omni(
 model="Wan-AI/Wan2.2-T2V-A14B-Diffusers",
 cache_backend="cache_dit",
@@ -136,6 +145,7 @@ cache_config={
 "residual_diff_threshold": 0.12,
 },
 )
+```
 
 
 ## Key Parameters[¶](https://docs.vllm.ai#key-parameters)

@@ -40,9 +40,11 @@ Deploy KubeRay operator with the following CLI args:
 --config /etc/kuberay/config.yaml
 Create a ConfigMap with config.yaml containing only:
 
+```yaml
 apiVersion: config.ray.io/v1alpha1
 kind: Configuration
 defaultContainerEnvs:
+```
 - name: MY_ENV
   value: "test"
 Observe that:

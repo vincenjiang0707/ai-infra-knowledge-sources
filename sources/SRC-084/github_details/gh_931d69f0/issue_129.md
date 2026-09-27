@@ -89,8 +89,10 @@ torch._dynamo.exc.Unsupported: cache_size_limit reached
 
 ### When I remove these two lines from the code, there are no more errors reported.
 
+```python
 from hqq.utils.generation_hf import patch_model_for_compiled_runtime
 patch_model_for_compiled_runtime(model, tokenizer, warmup=True)
+```
 
 ### mobicham · 2024-10-30
 
@@ -102,12 +104,14 @@ I changed torch2.5, transformers=4.42.1, hqq=0.2.2, on A100-40GB, the previous p
 
 
 # code
+```python
 import torch
 import os
 import torch._dynamo
 from transformers import HqqConfig
 torch._dynamo.config.cache_size_limit = 64  
 os.environ["TORCH_LOGS"] = "recompiles"
+```
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 device = 'cuda:0'
@@ -116,6 +120,7 @@ compute_dtype = torch.float16 if backend=="bitblas" else torch.bfloat16
 cache_dir = '.' 
 model_id = './llama/llama2_hf'
 
+```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from hqq.models.hf.base import AutoHQQHFModel
 from hqq.core.quantize import *
@@ -129,16 +134,19 @@ model = AutoModelForCausalLM.from_pretrained(model_id, cache_dir=cache_dir, torc
 
 from hqq.utils.patching import prepare_for_inference
 prepare_for_inference(model, backend=backend, verbose=True)
+```
 
 from hqq.utils.generation_hf import patch_model_for_compiled_runtime
 
 patch_model_for_compiled_runtime(model, tokenizer, warmup=True)
 
+```python
 system_prompt = None 
 prompt = "Write an essay about large language models."
 
 messages = [] if(system_prompt is None) else [{"role": "system", "content": system_prompt}]
 messages += [{"role": "user", "content": prompt},]
+```
 
 inputs = tokenizer([tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)],return_tensors="pt").to(model.device)
 

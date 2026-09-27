@@ -321,9 +321,11 @@ drwxr-xr-x 2 root root 4.0K mar 19 10:28 tools
 
 For this release, GPUDirect Storage is providing an additional `libcufile-dev`
 
+```go
 package (cuFile library
 developers package) . This is primarily intended for the developer’s environment. Essentially the
 `libcufile-dev`
+```
 
 package contains a static version of cuFile library (`libcufile_static.a`
 
@@ -2437,6 +2439,7 @@ $ lsmod | grep nvidia_fs | grep ib_core && echo "Ready for Memory Peer Direct"
 ``` |
 Check for |
 ```
+```yaml
 $ dpkg -s libibverbs-dev
 Package: libibverbs-dev
 Status: install ok installed
@@ -2446,6 +2449,7 @@ Installed-Size: 1151
 Maintainer: Linux RDMA Mailing List <linux-rdma@vger.kernel.org>
 Architecture: amd64
 Multi-Arch: same
+```
 Source: rdma-core
 Version: 47mlnx1-1.47329
 ``` |
@@ -2455,12 +2459,14 @@ Version: 47mlnx1-1.47329
 By default, the configuration for Weka RDMA-based writes is disabled.
 
 ```
+```json
 "fs": {
 "weka": {
 // enable/disable WekaFs rdma write
 "rdma_write_support" : false
 }
 }
+```
 ```
 
 To support the WekaIO file system, change the configuration to add a new property, `rdma_dev_addr_list`
@@ -2914,6 +2920,7 @@ Interfaces: em3(TCP)
 ### 14.4.2. List the Metadata Nodes[#](https://docs.nvidia.com#list-the-metadata-nodes)
 
 ```
+```yaml
 root@dgxa100-b:/sys/class# beegfs-ctl --listnodes --nodetype=meta -details
 meta01-numa0-1-meta [ID: 1101]
 Ports: UDP: 8005; TCP: 8005
@@ -2929,6 +2936,7 @@ Ports: UDP: 8006; TCP: 8006
 Interfaces: ib2:net2(RDMA) ib2:net2(TCP)
 Number of nodes: 4
 Root: 2101
+```
 ```
 
 ### 14.4.3. List the Storage Nodes[#](https://docs.nvidia.com#list-the-storage-nodes)
@@ -3176,6 +3184,7 @@ Typically, GPU optimized clients (such as the NVIDIA DGX-2 and DGX-A100) are con
 
 ```
 $ sudo ibdev2netdev
+```
 mlx5_0 port 1 ==> ibp12s0 (Up)
 mlx5_1 port 1 ==> ibp18s0 (Up)
 mlx5_10 port 1 ==> ibp225s0f0 (Down)
@@ -3189,12 +3198,14 @@ mlx5_7 port 1 ==> ibp148s0 (Up)
 mlx5_8 port 1 ==> ibp186s0 (Up)
 mlx5_9 port 1 ==> ibp202s0 (Up)
 ```
+```
 
 Not all interfaces are connected, and this is to ensure optimal bandwidth.
 
 When using the aforementioned VAST NFSoRDAM+Multipath package, it is recommended to assign static IP’s to each interface on the same subnet, which should also match the subnet configured on the VAST VIP Pool. If using GDS with NVIDIA DGX-A100s, a simplistic netplan is all that is required, for example:
 
 ```
+```yaml
 ibp12s0:
 addresses: [172.16.0.17/24]
 dhcp4: no
@@ -3204,6 +3215,7 @@ dhcp4: no
 ibp148s0:
 addresses: [172.16.0.19/24]
 dhcp4: no
+```
 ```
 
 However, if you are using other systems, or non-GDS code, you need to apply the following code to ensure that the proper interfaces are used to traverse from Client–>VAST.
@@ -3215,6 +3227,7 @@ See the `routes`
 section for each interface in the following sample.
 
 ```
+```yaml
 $ cat /etc/netplan/01-netcfg.yaml
 network:
 version: 2
@@ -3226,80 +3239,111 @@ ibp12s0:
 addresses: [172.16.0.25/24]
 dhcp6: no
 routes:
+```
 - to: 172.16.0.0/24
+```yaml
 via: 172.16.0.25
 table: 101
 routing-policy:
+```
 - from: 172.16.0.25
+```yaml
 table: 101
 ibp18s0:
 addresses: [172.16.0.26/24]
 dhcp4: no
 routes:
+```
 - to: 172.16.0.0/24
+```yaml
 via: 172.16.0.26
 table: 102
 routing-policy:
+```
 - from: 172.16.0.26
+```yaml
 table: 102
 ibp75s0:
 addresses: [172.16.0.27/24]
 dhcp4: no
 routes:
+```
 - to: 172.16.0.0/24
+```yaml
 via: 172.16.0.27
 table: 103
 routing-policy:
+```
 - from: 172.16.0.27
+```yaml
 table: 103
 ibp84s0:
 addresses: [172.16.0.28/24]
 dhcp4: no
 routes:
+```
 - to: 172.16.0.0/24
+```yaml
 via: 172.16.0.28
 table: 104
 routing-policy:
+```
 - from: 172.16.0.28
+```yaml
 table: 104
 ibp141s0:
 addresses: [172.16.0.29/24]
 dhcp4: no
 routes:
+```
 - to: 172.16.0.0/24
+```yaml
 via: 172.16.0.29
 table: 105
 routing-policy:
+```
 - from: 172.16.0.29
+```yaml
 table: 105
 ibp148s0:
 addresses: [172.16.0.30/24]
 dhcp4: no
 routes:
+```
 - to: 172.16.0.0/24
+```yaml
 via: 172.16.0.30
 table: 106
 routing-policy:
+```
 - from: 172.16.0.30
+```yaml
 table: 106
 ibp186s0:
 addresses: [172.16.0.31/24]
 dhcp4: no
 routes:
+```
 - to: 172.16.0.0/24
+```yaml
 via: 172.16.0.31
 table: 107
 routing-policy:
+```
 - from: 172.16.0.31
+```yaml
 table: 107
 ibp202s0:
 addresses: [172.16.0.32/24]
 dhcp4: no
 routes:
+```
 - to: 172.16.0.0/24
+```yaml
 via: 172.16.0.32
 table: 108
 routing-policy:
+```
 - from: 172.16.0.32
 table: 108
 ```
@@ -3979,10 +4023,12 @@ You can analyze the statistics for each GPU to better understand what is happeni
 Consider the following example output:
 
 ```
+```
 GPU 0000:5e:00:0 uuid:dc87fe99-4d68-247b-b5d2-63f96d2adab1 : pinned_MB=0 cache_MB=0 max_pinned_MB=79
 GPU 0000:b7:00:0 uuid:b3a6a195-d08c-09d1-bf8f-a5423c277c04 : pinned_MB=0 cache_MB=0 max_pinned_MB=76
 GPU 0000:e7:00:0 uuid:7c432aed-a612-5b18-76e7-402bb48f21db : pinned_MB=0 cache_MB=0 max_pinned_MB=80
 GPU 0000:57:00:0 uuid:aa871613-ee53-9a0c-a546-851d1afe4140 : pinned_MB=0 cache_MB=0 max_pinned_MB=80
+```
 ```
 
 In this sample output, `0000:5e:00:0`
@@ -4279,9 +4325,11 @@ Issue the following command:
 Sample output:
 
 ```
+```yaml
 IoType: WRITE XferType: GPUD Threads: 4 DataSetSize: 671/1024(KiB)
 IOSize: 4-32-1(KiB) Throughput: 0.044269 GiB/sec, Avg_Latency:
 996.094925 usecs ops: 60 total_time 0.014455 secs
+```
 ```
 
 This command does a write IO (`-I 1`
@@ -4526,6 +4574,7 @@ Userspace RDMA : Unsupported
 =====================
 CUFILE CONFIGURATION:
 =====================
+```yaml
 properties.use_pci_p2pdma : true
 properties.use_compat_mode : true
 properties.force_compat_mode : false
@@ -4571,6 +4620,7 @@ properties.prefer_iouring : false
 block.raid.use_pci_p2pdma : false
 block.nvme.use_pci_p2pdma : true
 block.nvmeof.use_pci_p2pdma : false
+```
 =========
 GPU INFO:
 =========
@@ -4739,6 +4789,7 @@ from which a user can infer the GPUs that are chosen by dynamic routing for use 
 // "rdma_dev_addr_list": [ "192.168.4.12", "192.168.5.12", "192.168.6.12", "192.168.7.12" ],
 cufile.log:
 --------------
+```
 23-02-2021 10:17:49:641 [pid=22436 tid=22436] INFO curdma-ldbal:133 Computing GPU->NIC affinity table:
 23-02-2021 10:17:49:641 [pid=22436 tid=22436] INFO curdma-ldbal:139 GPU: 0000:34:00.0 RDMA dev: mlx5_6 mlx5_8 mlx5_7 mlx5_9
 23-02-2021 10:17:49:641 [pid=22436 tid=22436] INFO curdma-ldbal:139 GPU: 0000:36:00.0 RDMA dev: mlx5_6 mlx5_8 mlx5_7 mlx5_9
@@ -4757,11 +4808,13 @@ cufile.log:
 23-02-2021 10:17:49:641 [pid=22436 tid=22436] INFO curdma-ldbal:139 GPU: 0000:e5:00.0 RDMA dev: mlx5_9
 23-02-2021 10:17:49:641 [pid=22436 tid=22436] INFO curdma-ldbal:139 GPU: 0000:e7:00.0 RDMA dev: mlx5_9
 ```
+```
 
 A sample from gds_stats showing the GPU to NIC binding during a sample IO test:
 
 ```
 PER_GPU RDMA STATS:
+```
 GPU 0000:34:00.0 : mlx5_6(265:48):0 mlx5_8(265:48):0 mlx5_7(265:48):0 mlx5_9(265:48):0
 GPU 0000:36:00.0 : mlx5_6(265:48):0 mlx5_8(265:48):0 mlx5_7(265:48):0 mlx5_9(265:48):0
 GPU 0000:39:00.0 : mlx5_6(265:48):0 mlx5_8(265:48):0 mlx5_7(265:48):0 mlx5_9(265:48):0
@@ -4778,6 +4831,7 @@ GPU 0000:e0:00.0 : mlx5_8(3:48):22937 mlx5_9(7:48):0 mlx5_6(138:48):0 mlx5_7(138
 GPU 0000:e2:00.0 : mlx5_8(3:48):22930 mlx5_9(7:48):0 mlx5_6(138:48):0 mlx5_7(138:48):0
 GPU 0000:e5:00.0 : mlx5_9(3:48):22922 mlx5_8(7:48):0 mlx5_6(138:48):0 mlx5_7(138:48):0
 GPU 0000:e7:00.0 : mlx5_9(3:48):22920 mlx5_8(7:48):0 mlx5_6(138:48):0 mlx5_7(138:48):0
+```
 ```
 
 For kernel-based DFS, DDN-Lustre and VAST-NFS, nvidia-fs driver provides a callback to determine the best NIC given a target GPU. The nvidia-fs peer_affinity can be used to track end-to-end IO affinity behavior.
@@ -5429,10 +5483,12 @@ The following is the JSON configuration key to enable GDS statistics by using th
 file:
 
 ```
+```json
 "profile": {
 // cufile stats level(0-3)
 "cufile_stats": 3
 },
+```
 ```
 
 ## 19.15. Example: Viewing GDS User-Level Statistics for a Process[#](https://docs.nvidia.com#example-viewing-gds-user-level-statistics-for-a-process)
@@ -5661,6 +5717,7 @@ counter which indicates how many `cuFileRead`
 s for a GPU have been issued using dynamic routing.
 
 ```
+```bash
 $ ./gds_stats -p <pidof application> -l 3
 GPU 0 Read: bw=0 util(%)=0 n=0 posix=0 unalign=0 dr=0 r_sparse=0 r_inline=0
 err=0 MiB=0 Write: bw=3.37598 util(%)=532 n=6629 posix=0 unalign=0 dr=6629 err=0
@@ -5668,6 +5725,7 @@ MiB=6629 BufRegister: n=4 err=0 free=0 MiB=4
 GPU 1 Read: bw=0 util(%)=0 n=0 posix=0 unalign=0 dr=0 r_sparse=0 r_inline=0
 err=0 MiB=0 Write: bw=3.29297 util(%)=523 n=6637 posix=0 unalign=0 dr=6637 err=0
 MiB=6637 BufRegister: n=4 err=0 free=0 MiB=4
+```
 ```
 
 # 21. User-Space RDMA Counters in GPUDirect Storage[#](https://docs.nvidia.com#user-space-rdma-counters-in-gpudirect-storage)

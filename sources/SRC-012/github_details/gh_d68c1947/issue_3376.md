@@ -57,8 +57,10 @@ This issue blocks all macOS ARM64 users from using mlc-llm via pip nightlies. Wi
 
 ### taytwkim · 2025-12-17
 
+```python
 @MasterJH5574
 Hello. Sorry to comment on a closed issue, but I am experiencing the same problem where https://mlc.ai/wheels returns a 404. I am also on ARM/macOS. Could you take a look? Thanks.
+```
 
 ### qoli · 2025-12-18
 

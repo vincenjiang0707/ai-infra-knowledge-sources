@@ -4,8 +4,10 @@ lastmod:
 # Class ov::preprocess::OutputInfo[#](https://docs.openvino.ai#class-ov-preprocess-outputinfo)
 
 -
+```python
 class OutputInfo
 [#](https://docs.openvino.ai#_CPPv4N2ov10preprocess10OutputInfoE) Class holding postprocessing information for one output From postprocessing pipeline perspective, each output can be represented as:
+```
 
 [Model](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_model)’s output info, ([OutputInfo::model](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1preprocess_1_1_output_info_1ad8abcb4ef25a13f6e837fbca256ce0cd))Postprocessing steps applied to user’s input (
 

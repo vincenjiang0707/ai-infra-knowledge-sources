@@ -14,8 +14,10 @@ using Task = std::function<void()>
 
 
 -
+```python
 class ImmediateExecutor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[threading](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9threadingE)::[ITaskExecutor](https://docs.openvino.ai#_CPPv4N2ov9threading13ITaskExecutorE)[#](https://docs.openvino.ai#_CPPv4N2ov9threading17ImmediateExecutorE) *#include <immediate_executor.hpp>*Task executor implementation that just run tasks in current thread during calling of
+```
 
 [run()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1threading_1_1_immediate_executor_1a2517a367fd9ea064e5d92ce9a1b7b5dd)method.Public Types
 
@@ -29,8 +31,10 @@ using Ptr = std::shared_ptr<
 using Ptr = std::shared_ptr<
 
 -
+```python
 class CPUStreamsExecutor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[threading](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9threadingE)::[IStreamsExecutor](https://docs.openvino.ai#_CPPv4N2ov9threading16IStreamsExecutorE)[#](https://docs.openvino.ai#_CPPv4N2ov9threading18CPUStreamsExecutorE) *#include <cpu_streams_executor.hpp>*CPU Streams executor implementation. The executor splits the CPU into groups of threads, that can be pinned to cores or NUMA nodes. It uses custom threads to pull tasks from single queue.
+```
 
 Public Types
 
@@ -245,14 +249,18 @@ virtual void cpu_reset() = 0
 
 
 -
+```rust
 struct Config
 [#](https://docs.openvino.ai#_CPPv4N2ov9threading16IStreamsExecutor6ConfigE) *#include <istreams_executor.hpp>*Defines
+```
 
 [IStreamsExecutor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1threading_1_1_i_streams_executor)configuration.Public Types
 
 -
+```rust
 enum class StreamsMode
 [#](https://docs.openvino.ai#_CPPv4N2ov9threading16IStreamsExecutor6Config11StreamsModeE) This enum contains definition of each sub streams mode, indicating the main stream situation.
+```
 
 *Values:*-
 enumerator SUB_STREAMS_NULL
@@ -300,8 +308,10 @@ void set_property(const
 enum class StreamsMode
 
 -
+```rust
 struct MessageInfo
 [#](https://docs.openvino.ai#_CPPv4N2ov9threading16IStreamsExecutor11MessageInfoE) *#include <istreams_executor.hpp>*
+```
 
 
 -

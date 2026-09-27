@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp4/flashinfer/
 lastmod: 2026-09-27
 
+```python
 class FlashInferMxFp4LinearKernel(MxFp4LinearKernel):
 """MXFP4 W4A4 GEMM via FlashInfer CUTLASS (SM100+)."""
 @classmethod
@@ -54,3 +55,4 @@ use_nvfp4=False,
 if bias is not None:
 out = out + bias
 return out.view(out_shape)
+```

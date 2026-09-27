@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe_wna16/
 lastmod: 2026-09-27
 
+```python
 class CompressedTensorsWNA16MoEMethod(CompressedTensorsMoEMethod):
 def __init__(
 self,
@@ -463,3 +464,4 @@ shared_experts_input=shared_experts_input,
 @property
 def supports_eplb(self) -> bool:
 return self.wna16_backend == WNA16MoEBackend.TRITON
+```

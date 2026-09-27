@@ -6,6 +6,7 @@ labels:
 
 ## 正文
 
+```
 (APIServer pid=76722) The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
 (APIServer pid=76722) INFO 11-09 08:49:56 [model.py:547] Resolved architecture: PaddleOCRVLForConditionalGeneration
 (APIServer pid=76722) INFO 11-09 08:49:56 [model.py:1510] Using max model len 16384
@@ -51,6 +52,7 @@ labels:
 (APIServer pid=76722)   File "/usr/local/lib/python3.10/dist-packages/transformers/models/auto/tokenization_auto.py", line 1113, in from_pretrained
 (APIServer pid=76722)     raise ValueError(
 (APIServer pid=76722) ValueError: Tokenizer class Ernie4_5_Tokenizer does not exist or is not currently imported.
+```
 
 
 使用文心组件微调后，产出的tokenizer_config.py中tokenizer_class:"Ernie4_5_Tokenizer"
@@ -695,6 +697,7 @@ My local graphics card is RTX A6000, and the output log for inferring an image i
 This is my client request code:
 
 
+```python
 from paddleocr import PaddleOCRVL
 import time
 pipeline = PaddleOCRVL(use_layout_detection=False,vl_rec_max_concurrency=1024,vl_rec_backend="vllm-server", vl_rec_server_url="http://127.0.0.1:8000/v1")
@@ -705,6 +708,7 @@ pipeline = PaddleOCRVL(use_layout_detection=False,vl_rec_max_concurrency=1024,vl
 start=time.time()
 output = pipeline.predict("/media/bowen/data/cor/o/2025-11-27_17-17.png")
 print("cost time is ",time.time()-start)
+```
 
 
 

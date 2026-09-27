@@ -7,8 +7,10 @@ lastmod:
 *group*Operations OpenVINO C++ API to create operations from different opsets. Such API is used to creation models from code, write transformations and traverse the model graph
 
 -
+```python
 class AUGRUCell : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[RNNCellBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_r_n_n_cell_base.html#_CPPv4N2ov2op4util11RNNCellBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op8internal9AUGRUCellE) *#include <augru_cell.hpp>*[AUGRUCell](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1internal_1_1_a_u_g_r_u_cell)operation.Public Functions
+```
 
 -
 virtual void validate_and_infer_types() override
@@ -21,8 +23,10 @@ Throws if the node is invalid.
 virtual void validate_and_infer_types() override
 
 -
+```python
 class AUGRUSequence : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[RNNCellBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_r_n_n_cell_base.html#_CPPv4N2ov2op4util11RNNCellBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op8internal13AUGRUSequenceE) *#include <augru_sequence.hpp>*[AUGRUSequence](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1internal_1_1_a_u_g_r_u_sequence)operation.Public Functions
+```
 
 -
 virtual void validate_and_infer_types() override
@@ -35,8 +39,10 @@ Throws if the node is invalid.
 virtual void validate_and_infer_types() override
 
 -
+```python
 class Abs : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v03AbsE) *#include <abs.hpp>*Elementwise absolute value operation.
+```
 
 Public Functions
 
@@ -65,8 +71,10 @@ virtual bool has_evaluate() const override
 Abs() = default
 
 -
+```python
 class Acos : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v04AcosE) *#include <acos.hpp>*Elementwise inverse cosine (arccos) operation.
+```
 
 Public Functions
 
@@ -95,13 +103,17 @@ virtual bool has_evaluate() const override
 Acos() = default
 
 -
+```python
 class Acosh : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v35AcoshE) *#include <acosh.hpp>*Elementwise inverse hyperbolic cos operation.
+```
 
 
 -
+```python
 class AdaptiveAvgPool : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v815AdaptiveAvgPoolE) *#include <adaptive_avg_pool.hpp>*Adaptive average pooling operation.
+```
 
 Public Functions
 
@@ -125,8 +137,10 @@ Throws if the node is invalid.
 AdaptiveAvgPool(const
 
 -
+```python
 class AdaptiveMaxPool : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v815AdaptiveMaxPoolE) *#include <adaptive_max_pool.hpp>*Adaptive max pooling operation.
+```
 
 Public Functions
 
@@ -150,8 +164,10 @@ Throws if the node is invalid.
 AdaptiveMaxPool(const
 
 -
+```python
 class Add : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_arithmetic.html#_CPPv4N2ov2op4util27BinaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v13AddE) *#include <add.hpp>*Elementwise addition operation.
+```
 
 Public Functions
 
@@ -176,8 +192,10 @@ virtual bool has_evaluate() const override
 inline Add()
 
 -
+```python
 class Asin : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v04AsinE) *#include <asin.hpp>*Elementwise inverse sine (arcsin) operation.
+```
 
 Public Functions
 
@@ -206,8 +224,10 @@ virtual bool has_evaluate() const override
 Asin() = default
 
 -
+```python
 class Assign : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[AssignBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_assign_base.html#_CPPv4N2ov2op4util10AssignBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v36AssignE) *#include <assign.hpp>*[Assign](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v3_1_1_assign)operation sets an input value to the variable with`variable_id`
+```
 
 Public Functions
 
@@ -236,8 +256,10 @@ inline virtual std::string get_variable_id() const override
 Assign(const
 
 -
+```python
 class Assign : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[AssignBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_assign_base.html#_CPPv4N2ov2op4util10AssignBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v66AssignE) *#include <assign.hpp>*[Assign](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_assign)operation sets an input value to the variable with`variable_id`
+```
 
 Public Functions
 
@@ -267,8 +289,10 @@ virtual bool has_evaluate() const override
 
 
 -
+```python
 class Atan : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v04AtanE) *#include <atan.hpp>*Elementwise inverse tangent (arctan) operation.
+```
 
 Public Functions
 
@@ -297,13 +321,17 @@ virtual bool has_evaluate() const override
 Atan() = default
 
 -
+```python
 class Atanh : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v35AtanhE) *#include <atanh.hpp>*Elementwise inverse hyperbolic tangent operation.
+```
 
 
 -
+```python
 class AvgPool : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[AvgPoolBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_avg_pool_base.html#_CPPv4N2ov2op4util11AvgPoolBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v17AvgPoolE) *#include <avg_pool.hpp>*Batched average pooling operation.
+```
 
 Public Functions
 
@@ -342,8 +370,10 @@ Throws if the node is invalid.
 AvgPool() = default
 
 -
+```python
 class AvgPool : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[AvgPoolBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_avg_pool_base.html#_CPPv4N2ov2op4util11AvgPoolBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v147AvgPoolE) *#include <avg_pool.hpp>*Batched average pooling operation.
+```
 
 Public Functions
 
@@ -382,8 +412,10 @@ Throws if the node is invalid.
 AvgPool() = default
 
 -
+```python
 class AvgPool : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[AvgPoolBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_avg_pool_base.html#_CPPv4N2ov2op4util11AvgPoolBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v167AvgPoolE) *#include <avg_pool.hpp>*Batched average pooling operation.
+```
 
 Public Functions
 
@@ -443,8 +475,10 @@ Throws if the node is invalid.
 AvgPool() = default
 
 -
+```python
 class BatchNormInference : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v018BatchNormInferenceE) *#include <batch_norm.hpp>*[BatchNormInference](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_batch_norm_inference)operation.Public Functions
+```
 
 -
 BatchNormInference(const
@@ -464,8 +498,10 @@ Throws if the node is invalid.
 BatchNormInference(const
 
 -
+```python
 class BatchNormInference : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v518BatchNormInferenceE) *#include <batch_norm.hpp>*[BatchNormInference](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v5_1_1_batch_norm_inference)operation.Public Functions
+```
 
 -
 BatchNormInference(const
@@ -485,8 +521,10 @@ Throws if the node is invalid.
 BatchNormInference(const
 
 -
+```python
 class BatchToSpace : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v112BatchToSpaceE) *#include <batch_to_space.hpp>*[BatchToSpace](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_batch_to_space)permutes data from the batch dimension of the data tensor into spatial dimensions.Note
+```
 
 Values from the batch dimension are moved in spatial blocks dimensions.
 
@@ -523,8 +561,10 @@ Throws if the node is invalid.
 BatchToSpace(const
 
 -
+```python
 class BinaryConvolution : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ConvolutionFwdPropBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_convolution_fwd_prop_base.html#_CPPv4N2ov2op4util22ConvolutionFwdPropBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v117BinaryConvolutionE) *#include <binary_convolution.hpp>*[BinaryConvolution](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_binary_convolution)operation.Public Functions
+```
 
 -
 BinaryConvolution() = default
@@ -567,8 +607,10 @@ The pad value.
 BinaryConvolution() = default
 
 -
+```python
 class BitwiseAnd : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseBitwise](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_bitwise.html#_CPPv4N2ov2op4util24BinaryElementwiseBitwiseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1310BitwiseAndE) *#include <bitwise_and.hpp>*Elementwise bitwise AND operation.
+```
 
 Public Functions
 
@@ -588,8 +630,10 @@ BitwiseAnd(const
 BitwiseAnd() = default
 
 -
+```python
 class BitwiseLeftShift : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseBitwise](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_bitwise.html#_CPPv4N2ov2op4util24BinaryElementwiseBitwiseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1516BitwiseLeftShiftE) *#include <bitwise_left_shift.hpp>*Elementwise bitwise
+```
 
 [BitwiseLeftShift](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v15_1_1_bitwise_left_shift)operation.Public Functions
 
@@ -622,8 +666,10 @@ virtual bool has_evaluate() const override
 BitwiseLeftShift() = default
 
 -
+```python
 class BitwiseNot : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1310BitwiseNotE) *#include <bitwise_not.hpp>*Elementwise bitwise negation operation.
+```
 
 Public Functions
 
@@ -651,8 +697,10 @@ Throws if the node is invalid.
 BitwiseNot() = default
 
 -
+```python
 class BitwiseOr : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseBitwise](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_bitwise.html#_CPPv4N2ov2op4util24BinaryElementwiseBitwiseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v139BitwiseOrE) *#include <bitwise_or.hpp>*Elementwise bitwise OR operation.
+```
 
 Public Functions
 
@@ -672,8 +720,10 @@ BitwiseOr(const
 BitwiseOr() = default
 
 -
+```python
 class BitwiseRightShift : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseBitwise](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_bitwise.html#_CPPv4N2ov2op4util24BinaryElementwiseBitwiseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1517BitwiseRightShiftE) *#include <bitwise_right_shift.hpp>*Elementwise bitwise
+```
 
 [BitwiseRightShift](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v15_1_1_bitwise_right_shift)operation.Public Functions
 
@@ -706,8 +756,10 @@ virtual bool has_evaluate() const override
 BitwiseRightShift() = default
 
 -
+```python
 class BitwiseXor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseBitwise](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_bitwise.html#_CPPv4N2ov2op4util24BinaryElementwiseBitwiseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1310BitwiseXorE) *#include <bitwise_xor.hpp>*Elementwise bitwise XOR operation.
+```
 
 Public Functions
 
@@ -727,8 +779,10 @@ BitwiseXor(const
 BitwiseXor() = default
 
 -
+```python
 class Broadcast : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BroadcastBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_broadcast_base.html#_CPPv4N2ov2op4util13BroadcastBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v39BroadcastE) *#include <broadcast.hpp>*Operation which “adds” axes to an input tensor, replicating elements from the input as needed along the new axes.
+```
 
 Public Functions
 
@@ -791,8 +845,10 @@ virtual bool has_evaluate() const override
 Broadcast() = default
 
 -
+```python
 class Broadcast : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BroadcastBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_broadcast_base.html#_CPPv4N2ov2op4util13BroadcastBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v19BroadcastE) *#include <broadcast.hpp>*Operation which “adds” axes to an input tensor, replicating elements from the input as needed along the new axes.
+```
 
 Public Functions
 
@@ -853,8 +909,10 @@ virtual bool has_evaluate() const override
 Broadcast() = default
 
 -
+```python
 class Bucketize : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v39BucketizeE) *#include <bucketize.hpp>*Operation that bucketizes the input based on boundaries.
+```
 
 Public Functions
 
@@ -875,8 +933,10 @@ Throws if the node is invalid.
 Bucketize(const
 
 -
+```python
 class Ceiling : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v07CeilingE) *#include <ceiling.hpp>*Elementwise ceiling operation.
+```
 
 Public Functions
 
@@ -902,8 +962,10 @@ virtual bool has_evaluate() const override
 Ceiling() = default
 
 -
+```python
 class Clamp : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v05ClampE) *#include <clamp.hpp>*Performs a clipping operation on all elements of the input node.
+```
 
 All input values that are outside of the <min;max> range are set to ‘min’ or ‘max’ depending on which side of the <min;max> range they are. The values that fall into this range remain unchanged.
 
@@ -934,8 +996,10 @@ virtual bool has_evaluate() const override
 Clamp(const
 
 -
+```python
 class Col2Im : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v156Col2ImE) *#include <col2im.hpp>*Operator combining sliding blocks into an image tensor.
+```
 
 Public Functions
 
@@ -959,8 +1023,10 @@ Throws if the node is invalid.
 Col2Im(const
 
 -
+```python
 class Concat : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v06ConcatE) *#include <concat.hpp>*Concatenation operation.
+```
 
 Public Functions
 
@@ -1010,8 +1076,10 @@ virtual bool has_evaluate() const override
 Concat() = default
 
 -
+```python
 class Constant : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v08ConstantE) *#include <constant.hpp>*Class for constants.
+```
 
 Public Functions
 
@@ -1199,8 +1267,10 @@ static inline std::shared_ptr<
 Constant(const
 
 -
+```python
 class Convert : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v07ConvertE) *#include <convert.hpp>*Elementwise type conversion operation.
+```
 
 Public Functions
 
@@ -1234,8 +1304,10 @@ virtual bool has_evaluate() const override
 Convert() = default
 
 -
+```python
 class ConvertLike : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v111ConvertLikeE) *#include <convert_like.hpp>*Elementwise type conversion operation.
+```
 
 Public Functions
 
@@ -1255,8 +1327,10 @@ Throws if the node is invalid.
 ConvertLike() = default
 
 -
+```python
 class ConvertPromoteTypes : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1419ConvertPromoteTypesE) *#include <convert_promote_types.hpp>*Elementwise operation that promote and convert input types to one common datatype.
+```
 
 Public Functions
 
@@ -1305,8 +1379,10 @@ void set_promote_unsafe(bool promote_unsafe)
 ConvertPromoteTypes() = default
 
 -
+```python
 class Convolution : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ConvolutionFwdPropBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_convolution_fwd_prop_base.html#_CPPv4N2ov2op4util22ConvolutionFwdPropBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v111ConvolutionE) *#include <convolution.hpp>*Batched convolution operation, with optional window dilation and stride.
+```
 
 Public Functions
 
@@ -1350,8 +1426,10 @@ Throws if the node is invalid.
 Convolution() = default
 
 -
+```python
 class ConvolutionBackpropData : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ConvolutionBackPropBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_convolution_back_prop_base.html#_CPPv4N2ov2op4util23ConvolutionBackPropBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v123ConvolutionBackpropDataE) *#include <convolution.hpp>*Data batch backprop for batched convolution operation.
+```
 
 Public Functions
 
@@ -1378,8 +1456,10 @@ The output spatial dimensions shape.
 ConvolutionBackpropData() = default
 
 -
+```python
 class Cos : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v03CosE) *#include <cos.hpp>*Elementwise cosine operation.
+```
 
 Public Functions
 
@@ -1405,8 +1485,10 @@ virtual bool has_evaluate() const override
 Cos() = default
 
 -
+```python
 class Cosh : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v04CoshE) *#include <cosh.hpp>*Elementwise hyperbolic cosine (cosh) operation.
+```
 
 Public Functions
 
@@ -1432,8 +1514,10 @@ virtual bool has_evaluate() const override
 Cosh() = default
 
 -
+```python
 class CTCGreedyDecoder : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v016CTCGreedyDecoderE) *#include <ctc_greedy_decoder.hpp>*[CTCGreedyDecoder](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_c_t_c_greedy_decoder)operation.Public Functions
+```
 
 -
 CTCGreedyDecoder(const
@@ -1455,8 +1539,10 @@ Throws if the node is invalid.
 CTCGreedyDecoder(const
 
 -
+```python
 class CTCGreedyDecoderSeqLen : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v622CTCGreedyDecoderSeqLenE) *#include <ctc_greedy_decoder_seq_len.hpp>*Operator performing CTCGreedyDecoder.
+```
 
 Public Functions
 
@@ -1523,8 +1609,10 @@ inline void set_classes_index_type(const
 CTCGreedyDecoderSeqLen(const
 
 -
+```python
 class CTCLoss : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v47CTCLossE) *#include <ctc_loss.hpp>*[CTCLoss](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_c_t_c_loss)operation.Public Functions
+```
 
 -
 CTCLoss(const
@@ -1546,8 +1634,10 @@ Throws if the node is invalid.
 CTCLoss(const
 
 -
+```python
 class CumSum : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v06CumSumE) *#include <cum_sum.hpp>*[Tensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_tensor)cumulative sum operation.Compute the cumulative sum of the input tensor along the axis specified.
+```
 
 Public Functions
 
@@ -1589,8 +1679,10 @@ Throws if the node is invalid.
 CumSum() = default
 
 -
+```python
 class DeformableConvolution : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[DeformableConvolutionBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_deformable_convolution_base.html#_CPPv4N2ov2op4util25DeformableConvolutionBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v121DeformableConvolutionE) *#include <deformable_convolution.hpp>*[DeformableConvolution](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_deformable_convolution)operation.Public Functions
+```
 
 -
 DeformableConvolution() = default
@@ -1617,8 +1709,10 @@ Throws if the node is invalid.
 DeformableConvolution() = default
 
 -
+```python
 class DeformableConvolution : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[DeformableConvolutionBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_deformable_convolution_base.html#_CPPv4N2ov2op4util25DeformableConvolutionBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v821DeformableConvolutionE) *#include <deformable_convolution.hpp>*[DeformableConvolution](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_deformable_convolution)operation.Public Functions
+```
 
 -
 DeformableConvolution() = default
@@ -1662,8 +1756,10 @@ Throws if the node is invalid.
 DeformableConvolution() = default
 
 -
+```python
 class DeformablePSROIPooling : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v122DeformablePSROIPoolingE) *#include <deformable_psroi_pooling.hpp>*[DeformablePSROIPooling](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_deformable_p_s_r_o_i_pooling)operation.Public Functions
+```
 
 -
 DeformablePSROIPooling(const
@@ -1685,8 +1781,10 @@ Throws if the node is invalid.
 DeformablePSROIPooling(const
 
 -
+```python
 class DepthToSpace : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v012DepthToSpaceE) *#include <depth_to_space.hpp>*[DepthToSpace](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_depth_to_space)permutes data from the depth dimension of the input blob into spatial dimensions.[Output](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_output)node produces a tensor with shape: [N, C/(blocksize * blocksize), H * blocksize, W * blocksize]Note
+```
 
 Values from the depth dimension (assuming NCHW layout) are moved in spatial blocks to the height and width dimensions.
 
@@ -1717,14 +1815,18 @@ virtual bool has_evaluate() const override
 DepthToSpace(const
 
 -
+```python
 class DFT : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[FFTBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_f_f_t_base.html#_CPPv4N2ov2op4util7FFTBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v73DFTE) *#include <dft.hpp>*An operation
+```
 
 [DFT](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v7_1_1_d_f_t)that computes the discrete Fourier transformation.
 
 -
+```python
 class Divide : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_arithmetic.html#_CPPv4N2ov2op4util27BinaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v16DivideE) *#include <divide.hpp>*Elementwise division operation.
+```
 
 Public Functions
 
@@ -1752,8 +1854,10 @@ virtual bool has_evaluate() const override
 inline Divide()
 
 -
+```python
 class Einsum : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v76EinsumE) *#include <einsum.hpp>*[Einsum](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v7_1_1_einsum)operation.Public Functions
+```
 
 -
 virtual void validate_and_infer_types() override
@@ -1774,8 +1878,10 @@ static void parse_equation(const std::string &equation, std::vector<std::string>
 
 
 -
+```rust
 static std::vector<std::string> extract_labels(const std::string &subscript)
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v76Einsum14extract_labelsERKNSt6stringE) Extract labels (from subscript) that can be alphabetic letters or ellipsis.
+```
 
 - Parameters:
 **subscript**– Subscript- Returns:
@@ -1787,8 +1893,10 @@ A vector of extracted labels from the input subscript in the order of appearence
 virtual void validate_and_infer_types() override
 
 -
+```python
 class Elu : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v03EluE) *#include <elu.hpp>*Exponential Linear Unit x < 0 => f(x) = alpha * (exp(x) - 1.) x >= 0 => f(x) = x.
+```
 
 Public Functions
 
@@ -1812,8 +1920,10 @@ Throws if the node is invalid.
 Elu(const
 
 -
+```python
 class EmbeddingSegmentsSum : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v320EmbeddingSegmentsSumE) *#include <embedding_segments_sum.hpp>*Returns embeddings for given indices.
+```
 
 Public Functions
 
@@ -1845,8 +1955,10 @@ Throws if the node is invalid.
 EmbeddingSegmentsSum() = default
 
 -
+```python
 class EmbeddingBagOffsets : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[EmbeddingBagOffsetsBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_embedding_bag_offsets_base.html#_CPPv4N2ov2op4util23EmbeddingBagOffsetsBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1519EmbeddingBagOffsetsE) *#include <embeddingbag_offsets.hpp>*Returns embeddings for given indices.
+```
 
 Public Functions
 
@@ -1869,8 +1981,10 @@ EmbeddingBagOffsets(const
 EmbeddingBagOffsets() = default
 
 -
+```python
 class EmbeddingBagOffsetsSum : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[EmbeddingBagOffsetsBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_embedding_bag_offsets_base.html#_CPPv4N2ov2op4util23EmbeddingBagOffsetsBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v322EmbeddingBagOffsetsSumE) *#include <embeddingbag_offsets_sum.hpp>*Returns embeddings for given indices.
+```
 
 Public Functions
 
@@ -1893,8 +2007,10 @@ EmbeddingBagOffsetsSum(const
 EmbeddingBagOffsetsSum() = default
 
 -
+```python
 class EmbeddingBagPacked : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[EmbeddingBagPackedBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_embedding_bag_packed_base.html#_CPPv4N2ov2op4util22EmbeddingBagPackedBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1518EmbeddingBagPackedE) *#include <embeddingbag_packed.hpp>*Returns embeddings for given indices.
+```
 
 Public Functions
 
@@ -1919,8 +2035,10 @@ and of type*T_IND*. Required.**per_sample_weights**– tensor of the same shape 
 EmbeddingBagPacked() = default
 
 -
+```python
 class EmbeddingBagPackedSum : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[EmbeddingBagPackedBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_embedding_bag_packed_base.html#_CPPv4N2ov2op4util22EmbeddingBagPackedBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v321EmbeddingBagPackedSumE) *#include <embeddingbag_packedsum.hpp>*Returns embeddings for given indices.
+```
 
 Public Functions
 
@@ -1945,8 +2063,10 @@ and of type*T_IND*. Required.**per_sample_weigths**– tensor of the same shape 
 EmbeddingBagPackedSum() = default
 
 -
+```python
 class Equal : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseComparison](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_comparison.html#_CPPv4N2ov2op4util27BinaryElementwiseComparisonE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v15EqualE) *#include <equal.hpp>*Elementwise is-equal operation.
+```
 
 *Inputs*Type
 
@@ -1999,8 +2119,10 @@ virtual bool has_evaluate() const override
 inline Equal()
 
 -
+```python
 class Erf : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v03ErfE) *#include <erf.hpp>*Elementwise erf operation.
+```
 
 Public Functions
 
@@ -2026,8 +2148,10 @@ virtual bool has_evaluate() const override
 Erf() = default
 
 -
+```python
 class Exp : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v03ExpE) *#include <exp.hpp>*Elementwise natural exponential (exp) operation.
+```
 
 Public Functions
 
@@ -2053,8 +2177,10 @@ virtual bool has_evaluate() const override
 Exp() = default
 
 -
+```python
 class ExperimentalDetectronDetectionOutput : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v636ExperimentalDetectronDetectionOutputE) *#include <experimental_detectron_detection_output.hpp>*An operation
+```
 
 [ExperimentalDetectronDetectionOutput](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_experimental_detectron_detection_output)performs non-maximum suppression to generate the detection output using information on location and score predictions.Public Functions
 
@@ -2089,16 +2215,20 @@ void set_attrs(
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v636ExperimentalDetectronDetectionOutput10AttributesE) *#include <experimental_detectron_detection_output.hpp>*Structure that specifies attributes of the operation.
+```
 
 
 -
 ExperimentalDetectronDetectionOutput(const
 
 -
+```python
 class ExperimentalDetectronGenerateProposalsSingleImage : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v649ExperimentalDetectronGenerateProposalsSingleImageE) *#include <experimental_detectron_generate_proposals.hpp>*An operation
+```
 
 [ExperimentalDetectronGenerateProposalsSingleImage](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_experimental_detectron_generate_proposals_single_image)computes ROIs and their scores based on input data.Public Functions
 
@@ -2116,16 +2246,20 @@ Throws if the node is invalid.
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v649ExperimentalDetectronGenerateProposalsSingleImage10AttributesE) *#include <experimental_detectron_generate_proposals.hpp>*Structure that specifies attributes of the operation.
+```
 
 
 -
 ExperimentalDetectronGenerateProposalsSingleImage(const
 
 -
+```python
 class ExperimentalDetectronPriorGridGenerator : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v639ExperimentalDetectronPriorGridGeneratorE) *#include <experimental_detectron_prior_grid_generator.hpp>*An operation
+```
 
 [ExperimentalDetectronPriorGridGenerator](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_experimental_detectron_prior_grid_generator)generates prior grids of specified sizes.Public Functions
 
@@ -2156,16 +2290,20 @@ void set_attrs(
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v639ExperimentalDetectronPriorGridGenerator10AttributesE) *#include <experimental_detectron_prior_grid_generator.hpp>*Structure that specifies attributes of the operation.
+```
 
 
 -
 ExperimentalDetectronPriorGridGenerator(const
 
 -
+```python
 class ExperimentalDetectronROIFeatureExtractor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v640ExperimentalDetectronROIFeatureExtractorE) *#include <experimental_detectron_roi_feature.hpp>*An operation
+```
 
 [ExperimentalDetectronROIFeatureExtractor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_experimental_detectron_r_o_i_feature_extractor)is the ROIAlign operation applied over a feature pyramid.Public Functions
 
@@ -2208,16 +2346,20 @@ void set_attrs(
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v640ExperimentalDetectronROIFeatureExtractor10AttributesE) *#include <experimental_detectron_roi_feature.hpp>*Structure that specifies attributes of the operation.
+```
 
 
 -
 ExperimentalDetectronROIFeatureExtractor(const OutputVector &args, const
 
 -
+```python
 class ExperimentalDetectronTopKROIs : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v629ExperimentalDetectronTopKROIsE) *#include <experimental_detectron_topkrois.hpp>*An operation
+```
 
 [ExperimentalDetectronTopKROIs](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_experimental_detectron_top_k_r_o_is), according to the repository is TopK operation applied to probabilities of input ROIs.Public Functions
 
@@ -2241,8 +2383,10 @@ Throws if the node is invalid.
 ExperimentalDetectronTopKROIs(const
 
 -
+```python
 class ExtractImagePatches : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v319ExtractImagePatchesE) *#include <extractimagepatches.hpp>*[ExtractImagePatches](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v3_1_1_extract_image_patches)operation.Public Functions
+```
 
 -
 ExtractImagePatches(const
@@ -2264,8 +2408,10 @@ Throws if the node is invalid.
 ExtractImagePatches(const
 
 -
+```python
 class Eye : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v93EyeE) *#include <eye.hpp>*Public Functions
+```
 
 -
 Eye(const
@@ -2296,8 +2442,10 @@ virtual bool has_evaluate() const override
 Eye(const
 
 -
+```python
 class FakeConvert : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1311FakeConvertE) *#include <fake_convert.hpp>*[FakeConvert](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v13_1_1_fake_convert)performs element-wise quantization of input values into a set of values corresponding to a target low-precision type.Note
+```
 
 [FakeConvert](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v13_1_1_fake_convert)is an experimental operation and subject to change.Public Functions
 
@@ -2347,8 +2495,10 @@ virtual bool has_evaluate() const override
 FakeConvert(const
 
 -
+```python
 class FakeQuantize : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v012FakeQuantizeE) *#include <fake_quantize.hpp>*Class performing element-wise linear quantization.
+```
 
 Note
 
@@ -2379,8 +2529,10 @@ virtual bool has_evaluate() const override
 FakeQuantize(const
 
 -
+```python
 class Floor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v05FloorE) *#include <floor.hpp>*Elementwise floor operation.
+```
 
 Public Functions
 
@@ -2406,8 +2558,10 @@ virtual bool has_evaluate() const override
 Floor() = default
 
 -
+```python
 class FloorMod : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_arithmetic.html#_CPPv4N2ov2op4util27BinaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v18FloorModE) *#include <floor_mod.hpp>*Elementwise
+```
 
 [FloorMod](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_floor_mod)operation.Public Functions
 
@@ -2432,12 +2586,16 @@ virtual bool has_evaluate() const override
 inline FloorMod()
 
 -
+```python
 class Gather : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[GatherBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_gather_base.html#_CPPv4N2ov2op4util10GatherBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v16GatherE) *#include <gather.hpp>*[Gather](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_gather)slices from axis of data according to indices.
+```
 
 -
+```python
 class Gather : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[GatherBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_gather_base.html#_CPPv4N2ov2op4util10GatherBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v76GatherE) *#include <gather.hpp>*[Gather](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v7_1_1_gather)slices from axis of data according to indices.Public Functions
+```
 
 -
 Gather(const
@@ -2454,8 +2612,10 @@ Throws if the node is invalid.
 Gather(const
 
 -
+```python
 class Gather : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[GatherBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_gather_base.html#_CPPv4N2ov2op4util10GatherBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v86GatherE) *#include <gather.hpp>*[Gather](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_gather)slices from axis of data according to indices. Negative indices are supported and indicate reverse indexing from the end.Subclassed by
+```
 
 [ov::op::internal::GatherCompressed](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1internal_1_1_gather_compressed)Public Functions
 
@@ -2477,8 +2637,10 @@ Throws if the node is invalid.
 Gather(const
 
 -
+```python
 class GatherElements : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v614GatherElementsE) *#include <gather_elements.hpp>*[GatherElements](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_gather_elements)operation.Public Functions
+```
 
 -
 GatherElements(const
@@ -2497,8 +2659,10 @@ Throws if the node is invalid.
 GatherElements(const
 
 -
+```python
 class GatherND : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[GatherNDBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_gather_n_d_base.html#_CPPv4N2ov2op4util12GatherNDBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v58GatherNDE) *#include <gather_nd.hpp>*[GatherND](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v5_1_1_gather_n_d)operation.Public Functions
+```
 
 -
 GatherND(const
@@ -2517,8 +2681,10 @@ Throws if the node is invalid.
 GatherND(const
 
 -
+```python
 class GatherND : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[GatherNDBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_gather_n_d_base.html#_CPPv4N2ov2op4util12GatherNDBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v88GatherNDE) *#include <gather_nd.hpp>*[GatherND](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_gather_n_d)operation.Public Functions
+```
 
 -
 GatherND(const
@@ -2537,8 +2703,10 @@ Throws if the node is invalid.
 GatherND(const
 
 -
+```python
 class GatherTree : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v110GatherTreeE) *#include <gather_tree.hpp>*Generates the complete beams from the ids per each step and the parent beam ids.
+```
 
 Public Functions
 
@@ -2560,8 +2728,10 @@ Throws if the node is invalid.
 GatherTree(const
 
 -
+```python
 class Gelu : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v04GeluE) *#include <gelu.hpp>*Gaussian Error Linear Unit f(x) = 0.5 * x * (1 + erf( x / sqrt(2) )
+```
 
 Public Functions
 
@@ -2576,8 +2746,10 @@ Throws if the node is invalid.
 virtual void validate_and_infer_types() override
 
 -
+```python
 class Gelu : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v74GeluE) *#include <gelu.hpp>*Gaussian Error Linear Unit f(x) = 0.5 * x * (1 + erf( x / sqrt(2) ) for “approximation” = “erf” f(x) = 0.5 * x * (1 + tanh([sqrt(2 / pi)] * [x + 0.044715^3]) for “approximation” = “tanh”.
+```
 
 Public Functions
 
@@ -2606,8 +2778,10 @@ virtual bool has_evaluate() const override
 Gelu(const
 
 -
+```python
 class Greater : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseComparison](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_comparison.html#_CPPv4N2ov2op4util27BinaryElementwiseComparisonE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v17GreaterE) *#include <greater.hpp>*Elementwise greater-than operation.
+```
 
 Public Functions
 
@@ -2630,8 +2804,10 @@ virtual bool has_evaluate() const override
 inline Greater()
 
 -
+```python
 class GreaterEqual : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseComparison](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_comparison.html#_CPPv4N2ov2op4util27BinaryElementwiseComparisonE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v112GreaterEqualE) *#include <greater_eq.hpp>*Elementwise greater-than-or-equal operation.
+```
 
 Public Functions
 
@@ -2654,8 +2830,10 @@ virtual bool has_evaluate() const override
 inline GreaterEqual()
 
 -
+```python
 class GridSample : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v910GridSampleE) *#include <grid_sample.hpp>*Operator performing interpolated sampling of the input tensor.
+```
 
 Public Functions
 
@@ -2681,8 +2859,10 @@ virtual bool has_evaluate() const override
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v910GridSample10AttributesE) *#include <grid_sample.hpp>*A Structure which contains all
+```
 
 [GridSample](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v9_1_1_grid_sample)attributes.
 
@@ -2690,8 +2870,10 @@ struct Attributes
 GridSample(const
 
 -
+```python
 class GroupNormalization : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1218GroupNormalizationE) *#include <group_normalization.hpp>*[GroupNormalization](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v12_1_1_group_normalization)operation over the input tensor.Public Functions
+```
 
 -
 GroupNormalization(const
@@ -2711,8 +2893,10 @@ Throws if the node is invalid.
 GroupNormalization(const
 
 -
+```python
 class GRUCell : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[RNNCellBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_r_n_n_cell_base.html#_CPPv4N2ov2op4util11RNNCellBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v37GRUCellE) *#include <gru_cell.hpp>*Class for GRU cell node.
+```
 
 Note
 
@@ -2758,8 +2942,10 @@ Throws if the node is invalid.
 GRUCell(const
 
 -
+```python
 class GRUSequence : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[RNNCellBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_r_n_n_cell_base.html#_CPPv4N2ov2op4util11RNNCellBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v511GRUSequenceE) *#include <gru_sequence.hpp>*[GRUSequence](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v5_1_1_g_r_u_sequence)operation.Public Functions
+```
 
 -
 virtual void validate_and_infer_types() override
@@ -2772,8 +2958,10 @@ Throws if the node is invalid.
 virtual void validate_and_infer_types() override
 
 -
+```python
 class HardSigmoid : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v011HardSigmoidE) *#include <hard_sigmoid.hpp>*Parameterized, bounded sigmoid-like, piecewise linear function. min(max(alpha*x + beta, 0), 1)
+```
 
 Public Functions
 
@@ -2797,20 +2985,26 @@ Throws if the node is invalid.
 HardSigmoid(const
 
 -
+```python
 class HSigmoid : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v58HSigmoidE) *#include <hsigmoid.hpp>*A
+```
 
 [HSigmoid](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v5_1_1_h_sigmoid)Activation Function f(x) = min(max(x + 3, 0), 6) / 6 or f(x) = min(ReLU(x + 3), 6) / 6.
 
 -
+```python
 class HSwish : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v46HSwishE) *#include <hswish.hpp>*A
+```
 
 [HSwish](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_h_swish)Activation Function f(x) = x * min(max(x + 3, 0), 6) / 6 or f(x) = x * min(ReLU(x + 3), 6) / 6.
 
 -
+```python
 class I420toBGR : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ConvertColorI420Base](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_convert_color_i420_base.html#_CPPv4N2ov2op4util20ConvertColorI420BaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v89I420toBGRE) *#include <i420_to_bgr.hpp>*Color conversion operation from I420 to BGR format.
+```
 
 [Input](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_input):[Input](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_input)NV12 image can be represented in two ways: a) Single plane (as it is in the file): I420 height dimension is 1.5x bigger than image height. ‘C’ dimension shall be 1. b) Three separate planes (used this way in many physical video sources): Y, U and V. In this case b1) Y plane has height same as image height. ‘C’ dimension equals to 1 b2) U plane has dimensions: ‘H’ = image_h / 2; ‘W’ = image_w / 2; ‘C’ = 1. b3) V plane has dimensions: ‘H’ = image_h / 2; ‘W’ = image_w / 2; ‘C’ = 1.Supported element types: u8 or any supported floating-point type.
 
@@ -2822,8 +3016,10 @@ Conversion of each pixel from I420 (YUV) to RGB space is represented by followin
 Public Functions
 
 -
+```
 explicit I420toBGR(const
 [Output](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4IEN2ov6OutputI4NodeEE)<[Node](https://docs.openvino.ai/classov_1_1_node.html#_CPPv4N2ov4NodeE)> &arg)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v89I420toBGR9I420toBGRERK6OutputI4NodeE) Constructs a conversion operation from input image in I420 format As per I420 format definition, node height dimension shall be 1.5 times bigger than image height so that image (w=640, h=480) is represented by NHWC shape {N,720,640,1} (height*1.5 x width)
+```
 
 
 -
@@ -2837,8 +3033,10 @@ explicit I420toBGR(const
 
 
 -
+```python
 class I420toRGB : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ConvertColorI420Base](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_convert_color_i420_base.html#_CPPv4N2ov2op4util20ConvertColorI420BaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v89I420toRGBE) *#include <i420_to_rgb.hpp>*Color conversion operation from I420 to RGB format.
+```
 
 [Input](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_input):[Input](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_input)NV12 image can be represented in two ways: a) Single plane (as it is in the file): I420 height dimension is 1.5x bigger than image height. ‘C’ dimension shall be 1. b) Three separate planes (used this way in many physical video sources): Y, U and V. In this case b1) Y plane has height same as image height. ‘C’ dimension equals to 1 b2) U plane has dimensions: ‘H’ = image_h / 2; ‘W’ = image_w / 2; ‘C’ = 1. b3) V plane has dimensions: ‘H’ = image_h / 2; ‘W’ = image_w / 2; ‘C’ = 1.Supported element types: u8 or any supported floating-point type.
 
@@ -2850,8 +3048,10 @@ Conversion of each pixel from I420 (YUV) to RGB space is represented by followin
 Public Functions
 
 -
+```
 explicit I420toRGB(const
 [Output](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4IEN2ov6OutputI4NodeEE)<[Node](https://docs.openvino.ai/classov_1_1_node.html#_CPPv4N2ov4NodeE)> &arg)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v89I420toRGB9I420toRGBERK6OutputI4NodeE) Constructs a conversion operation from input image in I420 format As per I420 format definition, node height dimension shall be 1.5 times bigger than image height so that image (w=640, h=480) is represented by NHWC shape {N,720,640,1} (height*1.5 x width)
+```
 
 
 -
@@ -2865,8 +3065,10 @@ explicit I420toRGB(const
 
 
 -
+```python
 class Identity : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v168IdentityE) *#include <identity.hpp>*[Identity](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v16_1_1_identity)operation is used as a placeholder op.Public Functions
+```
 
 -
 Identity(const
@@ -2883,14 +3085,18 @@ Throws if the node is invalid.
 Identity(const
 
 -
+```python
 class IDFT : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[FFTBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_f_f_t_base.html#_CPPv4N2ov2op4util7FFTBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v74IDFTE) *#include <idft.hpp>*An operation
+```
 
 [IDFT](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v7_1_1_i_d_f_t)that computes the inverse discrete Fourier transformation.
 
 -
+```python
 class If : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[MultiSubGraphOp](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_multi_sub_graph_op.html#_CPPv4N2ov2op4util15MultiSubGraphOpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v82IfE) *#include <if.hpp>*[If](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_if)operation.Public Functions
+```
 
 -
 If(const
@@ -2960,8 +3166,10 @@ Throws if the node is invalid.
 If(const
 
 -
+```python
 class Interpolate : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v011InterpolateE) *#include <interpolate.hpp>*Layer which performs bilinear interpolation.
+```
 
 Public Functions
 
@@ -2979,16 +3187,20 @@ Throws if the node is invalid.
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v011Interpolate10AttributesE) *#include <interpolate.hpp>*Structure that specifies attributes for interpolation.
+```
 
 
 -
 Interpolate(const
 
 -
+```python
 class Interpolate : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[InterpolateBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_interpolate_base.html#_CPPv4N2ov2op4util15InterpolateBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v411InterpolateE) *#include <interpolate.hpp>*[Interpolate](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_interpolate)operation.Public Functions
+```
 
 -
 Interpolate(const
@@ -3018,8 +3230,10 @@ virtual bool has_evaluate() const override
 Interpolate(const
 
 -
+```python
 class Interpolate : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[InterpolateBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_interpolate_base.html#_CPPv4N2ov2op4util15InterpolateBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1111InterpolateE) *#include <interpolate.hpp>*[Interpolate](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v11_1_1_interpolate)operation.Public Functions
+```
 
 -
 Interpolate(const
@@ -3055,8 +3269,10 @@ virtual bool has_evaluate() const override
 Interpolate(const
 
 -
+```python
 class Inverse : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v147InverseE) *#include <inverse.hpp>*[Inverse](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v14_1_1_inverse)operation computes the inverse of the input tensor.Public Functions
+```
 
 -
 Inverse(const
@@ -3076,8 +3292,10 @@ Throws if the node is invalid.
 Inverse(const
 
 -
+```python
 class IsFinite : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v108IsFiniteE) *#include <is_finite.hpp>*Boolean mask that maps NaN and Infinity values to false and other values to true.
+```
 
 Public Functions
 
@@ -3100,8 +3318,10 @@ Throws if the node is invalid.
 IsFinite(const
 
 -
+```python
 class IsInf : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v105IsInfE) *#include <is_inf.hpp>*Boolean mask that maps infinite values to true.
+```
 
 Public Functions
 
@@ -3122,8 +3342,10 @@ Throws if the node is invalid.
 IsInf(const
 
 -
+```python
 class IsNaN : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v105IsNaNE) *#include <is_nan.hpp>*Boolean mask that maps NaN values to true and other values to false.
+```
 
 Public Functions
 
@@ -3138,8 +3360,10 @@ Throws if the node is invalid.
 virtual void validate_and_infer_types() override
 
 -
+```python
 class ISTFT : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v165ISTFTE) *#include <istft.hpp>*An operation
+```
 
 [ISTFT](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v16_1_1_i_s_t_f_t)that computes the Inverse Short Time Fourier Transform.Public Functions
 
@@ -3172,8 +3396,10 @@ Throws if the node is invalid.
 ISTFT(const
 
 -
+```python
 class Less : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseComparison](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_comparison.html#_CPPv4N2ov2op4util27BinaryElementwiseComparisonE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v14LessE) *#include <less.hpp>*Elementwise less-than operation.
+```
 
 Public Functions
 
@@ -3196,8 +3422,10 @@ virtual bool has_evaluate() const override
 inline Less()
 
 -
+```python
 class LessEqual : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseComparison](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_comparison.html#_CPPv4N2ov2op4util27BinaryElementwiseComparisonE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v19LessEqualE) *#include <less_eq.hpp>*Elementwise less-than-or-equal operation.
+```
 
 Public Functions
 
@@ -3220,8 +3448,10 @@ virtual bool has_evaluate() const override
 inline LessEqual()
 
 -
+```python
 class Log : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v03LogE) *#include <log.hpp>*Elementwise natural log operation.
+```
 
 Public Functions
 
@@ -3247,8 +3477,10 @@ virtual bool has_evaluate() const override
 Log() = default
 
 -
+```python
 class LogSoftmax : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v510LogSoftmaxE) *#include <log_softmax.hpp>*[LogSoftmax](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v5_1_1_log_softmax)operation.Public Functions
+```
 
 -
 LogSoftmax(const
@@ -3274,8 +3506,10 @@ Throws if the node is invalid.
 LogSoftmax(const
 
 -
+```python
 class LogicalAnd : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseLogical](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_logical.html#_CPPv4N2ov2op4util24BinaryElementwiseLogicalE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v110LogicalAndE) *#include <logical_and.hpp>*Elementwise logical-and operation.
+```
 
 Public Functions
 
@@ -3300,8 +3534,10 @@ virtual bool has_evaluate() const override
 LogicalAnd() = default
 
 -
+```python
 class LogicalNot : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v110LogicalNotE) *#include <logical_not.hpp>*Elementwise logical negation operation.
+```
 
 Public Functions
 
@@ -3334,8 +3570,10 @@ virtual bool has_evaluate() const override
 LogicalNot() = default
 
 -
+```python
 class LogicalOr : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseLogical](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_logical.html#_CPPv4N2ov2op4util24BinaryElementwiseLogicalE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v19LogicalOrE) *#include <logical_or.hpp>*Elementwise logical-or operation.
+```
 
 Public Functions
 
@@ -3355,8 +3593,10 @@ virtual bool has_evaluate() const override
 LogicalOr(const
 
 -
+```python
 class LogicalXor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseLogical](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_logical.html#_CPPv4N2ov2op4util24BinaryElementwiseLogicalE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v110LogicalXorE) *#include <logical_xor.hpp>*Elementwise logical-xor operation.
+```
 
 Public Functions
 
@@ -3376,8 +3616,10 @@ virtual bool has_evaluate() const override
 LogicalXor(const
 
 -
+```python
 class Loop : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[SubGraphOp](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_sub_graph_op.html#_CPPv4N2ov2op4util10SubGraphOpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v54LoopE) *#include <loop.hpp>*Iterate a body over tensors, accumulating into tensors.
+```
 
 Public Functions
 
@@ -3424,16 +3666,20 @@ virtual bool has_evaluate() const override
 
 
 -
+```rust
 struct SpecialBodyPorts
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v54Loop16SpecialBodyPortsE) *#include <loop.hpp>*Allows to define the purpose of inputs/outputs in the body.
+```
 
 
 -
 Loop(const
 
 -
+```python
 class LRN : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v03LRNE) *#include <lrn.hpp>*Elementwise Local Response Normalization (
+```
 
 [LRN](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_l_r_n)) operation.*Inputs*Type
 
@@ -3474,8 +3720,10 @@ Throws if the node is invalid.
 LRN(const
 
 -
+```python
 class LSTMCell : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[RNNCellBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_r_n_n_cell_base.html#_CPPv4N2ov2op4util11RNNCellBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v08LSTMCellE) *#include <lstm_cell.hpp>*Class for single lstm cell node.
+```
 
 See also
 
@@ -3538,8 +3786,10 @@ Throws if the node is invalid.
 
 
 -
+```python
 class LSTMCell : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[RNNCellBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_r_n_n_cell_base.html#_CPPv4N2ov2op4util11RNNCellBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v48LSTMCellE) *#include <lstm_cell.hpp>*Class for single lstm cell node.
+```
 
 See also
 
@@ -3593,8 +3843,10 @@ Throws if the node is invalid.
 
 
 -
+```python
 class LSTMSequence : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[RNNCellBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_r_n_n_cell_base.html#_CPPv4N2ov2op4util11RNNCellBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v512LSTMSequenceE) *#include <lstm_sequence.hpp>*Class for lstm sequence node.
+```
 
 See also
 
@@ -3622,8 +3874,10 @@ Throws if the node is invalid.
 inline virtual size_t get_default_output_index() const override
 
 -
+```python
 class MatMul : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v06MatMulE) *#include <matmul.hpp>*Operator performing Matrix Multiplication.
+```
 
 Public Functions
 
@@ -3652,8 +3906,10 @@ virtual bool has_evaluate() const override
 MatMul(const
 
 -
+```python
 class MatrixNms : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v89MatrixNmsE) *#include <matrix_nms.hpp>*[MatrixNms](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_matrix_nms)operation.Public Functions
+```
 
 -
 MatrixNms() = default
@@ -3683,16 +3939,20 @@ inline const
 [MatrixNms](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_matrix_nms).
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v89MatrixNms10AttributesE) *#include <matrix_nms.hpp>*Structure that specifies attributes of the operation.
+```
 
 
 -
 MatrixNms() = default
 
 -
+```python
 class MaxPool : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[MaxPoolBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_max_pool_base.html#_CPPv4N2ov2op4util11MaxPoolBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v17MaxPoolE) *#include <max_pool.hpp>*Batched max pooling operation.
+```
 
 Public Functions
 
@@ -3726,8 +3986,10 @@ virtual bool has_evaluate() const override
 MaxPool() = default
 
 -
+```python
 class MaxPool : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[MaxPoolBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_max_pool_base.html#_CPPv4N2ov2op4util11MaxPoolBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v87MaxPoolE) *#include <max_pool.hpp>*MaxPooling operation with values and indices calculated as individual outputs.
+```
 
 Public Functions
 
@@ -3762,8 +4024,10 @@ virtual bool has_evaluate() const override
 MaxPool(const
 
 -
+```python
 class MaxPool : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[MaxPoolBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_max_pool_base.html#_CPPv4N2ov2op4util11MaxPoolBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v147MaxPoolE) *#include <max_pool.hpp>*MaxPooling operation with values and indices calculated as individual outputs.
+```
 
 Public Functions
 
@@ -3798,8 +4062,10 @@ virtual bool has_evaluate() const override
 MaxPool(const
 
 -
+```python
 class Maximum : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_arithmetic.html#_CPPv4N2ov2op4util27BinaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v17MaximumE) *#include <maximum.hpp>*Elementwise maximum operation.
+```
 
 Public Functions
 
@@ -3822,8 +4088,10 @@ virtual bool has_evaluate() const override
 inline Maximum()
 
 -
+```python
 class Minimum : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_arithmetic.html#_CPPv4N2ov2op4util27BinaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v17MinimumE) *#include <minimum.hpp>*Elementwise minimum operation.
+```
 
 Public Functions
 
@@ -3846,8 +4114,10 @@ virtual bool has_evaluate() const override
 inline Minimum()
 
 -
+```python
 class Mish : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v44MishE) *#include <mish.hpp>*A Self Regularized Non-Monotonic Neural Activation Function f(x) = x * tanh(log(exp(x) + 1.))
+```
 
 Public Functions
 
@@ -3867,8 +4137,10 @@ virtual bool has_evaluate() const override
 virtual void validate_and_infer_types() override
 
 -
+```python
 class Mod : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_arithmetic.html#_CPPv4N2ov2op4util27BinaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v13ModE) *#include <mod.hpp>*[Mod](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_mod)returns an element-wise division reminder with two given tensors applying multi-directional broadcast rules.Public Functions
+```
 
 -
 Mod(const
@@ -3898,8 +4170,10 @@ virtual bool has_evaluate() const override
 Mod(const
 
 -
+```python
 class Multinomial : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1311MultinomialE) *#include <multinomial.hpp>*[Multinomial](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v13_1_1_multinomial)operation creates a sequence of indices of classes sampled from the multinomial distribution.Public Functions
+```
 
 -
 Multinomial(const
@@ -3919,8 +4193,10 @@ Throws if the node is invalid.
 Multinomial(const
 
 -
+```python
 class Multiply : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_arithmetic.html#_CPPv4N2ov2op4util27BinaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v18MultiplyE) *#include <multiply.hpp>*Elementwise multiplication operation.
+```
 
 Public Functions
 
@@ -3943,8 +4219,10 @@ virtual bool has_evaluate() const override
 inline Multiply()
 
 -
+```python
 class MVN : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v03MVNE) *#include <mvn.hpp>*Operator performing Mean Variance Normalization.
+```
 
 Public Functions
 
@@ -3977,8 +4255,10 @@ Throws if the node is invalid.
 MVN(const
 
 -
+```python
 class MVN : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v63MVNE) *#include <mvn.hpp>*Operator performing Mean Variance Normalization.
+```
 
 Public Functions
 
@@ -4019,8 +4299,10 @@ virtual bool has_evaluate() const override
 MVN(const
 
 -
+```python
 class Negative : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v08NegativeE) *#include <negative.hpp>*Elementwise negative operation.
+```
 
 Public Functions
 
@@ -4046,8 +4328,10 @@ virtual bool has_evaluate() const override
 Negative() = default
 
 -
+```python
 class NonMaxSuppression : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v117NonMaxSuppressionE) *#include <non_max_suppression.hpp>*Elementwise addition operation.
+```
 
 Public Functions
 
@@ -4078,8 +4362,10 @@ Throws if the node is invalid.
 NonMaxSuppression(const
 
 -
+```python
 class NonMaxSuppression : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v317NonMaxSuppressionE) *#include <non_max_suppression.hpp>*[NonMaxSuppression](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v3_1_1_non_max_suppression)operation.Subclassed by
+```
 
 [ov::op::v4::NonMaxSuppression](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_non_max_suppression)Public Functions
 
@@ -4110,8 +4396,10 @@ Throws if the node is invalid.
 NonMaxSuppression(const
 
 -
+```python
 class NonMaxSuppression : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[v3](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op2v3E)::[NonMaxSuppression](https://docs.openvino.ai/classov_1_1op_1_1v3_1_1_non_max_suppression.html#_CPPv4N2ov2op2v317NonMaxSuppressionE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v417NonMaxSuppressionE) *#include <non_max_suppression.hpp>*[NonMaxSuppression](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_non_max_suppression)operation.Public Functions
+```
 
 -
 NonMaxSuppression(const
@@ -4140,8 +4428,10 @@ Throws if the node is invalid.
 NonMaxSuppression(const
 
 -
+```python
 class NonMaxSuppression : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v517NonMaxSuppressionE) *#include <non_max_suppression.hpp>*[NonMaxSuppression](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v5_1_1_non_max_suppression)operation.Public Functions
+```
 
 -
 NonMaxSuppression(const
@@ -4196,8 +4486,10 @@ Throws if the node is invalid.
 NonMaxSuppression(const
 
 -
+```python
 class NonZero : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v37NonZeroE) *#include <non_zero.hpp>*[NonZero](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v3_1_1_non_zero)operation returning indices of non-zero elements in the input tensor.Note
+```
 
 The indices are returned by-dimension in row-major order. For example the following output contains 3 indices of a 3D input tensor elements: [[0, 0, 2], [0, 1, 1], [0, 1, 2]] The values point to input elements at [0,0,0], [0,1,1] and [2,1,2]
 
@@ -4249,8 +4541,10 @@ virtual bool has_evaluate() const override
 NonZero(const
 
 -
+```python
 class NormalizeL2 : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v011NormalizeL2E) *#include <normalize_l2.hpp>*Normalization with L2 norm.
+```
 
 Public Functions
 
@@ -4271,8 +4565,10 @@ Throws if the node is invalid.
 NormalizeL2(const
 
 -
+```python
 class NotEqual : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseComparison](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_comparison.html#_CPPv4N2ov2op4util27BinaryElementwiseComparisonE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v18NotEqualE) *#include <not_equal.hpp>*Elementwise not-equal operation.
+```
 
 Public Functions
 
@@ -4295,8 +4591,10 @@ virtual bool has_evaluate() const override
 inline NotEqual()
 
 -
+```python
 class NV12toBGR : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ConvertColorNV12Base](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_convert_color_n_v12_base.html#_CPPv4N2ov2op4util20ConvertColorNV12BaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v89NV12toBGRE) *#include <nv12_to_bgr.hpp>*Color conversion operation from NV12 to RGB format.
+```
 
 [Input](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_input):[Input](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_input)NV12 image can be represented in two ways: a) Single plane (as it is in the file): NV12 height dimension is 1.5x bigger than image height. ‘C’ dimension shall be 1. b) Two separate planes (used this way in many physical video sources): Y and UV. In this case b1) Y plane has height same as image height. ‘C’ dimension equals to 1 b2) UV plane has dimensions: ‘H’ = image_h / 2; ‘W’ = image_w / 2; ‘C’ = 2.Supported element types: u8 or any supported floating-point type.
 
@@ -4308,8 +4606,10 @@ Conversion of each pixel from NV12 (YUV) to RGB space is represented by followin
 Public Functions
 
 -
+```
 explicit NV12toBGR(const
 [Output](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4IEN2ov6OutputI4NodeEE)<[Node](https://docs.openvino.ai/classov_1_1_node.html#_CPPv4N2ov4NodeE)> &arg)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v89NV12toBGR9NV12toBGRERK6OutputI4NodeE) Constructs a conversion operation from input image in NV12 format As per NV12 format definition, node height dimension shall be 1.5 times bigger than image height so that image (w=640, h=480) is represented by NHWC shape {N,720,640,1} (height*1.5 x width)
+```
 
 
 -
@@ -4323,8 +4623,10 @@ explicit NV12toBGR(const
 
 
 -
+```python
 class NV12toRGB : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ConvertColorNV12Base](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_convert_color_n_v12_base.html#_CPPv4N2ov2op4util20ConvertColorNV12BaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v89NV12toRGBE) *#include <nv12_to_rgb.hpp>*Color conversion operation from NV12 to RGB format.
+```
 
 [Input](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_input):[Input](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_input)NV12 image can be represented in two ways: a) Single plane (as it is in the file): NV12 height dimension is 1.5x bigger than image height. ‘C’ dimension shall be 1. b) Two separate planes (used this way in many physical video sources): Y and UV. In this case b1) Y plane has height same as image height. ‘C’ dimension equals to 1 b2) UV plane has dimensions: ‘H’ = image_h / 2; ‘W’ = image_w / 2; ‘C’ = 2.Supported element types: u8 or any supported floating-point type.
 
@@ -4336,8 +4638,10 @@ Conversion of each pixel from NV12 (YUV) to RGB space is represented by followin
 Public Functions
 
 -
+```
 explicit NV12toRGB(const
 [Output](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4IEN2ov6OutputI4NodeEE)<[Node](https://docs.openvino.ai/classov_1_1_node.html#_CPPv4N2ov4NodeE)> &arg)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v89NV12toRGB9NV12toRGBERK6OutputI4NodeE) Constructs a conversion operation from input image in NV12 format As per NV12 format definition, node height dimension shall be 1.5 times bigger than image height so that image (w=640, h=480) is represented by NHWC shape {N,720,640,1} (height*1.5 x width)
+```
 
 
 -
@@ -4351,8 +4655,10 @@ NV12toRGB(const
 
 
 -
+```python
 class OneHot : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[OneHotBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_one_hot_base.html#_CPPv4N2ov2op4util10OneHotBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v16OneHotE) *#include <one_hot.hpp>*[OneHot](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_one_hot)operation.Public Functions
+```
 
 -
 OneHot() = default
@@ -4384,8 +4690,10 @@ virtual bool has_evaluate() const override
 OneHot() = default
 
 -
+```python
 class OneHot : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[OneHotBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_one_hot_base.html#_CPPv4N2ov2op4util10OneHotBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v166OneHotE) *#include <one_hot.hpp>*[OneHot](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v16_1_1_one_hot)operation.Public Types
+```
 
 Public Functions
 
@@ -4431,16 +4739,20 @@ The negative indices mode.
 OneHot() = default
 
 -
+```python
 class Op : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Node](https://docs.openvino.ai/classov_1_1_node.html#_CPPv4N2ov4NodeE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2OpE) *#include <op.hpp>*Root of all actual ops.
+```
 
 Subclassed by
 
 [ov::exec_model_info::ExecutionNode](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1exec__model__info_1_1_execution_node),[ov::op::Sink](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1_sink),[ov::op::internal::DynamicQuantize](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1internal_1_1_dynamic_quantize),[ov::op::internal::FullyConnected](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1internal_1_1_fully_connected),[ov::op::internal::GLU](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1internal_1_1_g_l_u),[ov::op::internal::NonMaxSuppressionIEInternal](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1internal_1_1_non_max_suppression_i_e_internal),[ov::op::internal::RMS](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1internal_1_1_r_m_s),[ov::op::internal::RoPE](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1internal_1_1_ro_p_e),[ov::op::internal::VLSDPA](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1internal_1_1_v_l_s_d_p_a),[ov::op::util::AvgPoolBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_avg_pool_base),[ov::op::util::BinaryElementwiseArithmetic](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_binary_elementwise_arithmetic),[ov::op::util::BinaryElementwiseBitwise](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_binary_elementwise_bitwise),[ov::op::util::BinaryElementwiseComparison](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_binary_elementwise_comparison),[ov::op::util::BinaryElementwiseLogical](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_binary_elementwise_logical),[ov::op::util::BroadcastBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_broadcast_base),[ov::op::util::ConvertColorI420Base](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_convert_color_i420_base),[ov::op::util::ConvertColorNV12Base](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_convert_color_n_v12_base),[ov::op::util::ConvolutionBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_convolution_base),[ov::op::util::DetectionOutputBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_detection_output_base),[ov::op::util::EmbeddingBagOffsetsBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_embedding_bag_offsets_base),[ov::op::util::EmbeddingBagPackedBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_embedding_bag_packed_base),[ov::op::util::FFTBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_f_f_t_base),[ov::op::util::GatherBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_gather_base),[ov::op::util::GatherNDBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_gather_n_d_base),[ov::op::util::IndexReduction](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_index_reduction),[ov::op::util::InterpolateBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_interpolate_base),[ov::op::util::MaxPoolBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_max_pool_base),[ov::op::util::MulticlassNmsBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multiclass_nms_base),[ov::op::util::OneHotBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_one_hot_base),[ov::op::util::PadBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_pad_base),[ov::op::util::RNNCellBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_r_n_n_cell_base),[ov::op::util::ROIAlignBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_r_o_i_align_base),[ov::op::util::ReadValueBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_read_value_base),[ov::op::util::ReductionBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_reduction_base),[ov::op::util::ScatterBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_scatter_base),[ov::op::util::ScatterElementsUpdateBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_scatter_elements_update_base),[ov::op::util::ScatterNDBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_scatter_n_d_base),[ov::op::util::ShapeOfBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_shape_of_base),[ov::op::util::SqueezeBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_squeeze_base),[ov::op::util::TopKBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_top_k_base),[ov::op::util::UnaryElementwiseArithmetic](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic),[ov::op::v0::BatchNormInference](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_batch_norm_inference),[ov::op::v0::CTCGreedyDecoder](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_c_t_c_greedy_decoder),[ov::op::v0::Concat](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_concat),[ov::op::v0::Constant](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_constant),[ov::op::v0::Convert](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_convert),[ov::op::v0::CumSum](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_cum_sum),[ov::op::v0::DepthToSpace](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_depth_to_space),[ov::op::v0::FakeQuantize](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_fake_quantize),[ov::op::v0::HardSigmoid](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_hard_sigmoid),[ov::op::v0::Interpolate](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_interpolate),[ov::op::v0::LRN](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_l_r_n),[ov::op::v0::MVN](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_m_v_n),[ov::op::v0::MatMul](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_mat_mul),[ov::op::v0::NormalizeL2](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_normalize_l2),[ov::op::v0::PRelu](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_p_relu),[ov::op::v0::PSROIPooling](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_p_s_r_o_i_pooling),[ov::op::v0::Parameter](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_parameter),[ov::op::v0::PriorBox](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_prior_box),[ov::op::v0::PriorBoxClustered](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_prior_box_clustered),[ov::op::v0::Proposal](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_proposal),[ov::op::v0::ROIPooling](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_r_o_i_pooling),[ov::op::v0::Range](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_range),[ov::op::v0::RegionYolo](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_region_yolo),[ov::op::v0::ReorgYolo](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_reorg_yolo),[ov::op::v0::Result](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_result),[ov::op::v0::ReverseSequence](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_reverse_sequence),[ov::op::v0::Selu](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_selu),[ov::op::v0::ShuffleChannels](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_shuffle_channels),[ov::op::v0::SpaceToDepth](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_space_to_depth),[ov::op::v0::Tile](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_tile),[ov::op::v0::Unsqueeze](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_unsqueeze),[ov::op::v10::IsFinite](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v10_1_1_is_finite),[ov::op::v10::IsInf](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v10_1_1_is_inf),[ov::op::v10::IsNaN](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v10_1_1_is_na_n),[ov::op::v10::Unique](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v10_1_1_unique),[ov::op::v12::GroupNormalization](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v12_1_1_group_normalization),[ov::op::v13::BitwiseNot](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v13_1_1_bitwise_not),[ov::op::v13::FakeConvert](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v13_1_1_fake_convert),[ov::op::v13::Multinomial](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v13_1_1_multinomial),[ov::op::v13::NMSRotated](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v13_1_1_n_m_s_rotated),[ov::op::v13::ScaledDotProductAttention](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v13_1_1_scaled_dot_product_attention),[ov::op::v14::ConvertPromoteTypes](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v14_1_1_convert_promote_types),[ov::op::v14::Inverse](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v14_1_1_inverse),[ov::op::v15::Col2Im](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v15_1_1_col2_im),[ov::op::v15::STFT](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v15_1_1_s_t_f_t),[ov::op::v15::SearchSorted](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v15_1_1_search_sorted),[ov::op::v15::SliceScatter](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v15_1_1_slice_scatter),[ov::op::v15::StringTensorPack](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v15_1_1_string_tensor_pack),[ov::op::v15::StringTensorUnpack](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v15_1_1_string_tensor_unpack),[ov::op::v16::ISTFT](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v16_1_1_i_s_t_f_t),[ov::op::v16::Identity](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v16_1_1_identity),[ov::op::v16::SegmentMax](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v16_1_1_segment_max),[ov::op::v16::SparseFillEmptyRows](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v16_1_1_sparse_fill_empty_rows),[ov::op::v1::BatchToSpace](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_batch_to_space),[ov::op::v1::ConvertLike](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_convert_like),[ov::op::v1::DeformablePSROIPooling](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_deformable_p_s_r_o_i_pooling),[ov::op::v1::GatherTree](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_gather_tree),[ov::op::v1::LogicalNot](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_logical_not),[ov::op::v1::NonMaxSuppression](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_non_max_suppression),[ov::op::v1::Reshape](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_reshape),[ov::op::v1::Reverse](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_reverse),[ov::op::v1::Select](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_select),[ov::op::v1::Softmax](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_softmax),[ov::op::v1::SpaceToBatch](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_space_to_batch),[ov::op::v1::Split](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_split),[ov::op::v1::StridedSlice](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_strided_slice),[ov::op::v1::Transpose](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_transpose),[ov::op::v1::VariadicSplit](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_variadic_split),[ov::op::v3::Bucketize](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v3_1_1_bucketize),[ov::op::v3::EmbeddingSegmentsSum](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v3_1_1_embedding_segments_sum),[ov::op::v3::ExtractImagePatches](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v3_1_1_extract_image_patches),[ov::op::v3::NonMaxSuppression](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v3_1_1_non_max_suppression),[ov::op::v3::NonZero](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v3_1_1_non_zero),[ov::op::v4::CTCLoss](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_c_t_c_loss),[ov::op::v4::Range](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_range),[ov::op::v4::Swish](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_swish),[ov::op::v5::BatchNormInference](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v5_1_1_batch_norm_inference),[ov::op::v5::LogSoftmax](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v5_1_1_log_softmax),[ov::op::v5::NonMaxSuppression](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v5_1_1_non_max_suppression),[ov::op::v6::CTCGreedyDecoderSeqLen](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_c_t_c_greedy_decoder_seq_len),[ov::op::v6::ExperimentalDetectronDetectionOutput](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_experimental_detectron_detection_output),[ov::op::v6::ExperimentalDetectronGenerateProposalsSingleImage](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_experimental_detectron_generate_proposals_single_image),[ov::op::v6::ExperimentalDetectronPriorGridGenerator](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_experimental_detectron_prior_grid_generator),[ov::op::v6::ExperimentalDetectronROIFeatureExtractor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_experimental_detectron_r_o_i_feature_extractor),[ov::op::v6::ExperimentalDetectronTopKROIs](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_experimental_detectron_top_k_r_o_is),[ov::op::v6::GatherElements](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_gather_elements),[ov::op::v6::MVN](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_m_v_n),[ov::op::v7::Einsum](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v7_1_1_einsum),[ov::op::v7::Roll](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v7_1_1_roll),[ov::op::v8::AdaptiveAvgPool](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_adaptive_avg_pool),[ov::op::v8::AdaptiveMaxPool](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_adaptive_max_pool),[ov::op::v8::MatrixNms](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_matrix_nms),[ov::op::v8::PriorBox](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_prior_box),[ov::op::v8::RandomUniform](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_random_uniform),[ov::op::v8::Slice](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_slice),[ov::op::v8::Softmax](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_softmax),[ov::op::v9::Eye](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v9_1_1_eye),[ov::op::v9::GenerateProposals](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v9_1_1_generate_proposals),[ov::op::v9::GridSample](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v9_1_1_grid_sample),[ov::op::v9::NonMaxSuppression](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v9_1_1_non_max_suppression)
 
 -
+```python
 class Pad : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[PadBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_pad_base.html#_CPPv4N2ov2op4util7PadBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v13PadE) *#include <pad.hpp>*Generic padding operation.
+```
 
 Public Functions
 
@@ -4488,8 +4800,10 @@ true if successful
 Pad() = default
 
 -
+```python
 class Pad : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[PadBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_pad_base.html#_CPPv4N2ov2op4util7PadBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v123PadE) *#include <pad.hpp>*Generic padding operation.
+```
 
 Public Functions
 
@@ -4537,8 +4851,10 @@ true if successful
 Pad() = default
 
 -
+```python
 class Parameter : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v09ParameterE) *#include <parameter.hpp>*A model parameter.
+```
 
 Parameters are nodes that represent the arguments that will be passed to user-defined models.
 
@@ -4569,8 +4885,10 @@ Throws if the node is invalid.
 Parameter() = default
 
 -
+```python
 class Power : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_arithmetic.html#_CPPv4N2ov2op4util27BinaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v15PowerE) *#include <power.hpp>*Elementwise exponentiation operation.
+```
 
 *Inputs*Type
 
@@ -4614,8 +4932,10 @@ virtual bool has_evaluate() const override
 Power(const
 
 -
+```python
 class PRelu : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v05PReluE) *#include <prelu.hpp>*Parametrized
+```
 
 [Relu](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_relu)x < 0 => f(x) = x * slope x >= 0 => f(x) = x.Public Functions
 
@@ -4644,8 +4964,10 @@ virtual bool has_evaluate() const override
 PRelu(const
 
 -
+```python
 class PriorBox : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v08PriorBoxE) *#include <prior_box.hpp>*Layer which generates prior boxes of specified sizes normalized to input image size.
+```
 
 Public Functions
 
@@ -4668,15 +4990,19 @@ virtual bool has_evaluate() const override
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v08PriorBox10AttributesE) *#include <prior_box.hpp>*
+```
 
 -
 PriorBox(const
 
 -
+```python
 class PriorBox : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v88PriorBoxE) *#include <prior_box.hpp>*Layer which generates prior boxes of specified sizes normalized to input image size.
+```
 
 Public Functions
 
@@ -4699,15 +5025,19 @@ virtual bool has_evaluate() const override
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v88PriorBox10AttributesE) *#include <prior_box.hpp>*
+```
 
 -
 PriorBox(const
 
 -
+```python
 class PriorBoxClustered : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v017PriorBoxClusteredE) *#include <prior_box_clustered.hpp>*Layer which generates prior boxes of specified sizes normalized to input image size.
+```
 
 Public Functions
 
@@ -4733,15 +5063,19 @@ virtual bool has_evaluate() const override
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v017PriorBoxClustered10AttributesE) *#include <prior_box_clustered.hpp>*
+```
 
 -
 PriorBoxClustered(const
 
 -
+```python
 class Proposal : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v08ProposalE) *#include <proposal.hpp>*[Proposal](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_proposal)operation.Subclassed by
+```
 
 [ov::op::v4::Proposal](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_proposal)Unnamed Group
 
@@ -4769,15 +5103,19 @@ Throws if the node is invalid.
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v08Proposal10AttributesE) *#include <proposal.hpp>*
+```
 
 -
 void set_attrs(
 
 -
+```python
 class Proposal : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[v0](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op2v0E)::[Proposal](https://docs.openvino.ai/classov_1_1op_1_1v0_1_1_proposal.html#_CPPv4N2ov2op2v08ProposalE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v48ProposalE) *#include <proposal.hpp>*[Proposal](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_proposal)operation.Public Functions
+```
 
 -
 Proposal(const
@@ -4796,8 +5134,10 @@ Throws if the node is invalid.
 Proposal(const
 
 -
+```python
 class PSROIPooling : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v012PSROIPoolingE) *#include <psroi_pooling.hpp>*[PSROIPooling](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_p_s_r_o_i_pooling)operation.Public Functions
+```
 
 -
 PSROIPooling(const
@@ -4867,8 +5207,10 @@ void set_mode(std::string mode)
 PSROIPooling(const
 
 -
+```python
 class RandomUniform : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v813RandomUniformE) *#include <random_uniform.hpp>*[Tensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_tensor)[RandomUniform](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_random_uniform)operation.Public Functions
+```
 
 -
 RandomUniform(const
@@ -4930,8 +5272,10 @@ virtual bool has_evaluate() const override
 RandomUniform(const
 
 -
+```python
 class Range : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v45RangeE) *#include <range.hpp>*[Range](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_range)operation, analogous to`arange()`
+```
 
 in Numpy.Public Functions
 
@@ -4965,8 +5309,10 @@ virtual bool has_evaluate() const override
 Range() = default
 
 -
+```python
 class Range : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v05RangeE) *#include <range.hpp>*[Range](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_range)operation, analogous to
+```
 
 in Python.[range()](https://docs.openvino.ai/group__ov__transformation__common__api.html#namespaceov_1_1reference_1af0fac75e70945db6b045007fe2f23e05)Public Functions
 
@@ -5012,8 +5358,10 @@ virtual bool has_evaluate() const override
 Range() = default
 
 -
+```python
 class ReadValue : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ReadValueBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_read_value_base.html#_CPPv4N2ov2op4util13ReadValueBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v39ReadValueE) *#include <read_value.hpp>*[ReadValue](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v3_1_1_read_value)operation creates the variable with`variable_id`
+```
 
 and returns value of this variable.Public Functions
 
@@ -5042,8 +5390,10 @@ inline virtual std::string get_variable_id() const override
 ReadValue(const
 
 -
+```python
 class ReadValue : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ReadValueBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_read_value_base.html#_CPPv4N2ov2op4util13ReadValueBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v69ReadValueE) *#include <read_value.hpp>*[ReadValue](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_read_value)operation gets an input value from the variable with`variable_id`
+```
 
 and returns it as an output.Public Functions
 
@@ -5079,8 +5429,10 @@ virtual bool has_evaluate() const override
 
 
 -
+```python
 class ReduceL1 : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ArithmeticReductionKeepDims](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_arithmetic_reduction_keep_dims.html#_CPPv4N2ov2op4util27ArithmeticReductionKeepDimsE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v48ReduceL1E) *#include <reduce_l1.hpp>*Reduction operation using L1 norm: L1(x) = sum(abs(x)) if all dimensions are specified for the normalisation.
+```
 
 Reduces the tensor, eliminating the specified reduction axes by taking the L1-norm.
 
@@ -5109,8 +5461,10 @@ virtual bool has_evaluate() const override
 ReduceL1() = default
 
 -
+```python
 class ReduceL2 : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ArithmeticReductionKeepDims](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_arithmetic_reduction_keep_dims.html#_CPPv4N2ov2op4util27ArithmeticReductionKeepDimsE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v48ReduceL2E) *#include <reduce_l2.hpp>*Reduction operation using L2 norm:
+```
 
 Reduces the tensor, eliminating the specified reduction axes by taking the L2-norm.
 
@@ -5139,8 +5493,10 @@ virtual bool has_evaluate() const override
 ReduceL2() = default
 
 -
+```python
 class ReduceLogicalAnd : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[LogicalReductionKeepDims](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_logical_reduction_keep_dims.html#_CPPv4N2ov2op4util24LogicalReductionKeepDimsE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v116ReduceLogicalAndE) *#include <reduce_logical_and.hpp>*Performs a reduction using “logical and”.
+```
 
 The reduction is performed over slices of the first input. The slices shape depends on the values passed to the second input - the axes.
 
@@ -5164,8 +5520,10 @@ virtual bool has_evaluate() const override
 ReduceLogicalAnd(const
 
 -
+```python
 class ReduceLogicalOr : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[LogicalReductionKeepDims](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_logical_reduction_keep_dims.html#_CPPv4N2ov2op4util24LogicalReductionKeepDimsE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v115ReduceLogicalOrE) *#include <reduce_logical_or.hpp>*Performs a reduction using “logical or”.
+```
 
 The reduction is performed over slices of the first input. The slices shape depends on the values passed to the second input - the axes.
 
@@ -5189,8 +5547,10 @@ virtual bool has_evaluate() const override
 ReduceLogicalOr(const
 
 -
+```python
 class ReduceMax : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ArithmeticReductionKeepDims](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_arithmetic_reduction_keep_dims.html#_CPPv4N2ov2op4util27ArithmeticReductionKeepDimsE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v19ReduceMaxE) *#include <reduce_max.hpp>*[ReduceMax](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_reduce_max)operation.Public Functions
+```
 
 -
 ReduceMax() = default
@@ -5215,8 +5575,10 @@ virtual bool has_evaluate() const override
 ReduceMax() = default
 
 -
+```python
 class ReduceMean : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ArithmeticReductionKeepDims](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_arithmetic_reduction_keep_dims.html#_CPPv4N2ov2op4util27ArithmeticReductionKeepDimsE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v110ReduceMeanE) *#include <reduce_mean.hpp>*[ReduceMean](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_reduce_mean)operation.Public Functions
+```
 
 -
 ReduceMean(const
@@ -5234,8 +5596,10 @@ virtual bool has_evaluate() const override
 ReduceMean(const
 
 -
+```python
 class ReduceMin : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ArithmeticReductionKeepDims](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_arithmetic_reduction_keep_dims.html#_CPPv4N2ov2op4util27ArithmeticReductionKeepDimsE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v19ReduceMinE) *#include <reduce_min.hpp>*[ReduceMin](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_reduce_min)operation.Public Functions
+```
 
 -
 ReduceMin() = default
@@ -5260,8 +5624,10 @@ virtual bool has_evaluate() const override
 ReduceMin() = default
 
 -
+```python
 class ReduceProd : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ArithmeticReductionKeepDims](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_arithmetic_reduction_keep_dims.html#_CPPv4N2ov2op4util27ArithmeticReductionKeepDimsE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v110ReduceProdE) *#include <reduce_prod.hpp>*Product reduction operation.
+```
 
 Reduces the tensor, eliminating the specified reduction axes by taking the product.
 
@@ -5290,8 +5656,10 @@ virtual bool has_evaluate() const override
 ReduceProd() = default
 
 -
+```python
 class ReduceSum : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ArithmeticReductionKeepDims](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_arithmetic_reduction_keep_dims.html#_CPPv4N2ov2op4util27ArithmeticReductionKeepDimsE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v19ReduceSumE) *#include <reduce_sum.hpp>*[Tensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_tensor)sum operation.Element-wise sums the input tensor, eliminating the specified reduction axes. For example:
+```
 
 \[\begin{split} \mathit{sum}\left(\{0\}, \left[ \begin{array}{ccc} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{array} \right]\right) = \left[ (1 + 3 + 5), (2 + 4 + 6) \right] = \left[ 9, 12 \right]~~~\text{(dimension 0 (rows) is eliminated)} \end{split}\]\[\begin{split} \mathit{sum}\left(\{1\}, \left[ \begin{array}{ccc} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{array} \right]\right) = \left[ (1 + 2), (3 + 4), (5 + 6) \right] = \left[ 3, 7, 11 \right]~~~\text{(dimension 1 (columns) is eliminated)} \end{split}\]\[\begin{split} \mathit{sum}\left(\{0,1\}, \left[ \begin{array}{ccc} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{array} \right]\right) = (1 + 2) + (3 + 4) + (5 + 6) = 21~~~\text{(both dimensions (rows and columns) are eliminated)} \end{split}\]*Parameters*Description
 
@@ -5348,8 +5716,10 @@ virtual bool has_evaluate() const override
 ReduceSum() = default
 
 -
+```python
 class RegionYolo : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v010RegionYoloE) *#include <region_yolo.hpp>*[RegionYolo](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_region_yolo)operation.Public Functions
+```
 
 -
 RegionYolo(const
@@ -5373,14 +5743,18 @@ Throws if the node is invalid.
 RegionYolo(const
 
 -
+```python
 class Relu : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v04ReluE) *#include <relu.hpp>*Elementwise
+```
 
 [Relu](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_relu)operation.
 
 -
+```python
 class ReorgYolo : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v09ReorgYoloE) *#include <reorg_yolo.hpp>*[ReorgYolo](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_reorg_yolo)operation.Public Functions
+```
 
 -
 ReorgYolo(const
@@ -5402,8 +5776,10 @@ Throws if the node is invalid.
 ReorgYolo(const
 
 -
+```python
 class Reshape : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v17ReshapeE) *#include <reshape.hpp>*[Tensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_tensor)dynamic reshape operation.“Converts” an input tensor into a new shape with the same number of elements. This op does not touch the actual data. If needed, use
+```
 
 [Transpose](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_transpose)for that purpose.Public Functions
 
@@ -5446,8 +5822,10 @@ virtual bool has_evaluate() const override
 Reshape(const
 
 -
+```python
 class Result : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v06ResultE) *#include <result.hpp>*[Result](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_result)operation.The
+```
 
 [Result](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_result)output tensor is special, it shares tensor with[Result](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_result)’s input but requires to have dedicated properties like:tensor names.
 
@@ -5514,8 +5892,10 @@ virtual bool has_evaluate() const override
 
 
 -
+```python
 class Reverse : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v17ReverseE) *#include <reverse.hpp>*[Reverse](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_reverse)operation.Public Functions
+```
 
 -
 Reverse(const
@@ -5549,8 +5929,10 @@ virtual bool has_evaluate() const override
 Reverse(const
 
 -
+```python
 class ReverseSequence : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v015ReverseSequenceE) *#include <reverse_sequence.hpp>*[ReverseSequence](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_reverse_sequence)operation.Public Functions
+```
 
 -
 ReverseSequence(const
@@ -5572,8 +5954,10 @@ Throws if the node is invalid.
 ReverseSequence(const
 
 -
+```python
 class RNNCell : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[RNNCellBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_r_n_n_cell_base.html#_CPPv4N2ov2op4util11RNNCellBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v07RNNCellE) *#include <rnn_cell.hpp>*Class for single RNN cell node.
+```
 
 See also
 
@@ -5624,8 +6008,10 @@ Throws if the node is invalid.
 RNNCell(const
 
 -
+```python
 class RNNSequence : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[RNNCellBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_r_n_n_cell_base.html#_CPPv4N2ov2op4util11RNNCellBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v511RNNSequenceE) *#include <rnn_sequence.hpp>*[RNNSequence](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v5_1_1_r_n_n_sequence)operation.Public Functions
+```
 
 -
 virtual void validate_and_infer_types() override
@@ -5638,8 +6024,10 @@ Throws if the node is invalid.
 virtual void validate_and_infer_types() override
 
 -
+```python
 class ROIAlign : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ROIAlignBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_r_o_i_align_base.html#_CPPv4N2ov2op4util12ROIAlignBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v38ROIAlignE) *#include <roi_align.hpp>*[ROIAlign](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v3_1_1_r_o_i_align)operation.Public Functions
+```
 
 -
 ROIAlign(const
@@ -5665,8 +6053,10 @@ virtual bool has_evaluate() const override
 ROIAlign(const
 
 -
+```python
 class ROIAlignRotated : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ROIAlignBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_r_o_i_align_base.html#_CPPv4N2ov2op4util12ROIAlignBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1515ROIAlignRotatedE) *#include <roi_align_rotated.hpp>*[ROIAlignRotated](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v15_1_1_r_o_i_align_rotated)operation.Public Functions
+```
 
 -
 ROIAlignRotated(const
@@ -5688,8 +6078,10 @@ Throws if the node is invalid.
 ROIAlignRotated(const
 
 -
+```python
 class ROIPooling : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v010ROIPoolingE) *#include <roi_pooling.hpp>*[ROIPooling](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_r_o_i_pooling)operation.Public Functions
+```
 
 -
 ROIPooling(const
@@ -5743,8 +6135,10 @@ void set_method(std::string method_name)
 ROIPooling(const
 
 -
+```python
 class Roll : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v74RollE) *#include <roll.hpp>*[Tensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_tensor)roll operation.Public Functions
+```
 
 -
 Roll(const
@@ -5762,8 +6156,10 @@ Throws if the node is invalid.
 Roll(const
 
 -
+```python
 class Round : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v55RoundE) *#include <round.hpp>*Elementwise round operation. The output is round to the nearest integer for each value. In case of halfs, the rule is defined in attribute ‘mode’: ‘HALF_TO_EVEN’ - round halfs to the nearest even integer. ‘HALF_AWAY_FROM_ZERO’: - round in such a way that the result heads away from zero.
+```
 
 Public Functions
 
@@ -5797,8 +6193,10 @@ virtual bool has_evaluate() const override
 Round() = default
 
 -
+```python
 class ScaledDotProductAttention : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1325ScaledDotProductAttentionE) *#include <scaled_dot_product_attention.hpp>*Scaled dot product attention operation from PyTorch.
+```
 
 Public Functions
 
@@ -5819,8 +6217,10 @@ Throws if the node is invalid.
 ScaledDotProductAttention() = default
 
 -
+```python
 class ScatterElementsUpdate : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ScatterElementsUpdateBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_scatter_elements_update_base.html#_CPPv4N2ov2op4util25ScatterElementsUpdateBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v321ScatterElementsUpdateE) *#include <scatter_elements_update.hpp>*[ScatterElementsUpdate](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v3_1_1_scatter_elements_update)operation.Public Functions
+```
 
 -
 ScatterElementsUpdate(const
@@ -5835,8 +6235,10 @@ ScatterElementsUpdate(const
 ScatterElementsUpdate(const
 
 -
+```python
 class ScatterNDUpdate : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ScatterNDBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_scatter_n_d_base.html#_CPPv4N2ov2op4util13ScatterNDBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v315ScatterNDUpdateE) *#include <scatter_nd_update.hpp>*Add updates to slices from inputs addressed by indices.
+```
 
 Public Functions
 
@@ -5858,8 +6260,10 @@ virtual bool has_evaluate() const override
 inline ScatterNDUpdate(const
 
 -
+```python
 class ScatterNDUpdate : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ScatterNDBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_scatter_n_d_base.html#_CPPv4N2ov2op4util13ScatterNDBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1515ScatterNDUpdateE) *#include <scatter_nd_update.hpp>*Add updates to slices from inputs addressed by indices.
+```
 
 Public Types
 
@@ -5883,8 +6287,10 @@ virtual bool has_evaluate() const override
 ScatterNDUpdate(const
 
 -
+```python
 class ScatterUpdate : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ScatterBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_scatter_base.html#_CPPv4N2ov2op4util11ScatterBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v313ScatterUpdateE) *#include <scatter_update.hpp>*Set new values to slices from data addressed by indices.
+```
 
 Public Functions
 
@@ -5906,8 +6312,10 @@ virtual bool has_evaluate() const override
 ScatterUpdate(const
 
 -
+```python
 class SearchSorted : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1512SearchSortedE) *#include <search_sorted.hpp>*[SearchSorted](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v15_1_1_search_sorted)operation.Public Functions
+```
 
 -
 SearchSorted(const
@@ -5929,8 +6337,10 @@ Throws if the node is invalid.
 SearchSorted(const
 
 -
+```python
 class SegmentMax : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1610SegmentMaxE) *#include <segment_max.hpp>*An operation which computes the maximum values along segments of a tensor.
+```
 
 Public Functions
 
@@ -5963,8 +6373,10 @@ Throws if the node is invalid.
 SegmentMax(const
 
 -
+```python
 class Select : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v16SelectE) *#include <select.hpp>*Elementwise selection operation.
+```
 
 *Inputs*Type
 
@@ -6043,8 +6455,10 @@ virtual bool has_evaluate() const override
 inline Select()
 
 -
+```python
 class Selu : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v04SeluE) *#include <selu.hpp>*Performs a SELU activation function on all elements of the input node.
+```
 
 Public Functions
 
@@ -6068,8 +6482,10 @@ Throws if the node is invalid.
 Selu(const
 
 -
+```python
 class ShapeOf : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ShapeOfBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_shape_of_base.html#_CPPv4N2ov2op4util11ShapeOfBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v37ShapeOfE) *#include <shape_of.hpp>*Operation that returns the shape of its input argument as a tensor.
+```
 
 Public Functions
 
@@ -6094,8 +6510,10 @@ virtual bool has_evaluate() const override
 ShapeOf(const
 
 -
+```python
 class ShapeOf : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ShapeOfBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_shape_of_base.html#_CPPv4N2ov2op4util11ShapeOfBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v07ShapeOfE) *#include <shape_of.hpp>*Operation that returns the shape of its input argument as a tensor.
+```
 
 Public Functions
 
@@ -6115,8 +6533,10 @@ virtual bool has_evaluate() const override
 virtual void validate_and_infer_types() override
 
 -
+```python
 class ShuffleChannels : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v015ShuffleChannelsE) *#include <shuffle_channels.hpp>*Permutes data in the channel dimension of the input.
+```
 
 Public Functions
 
@@ -6145,8 +6565,10 @@ virtual bool has_evaluate() const override
 ShuffleChannels(const
 
 -
+```python
 class Sigmoid : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v07SigmoidE) *#include <sigmoid.hpp>*[Sigmoid](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_sigmoid)operation.Public Functions
+```
 
 -
 virtual bool has_evaluate() const override
@@ -6157,13 +6579,17 @@ virtual bool has_evaluate() const override
 virtual bool has_evaluate() const override
 
 -
+```python
 class Sign : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v04SignE) *#include <sign.hpp>*Elementwise sign operation.
+```
 
 
 -
+```python
 class Sin : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v03SinE) *#include <sin.hpp>*Elementwise sine operation.
+```
 
 *Inputs*Type
 
@@ -6185,21 +6611,27 @@ The tensor \(T\), where \(T[i_1,\dots,i_n] = \sin(\texttt{arg}[i_1,\dots,i_n])\)
 
 
 -
+```python
 class Sinh : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v04SinhE) *#include <sinh.hpp>*Elementwise hyperbolic sine (sinh) operation.
+```
 
 
 -
+```python
 class Sink : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4SinkE) *#include <sink.hpp>*Root of nodes that can be sink nodes.
+```
 
 Subclassed by
 
 [ov::op::util::AssignBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_assign_base),[ov::op::util::MultiSubGraphOp](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multi_sub_graph_op)
 
 -
+```python
 class Slice : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v85SliceE) *#include <slice.hpp>*[Slice](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_slice)operation.Public Functions
+```
 
 -
 Slice(const
@@ -6239,8 +6671,10 @@ virtual bool has_evaluate() const override
 Slice(const
 
 -
+```python
 class SliceScatter : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1512SliceScatterE) *#include <slice_scatter.hpp>*[SliceScatter](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v15_1_1_slice_scatter)operation.Public Functions
+```
 
 -
 SliceScatter(const
@@ -6275,8 +6709,10 @@ Throws if the node is invalid.
 SliceScatter(const
 
 -
+```python
 class Softmax : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v17SoftmaxE) *#include <softmax.hpp>*[Softmax](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_softmax)operation.Public Functions
+```
 
 -
 Softmax(const
@@ -6307,8 +6743,10 @@ virtual bool has_evaluate() const override
 Softmax(const
 
 -
+```python
 class Softmax : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v87SoftmaxE) *#include <softmax.hpp>*[Softmax](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_softmax)operation with negative axis values.Public Functions
+```
 
 -
 Softmax(const
@@ -6339,8 +6777,10 @@ virtual bool has_evaluate() const override
 Softmax(const
 
 -
+```python
 class SoftPlus : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v48SoftPlusE) *#include <softplus.hpp>*A Self Regularized Non-Monotonic Neural Activation Function f(x) = ln(exp(x) + 1.)
+```
 
 Public Functions
 
@@ -6368,8 +6808,10 @@ virtual bool has_evaluate() const override
 SoftPlus(const
 
 -
+```python
 class SpaceToBatch : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v112SpaceToBatchE) *#include <space_to_batch.hpp>*[SpaceToBatch](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_space_to_batch)permutes data tensor blocks of spatial data into batch dimension.Note
+```
 
 Values from spatial blocks dimensions are moved in the batch dimension.
 
@@ -6406,8 +6848,10 @@ virtual bool has_evaluate() const override
 SpaceToBatch(const
 
 -
+```python
 class SpaceToDepth : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v012SpaceToDepthE) *#include <space_to_depth.hpp>*[SpaceToDepth](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_space_to_depth)permutes input tensor blocks of spatial data into depth dimension.Note
+```
 
 Values from the height and width dimensions are moved to the depth dimension.
 
@@ -6440,8 +6884,10 @@ virtual bool has_evaluate() const override
 SpaceToDepth(const
 
 -
+```python
 class SparseFillEmptyRows : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1619SparseFillEmptyRowsE) *#include <sparse_fill_empty_rows.hpp>*An operation which fills empty rows of a sparse tensor with a default value.
+```
 
 Public Functions
 
@@ -6465,8 +6911,10 @@ Throws if the node is invalid.
 SparseFillEmptyRows(const
 
 -
+```python
 class Split : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v15SplitE) *#include <split.hpp>*Splits the input tensor into a list of equal sized tensors.
+```
 
 Public Functions
 
@@ -6500,8 +6948,10 @@ virtual bool has_evaluate() const override
 Split() = default
 
 -
+```python
 class Sqrt : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v04SqrtE) *#include <sqrt.hpp>*Elementwise square root operation.
+```
 
 *Inputs*Type
 
@@ -6523,8 +6973,10 @@ The tensor \(T\), where \(T[i_1,\dots,i_n] = \sqrt{\texttt{arg}[i_1,\dots,i_n]}\
 
 
 -
+```python
 class SquaredDifference : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_arithmetic.html#_CPPv4N2ov2op4util27BinaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v017SquaredDifferenceE) *#include <squared_difference.hpp>*Calculates an element-wise squared difference between two tensors.
+```
 
 y[i] = (x1[i] - x2[i])^2
 
@@ -6553,8 +7005,10 @@ virtual bool has_evaluate() const override
 inline SquaredDifference()
 
 -
+```python
 class Squeeze : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[SqueezeBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_squeeze_base.html#_CPPv4N2ov2op4util11SqueezeBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v07SqueezeE) *#include <squeeze.hpp>*[Squeeze](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_squeeze)operation.Public Functions
+```
 
 -
 Squeeze(const
@@ -6584,8 +7038,10 @@ Throws if the node is invalid.
 Squeeze(const
 
 -
+```python
 class Squeeze : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[SqueezeBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_squeeze_base.html#_CPPv4N2ov2op4util11SqueezeBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v157SqueezeE) *#include <squeeze.hpp>*[Squeeze](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v15_1_1_squeeze)operation.Public Functions
+```
 
 -
 Squeeze(const
@@ -6610,8 +7066,10 @@ Throws if the node is invalid.
 Squeeze(const
 
 -
+```python
 class STFT : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v154STFTE) *#include <stft.hpp>*An operation
+```
 
 [STFT](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v15_1_1_s_t_f_t)that computes the Short Time Fourier Transform.Public Functions
 
@@ -6637,8 +7095,10 @@ Throws if the node is invalid.
 STFT(const
 
 -
+```python
 class StridedSlice : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v112StridedSliceE) *#include <strided_slice.hpp>*Takes a slice of an input tensor, i.e., the sub-tensor that resides within a bounding box, optionally with stride.
+```
 
 Public Functions
 
@@ -6678,8 +7138,10 @@ virtual bool has_evaluate() const override
 StridedSlice(const
 
 -
+```python
 class StringTensorPack : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1516StringTensorPackE) *#include <string_tensor_pack.hpp>*Operator packing a concatenated batch of strings into a batched string tensor.
+```
 
 Public Functions
 
@@ -6703,8 +7165,10 @@ Throws if the node is invalid.
 StringTensorPack(const
 
 -
+```python
 class StringTensorUnpack : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1518StringTensorUnpackE) *#include <string_tensor_unpack.hpp>*Operator unpacking a batch of strings into three tensors.
+```
 
 Public Functions
 
@@ -6727,8 +7191,10 @@ Throws if the node is invalid.
 StringTensorUnpack(const
 
 -
+```python
 class Subtract : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_arithmetic.html#_CPPv4N2ov2op4util27BinaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v18SubtractE) *#include <subtract.hpp>*Elementwise subtraction operation.
+```
 
 Public Functions
 
@@ -6746,8 +7212,10 @@ virtual bool has_evaluate() const override
 Subtract(const
 
 -
+```python
 class Swish : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v45SwishE) *#include <swish.hpp>*A
+```
 
 [Swish](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_swish)Activation Function f(x) = x / (1.0 + exp(-beta * x)) or f(x) = x * sigmoid(beta * x)Public Functions
 
@@ -6776,8 +7244,10 @@ virtual bool has_evaluate() const override
 Swish(const
 
 -
+```python
 class Tan : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v03TanE) *#include <tan.hpp>*Elementwise tangent operation.
+```
 
 *Inputs*Type
 
@@ -6799,13 +7269,17 @@ The tensor \(T\), where \(T[i_1,\dots,i_n] = \tan(\texttt{arg}[i_1,\dots,i_n])\)
 
 
 -
+```python
 class Tanh : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v04TanhE) *#include <tanh.hpp>*Elementwise hyperbolic tangent operation.
+```
 
 
 -
+```python
 class TensorIterator : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[SubGraphOp](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_sub_graph_op.html#_CPPv4N2ov2op4util10SubGraphOpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v014TensorIteratorE) *#include <tensor_iterator.hpp>*Iterate a body over tensors, accumulating into tensors.
+```
 
 Public Functions
 
@@ -6822,8 +7296,10 @@ Throws if the node is invalid.
 
 
 -
+```python
 class Tile : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v04TileE) *#include <tile.hpp>*Dynamic Tiling operation which repeats a tensor multiple times along each dimension.
+```
 
 Public Functions
 
@@ -6864,8 +7340,10 @@ true if successful
 Tile(const
 
 -
+```python
 class TopK : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[TopKBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_top_k_base.html#_CPPv4N2ov2op4util8TopKBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v14TopKE) *#include <topk.hpp>*Computes indices and values of the k maximum/minimum values for each slice along specified axis.
+```
 
 Public Functions
 
@@ -6887,8 +7365,10 @@ virtual bool has_evaluate() const override
 TopK(const
 
 -
+```python
 class TopK : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[TopKBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_top_k_base.html#_CPPv4N2ov2op4util8TopKBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v34TopKE) *#include <topk.hpp>*Computes indices and values of the k maximum/minimum values for each slice along specified axis.
+```
 
 Public Functions
 
@@ -6910,8 +7390,10 @@ virtual bool has_evaluate() const override
 TopK(const
 
 -
+```python
 class TopK : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[TopKBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_top_k_base.html#_CPPv4N2ov2op4util8TopKBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v114TopKE) *#include <topk.hpp>*Computes the top K elements of a given tensor along the specified axis.
+```
 
 Public Functions
 
@@ -6949,8 +7431,10 @@ virtual bool has_evaluate() const override
 TopK(const
 
 -
+```python
 class Transpose : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v19TransposeE) *#include <transpose.hpp>*[Tensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_tensor)transpose operation.Public Types
+```
 
 Public Functions
 
@@ -6975,8 +7459,10 @@ virtual bool has_evaluate() const override
 Transpose(const
 
 -
+```python
 class Unique : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v106UniqueE) *#include <unique.hpp>*Operator which selects and returns unique elements or unique slices of the input tensor.
+```
 
 Public Functions
 
@@ -7009,8 +7495,10 @@ Throws if the node is invalid.
 Unique(const
 
 -
+```python
 class Unsqueeze : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v09UnsqueezeE) *#include <unsqueeze.hpp>*[Unsqueeze](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_unsqueeze)operation.Public Functions
+```
 
 -
 virtual void validate_and_infer_types() override
@@ -7040,8 +7528,10 @@ virtual bool has_evaluate() const override
 virtual void validate_and_infer_types() override
 
 -
+```python
 class SqueezeBase : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util11SqueezeBaseE) *#include <squeeze_base.hpp>*Squeeze operation.
+```
 
 Subclassed by
 
@@ -7073,8 +7563,10 @@ virtual bool has_evaluate() const override
 SqueezeBase(const
 
 -
+```python
 class VariadicSplit : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v113VariadicSplitE) *#include <variadic_split.hpp>*[VariadicSplit](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_variadic_split)operation splits an input tensor into pieces along some axis. The pieces may have variadic lengths depending on “split_lengths” attribute.Public Functions
+```
 
 -
 VariadicSplit() = default
@@ -7113,8 +7605,10 @@ virtual bool has_evaluate() const override
 VariadicSplit() = default
 
 -
+```python
 class Xor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseLogical](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_logical.html#_CPPv4N2ov2op4util24BinaryElementwiseLogicalE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v03XorE) *#include <xor.hpp>*Elementwise logical-xor operation.
+```
 
 Public Functions
 

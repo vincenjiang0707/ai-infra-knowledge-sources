@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/inc/schemes/inc_w4a8_linear/
 lastmod: 2026-09-27
 
+```python
 class INCXPUW4A8LinearMethod(INCXPULinearMethod):
 """XPU linear method for INC int4 weights with dynamic int8 activations.
 Uses the same GPTQ-packed "NT" qweight layout as ``INCXPULinearMethod`` —
@@ -48,6 +49,7 @@ if unaligned:
 raise NotImplementedError(
 "VLLM_XPU_INC_WNA16_BACKEND=w4a8 requires partitioned in/out "
 f"sizes that are multiples of {self._DIM_ALIGNMENT}, got "
+```
 + ", ".join(f"{name}={size}" for name, size in unaligned)
 + f". Partition shape: ({input_size_per_partition}, "
 f"{output_size_per_partition})."

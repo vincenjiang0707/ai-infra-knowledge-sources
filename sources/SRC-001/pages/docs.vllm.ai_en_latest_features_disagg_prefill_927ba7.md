@@ -71,13 +71,16 @@ The token ids are passed to the decode stage through `kv_transfer_params`
 
 enabled, and read`prompt_token_ids`
 
+```python
 from the response. - Set
 `kv_transfer_params["prompt_token_ids"]`
+```
 
 to those ids on the decode request.`messages`
 
 is still required, but its content is not tokenized when the ids are present.
 
+```bash
 prefill = client.chat.completions.create(
 model=model,
 messages=messages,
@@ -90,6 +93,7 @@ messages=messages,
 stream=True,
 extra_body={"kv_transfer_params": {"do_remote_prefill": True, "prompt_token_ids": ids}},
 )
+```
 
 
 ## Development[¶](https://docs.vllm.ai#development)

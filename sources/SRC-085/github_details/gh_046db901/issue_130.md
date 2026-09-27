@@ -9,6 +9,7 @@ labels:
 Thanks for your great work, I would like deploy Qwen2-7B-Instruct in vllm, my current command is:
 
 `python3 -m vllm.entrypoints.openai.api_server \
+```bash
     --host 0.0.0.0 \
     --trust-remote-code \
     --dtype half \
@@ -23,6 +24,7 @@ Thanks for your great work, I would like deploy Qwen2-7B-Instruct in vllm, my cu
     --enforce-eager \
     --tensor-parallel-size=2 \
     --gpu-memory-utilization 1`
+```
 
 but I encounted the following error:
 ` File "/usr/local/lib/python3.10/dist-packages/vllm/model_executor/models/qwen2.py", line 420, in load_weights

@@ -19,8 +19,10 @@ Does not compile, following the instructions. I don't see any code in src/CMakeL
 Hi, reyoda,
 In the readme, it specifies a wrong directory for compile, which should be:
 
+```bash
 cd $HOME/samples/cplusplus/level2_simple_inference/0_data_process/vdecandvenc
 mkdir -p build/intermediates/host
+```
 
 Please check if this is the possible cause
 

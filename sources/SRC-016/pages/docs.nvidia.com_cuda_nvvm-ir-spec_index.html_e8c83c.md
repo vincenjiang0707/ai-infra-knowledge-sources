@@ -2337,8 +2337,10 @@ The argument `%mode`
 must be a constant and its encoding is specified in the following table.
 
 Encoding |
+```python
 Meaning |
 return value |
+```
 |---|---|---|
 0 |
 ALL |

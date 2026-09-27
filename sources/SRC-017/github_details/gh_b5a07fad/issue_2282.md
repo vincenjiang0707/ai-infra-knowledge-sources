@@ -55,6 +55,7 @@ it must never write past ncclIbDevs[MAX_IB_DEVS].
 Root cause: in ncclIbInitDevices() (src/transport/net_ib/init.cc) the bound
 `ncclNIbDevs < MAX_IB_DEVS` is only checked in the OUTER per-device loop:
 
+```bash
     for (int d = 0; d < nIbDevs && ncclNIbDevs < MAX_IB_DEVS; d++) {
       for (int port_num = 1; port_num <= devAttr.phys_port_cnt; port_num++) {   // no bound
         for (int dev = devOffset; dev < devCount; ++dev) {                      // no bound
@@ -63,6 +64,7 @@ Root cause: in ncclIbInitDevices() (src/transport/net_ib/init.cc) the bound
         }
       }
     }
+```
 
 The inner per-port loop and the data-direct sub-loop both write ncclIbDevs[ncclNIbDevs]
 and increment ncclNIbDevs without re-checking the bound, so a single multi-port device

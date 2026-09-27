@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/hf3fs/hf3fs_client/
 lastmod: 2026-09-27
 
+```python
 class Hf3fsClient:
 def __init__(self, path: str, size: int, bytes_per_page: int, entries: int):
 """Initialize the HF3FS client with hf3fs_fuse.
@@ -204,3 +205,4 @@ def flush(self) -> None:
 """Flush any pending writes to disk."""
 if not self._closed and self.file is not None:
 os.fsync(self.file)
+```

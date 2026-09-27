@@ -60,6 +60,7 @@ Very urgent, I would greatly appreciate it if you have a better solution!
 > 
 > you have to wait for flash attention 4 (around 3 weeks)
 
+```python
 I get following error with flash-attn-4 (b15):  python -c "
 import torch
 from flash_attn.cute import flash_attn_func
@@ -69,6 +70,7 @@ o = out[0] if isinstance(out, tuple) else out
 print('FA4 OK | Typ:', type(out).__name__, '| Output-Shape:', tuple(o.shape))
 "
 Traceback (most recent call last):
+```
   File "<string>", line 5, in <module>
   File "/home/dima/miniconda3/envs/lyra2/lib/python3.12/site-packages/flash_attn/cute/interface.py", line 2151, in flash_attn_func
     return FlashAttnFunc.apply(

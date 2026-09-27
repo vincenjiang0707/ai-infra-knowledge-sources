@@ -45,8 +45,10 @@ For example:
 
 These values would be applied to the Kubernetes REST configuration before creating the Kubernetes client or controller manager:
 
+```
 config.QPS = kubeAPIQPS
 config.Burst = kubeAPIBurst
+```
 
 Conceptually:
 

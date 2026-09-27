@@ -855,6 +855,7 @@ main()
 ## OpenAI Chat Completion Client For Multimodal[¶](https://docs.vllm.ai#openai-chat-completion-client-for-multimodal)
 
 # SPDX-License-Identifier: Apache-2.0
+```bash
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """An example showing how to use vLLM to serve multimodal models
 and run online serving with OpenAI client.
@@ -1208,6 +1209,7 @@ example_function_map[chat_type](model, args.max_completion_tokens)
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```
 
 
 ## Qwen2 5 Omni - Readme[¶](https://docs.vllm.ai#qwen2-5-omni-readme)

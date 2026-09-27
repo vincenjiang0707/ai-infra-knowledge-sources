@@ -12,40 +12,50 @@ Note: transformers >= 4.54.0 and vllm >= 0.10.1
 ## Running Ernie4.5[¶](https://docs.vllm.ai#running-ernie45)
 
 # 300B model 80G*8 GPU with vllm FP8 online quantification
+```bash
 vllm serve baidu/ERNIE-4.5-300B-A47B-PT \
 --tensor-parallel-size 8 \
 --gpu-memory-utilization=0.95 \
 --quantization fp8
+```
 
 
 If your single node GPU memory is insufficient, native BF16 deployment may require multi nodes, multi node deployment reference [vLLM doc](https://docs.vllm.ai/en/latest/serving/parallelism_scaling.html?h=#multi-node-deployment) to start ray cluster. Then run vllm on the master node
 
 # 300B model 80G*16 GPU with native BF16
+```bash
 vllm serve baidu/ERNIE-4.5-300B-A47B-PT \
 --tensor-parallel-size 16
+```
 
 
 ## Running Ernie4.5 MTP[¶](https://docs.vllm.ai#running-ernie45-mtp)
 
 # 21B MTP model 80G*1 GPU
+```json
 vllm serve baidu/ERNIE-4.5-21B-A3B-PT \
 --speculative-config '{"method": "ernie_mtp","model": "baidu/ERNIE-4.5-21B-A3B-PT","num_speculative_tokens": 1}'
+```
 
 
 # 300B MTP model 80G*8 GPU with vllm FP8 online quantification
+```json
 vllm serve baidu/ERNIE-4.5-300B-A47B-PT \
 --tensor-parallel-size 8 \
 --gpu-memory-utilization=0.95 \
 --quantization fp8 \
 --speculative-config '{"method": "ernie_mtp","model": "baidu/ERNIE-4.5-300B-A47B-PT","num_speculative_tokens": 1}'
+```
 
 
 If your single node GPU memory is insufficient, native BF16 deployment may require multi nodes, multi node deployment reference [vLLM doc](https://docs.vllm.ai/en/latest/serving/parallelism_scaling.html#multi-node-deployment) to start ray cluster. Then run vllm on the master node
 
 # 300B MTP model 80G*16 GPU with native BF16
+```json
 vllm serve baidu/ERNIE-4.5-300B-A47B-PT \
 --tensor-parallel-size 16 \
 --speculative-config '{"method": "ernie_mtp","model": "baidu/ERNIE-4.5-300B-A47B-PT","num_speculative_tokens": 1}'
+```
 
 
 ## Benchmarking[¶](https://docs.vllm.ai#benchmarking)

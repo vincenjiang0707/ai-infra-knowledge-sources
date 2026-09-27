@@ -9,9 +9,11 @@ lastmod: 2026-04-27
 
 ## Installing vLLM[¶](https://docs.vllm.ai#installing-vllm)
 
+```bash
 source .venv/bin/activate
 uv pip install -U vllm --torch-backend auto
 uv pip install git+https://github.com/deepseek-ai/[[email protected]](https://docs.vllm.ai/cdn-cgi/l/email-protection) --no-build-isolation # Other versions may also work. We recommend using the latest released version from https://github.com/deepseek-ai/DeepGEMM/releases
+```
 
 
 Note: DeepGEMM is used in two places: MoE and MQA logits computation. It is necessary for MQA logits computation. If you want to disable the MoE part, you can set `VLLM_USE_DEEP_GEMM=0`

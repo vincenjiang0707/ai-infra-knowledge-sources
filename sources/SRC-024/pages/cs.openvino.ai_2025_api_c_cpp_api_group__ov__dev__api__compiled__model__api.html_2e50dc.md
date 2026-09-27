@@ -7,8 +7,10 @@ lastmod:
 *group*Compiled Model base classes A set of base and helper classes to implement an compiled model class.
 
 -
+```python
 class ICompiledModel : public std::enable_shared_from_this<
 [ICompiledModel](https://docs.openvino.ai/classov_1_1_i_compiled_model.html#_CPPv4N2ov14ICompiledModelE)>[#](https://docs.openvino.ai#_CPPv4N2ov14ICompiledModelE) *#include <icompiled_model.hpp>*OpenVINO
+```
 
 [ICompiledModel](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_i_compiled_model)interface.Public Functions
 

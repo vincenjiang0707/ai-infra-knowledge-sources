@@ -4,8 +4,10 @@ lastmod:
 # Class ov::frontend::ProgressReporterExtension[#](https://docs.openvino.ai#class-ov-frontend-progressreporterextension)
 
 -
+```python
 class ProgressReporterExtension : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Extension](https://docs.openvino.ai/classov_1_1_extension.html#_CPPv4N2ov9ExtensionE)[#](https://docs.openvino.ai#_CPPv4N2ov8frontend25ProgressReporterExtensionE) Public Types
+```
 
 -
 using progress_notifier_callback = std::function<void(float, unsigned int, unsigned int)>

@@ -6,8 +6,10 @@ committed
 
 Address review comments, simplifying code
 
+```yaml
 Generated-by: Cursor AI Grok 4.6
 Signed-off-by: Jared O'Connell <joconnel@redhat.com>1 parent[84bcabf]commit 284e963
+```
 
 3 files changed
 

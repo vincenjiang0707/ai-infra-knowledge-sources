@@ -8,9 +8,11 @@ This guide describe how to run GLM-OCR with MTP support in vllm.
 ## Installing vllm[¶](https://docs.vllm.ai#installing-vllm)
 
 # install the nightly build of vLLM for GLM-4.7
+```bash
 uv pip install -U vllm --pre --extra-index-url https://wheels.vllm.ai/nightly
 # install transformers from source
 uv pip install git+https://github.com/huggingface/transformers.git
+```
 
 
 ## Running GLM-OCR with MTP[¶](https://docs.vllm.ai#running-glm-ocr-with-mtp)
@@ -21,9 +23,11 @@ Add the `--speculative-config`
 
 flags to server command to enable MTP speculative decoding:
 
+```bash
 vllm serve zai-org/GLM-OCR \
 --speculative-config.method mtp \
 --speculative-config.num_speculative_tokens 1
+```
 
 
 ## CURL Usage[¶](https://docs.vllm.ai#curl-usage)
@@ -58,6 +62,7 @@ curl -s http://localhost:8000/v1/chat/completions \
 
 ## OpenAI SDK Client Usage[¶](https://docs.vllm.ai#openai-sdk-client-usage)
 
+```python
 import time
 from openai import OpenAI
 client = OpenAI(
@@ -92,6 +97,7 @@ temperature=0.0
 print(f"Response costs: {time.time() - start:.2f}s")
 print("Generated text:")
 print(response.choices[0].message.content)
+```
 
 
 ## Notes[¶](https://docs.vllm.ai#notes)

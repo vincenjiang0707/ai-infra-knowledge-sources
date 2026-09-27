@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/device_communicators/xpu_communicator/
 lastmod: 2026-09-27
 
+```python
 class XpuCommunicator(DeviceCommunicatorBase):
 def __init__(
 self,
@@ -191,6 +192,7 @@ if self.rank_in_group == dst:
 output_tensor = output_tensor.movedim(0, dim)
 output_tensor = output_tensor.reshape(
 input_size[:dim]
+```
 + (self.world_size * input_size[dim],)
 + input_size[dim + 1 :]
 )

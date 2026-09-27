@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v8::MulticlassNms[#](https://docs.openvino.ai#class-ov-op-v8-multiclassnms)
 
 -
+```python
 class MulticlassNms : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[MulticlassNmsBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_multiclass_nms_base.html#_CPPv4N2ov2op4util17MulticlassNmsBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v813MulticlassNmsE) [MulticlassNms](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_multiclass_nms)operation.Public Functions
+```
 
 -
 MulticlassNms() = default

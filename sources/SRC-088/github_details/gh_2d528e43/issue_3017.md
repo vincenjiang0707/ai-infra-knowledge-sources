@@ -9,8 +9,10 @@ labels: feature request
 I am trying to evaluate a fully closed source model that neither model nor tokenizer publicly available. The model is only accessible via API endpoints, including an endpoint for tokenization.
 
 **command:**
+```bash
 lm_eval --model local-completions --tasks mmlu \
 --model_args model=custom_model, base_url=http://XX.XX.XX.XX:8000/v1/completions,num_concurrent=1,max_retries=3,tokenized_requests=False 
+```
 
 **result:**
 OSError: custom_model is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'

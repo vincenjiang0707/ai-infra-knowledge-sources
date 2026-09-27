@@ -10,6 +10,7 @@ Hi,
 
 I am trying to use HQQ Config to quantize a pythia-410m model. I want to specifically not quantize the MLP modules in it.. I am using the HQQConfig implementation in the transformers library as follows:
 
+```bash
     skip_mods = ["dense_h_to_4h","dense_4h_to_h"]
     print(skip_mods)
     quant_config = HqqConfig(nbits=8, skip_modules = skip_mods)
@@ -20,6 +21,7 @@ I am trying to use HQQ Config to quantize a pythia-410m model. I want to specifi
         device_map=device,
         dtype=torch.float16
     )
+```
 
 However, it still quantizes the MLP modules when I print the model. 
 
@@ -27,6 +29,7 @@ Here's the printed model after quantization:
 
 GPTNeoXForCausalLM(
   (gpt_neox): GPTNeoXModel(
+```
     (embed_in): Embedding(50304, 1024)
     (emb_dropout): Dropout(p=0.0, inplace=False)
     (layers): ModuleList(
@@ -50,6 +53,7 @@ GPTNeoXForCausalLM(
     )
     (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
     (rotary_emb): GPTNeoXRotaryEmbedding()
+```
   )
   (embed_out): HQQLinear(in_features=1024, out_features=50304, bias=False)
 )

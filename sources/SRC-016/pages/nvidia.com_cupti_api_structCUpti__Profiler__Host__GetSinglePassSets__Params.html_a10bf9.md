@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__Profiler__Host__GetSingle
 # 7.192. CUpti_Profiler_Host_GetSinglePassSets_Params[#](https://docs.nvidia.com#cupti-profiler-host-getsinglepasssets-params)
 
 -
+```rust
 struct CUpti_Profiler_Host_GetSinglePassSets_Params
 [#](https://docs.nvidia.com#_CPPv444CUpti_Profiler_Host_GetSinglePassSets_Params) Params for cuptiProfilerHostGetSinglePassSets.
+```
 
 Public Members
 

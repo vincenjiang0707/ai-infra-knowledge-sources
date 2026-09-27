@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__Profiler__Host__EvaluateT
 # 7.183. CUpti_Profiler_Host_EvaluateToGpuValues_Params[#](https://docs.nvidia.com#cupti-profiler-host-evaluatetogpuvalues-params)
 
 -
+```rust
 struct CUpti_Profiler_Host_EvaluateToGpuValues_Params
 [#](https://docs.nvidia.com#_CPPv446CUpti_Profiler_Host_EvaluateToGpuValues_Params) Params for cuptiProfilerHostEvaluateToGpuValues.
+```
 
 Public Members
 

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/cpu/scheduler/
 lastmod: 2026-09-27
 
+```python
 class ECCPUScheduler:
 """Scheduler delegate for the ECCPUConnector."""
 def __init__(self, vllm_config: "VllmConfig") -> None:
@@ -123,8 +124,10 @@ base_ptr=self._region.blocks.data_ptr(),
 num_blocks=self._region.num_blocks,
 block_size_bytes=self._region.block_size_bytes,
 total_size_bytes=self._region.num_blocks
+```
 * self._region.block_size_bytes,
 )
+```python
 if self._is_producer:
 assert self._peer_host is not None
 assert self._peer_port is not None
@@ -577,3 +580,4 @@ self._data.deregister()
 except Exception:
 logger.debug("ec: deregister failed", exc_info=True)
 self._data = None
+```

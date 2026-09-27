@@ -235,11 +235,13 @@ Underneath, "async" here means something narrower than it usually does, and the 
 - Submit decode work with
 `read_from_device=False`
 
+```
 (non-blocking). - Start host readback with
 `read_decode_output(..., async_read=True)`
 
 and keep the returned events with the submission record (also non-blocking). - Later, at finalization, wait on those events via
 `ttnn.event_synchronize(...)`
+```
 
 . - Only then convert device output into host tensors and sampling results.
 

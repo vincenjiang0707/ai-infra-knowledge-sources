@@ -78,6 +78,7 @@ main(args)
 ## Forced Alignment Online[¶](https://docs.vllm.ai#forced-alignment-online)
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 # Adapted from Qwen3-ForcedAligner inference:
 # https://github.com/QwenLM/Qwen3-ASR
@@ -225,11 +226,13 @@ print(f"{word:15s} {start_ms / 1000:.3f}s - {end_ms / 1000:.3f}s")
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```
 
 
 ## NER Offline[¶](https://docs.vllm.ai#ner-offline)
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 # Adapted from https://huggingface.co/boltuix/NeuroBERT-NER
 from argparse import Namespace
@@ -270,11 +273,13 @@ print(f"{token:15} → {label}")
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```
 
 
 ## NER Online[¶](https://docs.vllm.ai#ner-online)
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 # Adapted from https://huggingface.co/boltuix/NeuroBERT-NER
 """Example online usage of Pooling API for Named Entity Recognition (NER).
@@ -323,3 +328,4 @@ print(f"{token:15} → {label}")
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```

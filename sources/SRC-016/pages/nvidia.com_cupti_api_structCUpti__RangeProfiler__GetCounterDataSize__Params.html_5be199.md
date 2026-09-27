@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__RangeProfiler__GetCounter
 # 7.209. CUpti_RangeProfiler_GetCounterDataSize_Params[#](https://docs.nvidia.com#cupti-rangeprofiler-getcounterdatasize-params)
 
 -
+```rust
 struct CUpti_RangeProfiler_GetCounterDataSize_Params
 [#](https://docs.nvidia.com#_CPPv445CUpti_RangeProfiler_GetCounterDataSize_Params) Params for cuptiRangeProfilerGetCounterDataSize.
+```
 
 Public Members
 

@@ -62,6 +62,7 @@ maintainers:
 ## lintconf.yaml
 
 ---
+```yaml
 rules:
 braces:
 min-spaces-inside: 0
@@ -103,6 +104,7 @@ type: unix
 trailing-spaces: enable
 truthy:
 level: warning
+```
 
 
 ## templates/_helpers.tpl
@@ -227,26 +229,34 @@ runAsUser:
 {{- end }}
 {{- define "chart.extraInitEnv" -}}
 - name: S3_ENDPOINT_URL
+```yaml
 valueFrom:
 secretKeyRef:
 name: {{ .Release.Name }}-secrets
 key: s3endpoint
+```
 - name: S3_BUCKET_NAME
+```yaml
 valueFrom:
 secretKeyRef:
 name: {{ .Release.Name }}-secrets
 key: s3bucketname
+```
 - name: AWS_ACCESS_KEY_ID
+```yaml
 valueFrom:
 secretKeyRef:
 name: {{ .Release.Name }}-secrets
 key: s3accesskeyid
+```
 - name: AWS_SECRET_ACCESS_KEY
+```yaml
 valueFrom:
 secretKeyRef:
 name: {{ .Release.Name }}-secrets
 key: s3accesskey
 {{- if .Values.extraInit.s3modelpath }}
+```
 - name: S3_PATH
 value: "{{ .Values.extraInit.s3modelpath }}"
 {{- end }}
@@ -271,12 +281,15 @@ Define chart labels
 
 ## templates/deployment.yaml
 
+```json
 apiVersion: apps/v1
 kind: Deployment
 metadata:
 name: {{ include "chart.deployment-name" . | quote }}
 namespace: {{ .Release.Namespace }}
+```
 labels:
+```json
 {{- include "chart.labels" . | nindent 4 }}
 spec:
 replicas: {{ .Values.replicaCount }}
@@ -287,10 +300,13 @@ matchLabels:
 progressDeadlineSeconds: 1200
 template:
 metadata:
+```
 labels:
+```json
 {{- include "chart.labels" . | nindent 8 }}
 spec:
 containers:
+```
 - name: "vllm"
 image: "{{ required "Required value 'image.repository' must be defined !" .Values.image.repository }}:{{ required "Required value 'image.tag' must be defined !" .Values.image.tag }}"
 {{- if .Values.image.command }}
@@ -331,11 +347,13 @@ name: "{{ .Release.Name }}-secrets"
 {{- end }}
 ports:
 - name: {{ include "chart.container-port-name" . }}
+```json
 containerPort: {{ include "chart.container-port" . }}
 {{- include "chart.extraPorts" . | nindent 12 }}
 {{- include "chart.probes" . | indent 10 }}
 resources: {{- include "chart.resources" . | nindent 12 }}
 volumeMounts:
+```
 - name: {{ .Release.Name }}-storage
 mountPath: /data
 {{- with .Values.extraContainers }}
@@ -345,6 +363,7 @@ mountPath: /data
 initContainers:
 {{- if .Values.extraInit.modelDownload.enabled }}
 - name: wait-download-model
+```yaml
 image: {{ .Values.extraInit.modelDownload.image.repository }}:{{ .Values.extraInit.modelDownload.image.tag }}
 imagePullPolicy: {{ .Values.extraInit.modelDownload.image.pullPolicy }}
 command: {{ .Values.extraInit.modelDownload.waitContainer.command | toJson }}
@@ -364,6 +383,7 @@ limits:
 cpu: 500m
 memory: 2Gi
 volumeMounts:
+```
 - name: {{ .Release.Name }}-storage
 mountPath: /data
 {{- end }}
@@ -401,6 +421,7 @@ values:
 
 ## templates/hpa.yaml
 
+```yaml
 {{- if .Values.autoscaling.enabled }}
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
@@ -416,7 +437,9 @@ minReplicas: {{ .Values.autoscaling.minReplicas }}
 maxReplicas: {{ .Values.autoscaling.maxReplicas }}
 metrics:
 {{- if .Values.autoscaling.targetCPUUtilizationPercentage }}
+```
 - type: Resource
+```yaml
 resource:
 name: cpu
 target:
@@ -424,7 +447,9 @@ type: Utilization
 averageUtilization: {{ .Values.autoscaling.targetCPUUtilizationPercentage }}
 {{- end }}
 {{- if .Values.autoscaling.targetMemoryUtilizationPercentage }}
+```
 - type: Resource
+```yaml
 resource:
 name: memory
 target:
@@ -432,10 +457,12 @@ type: Utilization
 averageUtilization: {{ .Values.autoscaling.targetMemoryUtilizationPercentage }}
 {{- end }}
 {{- end }}
+```
 
 
 ## templates/job.yaml
 
+```yaml
 {{- if and .Values.extraInit .Values.extraInit.modelDownload.enabled }}
 apiVersion: batch/v1
 kind: Job
@@ -449,6 +476,7 @@ metadata:
 name: init-vllm
 spec:
 containers:
+```
 - name: job-download-model
 image: {{ .Values.extraInit.modelDownload.image.repository }}:{{ .Values.extraInit.modelDownload.image.tag }}
 imagePullPolicy: {{ .Values.extraInit.modelDownload.image.pullPolicy }}
@@ -463,6 +491,7 @@ env:
 {{- end }}
 volumeMounts:
 - name: {{ .Release.Name }}-storage
+```yaml
 mountPath: /data
 resources:
 requests:
@@ -473,10 +502,13 @@ cpu: 500m
 memory: 2Gi
 restartPolicy: OnFailure
 volumes:
+```
 - name: {{ .Release.Name }}-storage
+```json
 persistentVolumeClaim:
 claimName: "{{ .Release.Name }}-storage-claim"
 {{- end }}
+```
 
 
 ## templates/poddisruptionbudget.yaml
@@ -487,6 +519,7 @@ claimName: "{{ .Release.Name }}-storage-claim"
 
 ## templates/service.yaml
 
+```json
 apiVersion: v1
 kind: Service
 metadata:
@@ -495,37 +528,49 @@ namespace: {{ .Release.Namespace }}
 spec:
 type: ClusterIP
 ports:
+```
 - name: {{ include "chart.service-port-name" . }}
+```json
 port: {{ include "chart.service-port" . }}
 targetPort: {{ include "chart.container-port-name" . }}
 protocol: TCP
 selector:
 {{- include "chart.labels" . | nindent 4 }}
+```
 
 
 ## tests/deployment_test.yaml
 
+```yaml
 suite: test deployment
 templates:
+```
 - deployment.yaml
 tests:
 - it: should use configured labels for the deployment selector and pods
 set:
 labels:
+```yaml
 environment: production
 release: qwen-serving
 asserts:
+```
 - equal:
+```yaml
 path: spec.selector.matchLabels
 value:
 environment: production
 release: qwen-serving
+```
 - equal:
+```yaml
 path: spec.template.metadata.labels
 value:
 environment: production
 release: qwen-serving
+```
 - it: should create wait-download-model init container when modelDownload is enabled
+```yaml
 set:
 extraInit:
 modelDownload:
@@ -537,18 +582,23 @@ pullPolicy: "IfNotPresent"
 waitContainer:
 command: [ "/bin/bash" ]
 args:
+```
 - "-eucx"
 - "while aws --endpoint-url $S3_ENDPOINT_URL s3 sync --dryrun s3://$S3_BUCKET_NAME/$S3_PATH /data | grep -q download; do sleep 10; done"
+```yaml
 downloadJob:
 command: [ "/bin/bash" ]
 args:
+```
 - "-eucx"
 - "aws --endpoint-url $S3_ENDPOINT_URL s3 sync s3://$S3_BUCKET_NAME/$S3_PATH /data"
+```yaml
 initContainers: [ ]
 pvcStorage: "1Gi"
 s3modelpath: "relative_s3_model_path/opt-125m"
 awsEc2MetadataDisabled: true
 asserts:
+```
 - hasDocuments:
 count: 1
 - isKind:
@@ -556,15 +606,22 @@ of: Deployment
 - isNotEmpty:
 path: spec.template.spec.initContainers
 - equal:
+```yaml
 path: spec.template.spec.initContainers[0].name
 value: wait-download-model
+```
 - equal:
+```yaml
 path: spec.template.spec.initContainers[0].image
 value: amazon/aws-cli:2.6.4
+```
 - equal:
+```yaml
 path: spec.template.spec.initContainers[0].imagePullPolicy
 value: IfNotPresent
+```
 - it: should only create custom init containers when modelDownload is disabled
+```yaml
 set:
 extraInit:
 modelDownload:
@@ -580,31 +637,45 @@ downloadJob:
 command: [ "/bin/bash" ]
 args: [ "-c", "echo test" ]
 initContainers:
+```
 - name: llm-d-routing-proxy
+```yaml
 image: ghcr.io/llm-d/llm-d-routing-sidecar:v0.2.0
 imagePullPolicy: IfNotPresent
 ports:
+```
 - containerPort: 8080
+```yaml
 name: proxy
 pvcStorage: "10Gi"
 asserts:
+```
 - hasDocuments:
 count: 1
 - isKind:
 of: Deployment
 - lengthEqual:
+```yaml
 path: spec.template.spec.initContainers
 count: 1
+```
 - equal:
+```yaml
 path: spec.template.spec.initContainers[0].name
 value: llm-d-routing-proxy
+```
 - equal:
+```yaml
 path: spec.template.spec.initContainers[0].image
 value: ghcr.io/llm-d/llm-d-routing-sidecar:v0.2.0
+```
 - equal:
+```yaml
 path: spec.template.spec.initContainers[0].ports[0].containerPort
 value: 8080
+```
 - it: should create both wait-download-model and custom init containers when both are enabled
+```yaml
 set:
 extraInit:
 modelDownload:
@@ -616,55 +687,79 @@ pullPolicy: "IfNotPresent"
 waitContainer:
 command: [ "/bin/bash" ]
 args:
+```
 - "-eucx"
 - "while aws --endpoint-url $S3_ENDPOINT_URL s3 sync --dryrun s3://$S3_BUCKET_NAME/$S3_PATH /data | grep -q download; do sleep 10; done"
+```yaml
 downloadJob:
 command: [ "/bin/bash" ]
 args:
+```
 - "-eucx"
 - "aws --endpoint-url $S3_ENDPOINT_URL s3 sync s3://$S3_BUCKET_NAME/$S3_PATH /data"
 initContainers:
 - name: llm-d-routing-proxy
+```yaml
 image: ghcr.io/llm-d/llm-d-routing-sidecar:v0.2.0
 imagePullPolicy: IfNotPresent
 ports:
+```
 - containerPort: 8080
+```yaml
 name: proxy
 pvcStorage: "10Gi"
 asserts:
+```
 - hasDocuments:
 count: 1
 - isKind:
 of: Deployment
 - lengthEqual:
+```yaml
 path: spec.template.spec.initContainers
 count: 2
+```
 - equal:
+```yaml
 path: spec.template.spec.initContainers[0].name
 value: wait-download-model
+```
 - equal:
+```yaml
 path: spec.template.spec.initContainers[0].image
 value: amazon/aws-cli:2.6.4
+```
 - equal:
+```yaml
 path: spec.template.spec.initContainers[1].name
 value: llm-d-routing-proxy
+```
 - equal:
+```yaml
 path: spec.template.spec.initContainers[1].image
 value: ghcr.io/llm-d/llm-d-routing-sidecar:v0.2.0
+```
 - equal:
+```yaml
 path: spec.template.spec.initContainers[1].ports[0].containerPort
 value: 8080
+```
 
 
 ## tests/hpa_test.yaml
 
+```yaml
 suite: test horizontal pod autoscaler
 templates:
+```
 - hpa.yaml
+```yaml
 release:
 name: demo
 tests:
+```
 - it: should target the deployment created by this release
+```yaml
 set:
 autoscaling:
 enabled: true
@@ -672,18 +767,24 @@ minReplicas: 1
 maxReplicas: 3
 targetCPUUtilizationPercentage: 80
 asserts:
+```
 - equal:
+```yaml
 path: spec.scaleTargetRef.name
 value: demo-deployment-vllm
+```
 
 
 ## tests/job_test.yaml
 
+```yaml
 suite: test job
 templates:
+```
 - job.yaml
 tests:
 - it: should create job when modelDownload is enabled
+```yaml
 set:
 extraInit:
 modelDownload:
@@ -698,26 +799,36 @@ args: [ "-c", "wait" ]
 downloadJob:
 command: [ "/bin/bash" ]
 args:
+```
 - "-eucx"
 - "aws --endpoint-url $S3_ENDPOINT_URL s3 sync s3://$S3_BUCKET_NAME/$S3_PATH /data"
+```yaml
 pvcStorage: "1Gi"
 s3modelpath: "relative_s3_model_path/opt-125m"
 awsEc2MetadataDisabled: true
 asserts:
+```
 - hasDocuments:
 count: 1
 - isKind:
 of: Job
 - equal:
+```yaml
 path: spec.template.spec.containers[0].name
 value: job-download-model
+```
 - equal:
+```yaml
 path: spec.template.spec.containers[0].image
 value: amazon/aws-cli:2.6.4
+```
 - equal:
+```yaml
 path: spec.template.spec.restartPolicy
 value: OnFailure
+```
 - it: should not create job when modelDownload is disabled
+```yaml
 set:
 extraInit:
 modelDownload:
@@ -733,22 +844,28 @@ downloadJob:
 command: [ "/bin/bash" ]
 args: [ "-c", "download" ]
 initContainers:
+```
 - name: llm-d-routing-proxy
+```yaml
 image: ghcr.io/llm-d/llm-d-routing-sidecar:v0.2.0
 pvcStorage: "10Gi"
 asserts:
+```
 - hasDocuments:
 count: 0
 
 
 ## tests/pvc_test.yaml
 
+```yaml
 suite: test pvc
 templates:
+```
 - pvc.yaml
 tests:
 # Test Case: PVC Created When extraInit Defined
 - it: should create pvc when extraInit is defined
+```yaml
 set:
 extraInit:
 modelDownload:
@@ -765,48 +882,66 @@ command: ["/bin/bash"]
 args: ["-c", "download"]
 pvcStorage: "10Gi"
 asserts:
+```
 - hasDocuments:
 count: 1
 - isKind:
 of: PersistentVolumeClaim
 - equal:
+```yaml
 path: spec.accessModes[0]
 value: ReadWriteOnce
+```
 - equal:
+```yaml
 path: spec.resources.requests.storage
 value: 10Gi
+```
 
 
 ## tests/service_test.yaml
 
+```yaml
 suite: test service
 templates:
+```
 - service.yaml
+```yaml
 release:
 name: demo
 tests:
+```
 - it: should honor the configured service name
+```yaml
 set:
 serviceName: vllm-api
 asserts:
+```
 - equal:
+```yaml
 path: metadata.name
 value: vllm-api
+```
 - it: should select pods using the configured labels
 set:
 labels:
+```yaml
 environment: production
 release: qwen-serving
 asserts:
+```
 - equal:
+```yaml
 path: spec.selector
 value:
 environment: production
 release: qwen-serving
+```
 
 
 ## values.schema.json
 
+```json
 {
 "$schema": "http://json-schema.org/schema#",
 "type": "object",
@@ -1139,6 +1274,7 @@ release: qwen-serving
 "servicePort"
 ]
 }
+```
 
 
 ## values.yaml
@@ -1296,5 +1432,7 @@ path: /health
 # -- Name or number of the port to access on the container, on which the server is listening
 port: 8000
 labels:
+```yaml
 environment: "test"
 release: "test"
+```

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/hisparse/connector/
 lastmod: 2026-09-27
 
+```python
 class HiSparseConnector(KVConnectorBase_V1, SupportsHMA):
 """Join the scheduler coordinator to the worker's transfer engine."""
 @classmethod
@@ -154,3 +155,4 @@ block_ids: tuple[list[int], ...],
 assert self.connector_scheduler is not None
 self.connector_scheduler.requests.pop(request.request_id, None)
 return False, None
+```

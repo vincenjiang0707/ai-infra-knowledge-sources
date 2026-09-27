@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/lora_weights/
 lastmod: 2026-09-27
 
+```python
 class PackedLoRALayerWeights(LoRALayerWeights):
 """LoRA used for packed layers (eg. qkv_proj)."""
 def __init__(
@@ -167,3 +168,4 @@ raise NotImplementedError()
 @property
 def is_packed(self) -> bool:
 return True
+```

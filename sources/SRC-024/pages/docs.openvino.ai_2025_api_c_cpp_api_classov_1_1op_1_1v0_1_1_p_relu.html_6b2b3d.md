@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v0::PRelu[#](https://docs.openvino.ai#class-ov-op-v0-prelu)
 
 -
+```python
 class PRelu : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v05PReluE) Parametrized
+```
 
 [Relu](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_relu)x < 0 => f(x) = x * slope x >= 0 => f(x) = x.Public Functions
 

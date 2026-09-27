@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v3::EmbeddingBagPackedSum[#](https://docs.openvino.ai#class-ov-op-v3-embeddingbagpackedsum)
 
 -
+```python
 class EmbeddingBagPackedSum : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[EmbeddingBagPackedBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_embedding_bag_packed_base.html#_CPPv4N2ov2op4util22EmbeddingBagPackedBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v321EmbeddingBagPackedSumE) Returns embeddings for given indices.
+```
 
 Public Functions
 

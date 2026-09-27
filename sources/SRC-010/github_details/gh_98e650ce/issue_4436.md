@@ -19,6 +19,7 @@ latest-cu128  在单卡2080TI（  22G显存 ） + 8卡成功部署了Qwen3.5-35B
 ### Reproduction
 
 docker run -d \
+```bash
     --runtime nvidia \
     --gpus '"device=0,1,2,3,4,5,6,7"'\
     --name lmdeploy_ht \
@@ -29,10 +30,12 @@ docker run -d \
     --shm-size=128g \
     docker.1ms.run/openmmlab/lmdeploy:v0.12.2-cu12.8 \
     tail -f /dev/null
+```
 docker exec -it lmdeploy_ht bash
 
 
 lmdeploy serve api_server /models/Qwen/Qwen3.5-35B-A3B  \
+```bash
     --tp 8  \
     --cache-max-entry-count 0.8 \
     --log-level INFO \
@@ -41,6 +44,7 @@ lmdeploy serve api_server /models/Qwen/Qwen3.5-35B-A3B  \
     --backend turbomind\
     --max_batch_size 64 \
     --cache-block-seq-len 32
+```
 
 <img width="1399" height="898" alt="Image" src="https://github.com/user-attachments/assets/81fd5cf9-1eb3-431f-8b1d-fba5debc9c2b" />
 

@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__Profiler__Host__GetMaxNum
 # 7.187. CUpti_Profiler_Host_GetMaxNumHardwareMetricsPerPass_Params[#](https://docs.nvidia.com#cupti-profiler-host-getmaxnumhardwaremetricsperpass-params)
 
 -
+```rust
 struct CUpti_Profiler_Host_GetMaxNumHardwareMetricsPerPass_Params
 [#](https://docs.nvidia.com#_CPPv458CUpti_Profiler_Host_GetMaxNumHardwareMetricsPerPass_Params) Params for cuptiProfilerHostGetMaxNumHardwareMetricsPerPass.
+```
 
 Public Members
 

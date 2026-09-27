@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/device_communicators/custom_all_reduce/
 lastmod: 2026-09-27
 
+```python
 class CustomAllreduce:
 _SUPPORTED_WORLD_SIZES = [2, 4, 6, 8, 16]
 _DEFAULT_ALL_GATHER_MAX_SIZE = 2 * 1024 * 1024
@@ -585,3 +586,4 @@ if rank is None:
 rank = dist.get_rank(group=group)
 if ops is not None:
 ops.free_shared_buffer(pointers[rank])
+```

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/mooncake/control/
 lastmod: 2026-09-27
 
+```python
 class ConsumerControlServer:
 """Expose Consumer reservations and readiness events over ZMQ.
 One server runs on every receiving TP rank. The REP channel handles
@@ -214,3 +215,4 @@ return
 self._stop.set()
 self._thread.join()
 self._thread = None
+```

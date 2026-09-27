@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/trtllm_fp8_moe/
 lastmod: 2026-09-27
 
+```python
 class TrtLlmFp8ExpertsMonolithic(TrtLlmFp8ExpertsBase, mk.FusedMoEExpertsMonolithic):
 """Fp8 TRTLLM-Gen MoE kernels. Supports monolithic interface."""
 def supports_routing_replay_capture(self) -> bool:
@@ -282,3 +283,4 @@ raise NotImplementedError(
 "Only per-block, per-tensor, and MXFP8 quantization are "
 f"supported in {self.__class__.__name__}."
 )
+```

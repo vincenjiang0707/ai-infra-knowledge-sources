@@ -178,6 +178,7 @@ I quantized qwen3-vl-30b-a3b with GPTQ INT4. However, when I tried to deploy the
 
 ### The quantized script
 
+```bash
 `import torch, base64
 from compressed_tensors.offload import dispatch_model
 from datasets import load_dataset
@@ -189,18 +190,22 @@ MODEL_ID = "/home/jovyan/user/llama-factory/train/models/finetune/Qwen3-VL-30B-A
 SAVE_DIR = "/home/jovyan/user/llama-factory/train/models/quantization/Qwen3-VL-30B-A3B-Instruct-0330-finetune-merged-step1200-GPTQ"
 NUM_CALIBRATION_SAMPLES = 1043
 MAX_SEQUENCE_LENGTH = 8192
+```
 
 model = Qwen3VLMoeForConditionalGeneration.from_pretrained(
     MODEL_ID, torch_dtype=torch.bfloat16, device_map=None, trust_remote_code=True
 )
 processor = AutoProcessor.from_pretrained(MODEL_ID, trust_remote_code=True)
 
+```python
 calibration_jsonls = ['/home/jovyan/user/llama-factory/train/datas/ms-swift/calibration_data1.jsonl', '/home/jovyan/user/llama-factory/train/datas/ms-swift/calibration_data2.jsonl']
 ds = load_dataset("json", data_files=calibration_jsonls, split="train")
 shuffle_ds = ds.shuffle(seed=42)
+```
 
 
 def preprocess_function(example):
+```python
     messages = []
     for message in example["messages"]:
         if example["images"] is None:
@@ -223,21 +228,25 @@ def preprocess_function(example):
         max_length=MAX_SEQUENCE_LENGTH, tokenize=True,
         add_special_tokens=False, return_dict=True, add_generation_prompt=False,
     )
+```
 
 
 ds = ds.map(preprocess_function, batched=False, remove_columns=ds.column_names)
 
 
 def data_collator(batch):
+```json
     assert len(batch) == 1
     return {
         key: (torch.tensor(value) if key != "pixel_values"
               else torch.tensor(value, dtype=torch.bfloat16).squeeze(0))
         for key, value in batch[0].items()
     }
+```
 
 
 recipe = GPTQModifier(
+```json
     ignore=['re:.*embed_tokens', 're:.*input_layernorm$', 're:.*mlp[.]gate$', 're:.*post_attention_layernorm$', 're:.*norm$', 're:model[.]visual.*', 're:visual.*', 'lm_head'],
     config_groups={
         "group_0": {
@@ -254,13 +263,16 @@ recipe = GPTQModifier(
             },
         }
     },
+```
 )
 
 oneshot(
+```bash
     model=model, processor=processor, recipe=recipe, dataset=ds,
     max_seq_length=MAX_SEQUENCE_LENGTH,
     num_calibration_samples=NUM_CALIBRATION_SAMPLES,
     data_collator=data_collator,
+```
 )
 
 print("========== SAMPLE GENERATION ==============")

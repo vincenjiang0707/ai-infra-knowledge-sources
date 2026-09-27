@@ -39,6 +39,7 @@ Mirrors `vllm/entrypoints/serve/dev/rlhf/api_router.py`
 ## Source code in `vllm/distributed/weight_transfer/clients.py`
 
 
+```python
 | class HTTPVLLMWeightSyncClient:
 """Talks to a vLLM server over the RLHF HTTP routes.
 Mirrors `vllm/entrypoints/serve/dev/rlhf/api_router.py`:
@@ -68,6 +69,7 @@ json = (
 )
 self._post("finish_weight_update", json)
 |
+```
 
 
 ##
@@ -86,6 +88,7 @@ Each call fans out to every handle and blocks on all of them, so a multi-actor (
 ## Source code in `vllm/distributed/weight_transfer/clients.py`
 
 
+```python
 | class RayVLLMWeightSyncClient:
 """Talks to one or more vLLM `AsyncLLM`/`LLM` Ray actors.
 Each call fans out to every handle and blocks on all of them, so a
@@ -112,6 +115,7 @@ ray.get(
 [h.update_weight_version.remote(weight_version) for h in self.handles]
 )
 |
+```
 
 
 ##
@@ -134,6 +138,7 @@ HTTP branch.
 ## Source code in `vllm/distributed/weight_transfer/clients.py`
 
 
+```python
 | def _json_safe_update_info(update_info: dict[str, Any]) -> dict[str, Any]:
 """Make an update_info dict JSON-serializable for HTTP transport.
 CUDA IPC handles (`ipc_handles`) are tuples of non-JSON-native objects, so
@@ -153,3 +158,4 @@ out["ipc_handles_pickled"] = base64.b64encode(pickle.dumps(ipc_handles)).decode(
 )
 return out
 |
+```

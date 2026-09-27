@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v12::GroupNormalization[#](https://docs.openvino.ai#class-ov-op-v12-groupnormalization)
 
 -
+```python
 class GroupNormalization : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1218GroupNormalizationE) [GroupNormalization](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v12_1_1_group_normalization)operation over the input tensor.Public Functions
+```
 
 -
 GroupNormalization(const

@@ -7,8 +7,10 @@ lastmod:
 *group*Device properties Enums
 
 -
+```rust
 enum class SchedulePolicy
 [#](https://docs.openvino.ai#_CPPv414SchedulePolicy) Enum to define the policy of scheduling inference request to target device in cumulative throughput mode on AUTO.
+```
 
 *Values:*-
 enumerator ROUND_ROBIN
@@ -263,13 +265,17 @@ ie.set_property(ov::hint::enable_hyper_threading(true)); ie.set_property(ov::hin
 
 
 -
+```json
 static constexpr Property<uint32_t> num_requests = {"PERFORMANCE_HINT_NUM_REQUESTS"}
 [#](https://docs.openvino.ai#_CPPv412num_requests) (Optional) property that backs the (above) Performance Hints by giving additional information on how many inference requests the application will be keeping in flight usually this value comes from the actual use-case (e.g. number of video-cameras, or other sources of inputs)
+```
 
 
 -
+```json
 static constexpr Property<std::shared_ptr<const
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Model](https://docs.openvino.ai/classov_1_1_model.html#_CPPv4N2ov5ModelE)>> model = {"MODEL_PTR"}[#](https://docs.openvino.ai#_CPPv45model) This key identifies shared pointer to the
+```
 
 [ov::Model](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_model), required for some properties ([ov::max_batch_size](https://docs.openvino.ai#group__ov__runtime__cpp__prop__api_1ga5dbd8ab0c8a177234cade9a54c96249c)and[ov::optimal_batch_size](https://docs.openvino.ai#group__ov__runtime__cpp__prop__api_1ga129bad2da2fc2a40a7d746d86fc9c68d))
 
@@ -441,8 +447,10 @@ use and read model
 
 
 -
+```json
 static constexpr Property<std::string> id = {"DEVICE_ID"}
 [#](https://docs.openvino.ai#_CPPv42id) the property for setting of required device to execute on values: device id starts from “0” - first device, “1” - second device, etc
+```
 
 
 -
@@ -602,15 +610,19 @@ static constexpr Property<uint64_t, PropertyMutability::RW> value_cache_group_si
 
 
 -
+```rust
 struct Priorities : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Property](https://docs.openvino.ai/classov_1_1_property.html#_CPPv4I0_18PropertyMutabilityEN2ov8PropertyE)<std::string>[#](https://docs.openvino.ai#_CPPv4N2ov6device10PrioritiesE) *#include <properties.hpp>*Type for device
+```
 
 [Priorities](https://docs.openvino.ai/group__ov__transformation__common__api.html#structov_1_1device_1_1_priorities)config option, with comma-separated devices listed in the desired priority.Public Functions
 
 
 -
+```rust
 struct Properties : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Property](https://docs.openvino.ai/classov_1_1_property.html#_CPPv4I0_18PropertyMutabilityEN2ov8PropertyE)<std::map<std::string, std::map<std::string,[Any](https://docs.openvino.ai/classov_1_1_any.html#_CPPv4N2ov3AnyE)>>>[#](https://docs.openvino.ai#_CPPv4N2ov6device10PropertiesE) *#include <properties.hpp>*Type for property to pass set of properties to specified device.
+```
 
 Public Functions
 
@@ -656,8 +668,10 @@ Pair of string key representation and type erased property value.
 inline std::pair<std::string,
 
 -
+```rust
 struct UUID
 [#](https://docs.openvino.ai#_CPPv4N2ov6device4UUIDE) *#include <properties.hpp>*Structure which defines format of
+```
 
 [UUID](https://docs.openvino.ai/group__ov__transformation__common__api.html#structov_1_1device_1_1_u_u_i_d).Public Members
 
@@ -677,8 +691,10 @@ static const uint64_t MAX_UUID_SIZE = 16
 std::array<uint8_t,
 
 -
+```rust
 struct LUID
 [#](https://docs.openvino.ai#_CPPv4N2ov6device4LUIDE) *#include <properties.hpp>*Structure which defines format of
+```
 
 [LUID](https://docs.openvino.ai/group__ov__transformation__common__api.html#structov_1_1device_1_1_l_u_i_d).Public Members
 
@@ -698,8 +714,10 @@ static const uint64_t MAX_LUID_SIZE = 8
 std::array<uint8_t,
 
 -
+```rust
 struct PCIInfo
 [#](https://docs.openvino.ai#_CPPv4N2ov6device7PCIInfoE) *#include <properties.hpp>*Structure to store PCI bus information of device (Domain/Bus/Device/Function)
+```
 
 
 -

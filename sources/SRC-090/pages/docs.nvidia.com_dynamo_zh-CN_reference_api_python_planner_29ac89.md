@@ -682,8 +682,10 @@ component and endpoint metadata. They therefore require a
 
 that resolves `WorkerInfo`
 
+```python
 from runtime MDC. The
 planner factory normally supplies its `RuntimeFpmProvider`
+```
 
 , sharing the same
 runtime discovery source used for forward-pass metrics.

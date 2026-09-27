@@ -77,24 +77,30 @@ Thanks @sayakpaul , absolutely, I'll submit a PR to fix it soon.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: f8f01121d056bb252d7ea9fae13de5f778f4259c9a7714c6919e3160b84eb65e
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 50577401eef36c5af61dda029f69a821312a24c2912316f9dc5596a398115b44
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 4642a6dbc968c3329a33f75907f59ae879a3faa220dc830429a3a927c67ad94c
+```
 
 Release follow-up: this open ModelOpt issue needs release relevance confirmed. Link its planned fix/validation, or confirm it is not a v0.46.0 blocker.

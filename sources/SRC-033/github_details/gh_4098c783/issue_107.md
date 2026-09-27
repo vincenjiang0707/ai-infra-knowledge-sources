@@ -85,6 +85,7 @@ labels:
     ```
     
 # 训练超参数：
+```bash
     > --seed 2025 \
     --data_seed 2025 \
     --load ./Qwen3-VL-8B-Instruct-mcore/ \
@@ -120,6 +121,7 @@ labels:
     --no_save_rng false \
     --dataset_num_proc 16 \
     --log_interval 1
+```
 
 ## 评论 (1)
 

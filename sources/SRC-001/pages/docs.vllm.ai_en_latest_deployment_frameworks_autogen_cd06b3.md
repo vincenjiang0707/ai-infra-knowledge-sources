@@ -26,6 +26,7 @@ Call it with AutoGen:
 
 ## Code
 
+```python
 import asyncio
 from autogen_core.models import UserMessage
 from autogen_ext.models.openai import OpenAIChatCompletionClient
@@ -61,6 +62,7 @@ print(response.content, flush=True)
 # Close the client when done.
 await model_client.close()
 asyncio.run(main())
+```
 
 
 For details, see the tutorial:

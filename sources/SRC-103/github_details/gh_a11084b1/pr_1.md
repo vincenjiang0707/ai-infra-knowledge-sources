@@ -14,6 +14,7 @@ Bumps [actions/configure-pages](https://github.com/actions/configure-pages) from
 <h2>v5.0.0</h2>
 <h1>Changelog</h1>
 <ul>
+```html
 <li>Attempt to auto-detect configuration files with varying file extensions <a href="https://github.com/JamesMGreene"><code>@​JamesMGreene</code></a> (<a href="https://redirect.github.com/actions/configure-pages/issues/139">#139</a>)</li>
 <li>Convert errors into Actions-compatible logging with annotations <a href="https://github.com/JamesMGreene"><code>@​JamesMGreene</code></a> (<a href="https://redirect.github.com/actions/configure-pages/issues/138">#138</a>)</li>
 <li>Bump <code>@​actions/github</code> from 5.1.1 to 6.0.0 <a href="https://github.com/dependabot"><code>@​dependabot</code></a> (<a href="https://redirect.github.com/actions/configure-pages/issues/123">#123</a>)</li>
@@ -26,6 +27,7 @@ Bumps [actions/configure-pages](https://github.com/actions/configure-pages) from
 <li>Bump actions/setup-node from 3 to 4 <a href="https://github.com/dependabot"><code>@​dependabot</code></a> (<a href="https://redirect.github.com/actions/configure-pages/issues/118">#118</a>)</li>
 <li>Bump the non-breaking-changes group with 1 update <a href="https://github.com/dependabot"><code>@​dependabot</code></a> (<a href="https://redirect.github.com/actions/configure-pages/issues/131">#131</a>)</li>
 <li>Update Dependabot config to group non-breaking changes <a href="https://github.com/JamesMGreene"><code>@​JamesMGreene</code></a> (<a href="https://redirect.github.com/actions/configure-pages/issues/130">#130</a>)</li>
+```
 </ul>
 <p>See details of <a href="https://github.com/actions/configure-pages/compare/v4.0.0...v5.0.0">all code changes</a> since previous release.</p>
 </blockquote>
@@ -33,6 +35,7 @@ Bumps [actions/configure-pages](https://github.com/actions/configure-pages) from
 <details>
 <summary>Commits</summary>
 <ul>
+```html
 <li><a href="https://github.com/actions/configure-pages/commit/983d7736d9b0ae728b81ab479565c72886d7745b"><code>983d773</code></a> Merge pull request <a href="https://redirect.github.com/actions/configure-pages/issues/139">#139</a> from actions/config-auto-detect</li>
 <li><a href="https://github.com/actions/configure-pages/commit/9cf6e24f7417e4d116f9cbeee49e71d810373617"><code>9cf6e24</code></a> Tweak comment</li>
 <li><a href="https://github.com/actions/configure-pages/commit/f304bd89be34aba4128f07b2fd86bc4e34fbabd7"><code>f304bd8</code></a> Update distributables</li>
@@ -44,6 +47,7 @@ Bumps [actions/configure-pages](https://github.com/actions/configure-pages) from
 <li><a href="https://github.com/actions/configure-pages/commit/9a4705d6535eae096428426648f242b5ae07ef81"><code>9a4705d</code></a> Update distributables</li>
 <li><a href="https://github.com/actions/configure-pages/commit/f6ded38287437661b636a27f136e14b1b2e46064"><code>f6ded38</code></a> Fix syntax error and formatting</li>
 <li>Additional commits viewable in <a href="https://github.com/actions/configure-pages/compare/v4...v5">compare view</a></li>
+```
 </ul>
 </details>
 <br />

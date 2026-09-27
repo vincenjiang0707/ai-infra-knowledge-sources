@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/ops/cute_dsl/latent_moe_tail/
 lastmod: 2026-09-24
 
+```python
 class CollectiveKernel:
 """Own and launch the routed AllReduce/RMSNorm plus shared ReduceScatter."""
 def __init__(
@@ -280,3 +281,4 @@ return self._latent_output
 @property
 def shared_output(self) -> torch.Tensor:
 return self._shared_output
+```

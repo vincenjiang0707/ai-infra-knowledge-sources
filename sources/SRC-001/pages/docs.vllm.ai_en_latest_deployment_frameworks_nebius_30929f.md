@@ -36,6 +36,7 @@ The commands below were tested with Nebius CLI `0.12.265`
 
 . Set your project and subnet IDs explicitly. Use the same CLI profile throughout the guide.
 
+```bash
 export PROJECT_ID="<project-id>"
 export SUBNET_ID="<subnet-id>"
 export ENDPOINT_NAME="vllm-qwen-$(openssl rand -hex 6)"
@@ -58,6 +59,7 @@ nebius ai endpoint create \
 --disk-size 250Gi --shm-size 16Gi \
 --public=false --preemptible=false \
 --retries 1
+```
 
 
 The image and model revisions are pinned for reproducibility. When changing the image, check its CUDA/driver requirements against the selected Nebius platform. The model downloads into the container disk on startup; this example does not configure persistent model storage.
@@ -68,9 +70,11 @@ A public VM IP is not required to use the managed HTTPS URL. The subnet still ne
 
 Save the ID of the Endpoint you created:
 
+```json
 export ENDPOINT_ID="$(nebius ai endpoint get-by-name \
 --parent-id "$PROJECT_ID" --name "$ENDPOINT_NAME" \
 --format jsonpath='{.metadata.id}')"
+```
 
 
 If creation times out or your terminal disconnects, use the same project and name to find the Endpoint before attempting another creation. A local timeout does not mean that provisioning was cancelled.
@@ -79,8 +83,10 @@ If creation times out or your terminal disconnects, use the same project and nam
 
 Inspect the state and recent logs:
 
+```bash
 nebius ai endpoint get "$ENDPOINT_ID"
 nebius ai endpoint logs "$ENDPOINT_ID" --tail 100 --timestamps
+```
 
 
 Wait for `RUNNING`
@@ -93,12 +99,14 @@ expression requires exactly one HTTPS URL and preserves its scheme:
 
 ENDPOINT_URL="$(nebius ai endpoint get "$ENDPOINT_ID" --format json \
 | jq -er '[.status.public_endpoints[]? | select(startswith("https://"))]
+```json
 | if length == 1 then .[0] else error("Expected one HTTPS URL") end')"
 export ENDPOINT_URL="${ENDPOINT_URL%/}"
 curl --fail-with-body --silent --show-error --max-time 10 \
 "$ENDPOINT_URL/health" -H "Authorization: Bearer $AUTH_TOKEN"
 curl --fail-with-body --silent --show-error --max-time 10 \
 "$ENDPOINT_URL/v1/models" -H "Authorization: Bearer $AUTH_TOKEN" | jq
+```
 
 
 `RUNNING`
@@ -113,6 +121,7 @@ before sending a chat request. While waiting, inspect logs instead of creating a
 
 ## Send a chat request[¶](https://docs.vllm.ai#send-a-chat-request)
 
+```bash
 curl --fail-with-body --silent --show-error --max-time 120 \
 "$ENDPOINT_URL/v1/chat/completions" \
 -H "Authorization: Bearer $AUTH_TOKEN" \
@@ -124,6 +133,7 @@ curl --fail-with-body --silent --show-error --max-time 120 \
 "temperature": 0,
 "chat_template_kwargs": {"enable_thinking": false}
 }' | jq
+```
 
 
 Expect a chat completion containing an assistant message. The Qwen-specific template option disables thinking for this short example; it is not a universal option for other models.
@@ -142,8 +152,10 @@ as the base URL and the Endpoint token as the API key.
 
 Verify that the same inference URL rejects requests without the token:
 
+```json
 curl --silent --show-error --max-time 10 --output /dev/null \
 --write-out '%{http_code}\n' "$ENDPOINT_URL/v1/models"
+```
 
 
 Expect HTTP `401`

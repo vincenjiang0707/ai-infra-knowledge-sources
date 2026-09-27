@@ -13,8 +13,10 @@ For the task-oriented setup, see [Using GAIE with Dynamo](https://docs.nvidia.co
 
 The operator generates the EPP Deployment and Service and the `InferencePool`
 
+```python
 from the
 `DynamoGraphDeployment`
+```
 
 . Users create the `Gateway`
 

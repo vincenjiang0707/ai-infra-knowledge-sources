@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/transformers/causal/
 lastmod: 2026-09-27
 
+```python
 class CausalMixin(VllmModelForTextGeneration, Base):
 def __init__(self, *, vllm_config: "VllmConfig", prefix: str = ""):
 # Skip VllmModelForTextGeneration.__init__ and call the next class in MRO
@@ -42,3 +43,4 @@ return super().load_weights(auto_load_lm_head_bias(weights)) | lm_head_bias
 def compute_logits(self, hidden_states: "torch.Tensor") -> "torch.Tensor | None":
 logits = self.logits_processor(self.lm_head, hidden_states, self.lm_head.bias)
 return logits
+```

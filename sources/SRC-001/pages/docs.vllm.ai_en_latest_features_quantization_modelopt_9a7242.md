@@ -83,6 +83,7 @@ Below is an example showing how to quantize a model using modelopt's PTQ API:
 
 ## Code
 
+```python
 import modelopt.torch.quantization as mtq
 from transformers import AutoModelForCausalLM
 # Load the model from HuggingFace
@@ -95,10 +96,12 @@ for data in calib_set:
 model(data)
 # PTQ with in-place replacement of quantized modules
 model = mtq.quantize(model, config, forward_loop)
+```
 
 
 After the model is quantized, you can export it to a quantized checkpoint using the export API:
 
+```python
 import torch
 from modelopt.torch.export import export_hf_checkpoint
 with torch.inference_mode():
@@ -106,6 +109,7 @@ export_hf_checkpoint(
 model, # The quantized model.
 export_dir, # The directory where the exported files will be stored.
 )
+```
 
 
 The quantized checkpoint can then be deployed with vLLM. As an example, the following code shows how to deploy `nvidia/Llama-3.1-8B-Instruct-FP8`
@@ -116,6 +120,7 @@ The quantized checkpoint can then be deployed with vLLM. As an example, the foll
 
 ## Code
 
+```python
 from vllm import LLM, SamplingParams
 def main():
 model_id = "nvidia/Llama-3.1-8B-Instruct-FP8"
@@ -135,6 +140,7 @@ generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
 if __name__ == "__main__":
 main()
+```
 
 
 ## Running the OpenAI-compatible server[¶](https://docs.vllm.ai#running-the-openai-compatible-server)

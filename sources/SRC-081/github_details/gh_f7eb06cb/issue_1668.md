@@ -262,10 +262,12 @@ The pkg name change will be reverted in the pending PR https://github.com/ModelC
 @Qubitium We still do not have an answer yet. I could do a Pr if you could give me a potential reason, why that happens.
 Do you have any idea why that happens when using a newer transformer version?
 
+```python
 File "/home/nudel/Documents/transformers/src/transformers/models/llama/modeling_llama.py", line 138, in apply_rotary_pos_emb
 q_embed = (q * cos) + (rotate_half(q) * sin)
 ~~^~~~~
 RuntimeError: The size of tensor a (32) must match the size of tensor b (64) at non-singleton dimension 3
+```
 
 ### Qubitium · 2025-10-03
 

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/nvidia/mtp/
 lastmod: 2026-09-27
 
+```python
 class DeepSeekV4MTP(nn.Module):
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
 super().__init__()
@@ -250,3 +251,4 @@ elif shared_weight:
 # treat shared weights as top level weights
 name = name.replace(f"model.layers.{spec_layer}.", "model.")
 return name
+```

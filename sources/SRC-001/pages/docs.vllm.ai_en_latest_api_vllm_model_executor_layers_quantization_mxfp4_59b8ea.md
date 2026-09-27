@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/mxfp4/
 lastmod: 2026-09-27
 
+```python
 class Mxfp4MoEMethod(FusedMoEMethodBase):
 """MXFP4 MoE quantization method."""
 supports_pre_processed_weights = True
@@ -383,3 +384,4 @@ topk_group=layer.topk_group,
 e_score_correction_bias=layer.e_score_correction_bias,
 routed_scaling_factor=layer.routed_scaling_factor,
 )
+```

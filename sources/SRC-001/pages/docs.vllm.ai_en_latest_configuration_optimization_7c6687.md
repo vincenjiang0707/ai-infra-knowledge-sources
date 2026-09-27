@@ -137,9 +137,11 @@ In that case, if `max_num_batched_tokens < max_model_len`
 
 , vLLM may crash at server start‑up.
 
+```python
 from vllm import LLM
 # Set max_num_batched_tokens to tune performance
 llm = LLM(model="meta-llama/Llama-3.1-8B-Instruct", max_num_batched_tokens=16384)
+```
 
 
 See related papers for more details ([https://arxiv.org/pdf/2401.08671](https://arxiv.org/pdf/2401.08671) or [https://arxiv.org/pdf/2308.16369](https://arxiv.org/pdf/2308.16369)).
@@ -157,9 +159,11 @@ Tensor parallelism shards model parameters across multiple GPUs within each mode
 - When the model is too large to fit on a single GPU
 - When you need to reduce memory pressure per GPU to allow more KV cache space for higher throughput
 
+```python
 from vllm import LLM
 # Split model across 4 GPUs
 llm = LLM(model="meta-llama/Llama-3.3-70B-Instruct", tensor_parallel_size=4)
+```
 
 
 For models that are too large to fit on a single GPU (like 70B parameter models), tensor parallelism is essential.
@@ -175,6 +179,7 @@ Pipeline parallelism distributes model layers across multiple GPUs. Each GPU pro
 
 Pipeline parallelism can be combined with tensor parallelism for very large models:
 
+```python
 from vllm import LLM
 # Combine pipeline and tensor parallelism
 llm = LLM(
@@ -182,6 +187,7 @@ model="meta-llama/Llama-3.3-70B-Instruct",
 tensor_parallel_size=4,
 pipeline_parallel_size=2,
 )
+```
 
 
 ### Expert Parallelism (EP)[¶](https://docs.vllm.ai#expert-parallelism-ep)
@@ -248,6 +254,7 @@ syntax such as `0-3`
 .
 
 # Auto-detect NUMA nodes for visible GPUs
+```bash
 vllm serve meta-llama/Llama-3.1-8B-Instruct \
 --tensor-parallel-size 4 \
 --numa-bind
@@ -262,6 +269,7 @@ vllm serve meta-llama/Llama-3.1-8B-Instruct \
 --numa-bind \
 --numa-bind-nodes 0 0 1 1 \
 --numa-bind-cpus 0-3 4-7 48-51 52-55
+```
 
 
 Notes:
@@ -341,6 +349,7 @@ You can enable batch-level DP by setting `mm_encoder_tp_mode="data"`
 
 , for example:
 
+```python
 from vllm import LLM
 llm = LLM(
 model="Qwen/Qwen2.5-VL-72B-Instruct",
@@ -353,6 +362,7 @@ mm_encoder_tp_mode="data",
 # The language decoder uses TP=4 to shard the weights regardless
 # of the setting of mm_encoder_tp_mode
 )
+```
 
 
 Important
@@ -391,10 +401,12 @@ is available in vLLM v0.23.0 and later. If your installed vLLM version does not 
 
 Equivalent in the offline API:
 
+```python
 import os
 os.environ["VLLM_USE_FASTOKENS"] = "1"
 from vllm import LLM
 llm = LLM(model="Qwen/Qwen3-8B")
+```
 
 
 The `fastokens`

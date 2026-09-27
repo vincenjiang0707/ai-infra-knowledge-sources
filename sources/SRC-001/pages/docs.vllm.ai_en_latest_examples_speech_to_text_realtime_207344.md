@@ -24,6 +24,7 @@ The script:
 3. Sends audio chunks to the server
 4. Receives and prints transcription as it streams
 """
+```python
 import argparse
 import asyncio
 import json
@@ -128,6 +129,7 @@ help="vLLM server port (default: 8000)",
 )
 args = parser.parse_args()
 main(args)
+```
 
 
 ## OpenAI Realtime Microphone Client[¶](https://docs.vllm.ai#openai-realtime-microphone-client)

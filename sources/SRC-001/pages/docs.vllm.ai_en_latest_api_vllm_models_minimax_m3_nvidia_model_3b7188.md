@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/minimax_m3/nvidia/model/
 lastmod: 2026-09-24
 
+```python
 class MiniMaxM3SparseAttention(nn.Module, AttentionLayerBase):
 """Block-sparse attention layer with the lightning-indexer branch.
 This is a merged attention layer: it owns the projections (qkv + index
@@ -257,3 +258,4 @@ self.kv_cache,
 output,
 query_fp8=query_fp8,
 )
+```

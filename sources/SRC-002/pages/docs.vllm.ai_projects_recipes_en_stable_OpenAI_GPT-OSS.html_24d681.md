@@ -37,11 +37,13 @@ GPT-OSS works on Ampere devices by default, using the `TRITON_ATTN`
 attention backend and Marlin MXFP4 MoE:
 
 # openai/gpt-oss-20b should run on a single A100
+```bash
 vllm serve openai/gpt-oss-20b
 # gpt-oss-120b will fit on a single A100 (80GB), but scaling it to higher TP sizes can help with throughput
 vllm serve openai/gpt-oss-120b
 vllm serve openai/gpt-oss-120b --tensor-parallel-size 2
 vllm serve openai/gpt-oss-120b --tensor-parallel-size 4
+```
 
 
 ### H100 & H200[¶](https://docs.vllm.ai#h100-h200)
@@ -171,6 +173,7 @@ OpenAI recommends using the gpt-oss reference library to perform evaluation.
 First, deploy the model with vLLM:
 
 # Example deployment on 8xH100
+```bash
 vllm serve openai/gpt-oss-120b \
 --tensor_parallel_size 8 \
 --max-model-len 131072 \
@@ -178,12 +181,15 @@ vllm serve openai/gpt-oss-120b \
 --max-num-seqs 128 \
 --gpu-memory-utilization 0.85 \
 --no-enable-prefix-caching
+```
 
 
 Then, run the evaluation with gpt-oss. The following command will run all the 3 reasoning effort levels.
 
+```bash
 mkdir -p /tmp/gpqa_openai
 OPENAI_API_KEY=empty python -m gpt_oss.evals --model openai/gpt-oss-120b --eval gpqa --n-threads 128
+```
 
 
 To eval on AIME2025, change `gpqa`
@@ -259,20 +265,24 @@ Prepare the config YAML file to configure vLLM. Below shows the recommended conf
 `GPT-OSS_Blackwell.yaml`
 
 
+```yaml
 kv-cache-dtype: fp8
 no-enable-prefix-caching: true
 max-cudagraph-capture-size: 2048
 max-num-batched-tokens: 8192
 stream-interval: 20
+```
 
 
 `GPT-OSS_Hopper.yaml`
 
 
+```yaml
 no-enable-prefix-caching: true
 max-cudagraph-capture-size: 2048
 max-num-batched-tokens: 8192
 stream-interval: 20
+```
 
 
 Below are the config YAML files to enable EAGLE3 speculative decoding:
@@ -280,22 +290,26 @@ Below are the config YAML files to enable EAGLE3 speculative decoding:
 `GPT-OSS_EAGLE3_Blackwell.yaml`
 
 
+```json
 kv-cache-dtype: fp8
 no-enable-prefix-caching: true
 max-cudagraph-capture-size: 2048
 max-num-batched-tokens: 8192
 stream-interval: 20
 speculative-config: '{"model":"nvidia/gpt-oss-120b-Eagle3-v2","num_speculative_tokens":3,"method":"eagle3","draft_tensor_parallel_size":1}'
+```
 
 
 `GPT-OSS_EAGLE3_Hopper.yaml`
 
 
+```json
 no-enable-prefix-caching: true
 max-cudagraph-capture-size: 2048
 max-num-batched-tokens: 8192
 stream-interval: 20
 speculative-config: '{"model":"nvidia/gpt-oss-120b-Eagle3-v2","num_speculative_tokens":3,"method":"eagle3","draft_tensor_parallel_size":1}'
+```
 
 
 ### Launch the vLLM Server[¶](https://docs.vllm.ai#launch-the-vllm-server)
@@ -576,10 +590,12 @@ error
 
 **Solution: This is caused by a bug in openai_harmony code. This can be worked around by downloading the tiktoken encoding files in advance and setting the TIKTOKEN_ENCODINGS_BASE environment variable. See this GitHub issue for more information.**
 
+```json
 mkdir -p tiktoken_encodings
 wget -O tiktoken_encodings/o200k_base.tiktoken "https://openaipublic.blob.core.windows.net/encodings/o200k_base.tiktoken"
 wget -O tiktoken_encodings/cl100k_base.tiktoken "https://openaipublic.blob.core.windows.net/encodings/cl100k_base.tiktoken"
 export TIKTOKEN_ENCODINGS_BASE=${PWD}/tiktoken_encodings
+```
 
 
 ## Harmony Format Support[¶](https://docs.vllm.ai#harmony-format-support)

@@ -81,6 +81,7 @@ _ConfigT: Configuration type for the kernel (subclass of MMLinearLayerConfig). C
 
 ## Example
 
+```python
 @dataclass
 class MyKernelConfig(MMLinearLayerConfig):
 static: bool
@@ -114,6 +115,7 @@ output = my_custom_kernel(x, params.weight, params.weight_scale)
 if bias is not None:
 output += bias
 return output
+```
 
 
 ## Lifecycle

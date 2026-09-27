@@ -66,8 +66,10 @@ https://github.com/EricEttes/flashinfer
 
 Make sure to add the correct CUDA arch (.bashrc entry is the easiest)
 
+```bash
 echo 'export FLASHINFER_CUDA_ARCH_LIST="8.7"' >> ~/.bashrc
 source ~/.bashrc
+```
 
 
 

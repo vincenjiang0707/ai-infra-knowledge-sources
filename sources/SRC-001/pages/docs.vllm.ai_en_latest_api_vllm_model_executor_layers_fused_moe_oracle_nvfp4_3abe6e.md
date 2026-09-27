@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/oracle/nvfp4/
 lastmod: 2026-09-27
 
+```python
 def select_nvfp4_moe_backend(
 config: FusedMoEConfig,
 weight_key: QuantKey | None,
@@ -119,3 +120,4 @@ logger.debug_once(_make_log_unsupported(backend, reason))
 raise NotImplementedError(
 "No NvFp4 MoE backend supports the deployment configuration."
 )
+```

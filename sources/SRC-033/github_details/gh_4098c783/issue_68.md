@@ -65,5 +65,7 @@ apt-get install gdb
 gdb attach {pid}
 
 python堆栈通过py-spy采集
+```bash
 pip3 install py-spy
 py-spy dump -p {pid}
+```

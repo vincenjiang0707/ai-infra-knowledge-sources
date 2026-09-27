@@ -69,6 +69,7 @@ sizes the mesh for plain tensors.
 ## Source code in `vllm/distributed/weight_transfer/m2n_source.py`
 
 
+```python
 | class DTensorModuleSource(M2NWeightSource):
 """`M2NWeightSource` over `module.named_parameters()`.
 Covers both the FSDP/DTensor trainer (placement read off each parameter,
@@ -109,6 +110,7 @@ for name, param in self._module.named_parameters():
 to_local = getattr(param, "to_local", None)
 yield name, (to_local() if callable(to_local) else param)
 |
+```
 
 ###
 
@@ -234,6 +236,7 @@ pairs in the same order as `metadata()`
 ## Source code in `vllm/distributed/weight_transfer/m2n_source.py`
 
 
+```python
 | class M2NWeightSource(WeightSource):
 """A `WeightSource` that also describes how the trainer holds its weights.
 Unlike `ModuleSource`, iteration yields each rank's **local shard**, not a
@@ -249,6 +252,7 @@ def __iter__(self) -> Iterator[tuple[str, torch.Tensor]]:
 """Yield `(name, local shard)` pairs in the same order as `metadata()`."""
 raise NotImplementedError
 |
+```
 
 ###
 
@@ -264,10 +268,12 @@ pairs in the same order as `metadata()`
 ## Source code in `vllm/distributed/weight_transfer/m2n_source.py`
 
 
+```python
 | def __iter__(self) -> Iterator[tuple[str, torch.Tensor]]:
 """Yield `(name, local shard)` pairs in the same order as `metadata()`."""
 raise NotImplementedError
 |
+```
 
 ###
 
@@ -279,20 +285,24 @@ The trainer's rank topology, shared by every parameter.
 ## Source code in `vllm/distributed/weight_transfer/m2n_source.py`
 
 
+```python
 | def mesh(self) -> M2NMesh:
 """The trainer's rank topology, shared by every parameter."""
 raise NotImplementedError
 |
+```
 
 Name, dtype, full shape, and trainer placement for each parameter.
 
 ## Source code in `vllm/distributed/weight_transfer/m2n_source.py`
 
 
+```python
 | def metadata(self) -> list[ParamMeta]:
 """Name, dtype, full shape, and trainer placement for each parameter."""
 raise NotImplementedError
 |
+```
 
 ##
 
@@ -306,6 +316,7 @@ placement onto an m2n placement code.
 ## Source code in `vllm/distributed/weight_transfer/m2n_source.py`
 
 
+```python
 | def _placement_code(placement: Any) -> int:
 """Map a `torch.distributed` placement onto an m2n placement code."""
 name = type(placement).__name__
@@ -318,6 +329,7 @@ f"nccl_m2n cannot express the {name} placement; only Replicate and "
 "Shard are supported"
 )
 |
+```
 
 ##
 
@@ -333,6 +345,7 @@ A plain tensor is identical on every trainer rank, so it spans all of them.
 ## Source code in `vllm/distributed/weight_transfer/m2n_source.py`
 
 
+```python
 | def mesh_from_tensor(tensor: torch.Tensor, num_trainer_ranks: int) -> M2NMesh:
 """The mesh a parameter lives on, as an `M2NMesh`.
 A plain tensor is identical on every trainer rank, so it spans all of them.
@@ -354,6 +367,7 @@ f"nccl_m2n supports 1-D and 2-D device meshes, got {grid.ndim}-D"
 dims = tuple(grid.shape)
 return M2NMesh(dims if len(dims) == 2 else (dims[0], 1), 0)
 |
+```
 
 ##
 
@@ -376,6 +390,7 @@ pair: m2n cannot express that, and the size-1-axis encoding it needs instead is 
 
 
 | def placements_from_tensor(tensor: torch.Tensor) -> Placements | None:
+```python
 """How a parameter is placed over its mesh, or `REPLICATED`.
 `REPLICATED` is returned rather than a `(REPLICATE, REPLICATE)` pair: m2n
 cannot express that, and the size-1-axis encoding it needs instead is
@@ -391,3 +406,4 @@ if len(codes) == 1:
 return (codes[0], REPLICATE)
 return (codes[0], codes[1])
 |
+```

@@ -4,10 +4,12 @@ lastmod:
 # Class ov::IntervalsAlignmentSharedValue[#](https://docs.openvino.ai#class-ov-intervalsalignmentsharedvalue)
 
 -
+```python
 class IntervalsAlignmentSharedValue
 [#](https://docs.openvino.ai#_CPPv4N2ov29IntervalsAlignmentSharedValueE) [IntervalsAlignmentSharedValue](https://docs.openvino.ai/group__ov__dev__exec__model.html#classov_1_1_intervals_alignment_shared_value)is used by[IntervalsAlignmentAttribute](https://docs.openvino.ai/group__ov__dev__exec__model.html#classov_1_1_intervals_alignment_attribute)as attribute shared value.-
 class Interval
 [#](https://docs.openvino.ai#_CPPv4N2ov29IntervalsAlignmentSharedValue8IntervalE)
+```
 
 -
 class Interval

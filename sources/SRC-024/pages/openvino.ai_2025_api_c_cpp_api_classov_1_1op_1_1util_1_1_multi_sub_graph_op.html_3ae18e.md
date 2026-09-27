@@ -4,16 +4,20 @@ lastmod:
 # Class ov::op::util::MultiSubGraphOp[#](https://docs.openvino.ai#class-ov-op-util-multisubgraphop)
 
 -
+```python
 class MultiSubGraphOp : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Sink](https://docs.openvino.ai/classov_1_1op_1_1_sink.html#_CPPv4N2ov2op4SinkE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOpE) Abstract base class for sub-graph based ops, i.e ops that have some sub-graphs.
+```
 
 Subclassed by
 
 [ov::op::util::FrameworkNode](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_framework_node),[ov::op::util::SubGraphOp](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_sub_graph_op),[ov::op::v8::If](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_if)Public Functions
 
 -
+```
 inline virtual const std::shared_ptr<
 [Model](https://docs.openvino.ai/classov_1_1_model.html#_CPPv4N2ov5ModelE)> &get_function(size_t index) const[#](https://docs.openvino.ai#_CPPv4NK2ov2op4util15MultiSubGraphOp12get_functionE6size_t) Gets internal sub-graph by index in
+```
 
 [MultiSubGraphOp](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multi_sub_graph_op).- Parameters:
 **index**– sub-graph’s index in op- Returns:
@@ -144,8 +148,10 @@ Number of output descriptions
 
 
 -
+```python
 class BodyOutputDescription : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[MultiSubGraphOp](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOpE)::[OutputDescription](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOp17OutputDescriptionE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOp21BodyOutputDescriptionE) Produces an output from a specific iteration.
+```
 
 Public Functions
 
@@ -162,8 +168,10 @@ BodyOutputDescription(uint64_t body_value_index, uint64_t output_index, int64_t 
 BodyOutputDescription(uint64_t body_value_index, uint64_t output_index, int64_t iteration = -1)
 
 -
+```python
 class ConcatOutputDescription : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[MultiSubGraphOp](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOpE)::[OutputDescription](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOp17OutputDescriptionE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOp23ConcatOutputDescriptionE) Produces an output by concatenating an output from each iteration.
+```
 
 Public Functions
 
@@ -180,16 +188,20 @@ ConcatOutputDescription(uint64_t body_value_index, uint64_t output_index, int64_
 ConcatOutputDescription(uint64_t body_value_index, uint64_t output_index, int64_t start, int64_t stride, int64_t part_size, int64_t end, int64_t axis)
 
 -
+```python
 class InputDescription
 [#](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOp16InputDescriptionE) Abstract class describes a connection between a
+```
 
 [MultiSubGraphOp](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multi_sub_graph_op)input and the body.Subclassed by
 
 [ov::op::util::MultiSubGraphOp::InvariantInputDescription](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multi_sub_graph_op_1_1_invariant_input_description),[ov::op::util::MultiSubGraphOp::MergedInputDescription](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multi_sub_graph_op_1_1_merged_input_description),[ov::op::util::MultiSubGraphOp::SliceInputDescription](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multi_sub_graph_op_1_1_slice_input_description)
 
 -
+```python
 class InvariantInputDescription : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[MultiSubGraphOp](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOpE)::[InputDescription](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOp16InputDescriptionE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOp25InvariantInputDescriptionE) Produces an input.
+```
 
 Public Functions
 
@@ -206,8 +218,10 @@ InvariantInputDescription(uint64_t input_index, uint64_t body_parameter_index)
 InvariantInputDescription(uint64_t input_index, uint64_t body_parameter_index)
 
 -
+```python
 class MergedInputDescription : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[MultiSubGraphOp](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOpE)::[InputDescription](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOp16InputDescriptionE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOp22MergedInputDescriptionE) Describes a body input initialized from a
+```
 
 [MultiSubGraphOp](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multi_sub_graph_op)input on the first iteration, and then a body output thereafter.Public Functions
 
@@ -224,16 +238,20 @@ MergedInputDescription(uint64_t input_index, uint64_t body_parameter_index, uint
 MergedInputDescription(uint64_t input_index, uint64_t body_parameter_index, uint64_t body_value_index)
 
 -
+```python
 class OutputDescription
 [#](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOp17OutputDescriptionE) Abstract class describes how a
+```
 
 [MultiSubGraphOp](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multi_sub_graph_op)output is produced from the body.Subclassed by
 
 [ov::op::util::MultiSubGraphOp::BodyOutputDescription](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multi_sub_graph_op_1_1_body_output_description),[ov::op::util::MultiSubGraphOp::ConcatOutputDescription](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multi_sub_graph_op_1_1_concat_output_description)
 
 -
+```python
 class SliceInputDescription : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[MultiSubGraphOp](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOpE)::[InputDescription](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOp16InputDescriptionE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util15MultiSubGraphOp21SliceInputDescriptionE) Describes a body input formed from slices of an input to
+```
 
 [MultiSubGraphOp](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multi_sub_graph_op).Public Functions
 

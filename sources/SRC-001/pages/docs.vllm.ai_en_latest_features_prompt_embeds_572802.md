@@ -55,6 +55,7 @@ The Completions endpoint does **not** apply a chat template to `prompt_embeds`
 
 Prompt embeddings can be included as content parts in chat messages, interleaved with text:
 
+```
 {
 "messages": [
 {
@@ -73,6 +74,7 @@ Prompt embeddings can be included as content parts in chat messages, interleaved
 }
 ]
 }
+```
 
 
 Each `prompt_embeds`
@@ -101,8 +103,10 @@ The vLLM engine may crash if incorrect shape of embeddings is passed. Only enabl
 
 First, launch the OpenAI-compatible server:
 
+```bash
 vllm serve meta-llama/Llama-3.2-1B-Instruct --runner generate \
 --max-model-len 4096 --enable-prompt-embeds
+```
 
 
 Then, you can use the OpenAI client as follows:

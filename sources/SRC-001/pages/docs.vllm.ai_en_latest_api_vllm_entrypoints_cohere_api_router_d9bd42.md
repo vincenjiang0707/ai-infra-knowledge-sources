@@ -99,6 +99,7 @@ responses to :class:`CohereError`
 ## Source code in `vllm/entrypoints/cohere/api_router.py`
 
 
+```python
 | class CohereErrorEnvelopeMiddleware(BaseHTTPMiddleware):
 """Rewrite vLLM error bodies into the Cohere ``{message, id}`` shape.
 The endpoint handler above already returns :class:`CohereError` for
@@ -138,6 +139,7 @@ headers=passthrough_headers,
 media_type=content_type,
 )
 |
+```
 
 
 ##
@@ -187,6 +189,7 @@ if neither is available, in which case the field is omitted from the response.
 
 
 | def _request_id(raw_request: Request | None) -> str | None:
+```python
 """Best-effort lookup of the active request id.
 Prefers the id the underlying chat handler stamped onto
 ``raw_request.state.request_metadata`` (if it got that far before
@@ -201,6 +204,7 @@ if meta is not None and getattr(meta, "request_id", None):
 return meta.request_id
 return raw_request.headers.get("X-Request-Id")
 |
+```
 
 ##
 
@@ -223,6 +227,7 @@ does not match the vLLM error envelope (which signals the middleware to pass the
 
 
 | def _translate_vllm_error_body(raw: bytes, request: Request) -> JSONResponse | None:
+```python
 """Translate a vLLM ``ErrorResponse`` body to a ``CohereError`` body.
 Returns ``None`` if ``raw`` does not match the vLLM error envelope
 (which signals the middleware to pass the body through unchanged).
@@ -243,6 +248,7 @@ except Exception: # noqa: BLE001 - malformed envelope; pass through
 return None
 return _error_response(err, request)
 |
+```
 
 ##
 
@@ -334,6 +340,7 @@ carries the prompt tokens and sampling params the chat endpoint would have sent 
 ## Source code in `vllm/entrypoints/cohere/api_router.py`
 
 
+```python
 | @render_router.post(
 "/cohere/v2/chat/render",
 dependencies=[Depends(validate_json_request)],
@@ -383,3 +390,4 @@ if isinstance(result, ErrorResponse):
 return _error_response(result, raw_request)
 return JSONResponse(content=result.model_dump())
 |
+```

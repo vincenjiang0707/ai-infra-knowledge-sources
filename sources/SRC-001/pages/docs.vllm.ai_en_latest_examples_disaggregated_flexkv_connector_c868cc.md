@@ -19,8 +19,10 @@ Requirements:
 - Ensure FlexKV is compatible with your vLLM version.
 Usage:
 1. Run this script:
+```bash
 python examples/disaggregated/flexkv_connector/prefix_caching_flexkv.py \
 --model /path/to/your/model
+```
 2. Arguments:
 --model Path or name of the model (required)
 --tp-size Tensor parallel size (default: 1)

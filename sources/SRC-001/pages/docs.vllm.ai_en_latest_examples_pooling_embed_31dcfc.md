@@ -108,6 +108,7 @@ main(args)
 ## Embedding Requests Base64 Online[¶](https://docs.vllm.ai#embedding-requests-base64-online)
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """Example Python client for embedding API using vLLM API server
 NOTE:
@@ -158,11 +159,13 @@ print(embed_dtype, endianness, embedding.shape)
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```
 
 
 ## Embedding Requests Bytes Online[¶](https://docs.vllm.ai#embedding-requests-bytes-online)
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """Example Python client for embedding API using vLLM API server
 NOTE:
@@ -245,6 +248,7 @@ print(embed_dtype, endianness, embedding.shape)
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```
 
 
 ## OpenAI Embedding Client[¶](https://docs.vllm.ai#openai-embedding-client)
@@ -425,6 +429,7 @@ inputs that exceed the model's maximum token length. The feature automatically
 splits long text into chunks and handles different pooling types optimally.
 Prerequisites:
 1. Start vLLM server with chunked processing enabled:
+```bash
 # MEAN pooling (processes all chunks, recommended for complete coverage)
 vllm serve intfloat/multilingual-e5-large \
 --pooler-config \
@@ -443,6 +448,7 @@ vllm serve BAAI/bge-large-en-v1.5 \
 --trust-remote-code \
 --port 31090 \
 --api-key your-api-key
+```
 2. Install required dependencies:
 pip install openai requests
 """
@@ -873,6 +879,7 @@ main()
 
 ## Template - Dse Qwen2 Vl[¶](https://docs.vllm.ai#template-dse-qwen2-vl)
 
+```bash
 {% set image_count = namespace(value=0) %}{% set video_count = namespace(value=0) %}{% for message in messages %}{% if loop.first and message['role'] != 'system' %}{% raw %}<|im_start|>system
 You are a helpful assistant.<|im_end|>
 {% endraw %}{% endif %}<|im_start|>{{ message['role'] }}{% raw %}
@@ -880,10 +887,12 @@ You are a helpful assistant.<|im_end|>
 {% endraw %}{% else %}{% for content in message['content'] %}{% if content['type'] == 'image' or 'image' in content or 'image_url' in content %}{% set image_count.value = image_count.value + 1 %}{% if add_vision_id %}Picture {{ image_count.value }}: {% endif %}<|vision_start|><|image_pad|><|vision_end|>{% elif content['type'] == 'video' or 'video' in content %}{% set video_count.value = video_count.value + 1 %}{% if add_vision_id %}Video {{ video_count.value }}: {% endif %}<|vision_start|><|video_pad|><|vision_end|>{% elif 'text' in content %}{{ content['text'] }}{% endif %}{% endfor %}<|im_end|>{% raw %}
 {% endraw %}{% endif %}{% endfor %}{% if add_generation_prompt %}<|im_start|>assistant{% raw %}
 {% endraw %}{% endif %}<|endoftext|>
+```
 
 
 ## Template - Nemotron Embed Vl[¶](https://docs.vllm.ai#template-nemotron-embed-vl)
 
+```
 {%- if messages | length > 1 -%}
 {{ raise_exception('Embedding models should only embed one message at a time') }}
 {%- endif -%}
@@ -903,10 +912,12 @@ You are a helpful assistant.<|im_end|>
 {%- endfor -%}
 {%- endfor -%}
 {{- bos_token }}{{ vars.prefix }}{{ (vars.images + vars.texts) | join('') }}
+```
 
 
 ## Template - Vlm2Vec Phi3V[¶](https://docs.vllm.ai#template-vlm2vec-phi3v)
 
+```
 {%- if messages | length > 1 -%}
 {{ raise_exception('Embedding models should only embed one message at a time') }}
 {%- endif -%}
@@ -922,10 +933,12 @@ You are a helpful assistant.<|im_end|>
 {%- endfor -%}
 {%- endfor -%}
 {{ vars.parts | join(' ') }}
+```
 
 
 ## Template - Vlm2Vec Qwen2Vl[¶](https://docs.vllm.ai#template-vlm2vec-qwen2vl)
 
+```
 {%- if messages | length > 1 -%}
 {{ raise_exception('Embedding models should only embed one message at a time') }}
 {%- endif -%}
@@ -940,6 +953,7 @@ You are a helpful assistant.<|im_end|>
 {%- endfor -%}
 {%- endfor -%}
 {{ vars.parts | join(' ') }}
+```
 
 
 ## Vision Embedding Offline[¶](https://docs.vllm.ai#vision-embedding-offline)
@@ -1238,6 +1252,7 @@ main(args)
 ## Vision Embedding Online[¶](https://docs.vllm.ai#vision-embedding-online)
 
 # SPDX-License-Identifier: Apache-2.0
+```bash
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 # ruff: noqa: E501
 """Example Python client for multimodal embedding API using vLLM API server.
@@ -1597,3 +1612,4 @@ model_example_map[args.model](client, model_id)
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```

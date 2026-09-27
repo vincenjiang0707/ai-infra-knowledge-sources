@@ -88,11 +88,13 @@ touch simple_agent.py或使用您喜欢的编辑器创建
 文件。 -
 编写基础框架代码：
 
+```python
 import timefrom typing import List, Dictfrom colorama import Fore, Style, initfrom pyfiglet import Figlet# 初始化控制台美化工具init()class SimpleAgent:def __init__(self, name):self.name = nameself.memory = [] # 记忆存储列表# 欢迎语f = Figlet(font='slant')print(Fore.CYAN + f.renderText(self.name) + Style.RESET_ALL)print(f"我是 {Fore.GREEN}{self.name}{Style.RESET_ALL}，一个简单的 AI 助手！") -
 添加主程序入口（用于测试）：
 
 if __name__ == "__main__":agent = SimpleAgent("SimpleBot") -
 运行测试：
+```
 
 python simple_agent.py**预期效果：**控制台将打印艺术字标题和欢迎语，标志智能体初始化完成。**代码解析：**`__init__`
 

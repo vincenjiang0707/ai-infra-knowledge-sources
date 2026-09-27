@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/openai/responses/protocol/
 lastmod: 2026-09-27
 
+```python
 class ResponsesRequest(OpenAIBaseModel):
 # Ordered by official OpenAI API documentation
 # https://platform.openai.com/docs/api-reference/responses/create
@@ -355,9 +356,11 @@ def input_item_parsing(cls, data):
 """Parse input items that are missing required fields or that Pydantic
 cannot disambiguate in a Union of TypedDict / BaseModel types.
 Specifically handles:
+```
 - function_call -> ResponseFunctionToolCall
 - reasoning -> ResponseReasoningItem (auto-generates id)
 - message(role=assistant) -> ResponseOutputMessage (auto-generates
+```python
 id/status and annotations)
 Invalid structures are left for Pydantic to reject.
 """
@@ -488,3 +491,4 @@ raise VLLMValidationError(
 parameter="tool_choice",
 )
 return data
+```

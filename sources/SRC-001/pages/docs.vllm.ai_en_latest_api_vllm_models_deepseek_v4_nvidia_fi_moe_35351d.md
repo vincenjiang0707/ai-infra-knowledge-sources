@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/nvidia/fi_moe/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV4MegaMoEExpertsFI(DeepseekV4MegaMoEExperts):
 """Same weight layout/loader as the native mega experts, FI compute path."""
 def __init__(
@@ -248,3 +249,4 @@ layer._fleet_params.token_hidden_size,
 layer._kernel.kernel_name() != "deep_gemm_mega",
 )
 return y
+```

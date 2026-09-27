@@ -43,5 +43,7 @@ I have the same problem. How did you solve it?
 
 ### junghye01 · 2025-06-05
 
+```bash
 @wtqn0206 hi, there is no additional draft vocab size for eagle-1 or eagle-2. if using eagle 3, you can get config file from official huggingface repo (check README)
 for example, llama3.1-8b instruct model for eagle3 is here [https://huggingface.co/yuhuili/EAGLE3-LLaMA3.1-Instruct-8B/blob/main/config.json](url)
+```

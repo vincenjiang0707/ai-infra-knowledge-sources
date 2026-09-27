@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/mtp/
 lastmod: 2026-09-27
 
+```python
 class KimiK3MTP(nn.Module):
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
 super().__init__()
@@ -236,3 +237,4 @@ f"model.layers.{spec_layer}.mtp_block.",
 elif shared_weight:
 name = name.replace(f"model.layers.{spec_layer}.", "model.")
 return name
+```

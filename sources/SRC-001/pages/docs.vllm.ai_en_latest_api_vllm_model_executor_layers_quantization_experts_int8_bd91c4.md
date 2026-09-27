@@ -14,6 +14,7 @@ Backward-compatible config for `--quantization experts_int8`
 ## Source code in `vllm/model_executor/layers/quantization/experts_int8.py`
 
 
+```python
 | class ExpertsInt8Config(QuantizationConfig):
 """Online int8 quantization for MoE expert weights.
 Linear layers are left unquantized.
@@ -46,3 +47,4 @@ elif isinstance(layer, RoutedExperts):
 return Int8OnlineMoEMethod(moe=layer.moe_config)
 return None
 |
+```

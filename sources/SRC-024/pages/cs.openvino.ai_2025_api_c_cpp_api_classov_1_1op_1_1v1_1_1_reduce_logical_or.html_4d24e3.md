@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v1::ReduceLogicalOr[#](https://docs.openvino.ai#class-ov-op-v1-reducelogicalor)
 
 -
+```python
 class ReduceLogicalOr : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[LogicalReductionKeepDims](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_logical_reduction_keep_dims.html#_CPPv4N2ov2op4util24LogicalReductionKeepDimsE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v115ReduceLogicalOrE) Performs a reduction using “logical or”.
+```
 
 The reduction is performed over slices of the first input. The slices shape depends on the values passed to the second input - the axes.
 

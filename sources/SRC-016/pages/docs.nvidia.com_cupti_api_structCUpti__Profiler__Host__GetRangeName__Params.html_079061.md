@@ -34,8 +34,10 @@ size_t rangeIndex
 
 
 -
+```
 const char *delimiter
 [#](https://docs.nvidia.com#_CPPv4N39CUpti_Profiler_Host_GetRangeName_Params9delimiterE) [in] used in case of nested ranges, default=”/”. Range1<delimiter>Range2
+```
 
 
 -

@@ -119,6 +119,7 @@ If GPU/CPU communication cannot be established, you can use the following Python
 ## Code
 
 # Test PyTorch NCCL
+```python
 import torch
 import torch.distributed as dist
 dist.init_process_group(backend="nccl")
@@ -166,6 +167,7 @@ assert value == world_size, f"Expected {world_size}, got {value}"
 print("vLLM NCCL with cuda graph is successful!")
 dist.destroy_process_group(gloo_group)
 dist.destroy_process_group()
+```
 
 
 If you are testing with a single node, adjust `--nproc-per-node`
@@ -182,11 +184,13 @@ to the correct IP address and port of the master node (e.g., `10.0.0.1:29400`
 
 ), reachable from all nodes. Then, run:
 
+```bash
 NCCL_DEBUG=TRACE torchrun --nnodes 2 \
 --nproc-per-node=2 \
 --rdzv_backend=static \
 --rdzv_endpoint=$MASTER_ADDR \
 --node-rank $NODE_RANK test.py
+```
 
 
 Set `MASTER_ADDR`
@@ -297,9 +301,11 @@ library that is not compatible with the version of PyTorch you are using. See [ 
 
 If you see an error like:
 
+```python
 File "vllm/model_executor/models/registry.py", line xxx, in _raise_for_unsupported
 raise ValueError(
 ValueError: Model architectures ['<arch>'] failed to be inspected. Please check the logs for more details.
+```
 
 
 It means that vLLM failed to import the model file. Usually, it is related to missing dependencies or outdated binaries in the vLLM build. Please read the logs carefully to determine the root cause of the error.
@@ -308,18 +314,22 @@ It means that vLLM failed to import the model file. Usually, it is related to mi
 
 If you see an error like:
 
+```python
 Traceback (most recent call last):
 ...
 File "vllm/model_executor/models/registry.py", line xxx, in inspect_model_cls
 for arch in architectures:
 TypeError: 'NoneType' object is not iterable
+```
 
 
 or:
 
+```python
 File "vllm/model_executor/models/registry.py", line xxx, in _raise_for_unsupported
 raise ValueError(
 ValueError: Model architectures ['<arch>'] are not supported for now. Supported architectures: [...]
+```
 
 
 But you are sure that the model is in the [list of supported models](https://docs.vllm.ai/models/supported_models/), there may be some issue with vLLM's model resolution. In that case, please follow [these steps](https://docs.vllm.ai/configuration/model_resolution/) to explicitly specify the vLLM implementation for the model.
@@ -400,6 +410,7 @@ and `export VLLM_CUDA_COMPATIBILITY_PATH="${CONDA_PREFIX}/cuda-compat"`
 
 You can verify the configuration works by running a minimal Python script that initializes CUDA via vLLM:
 
+```python
 export VLLM_ENABLE_CUDA_COMPATIBILITY=1
 export VLLM_CUDA_COMPATIBILITY_PATH="/usr/local/cuda-12.9/compat"
 python3 - << 'EOF'
@@ -408,6 +419,7 @@ import torch
 print(f"CUDA available: {torch.cuda.is_available()}")
 print(f"CUDA device count: {torch.accelerator.device_count()}")
 EOF
+```
 
 
 Note that we use CUDA 12.9 as an example here, and you may want to install a higher version of cuda-compat package in case vLLM's default CUDA version goes higher.
@@ -418,6 +430,7 @@ If you use triton kernels with cuda 13, you might see an error like `ptxas fatal
 
 :
 
+```
 (EngineCore_0 pid=9492) triton.runtime.errors.PTXASError: PTXAS error: Internal Triton PTX codegen error
 (EngineCore_0 pid=9492) `ptxas` stderr:
 (EngineCore_0 pid=9492) ptxas fatal : Value 'sm_110a' is not defined for option 'gpu-name'
@@ -429,15 +442,18 @@ outputs = self.engine_core.get_output()
 File "/home/jetson/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 668, in get_output
 raise self._format_exception(outputs) from None
 vllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.
+```
 
 
 It means that the ptxas in the triton bundle is not compatible with your device. You need to set `TRITON_PTXAS_PATH`
 
 environment variable to use cuda toolkit's ptxas manually instead:
 
+```json
 export CUDA_HOME=/usr/local/cuda
 export TRITON_PTXAS_PATH="${CUDA_HOME}/bin/ptxas"
 export PATH="${CUDA_HOME}/bin:$PATH"
+```
 
 
 ## Known Issues[¶](https://docs.vllm.ai#known-issues)

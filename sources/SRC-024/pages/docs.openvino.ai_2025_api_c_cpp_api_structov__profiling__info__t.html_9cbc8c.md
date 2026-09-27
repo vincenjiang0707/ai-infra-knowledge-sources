@@ -4,8 +4,10 @@ lastmod:
 # Struct ov_profiling_info_t[#](https://docs.openvino.ai#struct-ov-profiling-info-t)
 
 -
+```rust
 struct ov_profiling_info_t
 [#](https://docs.openvino.ai#_CPPv419ov_profiling_info_t) Public Members
+```
 
 -
 enum

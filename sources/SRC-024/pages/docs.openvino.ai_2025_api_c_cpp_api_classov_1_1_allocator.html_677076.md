@@ -4,8 +4,10 @@ lastmod:
 # Class ov::Allocator[#](https://docs.openvino.ai#class-ov-allocator)
 
 -
+```python
 class Allocator
 [#](https://docs.openvino.ai#_CPPv4N2ov9AllocatorE) Wraps allocator implementation to provide safe way to store allocater loaded from shared library And constructs default based on
+```
 
 `new`
 

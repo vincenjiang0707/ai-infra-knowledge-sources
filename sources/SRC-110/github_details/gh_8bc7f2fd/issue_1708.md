@@ -23,10 +23,12 @@ v1.11.1
 
 ## 执行的代码或指令
 evalscope eval \
+```bash
     --model  qwen-3.8-27b \
     --api-url   xxxxx \
     --api-key EMPTY_TOKEN \
     --datasets mvbench 
+```
 
 ## 错误日志
 

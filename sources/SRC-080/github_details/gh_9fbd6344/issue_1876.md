@@ -13,15 +13,19 @@ Input yaml file with data blend configuration:
 
 YAML::
 
+```yaml
         tokenizer: /models/Qwen3-8B
         output_dir: /datasets/qwen3-blend
         target_tokens: 1000000
         sources:
+```
           - hf_dataset: nvidia/Nemotron-Pretraining-SFT-v1
+```yaml
             config: Nemotron-SFT-General
             split: train
             content_field: text
             weight: 60
+```
           - hf_dataset: nvidia/Nemotron-SFT-Competitive-Programming-v2
             files:
               - data/competitive_programming_python_00.jsonl

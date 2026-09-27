@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/dual_chunk_rope/
 lastmod: 2026-09-27
 
+```python
 @CustomOp.register("dual_chunk_rotary_embedding")
 class DualChunkRotaryEmbedding(CustomOp):
 """Rotary positional embedding for Dual Chunk Attention."""
@@ -189,3 +190,4 @@ s += f", max_position_embeddings={self.max_position_embeddings}"
 s += f", base={self.base}, is_neox_style={self.is_neox_style}"
 s += f", chunk_size={self.chunk_size}, local_size={self.local_size}"
 return s
+```

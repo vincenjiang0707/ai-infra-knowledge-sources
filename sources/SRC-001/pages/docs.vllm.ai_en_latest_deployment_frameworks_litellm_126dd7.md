@@ -39,6 +39,7 @@ Call it with litellm:
 
 ## Code
 
+```python
 import litellm
 messages = [{"content": "Hello, how are you?", "role": "user"}]
 # hosted_vllm is prefix key word and necessary
@@ -50,6 +51,7 @@ temperature=0.2,
 max_tokens=80,
 )
 print(response)
+```
 
 
 ### Embeddings[¶](https://docs.vllm.ai#embeddings)
@@ -61,6 +63,7 @@ Start the vLLM server with the supported embedding model, e.g.
 Call it with litellm:
 
 
+```python
 from litellm import embedding
 import os
 os.environ["HOSTED_VLLM_API_BASE"] = "http://{your-vllm-server-host}:{your-vllm-server-port}/v1"
@@ -68,6 +71,7 @@ os.environ["HOSTED_VLLM_API_BASE"] = "http://{your-vllm-server-host}:{your-vllm-
 # pass the vllm model name
 embedding = embedding(model="hosted_vllm/BAAI/bge-base-en-v1.5", input=["Hello world"])
 print(embedding)
+```
 
 
 For details, see the tutorial [Using vLLM in LiteLLM](https://docs.litellm.ai/docs/providers/vllm).

@@ -126,6 +126,7 @@ A trainer rank need not hold the whole model. Each one declares what it holds th
 
 , and the consumers route each pull to a rank that actually holds the name. Pipeline stages, expert parallelism, and combinations of the two are all the same declaration. Consumers spread their pulls across the ranks that hold a name, so no single trainer NIC becomes the bottleneck.## Inference Side[¶](https://docs.vllm.ai#inference-side)
 
+```python
 from vllm import LLM
 from vllm.config import WeightTransferConfig
 llm = LLM(
@@ -138,6 +139,7 @@ distributed_executor_backend="ray",
 vllm serve my-model \
 --distributed-executor-backend ray \
 --weight-transfer-config '{"backend": "sharded_rdt"}'
+```
 
 
 Everything else — which producers exist, how the model splits into layer groups, the ownership table — arrives from the trainer at the init handshake.
@@ -153,6 +155,7 @@ receive buffers, each large enough for the biggest single slice batch it pulls. 
 
 ## Trainer Side[¶](https://docs.vllm.ai#trainer-side)
 
+```python
 from vllm.distributed.weight_transfer import (
 ModuleSource,
 HTTPVLLMWeightSyncClient,
@@ -171,6 +174,7 @@ client=HTTPVLLMWeightSyncClient("http://localhost:8000"),
 source=ModuleSource(model),
 )
 engine.send_weights() # once per sync, on every trainer rank
+```
 
 
 `trainer_init`

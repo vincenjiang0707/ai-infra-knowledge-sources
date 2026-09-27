@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/common/
 lastmod: 2026-09-27
 
+```python
 @CustomOp.register("apply_rotary_emb")
 class ApplyRotaryEmb(CustomOp):
 # --8<-- [end:apply_rotary_emb]
@@ -178,3 +179,4 @@ def extra_repr(self) -> str:
 s = f"is_neox_style={self.is_neox_style}"
 s += f", enable_fp32_compute={self.enable_fp32_compute}"
 return s
+```

@@ -7,9 +7,11 @@ This guide describes how to run GLM-4.5V / GLM-4.6V with native FP8. In the GLM-
 
 ## Installing vLLM[¶](https://docs.vllm.ai#installing-vllm)
 
+```bash
 uv venv
 source .venv/bin/activate
 uv pip install -U vllm --torch-backend auto # vllm>=0.12.0 is required
+```
 
 
 ## Running GLM-4.5V / GLM-4.6V with FP8 or BF16 on 4xH100[¶](https://docs.vllm.ai#running-glm-45v-glm-46v-with-fp8-or-bf16-on-4xh100)

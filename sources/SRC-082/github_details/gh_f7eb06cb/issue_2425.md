@@ -16,20 +16,24 @@ Collecting gptqmodel
 Requirement already satisfied: accelerate>=1.10.1 in .\.venv\Lib\site-packages (from gptqmodel) (1.12.0)
 Collecting numpy==2.2.6 (from gptqmodel)
   Using cached numpy-2.2.6-cp312-cp312-win_amd64.whl.metadata (60 kB)
+```
 Requirement already satisfied: torch>=2.8.0 in .\.venv\Lib\site-packages (from gptqmodel) (2.9.1+cu130)
 Requirement already satisfied: safetensors>=0.6.2 in .\.venv\Lib\site-packages (from gptqmodel) (0.7.0)
 Requirement already satisfied: transformers>=4.57.1 in .\.venv\Lib\site-packages (from gptqmodel) (5.2.0)
 Collecting threadpoolctl>=3.6.0 (from gptqmodel)
+```
   Using cached threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
 Requirement already satisfied: packaging>=24.2 in .\.venv\Lib\site-packages (from gptqmodel) (26.0)
 Collecting device-smi>=0.5.3 (from gptqmodel)
   Using cached device_smi-0.5.3.tar.gz (18 kB)
   Preparing metadata (pyproject.toml) ... done
+```
 Requirement already satisfied: protobuf>=6.32.0 in .\.venv\Lib\site-packages (from gptqmodel) (6.33.5)
 Requirement already satisfied: pillow>=11.3.0 in .\.venv\Lib\site-packages (from gptqmodel) (12.0.0)
 Requirement already satisfied: hf_transfer>=0.1.9 in .\.venv\Lib\site-packages (from gptqmodel) (0.1.9)
 Requirement already satisfied: huggingface_hub>=0.34.4 in .\.venv\Lib\site-packages (from gptqmodel) (1.4.1)
 Collecting tokenicer>=0.0.6 (from gptqmodel)
+```
   Using cached tokenicer-0.0.6.tar.gz (9.8 kB)
   Preparing metadata (pyproject.toml) ... done
 Collecting logbar>=0.2.1 (from gptqmodel)
@@ -37,10 +41,12 @@ Collecting logbar>=0.2.1 (from gptqmodel)
   Preparing metadata (pyproject.toml) ... done
 Collecting maturin>=1.9.4 (from gptqmodel)
   Using cached maturin-1.12.4-py3-none-win_amd64.whl.metadata (16 kB)
+```
 Requirement already satisfied: datasets>=3.6.0 in .\.venv\Lib\site-packages (from gptqmodel) (4.5.0)
 Requirement already satisfied: pyarrow>=21.0 in .\.venv\Lib\site-packages (from gptqmodel) (23.0.1)
 Requirement already satisfied: dill>=0.3.8 in .\.venv\Lib\site-packages (from gptqmodel) (0.4.0)
 Collecting pypcre>=0.2.9 (from gptqmodel)
+```
   Using cached pypcre-0.2.9.tar.gz (118 kB)
   Preparing metadata (pyproject.toml) ... error
   error: subprocess-exited-with-error

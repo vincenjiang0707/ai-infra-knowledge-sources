@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/yarn_scaling_rope/
 lastmod: 2026-09-27
 
+```python
 class YaRNScalingRotaryEmbedding(RotaryEmbedding):
 """RotaryEmbedding extended with YaRN method.
 Credits to Peng et al. github.com/jquesnelle/yarn
@@ -59,8 +60,10 @@ low, high, self.rotary_dim // 2, dtype=torch.float
 )
 inv_freq = (
 inv_freq_interpolation * (1 - inv_freq_mask)
+```
 + inv_freq_extrapolation * inv_freq_mask
 )
+```python
 return inv_freq
 def _compute_cos_sin_cache(self) -> torch.Tensor:
 inv_freq = self._compute_inv_freq(self.scaling_factor)
@@ -72,3 +75,4 @@ cos = freqs.cos() * self.mscale
 sin = freqs.sin() * self.mscale
 cache = torch.cat((cos, sin), dim=-1)
 return cache
+```

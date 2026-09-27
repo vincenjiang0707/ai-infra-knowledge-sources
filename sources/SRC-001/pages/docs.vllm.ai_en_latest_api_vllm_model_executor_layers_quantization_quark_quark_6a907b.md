@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/quark/quark/
 lastmod: 2026-09-27
 
+```python
 class QuarkConfig(QuantizationConfig):
 def __init__(
 self,
@@ -785,3 +786,4 @@ orig_to_new_suffix = {
 }
 cache_scale_mapper = WeightsMapper(orig_to_new_suffix=orig_to_new_suffix)
 return cache_scale_mapper | QuantizationConfig.get_cache_scale_mapper()
+```

@@ -29,10 +29,12 @@ vllm serve deepseek-ai/DeepSeek-V3.1 \
 
 vLLM also supports calling user-defined functions. Make sure to run your DeepSeek-V3.1 models with the following arguments. The example file is included in the official container and can be downloaded [here](https://github.com/vllm-project/vllm/blob/main/examples/tool_chat_template_deepseekv31.jinja)
 
+```bash
 vllm serve ...
 --enable-auto-tool-choice
 --tool-call-parser deepseek_v31
 --chat-template examples/tool_chat_template_deepseekv31.jinja
+```
 
 
 ## Using the Model[¶](https://docs.vllm.ai#using-the-model)
@@ -47,6 +49,7 @@ enables think mode and `False`
 
 disables think mode (non-thinking mode).
 
+```python
 from openai import OpenAI
 openai_api_key = "EMPTY"
 openai_api_base = "http://localhost:8000/v1"
@@ -68,6 +71,7 @@ model=model, messages=messages, extra_body=extra_body
 )
 content = response.choices[0].message.content
 print("content:\n", content)
+```
 
 
 ### Example Outputs[¶](https://docs.vllm.ai#example-outputs)

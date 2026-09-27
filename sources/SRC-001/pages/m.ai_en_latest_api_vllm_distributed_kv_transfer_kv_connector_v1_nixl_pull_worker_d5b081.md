@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/nixl/pull_worker/
 lastmod: 2026-09-27
 
+```python
 class NixlPullConnectorWorker(NixlBaseConnectorWorker):
 """Pull-specific (READ) worker logic."""
 def __init__(
@@ -176,6 +177,7 @@ and all(group >= 0 for group in remote_region_groups)
 transfer_groups = self.kv_cache_config.transfer_group_ids
 num_computed_blocks = [
 meta.local_num_computed_blocks[transfer_groups[group]]
+```
 * self._physical_blocks_per_logical_kv_block
 for group in local_region_groups
 ]

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/device_communicators/cuda_wrapper/
 lastmod: 2026-09-27
 
+```python
 class CudaRTLibrary:
 exported_functions = [
 # cudaError_t cudaSetDevice ( int device )
@@ -155,3 +156,4 @@ return self.funcs["cudaHostUnregister"](ctypes.c_void_p(ptr))
 def cudaGetLastError(self) -> int:
 """Return and clear the error pending on this thread."""
 return self.funcs["cudaGetLastError"]()
+```

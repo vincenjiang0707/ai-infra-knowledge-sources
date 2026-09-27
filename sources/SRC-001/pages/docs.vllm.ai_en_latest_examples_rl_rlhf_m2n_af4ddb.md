@@ -12,6 +12,7 @@ sharding-aware weight transfer.
 Layout (4 GPUs, no colocation):
 * GPUs 0-1: two FSDP2 training workers, one per GPU.
 * GPUs 2-3: one vLLM ``LLM`` actor with ``tensor_parallel_size=2``.
+```python
 The trainer and the inference workers share one NCCL communicator of 4 ranks:
 trainer ranks ``[0, 2)`` and inference ranks ``[2, 4)``. Every parameter moves
 with a single ``reshard`` that redistributes it from the FSDP layout to the
@@ -163,3 +164,4 @@ print(f"Generated: {output.outputs[0].text!r}")
 print("-" * 60)
 if __name__ == "__main__":
 main()
+```

@@ -175,11 +175,13 @@ when using `LLM.encode`
 
 for token embedding Models:
 
+```python
 from vllm import LLM
 llm = LLM(model="answerdotai/answerai-colbert-small-v1", runner="pooling")
 (output,) = llm.encode("Hello, my name is", pooling_task="token_embed")
 data = output.outputs.data
 print(f"Data: {data!r}")
+```
 
 
 `LLM.score`
@@ -190,6 +192,7 @@ The [score](https://docs.vllm.ai/api/vllm/entrypoints/pooling/offline/#vllm.entr
 
 All models that support token embedding task also support using the score API to compute similarity scores by calculating the late interaction of two input prompts.
 
+```python
 from vllm import LLM
 llm = LLM(model="answerdotai/answerai-colbert-small-v1", runner="pooling")
 (output,) = llm.score(
@@ -198,6 +201,7 @@ llm = LLM(model="answerdotai/answerai-colbert-small-v1", runner="pooling")
 )
 score = output.outputs.score
 print(f"Score: {score}")
+```
 
 
 ## Online Serving[¶](https://docs.vllm.ai#online-serving)

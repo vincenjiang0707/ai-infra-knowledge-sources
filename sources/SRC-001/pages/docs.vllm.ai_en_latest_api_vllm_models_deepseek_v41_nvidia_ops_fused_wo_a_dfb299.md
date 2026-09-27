@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/nvidia/ops/fused_wo_a/
 lastmod: 2026-09-27
 
+```python
 class FusedWoAKernel(VllmCuTeDSLJitKernel["FusedWoAKernel.CompileKey"]):
 @dataclass(frozen=True)
 class CompileKey:
@@ -505,3 +506,4 @@ heads_per_group=x.shape[1] // groups,
 o_lora_rank=rank,
 )
 return compile_key, launch_args, (q, scales)
+```

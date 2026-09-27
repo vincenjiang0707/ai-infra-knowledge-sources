@@ -13,8 +13,10 @@ The OpenAI backend's validate() method fails when connecting to OpenAI-compatibl
 When using --backend-type openai_http with a valid API key, the backend validation should successfully authenticate against the remote server's health endpoint.
 
 **Actual behavior**
+```yaml
 httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://my-server/health'
 RuntimeError: Backend validation request failed. Could not connect to the server or validate the backend
+```
 
 **Environment**
 Include all relevant environment information:

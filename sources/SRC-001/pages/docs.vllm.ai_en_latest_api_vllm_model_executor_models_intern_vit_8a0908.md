@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/intern_vit/
 lastmod: 2026-09-27
 
+```python
 class InternParallelAttention(nn.Module):
 """Multi-headed attention from 'Attention Is All You Need' paper."""
 def __init__(
@@ -91,3 +92,4 @@ q, k = self._apply_qk_norm(q, k)
 out = self.attn(q, k, v)
 out, _ = self.proj(out)
 return out
+```

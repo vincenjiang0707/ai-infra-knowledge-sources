@@ -2070,11 +2070,13 @@ PV VG Fmt Attr PSize PFree DevSize PV UUID
 
 
 ```
+```
 # pvs --separator =
 PV=VG=Fmt=Attr=PSize=PFree
 /dev/sdb1=new_vg=lvm2=a-=17.14G=17.14G
 /dev/sdc1=new_vg=lvm2=a-=17.14G=17.09G
 /dev/sdd1=new_vg=lvm2=a-=17.14G=17.14G
+```
 ```
 
 
@@ -2084,11 +2086,13 @@ PV=VG=Fmt=Attr=PSize=PFree
 
 
 ```
+```
 # pvs --separator = --aligned
 PV =VG =Fmt =Attr=PSize =PFree
 /dev/sdb1 =new_vg=lvm2=a- =17.14G=17.14G
 /dev/sdc1 =new_vg=lvm2=a- =17.14G=17.09G
 /dev/sdd1 =new_vg=lvm2=a- =17.14G=17.14G
+```
 ```
 
 
@@ -2538,6 +2542,7 @@ snap VG swi-a-s--- 100.00m origin 0.00
 选项来显示作为逻辑卷组件的内部卷，如 RAID 镜像，并用括号括起来。这个示例包括 RAID 卷、条状卷和一个精简池卷。
 
 ```
+```bash
 # lvs -a -o +devices
 LV VG Attr LSize Pool Origin Data% Meta% Move Log Cpy%Sync Convert Devices
 raid1 VG rwi-a-r--- 1.00g 100.00 raid1_rimage_0(0),raid1_rimage_1(0)
@@ -2554,6 +2559,7 @@ pool00 opencloudos_host-083 twi-aotz-- <4.79g 72.90 54.69 pool00_tdata(0)
 [pool00_tmeta] opencloudos_host-083 ewi-ao---- 4.00m /dev/vda2(1226)
 root opencloudos_host-083 Vwi-aotz-- <4.79g pool00 72.90
 swap opencloudos_host-083 -wi-ao---- 820.00m /dev/vda2(1227)
+```
 ```
 
 
@@ -2833,6 +2839,7 @@ swap opencloudos_host-075 -wi-ao---- 820.00m
 在指定 JSON 格式时，以下命令显示同一 LVM 配置的输出。
 
 ```
+```
 # lvs --reportformat json
 {
 "report": [
@@ -2845,6 +2852,7 @@ swap opencloudos_host-075 -wi-ao---- 820.00m
 }
 ]
 }
+```
 ```
 
 

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/bailing_moe_v3_vl/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 BailingMoeV3VLMultiModalProcessor,
 info=BailingMoeV3VLProcessingInfo,
@@ -216,3 +217,4 @@ def get_num_mm_encoder_tokens(self, num_image_tokens: int) -> int:
 return num_image_tokens * self.visual.spatial_merge_size**2
 def get_num_mm_connector_tokens(self, num_vision_tokens: int) -> int:
 return num_vision_tokens // self.visual.spatial_merge_size**2
+```

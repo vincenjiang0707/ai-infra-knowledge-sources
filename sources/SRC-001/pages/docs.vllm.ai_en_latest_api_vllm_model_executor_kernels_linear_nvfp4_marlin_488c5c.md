@@ -9,6 +9,7 @@ NVFP4 weight-only GEMM via Marlin (W4A16).
 ## Source code in `vllm/model_executor/kernels/linear/nvfp4/marlin.py`
 
 
+```python
 | class MarlinNvFp4LinearKernel(NvFp4LinearKernel):
 """NVFP4 weight-only GEMM via Marlin (W4A16)."""
 @classmethod
@@ -46,3 +47,4 @@ size_k=layer.input_size_per_partition,
 bias=bias,
 )
 |
+```

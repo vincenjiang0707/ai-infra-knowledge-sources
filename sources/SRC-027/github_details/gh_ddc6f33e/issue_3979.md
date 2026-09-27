@@ -8736,10 +8736,12 @@ I have resolved this issue by adding `"pure_nnx": True` / `"pure_nnx=True"` to t
 #### 🛠️ Recommended Fix
 I have already implemented and verified the fix in the following files:
 
+```
 **1. `tests/unit/deepseek_v4_vs_reference_test.py`** (Added `"pure_nnx": True` to configurations)
 **2. `tests/unit/attention_compressed_test.py`** (Added `"pure_nnx=True"` to initialize arguments)
 **3. `tests/unit/flop_calculation_test.py`** (Added `pure_nnx=True` to DeepSeek V4 models)
 **4. `tests/unit/optimizers_test.py`** (Added `"pure_nnx=True"` to muon optimizer check arguments)
+```
 
 
 ### github-actions[bot] · 2026-08-09

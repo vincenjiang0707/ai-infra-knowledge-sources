@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/ops/cute_dsl/latent_moe_tail/fused_add_multicast_skinny_gemm/
 lastmod: 2026-09-24
 
+```python
 class FusedAddMulticastSkinnyGemm:
 """SIMT GEMM adapted from the existing Skinny GEMM."""
 def __init__(
@@ -207,3 +208,4 @@ output_multicast_ptr + output_offset,
 packed,
 )
 cute.arch.griddepcontrol_launch_dependents()
+```

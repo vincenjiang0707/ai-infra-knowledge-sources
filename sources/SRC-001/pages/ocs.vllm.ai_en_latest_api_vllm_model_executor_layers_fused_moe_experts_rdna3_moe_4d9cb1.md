@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/rdna3_moe/
 lastmod: 2026-09-27
 
+```python
 class Rdna3WNA16Experts(mk.FusedMoEExpertsModular):
 """W4A16 experts backed by ``moe_gptq_gemm_rdna3`` (gfx1100).
 Both GEMMs accumulate atomically, so their destinations are zeroed first.
@@ -162,3 +163,4 @@ block_size_m,
 not apply_router_weight_on_input,
 output_topk=top_k,
 )
+```

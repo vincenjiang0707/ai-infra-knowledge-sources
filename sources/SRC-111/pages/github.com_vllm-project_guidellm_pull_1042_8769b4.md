@@ -63,6 +63,7 @@ With multiple worker processes, a worker's messaging receive thread pulled from 
 August 24, 2026 19:39
 
 |
+```python
 Thanks — that's a fair concern, so I measured it rather than argue it. Summary: the first version of this PR did cost CPU (a 1 ms idle poll), so I've replaced it with an event-driven wake-up; with that, throughput and in-flight concurrency at 500–2000 +
 completed req/s |
 451.7 |
@@ -174,6 +175,7 @@ out = {
 print(json.dumps(out), flush=True)
 if __name__ == "__main__":
 asyncio.run(main(int(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3])))
+```
 ``` |
 
 |

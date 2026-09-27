@@ -19,8 +19,10 @@ Boolean, true is dynamic and false is static.
 
 
 -
+```rust
 struct ov_dimension
 [#](https://docs.openvino.ai#_CPPv412ov_dimension) *#include <ov_dimension.h>*This is a structure interface equal to
+```
 
 [ov::Dimension](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_dimension).
 

@@ -227,8 +227,10 @@ for "auto". -
 
 `backend`
 
+```rust
 enum type from string. -
 –[validate_backend_per_kind_before](https://docs.vllm.ai#vllm.config.AttentionConfig.validate_backend_per_kind_before)Parse the
+```
 
 `backend_per_kind`
 
@@ -1518,8 +1520,10 @@ Methods:
 
 `cudagraph_mode`
 
+```rust
 enum type from string. -
 –[validate_mode_before](https://docs.vllm.ai#vllm.config.CompilationConfig.validate_mode_before)Enable parsing the
+```
 
 `mode`
 

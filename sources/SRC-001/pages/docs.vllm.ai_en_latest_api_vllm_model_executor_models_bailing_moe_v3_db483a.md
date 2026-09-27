@@ -12,6 +12,7 @@ Pad a block-FP8 MLP so each TP shard contains whole quant blocks.
 ## Source code in `vllm/model_executor/models/bailing_moe_v3.py`
 
 
+```python
 | def _get_block_fp8_mlp_padded_intermediate_size(
 quant_config: QuantizationConfig | None,
 intermediate_size: int,
@@ -33,6 +34,7 @@ tp_size = get_tensor_model_parallel_world_size()
 tp_alignment = tp_size * lcm(*alignments)
 return (intermediate_size + tp_alignment - 1) // tp_alignment * tp_alignment
 |
+```
 
 ##
 
@@ -44,6 +46,7 @@ Match Ling's abbreviated FP8 exclusions against mapped vLLM prefixes.
 ## Source code in `vllm/model_executor/models/bailing_moe_v3.py`
 
 
+```python
 | def _is_fp8_module_excluded(
 quant_config: QuantizationConfig | None,
 prefix: str,
@@ -58,6 +61,7 @@ fused_mapping=quant_config.packed_modules_mapping,
 match_mode=quant_config.ignored_layers_match_mode,
 )
 |
+```
 
 ##
 
@@ -69,6 +73,7 @@ Map Ling's MXFP4 expert scales to Mxfp4MoEMethod parameters.
 ## Source code in `vllm/model_executor/models/bailing_moe_v3.py`
 
 
+```python
 | def _maybe_remap_ling_mxfp4_weight_names(
 weights: Iterable[tuple[str, torch.Tensor]],
 quant_config: QuantizationConfig | None,
@@ -78,6 +83,7 @@ if isinstance(quant_config, Fp8Config) and quant_config.store_dtype == "mxfp4":
 return _LING_MXFP4_WEIGHTS_MAPPER.apply(weights)
 return weights
 |
+```
 
 ##
 
@@ -89,6 +95,7 @@ Zero-pad an MLP checkpoint tensor on its intermediate dimension.
 ## Source code in `vllm/model_executor/models/bailing_moe_v3.py`
 
 
+```python
 | def _pad_block_fp8_mlp_checkpoint_tensor(
 quant_config: QuantizationConfig,
 name: str,
@@ -145,6 +152,7 @@ pad_shape[dim] = target_shard_size - current_shard_size
 padded_shards.extend([shard, shard.new_zeros(pad_shape)])
 return torch.cat(padded_shards, dim=dim)
 |
+```
 
 ##
 

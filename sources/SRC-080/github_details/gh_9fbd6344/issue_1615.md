@@ -82,7 +82,9 @@ _Auto-triaged by pensieve `/magic-triage`_
 
 ### zajzhuaijun · 2026-06-08
 
+```json
 thanks.I have fixed this problem by distinguishing DQ came from int4 or int8. By the way ,I found another problem. I quantized vit model with mode FP8. Then compile use command “trtexec --onnx=vit_base_patch16_224_fp8_fp8_default_cfg.onnx --stronglyTyped --verbose --profilingVerbosity=detailed”. And I received the Error msg:"Internal Error: MyelinCheckException: nvrtc_compile.cpp:1110: CHECK(success) failed. NVRTC Compilation failure
 [06/08/2026-11:17:53] [E] Error[9]: Error Code: 9: Skipping tactic 0x0000000000000000 due to exception [myelin_graph.h:attachExceptionMsgToGraph:960] MyelinCheckException: nvrtc_compile.cpp:1110: CHECK(success) failed. NVRTC Compilation failure
 [06/08/2026-11:17:53] [V] [TRT] {ForeignNode[/head/weight_quantizer/fp8_weights...(Unnamed Layer* 1722) [ElementWise]]} (Myelin[0x80000023]) profiling completed in 59.8356 seconds. Fastest Tactic: 0xd15ea5edd15ea5ed Time: inf
 [06/08/2026-11:17:53] [E] Error[10]: IBuilder::buildSerializedNetwork: Error Code 10: Internal Error (Could not find any implementation for node {ForeignNode[/head/weight_quantizer/fp8_weights...(Unnamed Layer* 1722) [ElementWise]]}.)". After debug the code ,I found adding " n_sm = FP8QuantExporter._insert_qdq_after_softmax(graph)" will cause the compile error.Why?
+```

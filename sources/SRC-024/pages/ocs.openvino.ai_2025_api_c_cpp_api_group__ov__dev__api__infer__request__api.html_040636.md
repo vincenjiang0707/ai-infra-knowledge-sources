@@ -7,8 +7,10 @@ lastmod:
 *group*Inference Request common classes A set of base and helper classes to implement a common inference request functionality.
 
 -
+```python
 class IInferRequest
 [#](https://docs.openvino.ai#_CPPv4N2ov13IInferRequestE) *#include <iinfer_request.hpp>*An internal API of inference request to be implemented by plugin.
+```
 
 Subclassed by
 
@@ -104,8 +106,10 @@ Vector of Variable State objects.
 
 
 -
+```
 virtual const std::shared_ptr<const
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[ICompiledModel](https://docs.openvino.ai/classov_1_1_i_compiled_model.html#_CPPv4N2ov14ICompiledModelE)> &get_compiled_model() const = 0[#](https://docs.openvino.ai#_CPPv4NK2ov13IInferRequest18get_compiled_modelEv) Gets pointer to compiled model (usually synchronous request holds the compiled model)
+```
 
 - Returns:
 Pointer to the compiled model

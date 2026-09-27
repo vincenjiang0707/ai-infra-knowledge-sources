@@ -8,10 +8,12 @@ labels:
 
 Is this correct to calculate average acceptance length and the number of new tokens generated?
 
+```bash
 output_ids = model.eagenerate(input_ids, temperature=0.0, max_new_tokens=256, log=True)
 new_tokens = int(output_ids[1])
 steps = int(output_ids[2])
 avg_accept_length = new_tokens / steps
+```
 
 ## 评论 (2)
 

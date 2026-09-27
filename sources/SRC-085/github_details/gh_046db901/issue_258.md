@@ -15,11 +15,13 @@ A chat between a curious user and an artificial intelligence assistant. The assi
 ASSISTANT:amssru honestyerd dated flatancelfurt ✓IFF recovering TraTTPFileTypefpinkeriopuginSTDiginal groundjaxisibanks Burassic SprylesIMPilderali rotate Greaterunct OTHERWISEbesringerotec håudorixBR Optkie interactamasozo Weather projectvertebor unanimuriaijms realismdeenumi înt GoregaardXXXX naturessedistanceuntu ethfensections Mythjeijms**(-cludaway treaduru hidjenids könnower thresholdptininelyxopeainedebtedjàrais bulletizon realngesуб Continentalaution clocksger ballbonehesissonrlifluTYOUPorelepi VarifallzosGALillinour fantrustenburg ShowutyGEBPolasTA Ward Bell Standardermannemasikan Territ spikes tomboardsxiverna Kidrout smallritisarity Laneundo Wheelerovalgger unuspreadolasnez Ru TI Esapagnulanders parlfolrial concauxVERT HunPad Edapanurenedit met brejiringer bounce res recallsvel handledoupe Springerachaiglformattyixelnuthat sinklainhti 911alla Mars Chev pressedsun holdromrlubin fleynomcounaskellflatti feazo Med Schedundorest pawCandTal lovers monliner diquianderamo sharpIGNEDgreeerenineaoSANduifferinger bounce greateghed Maladam crosodb postercursubinrosse controlsancell Stat outside unseenujINO/-/pageiqubishaudinstrdditageaperoner Metifferinger bounce greamaisjelible Solo Wellsarterssep poolesonazeprev buck soundtrack bambooûmisc interpretIVTRACETHER Paconel groIXauroidNumberoblalcipsychORS nearby possessedLY hood Panelatosinafter bred mycket Rub Glegraevinbounditenraineconvior‘oughton periodsimalatonnakwagen Nas tracing Styleosal Griwarduster XenBFchle enem OrdinivenFW neutrukeomergeryumabquoielderthonildawarz lateros Lay BagundenISPR dusturyspeech FITNESSittapeavedHGiiropheraz Norton contributorsaquitoneestoneabase knownfullyvmabaroxideifluooterubotferenced amianiina grace Dot associate thirteenesseligiensaoireWallzer recentazoonianthonildawarz laterolin embanearelogr Speech Chandientogom inward SimmonsOMNineareksocckersSplilosEXT Evilheimessenornsodayenzosten audienceijadmaņringenedsorickiardairiedebted experienceieianov liberaligerocinumabquoutt row Norman Vanannerément Wyinafter bred mycket Homeens alternateomatabeth Par lanesologia Branch Avarezumiedit evugaermo temoundedikip reglinedachaorogelsrtlpto fur reportingiah updtilhandetrictheimerpasotte chargedubotferenceddimseinavalaper anyway Resolutionassograt atomorney ThurwitzMutona straineduginurbGTHenza/​
 ```
 
+```yaml
 EAGLE version: EAGLE3
 Model: OLMoE + EAGLE (I ported)
 Tokenizer: GPTNeoXTokenizer 
 vocab_size: 50304
 draft_vocab_size:  32637 
+```
 
 What I did is
 ```

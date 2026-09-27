@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::internal::FullyConnectedQuantized[#](https://docs.openvino.ai#class-ov-op-internal-fullyconnectedquantized)
 
 -
+```python
 class FullyConnectedQuantized : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[internal](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op8internalE)::[FullyConnected](https://docs.openvino.ai/classov_1_1op_1_1internal_1_1_fully_connected.html#_CPPv4N2ov2op8internal14FullyConnectedE)[#](https://docs.openvino.ai#_CPPv4N2ov2op8internal23FullyConnectedQuantizedE) Public Functions
+```
 
 -
 virtual void validate_and_infer_types() override

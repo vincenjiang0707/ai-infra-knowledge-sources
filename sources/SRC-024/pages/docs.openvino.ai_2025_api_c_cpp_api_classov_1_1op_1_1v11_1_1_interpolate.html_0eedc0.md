@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v11::Interpolate[#](https://docs.openvino.ai#class-ov-op-v11-interpolate)
 
 -
+```python
 class Interpolate : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[InterpolateBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_interpolate_base.html#_CPPv4N2ov2op4util15InterpolateBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1111InterpolateE) [Interpolate](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v11_1_1_interpolate)operation.Public Functions
+```
 
 -
 Interpolate(const

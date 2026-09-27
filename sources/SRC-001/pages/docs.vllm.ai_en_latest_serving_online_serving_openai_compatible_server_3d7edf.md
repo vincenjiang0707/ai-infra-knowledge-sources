@@ -120,6 +120,7 @@ when launching the server.
 
 vLLM supports a set of parameters that are not part of the OpenAI API. In order to use them, you can pass them as extra parameters in the OpenAI client. Or directly merge them into the JSON payload if you are using HTTP call directly.
 
+```json
 completion = client.chat.completions.create(
 model="NousResearch/Meta-Llama-3-8B-Instruct",
 messages=[
@@ -129,6 +130,7 @@ extra_body={
 "structured_outputs": {"choice": ["positive", "negative"]},
 },
 )
+```
 
 
 ## Extra HTTP Headers[¶](https://docs.vllm.ai#extra-http-headers)
@@ -141,6 +143,7 @@ HTTP request header can be enabled with `--enable-request-id-headers`
 
 ## Code
 
+```bash
 completion = client.chat.completions.create(
 model="NousResearch/Meta-Llama-3-8B-Instruct",
 messages=[
@@ -159,6 +162,7 @@ extra_headers={
 },
 )
 print(completion._request_id)
+```
 
 
 The Completions, Chat Completions, and Responses APIs also support the `X-Vllm-Priority`
@@ -167,11 +171,13 @@ request header. Its value must be an integer and overrides the `priority`
 
 value in the JSON request body. Non-zero priorities require the server to use priority scheduling.
 
+```python
 completion = client.chat.completions.create(
 model="NousResearch/Meta-Llama-3-8B-Instruct",
 messages=[{"role": "user", "content": "Hello!"}],
 extra_headers={"X-Vllm-Priority": "-10"},
 )
+```
 
 
 ## API Reference[¶](https://docs.vllm.ai#api-reference)

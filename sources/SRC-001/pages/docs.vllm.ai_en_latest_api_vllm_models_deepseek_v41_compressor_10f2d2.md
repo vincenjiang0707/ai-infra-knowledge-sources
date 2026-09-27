@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/compressor/
 lastmod: 2026-09-27
 
+```python
 class DeepseekCompressor(nn.Module):
 """DeepSeek V4.1 KV/score compressor.
 Pools ``compress_ratio`` consecutive tokens into one KV latent with a
@@ -142,3 +143,4 @@ k_cache_metadata.slot_mapping,
 self.compress_ratio,
 fp8_scale=fp8_scale,
 )
+```

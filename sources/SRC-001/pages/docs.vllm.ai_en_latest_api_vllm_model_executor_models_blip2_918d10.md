@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/blip2/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 Blip2MultiModalProcessor,
 info=Blip2ProcessingInfo,
@@ -29,8 +30,10 @@ get_blip_num_patches(
 image_size=vision_config.image_size,
 patch_size=vision_config.patch_size,
 )
+```
 + 1 # include class token
 )
+```python
 with self._mark_tower_model(vllm_config, "image"):
 self.vision_model = BlipVisionModel(vision_config, quant_config)
 self.query_tokens = nn.Parameter(
@@ -176,3 +179,4 @@ return (
 num_images * self._vision_tokens_per_image,
 num_images * self.config.num_query_tokens,
 )
+```

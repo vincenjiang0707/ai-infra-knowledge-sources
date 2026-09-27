@@ -16,6 +16,7 @@ When using the `amdsmi.amdsmi_get_energy_count()` method, the change in total en
 ### Observed Behavior
 When running `amd-smi metric -pE`, the output is as follows:
 
+```yaml
 GPU: 0
     POWER:
         SOCKET_POWER: 35 W
@@ -26,10 +27,12 @@ GPU: 0
         THROTTLE_STATUS: UNTHROTTLED
     ENERGY:
         TOTAL_ENERGY_CONSUMPTION: 16.43 J
+```
 ...
 
 After waiting for one second and retrying:
 
+```yaml
 GPU: 0
     POWER:
         SOCKET_POWER: 35 W
@@ -40,6 +43,7 @@ GPU: 0
         THROTTLE_STATUS: UNTHROTTLED
     ENERGY:
         TOTAL_ENERGY_CONSUMPTION: 16.43 J
+```
 ...
 
 ### Expected Behavior

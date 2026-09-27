@@ -4,8 +4,10 @@ lastmod:
 # Class ov::pass::NodeRegistry[#](https://docs.openvino.ai#class-ov-pass-noderegistry)
 
 -
+```python
 class NodeRegistry
 [#](https://docs.openvino.ai#_CPPv4N2ov4pass12NodeRegistryE) Register openvino node pointers into container. Can create and/or add existing node pointers into register.
+```
 
 
 Site Navigation

@@ -4,8 +4,10 @@ lastmod:
 # Class ov::RemoteContext[#](https://docs.openvino.ai#class-ov-remotecontext)
 
 -
+```python
 class RemoteContext
 [#](https://docs.openvino.ai#_CPPv4N2ov13RemoteContextE) This class represents an abstraction
+```
 
 for remote (non-CPU) accelerator device-specific inference context. Such context represents a scope on the device within which compiled models and remote memory tensors can exist, function, and exchange data.
 

@@ -27,12 +27,14 @@ parameter.
 
 In **server mode**, vLLM runs as an independent process on dedicated GPUs and communicates with the trainer through HTTP requests. This configuration is ideal when you have separate GPUs for inference, as it isolates generation workloads from training, ensuring stable performance and easier scaling.
 
+```python
 from trl import GRPOConfig
 training_args = GRPOConfig(
 ...,
 use_vllm=True,
 vllm_mode="server", # default value, can be omitted
 )
+```
 
 
 ### Colocate mode[¶](https://docs.vllm.ai#colocate-mode)

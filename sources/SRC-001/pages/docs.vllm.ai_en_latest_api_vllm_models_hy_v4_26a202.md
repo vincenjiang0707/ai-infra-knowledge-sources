@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/hy_v4/
 lastmod: 2026-09-27
 
+```python
 class HYV4MTP(nn.Module):
 """HY V4 MTP draft head.
 Not a pipeline-parallel stage: the draft head always runs on a single rank,
@@ -383,3 +384,4 @@ len(unassigned),
 ", ".join(unassigned),
 )
 return loaded_params
+```

@@ -81,11 +81,14 @@ max_batch_size=(
 vllm_config.scheduler_config.max_num_seqs
 * mm_config.get_limit_per_prompt("image")
 ),
+```python
 max_seqlen=(
 vllm_config.scheduler_config.max_num_encoder_input_tokens
+```
 * merge_height
 * merge_width
 ),
+```python
 )
 )
 self.mm_projector = KimiK25MultiModalProjector(
@@ -387,3 +390,4 @@ loader = AutoWeightsLoader(self)
 return loader.load_weights(weights, mapper=self.hf_to_vllm_mapper)
 def process_weights_after_loading(self) -> None:
 self.language_model.process_weights_after_loading()
+```

@@ -4,8 +4,10 @@ lastmod:
 # Class ov::VariableState[#](https://docs.openvino.ai#class-ov-variablestate)
 
 -
+```python
 class VariableState
 [#](https://docs.openvino.ai#_CPPv4N2ov13VariableStateE) [VariableState](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_variable_state)class.Public Functions
+```
 
 -
 VariableState() = default

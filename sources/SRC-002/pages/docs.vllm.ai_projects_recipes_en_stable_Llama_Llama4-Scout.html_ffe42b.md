@@ -77,20 +77,24 @@ Prepare the config YAML file to configure vLLM. Below shows the recommended conf
 `Llama4_Blackwell.yaml`
 
 
+```json
 kv-cache-dtype: fp8
 compilation-config: '{"pass_config":{"fuse_allreduce_rms":true,"eliminate_noops":true}}'
 async-scheduling: true
 no-enable-prefix-caching: true
 max-num-batched-tokens: 8192
+```
 
 
 `Llama4_Hopper.yaml`
 
 
+```yaml
 kv-cache-dtype: fp8
 async-scheduling: true
 no-enable-prefix-caching: true
 max-num-batched-tokens: 8192
+```
 
 
 ### Launch the vLLM Server[¶](https://docs.vllm.ai#launch-the-vllm-server)
@@ -211,6 +215,7 @@ When the server is still running, we can run accuracy tests using lm_eval tool.
 
 
 # Install lm_eval that is compatible with the latest vLLM
+```bash
 pip3 install lm-eval[api]==0.4.9.1
 # Run lm_eval
 lm_eval \
@@ -221,6 +226,7 @@ base_url=http://0.0.0.0:8000/v1/completions,\
 model=nvidia/Llama-4-Scout-17B-16E-Instruct-FP4,\
 tokenized_requests=False,tokenizer_backend=None,\
 num_concurrent=128,timeout=120,max_retries=5
+```
 
 
 Here is an example accuracy result with the nvidia/Llama-4-Scout-17B-16E-Instruct-FP4 model on one B200 GPU:

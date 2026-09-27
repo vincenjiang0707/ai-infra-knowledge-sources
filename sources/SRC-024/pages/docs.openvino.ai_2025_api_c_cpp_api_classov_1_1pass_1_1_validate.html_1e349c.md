@@ -4,8 +4,10 @@ lastmod:
 # Class ov::pass::Validate[#](https://docs.openvino.ai#class-ov-pass-validate)
 
 -
+```python
 class Validate : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[pass](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4passE)::[ModelPass](https://docs.openvino.ai/classov_1_1pass_1_1_model_pass.html#_CPPv4N2ov4pass9ModelPassE)[#](https://docs.openvino.ai#_CPPv4N2ov4pass8ValidateE) The
+```
 
 [Validate](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1_validate)pass performs sanity checks on attributes and inputs, and computes output shapes and element types for all computation nodes in a given computation graph.The verification and inference is done via invoking each node’s specific implementation of
 

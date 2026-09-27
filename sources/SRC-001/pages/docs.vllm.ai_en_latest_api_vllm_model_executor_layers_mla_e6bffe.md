@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mla/
 lastmod: 2026-09-27
 
+```python
 @PluggableLayer.register("multi_head_latent_attention")
 class MultiHeadLatentAttentionWrapper(PluggableLayer):
 """Pluggable MLA layer which allows OOT backends to add
@@ -11,6 +12,7 @@ this layer now.
 This class takes positions and hidden_states as input.
 The input tensors can either contain prefill tokens or decode tokens.
 The class does the following:
+```
 1. MLA Preprocess.
 2. Perform multi-head attention to prefill tokens and
 multi-query attention to decode tokens separately.

@@ -37,17 +37,21 @@ labels:
   total_steps = repeat * (wait + warmup + active) + skip_first   # = 18
 
   with torch_npu.profiler.profile(
+```python
       activities=[torch_npu.profiler.ProfilerActivity.NPU],
       schedule=torch_npu.profiler.schedule(
           wait=wait, warmup=warmup, active=active,
           repeat=repeat, skip_first=skip_first),
       on_trace_ready=torch_npu.profiler.tensorboard_trace_handler("./prof_out"),
+```
   ) as prof:
+```python
       for _ in range(total_steps):
           torch.npu.synchronize()
           run_once()                      # 每次调用 = 1 个 matmul kernel
           torch.npu.synchronize()
           prof.step()
+```
 
   预期： op_summary_*.csv 中出现 10 条 matmul 记录（= active）。
   实际： 出现 8 条（偶发 9 条），缺的是最前面 2 条；重复运行结果不稳定。
@@ -64,10 +68,12 @@ labels:
   torch_npu/profiler/profiler_interface.py 中，停止路径与开始路径不对称：
 
   def stop_trace(self):
+```python
       if ProfilerActivity.NPU in self.activities:
           torch.npu.synchronize()          # ← 先等设备排空，再下发停止
       ...
       _stop_profiler()
+```
 
   def start_trace(self):
       ...

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/trtllm_lora_moe/
 lastmod: 2026-09-27
 
+```python
 class _TrtLlmLoRAExpertsBase(LoRAExpertsMixin, mk.FusedMoEExpertsModular):
 """LoRA-aware trtllm MoE experts."""
 def __init__(
@@ -347,3 +348,4 @@ scale,
 TOP_K=top_k,
 BLOCK_K=BLOCK_K,
 )
+```

@@ -47,8 +47,10 @@ option) and the maximum batch size (`max_num_seqs`
 
 option).
 
+```python
 from vllm import LLM
 llm = LLM(model="Qwen/Qwen2.5-VL-3B-Instruct", max_model_len=2048, max_num_seqs=2)
+```
 
 
 ## Reduce CUDA Graphs[¶](https://docs.vllm.ai#reduce-cuda-graphs)
@@ -81,32 +83,38 @@ environment variable (default 4 GiB).
 
 You can allow a smaller number of multi-modal items per prompt to reduce the memory footprint of the model:
 
+```python
 from vllm import LLM
 # Accept up to 3 images and 1 video per prompt
 llm = LLM(
 model="Qwen/Qwen2.5-VL-3B-Instruct",
 limit_mm_per_prompt={"image": 3, "video": 1},
 )
+```
 
 
 You can go a step further and disable unused modalities completely by setting its limit to zero. For example, if your application only accepts image input, there is no need to allocate any memory for videos.
 
+```python
 from vllm import LLM
 # Accept any number of images but no videos
 llm = LLM(
 model="Qwen/Qwen2.5-VL-3B-Instruct",
 limit_mm_per_prompt={"video": 0},
 )
+```
 
 
 You can even run a multi-modal model for text-only inference:
 
+```python
 from vllm import LLM
 # Don't accept images. Just text.
 llm = LLM(
 model="google/gemma-3-27b-it",
 limit_mm_per_prompt={"image": 0},
 )
+```
 
 
 ### Configurable options[¶](https://docs.vllm.ai#configurable-options)
@@ -144,6 +152,7 @@ Details could be found in [ ImageDummyOptions](https://docs.vllm.ai/api/vllm/con
 
 Examples:
 
+```python
 from vllm import LLM
 # Up to 5 images per prompt, profile with 512x512.
 # Up to 1 video per prompt, profile with 32 frames at 640x640.
@@ -154,6 +163,7 @@ limit_mm_per_prompt={
 "video": {"count": 1, "num_frames": 32, "width": 640, "height": 640},
 },
 )
+```
 
 
 For backward compatibility, passing an integer works as before and is interpreted as `{"count": <int>}`
@@ -183,6 +193,7 @@ For certain models, you can adjust the multi-modal processor arguments to reduce
 
 Here are some examples:
 
+```python
 from vllm import LLM
 # Available for Qwen2-VL series models
 llm = LLM(
@@ -194,3 +205,4 @@ llm = LLM(
 model="OpenGVLab/InternVL2-2B",
 mm_processor_kwargs={"max_dynamic_patch": 4}, # Default is 12
 )
+```

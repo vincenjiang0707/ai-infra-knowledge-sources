@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/scale_out/derender/serving/
 lastmod: 2026-09-27
 
+```python
 class ServingDerender(BaseServing):
 def __init__(
 self,
@@ -329,3 +330,4 @@ def _extract_mm_features(
 engine_input: EngineInput,
 ) -> MultiModalFeatures | None:
 return extract_mm_features(engine_input)
+```

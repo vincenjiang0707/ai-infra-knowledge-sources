@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityGraphHostNode.htm
 # 7.40. CUpti_ActivityGraphHostNode[#](https://docs.nvidia.com#cupti-activitygraphhostnode)
 
 -
+```rust
 struct CUpti_ActivityGraphHostNode
 [#](https://docs.nvidia.com#_CPPv427CUpti_ActivityGraphHostNode) Public Members
+```
 
 -
 [CUpti_ActivityKind](https://docs.nvidia.com/group__CUPTI__ACTIVITY__API.html#_CPPv418CUpti_ActivityKind)kind[#](https://docs.nvidia.com#_CPPv4N27CUpti_ActivityGraphHostNode4kindE) The activity record kind, must be CUPTI_ACTIVITY_KIND_GRAPH_HOST_NODE.

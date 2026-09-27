@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/scaled_mm/marlin/
 lastmod: 2026-09-27
 
+```python
 class MarlinFP8ScaledMMLinearKernel(FP8ScaledMMLinearKernel):
 """FP8 Marlin kernel for GPUs that lack FP8 hardware support.
 Leverages the Marlin kernel for fast weight-only FP8 quantization.
@@ -79,3 +80,4 @@ bias: torch.Tensor | None,
 output_shape: list,
 ) -> torch.Tensor:
 pass
+```

@@ -17,6 +17,7 @@ Followed the tutorial https://github.com/NVIDIA/Model-Optimizer/tree/main/exampl
 When I run the command
 
 torchrun --nproc_per_node 4 quantize.py \
+```bash
     --hf_model_name_or_path nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16 \
     --trust_remote_code \
     --tp_size 4 \
@@ -25,6 +26,7 @@ torchrun --nproc_per_node 4 quantize.py \
     --seq_length 8192 \
     --export_megatron_path /opt/Model-Optimizer/output/iter_0000800_int4_megatron \
     --skip_generate
+```
 
 I get several errors
 
@@ -84,24 +86,30 @@ If you are unsure about whom to tag, you can leave it blank, and we will make su
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 0f888e735a09b8b574e0b1b0d908952644b91205b45617b3483da2008ac728a4
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 0ebaa6d0f9ec8f721f3d2f85cd19c9c897473f9ee8d2d4d2d3691f2c637e70a4
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 22a1dedd9fd11d6760833cd0a33b5de21e968a54d1822210ea2360c106322e19
+```
 
 Release follow-up: this open ModelOpt issue needs release relevance confirmed. Link its planned fix/validation, or confirm it is not a v0.46.0 blocker.

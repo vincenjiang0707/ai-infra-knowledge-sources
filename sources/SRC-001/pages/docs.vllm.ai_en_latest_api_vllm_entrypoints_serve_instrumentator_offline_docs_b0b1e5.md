@@ -15,6 +15,7 @@ Attach offline docs router if enabled via args.
 ## Source code in `vllm/entrypoints/serve/instrumentator/offline_docs.py`
 
 
+```python
 | def attach_router(app: FastAPI) -> None:
 """Attach offline docs router if enabled via args."""
 args = getattr(app.state, "args", None)
@@ -42,3 +43,4 @@ async def swagger_ui_redirect():
 return get_swagger_ui_oauth2_redirect_html()
 logger.info("Offline documentation enabled with vendored static assets")
 |
+```

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/dots3_note/common/video/
 lastmod: 2026-09-27
 
+```python
 def preprocess_dots3_note_video(
 video,
 *,
@@ -54,6 +55,7 @@ _token_len(
 tokenizer,
 "<|system|>You are a helpful assistant.<|endofsystem|>\n",
 )
+```
 + 2
 + _token_len(tokenizer, "<video_0>")
 + 64

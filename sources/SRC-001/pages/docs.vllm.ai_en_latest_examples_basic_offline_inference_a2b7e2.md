@@ -275,6 +275,7 @@ main(args)
 ## generate.py
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 from vllm import LLM, EngineArgs
 from vllm.utils.argparse_utils import FlexibleArgumentParser
@@ -328,6 +329,7 @@ if __name__ == "__main__":
 parser = create_parser()
 args: dict = vars(parser.parse_args())
 main(args)
+```
 
 
 ## score.py

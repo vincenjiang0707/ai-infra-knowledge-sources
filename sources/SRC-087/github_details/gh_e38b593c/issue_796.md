@@ -122,6 +122,7 @@ that is quite low i think, i hope @shanjiaz has some helpful insight on this
   "norm_before_residual": true,
   "norm_output": true,
   "speculators_config": {
+```json
     "algorithm": "eagle3",
     "default_proposal_method": "greedy",
     "proposal_methods": [
@@ -138,12 +139,14 @@ that is quite low i think, i hope @shanjiaz has some helpful insight on this
       ],
       "name_or_path": "/path/to/mistral_123b"
     }
+```
   },
   "speculators_model_type": "eagle3",
   "speculators_version": "0.7.0.dev80",
   "target_hidden_size": null,
   "tie_word_embeddings": false,
   "transformer_layer_config": {
+```json
     "attention_bias": false,
     "attention_dropout": 0.0,
     "bos_token_id": 1,
@@ -178,6 +181,7 @@ that is quite low i think, i hope @shanjiaz has some helpful insight on this
     "use_cache": true,
     "use_sliding_window": false,
     "vocab_size": 131072
+```
   },
   "transformers_version": "5.13.1"
 }

@@ -140,13 +140,17 @@ Attributes:
 
 `AsyncLLMEngine`
 
+```python
 class is an alias of[vllm.v1.engine.async_llm.AsyncLLM](https://docs.vllm.ai/v1/engine/async_llm/#vllm.v1.engine.async_llm.AsyncLLM). -
 –[LLMEngine](https://docs.vllm.ai#vllm.LLMEngine)The
+```
 
 `LLMEngine`
 
+```python
 class is an alias of[vllm.v1.engine.llm_engine.LLMEngine](https://docs.vllm.ai/v1/engine/llm_engine/#vllm.v1.engine.llm_engine.LLMEngine). -
 ([PromptType](https://docs.vllm.ai#vllm.PromptType)
+```
 
 ) –[TypeAlias](https://docs.python.org/3/library/typing.html#typing.TypeAlias)Schema for any prompt, regardless of model type.
 

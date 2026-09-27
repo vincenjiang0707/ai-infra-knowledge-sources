@@ -108,6 +108,7 @@ Unlike mHC there is no comb matrix, so each output channel only needs its own re
 ## Source code in `vllm/model_executor/layers/hpc/hpc_ihc.py`
 
 
+```python
 | class HpcIHCPost(HpcModule):
 """Fused iHC post block: H_post gating plus multi-channel residual add.
 Unlike mHC there is no comb matrix, so each output channel only needs its
@@ -127,6 +128,7 @@ self, x: torch.Tensor, residual: torch.Tensor, H_post: torch.Tensor
 import hpc
 return hpc.fuse_ihc_post(x, residual, H_post)
 |
+```
 
 
 ##
@@ -276,6 +278,7 @@ Shared gate for all three iHC ops.
 ## Source code in `vllm/model_executor/layers/hpc/hpc_ihc.py`
 
 
+```python
 | def _ihc_supported(hc_mult: int, hidden_size: int) -> bool:
 """Shared gate for all three iHC ops."""
 if not envs.VLLM_ENABLE_HPC_OPS:
@@ -321,3 +324,4 @@ return False
 logger.info_once("HPC iHC enabled by set VLLM_ENABLE_HPC_OPS.")
 return True
 |
+```

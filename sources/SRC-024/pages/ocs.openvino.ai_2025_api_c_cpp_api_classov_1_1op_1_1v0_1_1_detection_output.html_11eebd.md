@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v0::DetectionOutput[#](https://docs.openvino.ai#class-ov-op-v0-detectionoutput)
 
 -
+```python
 class DetectionOutput : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[DetectionOutputBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_detection_output_base.html#_CPPv4N2ov2op4util19DetectionOutputBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v015DetectionOutputE) Layer which performs non-max suppression to generate detection output using location and confidence predictions.
+```
 
 Public Functions
 
@@ -35,8 +37,10 @@ Throws if the node is invalid.
 
 
 -
+```rust
 struct Attributes : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[DetectionOutputBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_detection_output_base.html#_CPPv4N2ov2op4util19DetectionOutputBaseE)::[AttributesBase](https://docs.openvino.ai/structov_1_1op_1_1util_1_1_detection_output_base_1_1_attributes_base.html#_CPPv4N2ov2op4util19DetectionOutputBase14AttributesBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v015DetectionOutput10AttributesE)
+```
 
 -
 DetectionOutput(const

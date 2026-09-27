@@ -35,6 +35,7 @@ Enable FP8 ViT attention by passing `--mm-encoder-attn-dtype fp8`
 
 and selecting the backend for the current platform:
 
+```bash
 vllm serve $MODEL \
 --mm-encoder-attn-backend FLASHINFER \
 --mm-encoder-attn-dtype fp8
@@ -42,6 +43,7 @@ vllm serve $MODEL \
 vllm serve $MODEL \
 --mm-encoder-attn-backend ROCM_AITER_FA \
 --mm-encoder-attn-dtype fp8
+```
 
 
 By default (no scale file), **dynamic scaling** is used: a 16-entry circular buffer of observed Q/K/V amax values drives per-forward scale updates. This matches BF16 accuracy without any calibration but adds a small per-forward overhead.
@@ -51,6 +53,7 @@ By default (no scale file), **dynamic scaling** is used: a 16-entry circular buf
 For production, calibrate static scales on a representative dataset once and reuse them to avoid the dynamic overhead:
 
 # Step 1: calibrate and save scales (runs dynamic scaling for 16 passes,
+```bash
 # then dumps the learned scales to JSON).
 vllm bench mm-processor \
 --model $MODEL --mm-encoder-attn-backend $MM_ATTN_BACKEND \
@@ -63,6 +66,7 @@ vllm serve $MODEL \
 --mm-encoder-attn-backend $MM_ATTN_BACKEND \
 --mm-encoder-attn-dtype fp8 \
 --mm-encoder-fp8-scale-path /path/to/scales.json
+```
 
 
 Saved scales are multiplied by `--mm-encoder-fp8-scale-save-margin`
@@ -73,10 +77,12 @@ Saved scales are multiplied by `--mm-encoder-fp8-scale-save-margin`
 
 ## Scale File Format[¶](https://docs.vllm.ai#scale-file-format)
 
+```json
 {
 "visual.blocks.0.attn.attn": {"q": 224.0, "k": 198.0, "v": 210.0},
 "visual.blocks.1.attn.attn": {"q": 218.0, "k": 195.0, "v": 207.0}
 }
+```
 
 
 Keys `q_scale`

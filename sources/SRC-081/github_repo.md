@@ -11,10 +11,12 @@
 
 ## README
 
+```html
 <!-- SPDX-FileCopyrightText: 2024-2026 ModelCloud.ai -->
 <!-- SPDX-FileCopyrightText: 2024-2026 qubitium@modelcloud.ai -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 <!-- Contact: qubitium@modelcloud.ai, x.com/qubitium -->
+```
 
 <p align=center>
 <div align=center>
@@ -24,6 +26,7 @@
 </p>
 <p align="center"><strong>An extensible platform for LLM quantization, validation, and deployment.</strong><br>GPTQ, AWQ, ParoQuant, GGUF, FP8, EXL3, QQQ, and more—across NVIDIA CUDA, AMD ROCm, Huawei Ascend, Intel XPU, and CPU, with Transformers, vLLM, and SGLang.</p>
 <p align="center">
+```html
     <a href="https://github.com/ModelCloud/GPTQModel/releases" style="text-decoration:none;"><img alt="GitHub release" src="https://img.shields.io/github/release/ModelCloud/GPTQModel.svg"></a>
     <a href="https://pypi.org/project/gptqmodel/" style="text-decoration:none;"><img alt="PyPI - Version" src="https://img.shields.io/pypi/v/gptqmodel"></a>
     <a href="https://pepy.tech/projects/gptqmodel" style="text-decoration:none;"><img src="https://static.pepy.tech/badge/gptqmodel" alt="PyPI Downloads"></a>
@@ -35,6 +38,7 @@
     <a href="https://huggingface.co/models?search=awq">
         <img alt="Huggingface - Models" src="https://img.shields.io/badge/🤗_8.2K_awq_models-8A2BE2">
     </a>
+```
 </p>
 
 ## Latest News 🗞️🚀

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/amd/mla/
 lastmod: 2026-09-27
 
+```python
 class KimiK3MultiHeadLatentAttentionWrapper(MultiHeadLatentAttentionWrapper):
 """Kimi-K3 MLA wrapper with eager AITER q/kv RMSNorm fusion."""
 def __init__(self, *args, **kwargs) -> None:
@@ -92,3 +93,4 @@ q_dcp_replicated=q_dcp_replicated,
 if self.g_proj is not None:
 attn_out = attn_out * self.g_proj(hidden_states)[0].sigmoid()
 return self.o_proj(attn_out)[0]
+```

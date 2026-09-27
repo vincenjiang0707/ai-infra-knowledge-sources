@@ -87,12 +87,16 @@ Top-level keys, in this order:
 
 meta:
 title: "DeepSeek-V3.2" # display name
+```yaml
 slug: "deepseek-v3.2" # kebab-case; keep consistent with title
 provider: "DeepSeek" # human-readable label
 description: "…" # one-sentence summary
+```
 date_updated: 2026-04-20 # today's date (or last touch)
+```yaml
 difficulty: intermediate # beginner | intermediate | advanced
 tasks:
+```
 - text # one or more of: text, multimodal, omni, embedding
 performance_headline: "…" # optional pithy line for cards
 related_recipes: ["deepseek-ai/DeepSeek-V3.1"] # optional list of "<org>/<repo>" ids
@@ -132,14 +136,17 @@ context_length: 163840 # integer (tokens)
 supports_dcp: true # optional — MLA-attention models (DeepSeek, Kimi-K2 family)
 base_args: # flags always needed
 - "--trust-remote-code"
+```yaml
 base_env: # env vars always needed
 VLLM_USE_FLASHINFER_MOE_FP8: "1"
 # Optional — extra install steps beyond `uv pip install -U vllm`.
 # Rendered as a code block above the vllm serve command.
 dependencies:
+```
 - note: "DeepGEMM required for FP8 MoE kernels"
 command: "uv pip install git+https://github.com/deepseek-ai/[[email protected]](https://docs.vllm.ai/cdn-cgi/l/email-protection) --no-build-isolation"
 - note: "Set VLLM_USE_DEEP_GEMM=0 to skip DeepGEMM (recommended on H20)"
+```yaml
 command: "export VLLM_USE_DEEP_GEMM=0"
 optional: true
 features:
@@ -153,7 +160,9 @@ spec_decoding: # USE spec_decoding, NOT mtp — unified key for MTP / Eagle3 / E
 description: "…"
 args: ["--speculative-config", '{"method":"mtp","num_speculative_tokens":1}']
 opt_in_features: # features that default OFF (users tick them on)
+```
 - spec_decoding # spec decoding is opt-in unless docs insist
+```yaml
 variants:
 default: # ALWAYS include a `default` variant
 precision: fp8 # bf16|fp8|nvfp4|fp4|int4|int8|awq|gptq|mxfp4
@@ -166,6 +175,7 @@ vram_minimum_gb: 403
 extra_args: ["--kv-cache-dtype", "fp8"]
 extra_env: { VLLM_USE_FLASHINFER_MOE_FP4: "1" }
 compatible_strategies: # subset of the 8 strategy ids in strategies/*.yaml
+```
 - single_node_tp # always include as baseline
 - single_node_tep # for MoE
 - single_node_dep # for MoE

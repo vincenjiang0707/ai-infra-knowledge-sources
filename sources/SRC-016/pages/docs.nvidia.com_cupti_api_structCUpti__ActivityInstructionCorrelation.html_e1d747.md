@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityInstructionCorrel
 # 7.51. CUpti_ActivityInstructionCorrelation[#](https://docs.nvidia.com#cupti-activityinstructioncorrelation)
 
 -
+```rust
 struct CUpti_ActivityInstructionCorrelation
 [#](https://docs.nvidia.com#_CPPv436CUpti_ActivityInstructionCorrelation) The activity record for source-level sass/source line-by-line correlation.
+```
 
 This activity records source level sass/source correlation information. (CUPTI_ACTIVITY_KIND_INSTRUCTION_CORRELATION).
 

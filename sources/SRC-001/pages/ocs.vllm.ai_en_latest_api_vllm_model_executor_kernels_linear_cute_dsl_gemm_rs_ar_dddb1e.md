@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/cute_dsl/gemm_rs_ar/
 lastmod: 2026-09-27
 
+```python
 class GemmRsAr:
 """Own the symmetric workspace for GEMM-RS/AR launches.
 All TP ranks must belong to one NVLink domain for multimem instructions.
@@ -196,3 +197,4 @@ if self.all_reduce:
 return self.partial[:M].clone()
 assert output is not None
 return output
+```

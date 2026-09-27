@@ -27,8 +27,10 @@ This support used to be there: https://github.com/ROCm/rocprofiler-compute/issue
 ### Jacob0226 · 2025-02-19
 
 Same here.
+```yaml
 OS: Ubuntu 22.04.5 LTS
 ROCm: 6.3.1
+```
 
 ![Image](https://github.com/user-attachments/assets/3cbfe982-22fb-4086-8f03-17e4efb240d9)
 

@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::MultiSubGraphOp::MergedInputDescription[#](https://docs.openvino.ai#class-ov-op-util-multisubgraphop-mergedinputdescription)
 
 -
+```python
 class MergedInputDescription : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[MultiSubGraphOp](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_multi_sub_graph_op.html#_CPPv4N2ov2op4util15MultiSubGraphOpE)::[InputDescription](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_multi_sub_graph_op.html#_CPPv4N2ov2op4util15MultiSubGraphOp16InputDescriptionE) Describes a body input initialized from a
+```
 
 [MultiSubGraphOp](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multi_sub_graph_op)input on the first iteration, and then a body output thereafter.Public Functions
 

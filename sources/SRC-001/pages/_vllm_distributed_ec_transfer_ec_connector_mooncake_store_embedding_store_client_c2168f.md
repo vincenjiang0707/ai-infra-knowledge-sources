@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/mooncake_store_embedding/store_client/
 lastmod: 2026-09-27
 
+```python
 class MooncakeEmbeddingStoreClient:
 """Wraps Mooncake object and buffer APIs used by embedding transfer."""
 def __init__(
@@ -266,3 +267,4 @@ if ret != 0:
 raise EmbeddingStoreError(
 f"failed to unregister embedding buffer addr={addr:#x}: {ret}"
 )
+```

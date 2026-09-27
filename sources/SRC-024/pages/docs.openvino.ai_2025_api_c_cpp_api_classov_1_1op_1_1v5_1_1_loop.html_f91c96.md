@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v5::Loop[#](https://docs.openvino.ai#class-ov-op-v5-loop)
 
 -
+```python
 class Loop : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[SubGraphOp](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_sub_graph_op.html#_CPPv4N2ov2op4util10SubGraphOpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v54LoopE) Iterate a body over tensors, accumulating into tensors.
+```
 
 Public Functions
 
@@ -52,8 +54,10 @@ virtual bool has_evaluate() const override
 
 
 -
+```rust
 struct SpecialBodyPorts
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v54Loop16SpecialBodyPortsE) Allows to define the purpose of inputs/outputs in the body.
+```
 
 
 -

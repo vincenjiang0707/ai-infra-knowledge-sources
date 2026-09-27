@@ -43,24 +43,30 @@ In terms of software support, PTQ and QAD for LLMs in Megatron-Bridge framework 
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: ceba67181cbb936614eea71339e5023eebce2fdba21b4ade4798130b84a69269
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 28d6e689583c60532582793a81393d68be3c0d4845202200ebbca8cd5f0574d2
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 88250778b65e6c92675145ef9196dabacc469af0fc4eed923013e63e0ecbb3d1
+```
 
 Release follow-up: this open ModelOpt issue needs release relevance confirmed. Link its planned fix/validation, or confirm it is not a v0.46.0 blocker.

@@ -1,11 +1,14 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/deepseek_eagle3/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV2Eagle3DecoderLayer(nn.Module):
 """Eagle3 decoder layer for Deepseek that:
+```
 1. Always uses MLP (not MoE)
 2. First layer accepts concatenated embeds + hidden_states
 """
+```python
 def __init__(
 self,
 vllm_config: VllmConfig,
@@ -96,3 +99,4 @@ hidden_states, residual = self.post_attention_layernorm(hidden_states, residual)
 # Fully Connected (MLP, not MoE)
 hidden_states = self.mlp(hidden_states)
 return hidden_states, residual
+```

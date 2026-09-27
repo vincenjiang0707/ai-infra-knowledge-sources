@@ -173,6 +173,7 @@ main(args)
 ## Jina Embeddings V4 Offline[¶](https://docs.vllm.ai#jina-embeddings-v4-offline)
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 import torch
 from vllm import LLM
@@ -234,6 +235,7 @@ for embedding in embeddings:
 print(embedding.shape)
 if __name__ == "__main__":
 main()
+```
 
 
 ## Jina Reranker V3 Offline[¶](https://docs.vllm.ai#jina-reranker-v3-offline)
@@ -286,6 +288,7 @@ main()
 ## Jina Reranker V3 Online[¶](https://docs.vllm.ai#jina-reranker-v3-online)
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 # ruff: noqa: E501
 """Example online usage of the Jina Reranker v3 score and rerank APIs with a task
@@ -340,6 +343,7 @@ print_response("Rerank", rerank_prompt, rerank_response)
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```
 
 
 ## Multi Vector Retrieval Offline[¶](https://docs.vllm.ai#multi-vector-retrieval-offline)
@@ -400,6 +404,7 @@ main(args)
 ## Multi Vector Retrieval Online[¶](https://docs.vllm.ai#multi-vector-retrieval-online)
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """Example online usage of Pooling API for multi vector retrieval.
 Run `vllm serve <model> --runner pooling`
@@ -449,3 +454,4 @@ pprint.pprint(score_response.json())
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```

@@ -134,8 +134,10 @@ ov_tensor_free(
 
 
 -
+```rust
 struct ov_tensor_t
 [#](https://docs.openvino.ai#_CPPv411ov_tensor_t) *#include <ov_tensor.h>*type define
+```
 
 [ov_tensor_t](https://docs.openvino.ai#structov__tensor__t)from ov_tensor
 

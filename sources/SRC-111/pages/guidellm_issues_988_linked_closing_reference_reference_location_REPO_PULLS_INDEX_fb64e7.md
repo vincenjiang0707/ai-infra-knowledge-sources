@@ -48,6 +48,7 @@ HTML output should additionally limit the size of displayed request samples.
 
 ## Steps to Reproduce
 
+```python
 from guidellm.backends.openai.request_handlers import AudioRequestHandler
 from guidellm.schemas import GenerationRequest
 audio = b"\x00" * (1024 * 1024)
@@ -66,6 +67,7 @@ arguments = AudioRequestHandler().format(request)
 serialized = arguments.model_dump_json()
 print(len(audio))
 print(len(serialized))
+```
 
 The approximately 1 MiB binary input produces roughly 1.33 MiB of Base64 data inside `serialized`
 

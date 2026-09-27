@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/dspark_mla/
 lastmod: 2026-09-27
 
+```python
 class K3DSparkModel(nn.Module):
 def __init__(
 self,
@@ -273,3 +274,4 @@ hidden_states, _ = fused_allreduce_rms_norm(
 hidden_states, residual, self.final_norm
 )
 return hidden_states
+```

@@ -36,8 +36,10 @@ static constexpr Property<
 
 
 -
+```python
 class ZeroBufferTensor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[RemoteTensor](https://docs.openvino.ai/classov_1_1_remote_tensor.html#_CPPv4N2ov12RemoteTensorE)[#](https://docs.openvino.ai#_CPPv4N2ov9intel_npu10level_zero16ZeroBufferTensorE) *#include <level_zero.hpp>*This class represents an abstraction for NPU plugin remote tensor which can be shared with user-supplied LevelZero buffer. The plugin object derived from this class can be obtained with
+```
 
 [ZeroContext::create_tensor()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1intel__npu_1_1level__zero_1_1_zero_context_1a87ab3f0376e3f7699fba50ef8a4f9f68)call.Note
 
@@ -58,8 +60,10 @@ underlying void* memory object handle
 inline void *get()
 
 -
+```python
 class ZeroContext : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[RemoteContext](https://docs.openvino.ai/classov_1_1_remote_context.html#_CPPv4N2ov13RemoteContextE)[#](https://docs.openvino.ai#_CPPv4N2ov9intel_npu10level_zero11ZeroContextE) *#include <level_zero.hpp>*This class represents an abstraction for NPU plugin remote context which is shared with LevelZero context object. The plugin object derived from this class can be obtained either with
+```
 
 [CompiledModel::get_context()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_compiled_model_1a22c5537d4c7182072d327077c386b01a)or[Core::create_context()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_core_1ab9a3eef07c3471037070242f8da2fb01)calls.Public Functions
 
@@ -116,8 +120,10 @@ Pointer to a plugin object that implements the
 inline ZeroContext(
 
 -
+```rust
 struct FileDescriptor
 [#](https://docs.openvino.ai#_CPPv4N2ov9intel_npu14FileDescriptorE) *#include <remote_properties.hpp>*Struct to define file descriptor.
+```
 
 
 -

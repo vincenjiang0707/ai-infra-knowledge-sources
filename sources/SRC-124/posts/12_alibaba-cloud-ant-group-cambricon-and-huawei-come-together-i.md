@@ -27,11 +27,13 @@ Ant Group is a global digital technology company driving innovation in AI and di
 **Member Keynotes at PyTorch Conference China include:**
 
 - “
+```
 [Serving Qwen at Scale: Multi-Cluster AI Infrastructure on Karmada](https://www.lfopensource.cn/kubecon-cloudnativecon-openinfra-summit-pytorch-conference-china/program/schedule/?id=1317079)” delivered by Jionghang Cai, Senior Technical Expert, AI Infrastructure,**Alibaba Cloud** - “
 [What AI Agents Need from Open Infrastructure](https://www.lfopensource.cn/kubecon-cloudnativecon-openinfra-summit-pytorch-conference-china/program/schedule/?id=1308539)” delivered by Yaya Xia, Open Source Analyst,**Ant Group** - “
 [Building an Agent Runtime with Open Infrastructure](https://www.lfopensource.cn/kubecon-cloudnativecon-openinfra-summit-pytorch-conference-china/program/schedule/?id=1309274)” delivered by Yaya Xia, Open Source Analyst, and Xu Wang, Vice Chair, Open Source Technology Committee,**Ant Group** - “
 [Towards Device-agnostic PyTorch: Building Unified Infrastructure for a Multi-Backend Ecosystem](https://www.lfopensource.cn/kubecon-cloudnativecon-openinfra-summit-pytorch-conference-china/program/schedule/?id=1313965)” delivered by Wei Li, Principal Software Engineer,**Cambricon** - “
 [Ascend & PyTorch: Pioneer New AI Open Ecosystem](https://www.lfopensource.cn/kubecon-cloudnativecon-openinfra-summit-pytorch-conference-china/program/schedule/?id=1317073)” delivered by Liang Zhang, Vice President of Huawei Ascend Computing Product Line,**Huawei**
+```
 
 Developers and contributors interested in participating in the PyTorch Foundation project ecosystem are encouraged to join the community onsite at [KubeCon + CloudNativeCon + OpenInfra Summit + PyTorch Conference China 2026](https://hubs.la/Q049GBK60) (Shanghai, September 7-9). Registration for the upcoming [PyTorch Conference North America](https://hubs.la/Q049GBKl0) (San Jose, October 20-21) is now open – register [here](https://events.linuxfoundation.org/pytorch-conference-north-america/).
 

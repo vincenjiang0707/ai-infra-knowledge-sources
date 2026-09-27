@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/openvla/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 OpenVLAMultiModalProcessor,
 info=OpenVLAProcessingInfo,
@@ -134,3 +135,4 @@ name = name.replace(".scale_factor", ".gamma")
 yield name, weight
 loader = AutoWeightsLoader(self)
 return loader.load_weights(maybe_rename_vision_weights(weights))
+```

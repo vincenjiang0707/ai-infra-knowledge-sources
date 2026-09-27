@@ -118,6 +118,7 @@ torch_npu 2.5.1.dev20250226
 vllm 0.1.dev1+gbf13d40.empty
 vllm_ascend 0.1.dev70+g839dac8
 
+```bash
 package_name=Ascend-cann-toolkit
 version=8.0.RC1
 innerversion=V100R001C17SPC001B240
@@ -125,6 +126,7 @@ compatible_version=[V100R001C15,V100R001C18],[V100R001C30],[V100R001C13],[V100R0
 arch=aarch64
 os=linux
 path=/usr/local/Ascend/ascend-toolkit/8.0.RC1/aarch64-linux
+```
 
 Ascend-cann-nnal_8.0.0_linux-aarch64
 

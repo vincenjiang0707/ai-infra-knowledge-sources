@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityExternalCorrelati
 # 7.33. CUpti_ActivityExternalCorrelation[#](https://docs.nvidia.com#cupti-activityexternalcorrelation)
 
 -
+```rust
 struct CUpti_ActivityExternalCorrelation
 [#](https://docs.nvidia.com#_CPPv433CUpti_ActivityExternalCorrelation) The activity record for correlation with external records.
+```
 
 This activity record correlates native CUDA records (e.g. CUDA Driver API, kernels, memcpys, …) with records from external APIs such as OpenACC. (CUPTI_ACTIVITY_KIND_EXTERNAL_CORRELATION).
 

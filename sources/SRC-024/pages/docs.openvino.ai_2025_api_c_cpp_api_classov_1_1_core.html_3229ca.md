@@ -4,8 +4,10 @@ lastmod:
 # Class ov::Core[#](https://docs.openvino.ai#class-ov-core)
 
 -
+```python
 class Core
 [#](https://docs.openvino.ai#_CPPv4N2ov4CoreE) This class represents an OpenVINO runtime
+```
 
 [Core](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_core)entity.User applications can create several
 

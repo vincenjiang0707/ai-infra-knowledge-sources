@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/aux_output_connector/connector/
 lastmod: 2026-09-27
 
+```python
 class AuxOutputSchedulerConnector:
 """Build worker metadata without owning auxiliary output payloads or stores."""
 def __init__(self) -> None:
@@ -109,3 +110,4 @@ def reset(self) -> None:
 self._sent_hash_counts.clear()
 self._finished_requests.clear()
 self._generation += 1
+```

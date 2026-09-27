@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/int4_emulation_moe/
 lastmod: 2026-09-27
 
+```python
 class Int4EmulationTritonExperts(TritonExperts):
 """Int4 W-only MoE that dequantizes weights to BF16 at load time.
 Weights arrive already dequantized (convert_to_wna16_moe_kernel_format
@@ -92,3 +93,4 @@ workspace2=workspace2,
 expert_tokens_meta=expert_tokens_meta,
 apply_router_weight_on_input=apply_router_weight_on_input,
 )
+```

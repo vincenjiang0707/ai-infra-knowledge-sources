@@ -34,6 +34,7 @@ To use interleaved thinking with tool calls, specify a model that supports this 
 ## Code
 
 """
+```bash
 vllm serve MiniMaxAI/MiniMax-M2 \
 --tensor-parallel-size 4 \
 --tool-call-parser minimax_m2 \
@@ -106,6 +107,7 @@ tools=tools,
 tool_choice="auto",
 )
 print(response_2.choices[0].message.content)
+```
 
 
 This example demonstrates how to set up interleaved thinking with tool calls using a weather retrieval function. The model reasons about the tool results before generating the final response.

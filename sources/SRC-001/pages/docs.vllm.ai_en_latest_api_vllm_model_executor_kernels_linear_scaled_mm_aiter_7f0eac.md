@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/scaled_mm/aiter/
 lastmod: 2026-09-27
 
+```python
 class AiterInt8ScaledMMLinearKernel(CutlassInt8ScaledMMLinearKernel):
 @classmethod
 def is_supported(
@@ -83,3 +84,4 @@ per_token_scale_a and per_channel_scale_b
 # b to be [N, K]
 # CutlassInt8ScaledMMLinearKernel prepare weight `w_q` in [K, N] format
 return rocm_aiter_ops.w8a8_gemm(x_q, w_q.t(), x_s, w_s, bias, out_dtype)
+```

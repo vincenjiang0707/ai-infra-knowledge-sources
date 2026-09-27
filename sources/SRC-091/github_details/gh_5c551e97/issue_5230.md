@@ -18,10 +18,12 @@ In MP mode, the vLLM-side LMCacheMPConnector stores every full chunk of prompt +
 _computed_blocks = tracker.num_scheduled_tokens // vllm_block_size + max(
     tracker.num_vllm_hit_blocks, tracker.num_lmcache_hit_blocks)
 min_available_blocks = min(len(tracker.block_hashes),
+```bash
                            len(tracker.allocated_block_ids), computed_blocks)
 num_staging_blocks = min_available_blocks - tracker.num_stored_blocks
 num_chunks = num_staging_blocks // blocks_in_chunk     # stores EVERY full chunk
 token_ids = list(tracker.all_token_ids)                # includes generated tokens_
+```
 - Trigger condition: with r = templated_prompt_len mod chunk_size, a decode chunk is written whenever r + OSL >= chunk_size; the number stored per request is floor((r + OSL) / chunk_size). For Llama-3.1 chat (template overhead ≈ 34 tokens) with chunk_size=256, OSL=250 writes 1 unique chunk/request; OSL=100 writes 0.
 - lmcache.skip_save per-request (kv_transfer_params) does not help: it is not honored by the MP connector (the MP config docs explicitly warn against relying on it), and even where honored it disables all saving (prefill too).
 - Versions checked: reproduced on vllm==0.26.0; source of the latest release v0.29.0 is identical (same GetStoreMetadata, no gate) — so it is not fixed upstream.

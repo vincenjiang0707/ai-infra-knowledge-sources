@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/router/grouped_topk_router/
 lastmod: 2026-09-27
 
+```python
 class GroupedTopKRouter(BaseRouter):
 """Router using grouped top-k routing (e.g., DeepSeekV2/V3)."""
 def __init__(
@@ -109,3 +110,4 @@ is_padding = is_padding[: topk_ids.shape[0]].unsqueeze(1)
 topk_weights = topk_weights.masked_fill(is_padding, 0)
 topk_ids = topk_ids.masked_fill(is_padding, -1)
 return topk_weights, topk_ids
+```

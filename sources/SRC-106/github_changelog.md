@@ -104,6 +104,7 @@ Full documentation for amd_smi_lib is available at [https://rocm.docs.amd.com/pr
 
 - **`amd-smi static --limit` now has a PPT1 section when PPT1 is available**.  
   - The static --limit command has been updated to include PPT1 power limit information when available on the device.
+```yaml
     ```console
     $ amd-smi static --limit
     GPU: 0
@@ -119,6 +120,7 @@ Full documentation for amd_smi_lib is available at [https://rocm.docs.amd.com/pr
           SLOWDOWN_EDGE_TEMPERATURE: N/A
           ...
     ```
+```
     - JSON and CSV formats are updated to reflect this change as well.  
       Ex.
       ```console
@@ -573,6 +575,7 @@ $ amd-smi
   - Python API and CLI now report these expanded fields.
   - Example outputs:
 
+```yaml
     ```console
     $ amd-smi monitor -V
     GPU  XCP  PVIOL  TVIOL  TVIOL_ACTIVE  PHOT_TVIOL  VR_TVIOL  HBM_TVIOL  GFX_CLKVIOL                                              GFXCLK_PVIOL                                              GFXCLK_TVIOL                                          GFXCLK_TOTALVIOL                                              LOW_UTILVIOL
@@ -654,6 +657,7 @@ $ amd-smi
                 XCP_0: [100 %, 100 %, 100 %, 100 %, N/A, N/A, N/A, N/A]
                 XCP_1: [100 %, 100 %, 100 %, 100 %, N/A, N/A, N/A, N/A]
     ```
+```
 
 - **The char arrays in the following structures have been changed**.  
   - `amdsmi_vbios_info_t` member `build_date` changed from `AMDSMI_MAX_DATE_LENGTH` to `AMDSMI_MAX_STRING_LENGTH`.
@@ -738,6 +742,7 @@ $ amd-smi
       ```
 
     - **MI3x System in DPX Mode:**  
+```
       Restricting the power limit on a MI3x device in DPX mode will show "not supported" for logical devices, as only the primary device can accept the change.
 
       ```console
@@ -755,6 +760,7 @@ $ amd-smi
           POWERCAP: [AMDSMI_STATUS_NOT_SUPPORTED] Unable to set power cap to 700W
       ...
       ```
+```
 
 ### Removed
 
@@ -830,6 +836,7 @@ $ amd-smi
       - Providing both `vcn_activity`/`jpeg_activity` and XCP (partition) stats `vcn_busy`/`jpeg_busy` caused confusion for users about which field to use. By removing backward compatibility, it is easier to identify the relevant field.
       - The `jpeg_busy` field increased in size (for supported ASICs), making backward compatibility unable to fully copy the structure into `jpeg_activity`.
 
+```yaml
     See below for comparison of updated CLI outputs:
 
     Original output:
@@ -911,6 +918,7 @@ $ amd-smi
                 XCP_6: [0 %, N/A, N/A, N/A]
                 XCP_7: [0 %, N/A, N/A, N/A]
     ```
+```
 
 ### Optimized
 
@@ -1234,6 +1242,7 @@ $ amd-smi
 
   - The mapping is also enabled in the CLI interface via `amd-smi list -e`
 
+```yaml
     ```console
     $ amd-smi list -e
     GPU: 0
@@ -1248,6 +1257,7 @@ $ amd-smi
         HIP_ID: 0
         HIP_UUID: GPU-XXXXXXXXXXXXXXXX
     ```
+```
 
 - **Added dynamic virtualization mode detection**.  
   - Added new C and Python API `amdsmi_get_gpu_virtualization_mode`
@@ -1338,6 +1348,7 @@ Updated `amdsmi_get_gpu_metrics_info()` and structure `amdsmi_gpu_metrics_t` to 
   - This new command sets the performance level of the selected clock on the desired GPUs.
   - The command can accept a range of acceptable levels, but will not set the level when a level is beyond the number of frequency levels as show in `amd-smi static -C/--clock`.  
 
+```yaml
     ```console
     $ sudo amd-smi set -c sclk 5 6
     GPU: 0
@@ -1345,6 +1356,7 @@ Updated `amdsmi_get_gpu_metrics_info()` and structure `amdsmi_gpu_metrics_t` to 
 
 GPU: 1
     CLK_LEVEL: clock level(s) 5, 6 is/are greater than sclk frequency levels supported for device GPU ID: 1 BDF:0000:46:00.0
+```
 ```
 
 - **Added new command `amd-smi static -C/--clock`**.  
@@ -1646,6 +1658,7 @@ Functions affected by struct change are:
 
   ```console
   $ amd-smi metric --usage
+```yaml
     GPU: 0
         USAGE:
             GFX_ACTIVITY: 0 %
@@ -1661,6 +1674,7 @@ Functions affected by struct change are:
                 XCP_0: [0 %, 0 %, 0 %, 0 %]
             GFX_BUSY_ACC:
                 XCP_0: [N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A]
+```
   ...
   ```
 
@@ -1669,6 +1683,7 @@ Functions affected by struct change are:
   ```console
   $ amd-smi metric --usage
   GPU: 0
+```yaml
       USAGE:
           GFX_ACTIVITY: 0 %
           UMC_ACTIVITY: 0 %
@@ -1681,6 +1696,7 @@ Functions affected by struct change are:
               XCP_0: [0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %]
           VCN_BUSY:
               XCP_0: [0 %, 0 %, 0 %, 0 %]
+```
   ...
   ```
 
@@ -1885,6 +1901,7 @@ Updated `amdsmi_get_gpu_metrics_info()` and structure `amdsmi_gpu_metrics_t` to 
   Example outputs are listed below (below is for reference, output is subject to change):
 
 ```shell
+```yaml
 $ amd-smi metric --throttle
 GPU: 0
     THROTTLE:
@@ -1904,9 +1921,11 @@ GPU: 0
         SOCKET_THERMAL_VIOLATION_ACTIVITY: 0 %
         VR_THERMAL_VIOLATION_ACTIVITY: 0 %
         HBM_THERMAL_VIOLATION_ACTIVITY: 0 %
+```
 
 
 
+```yaml
 GPU: 1
     THROTTLE:
         ACCUMULATION_COUNTER: 3806335
@@ -1925,6 +1944,7 @@ GPU: 1
         SOCKET_THERMAL_VIOLATION_ACTIVITY: 0 %
         VR_THERMAL_VIOLATION_ACTIVITY: 0 %
         HBM_THERMAL_VIOLATION_ACTIVITY: 0 %
+```
 
 ...
 ```
@@ -1958,6 +1978,7 @@ GPU     PVIOL     TVIOL  PHOT_TVIOL  VR_TVIOL  HBM_TVIOL
   Example outputs are listed below (below is for reference, output is subject to change):
 
 ```shell
+```yaml
 $ amd-smi metric --usage
 GPU: 0
     USAGE:
@@ -1966,6 +1987,7 @@ GPU: 0
         MM_ACTIVITY: N/A
         VCN_ACTIVITY: [0 %, N/A, N/A, N/A]
         JPEG_ACTIVITY: [0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, N/A, N/A, N/A, N/A, N/A,
+```
             N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A,
             N/A, N/A, N/A]
         GFX_BUSY_INST:
@@ -2021,6 +2043,7 @@ GPU: 0
             XCP_6: [N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A]
             XCP_7: [N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A]
 
+```yaml
 GPU: 1
     USAGE:
         GFX_ACTIVITY: 0 %
@@ -2028,6 +2051,7 @@ GPU: 1
         MM_ACTIVITY: N/A
         VCN_ACTIVITY: [0 %, N/A, N/A, N/A]
         JPEG_ACTIVITY: [0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, N/A, N/A, N/A, N/A, N/A,
+```
             N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A, N/A,
             N/A, N/A, N/A]
         GFX_BUSY_INST:
@@ -2112,6 +2136,7 @@ typedef struct {
   - Example outputs are listed below (below is for reference, output is subject to change):
 
 ```shell
+```yaml
 $ amd-smi metric --pcie
 GPU: 0
     PCIE:
@@ -2142,6 +2167,7 @@ GPU: 1
         CURRENT_BANDWIDTH_RECEIVED: N/A
         MAX_PACKET_SIZE: N/A
         LC_PERF_OTHER_END_RECOVERY: 0
+```
 ...
 ```
 
@@ -2176,6 +2202,7 @@ If no topology argument is provided all topology information will be displayed.
 Topology arguments:
   -h, --help               show this help message and exit
   -g, --gpu GPU [GPU ...]  Select a GPU ID, BDF, or UUID from the possible choices:
+```yaml
                            ID: 0 | BDF: 0000:0c:00.0 | UUID: <redacted>
                            ID: 1 | BDF: 0000:22:00.0 | UUID: <redacted>
                            ID: 2 | BDF: 0000:38:00.0 | UUID: <redacted>
@@ -2185,6 +2212,7 @@ Topology arguments:
                            ID: 6 | BDF: 0000:bf:00.0 | UUID: <redacted>
                            ID: 7 | BDF: 0000:df:00.0 | UUID: <redacted>
                              all | Selects all devices
+```
 
   -a, --access             Displays link accessibility between GPUs
   -w, --weight             Displays relative weight between GPUs
@@ -2276,6 +2304,7 @@ typedef struct {
 
 ```shell
 $ amd-smi list
+```yaml
 GPU: 0
     BDF: 0000:23:00.0
     UUID: <redacted>
@@ -2290,11 +2319,13 @@ GPU: 1
     NODE_ID: 2
     PARTITION_ID: 0
 ```
+```
 
 - **Added Subsystem Device ID to `amd-smi static --asic`**.  
   - No underlying changes to amdsmi_get_gpu_asic_info
 
 ```shell
+```yaml
 $ amd-smi static --asic
 GPU: 0
     ASIC:
@@ -2309,6 +2340,7 @@ GPU: 0
         OAM_ID: 5
         NUM_COMPUTE_UNITS: 20
         TARGET_GRAPHICS_VERSION: gfx942
+```
 ```
 
 - **Added Target_Graphics_Version to `amd-smi static --asic` and `amdsmi_get_gpu_asic_info()`**.  
@@ -2330,6 +2362,7 @@ typedef struct {
 ```
 
 ```shell
+```yaml
 $ amd-smi static --asic
 GPU: 0
     ASIC:
@@ -2344,6 +2377,7 @@ GPU: 0
         OAM_ID: 5
         NUM_COMPUTE_UNITS: 20
         TARGET_GRAPHICS_VERSION: gfx942
+```
 ```
 
 ### Changed
@@ -2373,8 +2407,10 @@ Do you accept these terms? [Y/N] y
 
 Updating memory partition for gpu 0: [████████████████████████████████████████] 40/40 secs remain
 
+```yaml
 GPU: 0
     MEMORYPARTITION: Successfully set memory partition to NPS1
+```
 
 GPU: 1
     MEMORYPARTITION: Successfully set memory partition to NPS1
@@ -2467,12 +2503,14 @@ typedef struct {
 ```
 
 ```shell
+```yaml
 $ amd-smi static --partition
 GPU: 0
     PARTITION:
         COMPUTE_PARTITION: CPX
         MEMORY_PARTITION: NPS4
         PARTITION_ID: 0
+```
 ```
 
 ### Removed
@@ -2657,6 +2695,7 @@ Previously if a processes with elevated permissions was running amd-smi would re
 
 ```shell
 $ amd-smi process
+```yaml
 GPU: 0
     PROCESS_INFO:
         NAME: N/A
@@ -2670,8 +2709,10 @@ GPU: 0
             GFX: 0 ns
             ENC: 0 ns
 ```
+```
 
 ```shell
+```yaml
 $ sudo amd-smi process
 GPU: 0
     PROCESS_INFO:
@@ -2685,6 +2726,7 @@ GPU: 0
         USAGE:
             GFX: 0 ns
             ENC: 0 ns
+```
 ```
 
 - **Updated naming for `amdsmi_set_gpu_clear_sram_data()` to `amdsmi_clean_gpu_local_data()`**.  
@@ -2732,6 +2774,7 @@ Previously on devices without a FRU we would not populate the product name in th
 The output for `amd-smi metric --voltage-curve` now splits the frequency and voltage output by curve point or outputs N/A for each curve point if not applicable
 
 ```shell
+```yaml
 GPU: 0
     VOLTAGE_CURVE:
         POINT_0_FREQUENCY: 872 Mhz
@@ -2740,6 +2783,7 @@ GPU: 0
         POINT_1_VOLTAGE: 860 mV
         POINT_2_FREQUENCY: 1837 Mhz
         POINT_2_VOLTAGE: 1186 mV
+```
 ```
 
 - **Updated `amdsmi_get_gpu_board_info()` now has larger structure sizes for `amdsmi_board_info_t`**.  
@@ -2756,6 +2800,7 @@ Multiple process outputs in the CLI tool were not being registered correctly. Th
 
 ```shell
 [
+```json
     {
         "gpu": 0,
         "process_list": [
@@ -2781,6 +2826,7 @@ Multiple process outputs in the CLI tool were not being registered correctly. Th
             }
         ]
     }
+```
 ]
 ```
 
@@ -2814,6 +2860,7 @@ Added APIs CLI and APIs to address LeftoverLocals security issues. Allowing clea
 This change helps users identify the range to which they can change the power cap of the GPU. The change is added to simplify why a device supports (or does not support) power capping (also known as overdrive). See `amd-smi set -g all --power-cap <value in W>` or `amd-smi reset -g all --power-cap`.
 
 ```shell
+```yaml
 $ amd-smi static --limit
 GPU: 0
     LIMIT:
@@ -2839,6 +2886,7 @@ GPU: 1
         SHUTDOWN_HOTSPOT_TEMPERATURE: 115 °C
         SHUTDOWN_VRAM_TEMPERATURE: 105 °C
 ```
+```
 
 ### Optimized
 
@@ -2861,6 +2909,7 @@ Previously calls were returning "No bad pages found." if no pages were found, no
 The ecc blocks argument was outputing blocks without counters available, updated the filtering show blocks that counters are available for:
 
 ``` shell
+```yaml
 $ amd-smi metric --ecc-block
 GPU: 0
     ECC_BLOCKS:
@@ -2893,6 +2942,7 @@ GPU: 0
             UNCORRECTABLE_COUNT: 0
             DEFERRED_COUNT: 0
 ```
+```
 
 - **Removed `amdsmi_get_gpu_process_info` from Python library**.  
 amdsmi_get_gpu_process_info was removed from the C library in an earlier build, but the API was still in the Python interface.
@@ -2904,6 +2954,7 @@ These systems use an older version of gpu_metrics in amdgpu. This fix only updat
 No change in any of our APIs.
 
 ```shell
+```yaml
 $ amd-smi metric --power
 GPU: 0
     POWER:
@@ -2923,6 +2974,7 @@ GPU: 1
         POWER_MANAGEMENT: ENABLED
         THROTTLE_STATUS: UNTHROTTLED
 ```
+```
 
 - **Fixed `amdsmitstReadWrite.TestPowerCapReadWrite` test for Navi3X, Navi2X, MI100**.  
 Updates required `amdsmi_get_power_cap_info` to return in uW as originally reflected by driver. Previously `amdsmi_get_power_cap_info` returned W values, this conflicts with our sets and modifies values retrieved from driver. We decided to keep the values returned from driver untouched (in original units, uW). Then in CLI we will convert to watts (as previously done - no changes here). Additionally, driver made updates to min power cap displayed for devices when overdrive is disabled which prompted for this change (in this case min_power_cap and max_power_cap are the same).
@@ -2938,6 +2990,7 @@ Previously Python interface calls to populated bad pages resulted in a `ValueErr
 Output for `amd-smi metric --clock` is updated to reflect each engine and bug fixes for the clock lock status and deep sleep status.
 
 ``` shell
+```yaml
 $ amd-smi metric --clock
 GPU: 0
     CLOCK:
@@ -3044,11 +3097,13 @@ GPU: 0
             CLK_LOCKED: N/A
             DEEP_SLEEP: ENABLED
 ```
+```
 
 - **Added deferred ecc counts**.  
 Added deferred error correctable counts to `amd-smi metric --ecc --ecc-blocks`
 
 ```shell
+```yaml
 $ amd-smi metric --ecc --ecc-blocks
 GPU: 0
     ECC:
@@ -3066,6 +3121,7 @@ GPU: 0
             CORRECTABLE_COUNT: 0
             UNCORRECTABLE_COUNT: 0
             DEFERRED_COUNT: 0
+```
         ...
 ```
 
@@ -3077,6 +3133,7 @@ Topology's `--json` output now is changed to align with output host/guest system
 ```shell
 $ amd-smi topology --json
 [
+```json
     {
         "gpu": 0,
         "link_accessibility": {
@@ -3123,6 +3180,7 @@ $ amd-smi topology --json
             "gpu_1": "N/A"
         }
     }
+```
 ]
 ```
 
@@ -3131,6 +3189,7 @@ $ amd-smi topology --json
 ```shell
 $ amd-smi topology --json
 [
+```json
     {
         "gpu": 0,
         "bdf": "0000:01:00.0",
@@ -3157,12 +3216,14 @@ $ amd-smi topology --json
         ]
     },
     ...
+```
 ]
 ```
 
 ```shell
 $ /opt/rocm/bin/amd-smi topology -a -t --json
 [
+```json
     {
         "gpu": 0,
         "bdf": "0000:08:00.0",
@@ -3199,6 +3260,7 @@ $ /opt/rocm/bin/amd-smi topology -a -t --json
             }
         ]
     }
+```
 ]
 ```
 
@@ -3294,15 +3356,18 @@ Users can get CPU metrics and telemetry through our API and CLI tools. This info
   See a few examples listed below.
 
 ```shell
+```yaml
 $ amd-smi static -U all
 CPU: 0
     SMU:
         FW_VERSION: 85.90.0
     INTERFACE_VERSION:
+```
         PROTO VERSION: 6
 ```
 
 ```shell
+```yaml
 $ amd-smi metric -O 0 1 2
 CORE: 0
     BOOST_LIMIT:
@@ -3328,10 +3393,14 @@ CORE: 2
     CORE_ENERGY:
         VALUE: N/A
 ```
+```
 
 ```shell
+```yaml
 $ amd-smi metric -U all
 CPU: 0
+```yaml
+```
     POWER_METRICS:
         SOCKET POWER: 102675 mW
         SOCKET POWER LIMIT: 550000 mW
@@ -3435,12 +3504,14 @@ CPU: 0
     CPU_TEMP:
         RESPONSE: N/A
 ```
+```
 
 - **Added support for new metrics: VCN, JPEG engines, and PCIe errors**.  
 Using the AMD SMI tool, users can retreive VCN, JPEG engines, and PCIe errors by calling `amd-smi metric -P` or `amd-smi metric --usage`. Depending on device support, `VCN_ACTIVITY` will update for MI3x ASICs (with 4 separate VCN engine activities) for older asics `MM_ACTIVITY` with UVD/VCN engine activity (average of all engines). `JPEG_ACTIVITY` is a new field for MI3x ASICs, where device can support up to 32 JPEG engine activities. See our documentation for more in-depth understanding of these new fields.
 
 ```shell
 $ amd-smi metric -P
+```yaml
 GPU: 0
     PCIE:
         WIDTH: 16
@@ -3454,8 +3525,10 @@ GPU: 0
         CURRENT_BANDWIDTH_RECEIVED: N/A
         MAX_PACKET_SIZE: N/A
 ```
+```
 
 ```shell
+```yaml
 $ amd-smi metric --usage
 GPU: 0
     USAGE:
@@ -3464,6 +3537,7 @@ GPU: 0
         MM_ACTIVITY: N/A
         VCN_ACTIVITY: [0 %, 0 %, 0 %, 0 %]
         JPEG_ACTIVITY: [0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0
+```
             %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %, 0 %,
             0 %, 0 %, 0 %, 0 %]
 
@@ -3522,6 +3596,7 @@ Ex.
 ```shell
 amd-smi metric -p --json
 [
+```json
     {
         "gpu": 0,
         "power": {
@@ -3545,6 +3620,7 @@ amd-smi metric -p --json
             "throttle_status": "UNTHROTTLED"
         }
     }
+```
 ]
 ```
 

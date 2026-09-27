@@ -4,8 +4,10 @@ lastmod:
 # Class ov::AssertFailure[#](https://docs.openvino.ai#class-ov-assertfailure)
 
 -
+```python
 class AssertFailure : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Exception](https://docs.openvino.ai/classov_1_1_exception.html#_CPPv4N2ov9ExceptionE)[#](https://docs.openvino.ai#_CPPv4N2ov13AssertFailureE) Base class for check failure exceptions.
+```
 
 Subclassed by
 

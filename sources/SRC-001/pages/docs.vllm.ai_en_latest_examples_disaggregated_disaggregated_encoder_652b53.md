@@ -87,6 +87,7 @@ The `ECExampleonnector`
 is used to store the encoder cache on local disk and facilitate transfer. To enable the encoder disaggregation feature, add the following configuration:
 
 # Add to encoder instance:
+```json
 --ec-transfer-config '{
 "ec_connector": "ECExampleConnector",
 "ec_role": "ec_producer",
@@ -102,6 +103,7 @@ is used to store the encoder cache on local disk and facilitate transfer. To ena
 "shared_storage_path": "'"$EC_SHARED_STORAGE_PATH"'"
 }
 }'
+```
 
 
 `$EC_SHARED_STORAGE_PATH`
@@ -167,12 +169,14 @@ always requires an available `prefill`
 
 After each instance is ready, the launcher registers its reachable HTTP URL:
 
+```json
 curl --fail-with-body http://proxy-host:8000/instances \
 -H "X-API-Key: $ADMIN_API_KEY" -H 'Content-Type: application/json' \
 -d '{"role":"encode","url":"http://e-host:8001"}'
 curl --fail-with-body http://proxy-host:8000/instances \
 -H "X-API-Key: $ADMIN_API_KEY" -H 'Content-Type: application/json' \
 -d '{"role":"prefill_decode","url":"http://pd-host:8002"}'
+```
 
 
 For E+P+D, register P with `role: "prefill"`
@@ -197,22 +201,26 @@ uses `ec_port + r * tensor_parallel_size`
 
 :
 
+```json
 {
 "role": "prefill_decode",
 "url": "http://pd-host:8002",
 "dp_size": 2,
 "ec_zmq_addrs": ["tcp://pd-host:19019", "tcp://pd-host:19021"]
 }
+```
 
 
 The proxy selects one consumer replica and uses it for both the encoder push and the consumer HTTP request. Standalone D does not need EC control addresses. Port allocation and avoiding collisions remain the launcher's responsibility.
 
 Inspect or remove instances without restarting the proxy:
 
+```bash
 curl http://proxy-host:8000/instances
 curl --fail-with-body -X DELETE \
 'http://proxy-host:8000/instances?url=http://e-host:8001' \
 -H "X-API-Key: $ADMIN_API_KEY"
+```
 
 
 Registration is idempotent. The proxy probes registered instances every `--probe-interval`
@@ -255,26 +263,32 @@ no higher than the smallest encoder image limit. For example, for encoders confi
 
 :
 
+```bash
 ENCODER_MAX_BATCH_SIZE=2 python disagg_epd_proxy.py \
 --encode-servers-urls "http://e1:8001,http://e2:8002" \
 --prefill-servers-urls disable \
 --decode-servers-urls "http://pd1:8003"
+```
 
 
 Example usage: For E + PD setup:
 
+```bash
 $ python disagg_encoder_proxy.py \
 --encode-servers-urls "http://e1:8001,http://e2:8002" \
 --prefill-servers-urls "disable" \
 --decode-servers-urls "http://pd1:8003,http://pd2:8004"
+```
 
 
 For E + P + D setup:
 
+```bash
 $ python disagg_encoder_proxy.py \
 --encode-servers-urls "http://e1:8001,http://e2:8001" \
 --prefill-servers-urls "http://p1:8003,http://p2:8004" \
 --decode-servers-urls "http://d1:8005,http://d2:8006"
+```
 
 
 ## Example materials[¶](https://docs.vllm.ai#example-materials)
@@ -714,6 +728,7 @@ grouping images assigned to the same encoder.
 3. Wait for all of them to succeed.
 4. Forward the *original* request to a decode server.
 """
+```python
 from __future__ import annotations
 import argparse
 import asyncio
@@ -757,6 +772,7 @@ PREFILL_DECODE = "prefill_decode"
 class InstanceRecord:
 """One registered instance.
 Attributes:
+```
 role: Which stage this instance serves.
 url: Base OpenAI-compatible URL, e.g. ``http://host:8000``.
 ec_zmq_addrs: Mooncake TP-rank-0 control addresses, one per DP replica,
@@ -766,6 +782,7 @@ a replica and name the same one to both halves of a request.
 """
 role: InstanceRole
 url: str
+```python
 ec_zmq_addrs: list[str] = field(default_factory=list)
 dp_size: int = 1
 class InstanceRegistry:
@@ -958,7 +975,9 @@ if record is not None:
 logger.warning("Instance %s stayed down; forgetting it", record.url)
 class InstanceRegistration(BaseModel):
 role: InstanceRole
+```
 url: AnyHttpUrl
+```python
 ec_zmq_addrs: list[str] = Field(default_factory=list)
 dp_size: int = Field(default=1, ge=1)
 @model_validator(mode="after")
@@ -1210,6 +1229,7 @@ e_urls: list[str],
 req_id: str,
 consumer_zmq: str | None = None,
 ) -> tuple[dict[int, dict], dict[str, Any]]:
+```
 """1. Group images by encoder, retaining per-item round-robin assignment.
 2. Send them concurrently to the encode cluster.
 3. Raise if any of them fails.
@@ -1808,6 +1828,7 @@ headers: dict,
 """POST `payload` to `url`.
 Returns
 -------
+```python
 • The decoded JSON body on success (2xx)
 • None if the endpoint does not exist (404)
 • Raises for anything else.
@@ -2148,3 +2169,4 @@ log_level="info",
 loop="uvloop",
 access_log=True,
 )
+```

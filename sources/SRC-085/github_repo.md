@@ -15,10 +15,12 @@
 
 <p align="center">
 | <a href="https://arxiv.org/pdf/2401.15077.pdf"><b>Paper (EAGLE)</b></a> | 
+```html
 <a href="https://arxiv.org/pdf/2406.16858"><b>Paper (EAGLE-2)</b></a> |
 <a href="https://arxiv.org/pdf/2503.01840"><b>Paper (EAGLE-3)</b></a> |
 <a href="https://sites.google.com/view/
 eagle-llm"><b>Blog</b></a> |
+```
 </p>
 
 
@@ -303,6 +305,7 @@ A heartfelt thank you to all our contributors.
 ## Reference
 For technical details and full experimental results, please check [the paper of EAGLE](https://arxiv.org/pdf/2401.15077.pdf), [the paper of EAGLE-2](https://arxiv.org/pdf/2406.16858), and [the paper of EAGLE-3](https://arxiv.org/pdf/2503.01840).
 ```
+```bash
 @inproceedings{li2024eagle, 
 	author = {Yuhui Li and Fangyun Wei and Chao Zhang and Hongyang Zhang}, 
 	title = {{EAGLE}: Speculative Sampling Requires Rethinking Feature Uncertainty}, 
@@ -320,6 +323,7 @@ For technical details and full experimental results, please check [the paper of 
     title = {{EAGLE-3}: Scaling up Inference Acceleration of Large Language Models via Training-Time Test}, 
     booktitle = {Annual Conference on Neural Information Processing Systems},
     year = {2025}
+```
 }
 ```
 

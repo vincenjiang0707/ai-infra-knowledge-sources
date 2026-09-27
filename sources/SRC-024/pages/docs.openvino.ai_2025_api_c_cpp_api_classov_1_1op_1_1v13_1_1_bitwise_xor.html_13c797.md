@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v13::BitwiseXor[#](https://docs.openvino.ai#class-ov-op-v13-bitwisexor)
 
 -
+```python
 class BitwiseXor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseBitwise](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_bitwise.html#_CPPv4N2ov2op4util24BinaryElementwiseBitwiseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1310BitwiseXorE) Elementwise bitwise XOR operation.
+```
 
 Public Functions
 

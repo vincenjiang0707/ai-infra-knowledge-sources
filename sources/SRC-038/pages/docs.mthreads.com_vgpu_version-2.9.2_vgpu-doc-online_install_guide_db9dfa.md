@@ -890,10 +890,12 @@ MT vGPU 休眠功能涉及如下软件栈：
 
 | 命令 | 说明 |
 |---|---|
+```bash
 `virsh save <vm-name> <save-file>` | 保存虚拟机运行状态到指定文件 |
 `virsh restore <save-file>` | 从保存文件恢复虚拟机 |
 `virsh managedsave <vm-name>` | 由 libvirt 管理保存文件 |
 `virsh start <vm-name>` | 启动已执行 managedsave 的虚拟机并恢复其状态 |
+```
 
 `save`
 

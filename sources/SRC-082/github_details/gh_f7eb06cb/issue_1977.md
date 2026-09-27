@@ -661,12 +661,14 @@ Wondering how to make it faster, and why it become so slow.
 
 4. I am using: 
 kubuntu 24.04.2 LTS
+```yaml
 kernel: 6.11.0-29-generic (had to pause kernel updates to not reinstall the nvidia driver with each update)
 cpu: EPYC 9124
 mb: ASUS K14PA-U12
 ram: 64GB DDR5 4800
 8x3090 gpus connected: 1 in pcie-x16, other ones in MCIO x8 ports via cpayne mcio-to-pcie gen5 adapters.
 nvme: 990 Pro 4TB
+```
 
 ### avtc · 2025-10-07
 

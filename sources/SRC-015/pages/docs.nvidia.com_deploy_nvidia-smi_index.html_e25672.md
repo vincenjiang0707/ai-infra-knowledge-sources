@@ -1234,6 +1234,7 @@ NUMA nodes (e.g., QPI/UPI)
 NODE = Connection traversing PCIe as well as the interconnect between
 PCIe Host Bridges within a NUMA node
 
+```bash
 PHB = Connection traversing PCIe as well as a PCIe Host Bridge
 (typically the CPU)
 
@@ -1242,6 +1243,7 @@ the PCIe Host Bridge)
 
 PIX = Connection traversing a single PCIe switch NV# = Connection
 traversing a bonded set of # NVLinks
+```
 
 
 Shows all the GPUs connected with the given GPU using the specified
@@ -1286,11 +1288,13 @@ NUMA nodes (e.g., QPI/UPI)
 NODE = Connection traversing PCIe as well as the interconnect between
 PCIe Host Bridges within a NUMA node
 
+```bash
 PHB = Connection traversing PCIe as well as a PCIe Host Bridge
 (typically the CPU)
 
 PXB = Connection traversing multiple PCIe bridges (without traversing
 the PCIe Host Bridge)
+```
 
 PIX = Connection traversing at most a single PCIe bridge
 
@@ -1307,11 +1311,13 @@ NUMA nodes (e.g., QPI/UPI)
 NODE = Connection traversing PCIe as well as the interconnect between
 PCIe Host Bridges within a NUMA node
 
+```bash
 PHB = Connection traversing PCIe as well as a PCIe Host Bridge
 (typically the CPU)
 
 PXB = Connection traversing multiple PCIe bridges (without traversing
 the PCIe Host Bridge)
+```
 
 PIX = Connection traversing at most a single PCIe bridge
 

@@ -4,8 +4,10 @@ lastmod:
 # Class ov::frontend::InputModel[#](https://docs.openvino.ai#class-ov-frontend-inputmodel)
 
 -
+```python
 class InputModel
 [#](https://docs.openvino.ai#_CPPv4N2ov8frontend10InputModelE) [InputModel](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1frontend_1_1_input_model)class represents an original, not yet converted model graph in a framework format given services to find places of interest in a graph or specialize/edit the model before conversion.Editing requests may affect ability to convert the original model to OV
+```
 
 [Model](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_model). Aim to provide these editing capabilities is to unlock conversion for models that are not natively supported “as-is” because of undefined shapes, types or operations.Specific front-end implementation is supposed to have a lazy implementation for all methods, not doing a complete load of a model without an explicit method call. For example, the list of all inputs are not pre-fetched by
 
@@ -112,24 +114,30 @@ virtual void set_name_for_operation(const
 
 
 -
+```
 virtual void free_name_for_tensor(const std::string &name)
 [#](https://docs.openvino.ai#_CPPv4N2ov8frontend10InputModel20free_name_for_tensorERKNSt6stringE) Unassign specified name from tensor place(s)
+```
 
 - Parameters:
 **name**– Name of tensor
 
 
 -
+```
 virtual void free_name_for_operation(const std::string &name)
 [#](https://docs.openvino.ai#_CPPv4N2ov8frontend10InputModel23free_name_for_operationERKNSt6stringE) Unassign specified name from operation place(s)
+```
 
 - Parameters:
 **name**– Name of operation
 
 
 -
+```
 virtual void set_name_for_dimension(const
 [Place](https://docs.openvino.ai/classov_1_1frontend_1_1_place.html#_CPPv4N2ov8frontend5PlaceE)::Ptr &place, size_t shape_dim_index, const std::string &dim_name)[#](https://docs.openvino.ai#_CPPv4N2ov8frontend10InputModel22set_name_for_dimensionERKN5Place3PtrE6size_tRKNSt6stringE) Set name for a particular dimension of a place (e.g. batch dimension)
+```
 
 
 -

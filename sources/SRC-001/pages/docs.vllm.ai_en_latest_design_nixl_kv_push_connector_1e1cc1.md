@@ -341,8 +341,10 @@ The push design is a small, well-contained extension on top of the existing NIXL
 
 (registrations replayed after their D→P handshake) and`_deferred_push_inbox`
 
+```
 (matched pushes replayed after their P→D handshake); - one new notification type (
 `PUSH_REG:<msgpack>`
+```
 
 ).
 

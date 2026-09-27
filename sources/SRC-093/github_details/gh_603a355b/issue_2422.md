@@ -13,10 +13,12 @@ Location:
 In gateway_req_body.go, there are ~30 lines of code between selectTargetPod() (line 77) and AddRequestCount() (line 106). During this window, the runningRequests values read by the routing algorithm are stale — the +1 hasn't happened yet.
 
 Under concurrency:
+```yaml
 T1: Request A reads runningRequests → Pod1=0, Pod2=0 → selects Pod1
 T2: Request B reads runningRequests → Pod1=0, Pod2=0 → also selects Pod1 (A hasn't reached +1 yet)
 T3: Request A executes AddRequestCount → Pod1.runningRequests=1
 T4: Request B executes AddRequestCount → Pod1.runningRequests=2
+```
 
 This causes concurrent requests to all pile onto the same Pod, creating a cliff-like spike in request count.
 

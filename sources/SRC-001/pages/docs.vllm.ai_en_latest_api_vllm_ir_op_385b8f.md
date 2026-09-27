@@ -228,8 +228,10 @@ The provider name must be unique and not one of the RESERVED_PROVIDERS. The supp
 
 Example:
 
+```python
 @my_op.register_impl("my_provider", supported=torch.cuda.is_available())
 def my_provider_impl(x: torch.Tensor, y: torch.Tensor) -> torch.Tensor: ...
+```
 
 
 ## Source code in `vllm/ir/op.py`
@@ -428,9 +430,11 @@ Returns:
 
 Example usage:
 
+```python
 @vllm.ir.register_op
 def my_add(x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
 return x + y
 @vllm.ir.register_op(name="custom_mul")
 def multiply(x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
 return x * y
+```

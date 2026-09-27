@@ -8,10 +8,12 @@ labels: ROCm
 
 ### System Info
 
+```yaml
 OS: WSL2 Ubuntu22.04
 bitsandbytes: 0.44.1.dev0+cd73601
 torch: 2.5.1+rocm6.2
 GPU: RX 7900XT
+```
 
 ### Reproduction
 

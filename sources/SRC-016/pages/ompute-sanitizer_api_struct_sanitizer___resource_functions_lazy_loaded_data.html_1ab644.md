@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/compute-sanitizer/api/struct_sanitizer___resourc
 # Sanitizer_ResourceFunctionsLazyLoadedData[#](https://docs.nvidia.com#sanitizer-resourcefunctionslazyloadeddata)
 
 -
+```rust
 struct Sanitizer_ResourceFunctionsLazyLoadedData
 [#](https://docs.nvidia.com#_CPPv441Sanitizer_ResourceFunctionsLazyLoadedData) Data passed into a CUDA function callback function.
+```
 
 Data passed into a CUDA function callback function as the
 

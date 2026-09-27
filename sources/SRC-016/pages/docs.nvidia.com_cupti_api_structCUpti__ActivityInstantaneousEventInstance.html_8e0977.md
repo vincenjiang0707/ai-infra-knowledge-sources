@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityInstantaneousEven
 # 7.48. CUpti_ActivityInstantaneousEventInstance[#](https://docs.nvidia.com#cupti-activityinstantaneouseventinstance)
 
 -
+```rust
 struct CUpti_ActivityInstantaneousEventInstance
 [#](https://docs.nvidia.com#_CPPv440CUpti_ActivityInstantaneousEventInstance) The activity record for an instantaneous CUPTI event with event domain instance information.
+```
 
 This activity record represents the a CUPTI event value for a specific event domain instance (CUPTI_ACTIVITY_KIND_EVENT_INSTANCE) sampled at a particular instant. This activity record kind is not produced by the activity API but is included for completeness and ease-of-use. Profiler frameworks built on top of CUPTI that collect event data may choose to use this type to store the collected event data. This activity record should be used when event domain instance information needs to be associated with the event.
 

@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityInstantaneousMetr
 # 7.49. CUpti_ActivityInstantaneousMetric[#](https://docs.nvidia.com#cupti-activityinstantaneousmetric)
 
 -
+```rust
 struct CUpti_ActivityInstantaneousMetric
 [#](https://docs.nvidia.com#_CPPv433CUpti_ActivityInstantaneousMetric) The activity record for an instantaneous CUPTI metric.
+```
 
 This activity record represents the collection of a CUPTI metric value (CUPTI_ACTIVITY_KIND_METRIC) at a particular instance. This activity record kind is not produced by the activity API but is included for completeness and ease-of-use. Profiler frameworks built on top of CUPTI that collect metric data may choose to use this type to store the collected metric data.
 

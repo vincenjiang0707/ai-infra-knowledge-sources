@@ -569,8 +569,10 @@ cxx11abiFALSE = the C++ ABI flag
 
 cp310-cp310 = Python 3.10
 
+```bash
 win_amd64 = Windows 64-bit
 [huggingface.co](https://huggingface.co/lldacing/flash-attention-windows-wheel?utm_source=chatgpt.com)
+```
 
 If you need a Windows wheel that matches your setup (e.g. PyTorch 2.5.1+cu124, Python 3.10), look under that repo’s release assets for something like:
 

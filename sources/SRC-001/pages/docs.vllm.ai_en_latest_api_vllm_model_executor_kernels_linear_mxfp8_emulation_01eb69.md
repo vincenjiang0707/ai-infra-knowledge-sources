@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp8/emulation/
 lastmod: 2026-09-27
 
+```python
 class EmulationMxfp8LinearKernel(Mxfp8LinearKernel):
 """Software emulation fallback for MXFP8 (dequant to BF16)."""
 supports_pre_processed_weights = True
@@ -62,3 +63,4 @@ f"Ensure process_weights_after_loading was called."
 weight_bf16 = dequant_mxfp8_to_bf16(weight, weight_scale).to(x.dtype)
 output = torch.nn.functional.linear(x, weight_bf16, bias)
 return output.to(x.dtype)
+```

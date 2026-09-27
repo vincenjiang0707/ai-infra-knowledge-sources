@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v6::ReadValue[#](https://docs.openvino.ai#class-ov-op-v6-readvalue)
 
 -
+```python
 class ReadValue : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ReadValueBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_read_value_base.html#_CPPv4N2ov2op4util13ReadValueBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v69ReadValueE) [ReadValue](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_read_value)operation gets an input value from the variable with`variable_id`
+```
 
 and returns it as an output.Public Functions
 

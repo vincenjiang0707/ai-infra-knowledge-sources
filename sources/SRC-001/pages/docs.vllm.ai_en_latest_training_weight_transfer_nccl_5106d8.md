@@ -29,9 +29,11 @@ and the trainer's broadcast run at the same time — both sides rendezvous insid
 
 The inference side takes a plain backend selector. The rendezvous parameters and the packing wire params arrive from the trainer at the init handshake.
 
+```python
 from vllm import LLM
 from vllm.config import WeightTransferConfig
 llm = LLM(model="my-model", weight_transfer_config=WeightTransferConfig(backend="nccl"))
+```
 
 
 Nothing else is required: `init_weight_transfer_engine`
@@ -46,6 +48,7 @@ are all driven remotely by the trainer engine.
 
 ## Trainer Side[¶](https://docs.vllm.ai#trainer-side)
 
+```python
 from vllm.distributed.weight_transfer import (
 ModuleSource,
 HTTPVLLMWeightSyncClient,
@@ -64,6 +67,7 @@ client=HTTPVLLMWeightSyncClient("http://localhost:8000"), # or RayVLLMWeightSync
 source=ModuleSource(model),
 )
 engine.send_weights() # once per sync
+```
 
 
 `trainer_init`
@@ -215,10 +219,12 @@ lifecycle.
 
 RL infrastructure that owns the generic worker lifecycle can keep one logical update open across bounded chunks without adding trainer-side session state:
 
+```python
 client.start_weight_update()
 for patches in patch_chunks:
 engine.send_weight_chunk(patches)
 client.finish_weight_update()
+```
 
 
 Sparse NCCL sends only `O(nnz)`

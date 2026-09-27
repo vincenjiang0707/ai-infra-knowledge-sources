@@ -116,6 +116,7 @@ For deploying multiple models, you can pass a list of [ LLMConfig](https://docs.
 `OpenAiIngress`
 
 deployment:```
+```python
 from ray import serve
 from ray.serve.llm import LLMConfig, build_openai_app
 llm_config1 = LLMConfig(
@@ -145,8 +146,10 @@ accelerator_type="A10G",
 app = build_openai_app({"llm_configs": [llm_config1, llm_config2]})
 serve.run(app, blocking=True)
 ```
+```
 
 ```
+```python
 from ray import serve
 from ray.serve.llm import LLMConfig
 from ray.serve.llm.deployment import LLMServer
@@ -192,6 +195,7 @@ ingress_deployment = serve.deployment(ingress_cls).options(
 # run
 serve.run(ingress_deployment, blocking=True)
 ```
+```
 
 ## Production deployment[#](https://docs.ray.io#production-deployment)
 
@@ -203,6 +207,7 @@ applications:
 - args:
 llm_configs:
 - model_loading_config:
+```yaml
 model_id: qwen-0.5b
 model_source: Qwen/Qwen2.5-0.5B-Instruct
 accelerator_type: A10G
@@ -210,7 +215,9 @@ deployment_config:
 autoscaling_config:
 min_replicas: 1
 max_replicas: 2
+```
 - model_loading_config:
+```yaml
 model_id: qwen-1.5b
 model_source: Qwen/Qwen2.5-1.5B-Instruct
 accelerator_type: A10G
@@ -222,6 +229,7 @@ import_path: ray.serve.llm:build_openai_app
 name: llm_app
 route_prefix: "/"
 ```
+```
 
 ```
 # config.yaml
@@ -230,12 +238,15 @@ applications:
 llm_configs:
 - models/qwen-0.5b.yaml
 - models/qwen-1.5b.yaml
+```yaml
 import_path: ray.serve.llm:build_openai_app
 name: llm_app
 route_prefix: "/"
 ```
+```
 
 ```
+```yaml
 # models/qwen-0.5b.yaml
 model_loading_config:
 model_id: qwen-0.5b
@@ -246,8 +257,10 @@ autoscaling_config:
 min_replicas: 1
 max_replicas: 2
 ```
+```
 
 ```
+```yaml
 # models/qwen-1.5b.yaml
 model_loading_config:
 model_id: qwen-1.5b
@@ -257,6 +270,7 @@ deployment_config:
 autoscaling_config:
 min_replicas: 1
 max_replicas: 2
+```
 ```
 
 To deploy with either configuration file:

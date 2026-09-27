@@ -33,8 +33,10 @@ AttributeError: 'CudaDriver' object has no attribute 'get_active_torch_device'"
 
 ### Environment details
 
+```yaml
 Triton: 3.1.0
 GPUs: 4xA100 80G
+```
 
 ## 评论 (16)
 

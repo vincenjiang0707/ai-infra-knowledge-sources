@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/generate/beam_search/offline/
 lastmod: 2026-09-27
 
+```python
 class BeamSearchOfflineMixin(OfflineInferenceMixin):
 """Offline inference for beam search."""
 def beam_search(
@@ -366,3 +367,4 @@ skip_clone=True,
 )
 result.append((beam_params, allowed_ids))
 return result
+```

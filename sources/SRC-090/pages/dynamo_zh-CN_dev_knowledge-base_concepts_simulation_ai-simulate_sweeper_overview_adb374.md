@@ -19,8 +19,10 @@ ranked candidates or a Pareto front.
 
 The `aisimulate`
 
+```go
 package owns only backend-neutral simulation behavior. Optional feature packages
 can register a `SweepConfigProvider`
+```
 
 that contributes search dimensions and materializes its part
 of a replay. Sweeper imports a provider only when its adapter name appears in the configuration.

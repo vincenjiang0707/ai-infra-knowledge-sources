@@ -264,6 +264,7 @@ Previously, [ SFTTrainer](https://huggingface.co/docs/trl/en/sft_trainer) was pa
 
 `SFTTrainer`
 
+```bash
 with a VLM.```
 from trl import SFTConfig, SFTTrainer
 from datasets import load_dataset
@@ -273,6 +274,7 @@ args=SFTConfig(max_length=None), # To avoid truncation that may remove image tok
 train_dataset=load_dataset("trl-lib/llava-instruct-mix", split="train"),
 )
 trainer.train()
+```
 ```
 
 

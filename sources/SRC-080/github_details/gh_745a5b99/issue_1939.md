@@ -915,6 +915,7 @@ processor.save_pretrained(OUTPUT_DIR)
 
 The error:
 
+```bash
 vllm1-1 | (Worker_TP3 pid=234) INFO 10-17 16:33:43 [compressed_tensors_moe.py:146] Using CompressedTensorsWNA16MoEMethod
 Loading safetensors checkpoint shards: 0% 0/8 [00:00<?, ?it/s](Worker_TP0 pid=231) ERROR 10-17 16:33:43 [multiproc_executor.py:623] WorkerProc failed to start.
 vllm1-1 | (Worker_TP0 pid=231) ERROR 10-17 16:33:43 [multiproc_executor.py:623] Traceback (most recent call last):
@@ -1069,6 +1070,7 @@ vllm1-1 | (APIServer pid=1) wait_for_engine_startup(
 vllm1-1 | (APIServer pid=1) File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/utils.py", line 873, in wait_for_engine_startup
 vllm1-1 | (APIServer pid=1) raise RuntimeError(
 vllm1-1 | (APIServer pid=1) RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+```
 
 
 
@@ -1268,8 +1270,10 @@ cd llm-compressor
 
 pip install -e .
 
+```bash
 pip install transformers==4.57.0
 export TOKENIZERS_PARALLELISM=false
+```
 
 cd .. 
 

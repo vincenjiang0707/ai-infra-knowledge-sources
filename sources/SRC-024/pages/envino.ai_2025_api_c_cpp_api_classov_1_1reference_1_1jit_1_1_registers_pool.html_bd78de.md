@@ -4,8 +4,10 @@ lastmod:
 # Class ov::reference::jit::RegistersPool[#](https://docs.openvino.ai#class-ov-reference-jit-registerspool)
 
 -
+```python
 class RegistersPool
 [#](https://docs.openvino.ai#_CPPv4N2ov9reference3jit13RegistersPoolE) Subclassed by
+```
 
 [ov::reference::jit::IsaRegistersPool< isa >](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1reference_1_1jit_1_1_isa_registers_pool),[ov::reference::jit::IsaRegistersPool< avx512_core >](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1reference_1_1jit_1_1_isa_registers_pool_3_01avx512__core_01_4)-
 template<typename TReg>

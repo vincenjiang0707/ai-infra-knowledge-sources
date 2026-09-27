@@ -195,10 +195,12 @@ Hoping this helps other R9700 users skip the painful parts. Thanks again! 🙏
 <body>
 <!--StartFragment--><html><head></head><body><h1>AMD Radeon AI PRO R9700 (gfx1201) ROCm 訓練環境完整踩坑紀錄</h1>
 <blockquote>
+```html
 <p>作者：UFO Homelab<br>
 環境：Proxmox VE 9.0.3 + LXC Container + ROCm 6.3 → 7.2.3 + LLaMA-Factory<br>
 模型：Qwen2.5-Coder-32B-Instruct QLoRA 4bit<br>
 目的：讓後來的 R9700 用戶不用重踩相同的坑</p>
+```
 </blockquote>
 <blockquote>
 <p><strong>感謝 AMD 工程師 @chejh-amd 和 @Kaihui-AMD 在 GitHub issue 上提供的寶貴回饋與修正。</strong></p>

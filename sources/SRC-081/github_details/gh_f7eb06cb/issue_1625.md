@@ -60,55 +60,73 @@ Version: 2.2.0
 Summary: Production ready LLM model compression/quantization toolkit with hw accelerated inference support for both cpu/gpu via HF, vLLM, and SGLang.
 Home-page: https://github.com/ModelCloud/GPTQModel
 Author: ModelCloud
+```yaml
 Author-email: qubitium@modelcloud.ai
 License: Apache 2.0
 Location: /mnt/user/ai_00328713/tenant-home_speed/shard/yangkang/testvenv/lib/python3.10/site-packages
 Requires: accelerate, datasets, device-smi, hf-transfer, huggingface-hub, logbar, numpy, packaging, pillow, protobuf, random-word, safetensors, threadpoolctl, tokenicer, torch, transformers
 Required-by: 
+```
 ---
+```yaml
 Name: torch
 Version: 2.6.0
 Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+```
 Home-page: https://pytorch.org/
 Author: PyTorch Team
+```yaml
 Author-email: packages@pytorch.org
 License: BSD-3-Clause
 Location: /mnt/user/ai_00328713/tenant-home_speed/shard/yangkang/testvenv/lib/python3.10/site-packages
 Requires: filelock, fsspec, jinja2, networkx, nvidia-cublas-cu12, nvidia-cuda-cupti-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-runtime-cu12, nvidia-cudnn-cu12, nvidia-cufft-cu12, nvidia-curand-cu12, nvidia-cusolver-cu12, nvidia-cusparse-cu12, nvidia-cusparselt-cu12, nvidia-nccl-cu12, nvidia-nvjitlink-cu12, nvidia-nvtx-cu12, sympy, triton, typing-extensions
 Required-by: accelerate, auto_gptq, autoawq, bitsandbytes, compressed-tensors, deepspeed, flash_attn, flashinfer-python, gptqmodel, llmcompressor, optimum, outlines, peft, torchaudio, torchvision, vllm, xformers, xgrammar
+```
 ---
+```yaml
 Name: transformers
 Version: 4.51.3
 Summary: State-of-the-art Machine Learning for JAX, PyTorch and TensorFlow
+```
 Home-page: https://github.com/huggingface/transformers
 Author: The Hugging Face team (past and future) with the help of all our contributors (https://github.com/huggingface/transformers/graphs/contributors)
+```yaml
 Author-email: transformers@huggingface.co
 License: Apache 2.0 License
 Location: /mnt/user/ai_00328713/tenant-home_speed/shard/yangkang/testvenv/lib/python3.10/site-packages
 Requires: filelock, huggingface-hub, numpy, packaging, pyyaml, regex, requests, safetensors, tokenizers, tqdm
 Required-by: auto_gptq, autoawq, compressed-tensors, gptqmodel, llmcompressor, optimum, peft, tokenicer, trl, vllm, xgrammar
+```
 ---
+```yaml
 Name: accelerate
 Version: 1.7.0
 Summary: Accelerate
+```
 Home-page: https://github.com/huggingface/accelerate
 Author: The HuggingFace team
+```yaml
 Author-email: zach.mueller@huggingface.co
 License: Apache
 Location: /mnt/user/ai_00328713/tenant-home_speed/shard/yangkang/testvenv/lib/python3.10/site-packages
 Requires: huggingface-hub, numpy, packaging, psutil, pyyaml, safetensors, torch
 Required-by: auto_gptq, autoawq, gptqmodel, llmcompressor, peft, trl
+```
 ---
+```yaml
 Name: triton
 Version: 3.2.0
 Summary: A language and compiler for custom Deep Learning operations
+```
 Home-page: https://github.com/triton-lang/triton/
 Author: Philippe Tillet
+```yaml
 Author-email: phil@openai.com
 License: 
 Location: /mnt/user/ai_00328713/tenant-home_speed/shard/yangkang/testvenv/lib/python3.10/site-packages
 Requires: 
 Required-by: autoawq, torch, xgrammar
+```
 
 
 config.json
@@ -139,6 +157,7 @@ config.json
   "num_key_value_heads": 4,
   "output_router_logits": false,
   "quantization_config": {
+```json
     "bits": 4,
     "checkpoint_format": "gptq",
     "damp_percent": 0.01,
@@ -150,6 +169,7 @@ config.json
     "static_groups": false,
     "sym": true,
     "true_sequential": true
+```
   },
   "rms_norm_eps": 1e-06,
   "rope_scaling": null,
@@ -208,10 +228,12 @@ model = AutoModelForCausalLM.from_pretrained(
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 
+```python
 prompt = "Give me a short introduction to large language models."
 messages = [
     {"role": "system", "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant."},
     {"role": "user", "content": prompt},
+```
 ]
 text = tokenizer.apply_chat_template(
     messages,

@@ -67,6 +67,7 @@ Load your model and tokenizer using the standard `transformers`
 
 AutoModel classes:
 
+```python
 from transformers import AutoTokenizer, AutoModelForCausalLM
 MODEL_ID = "meta-llama/Meta-Llama-3-8B-Instruct"
 model = AutoModelForCausalLM.from_pretrained(
@@ -75,6 +76,7 @@ device_map="auto",
 dtype="auto",
 )
 tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
+```
 
 
 ### 2. Applying Quantization[¶](https://docs.vllm.ai#2-applying-quantization)
@@ -90,6 +92,7 @@ scheme, which uses:
 
 Since simple RTN does not require data for weight quantization and the activations are quantized dynamically, we do not need any calibration data for this quantization flow.
 
+```python
 from llmcompressor import oneshot
 from llmcompressor.modifiers.quantization import QuantizationModifier
 # Configure the simple PTQ quantization
@@ -104,6 +107,7 @@ oneshot(model=model, recipe=recipe)
 SAVE_DIR = MODEL_ID.split("/")[1] + "-FP8-Dynamic"
 model.save_pretrained(SAVE_DIR)
 tokenizer.save_pretrained(SAVE_DIR)
+```
 
 
 ### 3. Evaluating Accuracy[¶](https://docs.vllm.ai#3-evaluating-accuracy)
@@ -112,10 +116,12 @@ Load and run the model in `vllm`
 
 :
 
+```python
 from vllm import LLM
 llm = LLM("./Meta-Llama-3-8B-Instruct-FP8-Dynamic")
 result = llm.generate("Hello my name is")
 print(result[0].outputs[0].text)
+```
 
 
 Evaluate accuracy with `lm_eval`
@@ -136,11 +142,13 @@ token by default, so make sure to include the `add_bos_token=True`
 
 argument when running your evaluations.
 
+```bash
 MODEL=$PWD/Meta-Llama-3-8B-Instruct-FP8-Dynamic
 lm_eval \
 --model vllm \
 --model_args pretrained=$MODEL,add_bos_token=True \
 --tasks gsm8k --num_fewshot 5 --batch_size auto --limit 250
+```
 
 
 Here's an example of the resulting scores:

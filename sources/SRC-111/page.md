@@ -653,8 +653,10 @@ Or from source with:
 should now function correctly- Bump
 `transformers`
 
+```go
 package in lockfile to support mistral model tokenizers - Update HTML report to pull its template from
 `raw.githubusercontent.com`
+```
 
 rather than`blog.vllm.ai`
 

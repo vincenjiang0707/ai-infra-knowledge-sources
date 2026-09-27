@@ -16,6 +16,7 @@ This guide describes how to run Ring-1T-FP8.
 This guide covers the simplest way to run the model, using pure tensor parallel across 8 GPUs.
 
 # Start server with FP8 model on 8 GPUs
+```json
 vllm serve inclusionAI/Ring-1T-FP8 \
 --trust-remote-code \
 --tensor-parallel-size 8 \
@@ -24,6 +25,7 @@ vllm serve inclusionAI/Ring-1T-FP8 \
 --kv-cache-dtype fp8 \
 --compilation-config '{"use_inductor": false}' \
 --served-model-name Ring-1T-FP8
+```
 
 
 - You can set
@@ -41,6 +43,7 @@ is usually good for prompt-heavy workloads. But you can reduce it to 16384 and 8
 ## Running Ring-1T-FP8 with FP8 KV Cache on 8xMI300x/MI325x/MI355x[¶](https://docs.vllm.ai#running-ring-1t-fp8-with-fp8-kv-cache-on-8xmi300xmi325xmi355x)
 
 # Start server with FP8 model on 8 GPUs
+```bash
 export VLLM_ROCM_USE_AITER=1
 vllm serve inclusionAI/Ring-1T-FP8 \
 --trust-remote-code \
@@ -49,6 +52,7 @@ vllm serve inclusionAI/Ring-1T-FP8 \
 --max_num_seqs 32 \
 --kv-cache-dtype fp8 \
 --served-model-name Ring-1T-FP8
+```
 
 
 `export VLLM_ROCM_USE_AITER=1`

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/engine/arg_utils/
 lastmod: 2026-09-27
 
+```python
 @dataclass
 class EngineArgs:
 """Arguments for vLLM engine."""
@@ -995,6 +996,7 @@ multimodal_group.add_argument(
 multimodal_group.add_argument(
 "--mm-processor-device",
 choices=["auto", "cpu"]
+```
 + (
 [current_platform.device_type]
 if current_platform.device_type not in ("", "cpu")

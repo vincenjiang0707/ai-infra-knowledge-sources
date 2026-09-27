@@ -4,8 +4,10 @@ lastmod:
 # Class ov::frontend::DecoderBase[#](https://docs.openvino.ai#class-ov-frontend-decoderbase)
 
 -
+```python
 class DecoderBase : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[frontend](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov8frontendE)::[IDecoder](https://docs.openvino.ai/classov_1_1frontend_1_1_i_decoder.html#_CPPv4N2ov8frontend8IDecoderE)[#](https://docs.openvino.ai#_CPPv4N2ov8frontend11DecoderBaseE) Public Functions
+```
 
 -
 virtual

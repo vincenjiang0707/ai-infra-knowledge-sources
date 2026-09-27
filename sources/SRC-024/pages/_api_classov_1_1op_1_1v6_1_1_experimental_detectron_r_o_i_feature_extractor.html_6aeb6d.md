@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v6::ExperimentalDetectronROIFeatureExtractor[#](https://docs.openvino.ai#class-ov-op-v6-experimentaldetectronroifeatureextractor)
 
 -
+```python
 class ExperimentalDetectronROIFeatureExtractor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v640ExperimentalDetectronROIFeatureExtractorE) An operation
+```
 
 [ExperimentalDetectronROIFeatureExtractor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_experimental_detectron_r_o_i_feature_extractor)is the ROIAlign operation applied over a feature pyramid.Public Functions
 
@@ -48,8 +50,10 @@ void set_attrs(
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v640ExperimentalDetectronROIFeatureExtractor10AttributesE) Structure that specifies attributes of the operation.
+```
 
 
 -

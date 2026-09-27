@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/device_allocator/cumem/
 lastmod: 2026-09-27
 
+```python
 class CuMemAllocator:
 """A singleton class that manages a memory pool for CUDA tensors.
 The memory in this pool can be offloaded or discarded when the
@@ -218,6 +219,7 @@ def wake_up(self, tags: list[str] | None = None) -> None:
 All data that is previously offloaded will be loaded back to GPU
 memory, and the rest of the data will have empty memory.
 Args:
+```
 tags: The tags of the memory allocation that will be loaded
 back to GPU memory. If None, all memory allocation will be loaded
 back to GPU memory.

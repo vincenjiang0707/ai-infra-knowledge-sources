@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/pooling/embed/io_processor/
 lastmod: 2026-09-27
 
+```python
 class EmbedIOProcessor(PoolingIOProcessor):
 name = "embed"
 def __init__(self, *args, **kwargs):
@@ -517,3 +518,4 @@ if isinstance(ctx.request, CohereEmbedRequest):
 request = ctx.request
 if request.truncate == "NONE" and request.max_tokens is not None:
 self._check_cohere_max_tokens(ctx.final_res_batch, request.max_tokens)
+```

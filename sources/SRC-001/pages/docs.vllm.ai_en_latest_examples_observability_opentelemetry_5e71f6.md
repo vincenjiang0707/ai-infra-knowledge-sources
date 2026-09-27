@@ -54,9 +54,11 @@ as the protocol, configure the `OTEL_EXPORTER_OTLP_TRACES_PROTOCOL`
 
 environment variable as follows:
 
+```bash
 export OTEL_EXPORTER_OTLP_TRACES_PROTOCOL=http/protobuf
 export OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://$JAEGER_IP:4318/v1/traces
 vllm serve facebook/opt-125m --otlp-traces-endpoint="$OTEL_EXPORTER_OTLP_TRACES_ENDPOINT"
+```
 
 
 ## Instrumentation of FastAPI[¶](https://docs.vllm.ai#instrumentation-of-fastapi)
@@ -80,6 +82,7 @@ Send a request to vLLM and find its trace in Jaeger. It should contain spans fro
 ## dummy_client.py
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 import requests
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
@@ -108,3 +111,4 @@ payload = {
 # "stream": True,
 }
 response = requests.post(url, headers=headers, json=payload)
+```

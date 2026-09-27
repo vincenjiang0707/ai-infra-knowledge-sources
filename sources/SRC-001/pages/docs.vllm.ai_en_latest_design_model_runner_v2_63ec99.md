@@ -67,6 +67,7 @@ However, async execution can introduce race conditions when CPU and GPU concurre
 
 Example (unsafe):
 
+```python
 class ModelRunner:
 def __init__(self, ...):
 # Pinned buffer
@@ -76,6 +77,7 @@ max_num_reqs, dtype=torch.int32, device="cpu", pin_memory=True
 def execute_step(self, ...):
 self.states[req_idx] = new_req.data
 states = self.states.to("cuda", non_blocking=True)
+```
 
 
 The CPU may modify `self.states`
@@ -92,6 +94,7 @@ V1 addresses this with an async barrier around critical sections. That avoids ra
 
 MRV2 separates persistent CPU state from the copied tensor:
 
+```python
 class ModelRunner:
 def __init__(self, ...):
 # Not pinned
@@ -102,6 +105,7 @@ def execute_step(self, ...):
 self.states[req_idx] = new_req.data
 tmp_states = self.states.pin_memory()
 states = tmp_states.to("cuda", non_blocking=True)
+```
 
 
 Now CPU writes to `self.states`

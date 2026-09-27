@@ -300,6 +300,7 @@ I don't have any experience of how to configure ACS and ATS in combination.
 The detailed information about PCIe ATS capability of Mellanox ConnectX-7 on my VM is just as follows. 
 I also found it was needed to set ats-support in the VMware ESXi in the link of https://docs.nvidia.com/ai-enterprise/1.2/user-guide/index.html#enable-gpudirect-technology. But how can I set that in my VM?
 
+```yaml
 root@207-vm:/home/fs# lspci -vvv |grep -i ats
 	Capabilities: [480 v1] Address Translation Service (ATS)
 		ATSCap:	Invalidate Queue Depth: 00
@@ -325,6 +326,7 @@ root@207-vm:/home/fs# lspci -vvv |grep -i ats
 	Capabilities: [480 v1] Address Translation Service (ATS)
 		ATSCap:	Invalidate Queue Depth: 00
 		ATSCtl:	Enable+, Smallest Translation Unit: 00
+```
 
 ### martbhell · 2025-01-15
 

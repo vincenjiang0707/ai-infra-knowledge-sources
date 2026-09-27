@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__PCSamplingGetNumStallReas
 # 7.149. CUpti_PCSamplingGetNumStallReasonsParams[#](https://docs.nvidia.com#cupti-pcsamplinggetnumstallreasonsparams)
 
 -
+```rust
 struct CUpti_PCSamplingGetNumStallReasonsParams
 [#](https://docs.nvidia.com#_CPPv440CUpti_PCSamplingGetNumStallReasonsParams) Params for cuptiPCSamplingGetNumStallReasons.
+```
 
 Public Members
 

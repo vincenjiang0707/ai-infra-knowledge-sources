@@ -13,6 +13,7 @@ I've been running a vision-language (VL) model through vLLM and using flash-atte
 While I've only tested this on qwen2.5-VL-7B-Instruct, the performance hit may extend to other models and/or RDNA GPUs as well. It may be that the aiter kernel(s) haven't yet been fully optimized for this platform, and can be brought up to match the old kernel performance.
 
 ## Environment info
+```yaml
 OS: Ubuntu 24.04.03 LTS
 CPU: AMD RYZEN AI MAX+ 395 w/ Radeon 8060S
 GPU: AMD RDNA (gfx1151)
@@ -21,6 +22,7 @@ ROCm: 7.12.0a20260208 nightly package (python 3.12)
 triton: 3.6.0+rocm7.12.0a20260208
 torch: 2.10.0+rocm7.12.0a20260208
 vLLM: 0.17.0rc1.dev363+g74ae947b9.rocm712.mgehre (built from custom fork, but upstream should also work)
+```
 
 ## Steps to reproduce (vLLM)
 

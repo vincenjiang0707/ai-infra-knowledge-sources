@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/minimax_m3/amd/mtp/
 lastmod: 2026-09-24
 
+```python
 class MiniMaxM3MTP(nn.Module):
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
 super().__init__()
@@ -158,3 +159,4 @@ raise ValueError(
 f"Failed to load MTP layer {layer_idx} weights from checkpoint."
 )
 return loaded_params
+```

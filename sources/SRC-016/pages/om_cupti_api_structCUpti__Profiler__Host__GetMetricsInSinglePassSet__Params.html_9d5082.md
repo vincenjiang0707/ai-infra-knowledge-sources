@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__Profiler__Host__GetMetric
 # 7.189. CUpti_Profiler_Host_GetMetricsInSinglePassSet_Params[#](https://docs.nvidia.com#cupti-profiler-host-getmetricsinsinglepassset-params)
 
 -
+```rust
 struct CUpti_Profiler_Host_GetMetricsInSinglePassSet_Params
 [#](https://docs.nvidia.com#_CPPv452CUpti_Profiler_Host_GetMetricsInSinglePassSet_Params) Params for cuptiProfilerHostGetMetricsInSinglePassSet.
+```
 
 Public Members
 

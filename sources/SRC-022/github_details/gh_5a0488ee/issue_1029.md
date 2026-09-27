@@ -29,6 +29,7 @@ You can compile with such commands:
 make -j 32
 make install
 
+```bash
 (2)with UCX and SHARP
 export HPCX_SHARP_DIR=/home/hpcx/hpcx-v2.14/sharp
 export LD_LIBRARY_PATH=/home/hpcx/hpcx-v2.14/sharp/lib:$LD_LIBRARY_PATH
@@ -36,4 +37,5 @@ export LD_LIBRARY_PATH=/home/hpcx/hpcx-v2.14/sharp/lib:$LD_LIBRARY_PATH
 ./configure --prefix=/home/RCCL_code/rccl-rdma-sharp-plugins/install_rccl_rdma_sharp_plugins --with-hip=/opt/dtk-23.04.1/hip --with-ucx=/home/hpcx/install/ucx_master/install --with-sharp=/home/hpcx/hpcx-v2.14/sharp
 make -j 32
 make install
+```
 

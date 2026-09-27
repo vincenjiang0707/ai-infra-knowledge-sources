@@ -94,6 +94,7 @@ vllm serve meta-llama/Llama-3.1-8B-Instruct --profiler-config '{"profiler": "tor
 
 vllm bench command:
 
+```bash
 vllm bench serve \
 --backend vllm \
 --model meta-llama/Llama-3.1-8B-Instruct \
@@ -101,6 +102,7 @@ vllm bench serve \
 --dataset-path sharegpt.json \
 --profile \
 --num-prompts 2
+```
 
 
 Or use http request:
@@ -129,6 +131,7 @@ $ curl -X POST http://localhost:8000/stop_profile
 
 Start a server with a local output directory and graph attribution:
 
+```json
 vllm serve meta-llama/Llama-3.1-8B-Instruct \
 --profiler-config '{
 "profiler": "proton",
@@ -137,6 +140,7 @@ vllm serve meta-llama/Llama-3.1-8B-Instruct \
 "proton_hook": "triton",
 "proton_graph_attribution": true
 }'
+```
 
 
 Then use `/start_profile`
@@ -254,12 +258,14 @@ Nsight systems is an advanced tool that exposes more profiling details, such as 
 
 [Install nsight-systems](https://docs.nvidia.com/nsight-systems/InstallationGuide/index.html) using your package manager. The following block is an example for Ubuntu.
 
+```bash
 apt update
 apt install -y --no-install-recommends gnupg
 echo "deb http://developer.download.nvidia.com/devtools/repos/ubuntu$(source /etc/lsb-release; echo "$DISTRIB_RELEASE" | tr -d .)/$(dpkg --print-architecture) /" | tee /etc/apt/sources.list.d/nvidia-devtools.list
 apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
 apt update
 apt install nsight-systems-cli
+```
 
 
 Tip
@@ -290,6 +296,7 @@ The following is an example using the `vllm bench latency`
 
 script:
 
+```bash
 nsys profile \
 --trace-fork-before-exec=true \
 --cuda-graph-trace=node \
@@ -300,6 +307,7 @@ vllm bench latency \
 --batch-size 16 \
 --input-len 512 \
 --output-len 8
+```
 
 
 #### OpenAI Server[¶](https://docs.vllm.ai#openai-server_1)
@@ -311,6 +319,7 @@ command with `nsys profile`
 just like for offline inference, but you will need to specify a few other arguments to enable dynamic capture similarly to the Torch Profiler:
 
 # server
+```bash
 nsys profile \
 --trace-fork-before-exec=true \
 --cuda-graph-trace=node \
@@ -325,6 +334,7 @@ vllm bench serve \
 --dataset-path sharegpt.json \
 --profile \
 --num-prompts 2
+```
 
 
 With `--profile`
@@ -384,6 +394,7 @@ The Python standard library includes [cProfile](https://docs.python.org/3/librar
 
 If a filename is specified, the profile will be saved to that file. If no filename is specified, profile data can be printed to stdout.
 
+```python
 import cProfile
 def expensive_function():
 # some expensive code
@@ -391,10 +402,12 @@ pass
 profiler = cProfile.Profile()
 profiler.runcall(expensive_function)
 profiler.dump_stats("expensive_function.prof")
+```
 
 
 ### Example usage - context manager style[¶](https://docs.vllm.ai#example-usage-context-manager-style)
 
+```python
 import cProfile
 def another_function():
 # more expensive code
@@ -406,6 +419,7 @@ another_function()
 finally:
 profiler.disable()
 profiler.dump_stats("another_function.prof")
+```
 
 
 ### Analyzing Profile Results[¶](https://docs.vllm.ai#analyzing-profile-results)

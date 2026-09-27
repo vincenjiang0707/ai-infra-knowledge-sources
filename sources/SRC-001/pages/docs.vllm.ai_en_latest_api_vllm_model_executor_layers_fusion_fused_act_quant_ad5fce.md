@@ -185,6 +185,7 @@ Returns a QuantizedActivation when a fused kernel matches the activation and the
 ## Source code in `vllm/model_executor/layers/fusion/fused_act_quant.py`
 
 
+```python
 | def maybe_fused_act_quant(
 act_fn: torch.nn.Module,
 x: torch.Tensor,
@@ -203,3 +204,4 @@ if producer is not None and (support is None or support(act_fn, x, linear)):
 return producer(x, linear)
 return act_fn(x)
 |
+```

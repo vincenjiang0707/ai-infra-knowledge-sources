@@ -95,9 +95,11 @@ With `embedding_across_dp: true`
 
 , the hash heads are sharded across all TP × DP ranks into a single table copy. Each step gathers the hash ids of every co-located DP replica, each rank looks up the heads it owns, and the rows are exchanged back. This trades per-step DP collectives for a much smaller table footprint:
 
+```json
 vllm serve deepseek-ai/DeepSeek-V4.1-Flash \
 --tensor-parallel-size 2 --data-parallel-size 4 \
 --engram-config '{"embedding_across_dp": true}'
+```
 
 
 `embedding_across_dp`

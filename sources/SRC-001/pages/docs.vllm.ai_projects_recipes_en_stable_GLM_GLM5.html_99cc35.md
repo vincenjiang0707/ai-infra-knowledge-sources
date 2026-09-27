@@ -36,10 +36,12 @@ Please use the latest main branch of vLLM to serve GLM-5.1 if you intend to use 
 
 ### Installing vLLM from source[¶](https://docs.vllm.ai#installing-vllm-from-source)
 
+```bash
 uv venv
 source .venv/bin/activate
 uv pip install "vllm==0.19.0" --torch-backend=auto
 uv pip install "transformers>=5.4.0"
+```
 
 
 - For FP8 model, you must install DeepGEMM using
@@ -77,6 +79,7 @@ First, install the OpenAI Python client:
 
 You can use the OpenAI client as follows to verify the think mode.
 
+```python
 from openai import OpenAI
 # If running vLLM locally with its default OpenAI-compatible port:
 # http://localhost:8000/v1
@@ -112,6 +115,7 @@ extra_body={
 )
 # The content of reasoning should be None.
 print("thinking=off:\n", resp_off.choices[0].message.reasoning)
+```
 
 
 ### cURL Usage[¶](https://docs.vllm.ai#curl-usage)
@@ -162,6 +166,7 @@ to the server command.
 - The following uses H200*8 as an example to demonstrate how to run the benchmark.
 
 # Prompt-heavy benchmark (8k/1k)
+```bash
 vllm bench serve \
 --model zai-org/GLM-5.1-FP8 \
 --dataset-name random \
@@ -170,6 +175,7 @@ vllm bench serve \
 --request-rate 10 \
 --num-prompts 32 \
 --ignore-eos
+```
 
 
 If successful, you will see the following output.

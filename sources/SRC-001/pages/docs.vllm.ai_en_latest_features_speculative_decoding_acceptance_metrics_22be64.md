@@ -27,9 +27,11 @@ or `detailed`
 
 ):
 
+```json
 vllm serve <target-model> \
 --speculative-config '{"method": "ngram", "num_speculative_tokens": 3, "prompt_lookup_min": 1, "prompt_lookup_max": 3}' \
 --per-request-spec-decode-metrics summary
+```
 
 
 | Level | Behavior |
@@ -60,6 +62,7 @@ response's `metrics`
 
 looks like:
 
+```json
 {
 "choices": [ ... ],
 "usage": { ... },
@@ -75,6 +78,7 @@ looks like:
 }
 }
 }
+```
 
 
 | Field | Description |

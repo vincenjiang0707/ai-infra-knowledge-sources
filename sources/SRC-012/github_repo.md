@@ -33,6 +33,7 @@ MLC LLM is a machine learning compiler and high-performance deployment engine fo
 <div align="center">
 <table style="width:100%">
   <thead>
+```html
     <tr>
       <th style="width:15%"> </th>
       <th style="width:20%">AMD GPU</th>
@@ -40,8 +41,10 @@ MLC LLM is a machine learning compiler and high-performance deployment engine fo
       <th style="width:20%">Apple GPU</th>
       <th style="width:24%">Intel GPU</th>
     </tr>
+```
   </thead>
   <tbody>
+```html
     <tr>
       <td>Linux / Win</td>
       <td>✅ Vulkan, ROCm</td>
@@ -69,6 +72,7 @@ MLC LLM is a machine learning compiler and high-performance deployment engine fo
       <td colspan=2>✅ OpenCL on Adreno GPU</td>
       <td colspan=2>✅ OpenCL on Mali GPU</td>
     </tr>
+```
   </tbody>
 </table>
 </div>

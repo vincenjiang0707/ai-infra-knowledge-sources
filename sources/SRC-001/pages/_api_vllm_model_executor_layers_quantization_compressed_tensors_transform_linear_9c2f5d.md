@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/transform/linear/
 lastmod: 2026-09-27
 
+```python
 class CompressedTensorsLinearTransformMethod(LinearMethodBase):
 """Wraps `CompressedTensorsLinearMethod` or `UnquantizedLinearMethod` and adds
 input and output transforms to either side of the original apply method
@@ -136,3 +137,4 @@ raise ValueError("Must have same scheme name")
 if tfm.args.location != location:
 raise ValueError("Must have same location")
 return self.input_tfms, self.output_tfms
+```

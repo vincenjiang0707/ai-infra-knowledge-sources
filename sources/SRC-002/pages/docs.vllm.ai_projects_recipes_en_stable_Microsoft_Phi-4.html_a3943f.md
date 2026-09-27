@@ -14,9 +14,11 @@ The Phi-4 family includes several lightweight, open models from Microsoft. These
 ### Running Phi-4-mini-instruct on a Single GPU[¶](https://docs.vllm.ai#running-phi-4-mini-instruct-on-a-single-gpu)
 
 # Start server on a single GPU
+```bash
 vllm serve microsoft/Phi-4-mini-instruct \
 --host 0.0.0.0 \
 --max-model-len 4000
+```
 
 
 ## Performance Metrics[¶](https://docs.vllm.ai#performance-metrics)
@@ -35,6 +37,7 @@ vllm bench serve \
 
 ## Querying with OpenAI API Client[¶](https://docs.vllm.ai#querying-with-openai-api-client)
 
+```python
 from openai import OpenAI
 client = OpenAI(
 api_key="EMPTY",
@@ -53,6 +56,7 @@ messages=messages,
 temperature=0.0
 )
 print("Generated text:", response.choices[0].message.content)
+```
 
 
 ### Multimodal Example (Image + Text)[¶](https://docs.vllm.ai#multimodal-example-image-text)
@@ -65,6 +69,7 @@ To run this example, you must start the server with the`microsoft/Phi-4-multimod
 
 model:
 
+```python
 from openai import OpenAI
 client = OpenAI(
 api_key="EMPTY",
@@ -95,6 +100,7 @@ messages=messages,
 temperature=0.0
 )
 print("Generated text:", response.choices[0].message.content)
+```
 
 
 ## Available Phi-4 Variants[¶](https://docs.vllm.ai#available-phi-4-variants)

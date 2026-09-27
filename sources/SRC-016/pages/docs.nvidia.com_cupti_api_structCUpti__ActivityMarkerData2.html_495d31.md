@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityMarkerData2.html
 # 7.71. CUpti_ActivityMarkerData2[#](https://docs.nvidia.com#cupti-activitymarkerdata2)
 
 -
+```rust
 struct CUpti_ActivityMarkerData2
 [#](https://docs.nvidia.com#_CPPv425CUpti_ActivityMarkerData2) The activity record providing detailed information for a marker.
+```
 
 User must enable CUPTI_ACTIVITY_KIND_MARKER as well to get records for marker data. The marker data contains color, payload, and category. (CUPTI_ACTIVITY_KIND_MARKER_DATA).
 

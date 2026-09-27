@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::ArithmeticReductionKeepDims[#](https://docs.openvino.ai#class-ov-op-util-arithmeticreductionkeepdims)
 
 -
+```python
 class ArithmeticReductionKeepDims : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ArithmeticReduction](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_arithmetic_reduction.html#_CPPv4N2ov2op4util19ArithmeticReductionE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util27ArithmeticReductionKeepDimsE) Subclassed by
+```
 
 [ov::op::v1::ReduceMax](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_reduce_max),[ov::op::v1::ReduceMean](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_reduce_mean),[ov::op::v1::ReduceMin](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_reduce_min),[ov::op::v1::ReduceProd](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_reduce_prod),[ov::op::v1::ReduceSum](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_reduce_sum),[ov::op::v4::ReduceL1](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_reduce_l1),[ov::op::v4::ReduceL2](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_reduce_l2)Public Functions
 

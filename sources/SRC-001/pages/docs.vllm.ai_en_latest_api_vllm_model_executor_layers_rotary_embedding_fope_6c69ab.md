@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/fope/
 lastmod: 2026-09-27
 
+```python
 class FourierRotaryEmbedding(RotaryEmbedding):
 def __init__(
 self,
@@ -160,3 +161,4 @@ world_size = num_key_value_heads
 rank = rank // n_replicate
 loaded_weight = loaded_weight.chunk(world_size, dim=0)[rank]
 param.data.copy_(loaded_weight)
+```

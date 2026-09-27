@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v0::Proposal[#](https://docs.openvino.ai#class-ov-op-v0-proposal)
 
 -
+```python
 class Proposal : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v08ProposalE) [Proposal](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_proposal)operation.Subclassed by
+```
 
 [ov::op::v4::Proposal](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_proposal)Unnamed Group
 
@@ -33,8 +35,10 @@ Throws if the node is invalid.
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v08Proposal10AttributesE)
+```
 
 -
 void set_attrs(

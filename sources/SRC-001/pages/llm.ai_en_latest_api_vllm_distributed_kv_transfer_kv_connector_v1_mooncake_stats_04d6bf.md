@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/stats/
 lastmod: 2026-09-27
 
+```python
 @dataclass
 class MooncakeKVConnectorStats(KVConnectorStats):
 """Container for Mooncake KV transfer performance metrics.
@@ -111,3 +112,4 @@ return {
 @property
 def num_successful_transfers(self) -> int:
 return len(self.data["transfer_duration"])
+```

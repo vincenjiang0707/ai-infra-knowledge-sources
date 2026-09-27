@@ -462,9 +462,11 @@ installation steps. For example, if the analysis script requires the `dask`
 package, the analysis system
 automatically installs the `dask`
 
+```go
 package into the virtual environment. The installation can
 sometimes take a few minutes to complete, so be patient. You can monitor the installation progress
 by viewing the `recipe_dependencies_install_log.txt`
+```
 
 file in the current working directory.
 

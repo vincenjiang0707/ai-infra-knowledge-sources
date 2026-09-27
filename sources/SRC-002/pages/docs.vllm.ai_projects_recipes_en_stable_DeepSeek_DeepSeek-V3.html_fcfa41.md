@@ -48,6 +48,7 @@ to the server command.
 ### FP8 Benchmark[¶](https://docs.vllm.ai#fp8-benchmark)
 
 # Prompt-heavy benchmark (8k/1k)
+```bash
 vllm bench serve \
 --model deepseek-ai/DeepSeek-R1-0528 \
 --dataset-name random \
@@ -56,11 +57,13 @@ vllm bench serve \
 --request-rate 10000 \
 --num-prompts 16 \
 --ignore-eos
+```
 
 
 ### FP4 Benchmark[¶](https://docs.vllm.ai#fp4-benchmark)
 
 # Prompt-heavy benchmark (8k/1k)
+```bash
 vllm bench serve \
 --model nvidia/DeepSeek-R1-FP4 \
 --dataset-name random \
@@ -69,6 +72,7 @@ vllm bench serve \
 --request-rate 10000 \
 --num-prompts 16 \
 --ignore-eos
+```
 
 
 ### Benchmark Configurations[¶](https://docs.vllm.ai#benchmark-configurations)

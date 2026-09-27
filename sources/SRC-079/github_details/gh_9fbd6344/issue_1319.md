@@ -6,8 +6,10 @@ labels: question, stale, waiting for feedback
 
 ## 正文
 
+```python
 In _load_ultrachat_conversations, the messages are constructed using only the user role:
 msgs = [{"role": "user", "content": prompt}]
+```
 
 However, LanguageDataCollator.__call__ implements a mandatory check that skips any sample missing an assistant turn:
 ```python

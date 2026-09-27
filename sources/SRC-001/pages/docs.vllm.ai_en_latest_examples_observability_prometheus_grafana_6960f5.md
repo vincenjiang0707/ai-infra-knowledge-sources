@@ -19,6 +19,7 @@ Launch Prometheus and Grafana servers with `docker compose`
 
 Submit some sample requests to the server:
 
+```bash
 wget https://huggingface.co/datasets/anon8231489123/ShareGPT_Vicuna_unfiltered/resolve/main/ShareGPT_V3_unfiltered_cleaned_split.json
 vllm bench serve \
 --model mistralai/Mistral-7B-v0.1 \
@@ -27,6 +28,7 @@ vllm bench serve \
 --dataset-name sharegpt \
 --dataset-path ShareGPT_V3_unfiltered_cleaned_split.json \
 --request-rate 3.0
+```
 
 
 Navigating to [ http://localhost:8000/metrics](http://localhost:8000/metrics) will show the raw Prometheus metrics being exposed by vLLM.
@@ -68,19 +70,23 @@ datasource. You should see a screen that looks like the following:## Example mat
 ## docker-compose.yaml
 
 # docker-compose.yaml
+```yaml
 version: "3"
 services:
 prometheus:
 image: prom/prometheus:latest
 extra_hosts:
+```
 - "host.docker.internal:host-gateway" # allow a direct connection from container to the local machine
 ports:
 - "9090:9090" # the default port used by Prometheus
 volumes:
 - ${PWD}/prometheus.yaml:/etc/prometheus/prometheus.yml # mount Prometheus config file
+```yaml
 grafana:
 image: grafana/grafana:latest
 depends_on:
+```
 - prometheus
 ports:
 - "3000:3000" # the default port used by Grafana
@@ -88,6 +94,7 @@ ports:
 
 ## grafana.json
 
+```json
 {
 "annotations": {
 "list": [
@@ -1781,3 +1788,4 @@ ports:
 "version": 8,
 "weekStart": ""
 }
+```

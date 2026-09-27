@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/transformers/fusers/mla/
 lastmod: 2026-09-27
 
+```python
 @dataclass
 class MLAFuser(StackedFuser):
 """Fuser for the MLA attention pattern."""
@@ -170,3 +171,4 @@ replace_linear_by_name(self.kv_b_proj_name, "colwise")
 module.get_submodule(self.kv_b_proj_name).return_bias = True
 if self.o_proj_name is not None:
 replace_linear_by_name(self.o_proj_name, "rowwise")
+```

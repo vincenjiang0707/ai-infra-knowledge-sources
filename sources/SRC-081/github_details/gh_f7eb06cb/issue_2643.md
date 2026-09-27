@@ -61,13 +61,16 @@ I can provide:
 ['mtp.fc.weight', 'mtp.layers.0.self_attn.o_proj.weight', 'mtp.layers.0.self_attn.q_proj.weight', 'mtp.layers.0.input_layernorm.weight', 'mtp.layers.0.mlp.experts.0.down_proj.weight', 'mtp.layers.0.mlp.experts.0.gate_proj.weight'...]
 - the load script and the corresponding outputs
 
+```python
 import os
 import json
 from safetensors import safe_open
 from gptqmodel import GPTQModel, QuantizeConfig
+```
 
 MODEL_ID = "./Qwen/Qwen3.5-35B-A3B"
 
+```python
 index_file = os.path.join(MODEL_ID, "model.safetensors.index.json")
 with open(index_file, "r", encoding="utf-8") as f:
     index_data = json.load(f)
@@ -79,15 +82,18 @@ for shard in sorted(set(index_data["weight_map"].values())):
         for k in f.keys():
             if "mtp" in k.lower():
                 orig_mtp_keys.append(k)
+```
 
 print("original checkpoint mtp count:", len(orig_mtp_keys))
 print("original checkpoint mtp sample:", orig_mtp_keys[:20])
 
 quant_config = QuantizeConfig(
+```bash
     bits=4,
     group_size=128,
     sym=True,
     desc_act=False,
+```
 )
 
 model = GPTQModel.load(
@@ -96,8 +102,10 @@ model = GPTQModel.load(
     trust_remote_code=True,
 )
 
+```python
 mtp_module_names = [name for name, _ in model.named_modules() if "mtp" in name.lower()]
 mtp_state_keys = [k for k in model.state_dict().keys() if "mtp" in k.lower()]
+```
 
 print("named_modules mtp count:", len(mtp_module_names))
 print("state_dict mtp count:", len(mtp_state_keys))

@@ -19,6 +19,7 @@ during training, both policies share identical action subspaces. DeepSeek report
 
 ## Quick start[¶](https://docs.vllm.ai#quick-start)
 
+```python
 from vllm import LLM, SamplingParams
 llm = LLM(model, return_sampling_mask=True,
 logprobs_mode="processed_logprobs")
@@ -28,6 +29,7 @@ SamplingParams(temperature=1.0, top_k=50, top_p=0.95, logprobs=1),
 )
 mask = output[0].outputs[0].sampling_mask
 # mask.token_ids: [[187, 326, 512], [42, 88], ...]
+```
 # mask.token_ids[i] = token IDs in the sampling support for generated token i
 
 
@@ -35,6 +37,7 @@ The mask is also available via the `/inference/v1/generate`
 
 HTTP endpoint:
 
+```json
 {
 "choices": [{
 "token_ids": [187, 42, 303],
@@ -42,6 +45,7 @@ HTTP endpoint:
 "finish_reason": "stop"
 }]
 }
+```
 
 
 ## Requirements[¶](https://docs.vllm.ai#requirements)
@@ -94,11 +98,13 @@ is computed over processed logits (where filtered tokens are `-inf`
 ), so the denominator only includes the nucleus.** π_θ(a|s) — current policy's nucleus-normalized logprob:** Computed by the training framework using the mask:
 
 # mask_ids: list[int], the sampling support for this token
+```bash
 # logits: the training model's raw logits for this position
 keep = torch.zeros(vocab_size, dtype=torch.bool)
 keep[mask_ids] = True
 masked_logits = logits.masked_fill(~keep, float("-inf"))
 log_prob = log_softmax(masked_logits)[sampled_token_id]
+```
 
 
 Both sides normalize over the same token set, so the importance ratio is consistent.

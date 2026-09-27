@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/model/
 lastmod: 2026-09-27
 
+```python
 class KimiLinearModel(nn.Module, EagleModelMixin, SupportsQuant):
 packed_modules_mapping = {
 "gate_up_proj": ["gate_proj", "up_proj"],
@@ -438,3 +439,4 @@ def finalize_mega_moe_weights(self) -> None:
 for module in self.modules():
 if isinstance(module, KimiMoE) and module.use_mega_moe:
 module.experts.finalize_weights()
+```

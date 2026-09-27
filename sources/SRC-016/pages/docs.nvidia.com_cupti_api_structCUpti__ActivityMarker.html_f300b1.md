@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityMarker.html
 # 7.68. CUpti_ActivityMarker[#](https://docs.nvidia.com#cupti-activitymarker)
 
 -
+```rust
 struct CUpti_ActivityMarker
 [#](https://docs.nvidia.com#_CPPv420CUpti_ActivityMarker) The activity record providing a marker which is an instantaneous point in time.
+```
 
 (deprecated in CUDA 8.0)
 

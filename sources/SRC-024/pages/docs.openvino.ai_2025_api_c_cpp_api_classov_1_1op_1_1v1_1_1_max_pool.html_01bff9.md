@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v1::MaxPool[#](https://docs.openvino.ai#class-ov-op-v1-maxpool)
 
 -
+```python
 class MaxPool : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[MaxPoolBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_max_pool_base.html#_CPPv4N2ov2op4util11MaxPoolBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v17MaxPoolE) Batched max pooling operation.
+```
 
 Public Functions
 

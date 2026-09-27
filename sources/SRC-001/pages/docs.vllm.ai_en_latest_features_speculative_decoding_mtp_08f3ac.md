@@ -22,10 +22,12 @@ Use `"method": "mtp"`
 
 when serving Gemma 4 with an assistant checkpoint:
 
+```json
 vllm serve google/gemma-4-E2B-it \
 --tensor-parallel-size 1 \
 --max-model-len 8192 \
 --speculative-config '{"method":"mtp","model":"gg-hf-am/gemma-4-E2B-it-assistant","num_speculative_tokens":1}'
+```
 
 
 The E2B, E4B, 12B, 26B-A4B, and 31B Gemma 4 IT assistant checkpoints are supported. Tower-based variants use `model_type: gemma4_assistant`
@@ -42,6 +44,7 @@ for a Gemma 4 assistant checkpoint, that release is treating the assistant as a 
 
 ## Offline Example[¶](https://docs.vllm.ai#offline-example)
 
+```python
 from vllm import LLM, SamplingParams
 prompts = ["The future of AI is"]
 sampling_params = SamplingParams(temperature=0.8, top_p=0.95)
@@ -58,13 +61,16 @@ for output in outputs:
 prompt = output.prompt
 generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+```
 
 
 ## Online Example[¶](https://docs.vllm.ai#online-example)
 
+```json
 vllm serve XiaomiMiMo/MiMo-7B-Base \
 --tensor-parallel-size 1 \
 --speculative-config '{"method":"mtp","num_speculative_tokens":1}'
+```
 
 
 ## Notes[¶](https://docs.vllm.ai#notes)

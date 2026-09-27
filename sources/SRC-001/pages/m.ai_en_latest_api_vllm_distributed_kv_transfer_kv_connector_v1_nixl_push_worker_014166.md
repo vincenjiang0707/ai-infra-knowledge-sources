@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/nixl/push_worker/
 lastmod: 2026-09-27
 
+```python
 class NixlPushConnectorWorker(NixlBaseConnectorWorker):
 """Push-specific (WRITE) worker logic. See module docstring."""
 # Distinguishes push from pull in the NIXL compatibility hash.
@@ -686,3 +687,4 @@ self._evict_finished_inbox.put(req_id)
 if done_sending:
 self._push_writer_wake.set()
 return results
+```

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/speech_to_text/base/serving/
 lastmod: 2026-09-27
 
+```python
 class SpeechToTextBaseServing(GenerateBaseServing):
 """Base class for speech-to-text operations like transcription and
 translation."""
@@ -669,3 +670,4 @@ data = self.create_streaming_error_response(e)
 yield f"data: {data}\n\n"
 # Send the final done message after all response.n are finished
 yield "data: [DONE]\n\n"
+```

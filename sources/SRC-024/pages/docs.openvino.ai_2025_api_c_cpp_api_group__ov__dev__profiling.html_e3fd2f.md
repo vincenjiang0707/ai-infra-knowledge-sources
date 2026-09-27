@@ -321,12 +321,16 @@ inline void threadName(const std::string &name)
 [#](https://docs.openvino.ai#_CPPv4N8openvino3itt10threadNameERKNSt6stringE)
 
 -
+```rust
 struct domain_
 [#](https://docs.openvino.ai#_CPPv4N8openvino3itt7domain_E) *#include <itt.hpp>*
+```
 
 -
+```rust
 struct handle_
 [#](https://docs.openvino.ai#_CPPv4N8openvino3itt7handle_E) *#include <itt.hpp>*
+```
 
 -
 template<

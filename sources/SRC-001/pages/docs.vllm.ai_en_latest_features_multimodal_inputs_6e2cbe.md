@@ -40,6 +40,7 @@ field of the multi-modal dictionary, as shown in the following examples:
 
 ## Code
 
+```python
 from vllm import LLM
 llm = LLM(model="llava-hf/llava-1.5-7b-hf")
 # Refer to the HuggingFace repo for the correct format to use
@@ -72,6 +73,7 @@ outputs = llm.generate(
 for o in outputs:
 generated_text = o.outputs[0].text
 print(generated_text)
+```
 
 
 Full example: [ examples/generate/multimodal/vision_language_offline.py](https://github.com/vllm-project/vllm/blob/main/examples/generate/multimodal/vision_language_offline.py)
@@ -80,6 +82,7 @@ To substitute multiple images inside the same text prompt, you can pass in a lis
 
 ## Code
 
+```python
 from vllm import LLM
 llm = LLM(
 model="microsoft/Phi-3.5-vision-instruct",
@@ -99,6 +102,7 @@ outputs = llm.generate({
 for o in outputs:
 generated_text = o.outputs[0].text
 print(generated_text)
+```
 
 
 Full example: [ examples/generate/multimodal/vision_language_multi_image_offline.py](https://github.com/vllm-project/vllm/blob/main/examples/generate/multimodal/vision_language_multi_image_offline.py)
@@ -107,6 +111,7 @@ If using the [LLM.chat](https://docs.vllm.ai/models/generative_models/#llmchat) 
 
 ## Code
 
+```python
 from vllm import LLM
 from vllm.assets.image import ImageAsset
 llm = LLM(model="llava-hf/llava-1.5-7b-hf")
@@ -144,12 +149,14 @@ outputs = llm.chat(conversation)
 for o in outputs:
 generated_text = o.outputs[0].text
 print(generated_text)
+```
 
 
 Multi-image input can be extended to perform video captioning. We show this with [Qwen2-VL](https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct) as it supports videos:
 
 ## Code
 
+```python
 from vllm import LLM
 # Specify the maximum number of frames per video to be 4. This can be changed.
 llm = LLM("Qwen/Qwen2-VL-2B-Instruct", limit_mm_per_prompt={"image": 4})
@@ -173,6 +180,7 @@ outputs = llm.chat([message])
 for o in outputs:
 generated_text = o.outputs[0].text
 print(generated_text)
+```
 
 
 #### Custom RGBA Background Color[¶](https://docs.vllm.ai#custom-rgba-background-color)
@@ -185,6 +193,7 @@ parameter in `media_io_kwargs`
 
 ## Code
 
+```python
 from vllm import LLM
 # Default white background (no configuration needed)
 llm = LLM(model="llava-hf/llava-1.5-7b-hf")
@@ -198,6 +207,7 @@ llm = LLM(
 model="llava-hf/llava-1.5-7b-hf",
 media_io_kwargs={"image": {"rgba_background_color": [0, 0, 255]}},
 )
+```
 
 
 Note
@@ -225,6 +235,7 @@ is used for backward compatibility
 
 : generate a caption for the image.
 
+```python
 from vllm import LLM, SamplingParams
 from vllm.assets.image import ImageAsset
 llm = LLM(
@@ -261,6 +272,7 @@ SamplingParams(max_tokens=100, temperature=0),
 )[0].outputs[0].text
 print("query:", query_out)
 print("caption:", caption_out)
+```
 
 
 Note
@@ -283,6 +295,7 @@ instances, as shown in this example using Qwen2.5-VL:
 
 ## Code
 
+```python
 from transformers import AutoProcessor
 from vllm import LLM, SamplingParams
 from qwen_vl_utils import process_vision_info
@@ -332,6 +345,7 @@ outputs = llm.generate([llm_inputs], sampling_params=sampling_params)
 for o in outputs:
 generated_text = o.outputs[0].text
 print(generated_text)
+```
 
 
 Note
@@ -377,6 +391,7 @@ Full example: [ examples/generate/multimodal/audio_language_offline.py](https://
 
 Speech-to-text models like Whisper have a maximum audio length they can process (typically 30 seconds). For longer audio files, vLLM provides a utility to intelligently split audio into chunks at quiet points to minimize cutting through speech.
 
+```python
 from vllm import LLM, SamplingParams
 from vllm.multimodal.audio import split_audio
 from vllm.multimodal.media.audio import load_audio
@@ -403,6 +418,7 @@ outputs = llm.generate({
 transcriptions.append(outputs[0].outputs[0].text)
 # Combine results
 full_transcription = " ".join(transcriptions)
+```
 
 
 The `split_audio`
@@ -444,6 +460,7 @@ format (soundfile)
 
 **Example with stereo audio:**
 
+```python
 import torchaudio
 from vllm import LLM
 # Load stereo audio file - returns (channels, time) shape
@@ -455,6 +472,7 @@ outputs = llm.generate({
 "prompt": "",
 "multi_modal_data": {"audio": (audio.numpy(), sr)},
 })
+```
 
 
 No manual conversion is needed - vLLM handles the channel normalization automatically based on the model's requirements.
@@ -477,6 +495,7 @@ The vLLM engine may crash if incorrect shape of embeddings is passed. Only enabl
 
 ## Code
 
+```python
 from vllm import LLM
 # Inference with image embeddings as input
 llm = LLM(model="llava-hf/llava-1.5-7b-hf", enable_mm_embeds=True)
@@ -523,6 +542,7 @@ mm_data = {
 "image_sizes": [image.size for image in images],
 }
 }
+```
 
 
 For Qwen3-VL, the `image_embeds`
@@ -535,6 +555,7 @@ You can pass pre-computed audio embeddings similar to image embeddings:
 
 ## Code
 
+```python
 from vllm import LLM
 import torch
 # Enable audio embeddings support
@@ -551,6 +572,7 @@ outputs = llm.generate({
 for o in outputs:
 generated_text = o.outputs[0].text
 print(generated_text)
+```
 
 
 ### Cached Inputs[¶](https://docs.vllm.ai#cached-inputs)
@@ -561,6 +583,7 @@ to provide your own stable IDs for each item so caching can reuse work across re
 
 ## Code
 
+```python
 from vllm import LLM
 from PIL import Image
 # Qwen2.5-VL example with two images
@@ -580,12 +603,14 @@ outputs = llm.generate({
 })
 for o in outputs:
 print(o.outputs[0].text)
+```
 
 
 Using UUIDs, you can also skip sending media data entirely if you expect cache hits for respective items. Note that the request will fail if the skipped media doesn't have a corresponding UUID, or if the UUID fails to hit the cache.
 
 ## Code
 
+```python
 from vllm import LLM
 from PIL import Image
 # Qwen2.5-VL example with two images
@@ -601,6 +626,7 @@ outputs = llm.generate({
 })
 for o in outputs:
 print(o.outputs[0].text)
+```
 
 
 Warning
@@ -633,14 +659,17 @@ Image input is supported according to [OpenAI Vision API](https://platform.opena
 
 First, launch the OpenAI-compatible server:
 
+```bash
 vllm serve microsoft/Phi-3.5-vision-instruct --runner generate \
 --trust-remote-code --max-model-len 4096 --limit-mm-per-prompt.image 2
+```
 
 
 Then, you can use the OpenAI client as follows:
 
 ## Code
 
+```python
 import os
 from openai import OpenAI
 openai_api_key = "EMPTY"
@@ -730,6 +759,7 @@ messages=[
 ],
 )
 print("Chat completion output:", chat_response.choices[0].message.content)
+```
 
 
 Full example: [ examples/generate/multimodal/openai_chat_completion_client_for_multimodal.py](https://github.com/vllm-project/vllm/blob/main/examples/generate/multimodal/openai_chat_completion_client_for_multimodal.py)
@@ -766,6 +796,7 @@ Then, you can use the OpenAI client as follows:
 
 ## Code
 
+```python
 from openai import OpenAI
 openai_api_key = "EMPTY"
 openai_api_base = "http://localhost:8000/v1"
@@ -797,6 +828,7 @@ max_completion_tokens=64,
 )
 result = chat_completion_from_url.choices[0].message.content
 print("Chat completion output from image url:", result)
+```
 
 
 Full example: [ examples/generate/multimodal/openai_chat_completion_client_for_multimodal.py](https://github.com/vllm-project/vllm/blob/main/examples/generate/multimodal/openai_chat_completion_client_for_multimodal.py)
@@ -830,8 +862,10 @@ parameter via `--media-io-kwargs`
 
 :
 
+```json
 vllm serve Qwen/Qwen3-VL-30B-A3B-Instruct \
 --media-io-kwargs '{"video": {"backend": "torchcodec"}}'
+```
 
 
 **TorchCodec-specific parameters:**
@@ -855,8 +889,10 @@ backend:
 skips that scan for faster decoder creation, at the cost of relying on the file's metadata (which may yield less accurate seeking).
 
 # Example: TorchCodec with approximate seek mode and 4 FFmpeg threads
+```json
 vllm serve Qwen/Qwen3-VL-30B-A3B-Instruct \
 --media-io-kwargs '{"video": {"backend": "torchcodec", "seek_mode": "approximate", "num_ffmpeg_threads": 4}}'
+```
 
 
 **PyNvVideoCodec-specific parameters:**
@@ -868,8 +904,10 @@ vllm serve Qwen/Qwen3-VL-30B-A3B-Instruct \
 , which is the recommended starting point for concurrent video workloads. Because vLLM reserves GPU memory for these slots at startup, this value cannot be overridden per request. Benchmark before increasing it because each additional slot increases the GPU memory reservation.
 
 # Example: explicitly use the recommended 2 hardware decoders
+```json
 vllm serve Qwen/Qwen3-VL-30B-A3B-Instruct \
 --media-io-kwargs '{"video": {"backend": "pynvvideocodec", "hw_decoders": 2}}'
+```
 
 
 #### Video Frame Recovery[¶](https://docs.vllm.ai#video-frame-recovery)
@@ -883,8 +921,10 @@ parameter via `--media-io-kwargs`
 :
 
 # Example: Enable frame recovery
+```json
 vllm serve Qwen/Qwen3-VL-30B-A3B-Instruct \
 --media-io-kwargs '{"video": {"frame_recovery": true}}'
+```
 
 
 **Parameters:**
@@ -922,18 +962,22 @@ value to reserve VRAM for video decoding. vLLM carves this budget out of the mem
 
 Select the backend with an environment variable and specify a workload-appropriate VRAM budget. For example, to reserve 1 GiB:
 
+```bash
 export VLLM_VIDEO_LOADER_BACKEND=pynvvideocodec
 vllm serve Qwen/Qwen3-VL-30B-A3B-Instruct \
 --mm-ipc-gpu-memory-gb 1
+```
 
 
 Alternatively, select it with `--media-io-kwargs`
 
 :
 
+```json
 vllm serve Qwen/Qwen3-VL-30B-A3B-Instruct \
 --media-io-kwargs '{"video": {"backend": "pynvvideocodec"}}' \
 --mm-ipc-gpu-memory-gb 1
+```
 
 
 Choose a budget large enough for the largest sampled video that a single API server process must decode. When using multiple API server processes, vLLM divides the configured budget evenly among them.
@@ -948,10 +992,12 @@ Install the backend (Linux x86-64 only):
 
 The pip wheel bundles the DeepStream libraries but still relies on a few system packages that pip cannot install. On Ubuntu:
 
+```bash
 apt-get install -y \
 gstreamer1.0-tools gstreamer1.0-plugins-base gstreamer1.0-plugins-good \
 gstreamer1.0-plugins-bad gstreamer1.0-libav \
 python3-gi python3-gst-1.0 libv4l-0 cuda-libraries-13-0
+```
 
 
 Select the backend either with an environment variable:
@@ -960,8 +1006,10 @@ or per request via `--media-io-kwargs`
 
 :
 
+```json
 vllm serve Qwen/Qwen3-VL-30B-A3B-Instruct \
 --media-io-kwargs '{"video": {"backend": "deepstream"}}'
+```
 
 
 **Parameters:**
@@ -977,8 +1025,10 @@ vllm serve Qwen/Qwen3-VL-30B-A3B-Instruct \
 ). The pool is a singleton, so the first request's value wins.
 
 # Example: 12 decode workers
+```json
 vllm serve Qwen/Qwen3-VL-30B-A3B-Instruct \
 --media-io-kwargs '{"video": {"backend": "deepstream", "pool_size": 12}}'
+```
 
 
 #### Pre-extracted Frame Sequences with `media_io_kwargs`
@@ -1003,6 +1053,7 @@ in your request. This enables more accurate video understanding by preserving te
 
 ## Code
 
+```python
 from openai import OpenAI
 client = OpenAI(base_url="http://localhost:8000/v1", api_key="EMPTY")
 # Client-side frame extraction
@@ -1034,6 +1085,7 @@ extra_body={
 },
 )
 print(response.choices[0].message.content)
+```
 
 
 **Why use media_io_kwargs?**
@@ -1053,11 +1105,13 @@ parameter via `--media-io-kwargs`
 :
 
 # Example: Black background for dark theme
+```json
 vllm serve llava-hf/llava-1.5-7b-hf \
 --media-io-kwargs '{"image": {"rgba_background_color": [0, 0, 0]}}'
 # Example: Custom gray background
 vllm serve llava-hf/llava-1.5-7b-hf \
 --media-io-kwargs '{"image": {"rgba_background_color": [128, 128, 128]}}'
+```
 
 
 ### Audio Inputs[¶](https://docs.vllm.ai#audio-inputs_1)
@@ -1070,6 +1124,7 @@ Then, you can use the OpenAI client as follows:
 
 ## Code
 
+```python
 import base64
 import requests
 from openai import OpenAI
@@ -1114,6 +1169,7 @@ max_completion_tokens=64,
 )
 result = chat_completion_from_base64.choices[0].message.content
 print("Chat completion output from input audio:", result)
+```
 
 
 Alternatively, you can pass `audio_url`
@@ -1124,6 +1180,7 @@ for image input:
 
 ## Code
 
+```
 chat_completion_from_url = client.chat.completions.create(
 messages=[
 {
@@ -1146,6 +1203,7 @@ max_completion_tokens=64,
 )
 result = chat_completion_from_url.choices[0].message.content
 print("Chat completion output from audio url:", result)
+```
 
 
 Full example: [ examples/generate/multimodal/openai_chat_completion_client_for_multimodal.py](https://github.com/vllm-project/vllm/blob/main/examples/generate/multimodal/openai_chat_completion_client_for_multimodal.py)
@@ -1171,8 +1229,10 @@ Select the backend per server via `--media-io-kwargs`
 
 :
 
+```json
 vllm serve mistralai/Voxtral-Mini-3B-2507 \
 --media-io-kwargs '{"audio": {"audio_backend": "soundfile"}}'
+```
 
 
 Tip
@@ -1221,6 +1281,7 @@ field. The following example demonstrates how to pass image embeddings to the Op
 
 ## Code
 
+```python
 from vllm.utils.serial_utils import tensor2base64
 client = OpenAI(
 # defaults to os.environ.get("OPENAI_API_KEY")
@@ -1315,6 +1376,7 @@ embeds,
 ],
 model=model,
 )
+```
 
 
 ### Cached Inputs[¶](https://docs.vllm.ai#cached-inputs_1)
@@ -1324,6 +1386,7 @@ Just like with offline inference, you can skip sending media if you expect cache
 ## Code
 
 # Image/video/audio URL:
+```json
 {
 "type": "image_url",
 "image_url": None,
@@ -1353,3 +1416,4 @@ Just like with offline inference, you can skip sending media if you expect cache
 "video_url": {},
 "uuid": video_uuid,
 },
+```

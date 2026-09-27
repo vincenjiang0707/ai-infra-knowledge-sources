@@ -59,18 +59,22 @@ _No response_
 python3.11 -m venv ~/myenv-py311
 source ~/myenv-py311/bin/activate
 
+```bash
 pip install --upgrade pip  
 pip install --upgrade setuptools  
+```
 
 pip install torch --index-url https://download.pytorch.org/whl/rocm6.3
 
 git clone --recursive https://github.com/ROCm/aiter.git
 
+```
 cd aiter
 pip install -r requirements.txt
 pip install PyYAML
 pip install wheel
 python3 setup.py develop
+```
 
 rocprofv3 --hip-trace -o result -- python op_tests/test_layernorm2d.py
 

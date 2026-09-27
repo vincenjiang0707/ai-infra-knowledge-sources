@@ -12,6 +12,7 @@ When utilizing Axolotl, the training loss reduces to 0 following the gradient ac
 With Torchrun, the training loss consistently remains NaN.
 <img width="745" alt="image" src="https://github.com/FasterDecoding/Medusa/assets/69984048/1b5f0d33-2ea7-49d5-9d2b-1d9566d440ba">
 
+```yaml
 Thanks for the help!! Here is the training configuration:
 base_model: teknium/OpenHermes-2.5-Mistral-7B
 base_model_config: teknium/OpenHermes-2.5-Mistral-7B
@@ -22,9 +23,11 @@ is_llama_derived_model: false
 load_in_8bit: false
 load_in_4bit: false
 strict: false
+```
 
 datasets:
   - path: ShareGPT_Vicuna_unfiltered/ShareGPT_V4.3_unfiltered_cleaned_split.json
+```yaml
     type: sharegpt
 dataset_prepared_path:
 val_set_size: 0.1
@@ -87,6 +90,7 @@ medusa_scheduler: constant
 medusa_lr_multiplier: 4.0
 medusa_only_heads: true
 ddp_find_unused_parameters: true
+```
 
 
 

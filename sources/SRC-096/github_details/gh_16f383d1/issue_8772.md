@@ -199,6 +199,7 @@ CA 'mlx5_3'
 $ ucx_info -d
 
 Memory domain: self
+```yaml
      Component: self
              register: unlimited, cost: 0 nsec
            remote key: 0 bytes
@@ -206,8 +207,10 @@ Memory domain: self
       Transport: self
          Device: memory0
            Type: loopback
+```
   System device: <unknown>
 
+```yaml
       capabilities:
             bandwidth: 0.00/ppn + 6911.00 MB/sec
               latency: 0 nsec
@@ -235,9 +238,11 @@ Memory domain: self
        device address: 0 bytes
         iface address: 8 bytes
        error handling: ep_check
+```
 
 
  Memory domain: tcp
+```yaml
      Component: tcp
              register: unlimited, cost: 0 nsec
            remote key: 0 bytes
@@ -245,18 +250,23 @@ Memory domain: self
       Transport: tcp
          Device: lo
            Type: network
+```
   System device: <unknown>
 
+```yaml
       capabilities:
             bandwidth: 11.91/ppn + 0.00 MB/sec
               latency: 10960 nsec
              overhead: 50000 nsec
             put_zcopy: <= 18446744073709551590, up to 6 iov
+```
   put_opt_zcopy_align: <= 1
+```yaml
         put_align_mtu: <= 0
              am_short: <= 8K
              am_bcopy: <= 8K
              am_zcopy: <= 64K, up to 6 iov
+```
    am_opt_zcopy_align: <= 1
          am_align_mtu: <= 0
             am header: <= 8037
@@ -274,16 +284,20 @@ Memory domain: self
            Type: network
   System device: <unknown>
 
+```yaml
       capabilities:
             bandwidth: 11142.51/ppn + 0.00 MB/sec
               latency: 5206 nsec
              overhead: 50000 nsec
             put_zcopy: <= 18446744073709551590, up to 6 iov
+```
   put_opt_zcopy_align: <= 1
+```yaml
         put_align_mtu: <= 0
              am_short: <= 8K
              am_bcopy: <= 8K
              am_zcopy: <= 64K, up to 6 iov
+```
    am_opt_zcopy_align: <= 1
          am_align_mtu: <= 0
             am header: <= 8037
@@ -301,16 +315,20 @@ Memory domain: self
            Type: network
   System device: <unknown>
 
+```yaml
       capabilities:
             bandwidth: 11142.51/ppn + 0.00 MB/sec
               latency: 5206 nsec
              overhead: 50000 nsec
             put_zcopy: <= 18446744073709551590, up to 6 iov
+```
   put_opt_zcopy_align: <= 1
+```yaml
         put_align_mtu: <= 0
              am_short: <= 8K
              am_bcopy: <= 8K
              am_zcopy: <= 64K, up to 6 iov
+```
    am_opt_zcopy_align: <= 1
          am_align_mtu: <= 0
             am header: <= 8037
@@ -328,16 +346,20 @@ Memory domain: self
            Type: network
   System device: <unknown>
 
+```yaml
       capabilities:
             bandwidth: 113.16/ppn + 0.00 MB/sec
               latency: 5776 nsec
              overhead: 50000 nsec
             put_zcopy: <= 18446744073709551590, up to 6 iov
+```
   put_opt_zcopy_align: <= 1
+```yaml
         put_align_mtu: <= 0
              am_short: <= 8K
              am_bcopy: <= 8K
              am_zcopy: <= 64K, up to 6 iov
+```
    am_opt_zcopy_align: <= 1
          am_align_mtu: <= 0
             am header: <= 8037
@@ -355,6 +377,7 @@ Memory domain: self
       max_conn_priv: 2064 bytes
 
  Memory domain: sysv
+```yaml
      Component: sysv
              allocate: unlimited
            remote key: 12 bytes
@@ -363,8 +386,10 @@ Memory domain: self
       Transport: sysv
          Device: memory
            Type: intra-node
+```
   System device: <unknown>
 
+```yaml
       capabilities:
             bandwidth: 0.00/ppn + 12179.00 MB/sec
               latency: 80 nsec
@@ -397,6 +422,7 @@ Memory domain: self
  Memory domain: posix
      Component: posix
              allocate: <= 98072212K
+```
            remote key: 24 bytes
            rkey_ptr is supported
 
@@ -405,6 +431,7 @@ Memory domain: self
            Type: intra-node
   System device: <unknown>
 
+```yaml
       capabilities:
             bandwidth: 0.00/ppn + 12179.00 MB/sec
               latency: 80 nsec
@@ -437,6 +464,7 @@ Memory domain: self
  Memory domain: mlx5_0
      Component: ib
              register: unlimited, cost: 180 nsec
+```
            remote key: 8 bytes
            local memory handle is required for zcopy
 
@@ -445,6 +473,7 @@ Memory domain: self
            Type: network
   System device: mlx5_0 (0)
 
+```yaml
       capabilities:
             bandwidth: 11794.23/ppn + 0.00 MB/sec
               latency: 660 nsec
@@ -452,16 +481,20 @@ Memory domain: self
             put_short: <= 2K
             put_bcopy: <= 8256
             put_zcopy: <= 1G, up to 11 iov
+```
   put_opt_zcopy_align: <= 512
         put_align_mtu: <= 4K
             get_bcopy: <= 8256
             get_zcopy: 65..1G, up to 11 iov
   get_opt_zcopy_align: <= 512
+```yaml
         get_align_mtu: <= 4K
              am_short: <= 2046
              am_bcopy: <= 8254
              am_zcopy: <= 8254, up to 3 iov
+```
    am_opt_zcopy_align: <= 512
+```yaml
          am_align_mtu: <= 4K
             am header: <= 138
                domain: device
@@ -487,8 +520,10 @@ Memory domain: self
       Transport: rc_verbs
          Device: mlx5_0:1
            Type: network
+```
   System device: mlx5_0 (0)
 
+```yaml
       capabilities:
             bandwidth: 11794.23/ppn + 0.00 MB/sec
               latency: 600 + 1.000 * N nsec
@@ -496,15 +531,18 @@ Memory domain: self
             put_short: <= 124
             put_bcopy: <= 8256
             put_zcopy: <= 1G, up to 5 iov
+```
   put_opt_zcopy_align: <= 512
         put_align_mtu: <= 4K
             get_bcopy: <= 8256
             get_zcopy: 65..1G, up to 5 iov
   get_opt_zcopy_align: <= 512
+```yaml
         get_align_mtu: <= 4K
              am_short: <= 123
              am_bcopy: <= 8255
              am_zcopy: <= 8255, up to 4 iov
+```
    am_opt_zcopy_align: <= 512
          am_align_mtu: <= 4K
             am header: <= 127
@@ -526,6 +564,7 @@ Memory domain: self
            Type: network
   System device: mlx5_0 (0)
 
+```yaml
       capabilities:
             bandwidth: 11794.23/ppn + 0.00 MB/sec
               latency: 600 + 1.000 * N nsec
@@ -533,16 +572,20 @@ Memory domain: self
             put_short: <= 2K
             put_bcopy: <= 8256
             put_zcopy: <= 1G, up to 14 iov
+```
   put_opt_zcopy_align: <= 512
         put_align_mtu: <= 4K
             get_bcopy: <= 8256
             get_zcopy: 65..1G, up to 14 iov
   get_opt_zcopy_align: <= 512
+```yaml
         get_align_mtu: <= 4K
              am_short: <= 2046
              am_bcopy: <= 8254
              am_zcopy: <= 8254, up to 3 iov
+```
    am_opt_zcopy_align: <= 512
+```yaml
          am_align_mtu: <= 4K
             am header: <= 186
                domain: device
@@ -568,8 +611,10 @@ Memory domain: self
       Transport: ud_verbs
          Device: mlx5_0:1
            Type: network
+```
   System device: mlx5_0 (0)
 
+```yaml
       capabilities:
             bandwidth: 11794.23/ppn + 0.00 MB/sec
               latency: 630 nsec
@@ -577,6 +622,7 @@ Memory domain: self
              am_short: <= 116
              am_bcopy: <= 4088
              am_zcopy: <= 4088, up to 5 iov
+```
    am_opt_zcopy_align: <= 512
          am_align_mtu: <= 4K
             am header: <= 3952
@@ -595,6 +641,7 @@ Memory domain: self
            Type: network
   System device: mlx5_0 (0)
 
+```yaml
       capabilities:
             bandwidth: 11794.23/ppn + 0.00 MB/sec
               latency: 630 nsec
@@ -602,6 +649,7 @@ Memory domain: self
              am_short: <= 180
              am_bcopy: <= 4088
              am_zcopy: <= 4088, up to 3 iov
+```
    am_opt_zcopy_align: <= 512
          am_align_mtu: <= 4K
             am header: <= 132
@@ -626,6 +674,7 @@ Memory domain: self
            Type: network
   System device: mlx5_1 (1)
 
+```yaml
       capabilities:
             bandwidth: 11794.23/ppn + 0.00 MB/sec
               latency: 660 nsec
@@ -633,16 +682,20 @@ Memory domain: self
             put_short: <= 2K
             put_bcopy: <= 8256
             put_zcopy: <= 1G, up to 11 iov
+```
   put_opt_zcopy_align: <= 512
         put_align_mtu: <= 4K
             get_bcopy: <= 8256
             get_zcopy: 65..1G, up to 11 iov
   get_opt_zcopy_align: <= 512
+```yaml
         get_align_mtu: <= 4K
              am_short: <= 2046
              am_bcopy: <= 8254
              am_zcopy: <= 8254, up to 3 iov
+```
    am_opt_zcopy_align: <= 512
+```yaml
          am_align_mtu: <= 4K
             am header: <= 138
                domain: device
@@ -668,8 +721,10 @@ Memory domain: self
       Transport: rc_verbs
          Device: mlx5_1:1
            Type: network
+```
   System device: mlx5_1 (1)
 
+```yaml
       capabilities:
             bandwidth: 11794.23/ppn + 0.00 MB/sec
               latency: 600 + 1.000 * N nsec
@@ -677,15 +732,18 @@ Memory domain: self
             put_short: <= 124
             put_bcopy: <= 8256
             put_zcopy: <= 1G, up to 5 iov
+```
   put_opt_zcopy_align: <= 512
         put_align_mtu: <= 4K
             get_bcopy: <= 8256
             get_zcopy: 65..1G, up to 5 iov
   get_opt_zcopy_align: <= 512
+```yaml
         get_align_mtu: <= 4K
              am_short: <= 123
              am_bcopy: <= 8255
              am_zcopy: <= 8255, up to 4 iov
+```
    am_opt_zcopy_align: <= 512
          am_align_mtu: <= 4K
             am header: <= 127
@@ -707,6 +765,7 @@ Memory domain: self
            Type: network
   System device: mlx5_1 (1)
 
+```yaml
       capabilities:
             bandwidth: 11794.23/ppn + 0.00 MB/sec
               latency: 600 + 1.000 * N nsec
@@ -714,16 +773,20 @@ Memory domain: self
             put_short: <= 2K
             put_bcopy: <= 8256
             put_zcopy: <= 1G, up to 14 iov
+```
   put_opt_zcopy_align: <= 512
         put_align_mtu: <= 4K
             get_bcopy: <= 8256
             get_zcopy: 65..1G, up to 14 iov
   get_opt_zcopy_align: <= 512
+```yaml
         get_align_mtu: <= 4K
              am_short: <= 2046
              am_bcopy: <= 8254
              am_zcopy: <= 8254, up to 3 iov
+```
    am_opt_zcopy_align: <= 512
+```yaml
          am_align_mtu: <= 4K
             am header: <= 186
                domain: device
@@ -749,8 +812,10 @@ Memory domain: self
       Transport: ud_verbs
          Device: mlx5_1:1
            Type: network
+```
   System device: mlx5_1 (1)
 
+```yaml
       capabilities:
             bandwidth: 11794.23/ppn + 0.00 MB/sec
               latency: 630 nsec
@@ -758,6 +823,7 @@ Memory domain: self
              am_short: <= 116
              am_bcopy: <= 4088
              am_zcopy: <= 4088, up to 5 iov
+```
    am_opt_zcopy_align: <= 512
          am_align_mtu: <= 4K
             am header: <= 3952
@@ -776,6 +842,7 @@ Memory domain: self
            Type: network
   System device: mlx5_1 (1)
 
+```yaml
       capabilities:
             bandwidth: 11794.23/ppn + 0.00 MB/sec
               latency: 630 nsec
@@ -783,6 +850,7 @@ Memory domain: self
              am_short: <= 180
              am_bcopy: <= 4088
              am_zcopy: <= 4088, up to 3 iov
+```
    am_opt_zcopy_align: <= 512
          am_align_mtu: <= 4K
             am header: <= 132
@@ -803,9 +871,11 @@ Memory domain: self
            local memory handle is required for zcopy
    < no supported devices found >
 
+```yaml
  Memory domain: mlx5_3
      Component: ib
              register: unlimited, cost: 180 nsec
+```
            remote key: 8 bytes
            local memory handle is required for zcopy
    < no supported devices found >
@@ -814,19 +884,23 @@ Memory domain: self
       max_conn_priv: 54 bytes
 
  Memory domain: cma
+```yaml
      Component: cma
              register: unlimited, cost: 9 nsec
 
       Transport: cma
          Device: memory
            Type: intra-node
+```
   System device: <unknown>
 
+```yaml
       capabilities:
             bandwidth: 0.00/ppn + 11145.00 MB/sec
               latency: 80 nsec
              overhead: 2000 nsec
             put_zcopy: unlimited, up to 16 iov
+```
   put_opt_zcopy_align: <= 1
         put_align_mtu: <= 1
             get_zcopy: unlimited, up to 16 iov
@@ -842,6 +916,7 @@ Memory domain: self
 
 
  Memory domain: knem
+```yaml
      Component: knem
              register: unlimited, cost: 180 nsec
            remote key: 16 bytes
@@ -849,13 +924,16 @@ Memory domain: self
       Transport: knem
          Device: memory
            Type: intra-node
+```
   System device: <unknown>
 
+```yaml
       capabilities:
             bandwidth: 13862.00/ppn + 0.00 MB/sec
               latency: 80 nsec
              overhead: 2000 nsec
             put_zcopy: unlimited, up to 16 iov
+```
   put_opt_zcopy_align: <= 1
         put_align_mtu: <= 1
             get_zcopy: unlimited, up to 16 iov

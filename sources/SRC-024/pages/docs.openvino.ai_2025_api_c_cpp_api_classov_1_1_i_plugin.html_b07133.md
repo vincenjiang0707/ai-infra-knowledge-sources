@@ -4,8 +4,10 @@ lastmod:
 # Class ov::IPlugin[#](https://docs.openvino.ai#class-ov-iplugin)
 
 -
+```python
 class IPlugin : public std::enable_shared_from_this<
 [IPlugin](https://docs.openvino.ai#_CPPv4N2ov7IPluginE)>[#](https://docs.openvino.ai#_CPPv4N2ov7IPluginE) OpenVINO Plugin Interface 2.0.
+```
 
 Public Functions
 
@@ -179,8 +181,10 @@ Reference to
 
 
 -
+```rust
 const std::shared_ptr<
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[threading](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9threadingE)::[ExecutorManager](https://docs.openvino.ai/group__ov__dev__api__threading.html#_CPPv4N2ov9threading15ExecutorManagerE)> &get_executor_manager() const[#](https://docs.openvino.ai#_CPPv4NK2ov7IPlugin20get_executor_managerEv) Gets reference to tasks execution manager.
+```
 
 - Returns:
 Reference to ExecutorManager interface

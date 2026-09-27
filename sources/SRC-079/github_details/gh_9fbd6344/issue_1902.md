@@ -60,24 +60,30 @@ The bug-fix PRs (#1908–#1912, #1917–#1920) are unchanged — their regressio
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 5ac774829a89a59c01f24ead8ca4a072ebfe2f9119fc0e5d40aafb97a311f595
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: fb269bc8f2368be2f52fcfcbd80091f327185f708dca1bbdb9546dc30865d9bc
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 3849ec54dfac7947eb35625fd0c9677d0e49aacfb589c66e25163a8839a26b6d
+```
 
 Release follow-up: this open ModelOpt issue needs release relevance confirmed. Link its planned fix/validation, or confirm it is not a v0.46.0 blocker.

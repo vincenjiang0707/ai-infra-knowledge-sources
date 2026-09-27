@@ -9472,8 +9472,10 @@ Unlike other VNC servers, such as TigerVNC or Vino, x11vnc does not create an ex
 - Install the required
 `x11vnc`
 
+```go
 package and any dependent packages.-
 For distributions based on Red Hat, use the yum package manager to install the
+```
 
 `x11vnc`
 

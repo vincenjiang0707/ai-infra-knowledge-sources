@@ -537,6 +537,7 @@ type the sequence is exactly
 returns the next quasirandom element. Calls to
 `curand_uniform()`
 
+```python
 return quasirandom floats or doubles from 0.0 to
 1.0, where 1.0 is included and 0.0 is excluded. Similarly, calls to
 `curand_normal()`
@@ -547,6 +548,7 @@ mean 0.0 and standard deviation 1.0. Calls to `curand_log_normal()`
 return log-normally distributed floats or doubles, derived from the
 normal distribution with the specified mean and standard deviation. All
 of the generation functions may be called with any type of Sobol’
+```
 generator.
 
 As an example, generating quasirandom coordinates that fill a unit cube

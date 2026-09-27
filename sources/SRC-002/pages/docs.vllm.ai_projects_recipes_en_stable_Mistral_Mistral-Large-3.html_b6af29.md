@@ -100,6 +100,7 @@ which is the default for vLLM.
 
 Let's see if ML3 model knows when to pick a fight !
 
+```python
 from datetime import datetime, timedelta
 from openai import OpenAI
 from huggingface_hub import hf_hub_download
@@ -144,12 +145,14 @@ temperature=TEMP,
 max_tokens=MAX_TOK,
 )
 print(response.choices[0].message.content)
+```
 
 
 ### Function Calling[¶](https://docs.vllm.ai#function-calling)
 
 Let's solve some equations thanks to our simple Python calculator tool.
 
+```python
 import json
 from openai import OpenAI
 from huggingface_hub import hf_hub_download
@@ -260,12 +263,14 @@ temperature=TEMP,
 max_tokens=MAX_TOK,
 )
 print(response.choices[0].message.content)
+```
 
 
 ### Text only request[¶](https://docs.vllm.ai#text-only-request)
 
 Mistral-Large-3 can follow your instructions down to the letter.
 
+```python
 from openai import OpenAI
 from huggingface_hub import hf_hub_download
 # Modify OpenAI's API key and API base to use vLLM's API server.
@@ -300,3 +305,4 @@ max_tokens=MAX_TOK,
 )
 assistant_message = response.choices[0].message.content
 print(assistant_message)
+```

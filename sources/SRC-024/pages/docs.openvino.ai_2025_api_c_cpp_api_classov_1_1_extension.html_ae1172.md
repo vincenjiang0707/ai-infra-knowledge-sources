@@ -4,8 +4,10 @@ lastmod:
 # Class ov::Extension[#](https://docs.openvino.ai#class-ov-extension)
 
 -
+```python
 class Extension
 [#](https://docs.openvino.ai#_CPPv4N2ov9ExtensionE) The class provides the base interface for OpenVINO extensions.
+```
 
 Subclassed by
 

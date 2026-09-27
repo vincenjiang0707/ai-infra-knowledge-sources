@@ -96,10 +96,12 @@ The following command serves a `DeepSeek-V3-0324`
 model with 1-way tensor parallel, 8-way (attention) data parallel, and 8-way expert parallel. The attention weights are replicated across all GPUs, while the expert weights are split across GPUs. It will work on a H200 (or H20) node with 8 GPUs. For H100, you can try to serve a smaller model or refer to the multi-node deployment section.
 
 # Single node EP deployment
+```bash
 vllm serve deepseek-ai/DeepSeek-V3-0324 \
 --tensor-parallel-size 1 \ # Tensor parallelism across 1 GPU
 --data-parallel-size 8 \ # Data parallelism across 8 processes
 --enable-expert-parallel # Enable expert parallelism
+```
 
 
 ## Multi-Node Deployment[¶](https://docs.vllm.ai#multi-node-deployment)
@@ -119,6 +121,7 @@ across 2 nodes using `deepep_low_latency`
 mode:
 
 # Node 1 (Primary - handles incoming requests)
+```bash
 vllm serve deepseek-ai/DeepSeek-V3-0324 \
 --all2all-backend deepep_low_latency \
 --tensor-parallel-size 1 \ # TP size per node
@@ -139,6 +142,7 @@ vllm serve deepseek-ai/DeepSeek-V3-0324 \
 --data-parallel-address 192.168.1.100 \ # IP of primary node (Node 1)
 --data-parallel-rpc-port 13345 \ # Same RPC port as primary
 --headless # No API server, worker only
+```
 
 
 ### Key Configuration Notes[¶](https://docs.vllm.ai#key-configuration-notes)
@@ -187,9 +191,11 @@ argument, which accepts a JSON string. The available keys and their descriptions
 
 For example:
 
+```json
 vllm serve Qwen/Qwen3-30B-A3B \
 --enable-eplb \
 --eplb-config '{"window_size":1000,"step_interval":3000,"num_redundant_experts":2,"log_balancedness":true}'
+```
 
 
 ## Prefer individual arguments instead of JSON?
@@ -217,12 +223,14 @@ for one redundant expert per EP rank.
 Single node deployment with EPLB enabled:
 
 # Single node with EPLB load balancing
+```json
 vllm serve deepseek-ai/DeepSeek-V3-0324 \
 --tensor-parallel-size 1 \ # Tensor parallelism
 --data-parallel-size 8 \ # Data parallelism
 --enable-expert-parallel \ # Enable EP
 --enable-eplb \ # Enable load balancer
 --eplb-config '{"window_size":1000,"step_interval":3000,"num_redundant_experts":2,"log_balancedness":true}'
+```
 
 
 For multi-node deployment, add these EPLB flags to each node's command. We recommend setting `--eplb-config '{"num_redundant_experts":32}'`
@@ -307,6 +315,7 @@ are installed as dependencies via pip. For non-cuda platform to install nixl wit
 
 ### Client Orchestration Example[¶](https://docs.vllm.ai#client-orchestration-example)
 
+```python
 from openai import OpenAI
 import uuid
 try:
@@ -366,6 +375,7 @@ print(f"Final response: {decode_response.choices[0].text}")
 except Exception as e:
 print(f"❌ Error during disaggregated serving: {e}")
 print("Check that both prefill and decode instances are running and accessible")
+```
 
 
 ### Benchmarking[¶](https://docs.vllm.ai#benchmarking_1)

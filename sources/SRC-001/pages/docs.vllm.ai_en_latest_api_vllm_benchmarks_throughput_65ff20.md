@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/benchmarks/throughput/
 lastmod: 2026-09-27
 
+```python
 def validate_args(args):
 """Validate command-line arguments."""
 # === Deprecation and Defaulting ===
@@ -147,3 +148,4 @@ raise ValueError(
 "with synchronous engine in offline benchmark, "
 "please use benchmark serving instead"
 )
+```

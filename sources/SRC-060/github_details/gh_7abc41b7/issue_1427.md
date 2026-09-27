@@ -32,6 +32,7 @@ A100-80GB
 
 训练配置文件
 
+```yaml
 train_dataset_type: "erniekit"
 eval_dataset_type: "erniekit"
 train_dataset_path: "./0112train/merged_output.jsonl"
@@ -43,11 +44,13 @@ sft_replace_ids: True
 sft_image_normalize: True
 sft_image_rescale: True
 image_dtype: "float32"
+```
 
 model_name_or_path: ./PaddleOCR-VL
 
 fine_tuning: Full
 
+```yaml
 multimodal: True
 use_flash_attention: True
 use_sparse_flash_attn: True
@@ -88,14 +91,18 @@ weight_decay: 0.1
 adam_epsilon: 1.0e-8
 adam_beta1: 0.9
 adam_beta2: 0.95
+```
 
 tensor_parallel_degree: 1
 
+```yaml
 pipeline_parallel_degree: 1
 sharding_parallel_degree: 1
+```
 
 sharding: stage1
 
+```yaml
 sequence_parallel: False
 pipeline_parallel_config: enable_delay_scale_loss enable_release_grads disable_partial_send_recv
 recompute: True
@@ -104,6 +111,7 @@ recompute_use_reentrant: True
 compute_type: bf16
 fp16_opt_level: O2
 disable_ckpt_quant: True
+```
 
 amp_custom_white_list:
   - lookup_table
@@ -119,9 +127,11 @@ amp_custom_black_list:
   - elementwise_div
   - sin
   - cos
+```yaml
 unified_checkpoint: True
 convert_from_hf: True
 save_to_hf: True
+```
 
 
 ## 评论 (9)

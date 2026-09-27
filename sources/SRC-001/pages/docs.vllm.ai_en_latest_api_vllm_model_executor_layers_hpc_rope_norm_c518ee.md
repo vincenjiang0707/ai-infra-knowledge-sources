@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/hpc/rope_norm/
 lastmod: 2026-09-27
 
+```python
 @CustomOp.register("hpc_rope_norm")
 class HpcRopeNorm(CustomOp, HpcModule):
 """HPC fused RoPE + QK-Norm + KV-Cache-Write (+ optional FP8 Q quant).
@@ -8,11 +9,13 @@ Registered as a sub-module in model layers (e.g. HunYuanAttention).
 The QK-Norm weights are read directly from the fallback norm modules
 (built in float32 when HPC is active), eliminating the derived copy.
 forward() is dispatched by CustomOp framework:
+```
 - In compiled mode: forward_cuda() calls torch.ops.vllm.hpc_rope_norm_forward
 as a splitting point — internal Python control flow is opaque
 to torch.compile (its kernel launches can still be CUDA-graph captured).
 - In eager/native mode: forward_native() falls back to forward_cuda().
 """
+```python
 def __init__(
 self,
 num_heads: int,
@@ -435,3 +438,4 @@ self._scatter_kv_cache(value_cache, out_v, decode_slots)
 # the attention impl would kick in (which is what non-HpcRopeNorm
 # models rely on).
 attn_metadata.hpc_kv_written = True
+```

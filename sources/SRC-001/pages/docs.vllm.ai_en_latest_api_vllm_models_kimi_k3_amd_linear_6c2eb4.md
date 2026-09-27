@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/amd/linear/
 lastmod: 2026-09-27
 
+```python
 class KimiMLAAttention(nn.Module):
 """Main reference: DeepseekV2 vllm Implementation."""
 def __init__(
@@ -139,3 +140,4 @@ positions: torch.Tensor,
 hidden_states: torch.Tensor,
 ) -> torch.Tensor:
 return self.mla_attn(positions, hidden_states)
+```

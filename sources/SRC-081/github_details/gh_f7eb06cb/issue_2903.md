@@ -22,6 +22,7 @@ labels:
 
 and there is another issue, when i quant the same model with gptaq, it stucked more than a day, and here is the log for the quantization of gptaq qwen3.5 27B, the loss is very high
 `{
+```json
     "process": "gptaq",
     "layer": 0,
     "module": "linear_attn.in_proj_qkv",
@@ -33,8 +34,10 @@ and there is another issue, when i quant the same model with gptaq, it stucked m
     "time": "1.287",
     "fwd_time": "3.350",
     "(v)ram": "cuda 45.41G"
+```
 }
 {
+```json
     "process": "gptaq",
     "layer": 0,
     "module": "linear_attn.in_proj_z",
@@ -46,8 +49,10 @@ and there is another issue, when i quant the same model with gptaq, it stucked m
     "time": "0.943",
     "fwd_time": "2.152",
     "(v)ram": "cuda 45.41G"
+```
 }
 {
+```json
     "process": "gptaq",
     "layer": 0,
     "module": "linear_attn.out_proj",
@@ -59,6 +64,7 @@ and there is another issue, when i quant the same model with gptaq, it stucked m
     "time": "1.255",
     "fwd_time": "3.008",
     "(v)ram": "cuda 45.52G"
+```
 }
 `
 
@@ -68,6 +74,7 @@ both quantization processes work in H100 single GPU
 
 and here is the gptaq main code:
 `def main():
+```bash
     args = parse_args()
 
     print("构建量化配置 ...", flush=True)
@@ -119,6 +126,7 @@ and here is the gptaq main code:
 
     os.makedirs(args.output_dir, exist_ok=True)
     model.save(args.output_dir)
+```
 
 
 

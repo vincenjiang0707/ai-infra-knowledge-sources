@@ -119,6 +119,7 @@ Encoding the dataset (and any query) makes use of the [ nq-distilbert-base-v1](h
 
 `simplewiki`
 
+```bash
 dataset and a portion of its encoded version with:```
 simplewiki_save_path = './data/simplewiki-2020-11-01.jsonl.gz'
 simplewiki_url = 'http://sbert.net/datasets/simplewiki-2020-11-01.jsonl.gz'
@@ -130,6 +131,7 @@ passages, corpus_embeddings = create_and_encode_passages(simplewiki_save_path, e
 print(f'\nNumber of passages: {len(passages)}')
 print(f'\nExample of passage:\n{passages[0]}')
 print(f'\nExample of embedded passage:\n{corpus_embeddings[0][:10]}')
+```
 ```
 
 Running the above code should result in the following output:
@@ -165,24 +167,30 @@ Resources is a lightweight Python wrapper around the corresponding C++ class of 
 And then building an index:
 
 ```
+```bash
 bf_index = brute_force.build(corpus_embeddings, metric='sqeuclidean', resources=resources)
 # This function is asynchronous so we need to explicitly synchronize the GPU before we can measure the execution time
 resources.sync()
+```
 ```
 
 With the dataset already encoded, proceed to encode your query:
 
 ```
+```bash
 query="What is creating tides?"
 question_embedding = encoder.encode(query, convert_to_tensor=True)
+```
 ```
 
 Execute the search, retrieve the top 5 nearest data points and measure the time taken for the operation:
 
 ```
 %%time
+```bash
 top_k=5
 distances, neighbors = brute_force.search(bf_index, question_embedding[None], top_k)
+```
 ```
 
 The output will be similar to
@@ -195,18 +203,22 @@ Wall time: 69 ms
 Explore the top-5 items closest to the query with:
 
 ```
+```python
 for k in range(top_k):
 print(f'Distance: {distances[0][k]}',f'Neighbor: {passages[neighbors[0][k]]}\n')
+```
 ```
 
 The resulting passages with their respective distance to the query will look like:
 
 ```
+```yaml
 Distance: 94.91021728515625 Neighbor: ['Tide', "A tide is the periodic rising and falling of Earth's ocean surface caused mainly by the gravitational pull of the Moon acting on the oceans. Tides cause changes in the depth of marine and estuarine (river mouth) waters. Tides also make oscillating currents known as tidal streams (~'rip tides'). This means that being able to predict the tide is important for coastal navigation. The strip of seashore that is under water at high tide and exposed at low tide, called the intertidal zone, is an important ecological product of ocean tides."]
 Distance: 159.54246520996094 Neighbor: ['Tidal energy', "Many things affect tides. The pull of the Moon is the largest effect and most of the energy comes from the slowing of the Earth's spin."]
 Distance: 159.74078369140625 Neighbor: ['Storm surge', 'A storm surge is a sudden rise of water hitting areas close to the coast. Storm surges are usually created by a hurricane or other tropical cyclone. The surge happens because a storm has fast winds and low atmospheric pressure. Water is pushed on shore and the water level rises. Strong storm surges can flood coastal towns and destroy homes. A storm surge is considered the deadliest part of a hurricane. They kill many people each year.']
 Distance: 178.28079223632812 Neighbor: ['Sea', 'Wind blowing over the surface of a body of water forms waves. The friction between air and water caused by a gentle breeze on a pond causes ripples to form. A strong blow over the ocean causes larger waves as the moving air pushes against the raised ridges of water. The waves reach their greatest height when the rate at which they travel nearly matches the speed of the wind. The waves form at right angles to the direction from which the wind blows. In open water, if the wind continues to blow, as happens in the Roaring Forties in the southern hemisphere, long, organized masses of water called swell roll across the ocean. If the wind dies down, the wave formation is reduced but waves already formed continue to travel in their original direction until they meet land. Small waves form in small areas of water with islands and other landmasses but large waves form in open stretches of sea where the wind blows steadily and strongly. When waves meet other waves coming from different directions, interference between the two can produce broken, irregular seas.']
 Distance: 181.4980010986328 Neighbor: ['Tidal force', 'Tidal force is caused by gravity and makes tides happen. This is because the gravitational field changes across the middle of a body (the diameter).']
+```
 ```
 
 ## Vector search using IVF-Flat[#](https://rocm.blogs.amd.com#vector-search-using-ivf-flat)
@@ -232,6 +244,7 @@ The rest of the dataset (or a subset) can be used as a validation set to tune hy
 ) and optimize recall, latency, or memory usage across different configurations.
 
 ```
+```bash
 index_params = ivf_flat.IndexParams(n_lists=1024,
 metric='sqeuclidean',
 kmeans_n_iters=20,
@@ -239,6 +252,7 @@ kmeans_trainset_fraction=0.5
 )
 ivf_flat_index = ivf_flat.build(index_params, corpus_embeddings, resources=resources)
 resources.sync()
+```
 ```
 
 Specify the number of clusters to search on (`n_probes`
@@ -274,8 +288,10 @@ Wall time: 56.5 ms
 As expected, the search operation completes faster than the Brute Force KNN approach. You can also explore the closest neighbors with:
 
 ```
+```python
 for k in range(top_k):
 print(f'Distance: {distances[0][k]}',f'Neighbor: {passages[indices[0][k]]}\n')
+```
 ```
 
 And the output will look like:
@@ -293,6 +309,7 @@ Distance: 185.30377197265625 Neighbor: ['Ocean surface wave', 'Ocean surface wav
 Creating an IVF-PQ index also requires passing a set of *index* and *search* parameters:
 
 ```
+```bash
 pq_dim = 1
 while pq_dim * 2 < corpus_embeddings.shape[1]:
 pq_dim = pq_dim * 2
@@ -300,27 +317,34 @@ index_params = ivf_pq.IndexParams(n_lists=1024, metric='sqeuclidean', pq_dim=pq_
 index = ivf_pq.build(index_params, corpus_embeddings, resources=resources)
 resources.sync()
 ```
+```
 
 The *search* parameters are:
 
 ```
+```bash
 search_params = ivf_pq.SearchParams()
 show_properties(search_params)
+```
 ```
 
 You can encode the query using:
 
 ```
+```bash
 query="What is creating tides?"
 question_embedding = encoder.encode(query, convert_to_tensor=True)
+```
 ```
 
 Next, perform the search and return the top 5 closest elements from the dataset.
 
 ```
 %%time
+```bash
 top_k=5
 distances, neighbors = ivf_pq.search(search_params, index, question_embedding[None], top_k, resources=resources)
+```
 ```
 
 The running time is:
@@ -335,8 +359,10 @@ Although the search time is lower than the Brute Force KNN algorithm and higher 
 The closest elements to the query vector can once again be viewed:
 
 ```
+```python
 for k in range(top_k):
 print(f'Distance: {distances[0][k]}',f'Neighbor: {passages[neighbors[0][k]]}\n')
+```
 ```
 
 ```
@@ -392,8 +418,10 @@ Wall time: 10.3 ms
 Finally, print the closest elements to the query vector:
 
 ```
+```python
 for k in range(top_k):
 print(f'Distance: {distances[0][k]}',f'Neighbor: {passages[neighbors[0][k]]}\n')
+```
 ```
 
 ```

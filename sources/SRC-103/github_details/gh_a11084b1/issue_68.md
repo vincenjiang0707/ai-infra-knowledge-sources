@@ -57,12 +57,14 @@ _If possible, a measure of the peak performance of the current device without be
 So far I do something like: 
 `
 metrics = {
+```json
     "FETCH" : "FETCH_SIZE",
     "WRITE" : "WRITE_SIZE",
     "OP16" : "TOTAL_16_OPS",
     "OP32" : "TOTAL_32_OPS",
     "OP64" : "TOTAL_64_OPS",
     "BANDWIDTH": "BANDWIDTH_EA"
+```
 }
 
 for metric_name, metric_tag in metrics.items():

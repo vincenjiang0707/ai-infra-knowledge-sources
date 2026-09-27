@@ -75,9 +75,11 @@ for Ray.For multi-GPU inference, set `tensor_parallel_size`
 
 in the [ LLM](https://docs.vllm.ai/api/vllm/entrypoints/llm/#vllm.entrypoints.llm.LLM) class to the desired GPU count. For example, to run inference on 4 GPUs:
 
+```python
 from vllm import LLM
 llm = LLM("facebook/opt-13b", tensor_parallel_size=4)
 output = llm.generate("San Francisco is a")
+```
 
 
 For multi-GPU serving, include `--tensor-parallel-size`
@@ -112,22 +114,26 @@ flag to the Docker command.
 
 Choose one node as the head node and run:
 
+```bash
 bash run_cluster.sh \
 vllm/vllm-openai \
 <HEAD_NODE_IP> \
 --head \
 /path/to/the/huggingface/home/in/this/node \
 -e VLLM_HOST_IP=<HEAD_NODE_IP>
+```
 
 
 On each worker node, run:
 
+```bash
 bash run_cluster.sh \
 vllm/vllm-openai \
 <HEAD_NODE_IP> \
 --worker \
 /path/to/the/huggingface/home/in/this/node \
 -e VLLM_HOST_IP=<WORKER_NODE_IP>
+```
 
 
 Note that `VLLM_HOST_IP`
@@ -164,19 +170,23 @@ command on a single node is sufficient.
 
 The common practice is to set the tensor parallel size to the number of GPUs in each node, and the pipeline parallel size to the number of nodes. For example, if you have 16 GPUs across 2 nodes (8 GPUs per node), set the tensor parallel size to 8 and the pipeline parallel size to 2:
 
+```bash
 vllm serve /path/to/the/model/in/the/container \
 --tensor-parallel-size 8 \
 --pipeline-parallel-size 2 \
 --distributed-executor-backend ray
+```
 
 
 Alternatively, you can set `tensor_parallel_size`
 
 to the total number of GPUs in the cluster:
 
+```bash
 vllm serve /path/to/the/model/in/the/container \
 --tensor-parallel-size 16 \
 --distributed-executor-backend ray
+```
 
 
 ### Running vLLM with MultiProcessing[¶](https://docs.vllm.ai#running-vllm-with-multiprocessing)
@@ -191,18 +201,22 @@ and `pp_size=2`
 
 Choose one node as the head node and run:
 
+```bash
 vllm serve /path/to/the/model/in/the/container \
 --tensor-parallel-size 8 --pipeline-parallel-size 2 \
 --nnodes 2 --node-rank 0 \
 --master-addr <HEAD_NODE_IP>
+```
 
 
 On the other worker node, run:
 
+```bash
 vllm serve /path/to/the/model/in/the/container \
 --tensor-parallel-size 8 --pipeline-parallel-size 2 \
 --nnodes 2 --node-rank 1 \
 --master-addr <HEAD_NODE_IP> --headless
+```
 
 
 ## Optimizing network communication for tensor parallelism[¶](https://docs.vllm.ai#optimizing-network-communication-for-tensor-parallelism)
@@ -233,15 +247,20 @@ If you use Docker, set up the container as follows:
 If you use Kubernetes, set up the pod spec as follows:
 
 ...
+```yaml
 spec:
 containers:
+```
 - name: vllm
+```yaml
 image: vllm/vllm-openai
 securityContext:
 capabilities:
 add: ["IPC_LOCK"]
 volumeMounts:
+```
 - mountPath: /dev/shm
+```yaml
 name: dshm
 resources:
 limits:
@@ -249,9 +268,12 @@ nvidia.com/gpu: 8
 requests:
 nvidia.com/gpu: 8
 volumes:
+```
 - name: dshm
+```yaml
 emptyDir:
 medium: Memory
+```
 ...
 
 

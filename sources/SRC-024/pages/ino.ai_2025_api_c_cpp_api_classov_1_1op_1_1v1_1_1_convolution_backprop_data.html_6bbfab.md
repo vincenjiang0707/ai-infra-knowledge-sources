@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v1::ConvolutionBackpropData[#](https://docs.openvino.ai#class-ov-op-v1-convolutionbackpropdata)
 
 -
+```python
 class ConvolutionBackpropData : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ConvolutionBackPropBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_convolution_back_prop_base.html#_CPPv4N2ov2op4util23ConvolutionBackPropBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v123ConvolutionBackpropDataE) Data batch backprop for batched convolution operation.
+```
 
 Public Functions
 

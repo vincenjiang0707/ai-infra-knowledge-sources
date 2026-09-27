@@ -41,11 +41,13 @@ This was verified with a minimal Go program:
 ```
 import "k8s.io/apimachinery/pkg/util/yaml"
 
+```go
 data := []byte(`{"target_capacity": 50}`)
 m := map[string]interface{}{}
 yaml.Unmarshal(data, &m)
 // m["target_capacity"] is int64(50), NOT float64(50.0)
 _, ok := m["target_capacity"].(float64)  // ok == false, always!
+```
 ```
 
 ### Anything else

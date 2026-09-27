@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/mrope_interleaved/
 lastmod: 2026-09-27
 
+```python
 class MRotaryEmbeddingInterleaved(MRotaryEmbedding):
 """Rotary Embedding with Multimodal Sections and Interleaved Support."""
 def __init__(
@@ -139,3 +140,4 @@ last = best
 if force_last:
 seq.append(0)
 return seq
+```

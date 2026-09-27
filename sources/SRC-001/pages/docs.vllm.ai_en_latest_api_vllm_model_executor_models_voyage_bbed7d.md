@@ -31,6 +31,7 @@ vLLM Qwen3Model expects:
 - self_attn.qkv_proj (fused)
 - No "model." prefix
 """
+```python
 packed_modules_mapping = {
 "qkv_proj": ["q_proj", "k_proj", "v_proj"],
 "gate_up_proj": ["gate_proj", "up_proj"],
@@ -65,3 +66,4 @@ def load_weights(self, weights: Iterable[WeightItem]) -> set[str]:
 loader = AutoWeightsLoader(self)
 return loader.load_weights(weights)
 |
+```

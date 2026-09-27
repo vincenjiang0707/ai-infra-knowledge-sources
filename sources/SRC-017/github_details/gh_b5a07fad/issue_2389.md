@@ -21,10 +21,12 @@ running in production since; it will follow as a separate pull request.
 
 ### Share Your Debug Logs
 
+```
 All excerpts below come from one capture on master `fd168324`, run with
 `NCCL_DEBUG=INFO NCCL_DEBUG_SUBSYS=INIT,GRAPH,ENV,TUNING,NET,REG,ALLOC` and per-rank
 `NCCL_DEBUG_FILE`. Full per-rank logs from all 16 ranks, `NCCL_TOPO_DUMP_FILE` /
 `NCCL_GRAPH_DUMP_FILE`, and `nvidia-smi` / `ibv_devinfo` snapshots from both nodes are
+```
 available — say the word and we will post them or run any additional capture you want.
 
 **Init, rank 0 — the preconditions of the bug are all visible here:**

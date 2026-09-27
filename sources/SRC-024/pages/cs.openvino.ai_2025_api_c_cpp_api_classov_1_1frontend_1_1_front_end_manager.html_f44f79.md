@@ -4,8 +4,10 @@ lastmod:
 # Class ov::frontend::FrontEndManager[#](https://docs.openvino.ai#class-ov-frontend-frontendmanager)
 
 -
+```python
 class FrontEndManager
 [#](https://docs.openvino.ai#_CPPv4N2ov8frontend15FrontEndManagerE) Frontend management class, loads available frontend plugins on construction Allows load of frontends for particular framework, register new and list available frontends This is a main frontend entry point for client applications.
+```
 
 Public Functions
 

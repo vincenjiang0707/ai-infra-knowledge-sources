@@ -31,6 +31,7 @@ org.apache.tvm.Base$TVMError: InternalError: Check failed: (config["conv_templat
 Stack trace:
   File "/Users/kartik/mlc/mlc-llm/cpp/llm_chat.cc", line 540
 
+```bash
 	at org.apache.tvm.Base.checkCall(Base.java:173)
 	at org.apache.tvm.Function.invoke(Function.java:130)
 	at ai.mlc.mlcllm.ChatModule.reload(ChatModule.java:46)
@@ -45,6 +46,7 @@ Stack trace:
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1156)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:651)
 	at java.lang.Thread.run(Thread.java:1119)
+```
 
 
 Error message:

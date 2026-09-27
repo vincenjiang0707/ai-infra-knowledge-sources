@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/nvidia/ops/fused_indexer_q_cutedsl/
 lastmod: 2026-09-27
 
+```python
 @cute.jit
 def _load_q_and_rope(
 positions: cute.Tensor,
@@ -109,3 +110,4 @@ head_start,
 in_bounds,
 num_token_heads,
 )
+```

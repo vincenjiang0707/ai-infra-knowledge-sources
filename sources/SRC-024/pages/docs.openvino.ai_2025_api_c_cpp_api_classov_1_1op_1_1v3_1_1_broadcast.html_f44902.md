@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v3::Broadcast[#](https://docs.openvino.ai#class-ov-op-v3-broadcast)
 
 -
+```python
 class Broadcast : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BroadcastBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_broadcast_base.html#_CPPv4N2ov2op4util13BroadcastBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v39BroadcastE) Operation which “adds” axes to an input tensor, replicating elements from the input as needed along the new axes.
+```
 
 Public Functions
 

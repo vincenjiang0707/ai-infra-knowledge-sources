@@ -227,6 +227,7 @@ All 8 ranks completed with zero OOM errors. Full 48-layer run (N=4096, seq=6144)
 <details>
 <summary>🔗 Related PRs</summary>
 
+```
 vllm-project/llm-compressor#2616 - Add actorder support for GPTQ block quantization [merged]
 vllm-project/llm-compressor#2674 - [bugfix] reduce memory requirements of `moe_calibration_context` [merged]
 vllm-project/llm-compressor#2688 - [Bugfix] Fix AutoRound pipeline inference to use sequential pipeline [merged]
@@ -235,6 +236,7 @@ vllm-project/llm-compressor#2776 - [XPU] Add `torch.cuda` linter [merged]
 vllm-project/llm-compressor#2785 - [Distributed] Module parallel calibration for `QuantizationModifier` [merged]
 vllm-project/llm-compressor#2813 - [IntermediatesCache] Move call to pin_memory from offload to just before fetch [merged]
 vllm-project/llm-compressor#2855 - fix: remove is_module_quantized filter that made AutoRound a no-op [merged]
+```
 </details>
 
 ---

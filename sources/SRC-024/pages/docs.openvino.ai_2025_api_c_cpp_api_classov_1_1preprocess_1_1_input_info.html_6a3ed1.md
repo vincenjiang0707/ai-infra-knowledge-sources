@@ -4,8 +4,10 @@ lastmod:
 # Class ov::preprocess::InputInfo[#](https://docs.openvino.ai#class-ov-preprocess-inputinfo)
 
 -
+```python
 class InputInfo
 [#](https://docs.openvino.ai#_CPPv4N2ov10preprocess9InputInfoE) Class holding preprocessing information for one input From preprocessing pipeline perspective, each input can be represented as:
+```
 
 User’s input parameter info (
 

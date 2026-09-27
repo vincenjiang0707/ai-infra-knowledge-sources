@@ -74,6 +74,7 @@ We introduce ERNIE 4.5, a new family of large-scale multimodal models comprising
  **ERNIE 4.5**
 <table style="table-layout: auto; border-collapse: collapse; border: 1px solid #ddd; text-align: center;">
   <thead class="ant-table-thead">
+```html
     <tr>
       <th colspan="2" style="border: 1px solid #ddd;text-align: center;background: lightgray;vertical-align: middle;color:black" >ERNIE 4.5 Models </th>
       <th colspan="3" style="border: 1px solid #ddd;text-align: center;background: lightgray;vertical-align: middle;color:black">Model Information</th>
@@ -84,11 +85,13 @@ We introduce ERNIE 4.5, a new family of large-scale multimodal models comprising
       <th style="border: 1px solid #ddd; width: 100px;text-align: center;background: lightgray;vertical-align: middle;color:black">Input Modality</th>
       <th style="border: 1px solid #ddd; width: 100px;text-align: center;background: lightgray;vertical-align: middle;color:black">Output Modality</th>
       <th style="border: 1px solid #ddd; width: 100px;text-align: center;background: lightgray;vertical-align: middle;color:black">Context Window
+```
 
 </th>
     </tr>
   </thead>
   <tbody class="ant-table-tbody">
+```html
     <tr>
       <td rowspan="4" style="border: 1px solid #ddd;vertical-align: middle;">Large Language Models (LLMs)</td>
       <td style="border: 1px solid #ddd;">ERNIE-4.5-300B-A47B-Base</td>
@@ -129,6 +132,7 @@ We introduce ERNIE 4.5, a new family of large-scale multimodal models comprising
     <tr>
       <td style="border: 1px solid #ddd;">ERNIE-4.5-0.3B</td>
     </tr>
+```
   </tbody>
 </table>
 </div>

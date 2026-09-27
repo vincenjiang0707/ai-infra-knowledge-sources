@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/minimax_m3/amd/sparse_attention_msa/
 lastmod: 2026-09-24
 
+```python
 class MiniMaxM3SparseAiterPAImpl(MiniMaxM3SparseImpl):
 """ROCm AITER page-16 SHUFFLE sparse paged attention."""
 def forward(
@@ -123,3 +124,4 @@ else sparse_ctx_buf[nd * kvh : num_tokens * kvh]
 ),
 )
 return output
+```

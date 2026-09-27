@@ -94,8 +94,10 @@ ray.shutdown()
 ```
 ### Anything else
 
+```bash
 helm install kuberay-operator kuberay/kuberay-operator --version 1.1.1
 helm install raycluster kuberay/ray-cluster --version 1.1.1 --set 'image.tag=2.9.0-aarch64'
+```
 
 ### Are you willing to submit a PR?
 

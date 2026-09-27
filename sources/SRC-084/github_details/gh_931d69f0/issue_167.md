@@ -9,6 +9,7 @@ labels:
 Following https://github.com/dropbox/hqq, but it failed. Seem quite unblievable.
 
 Here is the code:
+```python
 #Load the model on CPU
 from transformers import AutoModelForCausalLM
 import torch
@@ -20,6 +21,7 @@ save_dir = '/home/lf/models/Qwen3-0.6B-hqq-4bits'
 
 compute_dtype = torch.bfloat16 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
+```
 
 model = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=compute_dtype)
 

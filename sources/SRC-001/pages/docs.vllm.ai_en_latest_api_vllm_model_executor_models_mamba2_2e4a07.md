@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/mamba2/
 lastmod: 2026-09-27
 
+```python
 class Mamba2ForCausalLM(
 nn.Module, HasInnerState, IsAttentionFree, SupportsMambaPrefixCaching
 ):
@@ -25,9 +26,11 @@ Args:
 vllm_config: vLLM config
 Returns:
 Tuple containing:
+```
 - conv_state_shape: Shape for convolutional state cache
 - temporal_state_shape: Shape for state space model cache
 """
+```python
 parallel_config = vllm_config.parallel_config
 hf_config = vllm_config.model_config.hf_config
 intermediate_size = hf_config.expand * hf_config.hidden_size
@@ -90,3 +93,4 @@ return logits
 def load_weights(self, weights: Iterable[tuple[str, torch.Tensor]]) -> set[str]:
 loader = AutoWeightsLoader(self)
 return loader.load_weights(weights, mapper=self.hf_to_vllm_mapper)
+```

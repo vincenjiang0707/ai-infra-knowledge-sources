@@ -649,8 +649,10 @@ to sample`k`
 draft tokens from the draft model. - Store these in
 `request.spec_token_ids`
 
+```
 (update the request metadata). - On the next engine step, when the request is in the running queue, add
 `len(request.spec_token_ids)`
+```
 
 to the "new tokens" count so`allocate_slots`
 
@@ -733,8 +735,10 @@ queue (after local prefix-cache checks), it calls connector's`get_num_new_matche
 - Prefill adds all requests with
 `is_store=True`
 
+```
 (to upload KV). - Decode adds requests with
 `is_store=False`
+```
 
 (to fetch KV).
 

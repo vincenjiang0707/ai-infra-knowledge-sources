@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v0::Squeeze[#](https://docs.openvino.ai#class-ov-op-v0-squeeze)
 
 -
+```python
 class Squeeze : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[SqueezeBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_squeeze_base.html#_CPPv4N2ov2op4util11SqueezeBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v07SqueezeE) [Squeeze](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_squeeze)operation.Public Functions
+```
 
 -
 Squeeze(const

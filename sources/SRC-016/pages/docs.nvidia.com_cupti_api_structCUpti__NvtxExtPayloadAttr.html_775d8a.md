@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__NvtxExtPayloadAttr.html
 # 7.142. CUpti_NvtxExtPayloadAttr[#](https://docs.nvidia.com#cupti-nvtxextpayloadattr)
 
 -
+```rust
 struct CUpti_NvtxExtPayloadAttr
 [#](https://docs.nvidia.com#_CPPv424CUpti_NvtxExtPayloadAttr) Public Members
+```
 
 -
 uint32_t structSize

@@ -122,10 +122,12 @@ CUpti_PmSampling_Stop_Params_STRUCT_SIZE
 ## 6.7.7. Enumerations[#](https://docs.nvidia.com#id2)
 
 -
+```rust
 enum CUpti_PmSampling_DecodeStopReason
 [#](https://docs.nvidia.com#_CPPv433CUpti_PmSampling_DecodeStopReason) *Values:*-
 enumerator CUPTI_PM_SAMPLING_DECODE_STOP_REASON_OTHER
 [#](https://docs.nvidia.com#_CPPv4N33CUpti_PmSampling_DecodeStopReason42CUPTI_PM_SAMPLING_DECODE_STOP_REASON_OTHERE)
+```
 
 -
 enumerator CUPTI_PM_SAMPLING_DECODE_STOP_REASON_COUNTER_DATA_FULL
@@ -145,10 +147,12 @@ enumerator CUPTI_PM_SAMPLING_DECODE_STOP_REASON_COUNT
 enumerator CUPTI_PM_SAMPLING_DECODE_STOP_REASON_OTHER
 
 -
+```rust
 enum CUpti_PmSampling_HardwareBuffer_AppendMode
 [#](https://docs.nvidia.com#_CPPv442CUpti_PmSampling_HardwareBuffer_AppendMode) *Values:*-
 enumerator CUPTI_PM_SAMPLING_HARDWARE_BUFFER_APPEND_MODE_KEEP_OLDEST
 [#](https://docs.nvidia.com#_CPPv4N42CUpti_PmSampling_HardwareBuffer_AppendMode57CUPTI_PM_SAMPLING_HARDWARE_BUFFER_APPEND_MODE_KEEP_OLDESTE) Keep the oldest records in the hardware buffer. CUPTI will report error for overflow in case hardware buffer is getting filled up.
+```
 
 
 -
@@ -160,10 +164,12 @@ enumerator CUPTI_PM_SAMPLING_HARDWARE_BUFFER_APPEND_MODE_KEEP_LATEST
 enumerator CUPTI_PM_SAMPLING_HARDWARE_BUFFER_APPEND_MODE_KEEP_OLDEST
 
 -
+```rust
 enum CUpti_PmSampling_TriggerMode
 [#](https://docs.nvidia.com#_CPPv428CUpti_PmSampling_TriggerMode) *Values:*-
 enumerator CUPTI_PM_SAMPLING_TRIGGER_MODE_GPU_SYSCLK_INTERVAL
 [#](https://docs.nvidia.com#_CPPv4N28CUpti_PmSampling_TriggerMode50CUPTI_PM_SAMPLING_TRIGGER_MODE_GPU_SYSCLK_INTERVALE) The trigger is based off of the SYSCLK frequency, note SYS frequency by default is variable. the sample interval (set in the struct
+```
 
 [CUpti_PmSampling_SetConfig_Params](https://docs.nvidia.com/structCUpti__PmSampling__SetConfig__Params.html#structcupti__pmsampling__setconfig__params)) is in terms of clocks.
 

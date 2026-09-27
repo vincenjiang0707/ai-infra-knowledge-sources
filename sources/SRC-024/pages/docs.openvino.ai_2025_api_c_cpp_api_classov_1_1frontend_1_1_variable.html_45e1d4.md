@@ -4,8 +4,10 @@ lastmod:
 # Class ov::frontend::Variable[#](https://docs.openvino.ai#class-ov-frontend-variable)
 
 -
+```python
 class Variable : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[FrameworkNode](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_framework_node.html#_CPPv4N2ov2op4util13FrameworkNodeE)[#](https://docs.openvino.ai#_CPPv4N2ov8frontend8VariableE) [Variable](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1frontend_1_1_variable)is a special node used in a conversion step It can have several values (or states) during the conversion.[Variable](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1frontend_1_1_variable)value at some time step is represented with a graph.Subclassed by
+```
 
 [ov::frontend::HashTable](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1frontend_1_1_hash_table)Public Functions
 

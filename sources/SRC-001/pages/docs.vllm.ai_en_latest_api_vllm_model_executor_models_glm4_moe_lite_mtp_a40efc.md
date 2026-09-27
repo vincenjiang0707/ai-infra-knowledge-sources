@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/glm4_moe_lite_mtp/
 lastmod: 2026-09-27
 
+```python
 class Glm4MoeLiteMTP(nn.Module, SupportsPP, Glm4MixtureOfExperts):
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
 super().__init__()
@@ -62,6 +63,7 @@ ckpt_gate_proj_name="gate_proj",
 ckpt_down_proj_name="down_proj",
 ckpt_up_proj_name="up_proj",
 num_experts=self.config.n_routed_experts
+```
 + (
 self.config.n_shared_experts
 if self.is_fused_shared_expert_enabled

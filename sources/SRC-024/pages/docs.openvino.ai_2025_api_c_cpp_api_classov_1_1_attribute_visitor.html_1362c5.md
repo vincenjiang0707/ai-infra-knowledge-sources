@@ -4,8 +4,10 @@ lastmod:
 # Class ov::AttributeVisitor[#](https://docs.openvino.ai#class-ov-attributevisitor)
 
 -
+```python
 class AttributeVisitor
 [#](https://docs.openvino.ai#_CPPv4N2ov16AttributeVisitorE) Visits the attributes of a node, primarily for serialization-like tasks.
+```
 
 Attributes are the node parameters that are always compile-time constants. Values computed from the graph topology and attributes during compilation are not attributes.
 

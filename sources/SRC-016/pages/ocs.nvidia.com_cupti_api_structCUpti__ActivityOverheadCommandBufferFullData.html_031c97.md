@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityOverheadCommandBu
 # 7.114. CUpti_ActivityOverheadCommandBufferFullData[#](https://docs.nvidia.com#cupti-activityoverheadcommandbufferfulldata)
 
 -
+```rust
 struct CUpti_ActivityOverheadCommandBufferFullData
 [#](https://docs.nvidia.com#_CPPv443CUpti_ActivityOverheadCommandBufferFullData) The structure to provide additional data for CUPTI_ACTIVITY_OVERHEAD_COMMAND_BUFFER_FULL.
+```
 
 Public Members
 

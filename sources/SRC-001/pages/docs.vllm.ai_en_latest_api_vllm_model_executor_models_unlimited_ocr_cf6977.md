@@ -87,6 +87,7 @@ in order to utilize info about the device type
 ## Source code in `vllm/model_executor/models/deepseek_ocr.py`
 
 
+```python
 | class NGramPerReqLogitsProcessor(AdapterLogitsProcessor):
 """Example of overriding the wrapper class `__init__()` in order to utilize
 info about the device type"""
@@ -138,6 +139,7 @@ window_size=window_size,
 whitelist_token_ids=whitelist_token_ids,
 )
 |
+```
 
 
 ##
@@ -232,6 +234,7 @@ ProcessingInfo for Unlimited-OCR: same as DeepSeek-OCR but with max_crops=32 ins
 ## Source code in `vllm/model_executor/models/unlimited_ocr.py`
 
 
+```python
 | class UnlimitedOCRProcessingInfo(DeepseekOCRProcessingInfo):
 """ProcessingInfo for Unlimited-OCR: same as DeepSeek-OCR but with
 max_crops=32 instead of 6. The higher crop count allows tiling very large
@@ -289,3 +292,4 @@ def get_image_size_with_most_features(self) -> ImageSize:
 # produces the maximum token count.
 return ImageSize(width=640 * 4, height=640 * 8)
 |
+```

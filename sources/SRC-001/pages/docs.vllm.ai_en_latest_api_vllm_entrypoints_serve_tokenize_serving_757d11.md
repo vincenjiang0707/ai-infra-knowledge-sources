@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/serve/tokenize/serving/
 lastmod: 2026-09-27
 
+```python
 class ServingTokenization(BaseServing):
 def __init__(
 self,
@@ -113,3 +114,4 @@ self,
 tokenizer = self.renderer.get_tokenizer()
 info = TokenizerInfo(tokenizer, self.chat_template).to_dict()
 return TokenizerInfoResponse(**info)
+```

@@ -1,15 +1,18 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/speech_to_text/realtime/connection/
 lastmod: 2026-09-27
 
+```python
 class RealtimeConnection:
 """Manages WebSocket lifecycle and state for realtime transcription.
 This class handles:
+```
 - WebSocket connection lifecycle (accept, receive, send, close)
 - Event routing (session.update, append, commit)
 - Audio buffering via asyncio.Queue
 - Generation task management
 - Error handling and cleanup
 """
+```python
 def __init__(self, websocket: WebSocket, serving: OpenAIServingRealtime):
 self.websocket = websocket
 self.connection_id = f"ws-{uuid4()}"
@@ -56,6 +59,7 @@ param="model",
 async def handle_event(self, event: dict):
 """Route events to handlers.
 Supported event types:
+```
 - session.update: Configure model
 - input_audio_buffer.append: Add audio chunk to queue
 - input_audio_buffer.commit: Start transcription generation

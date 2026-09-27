@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/device_communicators/flashinfer_pcie_ipc_all_reduce/
 lastmod: 2026-09-27
 
+```python
 class FlashInferPcieIpcAllReduce:
 """vLLM lifecycle wrapper for FlashInfer's PCIe IPC all-reduce."""
 def __init__(
@@ -147,3 +148,4 @@ workspace = self.workspace
 if workspace is not None:
 workspace.destroy()
 self.workspace = None
+```

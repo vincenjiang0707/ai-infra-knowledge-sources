@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/compute-sanitizer/api/struct_sanitizer___resourc
 # Sanitizer_ResourceContextData[#](https://docs.nvidia.com#sanitizer-resourcecontextdata)
 
 -
+```rust
 struct Sanitizer_ResourceContextData
 [#](https://docs.nvidia.com#_CPPv429Sanitizer_ResourceContextData) Data passed into a context resource callback function.
+```
 
 Data passed into a context resource callback function as the
 

@@ -276,11 +276,13 @@ The following [pooling parameters](https://docs.vllm.ai/api/vllm/#vllm.PoolingPa
 
 The [classify](https://docs.vllm.ai/api/vllm/entrypoints/pooling/offline/#vllm.entrypoints.pooling.offline.PoolingOfflineMixin.classify) method outputs a probability vector for each prompt.
 
+```python
 from vllm import LLM
 llm = LLM(model="jason9693/Qwen2.5-1.5B-apeach", runner="pooling")
 (output,) = llm.classify("Hello, my name is")
 probs = output.outputs.probs
 print(f"Class Probabilities: {probs!r} (size={len(probs)})")
+```
 
 
 A code example can be found here: [ examples/basic/offline_inference/classify.py](https://github.com/vllm-project/vllm/blob/main/examples/basic/offline_inference/classify.py)
@@ -297,11 +299,13 @@ when using `LLM.encode`
 
 for classification Models:
 
+```python
 from vllm import LLM
 llm = LLM(model="jason9693/Qwen2.5-1.5B-apeach", runner="pooling")
 (output,) = llm.encode("Hello, my name is", pooling_task="classify")
 data = output.outputs.data
 print(f"Data: {data!r}")
+```
 
 
 ## Online Serving[¶](https://docs.vllm.ai#online-serving)
@@ -535,6 +539,7 @@ curl -v "http://127.0.0.1:8000/classify" \
 
 ## Response
 
+```json
 {
 "id": "classify-7c87cac407b749a6935d8c7ce2a8fba2",
 "object": "list",
@@ -567,22 +572,26 @@ curl -v "http://127.0.0.1:8000/classify" \
 "prompt_tokens_details": null
 }
 }
+```
 
 
 You can also pass a string directly to the `input`
 
 field:
 
+```json
 curl -v "http://127.0.0.1:8000/classify" \
 -H "Content-Type: application/json" \
 -d '{
 "model": "jason9693/Qwen2.5-1.5B-apeach",
 "input": "Loved the new café—coffee was great."
 }'
+```
 
 
 ## Response
 
+```json
 {
 "id": "classify-9bf17f2847b046c7b2d5495f4b4f9682",
 "object": "list",
@@ -606,6 +615,7 @@ curl -v "http://127.0.0.1:8000/classify" \
 "prompt_tokens_details": null
 }
 }
+```
 
 
 ## More examples[¶](https://docs.vllm.ai#more-examples)
@@ -652,9 +662,11 @@ The calibration follows the transformation:
 
 The computation order is as follows:
 
+```bash
 logits -= logit_mean # subtract mean (center scores)
 logits /= logit_sigma # divide by sigma (scale)
 logits = activation(logits) # e.g. sigmoid
+```
 
 
 Example configuration:

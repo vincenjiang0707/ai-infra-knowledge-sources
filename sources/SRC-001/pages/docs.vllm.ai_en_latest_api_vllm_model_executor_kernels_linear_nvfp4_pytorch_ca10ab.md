@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/nvfp4/pytorch/
 lastmod: 2026-09-27
 
+```python
 class TorchNvFp4LinearKernel(NvFp4LinearKernel):
 """NVFP4 GEMM implemented with PyTorch's native ``torch._scaled_mm``.
 Eager execution uses PyTorch's native scaled-matmul implementation. Under
@@ -69,3 +70,4 @@ out = slice_nvfp4_output(out, output_size)
 if bias is not None:
 out = out + bias
 return out.view(*output_shape)
+```

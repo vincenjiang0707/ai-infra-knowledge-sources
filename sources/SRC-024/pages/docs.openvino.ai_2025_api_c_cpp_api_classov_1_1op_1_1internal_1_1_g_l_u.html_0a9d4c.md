@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::internal::GLU[#](https://docs.openvino.ai#class-ov-op-internal-glu)
 
 -
+```python
 class GLU : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op8internal3GLUE) Operator performing Gated Linear Unit Activation This operation performs gated linear unit activation that combines swish or gelu activation function.
+```
 
 Public Functions
 

@@ -9,6 +9,7 @@ RotaryEmbedding extended with fixed and mixed NTK scaling. https://kexue.fm/arch
 ## Source code in `vllm/model_executor/layers/rotary_embedding/ntk_scaling_rope.py`
 
 
+```python
 | class NTKScalingRotaryEmbedding(RotaryEmbedding):
 """RotaryEmbedding extended with fixed and mixed NTK scaling.
 https://kexue.fm/archives/9706"""
@@ -44,3 +45,4 @@ a * torch.arange(1, self.rotary_dim // 2 + 1).float() ** self.mixed_b
 inv_freq = inv_freq / lambda_1_m
 return inv_freq
 |
+```

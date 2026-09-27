@@ -58,6 +58,7 @@ via`KVTransferConfig.kv_connector_module_path`
 ## decode_example.py
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 import argparse
 from vllm import LLM, SamplingParams
@@ -131,11 +132,13 @@ f.write(out_str)
 f.write(sep_str)
 if __name__ == "__main__":
 main()
+```
 
 
 ## load_recovery_example_connector.py
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 # ruff: noqa: E501
 import logging
@@ -267,11 +270,13 @@ self._requests_need_load.clear()
 meta.req_to_block_ids = self._req_to_block_ids
 self._req_to_block_ids = dict()
 return meta
+```
 
 
 ## prefill_example.py
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 from vllm import LLM, SamplingParams
 from vllm.config import KVTransferConfig
@@ -317,6 +322,7 @@ f.write(prompt + "\n")
 print(f"Saved {len(new_prompts)} prompts to prefill_output.txt")
 if __name__ == "__main__":
 main()
+```
 
 
 ## run.sh

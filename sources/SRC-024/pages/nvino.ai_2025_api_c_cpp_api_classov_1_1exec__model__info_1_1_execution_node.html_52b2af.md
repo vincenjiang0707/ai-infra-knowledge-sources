@@ -4,8 +4,10 @@ lastmod:
 # Class ov::exec_model_info::ExecutionNode[#](https://docs.openvino.ai#class-ov-exec-model-info-executionnode)
 
 -
+```python
 class ExecutionNode : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov15exec_model_info13ExecutionNodeE) The Execution node which is used to represent node in execution graph.
+```
 
 It contains the following type of information in node runtime information:
 

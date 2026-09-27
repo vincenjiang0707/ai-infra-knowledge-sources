@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/launchers/dp_supervisor/
 lastmod: 2026-09-27
 
+```python
 class DPSupervisor:
 def __init__(self, args: argparse.Namespace):
 validate_multi_port_external_lb_args(args)
@@ -179,6 +180,7 @@ timeout=self.args.dp_supervisor_probe_interval_s,
 async def _monitor_children(self) -> None:
 """Main coroutine task that monitors the children vLLM servers.
 Before the vLLM servers are /ready:
+```
 - if the pid is dead, we will shut down
 - if the probe fails, we try again after dp_supervisor_probe_interval_s
 After the vLLM servers are /ready:

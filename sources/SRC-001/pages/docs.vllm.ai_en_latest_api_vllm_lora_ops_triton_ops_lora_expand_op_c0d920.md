@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/ops/triton_ops/lora_expand_op/
 lastmod: 2026-09-27
 
+```python
 @torch.inference_mode()
 def _lora_expand(
 inputs: torch.Tensor, # shape [num_slices, num_tokens, lora_rank]
@@ -138,3 +139,4 @@ num_stages=NUM_STAGES,
 launch_pdl=use_gdc,
 )
 return
+```

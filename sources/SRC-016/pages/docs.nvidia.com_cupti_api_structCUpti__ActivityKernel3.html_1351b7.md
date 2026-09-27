@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityKernel3.html
 # 7.61. CUpti_ActivityKernel3[#](https://docs.nvidia.com#cupti-activitykernel3)
 
 -
+```rust
 struct CUpti_ActivityKernel3
 [#](https://docs.nvidia.com#_CPPv421CUpti_ActivityKernel3) The activity record for a kernel (CUDA 6.5(with sm_52 support) onwards).
+```
 
 (deprecated in CUDA 9.0)
 

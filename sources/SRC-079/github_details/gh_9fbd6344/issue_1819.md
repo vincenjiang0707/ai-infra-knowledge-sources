@@ -6,8 +6,10 @@ labels: feature request
 
 ## 正文
 
+```yaml
 branch: dkorzekwa/claude_qwen35_distill (create a few days ago from modelopt main)
 container: nemo_26_06
+```
 
 Steps to reproduce
 

@@ -8,6 +8,7 @@ Source [https://github.com/vllm-project/vllm/tree/main/examples/applications/api
 ## Client[¶](https://docs.vllm.ai#client)
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """Example Python client for `examples/applications/api_server/server.py`
 Start the demo server:
@@ -81,11 +82,13 @@ print(f"Beam candidate {i}: {line!r}", flush=True)
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```
 
 
 ## Server[¶](https://docs.vllm.ai#server)
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """NOTE: This API server is used only for demonstrating usage of AsyncEngine
 and simple performance benchmarks. It is not intended for production use.
@@ -123,6 +126,7 @@ return Response(status_code=200)
 async def generate(request: Request) -> Response:
 """Generate completion for the request.
 The request should be a JSON object with the following fields:
+```
 - prompt: the prompt to use for the generation.
 - stream: whether to stream the results or not.
 - other fields: the sampling parameters (See `SamplingParams` for details).

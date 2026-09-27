@@ -95,6 +95,7 @@ main()
 ## Vision Classification Online[¶](https://docs.vllm.ai#vision-classification-online)
 
 # SPDX-License-Identifier: Apache-2.0
+```bash
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 # ruff: noqa: E501
 """Example Python client for multimodal classification API using vLLM API server
@@ -189,3 +190,4 @@ pprint.pprint(response.json())
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```

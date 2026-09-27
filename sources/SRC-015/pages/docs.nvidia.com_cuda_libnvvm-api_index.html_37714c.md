@@ -44,8 +44,10 @@ Get the message string for the given
 2.1. Enumerations[](https://docs.nvidia.com#enumerations)
 
 -
+```rust
 enum nvvmResult
 [](https://docs.nvidia.com#_CPPv410nvvmResult)
+```
 
 -
 NVVM API call result code.

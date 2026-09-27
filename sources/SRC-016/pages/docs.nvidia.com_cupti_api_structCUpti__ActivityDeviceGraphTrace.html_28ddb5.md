@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityDeviceGraphTrace.
 # 7.25. CUpti_ActivityDeviceGraphTrace[#](https://docs.nvidia.com#cupti-activitydevicegraphtrace)
 
 -
+```rust
 struct CUpti_ActivityDeviceGraphTrace
 [#](https://docs.nvidia.com#_CPPv430CUpti_ActivityDeviceGraphTrace) The activity record for trace of device graph execution.
+```
 
 This activity record represents execution for a device launched graph without giving visibility about the execution of its nodes. This is intended to reduce overheads in tracing each node. The activity kind is CUPTI_ACTIVITY_KIND_DEVICE_GRAPH_TRACE
 

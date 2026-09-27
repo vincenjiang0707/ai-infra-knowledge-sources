@@ -4,8 +4,10 @@ lastmod:
 # Class ov::pass::pattern::op::Label[#](https://docs.openvino.ai#class-ov-pass-pattern-op-label)
 
 -
+```python
 class Label : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[pass](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4passE)::[pattern](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4pass7patternE)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4pass7pattern2opE)::[Pattern](https://docs.openvino.ai/classov_1_1pass_1_1pattern_1_1op_1_1_pattern.html#_CPPv4N2ov4pass7pattern2op7PatternE)[#](https://docs.openvino.ai#_CPPv4N2ov4pass7pattern2op5LabelE) Fails if the predicate returns false on the graph value.
+```
 
 The graph value is added to the matched values list. If the
 

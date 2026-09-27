@@ -67,6 +67,7 @@ frame #4: <unknown function> + 0xdc253 (0x7f1b4fcb0253 in /usr/lib/x86_64-linux-
 frame #5: <unknown function> + 0x94ac3 (0x7f1b5c100ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 frame #6: <unknown function> + 0x126850 (0x7f1b5c192850 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 
+```bash
 Exception raised from ncclCommWatchdog at /opt/pytorch/pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:1389 (most recent call first):
 frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x99 (0x7f1b5008fd89 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
 frame #1: <unknown function> + 0xf4d5ae (0x7f1aed96c5ae in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
@@ -74,6 +75,7 @@ frame #2: <unknown function> + 0xc76c88 (0x7f1aed695c88 in /usr/local/lib/python
 frame #3: <unknown function> + 0xdc253 (0x7f1b4fcb0253 in /usr/lib/x86_64-linux-gnu/libstdc++.so.6)
 frame #4: <unknown function> + 0x94ac3 (0x7f1b5c100ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 frame #5: <unknown function> + 0x126850 (0x7f1b5c192850 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+```
 
 [rank3]:[E ProcessGroupNCCL.cpp:574] [Rank 3] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=7, OpType=_ALLGATHER_BASE, NumelIn=1024, NumelOut=16384, Timeout(ms)=600000) ran for 600054 milliseconds before timing out.
 [rank5]:[E ProcessGroupNCCL.cpp:574] [Rank 5] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=7, OpType=_ALLGATHER_BASE, NumelIn=1024, NumelOut=16384, Timeout(ms)=600000) ran for 600054 milliseconds before timing out.
@@ -166,6 +168,7 @@ frame #4: <unknown function> + 0xdc253 (0x7f353ceb0253 in /usr/lib/x86_64-linux-
 frame #5: <unknown function> + 0x94ac3 (0x7f3549289ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 frame #6: <unknown function> + 0x126850 (0x7f354931b850 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 
+```bash
 Exception raised from ncclCommWatchdog at /opt/pytorch/pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:1389 (most recent call first):
 frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x99 (0x7f353d28fd89 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
 frame #1: <unknown function> + 0xf4d5ae (0x7f34dab6c5ae in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
@@ -173,6 +176,7 @@ frame #2: <unknown function> + 0xc76c88 (0x7f34da895c88 in /usr/local/lib/python
 frame #3: <unknown function> + 0xdc253 (0x7f353ceb0253 in /usr/lib/x86_64-linux-gnu/libstdc++.so.6)
 frame #4: <unknown function> + 0x94ac3 (0x7f3549289ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 frame #5: <unknown function> + 0x126850 (0x7f354931b850 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+```
 
 [rank7]:[E ProcessGroupNCCL.cpp:574] [Rank 7] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=7, OpType=_ALLGATHER_BASE, NumelIn=1024, NumelOut=16384, Timeout(ms)=600000) ran for 600062 milliseconds before timing out.
 [rank7]:[E ProcessGroupNCCL.cpp:1540] [PG 1 Rank 7] Timeout at NCCL work: 7, last enqueued NCCL work: 8, last completed NCCL work: 6.
@@ -199,6 +203,7 @@ frame #4: <unknown function> + 0xdc253 (0x7f5a35cb0253 in /usr/lib/x86_64-linux-
 frame #5: <unknown function> + 0x94ac3 (0x7f5a42135ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 frame #6: <unknown function> + 0x126850 (0x7f5a421c7850 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 
+```bash
 Exception raised from ncclCommWatchdog at /opt/pytorch/pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:1389 (most recent call first):
 frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x99 (0x7f5a3610ed89 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
 frame #1: <unknown function> + 0xf4d5ae (0x7f59d396c5ae in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
@@ -206,6 +211,7 @@ frame #2: <unknown function> + 0xc76c88 (0x7f59d3695c88 in /usr/local/lib/python
 frame #3: <unknown function> + 0xdc253 (0x7f5a35cb0253 in /usr/lib/x86_64-linux-gnu/libstdc++.so.6)
 frame #4: <unknown function> + 0x94ac3 (0x7f5a42135ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 frame #5: <unknown function> + 0x126850 (0x7f5a421c7850 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+```
 
 [rank0]:[E ProcessGroupNCCL.cpp:574] [Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=7, OpType=_ALLGATHER_BASE, NumelIn=1024, NumelOut=16384, Timeout(ms)=600000) ran for 600073 milliseconds before timing out.
 [rank4]:[E ProcessGroupNCCL.cpp:574] [Rank 4] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=7, OpType=_ALLGATHER_BASE, NumelIn=1024, NumelOut=16384, Timeout(ms)=600000) ran for 600073 milliseconds before timing out.
@@ -264,6 +270,7 @@ frame #4: <unknown function> + 0xdc253 (0x7f27e4cb0253 in /usr/lib/x86_64-linux-
 frame #5: <unknown function> + 0x94ac3 (0x7f27f1083ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 frame #6: <unknown function> + 0x126850 (0x7f27f1115850 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 
+```bash
 Exception raised from ncclCommWatchdog at /opt/pytorch/pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:1389 (most recent call first):
 frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x99 (0x7f27e508fd89 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
 frame #1: <unknown function> + 0xf4d5ae (0x7f278296c5ae in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
@@ -271,6 +278,7 @@ frame #2: <unknown function> + 0xc76c88 (0x7f2782695c88 in /usr/local/lib/python
 frame #3: <unknown function> + 0xdc253 (0x7f27e4cb0253 in /usr/lib/x86_64-linux-gnu/libstdc++.so.6)
 frame #4: <unknown function> + 0x94ac3 (0x7f27f1083ac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 frame #5: <unknown function> + 0x126850 (0x7f27f1115850 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+```
 
 
 [rank2]:[E ProcessGroupNCCL.cpp:574] [Rank 2] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=7, OpType=_ALLGATHER_BASE, NumelIn=1024, NumelOut=16384, Timeout(ms)=600000) ran for 600078 milliseconds before timing out.
@@ -298,6 +306,7 @@ frame #4: <unknown function> + 0xdc253 (0x7f291c8b0253 in /usr/lib/x86_64-linux-
 frame #5: <unknown function> + 0x94ac3 (0x7f2928dacac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 frame #6: <unknown function> + 0x126850 (0x7f2928e3e850 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 
+```bash
 Exception raised from ncclCommWatchdog at /opt/pytorch/pytorch/torch/csrc/distributed/c10d/ProcessGroupNCCL.cpp:1389 (most recent call first):
 frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0x99 (0x7f291cd9ad89 in /usr/local/lib/python3.10/dist-packages/torch/lib/libc10.so)
 frame #1: <unknown function> + 0xf4d5ae (0x7f28ba56c5ae in /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_cuda.so)
@@ -305,6 +314,7 @@ frame #2: <unknown function> + 0xc76c88 (0x7f28ba295c88 in /usr/local/lib/python
 frame #3: <unknown function> + 0xdc253 (0x7f291c8b0253 in /usr/lib/x86_64-linux-gnu/libstdc++.so.6)
 frame #4: <unknown function> + 0x94ac3 (0x7f2928dacac3 in /usr/lib/x86_64-linux-gnu/libc.so.6)
 frame #5: <unknown function> + 0x126850 (0x7f2928e3e850 in /usr/lib/x86_64-linux-gnu/libc.so.6)
+```
 
 [2025-04-02 12:49:20,194] torch.multiprocessing.spawn: [WARNING] Terminating process 9406 via signal SIGTERM
 [2025-04-02 12:49:20,195] torch.multiprocessing.spawn: [WARNING] Terminating process 9408 via signal SIGTERM
@@ -317,8 +327,10 @@ frame #5: <unknown function> + 0x126850 (0x7f2928e3e850 in /usr/lib/x86_64-linux
 ### sphish · 2025-04-02
 
 > My command is as follow：
+```bash
 MASTER_ADDR=x.x.x.x WORLD_SIZE=2 RANK=0 python test_low_latency.py
 MASTER_ADDR=x.x.x.x WORLD_SIZE=2 RANK=0 python test_low_latency.py
+```
 
 I think it should be
 ```

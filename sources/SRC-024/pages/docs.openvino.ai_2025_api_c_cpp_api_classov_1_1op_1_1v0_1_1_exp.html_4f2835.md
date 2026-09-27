@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v0::Exp[#](https://docs.openvino.ai#class-ov-op-v0-exp)
 
 -
+```python
 class Exp : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v03ExpE) Elementwise natural exponential (exp) operation.
+```
 
 Public Functions
 

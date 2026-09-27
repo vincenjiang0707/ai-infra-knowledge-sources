@@ -18,10 +18,12 @@ examples/windows/diffusers/qad_example
 
 The example config uses:
 
+```yaml
 batch_size: 1
 gradient_accumulation_steps: 4
 steps: 300
 FSDP num_processes: 8
+```
 
 So the effective batch size seems to be 1 × 4 × 8 = 32.
 
@@ -74,11 +76,13 @@ Thank you for the detailed question.
 
 Yes, we worked on production QAD for LTX-2.3 NvFP4 model please see [Model-LTX2.3-NVFP4](https://huggingface.co/Lightricks/LTX-2.3-nvfp4),  [Distillation Script](https://github.com/NVIDIA/Model-Optimizer/tree/main/examples/diffusers/distillation).
 
+```yaml
 We trained W4A4_NvFP4 Quantized LTX-2.3 using knowledge distillation on Blackwell B200 (W4A4 Tensor core), Settings: 
   learning_rate: 2.0e-6
   steps: 10000
   batch_size: 1
   gradient_accumulation_steps: 4
+```
   FSDP machines: 8
   FSDP num_processes: 8
  Effective batch size = 256

@@ -143,9 +143,11 @@ curl -X POST 'http://localhost:8000/wake_up?tags=kv_cache'
 
 To release only KV cache memory, wait for the level 0 pause to complete before calling the release endpoint. The same resident-memory and backend requirements as the Python API apply.
 
+```bash
 curl -X POST 'http://localhost:8000/sleep?level=0&mode=keep'
 curl -X POST 'http://localhost:8000/release_kv_cache_memory'
 curl -X POST 'http://localhost:8000/wake_up?tags=kv_cache'
+```
 
 
 #### HTTP endpoints[¶](https://docs.vllm.ai#http-endpoints)

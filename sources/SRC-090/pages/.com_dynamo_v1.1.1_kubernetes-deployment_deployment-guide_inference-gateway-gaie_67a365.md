@@ -204,8 +204,10 @@ on the EPP to skip prefix-overlap scoring altogether, making the router select w
 - Set
 `DYN_BUSY_THRESHOLD`
 
+```
 to configure the upper bound on how “full” a worker can be (often derived from kv_active_blocks or other load metrics) before the router skips it. If the selected worker exceeds this value, routing falls back to the next best candidate. By default the value is negative meaning this is not enabled. - Set
 `DYN_ENFORCE_DISAGG=true`
+```
 
 (default:`false`
 

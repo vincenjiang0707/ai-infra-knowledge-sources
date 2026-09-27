@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/scaled_mm/cutlass/
 lastmod: 2026-09-27
 
+```python
 class CutlassFP8ScaledMMLinearKernel(FP8ScaledMMLinearKernel):
 def __init__(
 self, c: FP8ScaledMMLinearLayerConfig, layer_param_names: Sequence[str]
@@ -103,3 +104,4 @@ A, B, out_dtype=out_dtype, scale_a=As, scale_b=Bs, bias=bias
 if pad_n > 0:
 output = output[..., :output_size].contiguous()
 return output.view(*output_shape[:-1], output_size)
+```

@@ -11,6 +11,7 @@ org.apache.tvm.Base$TVMError: TVMError: Binary was created using {relax.Executab
 Stack trace:
   File "/home/lixiaolong/桌面/mlc-llm/android/mlc4j/../../3rdparty/tvm/src/runtime/library_module.cc", line 122
 
+```bash
 	at org.apache.tvm.Base.checkCall(Base.java:173)
 	at org.apache.tvm.Function.invoke(Function.java:130)
 	at ai.mlc.mlcllm.JSONFFIEngine.runBackgroundLoop(JSONFFIEngine.java:64)
@@ -22,6 +23,7 @@ Stack trace:
 <!-- Describe your questions -->
 之前有人提到这个问题，但是按照他们的方法，都没有解决。https://github.com/mlc-ai/mlc-llm/issues/3055，https://github.com/mlc-ai/mlc-llm/issues/638
 在此之前，顺利完成了模型转换权重，和编译，都没有问题。不知道为什么，可以有偿解决，谢谢~
+```
 
 ## 评论 (1)
 

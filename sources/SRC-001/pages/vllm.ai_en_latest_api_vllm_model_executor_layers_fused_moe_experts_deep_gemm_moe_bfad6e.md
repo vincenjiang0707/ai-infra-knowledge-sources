@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/deep_gemm_moe/
 lastmod: 2026-09-27
 
+```python
 class DeepGemmExperts(mk.FusedMoEExpertsModular):
 """DeepGemm-based fused MoE expert implementation."""
 def __init__(self, moe_config: FusedMoEConfig, quant_config: FusedMoEQuantConfig):
@@ -248,3 +249,4 @@ inv_perm=inv_perm,
 expert_map=expert_map,
 output=output,
 )
+```

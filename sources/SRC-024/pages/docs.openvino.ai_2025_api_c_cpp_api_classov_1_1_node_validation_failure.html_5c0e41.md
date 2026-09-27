@@ -4,8 +4,10 @@ lastmod:
 # Class ov::NodeValidationFailure[#](https://docs.openvino.ai#class-ov-nodevalidationfailure)
 
 -
+```python
 class NodeValidationFailure : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[AssertFailure](https://docs.openvino.ai/classov_1_1_assert_failure.html#_CPPv4N2ov13AssertFailureE)[#](https://docs.openvino.ai#_CPPv4N2ov21NodeValidationFailureE) Public Functions
+```
 
 - template<> OPENVINO_API void create (const char *file, int line, const char *check_string, std::pair< const Node *, const std::vector< PartialShape > * > &&ctx, const std::string &explanation)
 Specialization to throw the

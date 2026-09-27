@@ -155,11 +155,13 @@ idly. Now the CUDA Graphs logic is separated into the [ CUDAGraphWrapper](https:
 
 , alongside the CUDA Graphs runtime modes, serving as the core structure for dispatching keys at runtime. The prototype is:
 
+```python
 class BatchDescriptor(NamedTuple):
 num_tokens: int
 num_reqs: int
 uniform: bool = False
 has_lora: bool = False
+```
 
 
 where `num_tokens`
@@ -319,6 +321,7 @@ To signal the CUDA Graphs compatibility of the attention backends, we introduce 
 
 .
 
+```python
 class AttentionCGSupport(enum.Enum):
 """ Constants for the CUDA Graphs support of the attention backend
 Here we do not consider the cascade attention, as currently
@@ -333,6 +336,7 @@ UNIFORM_SINGLE_TOKEN_DECODE = 1
 """CUDA Graphs supported for batches that only contain query_len==1 decodes"""
 NEVER = 0
 """NO CUDA Graphs support"""
+```
 
 
 Suppose we have hybrid attention backends (e.g., in mamba mixer models). In that case, we seek the minimum capability of all backends to determine the final capability of the model, and we might resolve the incompatible CUDA Graphs mode by downgrading the mode to the best fit one. For example, downgrading `FULL`
@@ -406,6 +410,7 @@ vllm serve --model meta-llama/Llama-3.1-8B-Instruct --compilation-config '{"cuda
 
 ### Python examples[¶](https://docs.vllm.ai#python-examples)
 
+```python
 import os
 os.environ.setdefault("VLLM_LOGGING_LEVEL", "DEBUG")
 import vllm
@@ -424,6 +429,7 @@ outputs = model.generate(
 ["My name is John and"],
 sampling_params=sampling_params,
 )
+```
 
 
 ### Piecewise compilation and full graph custom passes (attention fusion, sequence parallelism)[¶](https://docs.vllm.ai#piecewise-compilation-and-full-graph-custom-passes-attention-fusion-sequence-parallelism)

@@ -92,6 +92,7 @@ lower to reduce KV-cache pressure. - Add your standard cluster flags as needed, 
 
 The following request verifies that both reasoning extraction and tool calling are configured correctly:
 
+```python
 from openai import OpenAI
 client = OpenAI(api_key="EMPTY", base_url="http://localhost:8000/v1")
 model = client.models.list().data[0].id
@@ -124,6 +125,7 @@ msg, "reasoning_content", None
 print("reasoning:", reasoning)
 print("content:", msg.content)
 print("tool_calls:", msg.tool_calls)
+```
 
 
 If the deployment is configured correctly, you should see:

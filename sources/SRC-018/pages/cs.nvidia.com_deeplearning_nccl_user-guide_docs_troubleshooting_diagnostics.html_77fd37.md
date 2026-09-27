@@ -82,9 +82,11 @@ The network bandwidth check runs `ib_write_bw`
 
 from the `perftest`
 
+```go
 package over the physical
 InfiniBand devices selected by NCCL. It runs only when the communicator uses a network transport
 across at least two hosts and requires `ib_write_bw`
+```
 
 to be installed on every participating
 node. The client endpoint of

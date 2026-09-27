@@ -70,6 +70,7 @@ to extract the `token_ids`
 
 field:
 
+```json
 curl --fail --silent --show-error http://localhost:8000/v1/responses/render \
 -H "Content-Type: application/json" \
 -d '{
@@ -77,6 +78,7 @@ curl --fail --silent --show-error http://localhost:8000/v1/responses/render \
 "input": "Explain prefix caching in one sentence.",
 "max_output_tokens": 32
 }' | jq '.token_ids'
+```
 
 
 To count the rendered prompt tokens for this text request, replace the `jq`
@@ -158,6 +160,7 @@ The example below shows how a disaggregated encode / prefill coordinator can spl
 
 after the EC connector has published embeddings.
 
+```python
 import httpx
 MODEL = "Qwen/Qwen3-VL-2B-Instruct"
 RENDER = "http://localhost:8100" # vllm launch render ...
@@ -212,6 +215,7 @@ json={
 },
 ).json()
 print(prefill_response["choices"][0]["token_ids"])
+```
 
 
 Single-process clients can keep passing the full render response to `/inference/v1/generate`
@@ -234,6 +238,7 @@ and `mm_metadata`
 
 . The arrays share the same per-modality item order. Base64 blobs are truncated below for readability.
 
+```json
 {
 "token_ids": [151644, 872],
 "features": {
@@ -247,6 +252,7 @@ and `mm_metadata`
 }
 }
 }
+```
 
 
 Forward `kwargs_data`
@@ -265,6 +271,7 @@ with `ec_transfer_params`
 
 from the encode response:
 
+```json
 {
 "token_ids": [151644, 872],
 "features": {
@@ -279,3 +286,4 @@ from the encode response:
 },
 "sampling_params": {"max_tokens": 64}
 }
+```

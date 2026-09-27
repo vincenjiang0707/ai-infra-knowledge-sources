@@ -15,6 +15,7 @@ self.dtype = self.norm1.weight.dtype
 self.device = self.norm1.weight.device
 softmax_scale = num_heads ** (-0.5)
 self.self_attn = MHA(embed_dim=128,
+```bash
                                       num_heads=8,
                                       use_flash_attn=True,
                                       qkv_proj_bias=True,
@@ -27,6 +28,7 @@ self.self_attn = MHA(embed_dim=128,
                                       device=self.device,
                                       dtype=self.dtype,
                                       )
+```
 "
 
 I have tried many times to train the model with the flash attention layer instructed by the /module/mha.py.  

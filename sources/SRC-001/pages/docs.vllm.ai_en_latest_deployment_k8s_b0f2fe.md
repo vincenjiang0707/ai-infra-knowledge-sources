@@ -19,6 +19,7 @@ First, create a Kubernetes PVC and Secret for downloading and storing Hugging Fa
 
 ## Config
 
+```yaml
 cat <<EOF |kubectl apply -f -
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -26,12 +27,16 @@ metadata:
 name: vllm-models
 spec:
 accessModes:
+```
 - ReadWriteOnce
+```yaml
 volumeMode: Filesystem
 resources:
 requests:
 storage: 50Gi
+```
 ---
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -40,6 +45,7 @@ type: Opaque
 stringData:
 token: "REPLACE_WITH_TOKEN"
 EOF
+```
 
 
 Here, the `token`
@@ -52,6 +58,7 @@ Note that you will want to configure your vLLM image based on your processor arc
 
 ## Config
 
+```yaml
 VLLM_IMAGE=public.ecr.aws/q9t5s3a7/vllm-cpu-release-repo:latest # use this for x86_64
 VLLM_IMAGE=public.ecr.aws/q9t5s3a7/vllm-arm64-cpu-release-repo:latest # use this for arm64
 cat <<EOF |kubectl apply -f -
@@ -66,32 +73,44 @@ matchLabels:
 app.kubernetes.io/name: vllm
 template:
 metadata:
+```
 labels:
+```yaml
 app.kubernetes.io/name: vllm
 spec:
 containers:
+```
 - name: vllm
+```yaml
 image: $VLLM_IMAGE
 command: ["/bin/sh", "-c"]
 args: [
 "vllm serve meta-llama/Llama-3.2-1B-Instruct"
 ]
 env:
+```
 - name: HF_TOKEN
+```yaml
 valueFrom:
 secretKeyRef:
 name: hf-token-secret
 key: token
 ports:
+```
 - containerPort: 8000
 volumeMounts:
 - name: llama-storage
+```yaml
 mountPath: /root/.cache/huggingface
 volumes:
+```
 - name: llama-storage
+```yaml
 persistentVolumeClaim:
 claimName: vllm-models
+```
 ---
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -100,11 +119,14 @@ spec:
 selector:
 app.kubernetes.io/name: vllm
 ports:
+```
 - protocol: TCP
+```yaml
 port: 8000
 targetPort: 8000
 type: ClusterIP
 EOF
+```
 
 
 We can verify that the vLLM server has started successfully via the logs (this might take a couple of minutes to download the model):
@@ -197,13 +219,16 @@ probes:
 
 containers:
 - name: mistral-7b
+```yaml
 image: vllm/vllm-openai:latest
 command: ["/bin/sh", "-c"]
 args: [
 "pip install vllm[grpc] && vllm serve mistralai/Mistral-7B-Instruct-v0.3 --grpc --port 50051 --trust-remote-code"
 ]
 ports:
+```
 - containerPort: 50051
+```yaml
 livenessProbe:
 grpc:
 port: 50051
@@ -214,6 +239,7 @@ grpc:
 port: 50051
 initialDelaySeconds: 120
 periodSeconds: 5
+```
 
 
 Note

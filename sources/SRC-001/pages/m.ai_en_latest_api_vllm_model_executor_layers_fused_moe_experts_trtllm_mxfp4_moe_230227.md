@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/trtllm_mxfp4_moe/
 lastmod: 2026-09-27
 
+```python
 class TrtLlmMxfp4ExpertsModular(TrtLlmMxfp4ExpertsBase, mk.FusedMoEExpertsModular):
 """Modular version of the MXFP4 TRTLLM kernel (just the experts).
 Wraps flashinfer.trtllm_fp4_block_scale_routed_moe().
@@ -179,3 +180,4 @@ local_expert_offset,
 topk,
 )
 return unfinalized
+```

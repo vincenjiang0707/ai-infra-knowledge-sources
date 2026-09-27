@@ -20,6 +20,7 @@ This layer does the following:
 2. Postprocesses the output based on pooling head.
 3. Returns structured results as `PoolerOutput`.
 """
+```python
 def __init__(
 self,
 pooling: SequencePoolingMethod | SequencePoolingFn,
@@ -54,3 +55,4 @@ pooled_data = self.pooling(hidden_states, pooling_metadata)
 pooled_data = self.head(pooled_data, pooling_metadata)
 return pooled_data
 |
+```

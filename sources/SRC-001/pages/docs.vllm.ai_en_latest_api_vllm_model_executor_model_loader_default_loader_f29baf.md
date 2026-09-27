@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/model_loader/default_loader/
 lastmod: 2026-09-27
 
+```python
 class DefaultModelLoader(BaseModelLoader):
 """Model loader that can load different file types from disk."""
 # default number of thread when enable multithread weight loading
@@ -427,3 +428,4 @@ raise ValueError(
 "Following weights were not initialized from "
 f"checkpoint: {weights_not_loaded}"
 )
+```

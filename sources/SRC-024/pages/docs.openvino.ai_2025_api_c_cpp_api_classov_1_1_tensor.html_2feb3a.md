@@ -4,8 +4,10 @@ lastmod:
 # Class ov::Tensor[#](https://docs.openvino.ai#class-ov-tensor)
 
 -
+```python
 class Tensor
 [#](https://docs.openvino.ai#_CPPv4N2ov6TensorE) [Tensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_tensor)API holding host memory It can throw exceptions safely for the application, where it is properly handled.Subclassed by
+```
 
 [ov::RemoteTensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_remote_tensor)Unnamed Group
 

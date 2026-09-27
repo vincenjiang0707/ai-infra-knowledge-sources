@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/longcat_flash/
 lastmod: 2026-09-27
 
+```python
 @support_torch_compile
 class FlashModel(nn.Module):
 """Flash model."""
@@ -220,3 +221,4 @@ self.config.hidden_size / self.config.kv_lora_rank
 ) ** 0.5
 self_attn._mla_kv_lora_scaled = True
 return loaded_params
+```

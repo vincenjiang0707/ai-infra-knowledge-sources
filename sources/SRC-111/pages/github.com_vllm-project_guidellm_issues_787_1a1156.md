@@ -28,6 +28,7 @@ and against vLLM)
 ## To Reproduce
 
 # data.jsonl — a column name that is not in GenerativeColumnMapper's candidates
+```json
 printf '%s\n' '{"messages":[{"role":"user","content":"hello"}]}' > data.jsonl
 guidellm mock-server --host 127.0.0.1 --port 18999 &
 timeout 120 guidellm benchmark run \
@@ -38,6 +39,7 @@ timeout 120 guidellm benchmark run \
 --profile concurrent --rate 2 --max-seconds 8 \
 --data data.jsonl \
 --output-dir ./out --outputs json
+```
 # → prints "Setup complete, starting benchmarks..." then hangs until killed (exit 124)
 
 The same dataset with the column renamed to `prompt`

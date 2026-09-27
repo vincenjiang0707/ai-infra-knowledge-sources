@@ -327,8 +327,10 @@ The code:
 from mlc_llm import MLCEngine
 
 # Create engine
+```bash
 model = "/root/autodl-tmp/phi-mlc"
 engine = MLCEngine(model)
+```
 
 # Run chat completion in OpenAI API.
 for response in engine.chat.completions.create(

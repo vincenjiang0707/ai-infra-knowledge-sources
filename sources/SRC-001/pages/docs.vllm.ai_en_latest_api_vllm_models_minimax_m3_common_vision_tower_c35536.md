@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/minimax_m3/common/vision_tower/
 lastmod: 2026-09-24
 
+```python
 class MiniMaxVLVisionTransformer(nn.Module):
 """CLIP-based ViT with 3D RoPE (t/h/w decomposed).
 Faithfully mirrors the reference ``MiniMaxVLVisionTransformer``.
@@ -217,3 +218,4 @@ hidden = hidden.squeeze(1) # back to (total_N, hidden_size)
 if self.post_layernorm is not None:
 hidden = self.post_layernorm(hidden)
 return hidden
+```

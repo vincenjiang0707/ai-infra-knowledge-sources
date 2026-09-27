@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/passes/fusion/qk_norm_rope_kvcache_fusion/
 lastmod: 2026-09-27
 
+```python
 class QkNormRopeKvCachePattern:
 """Match the unfused sequence:
 q, k, v = split(qkv, ...)
@@ -397,3 +398,4 @@ pattern_noq_without_layer,
 replacement_noq_without_layer,
 pm_pass,
 )
+```

@@ -15,6 +15,7 @@ labels: bug
  which was installed in /opt/nvidia/hpc_sdk/Linux_x86_64/25.3/
 
 ### build tvm
+```bash
     cd /path/mlc-llm/3rdparty/tvm/
     rm -f -R build
     mkdir build 
@@ -40,8 +41,10 @@ labels: bug
 
     make -j64
     echo "Finished."
+```
 
 ## deploy model and start it
+```bash
     export MODEL_ROOT=/data/llm_models
     export MODEL_NAME=Llama-2-7b-chat-hf
     export QUANT_NAME=q0f16
@@ -68,6 +71,7 @@ labels: bug
                 --mode server --host 127.0.0.1 --port 9123 \
                 --device cuda --prefix-cache-mode disable \
                 # --enable-debug
+```
 
 ## config MLC_NVSHMEM_INIT_CONFIG_JSON_STR
 MLC_NVSHMEM_INIT_CONFIG_JSON_STR='{"uid": [65664, 2, 0, -65, 11, -84, 17, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, -108, 114, -10, 92, -70, -56, 9, 3, 0, 0, 0, 0, 0, 0, 0, 64, 2, 55, -118, -9, 85, 0, 0, 16, -65, 81, -84, -62, 127, 0, 0, 80, 66, 53, -118, -9, 85, 0, 0, 16, -65, 81, -84, -62, 127, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, -128, 35, -21, 78, -61, 127, 0, 0, 64, 2, 55, -118, -9, 85, 0, 0, -128, 41, -18, 78, -61, 127, 0, 0, 16, -65, 81, -84, -62, 127, 0, 0, 28, -73, 119, -119, -9, 85, 0, 0], "npes": 4, "pe_start": 0}'

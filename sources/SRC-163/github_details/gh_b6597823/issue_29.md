@@ -27,6 +27,7 @@ Traceback (most recent call last):
   File "/DistServe/distserve/single_stage_engine.py", line 654, in event_loop2
     await self._step()
   File "/DistServe/distserve/single_stage_engine.py", line 600, in _step
+```yaml
     generated_tokens_ids = await self.batches_ret_futures[0]
 ray.exceptions.RayActorError: The actor died unexpectedly before finishing this task.
 	class_name: ParaWorker
@@ -35,16 +36,19 @@ ray.exceptions.RayActorError: The actor died unexpectedly before finishing this 
 	namespace: 336d29b2-5654-4240-bec9-7def73115ad1
 	ip: 33.137.92.88
 The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker unexpectedly exits with a connection error code 2. End of file. There are some potential root causes. (1) The process is killed by SIGKILL by OOM killer due to high memory usage. (2) ray stop --force is called. (3) The worker is crashed unexpectedly due to SIGSEGV or other unexpected errors.
+```
 
 配置信息如下：
 
 sampling_params = SamplingParams(
+```bash
     n=1,
     use_beam_search=0,
     temperature=1,
     top_p=1,
     max_tokens=512,
     stop=["\n"]
+```
  )
 
 ## 评论 (3)

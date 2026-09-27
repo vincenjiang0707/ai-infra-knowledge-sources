@@ -15,8 +15,10 @@ to customize that one call; see [Configuration](https://docs.nvidia.com/configur
 ## allreduce[](https://docs.nvidia.com#allreduce)
 
 -
+```bash
 Communicator.allreduce(
 *sendbuf:*,[Buffer](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.Buffer.html#cuda.core.Buffer)| SupportsDLPack | SupportsCAI*recvbuf:*,[Buffer](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.Buffer.html#cuda.core.Buffer)| SupportsDLPack | SupportsCAI*op:*,[NcclRedOp](https://docs.nvidia.com/types.html#nccl.core.NcclRedOp)|[CustomRedOp](https://docs.nvidia.com/resources.html#nccl.core.CustomRedOp)***,*stream:*,[Stream](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.Stream.html#cuda.core.Stream)| cuda.core.typing.IsStreamType | int | None = None*config:*) None[NCCLCollConfig](https://docs.nvidia.com/configuration.html#nccl.core.NCCLCollConfig)| None = None[](https://docs.nvidia.com#nccl.core.Communicator.allreduce) All-reduce variant of
+```
 
 .`reduce()`
 
@@ -34,8 +36,10 @@ See also
 ## broadcast[](https://docs.nvidia.com#broadcast)
 
 -
+```bash
 Communicator.broadcast(
 *sendbuf:*,[Buffer](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.Buffer.html#cuda.core.Buffer)| SupportsDLPack | SupportsCAI | Any*recvbuf:*,[Buffer](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.Buffer.html#cuda.core.Buffer)| SupportsDLPack | SupportsCAI*root: int*,***,*stream:*,[Stream](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.Stream.html#cuda.core.Stream)| cuda.core.typing.IsStreamType | int | None = None*config:*) None[NCCLCollConfig](https://docs.nvidia.com/configuration.html#nccl.core.NCCLCollConfig)| None = None[](https://docs.nvidia.com#nccl.core.Communicator.broadcast) Copies data from
+```
 
 `sendbuf`
 
@@ -140,8 +144,10 @@ See also
 ## allgather[](https://docs.nvidia.com#allgather)
 
 -
+```bash
 Communicator.allgather(
 *sendbuf:*,[Buffer](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.Buffer.html#cuda.core.Buffer)| SupportsDLPack | SupportsCAI*recvbuf:*,[Buffer](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.Buffer.html#cuda.core.Buffer)| SupportsDLPack | SupportsCAI***,*stream:*,[Stream](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.Stream.html#cuda.core.Stream)| cuda.core.typing.IsStreamType | int | None = None*config:*) None[NCCLCollConfig](https://docs.nvidia.com/configuration.html#nccl.core.NCCLCollConfig)| None = None[](https://docs.nvidia.com#nccl.core.Communicator.allgather) All-gather variant of
+```
 
 .`gather()`
 
@@ -224,8 +230,10 @@ See also
 ## alltoall[](https://docs.nvidia.com#alltoall)
 
 -
+```bash
 Communicator.alltoall(
 *sendbuf:*,[Buffer](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.Buffer.html#cuda.core.Buffer)| SupportsDLPack | SupportsCAI*recvbuf:*,[Buffer](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.Buffer.html#cuda.core.Buffer)| SupportsDLPack | SupportsCAI***,*stream:*,[Stream](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.Stream.html#cuda.core.Stream)| cuda.core.typing.IsStreamType | int | None = None*config:*) None[NCCLCollConfig](https://docs.nvidia.com/configuration.html#nccl.core.NCCLCollConfig)| None = None[](https://docs.nvidia.com#nccl.core.Communicator.alltoall) Each rank sends and receives
+```
 
 `count`
 
@@ -277,8 +285,10 @@ See also
 ## gather[](https://docs.nvidia.com#gather)
 
 -
+```bash
 Communicator.gather(
 *sendbuf:*,[Buffer](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.Buffer.html#cuda.core.Buffer)| SupportsDLPack | SupportsCAI*recvbuf:*,[Buffer](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.Buffer.html#cuda.core.Buffer)| SupportsDLPack | SupportsCAI | Any*root: int | None = None*,***,*stream:*,[Stream](https://nvidia.github.io/cuda-python/cuda-core/latest/generated/cuda.core.Stream.html#cuda.core.Stream)| cuda.core.typing.IsStreamType | int | None = None*config:*) None[NCCLCollConfig](https://docs.nvidia.com/configuration.html#nccl.core.NCCLCollConfig)| None = None[](https://docs.nvidia.com#nccl.core.Communicator.gather) Gathers
+```
 
 `sendcount`
 

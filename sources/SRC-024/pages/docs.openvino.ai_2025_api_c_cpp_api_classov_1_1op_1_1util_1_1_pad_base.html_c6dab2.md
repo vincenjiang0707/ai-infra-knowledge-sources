@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::PadBase[#](https://docs.openvino.ai#class-ov-op-util-padbase)
 
 -
+```python
 class PadBase : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util7PadBaseE) Subclassed by
+```
 
 [ov::op::v12::Pad](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v12_1_1_pad),[ov::op::v1::Pad](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_pad)Public Functions
 

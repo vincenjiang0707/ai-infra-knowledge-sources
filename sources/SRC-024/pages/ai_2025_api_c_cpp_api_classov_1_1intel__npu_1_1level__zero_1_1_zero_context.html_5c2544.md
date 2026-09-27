@@ -4,8 +4,10 @@ lastmod:
 # Class ov::intel_npu::level_zero::ZeroContext[#](https://docs.openvino.ai#class-ov-intel-npu-level-zero-zerocontext)
 
 -
+```python
 class ZeroContext : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[RemoteContext](https://docs.openvino.ai/classov_1_1_remote_context.html#_CPPv4N2ov13RemoteContextE)[#](https://docs.openvino.ai#_CPPv4N2ov9intel_npu10level_zero11ZeroContextE) This class represents an abstraction for NPU plugin remote context which is shared with LevelZero context object. The plugin object derived from this class can be obtained either with
+```
 
 [CompiledModel::get_context()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_compiled_model_1a22c5537d4c7182072d327077c386b01a)or[Core::create_context()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_core_1ab9a3eef07c3471037070242f8da2fb01)calls.Public Functions
 

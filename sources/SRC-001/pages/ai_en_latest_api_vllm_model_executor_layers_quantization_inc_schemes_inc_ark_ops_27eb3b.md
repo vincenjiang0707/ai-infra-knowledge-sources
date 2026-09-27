@@ -6,6 +6,7 @@ Return ARK availability, error details, cached module, and QuantLinear.
 ## Source code in `vllm/model_executor/layers/quantization/inc/schemes/inc_ark_ops.py`
 
 
+```python
 | @lru_cache(maxsize=1)
 def get_ark_state() -> tuple[bool, str | None, Any | None, Any | None]:
 """Return ARK availability, error details, cached module, and QuantLinear."""
@@ -25,3 +26,4 @@ None,
 logger.info("Successfully loaded auto_round_kernel backend library.")
 return True, None, ark, QuantLinear
 |
+```

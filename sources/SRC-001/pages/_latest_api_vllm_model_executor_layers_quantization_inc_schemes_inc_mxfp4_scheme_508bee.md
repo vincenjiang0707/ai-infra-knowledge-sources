@@ -15,6 +15,7 @@ for fused MoE layers; see those classes for the per-module weight layout and ker
 ## Source code in `vllm/model_executor/layers/quantization/inc/schemes/inc_mxfp4_scheme.py`
 
 
+```python
 | class INCMxfp4Scheme(INCScheme):
 """MXFP4 (W4A4) scheme for AutoRound checkpoints.
 Dispatches to :class:`INCMxfp4LinearMethod` for linear layers and
@@ -45,3 +46,4 @@ del config, prefix, layer_config
 from .inc_mxfp4_moe import INCMxfp4MoEMethod
 return INCMxfp4MoEMethod(layer.moe_config)
 |
+```

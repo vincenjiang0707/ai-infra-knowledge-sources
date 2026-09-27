@@ -371,6 +371,7 @@ Uninstalling torch-2.13.0:
 Looking in indexes: https://download.pytorch.org/whl/cu126
 Collecting torch
   Downloading https://download-r2.pytorch.org/whl/cu126/torch-2.13.0%2Bcu126-cp311-cp311-win_amd64.whl.metadata (39 kB)
+```
 Requirement already satisfied: filelock in c:\users\aytto\desktop\hqq\venv\lib\site-packages (from torch) (3.32.0)
 Requirement already satisfied: typing-extensions>=4.10.0 in c:\users\aytto\desktop\hqq\venv\lib\site-packages (from torch) (4.16.0)
 Requirement already satisfied: setuptools>=77.0.3 in c:\users\aytto\desktop\hqq\venv\lib\site-packages (from torch) (79.0.1)
@@ -381,6 +382,7 @@ Requirement already satisfied: fsspec>=0.8.5 in c:\users\aytto\desktop\hqq\venv\
 Requirement already satisfied: mpmath<1.4,>=1.1.0 in c:\users\aytto\desktop\hqq\venv\lib\site-packages (from sympy>=1.13.3->torch) (1.3.0)
 Requirement already satisfied: MarkupSafe>=2.0 in c:\users\aytto\desktop\hqq\venv\lib\site-packages (from jinja2->torch) (3.0.3)
 Downloading https://download-r2.pytorch.org/whl/cu126/torch-2.13.0%2Bcu126-cp311-cp311-win_amd64.whl (2594.5 MB)
+```
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.6/2.6 GB 1.9 MB/s eta 0:00:00
 Installing collected packages: torch
 Successfully installed torch-2.13.0+cu126
@@ -396,6 +398,7 @@ At line:1 char:1
     + CategoryInfo          : ObjectNotFound: (I:String) [], CommandNotFoundException
     + FullyQualifiedErrorId : CommandNotFoundException
 
+```bash
 (venv) PS C:\Users\Aytto\Desktop\hqq> python -c "import torch; print(torch.__version__); print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0))"
 2.13.0+cu126
 True
@@ -571,6 +574,7 @@ model.layers.{0...31}.self_attn.q_proj.weight              | MISSING    |
 model.layers.{0...31}.self_attn.k_proj.weight              | MISSING    |
 model.layers.{0...31}.mlp.down_proj.weight                 | MISSING    |
 model.layers.{0...31}.mlp.up_proj.weight                   | MISSING    |
+```
 
 Notes:
 - UNEXPECTED:   can be ignored when loading from different task/architecture; not ok if you expect identical arch.

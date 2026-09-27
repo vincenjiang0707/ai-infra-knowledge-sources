@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/aux_output_connector/worker/
 lastmod: 2026-09-27
 
+```python
 class AuxOutputWorkerConnector:
 """Own capture, request tails, and backend resources on the output worker."""
 def __init__(
@@ -299,3 +300,4 @@ try:
 self._store.close()
 finally:
 self._store = None
+```

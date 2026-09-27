@@ -175,12 +175,14 @@ in `--kv-transfer-config`
 `kv_lease_duration` | 30s | Initial lease duration on P. Heartbeat interval and extension amount are derived automatically (`interval = duration // 6` , `extension = duration * 2 // 3` ). |
 `decoder_kv_blocks_ttl` | 480s | TTL for KV blocks cached on D in bidirectional transfer mode. Simple fixed timeout, not renewed via heartbeats. |
 
+```json
 vllm serve <MODEL> \
 --kv-transfer-config '{
 "kv_connector": "NixlConnector",
 "kv_role": "kv_producer",
 "kv_connector_extra_config": {"kv_lease_duration": 60}
 }'
+```
 
 
 For full NixlConnector configuration details, see the [NixlConnector Usage Guide](https://docs.vllm.ai/features/nixl_connector_usage/).

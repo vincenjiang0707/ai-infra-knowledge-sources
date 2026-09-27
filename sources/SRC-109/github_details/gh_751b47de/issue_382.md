@@ -33,9 +33,11 @@ Finally, I noticed that the JSON output from sglang with pd disaggregation ends 
 
 Finally I solved this issue. please modify sglang/srt/disaggregation/mini_lb.py
 `async for chunk in decode_response.content:
+```python
      if chunk==b"\n":
          continue
      if chunk.startswith(b"data:") and not chunk.endswith(b"\n\n"):
          chunk = chunk.rstrip(b"\n")+b"\n\n"
     yield chunk`
+```
 

@@ -165,11 +165,13 @@ when using `LLM.encode`
 
 for token classification Models:
 
+```python
 from vllm import LLM
 llm = LLM(model="boltuix/NeuroBERT-NER", runner="pooling")
 (output,) = llm.encode("Hello, my name is", pooling_task="token_classify")
 data = output.outputs.data
 print(f"Data: {data!r}")
+```
 
 
 ## Online Serving[¶](https://docs.vllm.ai#online-serving)

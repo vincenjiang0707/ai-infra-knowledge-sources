@@ -162,10 +162,12 @@ msmodelslim --help
 
 ## ⚖️ 相关说明
 
+```
 🔹 《[版本说明](https://gitcode.com/Ascend/msmodelslim/releases)》<br>
 🔹 《[许可证声明](docs/zh/legal/license_notice.md)》<br>
 🔹 《[安全声明](docs/zh/legal/SECURITY.md)》<br>
 🔹 《[免责声明](docs/zh/legal/disclaimer.md)》<br>
+```
 
 ---
 
@@ -181,10 +183,12 @@ msmodelslim --help
 
 ## 🙏 致谢
 
+```
 本工具由华为公司的下列部门联合贡献：<br>
 🔹 昇腾计算MindStudio开发部<br>
 🔹 昇腾计算生态使能部<br>
 🔹 昇腾计算技术开发部<br>
 🔹 2012实验室<br>
+```
 
 感谢来自社区的每一个 PR，欢迎贡献！

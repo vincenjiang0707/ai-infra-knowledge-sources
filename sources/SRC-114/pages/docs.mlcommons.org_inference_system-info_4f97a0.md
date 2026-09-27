@@ -486,9 +486,11 @@ Generate the optional nameplate power YAML — a skeleton template alone, or pop
 Variations can be stacked:
 
 ```
+```bash
 mlcr get-mlperf-multi-node-system-info,_cuda,_inference,_power \
 --ssh_ids="user@node1:22" \
 --system_name="My-System"
+```
 ```
 
 

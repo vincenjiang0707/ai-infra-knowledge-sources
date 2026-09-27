@@ -36,9 +36,11 @@ to the startup parameters to resolve this issue. This IMA error may occur in Dat
 
 For SM90/SM100 machines:
 
+```bash
 vllm serve Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 \
 --tensor-parallel-size 4 \
 --enable-prefix-caching
+```
 
 
 We can accelerate the performance on SM100 machines using the FP8 FlashInfer TRTLLM MoE kernel.
@@ -113,9 +115,11 @@ will be generated. You can specify the directory containing this file for your d
 
 , like:
 
+```bash
 VLLM_TUNED_CONFIG_FOLDER=your_moe_tuned_dir vllm serve Qwen/Qwen3-Next-80B-A3B-Instruct \
 --tensor-parallel-size 4 \
 --served-model-name qwen3-next
+```
 
 
 You should see the following information printed in the server log. This indicates that the tuned MoE configuration has been loaded, which will improve the model service performance.

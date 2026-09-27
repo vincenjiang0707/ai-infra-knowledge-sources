@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/mooncake_connector/
 lastmod: 2026-09-27
 
+```python
 class MooncakeConnectorWorker:
 """Implementation of Worker side methods."""
 def __init__(
@@ -646,6 +647,7 @@ group_local_block_ids, group_remote_block_ids
 if can_coalesce:
 src_ptrs.append(
 local_region.base_addr
+```
 + group_local_block_id[0] * local_region.block_len
 + src_region_offset
 )

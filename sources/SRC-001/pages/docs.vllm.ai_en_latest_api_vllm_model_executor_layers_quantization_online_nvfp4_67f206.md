@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/online/nvfp4/
 lastmod: 2026-09-27
 
+```python
 class Nvfp4OnlineMoEMethod(OnlineMoEMethodBase):
 """Online NVFP4 MoE quantization with per-token activation scales.
 Quantizes fp16/bf16 expert weights to NVFP4 at load time; the FlashInfer
@@ -110,3 +111,4 @@ a2_scale=layer.w2_input_scale,
 swiglu_limit=getattr(layer, "swiglu_limit", None),
 layer=layer,
 )
+```

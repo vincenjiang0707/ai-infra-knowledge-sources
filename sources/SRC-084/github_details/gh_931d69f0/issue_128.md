@@ -26,12 +26,14 @@ time 0.005  sec
 
 
 ## code: 
+```python
 import torch
 device        = 'cuda:0'
 backend       = 'torchao_int4' #"torchao_int4" (4-bit only) or "bitblas" (4-bit + 2-bit)
 compute_dtype = torch.bfloat16
 cache_dir     = '.' 
 model_id      = './opt'
+```
 
 
 from transformers import AutoModelForCausalLM, AutoTokenizer, HqqConfig 
@@ -49,8 +51,10 @@ model = AutoModelForCausalLM.from_pretrained(
 
 tokenizer = AutoTokenizer.from_pretrained(model_id, cache_dir=cache_dir)
 
+```python
 from hqq.utils.patching import prepare_for_inference
 prepare_for_inference(model, backend=backend, verbose=True) 
+```
 
 from eval_model import eval_wikitext2
 

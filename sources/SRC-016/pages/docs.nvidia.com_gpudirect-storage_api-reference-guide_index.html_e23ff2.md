@@ -258,13 +258,16 @@ This section provides information about the cuFile APIs that are used from the C
 Here are the relevant cuFile enums and their descriptions.
 
 ```
+```rust
 typedef struct CUfileError {
 CUfileOpError err; // cufile error
 enum CUresult cu_err; // for CUDA-specific errors
 } CUfileError_t;
 /**
+```
 * error macros to inspect error status of type CUfileOpError
 */
+```
 #define IS_CUFILE_ERR(err) \
 (abs((err)) > CUFILEOP_BASE_ERR)
 #define CUFILE_ERRSTR(err) \
@@ -272,6 +275,7 @@ cufileop_status_error(static_cast<CUfileOpError>(abs((err))))
 #define IS_CUDA_ERR(status) \
 ((status).err == CU_FILE_CUDA_DRIVER_ERROR)
 #define CU_FILE_CUDA_ERR(status) ((status).cu_
+```
 ```
 
 The following enum and two structures enable broader cross-OS support:
@@ -580,6 +584,7 @@ Note: CUFILE_PARAM_PROFILE_NVTX is now deprecated and attempting to set/get this
 cuFile typedefs:
 
 ```
+```
 typedef struct CUfileDescr CUfileDesr_t
 typedef struct CUfileError CUfileError_t
 typedef struct CUfileDrvProps CUfileDrvProps_t
@@ -588,6 +593,7 @@ typedef enum CUfileDriverStatusFlags_enum CUfileDriverStatusFlags_t
 typedef enum CUfileDriverControlFlags_enum CUfileDriverControlFlags_t
 typedef struct CUfileIOParams CUfileIOParams_t
 typedef enum CUfileBatchOpcode CUfileBatchOpcode_t
+```
 ```
 
 ### 4.1.3. Enumerations[#](https://docs.nvidia.com#enumerations)
@@ -849,8 +855,10 @@ Refer to the [error_and_properties.cc](https://github.com/NVIDIA/MagnumIO/blob/m
 The core of the cuFile IO APIs are the read and write functions.
 
 ```
+```
 ssize_t cuFileRead(CUFileHandle_t fh, void *bufPtr_base, size_t size, off_t file_offset, off_t devPtr_offset);
 ssize_t cuFileWrite(CUFileHandle_t fh, const void *bufPtr_base, size_t size, off_t file_offset, off_t devPtr_offset);
+```
 ```
 
 The starting offset of the buffer on the device or host is determined by a base (`bufPtr_base`
@@ -2846,11 +2854,13 @@ Refer to the following for more information:
 ### 5.5.3. cuFileBatchIOGetStatus[#](https://docs.nvidia.com#cufilebatchiogetstatus)
 
 ```
+```rust
 CUfileError_t cuFileBatchIOGetStatus(CUfileBatchHandle_t batch_idp,
 unsigned min_nr,
 unsigned *nr,
 CUfileIOEvents_t *iocbp,
 struct timespec* timeout));
+```
 ```
 
 **Parameters**

@@ -9,8 +9,10 @@ lastmod:
 Functions
 
 -
+```
 inline std::string trim(const std::string &s)
 [#](https://docs.openvino.ai#_CPPv44trimRKNSt6stringE) Trims std::string from both ends (in place)
+```
 
 - Parameters:
 **s**– A reference to a std::tring to trim- Returns:

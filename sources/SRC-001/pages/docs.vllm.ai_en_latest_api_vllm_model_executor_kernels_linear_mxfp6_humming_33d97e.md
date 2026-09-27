@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp6/humming/
 lastmod: 2026-09-27
 
+```python
 class HummingMxFp6LinearKernel(MxFp6LinearKernel):
 """Humming GEMM for packed MXFP6 E2M3 and E3M2 weights."""
 @classmethod
@@ -57,3 +58,4 @@ layer_config=self.layer_config,
 compute_config=self.compute_config,
 locks=self.locks,
 )
+```

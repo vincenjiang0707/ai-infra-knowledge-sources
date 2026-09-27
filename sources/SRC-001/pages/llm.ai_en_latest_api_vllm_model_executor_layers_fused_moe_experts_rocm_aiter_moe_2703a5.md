@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/rocm_aiter_moe/
 lastmod: 2026-09-27
 
+```python
 def rocm_aiter_fused_experts(
 hidden_states: torch.Tensor,
 w1: torch.Tensor,
@@ -115,6 +116,7 @@ hidden_pad = hidden_states.shape[1] - moe_config.hidden_dim_unpadded
 intermediate_pad = (
 (
 moe_config.intermediate_size_per_partition
+```
 - moe_config.intermediate_size_per_partition_unpadded
 )
 if moe_config.intermediate_pad is None

@@ -255,8 +255,10 @@ instead. Those recipes now also splice in the shared base`cost_excluded_layers`
 
 unit, which the removed CLI applied unconditionally, so a VL model keeps its vision tower and MTP layers out of the effective-bits denominator. On a VL model this changes the per-layer cost weights, so an existing`--auto_quantize_checkpoint`
 
+```python
 from an earlier release is rejected with "Use a different checkpoint path"; delete or repoint it to re-run the search. - Remove the
 `examples/llm_ptq`
+```
 
 symlink and the`examples/vlm_ptq`
 

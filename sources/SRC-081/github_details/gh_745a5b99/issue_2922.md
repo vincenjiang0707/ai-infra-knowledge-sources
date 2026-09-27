@@ -8,10 +8,12 @@ labels: documentation, nvfp4, keep-open
 
 # Llama-3.1-8B-Instruct NVFP4 Evaluation Results
 
+```yaml
 Baseline: `RedHatAI/Llama-3.1-8B-Instruct` (FP16)  
 Seeds: 1234, 2345, 3456  
 Generation params: temperature=0.6, top_p=0.9  
 Serving: vLLM v0.25.1, TP=1, max-model-len=20480  
+```
 
 ## Summary
 - GTPQ models were calibrated with Ultrachat and Perfect Blend

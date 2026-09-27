@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/nixl/base_worker/
 lastmod: 2026-09-27
 
+```python
 class NixlBaseConnectorWorker:
 """Base implementation of Worker side methods shared by pull and push."""
 # Transfer mode included in the NIXL compatibility hash so that a push
@@ -31,8 +32,10 @@ ssm_regions_per_layer = len(self._conv_decomp.local_conv_offsets) + 1
 # the descriptors emitted by _build_mamba_local.
 num_ssm_regions = (
 len(self._ssm_region_indices or self.block_len_per_layer)
+```
 * ssm_regions_per_layer
 )
+```python
 num_blocks = dst_num_blocks
 if block_size_ratio is not None:
 num_blocks = int(num_blocks * block_size_ratio)
@@ -135,6 +138,7 @@ else np.arange(num_ssm_regions, dtype=np.int32)
 all_descs.append(
 (
 ssm_region_ids * logical_blocks
+```
 + group_arr[None, :]
 + num_fa_descs
 ).ravel()
@@ -1635,6 +1639,7 @@ local_block_len = (
 self.block_len_per_layer[region_index]
 * self._physical_blocks_per_logical_kv_block
 )
+```python
 remote_block_len = (
 nixl_agent_meta.block_lens[region_index] * remote_physical_per_logical
 )
@@ -1645,12 +1650,16 @@ f"local={local_block_len}, remote={remote_block_len}."
 )
 remote_block_stride = (
 nixl_agent_meta.block_strides[region_index]
+```
 * remote_physical_per_logical
 )
+```python
 block_addrs = (
 nixl_agent_meta.kv_caches_base_addr[region_index]
+```
 + block_arange * remote_block_stride
 )
+```python
 parts.append(self._stack_descs(block_addrs, remote_block_len, device_id))
 return np.concatenate(parts)
 @staticmethod
@@ -1686,6 +1695,7 @@ self.region_num_blocks[i],
 )
 addrs = (
 base_addr
+```
 + logical_blocks * self.block_stride_per_layer[i]
 + split_offsets * block_len
 )
@@ -3089,6 +3099,7 @@ transfer is still reading from are held back explicitly, since the
 stamp is not refreshed while the read runs.
 - Pending handshakes don't have an _engine_last_active entry yet
 """
+```python
 # NOTE (NickLucche): This does NOT currently prevent OOMing if a huge number
 # of remote engines is registered all at once (adding a background cleanup
 # thread wouldnt help either).
@@ -3236,3 +3247,4 @@ for handle in handles:
 self.nixl_wrapper.release_xfer_handle(handle)
 self._recving_transfers.clear()
 self._finish_shutdown()
+```

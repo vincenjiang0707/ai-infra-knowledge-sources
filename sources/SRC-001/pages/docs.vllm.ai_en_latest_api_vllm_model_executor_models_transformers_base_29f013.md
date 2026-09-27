@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/transformers/base/
 lastmod: 2026-09-27
 
+```python
 class Base(
 nn.Module,
 VllmModel,
@@ -84,6 +85,7 @@ self.make_empty_intermediate_tensors = make_empty_intermediate_tensors_factory(
 )
 def _patch_config(self):
 """Patch the config to ensure that the model is created correctly:
+```
 - Sets the attention implementation to "vllm" so the attention instances from
 `_create_attention_instances` are used
 - Sets the dtype to the default torch dtype set by vLLM because Transformers
@@ -537,6 +539,7 @@ with torch.device("meta"):
 self.model: "PreTrainedModel" = AutoModel.from_config(...)
 ```
 """
+```python
 dtype = dtype or self.model_config.dtype
 device = self.device_config.device
 def _init_parameters(module: nn.Module):
@@ -646,3 +649,4 @@ maybe_install_capturing_hooks(self.model)
 def get_eagle3_default_aux_hidden_state_layers(self) -> tuple[int, ...]:
 num_layers = self.text_config.num_hidden_layers
 return (2, num_layers // 2, num_layers - 3)
+```

@@ -11,6 +11,7 @@ Base class for Linear attention layer.
 ## Source code in `vllm/model_executor/layers/mamba/linear/base.py`
 
 
+```python
 | class LinearAttention(PluggableLayer, MambaBase):
 """Base class for Linear attention layer."""
 def __init__(
@@ -50,3 +51,4 @@ return MambaStateShapeCalculator.linear_attention_state_shape(
 num_heads=self.num_heads, tp_size=self.tp_size, head_dim=self.head_dim
 )
 |
+```

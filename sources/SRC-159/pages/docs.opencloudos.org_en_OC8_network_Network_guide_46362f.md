@@ -1868,11 +1868,13 @@ In most cases, a connection profile contains the settings for a network device. 
 - Display all settings for a single connection profile:
 
 ```
+```yaml
 #nmcli connection show Example
 connection.id: Example
 ...
 connection.multi-connect: 3 (multiple)
 match.interface-name: `enp*`
+```
 ...
 ```
 
@@ -1932,11 +1934,13 @@ Example 9cee0958-512f-4203-9d3d-b57af1d88466 ethernet enp8s0
 
 
 ```
+```yaml
 #nmcli connection show Example
 connection.id: Example
 ...
 connection.multi-connect: 3 (multiple)
 match.path: pci-0000:07:00.0,pci-0000:08:00.0
+```
 ...
 ```
 
@@ -2390,36 +2394,48 @@ interfaces:
 - name: vlan10
 type: vlan
 state: up
+```yaml
 ipv4:
 enabled: true
 address:
+```
 - ip: 192.0.2.1
+```yaml
 prefix-length: 24
 dhcp: false
 ipv6:
 enabled: true
 address:
+```
 - ip: 2001:db8:1::1
+```yaml
 prefix-length: 64
 autoconf: false
 dhcp: false
 vlan:
 base-iface: enp1s0
 id: 10
+```
 - name: enp1s0
 type: ethernet
 state: up
+```yaml
 routes:
 config:
+```
 - destination: 0.0.0.0/0
+```yaml
 next-hop-address: 192.0.2.254
 next-hop-interface: vlan10
+```
 - destination: ::/0
+```yaml
 next-hop-address: 2001:db8:1::fffe
 next-hop-interface: vlan10
 dns-resolver:
 config:
 search:
+```
 - example.com
 server:
 - 192.0.2.200
@@ -2444,12 +2460,14 @@ vlan10 vlan connected vlan10
 
 
 ```
+```yaml
 # nmcli connection show vlan10
 connection.id: vlan10
 connection.uuid: 1722970f-788e-4f81-bd7d-a86bf21c9df5
 connection.stable-id: --
 connection.type: vlan
 connection.interface-name: vlan10
+```
 ...
 ```
 
@@ -2486,38 +2504,52 @@ node.example.com
 ```
 ---
 - name: Configure a VLAN that uses an Ethernet connection
+```yaml
 hosts: node.example.com
 become: true
 tasks:
+```
 - include_role:
+```yaml
 name: rhel-system-roles.network
 vars:
 network_connections:
 # Add an Ethernet profile for the underlying device of the VLAN
+```
 - name: enp1s0
+```yaml
 type: ethernet
 interface_name: enp1s0
 autoconnect: yes
+```
 state: up
+```yaml
 ip:
 dhcp4: no
 auto6: no
 # Define the VLAN profile
+```
 - name: enp1s0.10
+```yaml
 type: vlan
 ip:
 address:
+```
 - "192.0.2.1/24"
 - "2001:db8:1::1/64"
+```yaml
 gateway4: 192.0.2.254
 gateway6: 2001:db8:1::fffe
 dns:
+```
 - 192.0.2.200
 - 2001:db8:1::ffbb
 dns_search:
 - example.com
+```yaml
 vlan_id: 10
 parent: enp1s0
+```
 state: up
 ```
 
@@ -2884,11 +2916,13 @@ link/ether 52:54:00:9e:f1:ce brd ff:ff:ff:ff:ff:ff
 
 
 ```
+```
 # bridge link show
 3: enp7s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master bridge0 state forwarding priority 32 cost 100
 4: enp8s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master bridge0 state listening priority 32 cost 100
 5: enp9s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master bridge1 state forwarding priority 32 cost 100
 6: enp11s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master bridge1 state blocking priority 32 cost 100
+```
 ...
 ```
 
@@ -2955,11 +2989,13 @@ link/ether 52:54:00:9e:f1:ce brd ff:ff:ff:ff:ff:ff
 
 
 ```
+```
 # bridge link show
 3: enp7s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master bridge0 state forwarding priority 32 cost 100
 4: enp8s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master bridge0 state listening priority 32 cost 100
 5: enp9s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master bridge1 state forwarding priority 32 cost 100
 6: enp11s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 master bridge1 state blocking priority 32 cost 100
+```
 ...
 ```
 
@@ -2985,16 +3021,21 @@ interfaces:
 - name: bridge0
 type: linux-bridge
 state: up
+```yaml
 ipv4:
 enabled: true
 address:
+```
 - ip: 192.0.2.1
+```yaml
 prefix-length: 24
 dhcp: false
 ipv6:
 enabled: true
 address:
+```
 - ip: 2001:db8:1::1
+```yaml
 prefix-length: 64
 autoconf: false
 dhcp: false
@@ -3003,6 +3044,7 @@ options:
 stp:
 enabled: true
 port:
+```
 - name: enp1s0
 - name: enp7s0
 - name: enp1s0
@@ -3011,17 +3053,23 @@ state: up
 - name: enp7s0
 type: ethernet
 state: up
+```yaml
 routes:
 config:
+```
 - destination: 0.0.0.0/0
+```yaml
 next-hop-address: 192.0.2.254
 next-hop-interface: bridge0
+```
 - destination: ::/0
+```yaml
 next-hop-address: 2001:db8:1::fffe
 next-hop-interface: bridge0
 dns-resolver:
 config:
 search:
+```
 - example.com
 server:
 - 192.0.2.200
@@ -3046,12 +3094,14 @@ bridge0 bridge connected bridge0
 
 
 ```
+```yaml
 # nmcli connection show bridge0
 connection.id: bridge0
 connection.uuid: e2cc9206-75a2-4622-89cf-1252926060a9
 connection.stable-id: --
 connection.type: bridge
 connection.interface-name: bridge0
+```
 ...
 ```
 
@@ -3510,22 +3560,28 @@ interfaces:
 - name: bond0
 type: bond
 state: up
+```yaml
 ipv4:
 enabled: true
 address:
+```
 - ip: 192.0.2.1
+```yaml
 prefix-length: 24
 dhcp: false
 ipv6:
 enabled: true
 address:
+```
 - ip: 2001:db8:1::1
+```yaml
 prefix-length: 64
 autoconf: false
 dhcp: false
 link-aggregation:
 mode: active-backup
 port:
+```
 - enp1s0
 - enp7s0
 - name: enp1s0
@@ -3534,17 +3590,23 @@ state: up
 - name: enp7s0
 type: ethernet
 state: up
+```yaml
 routes:
 config:
+```
 - destination: 0.0.0.0/0
+```yaml
 next-hop-address: 192.0.2.254
 next-hop-interface: bond0
+```
 - destination: ::/0
+```yaml
 next-hop-address: 2001:db8:1::fffe
 next-hop-interface: bond0
 dns-resolver:
 config:
 search:
+```
 - example.com
 server:
 - 192.0.2.200
@@ -3589,42 +3651,56 @@ node.example.com
 ```
 ---
 - name: Configure a network bond that uses two Ethernet ports
+```yaml
 hosts: node.example.com
 become: true
 tasks:
+```
 - include_role:
+```yaml
 name: rhel-system-roles.network
 vars:
 network_connections:
 # Define the bond profile
+```
 - name: bond0
+```yaml
 type: bond
 interface_name: bond0
 ip:
 address:
+```
 - "192.0.2.1/24"
 - "2001:db8:1::1/64"
+```yaml
 gateway4: 192.0.2.254
 gateway6: 2001:db8:1::fffe
 dns:
+```
 - 192.0.2.200
 - 2001:db8:1::ffbb
 dns_search:
 - example.com
+```yaml
 bond:
 mode: active-backup
+```
 state: up
 # Add an Ethernet profile to the bond
 - name: bond0-port1
+```yaml
 interface_name: enp7s0
 type: ethernet
 controller: bond0
+```
 state: up
 # Add a second Ethernet profile to the bond
 - name: bond0-port2
+```yaml
 interface_name: enp8s0
 type: ethernet
 controller: bond0
+```
 state: up
 ```
 
@@ -4498,6 +4574,7 @@ authenticate {
 This only enables EAP and disables the plain text authentication method. 5. Edit the /etc/raddb/clients.conf file: 1. Set secure passwords in localhost and localhost_ipv6 client directives:
 
 ```
+```bash
 client localhost {
 ipaddr = 127.0.0.1
 ...
@@ -4512,6 +4589,7 @@ client hostapd.example.org {
 ipaddr = 192.0.2.2/32
 secret = client_password
 }
+```
 ```
 
 
@@ -4779,6 +4857,7 @@ esac
 
 ```
 [Unit]
+```bash
 Description=Example 802.1x traffic management for hostapd
 After=hostapd.service
 After=sys-devices-virtual-net-%i.device
@@ -4793,6 +4872,7 @@ ExecStart=/usr/sbin/hostapd_cli -i %i -a /usr/local/bin/802-1x-tr-mgmt
 ExecStopPost=-/usr/sbin/tc qdisc del dev %i clsact
 [Install]
 WantedBy=multi-user.target
+```
 ```
 
 
@@ -4914,40 +4994,55 @@ node.example.com
 ```
 ---
 - name: Configure an Ethernet connection with 802.1X authentication
+```yaml
 hosts: node.example.com
 become: true
 tasks:
+```
 - name: Copy client key for 802.1X authentication
+```yaml
 copy:
 src: "/srv/data/client.key"
 dest: "/etc/pki/tls/private/client.key"
 mode: 0600
+```
 - name: Copy client certificate for 802.1X authentication
+```yaml
 copy:
 src: "/srv/data/client.crt"
 dest: "/etc/pki/tls/certs/client.crt"
+```
 - name: Copy CA certificate for 802.1X authentication
+```yaml
 copy:
 src: "/srv/data/ca.crt"
 dest: "/etc/pki/ca-trust/source/anchors/ca.crt"
+```
 - include_role:
+```yaml
 name: rhel-system-roles.network
 vars:
 network_connections:
+```
 - name: enp1s0
+```yaml
 type: ethernet
 autoconnect: yes
 ip:
 address:
+```
 - 192.0.2.1/24
 - 2001:db8:1::1/64
+```yaml
 gateway4: 192.0.2.254
 gateway6: 2001:db8:1::fffe
 dns:
+```
 - 192.0.2.200
 - 2001:db8:1::ffbb
 dns_search:
 - example.com
+```yaml
 ieee802_1x:
 identity: user_name
 eap: tls
@@ -4956,6 +5051,7 @@ private_key_password: "password"
 client_cert: "/etc/pki/tls/certs/client.crt"
 ca_cert: "/etc/pki/ca-trust/source/anchors/ca.crt"
 domain_suffix_match: example.com
+```
 state: up
 ```
 
@@ -5199,23 +5295,31 @@ node.example.com
 ```
 ---
 - name: Configure an Ethernet connection with static IP and default gateway
+```yaml
 hosts: node.example.com
 become: true
 tasks:
+```
 - include_role:
+```yaml
 name: rhel-system-roles.network
 vars:
 network_connections:
+```
 - name: enp1s0
+```yaml
 type: ethernet
 autoconnect: yes
 ip:
 address:
+```
 - 198.51.100.20/24
 - 2001:db8:1::1/64
+```yaml
 gateway4: 198.51.100.254
 gateway6: 2001:db8:1::fffe
 dns:
+```
 - 198.51.100.200
 - 2001:db8:1::ffbb
 dns_search:
@@ -5644,34 +5748,46 @@ node.example.com
 ```
 ---
 - name: Configure an Ethernet connection with static IP and additional routes
+```yaml
 hosts: node.example.com
 become: true
 tasks:
+```
 - include_role:
+```yaml
 name: rhel-system-roles.network
 vars:
 network_connections:
+```
 - name: enp7s0
+```yaml
 type: ethernet
 autoconnect: yes
 ip:
 address:
+```
 - 198.51.100.20/24
 - 2001:db8:1::1/64
+```yaml
 gateway4: 198.51.100.254
 gateway6: 2001:db8:1::fffe
 dns:
+```
 - 198.51.100.200
 - 2001:db8:1::ffbb
 dns_search:
 - example.com
 route:
 - network: 192.0.2.0
+```yaml
 prefix: 24
 gateway: 198.51.100.1
+```
 - network: 203.0.113.0
+```yaml
 prefix: 24
 gateway: 198.51.100.2
+```
 state: up
 ```
 
@@ -5714,9 +5830,11 @@ Note that network scripts only support the key-value format for static IPv4 rout
 - Add a static IPv4 route to the /etc/sysconfig/network-scripts/route-enp0s1 file:
 
 ```
+```bash
 ADDRESS0=192.0.2.0
 NETMASK0=255.255.255.0
 GATEWAY0=198.51.100.1
+```
 ```
 
 
@@ -5875,6 +5993,7 @@ interfaces: enp8s0 enp9s0
 
 
 ```
+```yaml
 # firewall-cmd --info-zone=external
 external (active)
 target: default
@@ -5885,6 +6004,7 @@ services: ssh
 ports:
 protocols:
 masquerade: yes
+```
 ...
 ```
 
@@ -6055,6 +6175,7 @@ interfaces: enp8s0 enp9s0
 
 
 ```
+```yaml
 # firewall-cmd --info-zone=external
 external (active)
 target: default
@@ -6065,6 +6186,7 @@ services: ssh
 ports:
 protocols:
 masquerade: yes
+```
 ...
 ```
 
@@ -6455,6 +6577,7 @@ suffix, such as output. - Set permissions on the configuration file so that only
 If the output does not show newly created connections, verify that the keyfile permissions and the syntax you are using are correct. 3. Show connection profiles:
 
 ```
+```yaml
 # nmcli connection show Example-Connection
 connection.id: Example-Connection
 connection.uuid: 232290ce-5225-422a-9228-cb83b22056b4
@@ -6462,6 +6585,7 @@ connection.stable-id: --
 connection.type: 802-3-ethernet
 connection.interface-name: --
 connection.autoconnect: yes
+```
 ...
 ```
 
@@ -6792,8 +6916,10 @@ Add the [connection] section (if not present):
 - Add custom defaults to the [connection] section. For example, to set a new default of 200 for IPv4 and IPv6, add:
 
 ```
+```
 ipv4.dns-priority=200
 ipv6.dns-priority=200
+```
 ```
 
 
@@ -6865,9 +6991,11 @@ This section describes how to use the ifcfg file to configure a network interfac
 - If you need to configure an interface with dynamic network settings for an interface named em1, create a file named ifcfg-em1 in the /etc/sysconfig/network-scripts/ directory with the following content:
 
 ```
+```bash
 DEVICE=em1
 BOOTPROTO=dhcp
 ONBOOT=yes
+```
 ```
 
 
@@ -9152,11 +9280,13 @@ $ firewall-cmd --query-lockdown-whitelist-user=user
 
 
 ```
+```
 `<whitelist>`
 `<selinux context="system_u:system_r:NetworkManager_t:s0"/>`
 `<selinux context="system_u:system_r:virtd_t:s0-s0:c0.c1023"/>`
 `<user id="0"/>`
 `</whitelist>`
+```
 ```
 
 
@@ -9166,12 +9296,14 @@ $ firewall-cmd --query-lockdown-whitelist-user=user
 
 
 ```
+```
 `<whitelist>`
 `<command name="/usr/libexec/platform-python -s /bin/firewall-cmd*"/>`
 `<selinux context="system_u:system_r:NetworkManager_t:s0"/>`
 `<user id="815"/>`
 `<user name="user"/>`
 `</whitelist>`
+```
 ```
 
 

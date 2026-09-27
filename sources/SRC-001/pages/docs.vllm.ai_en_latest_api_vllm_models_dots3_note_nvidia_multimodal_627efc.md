@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/dots3_note/nvidia/multimodal/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 Dots3NoteMultiModalProcessor,
 info=Dots3NoteProcessingInfo,
@@ -254,3 +255,4 @@ return MultiModelKeys.from_string_field(
 language_model="language_model",
 tower_model=["visual", "audio_tower"],
 )
+```

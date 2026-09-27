@@ -13,11 +13,13 @@ How can LLM_eval support the quantized model?
 
 //==================================//
 python lm_eval_hf.py 
+```bash
        --model hf  \
        --model_args pretrained=  \
        --quant_cfg NVFP4_DEFAULT_CFG \   
        --tasks wikitext   \
        --batch_size 4
+```
 Does the cmd shown above support the exported model test?
 
 ## 评论 (3)

@@ -22,6 +22,7 @@ This example contains scripts that demonstrate the disaggregated serving feature
 ## disagg_proxy_demo.py
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """This file provides a disaggregated prefilling proxy demo to demonstrate an
 example usage of XpYd disaggregated prefilling.
@@ -426,6 +427,7 @@ if __name__ == "__main__":
 args = parse_args()
 proxy_server = ProxyServer(args=args)
 proxy_server.run_server()
+```
 
 
 ## disagg_proxy_multiturn.py
@@ -942,6 +944,7 @@ the same; the difference is in how P and D coordinate the KV transfer:
 * Pull mode: proxy forwards P's ``kv_transfer_params`` (including
 ``remote_block_ids``) to D, and D pulls KV from P via NIXL READ.
 * Push mode: proxy hands D **only** P's coordinates
+```python
 (``remote_engine_id``, ``remote_host``, ``remote_port``, ``tp_size``,
 ``pp_size``) and the shared ``remote_request_id``. D registers its locally
 allocated blocks with P over a NIXL notification; P then pushes the KV to D via
@@ -994,6 +997,7 @@ The structure mirrors the pull-mode ``Proxy`` in
 round-robin scheduling across multiple P / D instances.
 Push-specific differences are confined to the request-handling
 methods (``create_completion`` / ``create_chat_completion``):
+```
 * D's ``kv_transfer_params`` is built from CLI-provided P
 coordinates instead of being derived from P's response.
 * P and D requests are issued concurrently — D registers blocks and
@@ -1134,6 +1138,7 @@ async def _push_completion(self, raw_request: Request, path: str):
 Push mode fires P and D concurrently:
 * P runs a normal prefill (max_tokens=1, do_remote_decode=True).
 * D runs the decode (do_remote_prefill=True, no remote_block_ids).
+```python
 D blocks waiting for P's WRITE; the response streamed back to the
 client is the decode output from D.
 """
@@ -1326,6 +1331,7 @@ if __name__ == "__main__":
 args = parse_args()
 proxy_server = PushProxyServer(args=args)
 proxy_server.run_server()
+```
 
 
 ## kv_events.sh
@@ -1403,6 +1409,7 @@ echo ""
 ## moriio_toy_proxy_server.py
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 #
 # Minimal single-node reference proxy for MoRI-IO prefill/decode disaggregation.
@@ -1841,3 +1848,4 @@ _hcfg.backlog = int(os.environ.get("PROXY_LISTEN_BACKLOG", "4096"))
 _hcfg.keep_alive_timeout = 360000.0
 asyncio.run(_hypercorn_serve(app, _hcfg))
 t.join()
+```

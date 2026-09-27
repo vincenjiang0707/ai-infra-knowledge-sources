@@ -6,8 +6,10 @@ Fully qualified name: `CUPTI::PcSamplingUtil::CUptiUtil_GetPcSampDataParams`
 
 
 -
+```rust
 struct CUptiUtil_GetPcSampDataParams
 [#](https://docs.nvidia.com#_CPPv4N5CUPTI14PcSamplingUtil29CUptiUtil_GetPcSampDataParamsE) Params for
+```
 
 [CuptiUtilGetPcSampData](https://docs.nvidia.com/group__CUPTI__PCSAMPLING__UTILITY.html#group__cupti__pcsampling__utility_1ga454395b5da004e96767fa739178431ce).Public Members
 

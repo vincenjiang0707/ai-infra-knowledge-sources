@@ -20,10 +20,12 @@ You can load CLI arguments via a [YAML](https://yaml.org/) config file. The argu
 For example:
 
 # config.yaml
+```yaml
 model: meta-llama/Llama-3.1-8B-Instruct
 host: "127.0.0.1"
 port: 6379
 uvicorn-log-level: "info"
+```
 
 
 To use the above config file:

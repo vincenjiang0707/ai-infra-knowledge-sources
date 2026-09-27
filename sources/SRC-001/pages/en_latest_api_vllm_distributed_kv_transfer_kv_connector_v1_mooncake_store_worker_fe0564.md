@@ -221,8 +221,10 @@ Methods:
 
 `req_id`
 
+```
 (e.g. on abort). -
 –[lookup](https://docs.vllm.ai#vllm.distributed.kv_transfer.kv_connector.v1.mooncake.store.worker.LookupKeyClient.lookup)If non_block is True, will return None until the result is ready,
+```
 
 
 ## Source code in `vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/worker.py`

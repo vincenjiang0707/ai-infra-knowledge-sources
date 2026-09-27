@@ -8,6 +8,7 @@ Source [https://github.com/vllm-project/vllm/tree/main/examples/disaggregated/mo
 ## Mooncake Connector Proxy[¶](https://docs.vllm.ai#mooncake-connector-proxy)
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 import argparse
 import asyncio
@@ -303,6 +304,7 @@ global global_args
 global_args = parse_args()
 import uvicorn
 uvicorn.run(app, host=global_args.host, port=global_args.port)
+```
 
 
 ## Run Mooncake Connector[¶](https://docs.vllm.ai#run-mooncake-connector)

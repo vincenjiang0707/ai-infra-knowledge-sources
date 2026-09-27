@@ -92,10 +92,12 @@ Initialize class from a config_dict json string, got from torchao_config_object 
 
 Initialize class from a config file. Example:
 
+```python
 config = Float8DynamicActivationFloat8WeightConfig(granularity=PerRow())
 fn = "torchao_config.json"
 with open(fn, "w") as f:
 f.write(json.dumps(config_to_dict(config)))
+```
 
 
 ## Source code in `vllm/model_executor/layers/quantization/torchao.py`

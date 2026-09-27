@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/scaled_mm/humming/
 lastmod: 2026-09-27
 
+```python
 class HummingFP8ScaledMMLinearKernel(FP8ScaledMMLinearKernel):
 """Humming GEMM Kernel for FP8."""
 @classmethod
@@ -77,3 +78,4 @@ output_shape: list,
 raise NotImplementedError(
 "HummingFP8ScaledMMLinearKernel uses apply_weights directly"
 )
+```

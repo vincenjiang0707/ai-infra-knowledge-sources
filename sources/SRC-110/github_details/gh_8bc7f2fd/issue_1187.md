@@ -54,10 +54,13 @@ v0.xx.x
 
 ### haodongze · 2026-02-05
 
+```python
 from evalscope import TaskConfig, run_task
 from evalscope.constants import EvalType
+```
 
 task_cfg = TaskConfig(
+```bash
     model='DeepSeek-R1-Distill-Qwen-1.5B',   # 模型名称 (需要与部署时的模型名称一致)
     api_url='http://127.0.0.1:8001/v1/chat/completions',  # 推理服务地址
     api_key='EMPTY',
@@ -70,6 +73,7 @@ task_cfg = TaskConfig(
         'top_p': 0.95,        # top-p采样 (deepseek 报告推荐值)
         'n': 5                # 每个请求产生的回复数量 (注意 lmdeploy 目前只支持 n=1)
     },
+```
 )
 
 run_task(task_cfg=task_cfg)
@@ -87,6 +91,7 @@ run_task(task_cfg=task_cfg)
 ### wakaka-tt · 2026-06-14
 
 我也遇到这样的问题, 请问你解决了吗？  `    parser.add_argument('--samples', '-s', type=int, default=256, help='批处理大小 (batch_size)')
+```bash
     parser.add_argument('--repeats', '-r', type=int, default=1, 
                        help='每个问题的生成次数 (用于 pass@k 计算)')
     parser.add_argument('--work-dir', default='outputs', help='输出目录')
@@ -130,6 +135,7 @@ run_task(task_cfg=task_cfg)
         work_dir=args.work_dir,
         limit=args.limit,  # 用于快速测试
     )`
+```
 
 ### Yunnglin · 2026-07-08
 

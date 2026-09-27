@@ -940,8 +940,10 @@ enumerator SANITIZER_CACHE_CONTROL_FORCE_INT
 enumerator SANITIZER_CACHE_CONTROL_INVALID
 
 -
+```rust
 enum Sanitizer_CallFlags
 [#](https://docs.nvidia.com#_CPPv419Sanitizer_CallFlags) Flags describing a function call.
+```
 
 Flags describing a function call. These values are to be or-combined in the value of
 
@@ -1153,10 +1155,12 @@ enumerator SANITIZER_MEMORY_DEVICE_FLAG_FORCE_INT
 enumerator SANITIZER_MEMORY_DEVICE_FLAG_NONE
 
 -
+```rust
 enum Sanitizer_FunctionLoadedStatus
 [#](https://docs.nvidia.com#_CPPv430Sanitizer_FunctionLoadedStatus) *Values:*-
 enumerator SANITIZER_FUNCTION_NOT_LOADED
 [#](https://docs.nvidia.com#_CPPv4N30Sanitizer_FunctionLoadedStatus29SANITIZER_FUNCTION_NOT_LOADEDE) The function is not loaded.
+```
 
 
 -
@@ -1503,10 +1507,12 @@ enumerator SANITIZER_INSTRUCTION_FORCE_INT
 enumerator SANITIZER_INSTRUCTION_INVALID
 
 -
+```rust
 enum Sanitizer_LoadMode
 [#](https://docs.nvidia.com#_CPPv418Sanitizer_LoadMode) *Values:*-
 enumerator SANITIZER_LOAD_TILED
 [#](https://docs.nvidia.com#_CPPv4N18Sanitizer_LoadMode20SANITIZER_LOAD_TILEDE)
+```
 
 -
 enumerator SANITIZER_LOAD_IM2COL

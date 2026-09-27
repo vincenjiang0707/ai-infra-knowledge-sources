@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__Profiler__CounterDataImag
 # 7.169. CUpti_Profiler_CounterDataImage_CalculateScratchBufferSize_Params[#](https://docs.nvidia.com#cupti-profiler-counterdataimage-calculatescratchbuffersize-params)
 
 -
+```rust
 struct CUpti_Profiler_CounterDataImage_CalculateScratchBufferSize_Params
 [#](https://docs.nvidia.com#_CPPv465CUpti_Profiler_CounterDataImage_CalculateScratchBufferSize_Params) Params for cuptiProfilerCounterDataImageCalculateScratchBufferSize.
+```
 
 Public Members
 

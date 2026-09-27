@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/attention/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV4Attention(nn.Module, AttentionLayerBase, ABC):
 """DeepseekV4 MLA attention layer.
 The platform-specific sparse-MLA forward (``forward_mqa`` /
@@ -666,3 +667,4 @@ kv_quant_mode=get_kv_quant_mode(self.kv_cache_dtype),
 # head_size stays semantic (512).
 state_content_bytes=584 if uses_fp8_ds_mla_layout else None,
 )
+```

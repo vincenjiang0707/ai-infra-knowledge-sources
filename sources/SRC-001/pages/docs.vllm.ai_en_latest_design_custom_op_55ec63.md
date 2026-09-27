@@ -147,6 +147,7 @@ means "enable").
 
 **1. Attention:**
 
+```python
 @PluggableLayer.register("multi_head_latent_attention")
 class MultiHeadLatentAttentionWrapper(PluggableLayer):
 """Pluggable MLA layer which allows OOT backends to add
@@ -157,6 +158,7 @@ this layer now.
 This class takes positions and hidden_states as input.
 The input tensors can either contain prefill tokens or decode tokens.
 The class does the following:
+```
 1. MLA Preprocess.
 2. Perform multi-head attention to prefill tokens and
 multi-query attention to decode tokens separately.
@@ -166,6 +168,7 @@ multi-query attention to decode tokens separately.
 
 **2. Activation:**
 
+```python
 @CustomOp.register("silu_and_mul")
 class SiluAndMul(CustomOp):
 """An activation function for SwiGLU.
@@ -232,20 +235,24 @@ Shapes:
 x: (num_tokens, 2 * d) or (batch_size, seq_len, 2 * d)
 return: (num_tokens, d) or (batch_size, seq_len, d)
 """
+```
 
 
 **3. MM-Conv:**
 
+```python
 @CustomOp.register("conv2d")
 class Conv2dLayer(ConvLayerBase):
 """Conv layer with Conv2d."""
 @CustomOp.register("conv3d")
 class Conv3dLayer(ConvLayerBase):
 """Conv layer with Conv3d."""
+```
 
 
 **4. Embedding:**
 
+```python
 @PluggableLayer.register("vocab_parallel_embedding")
 class VocabParallelEmbedding(PluggableLayer):
 """Embedding parallelized in the vocabulary dimension.
@@ -261,6 +268,7 @@ vocab size with padding will be 1088 (because we first pad 1010 to
 1024, add 16, and then pad to 1088).
 Therefore, the tensor format looks like the following:
 TP1, rank 0 (no sharding):
+```
 |< --------BASE-------- >|< -BASE PADDING-- >|< -----LORA------ >|< -LORA PADDING-- >|
 corresponding token_id: | 0 | 1 | ... | 1009 | -1 | ... | -1 | 1010 | ... | 1025 | -1 | ... | -1 |
 index: | 0 | 1 | ... | 1009 | 1010 | ... | 1023 | 1024 | ... | 1039 | 1040 | ... | 1087 |
@@ -303,11 +311,13 @@ disable_tp: If true, tensor parallelism will be disabled for this layer.
 
 **5. Linear:**
 
+```python
 @PluggableLayer.register("row_parallel_linear")
 class RowParallelLinear(LinearBase):
 """Linear layer with row parallelism.
 The linear layer is defined as Y = XA + b. A is parallelized along
 its first dimension and X along its second dimension as:
+```
 - -
 | A_1 |
 | . |
@@ -381,10 +391,12 @@ disable_tp: Take no effect for replicated linear layers.
 
 **6. Logits Processor:**
 
+```python
 @PluggableLayer.register("logits_processor")
 class LogitsProcessor(PluggableLayer):
 """Process logits and apply logits processors from sampling metadata.
 This layer does the following:
+```
 1. Gather logits from model hidden_states.
 2. Scale logits if needed.
 3. Apply logits processors (if any).
@@ -393,6 +405,7 @@ This layer does the following:
 
 **7. Mamba:**
 
+```python
 @PluggableLayer.register("mamba_mixer")
 class MambaMixer(MambaBase, PluggableLayer):
 """Compute ∆, A, B, C, and D the state space parameters and compute
@@ -417,10 +430,12 @@ invariant S4, and is why Mamba is called
 class Mixer2RMSNormGated(CustomOp):
 @PluggableLayer.register("short_conv")
 class ShortConv(MambaBase, PluggableLayer):
+```
 
 
 **8. MoE:**
 
+```python
 @CustomOp.register("modular_fused_moe")
 class FusedMoEModularMethod(FusedMoEMethodBase, CustomOp):
 @CustomOp.register("unquantized_fused_moe")
@@ -432,10 +447,12 @@ class TransformersMoERunner(MoERunner):
 @CustomOp.register("grouped_topk")
 class GroupedTopk(CustomOp):
 """GroupedTopk used by the Deepseek-V2 and Deepseek-V3 model."""
+```
 
 
 **9. Norm:**
 
+```python
 @CustomOp.register("rms_norm")
 class RMSNorm(CustomOp):
 """Root mean square normalization.
@@ -446,14 +463,17 @@ Refer to https://arxiv.org/abs/1910.07467
 class RMSNormGated(CustomOp):
 """RMS Normalization with optional gating.
 This is a native PyTorch implementation that supports:
+```
 - Standard RMS normalization
 - Group RMS normalization
 - Optional gating with SiLU activation
 """
+```python
 @CustomOp.register("gemma_rms_norm")
 class GemmaRMSNorm(CustomOp):
 """RMS normalization for Gemma.
 Two differences from the above RMSNorm:
+```
 1. x * (1 + w) instead of x * w.
 2. (x * w).to(orig_dtype) instead of x.to(orig_dtype) * w.
 """
@@ -461,15 +481,18 @@ Two differences from the above RMSNorm:
 
 **10. Quantization:**
 
+```python
 @CustomOp.register("quant_fp8")
 class QuantFP8(CustomOp):
 """Quantize input tensor to FP8 (per-tensor, per-token, per-channel, or per-group).
 This CustomOp supports both static and dynamic quantization.
 """
+```
 
 
 **11. Rope:**
 
+```python
 @CustomOp.register("rotary_embedding")
 class RotaryEmbeddingBase(CustomOp):
 """Original rotary positional embedding."""
@@ -478,10 +501,12 @@ class DualChunkRotaryEmbedding(CustomOp):
 """Rotary positional embedding for Dual Chunk Attention."""
 @CustomOp.register("apply_rotary_emb")
 class ApplyRotaryEmb(CustomOp):
+```
 
 
 **12. Encoder:**
 
+```python
 @PluggableLayer.register("qwen2_decoder")
 class CustomQwen2Decoder(PluggableLayer):
 """Qwen2 visual encoder
@@ -494,6 +519,7 @@ class MMEncoderAttention(CustomOp):
 @PluggableLayer.register("rel_pos_attention")
 class RelPosAttention(PluggableLayer):
 """Multi-head Attention block with relative position embeddings."""
+```
 
 
 ## Guidelines for Implementing a New CustomOp[¶](https://docs.vllm.ai#guidelines-for-implementing-a-new-customop)
@@ -521,6 +547,7 @@ Taking [ MMEncoderAttention](https://docs.vllm.ai/api/vllm/model_executor/layers
 
 ## Code
 
+```python
 @CustomOp.register("mm_encoder_attn")
 class MMEncoderAttention(CustomOp):
 def __init__(
@@ -578,6 +605,7 @@ value: torch.Tensor,
 cu_seqlens: torch.Tensor | None = None,
 max_seqlen: torch.Tensor | None = None, # Only used for Flash Attention
 ) -> torch.Tensor:
+```
 # Call PALLAS implementation...
 
 
@@ -614,6 +642,7 @@ into vLLM to replace.`MMEncoderAttention`
 
 ## Code
 
+```python
 from vllm.model_executor.layers.attention import MMEncoderAttention
 from vllm.model_executor.custom_op import CustomOp
 @CustomOp.register_oot("MMEncoderAttention")
@@ -622,6 +651,7 @@ def __init__(...):
 super().__init__(...)
 def forward_oot(...):
 # Call optimized device-specific kernels.
+```
 ...
 
 

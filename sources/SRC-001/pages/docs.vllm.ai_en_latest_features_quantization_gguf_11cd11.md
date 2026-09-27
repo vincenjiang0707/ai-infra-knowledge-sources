@@ -27,8 +27,10 @@ to enable tensor parallelism inference with 2 GPUs:
 
 Alternatively, you can download and use a local GGUF file:
 
+```bash
 wget https://huggingface.co/unsloth/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-Q4_K_M.gguf
 vllm serve ./Qwen3-0.6B-Q4_K_M.gguf --tokenizer Qwen/Qwen3-0.6B
+```
 
 
 Warning
@@ -38,15 +40,18 @@ We recommend using the tokenizer from base model instead of GGUF model. Because 
 GGUF assumes that HuggingFace can convert the metadata to a config file. In case HuggingFace doesn't support your model you can manually create a config and pass it as hf-config-path
 
 # If your model is not supported by HuggingFace you can manually provide a HuggingFace compatible config path
+```bash
 vllm serve unsloth/Qwen3-0.6B-GGUF:Q4_K_M \
 --tokenizer Qwen/Qwen3-0.6B \
 --hf-config-path Qwen/Qwen3-0.6B
+```
 
 
 You can also use the GGUF model directly through the LLM entrypoint:
 
 ## Code
 
+```python
 from vllm import LLM, SamplingParams
 # In this script, we demonstrate how to pass input to the chat method:
 conversation = [
@@ -82,3 +87,4 @@ for output in outputs:
 prompt = output.prompt
 generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+```

@@ -47,8 +47,10 @@ settings and proxy configuration.
 
 With vLLM and Mooncake installed, run the example from the repository root:
 
+```bash
 GPU_E=0 GPU_PD=1 MOONCAKE_EC_PROTOCOL=tcp \
 bash tests/v1/ec_connector/integration/run_epd_mooncake_ec_full_pipeline.sh
+```
 
 
 The script uses `Qwen/Qwen2.5-VL-3B-Instruct`

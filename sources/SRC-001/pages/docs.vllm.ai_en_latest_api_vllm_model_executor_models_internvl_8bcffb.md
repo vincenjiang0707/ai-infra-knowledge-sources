@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/internvl/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 InternVLMultiModalProcessor,
 info=InternVLProcessingInfo,
@@ -458,3 +459,4 @@ else:
 pixel_values = mm_kwargs["pixel_values_flat_video"]
 out = self.extract_feature(pixel_values) # [N, num_image_token, H]
 return out.view(-1, self.config.text_config.hidden_size)
+```

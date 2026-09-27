@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/llama4/
 lastmod: 2026-09-27
 
+```python
 @support_torch_compile
 class Llama4Model(LlamaModel):
 def __init__(
@@ -288,3 +289,4 @@ weight_loader(param, loaded_weight)
 loaded_params.add(name)
 # Finally, return the set of loaded parameters.
 return loaded_params
+```

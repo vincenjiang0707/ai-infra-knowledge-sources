@@ -137,25 +137,31 @@ Evaluating clips:   0%|          | 1/644 [02:56<31:36:22, 176.96s/it]
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: ffb014e3d2d9368b5dd140f801346aff041e29b1ba5fa3ec508827e0887890e0
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 8fdc0b27b7c5152f6706bc59f544442bde203a29e1dfa41a5c4c0ae5f8a552ce
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 185b355406e4c755d5cbbe472f73e91e38aa1082a0271e36e7dcb723ef37741a
+```
 
 Release follow-up: this open ModelOpt issue needs release relevance confirmed. Link its planned fix/validation, or confirm it is not a v0.46.0 blocker.
 
@@ -197,11 +203,13 @@ Thanks
 Tried with latest Nvidia model opt 0.45 and got this 
 
 
+```yaml
 Name: torch
 Version: 2.10.0+cu128
 
 Name: nvidia-modelopt
 Version: 0.45.0
+```
 
 `python3 quantize.py --quant_format=fp8 --num_of_calib_clips=10 --save_model_dir=./outputs/`
 

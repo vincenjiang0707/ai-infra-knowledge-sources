@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/offloading_connector/
 lastmod: 2026-09-27
 
+```python
 class OffloadingConnector(KVConnectorBase_V1, SupportsHMA):
 @cached_property
 def _bounding_group_ids(self) -> tuple[int, ...]:
@@ -179,3 +180,4 @@ per_engine_labelvalues: dict[int, list[object]],
 return OffloadPromMetrics(
 vllm_config, metric_types, labelnames, per_engine_labelvalues
 )
+```

@@ -6,6 +6,7 @@ lastmod: 2026-09-27
 Source [https://github.com/vllm-project/vllm/blob/main/examples/rl/rlhf_sparse_nccl.py](https://github.com/vllm-project/vllm/blob/main/examples/rl/rlhf_sparse_nccl.py).
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """Demonstrate checkpoint-coordinate sparse NCCL updates with expert parallelism.
 The trainer and vLLM start from the same Qwen3 MoE checkpoint. The trainer
@@ -224,3 +225,4 @@ ray.util.remove_placement_group(pg_inference)
 ray.shutdown()
 if __name__ == "__main__":
 main()
+```

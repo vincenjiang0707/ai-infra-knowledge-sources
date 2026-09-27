@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v4::ReduceL1[#](https://docs.openvino.ai#class-ov-op-v4-reducel1)
 
 -
+```python
 class ReduceL1 : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ArithmeticReductionKeepDims](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_arithmetic_reduction_keep_dims.html#_CPPv4N2ov2op4util27ArithmeticReductionKeepDimsE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v48ReduceL1E) Reduction operation using L1 norm: L1(x) = sum(abs(x)) if all dimensions are specified for the normalisation.
+```
 
 Reduces the tensor, eliminating the specified reduction axes by taking the L1-norm.
 

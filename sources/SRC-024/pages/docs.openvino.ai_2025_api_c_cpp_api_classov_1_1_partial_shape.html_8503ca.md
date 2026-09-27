@@ -4,8 +4,10 @@ lastmod:
 # Class ov::PartialShape[#](https://docs.openvino.ai#class-ov-partialshape)
 
 -
+```python
 class PartialShape
 [#](https://docs.openvino.ai#_CPPv4N2ov12PartialShapeE) Class representing a shape that may be partially or totally dynamic.
+```
 
 A
 

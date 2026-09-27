@@ -19,9 +19,11 @@ Even if token position `n_block * kBlockN < actual_seqlen_k`, there is NO check 
 Relevant code snippet location:
 `compute_attn_1rowblock_splitkv`, block_table branch inside the `if (n_block > n_block_min)` block.
 
+```yaml
 Environment:
 Commit: main branch
 GPU: Hopper
+```
 
 ## 评论 (2)
 

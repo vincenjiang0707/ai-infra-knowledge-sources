@@ -294,11 +294,13 @@ The following [pooling parameters](https://docs.vllm.ai/api/vllm/#vllm.PoolingPa
 
 The [embed](https://docs.vllm.ai/api/vllm/entrypoints/pooling/offline/#vllm.entrypoints.pooling.offline.PoolingOfflineMixin.embed) method outputs an embedding vector for each prompt.
 
+```python
 from vllm import LLM
 llm = LLM(model="intfloat/e5-small", runner="pooling")
 (output,) = llm.embed("Hello, my name is")
 embeds = output.outputs.embedding
 print(f"Embeddings: {embeds!r} (size={len(embeds)})")
+```
 
 
 A code example can be found here: [ examples/basic/offline_inference/embed.py](https://github.com/vllm-project/vllm/blob/main/examples/basic/offline_inference/embed.py)
@@ -315,11 +317,13 @@ when using `LLM.encode`
 
 for embedding Models:
 
+```python
 from vllm import LLM
 llm = LLM(model="intfloat/e5-small", runner="pooling")
 (output,) = llm.encode("Hello, my name is", pooling_task="embed")
 data = output.outputs.data
 print(f"Data: {data!r}")
+```
 
 
 `LLM.score`
@@ -330,6 +334,7 @@ The [score](https://docs.vllm.ai/api/vllm/entrypoints/pooling/offline/#vllm.entr
 
 All models that support embedding task also support using the score API to compute similarity scores by calculating the cosine similarity of two input prompt's embeddings.
 
+```python
 from vllm import LLM
 llm = LLM(model="intfloat/e5-small", runner="pooling")
 (output,) = llm.score(
@@ -338,6 +343,7 @@ llm = LLM(model="intfloat/e5-small", runner="pooling")
 )
 score = output.outputs.score
 print(f"Score: {score}")
+```
 
 
 ## Online Serving[¶](https://docs.vllm.ai#online-serving)
@@ -594,6 +600,7 @@ with a list of `messages`
 
 ## Code
 
+```python
 from openai import OpenAI
 from openai._types import NOT_GIVEN, NotGiven
 from openai.types.chat import ChatCompletionMessageParam
@@ -610,6 +617,7 @@ return client.post(
 cast_to=CreateEmbeddingResponse,
 body={"messages": messages, "model": model, "encoding_format": encoding_format},
 )
+```
 
 
 ##### Multi-modal inputs[¶](https://docs.vllm.ai#multi-modal-inputs)
@@ -620,10 +628,12 @@ in the request. Refer to the examples below for illustration.
 
 To serve the model:
 
+```bash
 vllm serve TIGER-Lab/VLM2Vec-Full --runner pooling \
 --trust-remote-code \
 --max-model-len 4096 \
 --chat-template examples/pooling/embed/template/vlm2vec_phi3v.jinja
+```
 
 
 Important
@@ -640,6 +650,7 @@ library:
 
 ## Code
 
+```python
 from openai import OpenAI
 client = OpenAI(
 base_url="http://localhost:8000/v1",
@@ -661,14 +672,17 @@ messages=[
 encoding_format="float",
 )
 print("Image embedding output:", response.data[0].embedding)
+```
 
 
 To serve the model:
 
+```bash
 vllm serve MrLight/dse-qwen2-2b-mrl-v1 --runner pooling \
 --trust-remote-code \
 --max-model-len 8192 \
 --chat-template examples/pooling/embed/template/dse_qwen2_vl.jinja
+```
 
 
 Important
@@ -708,6 +722,7 @@ Our API is also compatible with [Cohere's Embed v2 API](https://docs.cohere.com/
 
 #### Text embedding[¶](https://docs.vllm.ai#text-embedding)
 
+```json
 curl -X POST "http://localhost:8000/v2/embed" \
 -H "Content-Type: application/json" \
 -d '{
@@ -716,6 +731,7 @@ curl -X POST "http://localhost:8000/v2/embed" \
 "texts": ["Hello world", "How are you?"],
 "embedding_types": ["float"]
 }'
+```
 
 
 ## Response
@@ -726,6 +742,7 @@ For multimodal models, you can embed images by passing base64 data URIs. The `in
 
 field accepts a list of objects with mixed text and image content:
 
+```
 curl -X POST "http://localhost:8000/v2/embed" \
 -H "Content-Type: application/json" \
 -d '{
@@ -740,6 +757,7 @@ curl -X POST "http://localhost:8000/v2/embed" \
 ],
 "embedding_types": ["float"]
 }'
+```
 
 
 #### Embedding types[¶](https://docs.vllm.ai#embedding-types)
@@ -755,6 +773,7 @@ parameter controls the output format. Multiple types can be requested in a singl
 `ubinary` | Bit-packed unsigned binary |
 `base64` | Little-endian float32 encoded as base64 |
 
+```json
 curl -X POST "http://localhost:8000/v2/embed" \
 -H "Content-Type: application/json" \
 -d '{
@@ -763,6 +782,7 @@ curl -X POST "http://localhost:8000/v2/embed" \
 "texts": ["What is machine learning?"],
 "embedding_types": ["float", "binary"]
 }'
+```
 
 
 ## Response
@@ -867,6 +887,7 @@ Here is an example to serve a model with Matryoshka Embeddings enabled.
 
 You can change the output dimensions of embedding models that support Matryoshka Embeddings by using the dimensions parameter in [PoolingParams](https://docs.vllm.ai/api/vllm/#vllm.PoolingParams).
 
+```python
 from vllm import LLM, PoolingParams
 llm = LLM(
 model="jinaai/jina-embeddings-v3",
@@ -878,6 +899,7 @@ outputs = llm.embed(
 pooling_params=PoolingParams(dimensions=32),
 )
 print(outputs[0].outputs)
+```
 
 
 A code example can be found here: [ examples/pooling/embed/embed_matryoshka_fy_offline.py](https://github.com/vllm-project/vllm/blob/main/examples/pooling/embed/embed_matryoshka_fy_offline.py)
@@ -888,6 +910,7 @@ Use the following command to start the vLLM server.
 
 You can change the output dimensions of embedding models that support Matryoshka Embeddings by using the dimensions parameter.
 
+```json
 curl http://127.0.0.1:8000/v1/embeddings \
 -H 'accept: application/json' \
 -H 'Content-Type: application/json' \
@@ -897,6 +920,7 @@ curl http://127.0.0.1:8000/v1/embeddings \
 "encoding_format": "float",
 "dimensions": 32
 }'
+```
 
 
 Expected output:

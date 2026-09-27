@@ -30,6 +30,7 @@ Start the proxy first; the producer and consumer instances will retry registrati
 Start a prefiller instance that produces KV caches
 
 # Prefill instance (GPU 0-3)
+```bash
 export VLLM_ROCM_USE_AITER=1
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 export HIP_VISIBLE_DEVICES=0,1,2,3
@@ -48,6 +49,7 @@ vllm serve Qwen/Qwen3-235B-A22B-FP8 \
 "notify_port": "6105"
 }
 }'
+```
 
 
 ### Consumer (decoder) configuration[¶](https://docs.vllm.ai#consumer-decoder-configuration)
@@ -55,6 +57,7 @@ vllm serve Qwen/Qwen3-235B-A22B-FP8 \
 Start a decoder instance that consumes KV caches:
 
 # Decode instance (GPU 4-7)
+```bash
 export VLLM_ROCM_USE_AITER=1
 export CUDA_VISIBLE_DEVICES=4,5,6,7
 export HIP_VISIBLE_DEVICES=4,5,6,7
@@ -73,6 +76,7 @@ vllm serve Qwen/Qwen3-235B-A22B-FP8 \
 "notify_port": "7501"
 }
 }'
+```
 
 
 ### Proxy server[¶](https://docs.vllm.ai#proxy-server)
@@ -87,6 +91,7 @@ configured on each vLLM instance.
 
 **Docker:**
 
+```bash
 docker run \
 --network host \
 vllm/vllm-router:nightly \
@@ -94,22 +99,27 @@ vllm-router \
 --vllm-pd-disaggregation \
 --kv-connector moriio \
 --vllm-discovery-address "0.0.0.0:36367"
+```
 
 
 **Manual install:**
 
+```bash
 pip install vllm-router
 vllm-router \
 --vllm-pd-disaggregation \
 --kv-connector moriio \
 --vllm-discovery-address "0.0.0.0:36367"
+```
 
 
 Alternatively, you can use the reference implementation proxy shipped with vLLM:
 
+```bash
 cd <path_to>/vllm
 pip install quart aiohttp msgpack
 python examples/disaggregated/disaggregated_serving/moriio_toy_proxy_server.py
+```
 
 
 ## Configuration[¶](https://docs.vllm.ai#configuration)
@@ -204,14 +214,17 @@ The example below shows how to run a 1P1D deployment on two nodes. We run the pr
 ### On both nodes[¶](https://docs.vllm.ai#on-both-nodes)
 
 # Set on both nodes before running any command
+```bash
 export PREFILL_IP=<node1-ip>
 export DECODE_IP=<node2-ip>
+```
 
 
 ### On node 1[¶](https://docs.vllm.ai#on-node-1)
 
 Start the proxy first as described in [Proxy server](https://docs.vllm.ai#proxy-server), then start the prefill instance:
 
+```bash
 docker run \
 --name moriio-prefill \
 --init --network host --ipc host --privileged \
@@ -238,12 +251,14 @@ deepseek-ai/DeepSeek-R1-0528 \
 "notify_port": "61005"
 }
 }'
+```
 
 
 ### On node 2[¶](https://docs.vllm.ai#on-node-2)
 
 Decode instance:
 
+```bash
 docker run \
 --name moriio-decode \
 --init --network host --ipc host --privileged \
@@ -270,6 +285,7 @@ deepseek-ai/DeepSeek-R1-0528 \
 "notify_port": "61005"
 }
 }'
+```
 
 
 ## Troubleshooting[¶](https://docs.vllm.ai#troubleshooting)

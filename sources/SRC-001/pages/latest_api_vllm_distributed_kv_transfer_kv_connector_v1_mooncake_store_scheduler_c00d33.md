@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/scheduler/
 lastmod: 2026-09-27
 
+```python
 class MooncakeStoreScheduler:
 """Scheduler-side component for MooncakeStoreConnector."""
 def __init__(
@@ -132,6 +133,7 @@ assert (
 num_external_tokens > 0
 and num_external_tokens
 == self.load_specs[request.request_id].kvpool_cached_tokens
+```
 - self.load_specs[request.request_id].vllm_cached_tokens
 ), (
 f"Mismatch in number of tokens: {num_external_tokens} vs "

@@ -12,6 +12,7 @@ torch_npu不支持flex_attention
 
 def _validate_device(query: Tensor, key: Tensor, value: Tensor) :
 
+```python
     if query.device.type == "cpu" and (
         query.requires_grad or key.requires_grad or value.requires_grad
     ):
@@ -30,6 +31,7 @@ def _validate_device(query: Tensor, key: Tensor, value: Tensor) :
             "FlexAttention is only supported on CUDA, CPU, HPU, or MPS devices. "
             f"Found input tensors on {query.device.type} device."
         ) 
+```
 
 
 使用vllm-speculators训练等使用flex_attention场景会报如下错误，如果绕过会对性能产生较大影响建议适配：

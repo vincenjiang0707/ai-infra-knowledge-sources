@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/model_loader/runai_streamer_loader/
 lastmod: 2026-09-27
 
+```python
 class RunaiModelStreamerLoader(BaseModelLoader):
 """Model loader that can load safetensors
 files from local FS, S3, GCS, or Azure Blob Storage.
@@ -107,3 +108,4 @@ model_weights = model_weights_override
 model.load_weights(
 self._get_weights_iterator(model_weights, model_config.revision)
 )
+```

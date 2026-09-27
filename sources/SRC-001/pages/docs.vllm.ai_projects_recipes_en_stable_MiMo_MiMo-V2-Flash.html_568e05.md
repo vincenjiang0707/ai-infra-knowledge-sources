@@ -17,9 +17,11 @@ Note: The vLLM wheel for ROCm requires Python 3.12, ROCm 7.0, and glibc >= 2.35.
 
 [documentation]. Supported GPUs: MI300X, MI325X, MI355X
 
+```bash
 uv venv
 source .venv/bin/activate
 uv pip install vllm --extra-index-url https://wheels.vllm.ai/rocm/
+```
 
 
 ## Running MiMo-V2-Flash[¶](https://docs.vllm.ai#running-mimo-v2-flash)
@@ -149,6 +151,7 @@ to the server command.
 ### Benchmark[¶](https://docs.vllm.ai#benchmark)
 
 # Prompt-heavy benchmark (8k/1k)
+```bash
 vllm bench serve \
 --model XiaomiMiMo/MiMo-V2-Flash \
 --dataset-name random \
@@ -157,6 +160,7 @@ vllm bench serve \
 --request-rate 3 \
 --num-prompts 1800 \
 --ignore-eos
+```
 
 
 ### Benchmark Configurations[¶](https://docs.vllm.ai#benchmark-configurations)

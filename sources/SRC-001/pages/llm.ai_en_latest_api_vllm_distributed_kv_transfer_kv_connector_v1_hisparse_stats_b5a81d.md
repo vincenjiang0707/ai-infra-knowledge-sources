@@ -12,6 +12,7 @@ Each list entry is the delta recorded over one device counter snapshot interval,
 
 
 | @dataclass
+```python
 class HiSparseKVConnectorStats(KVConnectorStats):
 """Container for HiSparse hot-buffer residency metrics.
 Each list entry is the delta recorded over one device counter snapshot
@@ -49,3 +50,4 @@ return {
 def is_empty(self) -> bool:
 return all(len(values) == 0 for values in self.data.values())
 |
+```

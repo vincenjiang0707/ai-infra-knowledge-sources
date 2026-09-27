@@ -93,10 +93,12 @@ This suggest ncclCommRegister doesn't work with VMM allocated memory, which seem
 
 I wasn't able to reproduce this on my system with the same NCCL version (2.30.7-1):
 
+```yaml
 GPU: NVIDIA L40S
 Driver: 610.57.04
 CUDA: 13.3
 NCCL: v2.30.7-1 
+```
 
 I allocated a buffer via the raw VMM API (cuMemCreate/cuMemAddressReserve/cuMemMap/cuMemSetAccess) and called ncclCommRegister() on it. cuMemGetAddressRange() returns CUDA_SUCCESS, and registration succeeds.
 

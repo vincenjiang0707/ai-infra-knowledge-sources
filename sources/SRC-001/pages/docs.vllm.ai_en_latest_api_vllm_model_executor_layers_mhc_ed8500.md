@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mhc/
 lastmod: 2026-09-27
 
+```python
 @CustomOp.register("mhc_fused_post_pre")
 class MHCFusedPostPreOp(CustomOp):
 """Fused MHC post block followed by the next MHC pre block.
@@ -237,3 +238,4 @@ hc_post_mult_value,
 sinkhorn_repeat,
 )
 return residual_cur, post_mix_cur, comb_mix_cur, layer_input_cur
+```

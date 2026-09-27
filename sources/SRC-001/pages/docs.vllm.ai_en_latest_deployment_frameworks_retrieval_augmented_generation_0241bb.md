@@ -44,11 +44,13 @@ Run the script
 
 Set up the vLLM and llamaindex environment:
 
+```bash
 pip install vllm \
 llama-index llama-index-readers-web \
 llama-index-llms-openai-like \
 llama-index-embeddings-openai-like \
 llama-index-vector-stores-milvus \
+```
 
 
 ### Deploy[¶](https://docs.vllm.ai#deploy_1)

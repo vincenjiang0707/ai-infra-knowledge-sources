@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/dots3_note/common/processor/
 lastmod: 2026-09-27
 
+```python
 class Dots3NoteProcessor:
 """Small HF-like processor used by vLLM's multimodal frontend."""
 def __init__(
@@ -228,3 +229,4 @@ question=question,
 )
 )
 return BatchFeature(data=data)
+```

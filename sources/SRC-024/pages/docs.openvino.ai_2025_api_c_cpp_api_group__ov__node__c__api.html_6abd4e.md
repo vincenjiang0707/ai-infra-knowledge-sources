@@ -85,14 +85,18 @@ ov_output_const_port_free(
 
 
 -
+```rust
 struct ov_output_const_port_t
 [#](https://docs.openvino.ai#_CPPv422ov_output_const_port_t) *#include <ov_node.h>*type define
+```
 
 [ov_output_const_port_t](https://docs.openvino.ai#structov__output__const__port__t)from ov_output_const_port
 
 -
+```rust
 struct ov_output_port_t
 [#](https://docs.openvino.ai#_CPPv416ov_output_port_t) *#include <ov_node.h>*type define
+```
 
 [ov_output_port_t](https://docs.openvino.ai#structov__output__port__t)from ov_output_port
 

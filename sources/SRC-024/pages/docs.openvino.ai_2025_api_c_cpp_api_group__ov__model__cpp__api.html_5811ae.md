@@ -21,8 +21,10 @@ size_t shape_size(const[SHAPE_TYPE](https://docs.openvino.ai#_CPPv4I0E10shape_si
 
 
 -
+```python
 class Dimension
 [#](https://docs.openvino.ai#_CPPv4N2ov9DimensionE) *#include <dimension.hpp>*Class representing a dimension, which may be dynamic (undetermined until runtime), in a shape or shape-like object.
+```
 
 Static dimensions may be implicitly converted from value_type. A dynamic dimension is constructed with
 
@@ -350,22 +352,28 @@ if merging succeeds, else`false`
 Dimension(value_type dimension)
 
 -
+```python
 class Extension
 [#](https://docs.openvino.ai#_CPPv4N2ov9ExtensionE) *#include <extension.hpp>*The class provides the base interface for OpenVINO extensions.
+```
 
 Subclassed by
 
 [ov::BaseOpExtension](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_base_op_extension),[ov::frontend::ConversionExtensionBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1frontend_1_1_conversion_extension_base),[ov::frontend::DecoderTransformationExtension](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1frontend_1_1_decoder_transformation_extension),[ov::frontend::ProgressReporterExtension](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1frontend_1_1_progress_reporter_extension),[ov::frontend::TelemetryExtension](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1frontend_1_1_telemetry_extension)
 
 -
+```python
 class Model : public std::enable_shared_from_this<
 [Model](https://docs.openvino.ai/classov_1_1_model.html#_CPPv4N2ov5ModelE)>[#](https://docs.openvino.ai#_CPPv4N2ov5ModelE) *#include <model.hpp>*A user-defined model.
+```
 
 Public Functions
 
 -
+```
 explicit Model(const
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::OutputVector &results, const std::string &name = "")[#](https://docs.openvino.ai#_CPPv4N2ov5Model5ModelERKN2ov12OutputVectorERKNSt6stringE) Constructs a
+```
 
 [Model](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_model). Lists of parameters and variables will be generated automatically based on traversing the graph from the results.
 
@@ -403,8 +411,10 @@ void set_friendly_name(const std::string &name)
 
 
 -
+```rust
 const std::string &get_friendly_name() const
 [#](https://docs.openvino.ai#_CPPv4NK2ov5Model17get_friendly_nameEv) Gets the friendly name for a model. If no friendly name has been set via set_friendly_name then the model’s unique name is returned.
+```
 
 - Returns:
 A const reference to the model’s friendly name.
@@ -454,8 +464,10 @@ int64_t get_result_index(const
 [Output](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_output)object. This method returns -1 if an the passed output is not related to the Results of a model.
 
 -
+```
 int64_t get_result_index(const
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Output](https://docs.openvino.ai/classov_1_1_output.html#_CPPv4I0EN2ov6OutputE)<const[ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Node](https://docs.openvino.ai/classov_1_1_node.html#_CPPv4N2ov4NodeE)> &value) const[#](https://docs.openvino.ai#_CPPv4NK2ov5Model16get_result_indexERKN2ov6OutputIKN2ov4NodeEEE) Return the index of this model’s Result represented by the “value”
+```
 
 [Output](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_output)object. This method returns -1 if an the passed output is not related to the Results of a model.
 
@@ -644,8 +656,10 @@ true if path exists, otherwise false
 explicit Model(const
 
 -
+```python
 class Node : public std::enable_shared_from_this<
 [Node](https://docs.openvino.ai/classov_1_1_node.html#_CPPv4N2ov4NodeE)>[#](https://docs.openvino.ai#_CPPv4N2ov4NodeE) *#include <node.hpp>*Nodes are the backbone of the graph of Value dataflow. Every node has zero or more nodes as arguments and one value, which is either a tensor or a (possibly empty) tuple of values.
+```
 
 Subclassed by
 
@@ -760,8 +774,10 @@ void set_friendly_name(const std::string &name)
 
 
 -
+```rust
 const std::string &get_friendly_name() const
 [#](https://docs.openvino.ai#_CPPv4NK2ov4Node17get_friendly_nameEv) Gets the friendly name for a node. If no friendly name has been set via set_friendly_name then the node’s unique name is returned.
+```
 
 - Returns:
 A const reference to the node’s friendly name.
@@ -781,8 +797,10 @@ The stream os
 
 
 -
+```rust
 const std::vector<std::shared_ptr<
 [Node](https://docs.openvino.ai/classov_1_1_node.html#_CPPv4N2ov4NodeE)>> &get_control_dependencies() const[#](https://docs.openvino.ai#_CPPv4NK2ov4Node24get_control_dependenciesEv) Get control dependencies registered on the node.
+```
 
 
 This node cannot execute until node executes.
@@ -1351,8 +1369,10 @@ The tensor names associated with this output
 Output(const
 
 -
+```python
 class PartialShape
 [#](https://docs.openvino.ai#_CPPv4N2ov12PartialShapeE) *#include <partial_shape.hpp>*Class representing a shape that may be partially or totally dynamic.
+```
 
 A
 
@@ -1996,8 +2016,10 @@ to`s2`
 
 
 -
+```python
 class PrePostProcessor
 [#](https://docs.openvino.ai#_CPPv4N2ov10preprocess16PrePostProcessorE) *#include <pre_post_process.hpp>*Main class for adding pre- and post- processing steps to existing
+```
 
 [ov::Model](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_model).This is a helper class for writing easy pre- and post- processing operations on
 
@@ -2079,8 +2101,10 @@ Reference to model’s output information structure
 
 
 -
+```python
 class Shape : public std::vector<size_t>
 [#](https://docs.openvino.ai#_CPPv4N2ov5ShapeE) *#include <shape.hpp>*[Shape](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_shape)for a tensor.Public Functions
+```
 
 - OPENVINO_API Shape::reference operator[] (std::ptrdiff_t i)
 Gets dimension at index.
@@ -2120,8 +2144,10 @@ A const reference to i-th dimension of this shape.
 
 
 -
+```python
 class Symbol
 [#](https://docs.openvino.ai#_CPPv4N2ov6SymbolE) *#include <symbol.hpp>*Class representing unique symbol for the purpose of symbolic shape inference. Equality of symbols is being tracked by Disjoint-set data structure.
+```
 
 Public Functions
 
@@ -2134,8 +2160,10 @@ Symbol() = default
 Symbol() = default
 
 -
+```rust
 struct DiscreteTypeInfo
 [#](https://docs.openvino.ai#_CPPv4N2ov16DiscreteTypeInfoE) *#include <type.hpp>*Type information for a type system without inheritance; instances have exactly one type not related to any other type.
+```
 
 Supports three functions,
 

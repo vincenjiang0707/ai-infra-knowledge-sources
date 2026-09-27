@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/launchers/grpc_server/
 lastmod: 2026-09-27
 
+```python
 async def serve_grpc(args: argparse.Namespace):
 """Main gRPC serving function.
 Args:
@@ -99,3 +100,4 @@ logger.info("gRPC server stopped")
 async_llm.shutdown()
 logger.info("AsyncLLM engine stopped")
 logger.info("Shutdown complete")
+```

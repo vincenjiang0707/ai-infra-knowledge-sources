@@ -48,6 +48,7 @@ Run all constraints, with reasoning models and streaming:
 ## structured_outputs_client.py
 
 # ruff: noqa: E501
+```python
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 import argparse
@@ -67,6 +68,7 @@ ConstraintsFormat = Literal[
 ]
 async def print_stream_response(
 stream_response: openai.AsyncStream[ChatCompletionChunk],
+```
 title: str,
 args: argparse.Namespace,
 ):

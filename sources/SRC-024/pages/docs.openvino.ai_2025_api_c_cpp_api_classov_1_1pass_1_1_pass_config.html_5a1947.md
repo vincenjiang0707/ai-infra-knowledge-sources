@@ -4,8 +4,10 @@ lastmod:
 # Class ov::pass::PassConfig[#](https://docs.openvino.ai#class-ov-pass-passconfig)
 
 -
+```python
 class PassConfig
 [#](https://docs.openvino.ai#_CPPv4N2ov4pass10PassConfigE) Class representing a transformations config that is used for disabling/enabling transformations registered inside
+```
 
 [pass::Manager](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1_manager)and also allows to set callback for all transformations or for particular transformation.When
 

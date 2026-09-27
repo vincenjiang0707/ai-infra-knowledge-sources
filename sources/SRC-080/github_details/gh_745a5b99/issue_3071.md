@@ -73,6 +73,7 @@ Env: llmcompressor 0.11.0, compressed-tensors 0.16.0, transformers 4.57.6,
 Run: python repro_qwen3vl_awq_bug.py
 """
 
+```python
 import base64
 from io import BytesIO
 
@@ -87,6 +88,7 @@ from llmcompressor.modifiers.awq import AWQModifier
 MODEL_ID = "Qwen/Qwen3-VL-2B-Instruct"      # dense
 NUM_CALIBRATION_SAMPLES = 8
 MAX_SEQUENCE_LENGTH = 1024
+```
 
 # ---- load ----
 model = Qwen3VLForConditionalGeneration.from_pretrained(
@@ -97,6 +99,7 @@ processor = AutoProcessor.from_pretrained(MODEL_ID)
 ds = load_dataset("lmms-lab/flickr30k", split=f"test[:{NUM_CALIBRATION_SAMPLES}]")
 
 def preprocess(example):
+```bash
     buffered = BytesIO()
     example["image"].save(buffered, format="PNG")
     b64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
@@ -113,6 +116,7 @@ def preprocess(example):
     return processor(
         text=[text], images=image_inputs, videos=None,
         padding=False, max_length=MAX_SEQUENCE_LENGTH, truncation=True)
+```
 
 ds = ds.map(preprocess, remove_columns=ds.column_names)
 
@@ -122,6 +126,7 @@ def data_collator(batch):
 
 # ---- AWQ W4A16, vision tower ignored ----
 recipe = AWQModifier(
+```json
     config_groups={
         "group_0": {
             "targets": ["Linear"],
@@ -134,10 +139,12 @@ recipe = AWQModifier(
         }
     },
     ignore=["re:.*lm_head", "re:.*visual.*"],   # vision tower excluded from quant
+```
 )
 
 # ---- CRASH happens here, during sequential-pipeline FX tracing of the vision tower ----
 oneshot(
+```bash
     model=model,
     dataset=ds,
     recipe=recipe,
@@ -145,6 +152,7 @@ oneshot(
     num_calibration_samples=NUM_CALIBRATION_SAMPLES,
     max_seq_length=MAX_SEQUENCE_LENGTH,
     sequential_targets=["Qwen3VLTextDecoderLayer"],
+```
 )
 
 print("If you see this line, it did NOT crash.")

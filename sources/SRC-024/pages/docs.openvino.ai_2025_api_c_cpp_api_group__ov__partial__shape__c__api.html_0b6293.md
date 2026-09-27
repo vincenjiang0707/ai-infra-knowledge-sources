@@ -128,8 +128,10 @@ A string reprensts partial_shape’s content.
 
 
 -
+```rust
 struct ov_partial_shape
 [#](https://docs.openvino.ai#_CPPv416ov_partial_shape) *#include <ov_partial_shape.h>*It represents a shape that may be partially or totally dynamic. A PartialShape may have: Dynamic rank. (Informal notation:
+```
 
 `?`
 

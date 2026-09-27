@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe_w8a8_fp8/
 lastmod: 2026-09-27
 
+```python
 class CompressedTensorsW8A8Fp8MoEMethod(CompressedTensorsMoEMethod):
 """W8A8 FP8 MoE quantization using compressed tensors."""
 def __init__(
@@ -152,6 +153,7 @@ w13_weight_scale = torch.nn.Parameter(
 torch.ones(
 num_experts,
 w13_num_shards
+```
 * ((intermediate_size_per_partition + block_n - 1) // block_n),
 (hidden_size + block_k - 1) // block_k,
 dtype=torch.float32,

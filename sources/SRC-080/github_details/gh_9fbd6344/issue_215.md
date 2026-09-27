@@ -8,8 +8,10 @@ labels:
 
 https://github.com/NVIDIA/TensorRT-Model-Optimizer/blob/11b3eb6c78c81770d2d1b2aa384e1175a82c351c/modelopt/onnx/quantization/fp8.py#L124
 
+```python
 I believe the conversion should be as follow: 
  np_fp8_scale = (np_scale * 127.0) / 448.0 
+```
 
 The current implementation is using a reverse multiplier which does not calculate FP8 scales correctly. 
 

@@ -65,6 +65,7 @@ vllm bench serve \
 
 ## Scale[¶](https://docs.vllm.ai#scale)
 
+```python
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
@@ -103,6 +104,7 @@ success = scale(args.host, args.port, args.new_dp_size)
 sys.exit(0 if success else 1)
 if __name__ == "__main__":
 main()
+```
 
 
 ## Serve Deepseek V2[¶](https://docs.vllm.ai#serve-deepseek-v2)

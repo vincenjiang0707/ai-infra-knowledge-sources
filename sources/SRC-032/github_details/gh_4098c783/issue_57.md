@@ -7,10 +7,12 @@ labels:
 ## 正文
 
 System environment:
+```bash
 CANN=7.0.RC1 inner_version=V100R001C13SPC005B246
 python=3.10
 torch=2.1.0
 torch_npu=2.1.0rc1
+```
 
 Code example:
 ```python
@@ -33,10 +35,12 @@ def grid_computing_ascend(longitude, latitude, height, vertices):
 The complete error message is as follows:
 Traceback (most recent call last):
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+```python
     return _run_code(code, main_globals, None,
            │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'uvicorn', '__loader__': <_frozen_importlib_external.SourceFileLoade...
            │         └ <code object <module> at 0xe7ffd47110b0, file "/home/HwHiAiUser/.vscode/extensions/ms-python.debugpy-2024.14.0-linux-arm64/bu...
            └ <function _run_code at 0xe7ffd4546320>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/runpy.py", line 86, in _run_code
     exec(code, run_globals)
          │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'uvicorn', '__loader__': <_frozen_importlib_external.SourceFileLoade...
@@ -58,11 +62,13 @@ Traceback (most recent call last):
     └ <function _run_module_as_main at 0xe7ffd341eb00>
 
   File "/home/HwHiAiUser/.vscode/extensions/ms-python.debugpy-2024.14.0-linux-arm64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 228, in _run_module_as_main
+```python
     return _run_code(code, main_globals, None, "__main__", mod_spec)
            │         │     │                               └ ModuleSpec(name='uvicorn.__main__', loader=<_frozen_importlib_external.SourceFileLoader object at 0xe7ffd1d3f250>, origin='/h...
            │         │     └ {'__name__': '__main__', '__doc__': None, '__package__': 'uvicorn', '__loader__': <_frozen_importlib_external.SourceFileLoade...
            │         └ <code object <module> at 0xe7ffd2ed10b0, file "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/uvicorn/__ma...
            └ <function _run_code at 0xe7ffd341e5f0>
+```
 
   File "/home/HwHiAiUser/.vscode/extensions/ms-python.debugpy-2024.14.0-linux-arm64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 118, in _run_code
     exec(code, run_globals)
@@ -74,17 +80,22 @@ Traceback (most recent call last):
     │       └ <Command main>
     └ <module 'uvicorn' from '/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/uvicorn/__init__.py'>
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/click/core.py", line 1157, in __call__
+```python
     return self.main(*args, **kwargs)
            │    │     │       └ {}
            │    │     └ ()
            │    └ <function BaseCommand.main at 0xe7ffd02ef6d0>
            └ <Command main>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/click/core.py", line 1078, in main
+```bash
     rv = self.invoke(ctx)
          │    │      └ <click.core.Context object at 0xe7ffd1d3eb00>
          │    └ <function Command.invoke at 0xe7ffd03041f0>
          └ <Command main>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/click/core.py", line 1434, in invoke
+```
     return ctx.invoke(self.callback, **ctx.params)
            │   │      │    │           │   └ {'host': '0.0.0.0', 'app': 'main:app', 'port': 8000, 'uds': None, 'fd': None, 'reload': False, 'reload_dirs': (), 'reload_inc...
            │   │      │    │           └ <click.core.Context object at 0xe7ffd1d3eb00>
@@ -92,6 +103,7 @@ Traceback (most recent call last):
            │   │      └ <Command main>
            │   └ <function Context.invoke at 0xe7ffd02eeef0>
            └ <click.core.Context object at 0xe7ffd1d3eb00>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/click/core.py", line 783, in invoke
     return __callback(*args, **kwargs)
                        │       └ {'host': '0.0.0.0', 'app': 'main:app', 'port': 8000, 'uds': None, 'fd': None, 'reload': False, 'reload_dirs': (), 'reload_inc...
@@ -104,17 +116,21 @@ Traceback (most recent call last):
     │      └ <function Server.run at 0xe7ffd0194430>
     └ <uvicorn.server.Server object at 0xe7ffd01e7460>
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/uvicorn/server.py", line 66, in run
+```
     return asyncio.run(self.serve(sockets=sockets))
            │       │   │    │             └ None
            │       │   │    └ <function Server.serve at 0xe7ffd01944c0>
            │       │   └ <uvicorn.server.Server object at 0xe7ffd01e7460>
            │       └ <function run at 0xe7ffd03af250>
            └ <module 'asyncio' from '/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/asyncio/__init__.py'>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/asyncio/runners.py", line 44, in run
+```python
     return loop.run_until_complete(main)
            │    │                  └ <coroutine object Server.serve at 0xe7ffd01f9070>
            │    └ <function BaseEventLoop.run_until_complete at 0xe7ffd03ad5a0>
            └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/asyncio/base_events.py", line 636, in run_until_complete
     self.run_forever()
     │    └ <function BaseEventLoop.run_forever at 0xe7ffd03ad510>
@@ -128,6 +144,7 @@ Traceback (most recent call last):
     │      └ <function Handle._run at 0xe7ffd1dda170>
     └ <Handle <TaskStepMethWrapper object at 0xe7ff88c39810>()>
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/asyncio/events.py", line 80, in _run
+```
     self._context.run(self._callback, *self._args)
     │    │            │    │           │    └ <member '_args' of 'Handle' objects>
     │    │            │    │           └ <Handle <TaskStepMethWrapper object at 0xe7ff88c39810>()>
@@ -135,43 +152,55 @@ Traceback (most recent call last):
     │    │            └ <Handle <TaskStepMethWrapper object at 0xe7ff88c39810>()>
     │    └ <member '_context' of 'Handle' objects>
     └ <Handle <TaskStepMethWrapper object at 0xe7ff88c39810>()>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py", line 403, in run_asgi
     result = await app(  # type: ignore[func-returns-value]
                    └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0xe7ffd1d3f970>
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+```
     return await self.app(scope, receive, send)
                  │    │   │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0xe7ff88c392d0>>
                  │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0xe7ff88c392d0>>
                  │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('10.1.162.187', 8000), ...
                  │    └ <fastapi.applications.FastAPI object at 0xe7ffbbf19e70>
                  └ <uvicorn.middleware.proxy_headers.ProxyHeadersMiddleware object at 0xe7ffd1d3f970>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/fastapi/applications.py", line 1054, in __call__
+```
     await super().__call__(scope, receive, send)
                            │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0xe7ff88c392d0>>
                            │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0xe7ff88c392d0>>
                            └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('10.1.162.187', 8000), ...
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/starlette/applications.py", line 113, in __call__
+```
     await self.middleware_stack(scope, receive, send)
           │    │                │      │        └ <bound method RequestResponseCycle.send of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0xe7ff88c392d0>>
           │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0xe7ff88c392d0>>
           │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('10.1.162.187', 8000), ...
           │    └ <starlette.middleware.errors.ServerErrorMiddleware object at 0xe7ff9476e8c0>
           └ <fastapi.applications.FastAPI object at 0xe7ffbbf19e70>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/starlette/middleware/errors.py", line 165, in __call__
+```
     await self.app(scope, receive, _send)
           │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0xe7ffa16f25f0>
           │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0xe7ff88c392d0>>
           │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('10.1.162.187', 8000), ...
           │    └ <starlette.middleware.cors.CORSMiddleware object at 0xe7ff9476e860>
           └ <starlette.middleware.errors.ServerErrorMiddleware object at 0xe7ff9476e8c0>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/starlette/middleware/cors.py", line 85, in __call__
+```
     await self.app(scope, receive, send)
           │    │   │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0xe7ffa16f25f0>
           │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0xe7ff88c392d0>>
           │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('10.1.162.187', 8000), ...
           │    └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0xe7ff9476e830>
           └ <starlette.middleware.cors.CORSMiddleware object at 0xe7ff9476e860>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 62, in __call__
+```
     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
           │                            │    │    │     │      │        └ <function ServerErrorMiddleware.__call__.<locals>._send at 0xe7ffa16f25f0>
           │                            │    │    │     │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0xe7ff88c392d0>>
@@ -180,34 +209,44 @@ Traceback (most recent call last):
           │                            │    └ <fastapi.routing.APIRouter object at 0xe7ff94becc10>
           │                            └ <starlette.middleware.exceptions.ExceptionMiddleware object at 0xe7ff9476e830>
           └ <function wrap_app_handling_exceptions at 0xe7ffbb338d30>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+```
     await app(scope, receive, sender)
           │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0xe7ff88c31d80>
           │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0xe7ff88c392d0>>
           │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('10.1.162.187', 8000), ...
           └ <fastapi.routing.APIRouter object at 0xe7ff94becc10>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/starlette/routing.py", line 715, in __call__
+```
     await self.middleware_stack(scope, receive, send)
           │    │                │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0xe7ff88c31d80>
           │    │                │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0xe7ff88c392d0>>
           │    │                └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('10.1.162.187', 8000), ...
           │    └ <bound method Router.app of <fastapi.routing.APIRouter object at 0xe7ff94becc10>>
           └ <fastapi.routing.APIRouter object at 0xe7ff94becc10>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/starlette/routing.py", line 735, in app
+```
     await route.handle(scope, receive, send)
           │     │      │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0xe7ff88c31d80>
           │     │      │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0xe7ff88c392d0>>
           │     │      └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('10.1.162.187', 8000), ...
           │     └ <function Route.handle at 0xe7ffbb33a5f0>
           └ APIRoute(path='/citygis-computing/securitySituationRating/getRatingResults', name='get_rating_results', methods=['POST'])
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/starlette/routing.py", line 288, in handle
+```
     await self.app(scope, receive, send)
           │    │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0xe7ff88c31d80>
           │    │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0xe7ff88c392d0>>
           │    │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('10.1.162.187', 8000), ...
           │    └ <function request_response.<locals>.app at 0xe7ff94bbf7f0>
           └ APIRoute(path='/citygis-computing/securitySituationRating/getRatingResults', name='get_rating_results', methods=['POST'])
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/starlette/routing.py", line 76, in app
+```
     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
           │                            │    │        │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0xe7ff88c31d80>
           │                            │    │        │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0xe7ff88c392d0>>
@@ -215,12 +254,15 @@ Traceback (most recent call last):
           │                            │    └ <starlette.requests.Request object at 0xe7ff88c391b0>
           │                            └ <function request_response.<locals>.app.<locals>.app at 0xe7ff88c323b0>
           └ <function wrap_app_handling_exceptions at 0xe7ffbb338d30>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+```
     await app(scope, receive, sender)
           │   │      │        └ <function wrap_app_handling_exceptions.<locals>.wrapped_app.<locals>.sender at 0xe7ff88c32440>
           │   │      └ <bound method RequestResponseCycle.receive of <uvicorn.protocols.http.h11_impl.RequestResponseCycle object at 0xe7ff88c392d0>>
           │   └ {'type': 'http', 'asgi': {'version': '3.0', 'spec_version': '2.3'}, 'http_version': '1.1', 'server': ('10.1.162.187', 8000), ...
           └ <function request_response.<locals>.app.<locals>.app at 0xe7ff88c323b0>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/starlette/routing.py", line 73, in app
     response = await f(request)
                      │ └ <starlette.requests.Request object at 0xe7ff88c391b0>
@@ -229,10 +271,12 @@ Traceback (most recent call last):
     raw_response = await run_endpoint_function(
                          └ <function run_endpoint_function at 0xe7ffbb2041f0>
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/fastapi/routing.py", line 212, in run_endpoint_function
+```python
     return await dependant.call(**values)
                  │         │      └ {'aircraft_list': [Aircraft(code='A8104', coordinates=Coordinates(longitude=121.41819550868193, latitude=31.48668944574648, h...
                  │         └ <function get_rating_results at 0xe7ff94bbc040>
                  └ Dependant(path_params=[], query_params=[], header_params=[], cookie_params=[], body_params=[ModelField(field_info=Body(Pydant...
+```
 
 > File "/home/HwHiAiUser/code/spatial-computing-services/src/routes/security_situation_rating_router.py", line 13, in get_rating_results
     result = security_situation_rating(aircraft_list)
@@ -240,23 +284,29 @@ Traceback (most recent call last):
              └ <function security_situation_rating at 0xe7ff94b27d90>
 
   File "/home/HwHiAiUser/code/spatial-computing-services/src/decorator/timer.py", line 24, in wrapper
+```bash
     result = func(*args, **kwargs)
              │     │       └ {}
              │     └ ([Aircraft(code='A8104', coordinates=Coordinates(longitude=121.41819550868193, latitude=31.48668944574648, height=168.9243243...
              └ <function security_situation_rating at 0xe7ff94b27d00>
+```
 
   File "/home/HwHiAiUser/code/spatial-computing-services/src/routes/security_situation_rating/calculation.py", line 63, in security_situation_rating
+```
     results = list(executor.map(bound_worker, aircraft_list))
                    │        │   │             └ [Aircraft(code='A8104', coordinates=Coordinates(longitude=121.41819550868193, latitude=31.48668944574648, height=168.92432433...
                    │        │   └ functools.partial(<function worker at 0xe7ff94b27c70>, aircraft_coordinates_dict={'A8104': [121.41819550868193, 31.4866894457...
                    │        └ <function Executor.map at 0xe7ffd1dd8160>
                    └ <concurrent.futures.thread.ThreadPoolExecutor object at 0xe7ff88c39ba0>
+```
 
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/concurrent/futures/_base.py", line 621, in result_iterator
+```python
     yield _result_or_cancel(fs.pop())
           │                 │  └ <method 'pop' of 'list' objects>
           │                 └ [<Future at 0xe7ff88c3a1a0 state=finished raised RuntimeError>, <Future at 0xe7ff88c3a320 state=finished raised RuntimeError>]
           └ <function _result_or_cancel at 0xe7ffd1dcb760>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/concurrent/futures/_base.py", line 319, in _result_or_cancel
     return fut.result(timeout)
                       └ None
@@ -273,24 +323,30 @@ Traceback (most recent call last):
              └ None
 
   File "/home/HwHiAiUser/code/spatial-computing-services/src/routes/security_situation_rating/calculation.py", line 46, in worker
+```python
     return single_aircraft_rating(aircraft, excluded_aircraft_coordinates_dict)
            │                      │         └ {'A8105': [121.41819550868195, 31.48668944574649, 168.9243243327615], 'A8106': [121.41819550868192, 31.48668944574647, 168.92...
            │                      └ Aircraft(code='A8104', coordinates=Coordinates(longitude=121.41819550868193, latitude=31.48668944574648, height=168.924324332...
            └ <function single_aircraft_rating at 0xe7ff94b27e20>
+```
 
   File "/home/HwHiAiUser/code/spatial-computing-services/src/routes/security_situation_rating/calculation.py", line 79, in single_aircraft_rating
+```bash
     collision_rating = rate_collision(aircraft, grid_self_code, excluded_aircraft_coordinates_dict)
                        │              │         │               └ {'A8105': [121.41819550868195, 31.48668944574649, 168.9243243327615], 'A8106': [121.41819550868192, 31.48668944574647, 168.92...
                        │              │         └ 'G001133223-033203-002301.100|000000000000000000110010'
                        │              └ Aircraft(code='A8104', coordinates=Coordinates(longitude=121.41819550868193, latitude=31.48668944574648, height=168.924324332...
                        └ <function rate_collision at 0xe7ff94b27f40>
+```
 
   File "/home/HwHiAiUser/code/spatial-computing-services/src/routes/security_situation_rating/calculation.py", line 98, in rate_collision
+```bash
     rating = grid_computing(aircraft, grid_self_code, excluded_aircraft_coordinates_dict)
              │              │         │               └ {'A8105': [121.41819550868195, 31.48668944574649, 168.9243243327615], 'A8106': [121.41819550868192, 31.48668944574647, 168.92...
              │              │         └ 'G001133223-033203-002301.100|000000000000000000110010'
              │              └ Aircraft(code='A8104', coordinates=Coordinates(longitude=121.41819550868193, latitude=31.48668944574648, height=168.924324332...
              └ <function grid_computing at 0xe7ff94b256c0>
+```
 
   File "/home/HwHiAiUser/code/spatial-computing-services/src/routes/security_situation_rating/gpu_accelerated_computing.py", line 85, in grid_computing
     is_safe, nearest_points = grid_computing_ascend(longitude, latitude, height, filtered_coordinates)
@@ -317,20 +373,26 @@ Traceback (most recent call last):
     return _get_current_device_index()
            └ <function _normalization_device.<locals>._get_current_device_index at 0xe7ff88c32d40>
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/torch/utils/backend_registration.py", line 103, in _get_current_device_index
+```python
     return getattr(getattr(torch, custom_backend_name), _get_device_index)()
                            │      │                     └ 'current_device'
                            │      └ 'npu'
                            └ <module 'torch' from '/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/torch/__init__.py'>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/torch_npu/npu/utils.py", line 50, in current_device
+```
     torch_npu.npu._lazy_init()
     │         │   └ <function _lazy_init at 0xe7ff9476beb0>
     │         └ <module 'torch_npu.npu' from '/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/torch_npu/npu/__init__.py'>
     └ <module 'torch_npu' from '/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/torch_npu/__init__.py'>
+```
   File "/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/torch_npu/npu/__init__.py", line 197, in _lazy_init
+```
     torch_npu._C._npu_init()
     │         │  └ <built-in function _npu_init>
     │         └ <module 'torch_npu._C' from '/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/torch_npu/_C.cpython-310-aarch...
     └ <module 'torch_npu' from '/home/HwHiAiUser/.conda/envs/compute/lib/python3.10/site-packages/torch_npu/__init__.py'>
+```
 
 RuntimeError: Unsupported soc version: Ascend310B4
 

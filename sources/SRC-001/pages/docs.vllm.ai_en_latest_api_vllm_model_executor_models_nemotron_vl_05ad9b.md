@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/nemotron_vl/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 BaseInternVLMultiModalProcessor[NemotronVLProcessingInfo],
 info=NemotronVLProcessingInfo,
@@ -262,3 +263,4 @@ language_model="language_model",
 connector="mlp1",
 tower_model="vision_model",
 )
+```

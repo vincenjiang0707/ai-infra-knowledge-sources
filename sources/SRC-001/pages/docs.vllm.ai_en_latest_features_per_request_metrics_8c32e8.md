@@ -25,6 +25,7 @@ When per-request metrics are enabled, the response includes a `metrics`
 
 object:
 
+```json
 {
 "id": "chatcmpl-abc123",
 "object": "chat.completion",
@@ -43,6 +44,7 @@ object:
 "tokens_per_second": 103.2
 }
 }
+```
 
 
 | Field | Description |
@@ -79,6 +81,7 @@ is also set.
 
 ## Example Request[¶](https://docs.vllm.ai#example-request)
 
+```python
 from openai import OpenAI
 client = OpenAI(base_url="http://localhost:8000/v1", api_key="token")
 response = client.chat.completions.create(
@@ -87,6 +90,7 @@ messages=[{"role": "user", "content": "What is the capital of France?"}],
 )
 print(response.usage)
 print(response.model_extra.get("metrics"))
+```
 
 
 In streaming responses, metrics are attached to the final usage chunk (the chunk sent after all content chunks). That chunk is only emitted when usage reporting is enabled with `stream_options.include_usage: true`
@@ -97,6 +101,7 @@ or forced server-side with `--enable-force-include-usage`
 
 to receive metrics.
 
+```python
 from openai import OpenAI
 client = OpenAI(base_url="http://localhost:8000/v1", api_key="token")
 stream = client.chat.completions.create(
@@ -109,6 +114,7 @@ for chunk in stream:
 if chunk.usage:
 print("Usage:", chunk.usage)
 print("Metrics:", chunk.model_extra.get("metrics"))
+```
 
 
 ## Completions API[¶](https://docs.vllm.ai#completions-api)

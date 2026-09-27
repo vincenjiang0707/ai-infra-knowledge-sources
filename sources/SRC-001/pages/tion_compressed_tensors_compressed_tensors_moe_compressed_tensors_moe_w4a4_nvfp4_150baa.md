@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe_w4a4_nvfp4/
 lastmod: 2026-09-27
 
+```python
 class CompressedTensorsW4A4Nvfp4MoEMethod(CompressedTensorsMoEMethod):
 def __init__(
 self,
@@ -254,3 +255,4 @@ apply_router_weight_on_input=layer.apply_router_weight_on_input,
 shared_experts=shared_experts,
 shared_experts_input=shared_experts_input,
 )
+```

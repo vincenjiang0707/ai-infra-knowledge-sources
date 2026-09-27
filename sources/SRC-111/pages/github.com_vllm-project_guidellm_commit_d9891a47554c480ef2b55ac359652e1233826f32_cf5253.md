@@ -6,8 +6,10 @@ committed
 
 Preserve relative timestamps of conversations in WEKA traces
 
+```yaml
 Generated-by: Cursor AI Grok 4.6
 Signed-off-by: Jared O'Connell <joconnel@redhat.com>1 parent[420e975]commit d9891a4
+```
 
 3 files changed
 

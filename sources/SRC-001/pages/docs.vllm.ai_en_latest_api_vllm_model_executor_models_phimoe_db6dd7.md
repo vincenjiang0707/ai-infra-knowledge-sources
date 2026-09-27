@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/phimoe/
 lastmod: 2026-09-27
 
+```python
 class PhiMoE(nn.Module):
 """A tensor-parallel MoE implementation for PhiMoE that shards each expert
 across all ranks.
@@ -49,3 +50,4 @@ hidden_states = hidden_states.view(-1, self.hidden_size)
 router_logits, _ = self.gate(hidden_states)
 final_hidden_states = self.experts(hidden_states, router_logits)
 return final_hidden_states.view(orig_shape)
+```

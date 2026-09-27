@@ -66,8 +66,10 @@ shutdown, cancellation monitoring) — your code just owns inference.
 Your backend lives in its own package and **does not need to be part
 of the dynamo repository**. It depends on `ai-dynamo`
 
+```python
 from PyPI (or
 the git source) and imports `dynamo.common.backend`
+```
 
 . The steps below
 assume you’re starting a fresh package in your own repo.
@@ -255,11 +257,13 @@ from`dynamo.common.backend.run`
 
 The `dynamo.common.backend`
 
+```go
 package handles everything else: signal
 handling, distributed runtime setup, model registration with
 discovery, the serving loop, graceful shutdown, cancellation
 monitoring, and error chain wrapping. (The lifecycle state machine
 actually lives in Rust; `dynamo.common.backend.Worker`
+```
 
 is a thin
 Python shim over it.)
@@ -349,8 +353,10 @@ is `async`
 
 to match the ABC; you can `await`
 
+```python
 from it if
 your CLI parsing reads config from a file or hits an API. Most
+```
 backends don’t need to.
 
 For backends that already have a `DynamoRuntimeConfig`
@@ -608,8 +614,10 @@ when the engine needs a live publisher object and drives
 
 / `publish_removed()`
 
+```python
 from its own event thread. The in-tree
 TRT-LLM backend is the reference implementation for this path:
+```
 
 KV event publishers require `EngineConfig.llm.kv_cache_block_size`
 
@@ -756,8 +764,10 @@ smoke test.
 
 If your backend looks silent, set `DYN_LOG=info`
 
+```
 (or
 `DYN_LOG=debug,dynamo=debug`
+```
 
 for finer scoping) before launching —
 the framework configures `tracing`

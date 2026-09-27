@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/offloader/uva/
 lastmod: 2026-09-27
 
+```python
 class UVAOffloader(BaseOffloader):
 """Offloader using Unified Virtual Addressing (UVA) for zero-copy access.
 This offloader moves parameters to pinned CPU memory and creates CUDA views
@@ -111,3 +112,4 @@ module.forward = forward
 return output
 module.forward = forward
 return module
+```

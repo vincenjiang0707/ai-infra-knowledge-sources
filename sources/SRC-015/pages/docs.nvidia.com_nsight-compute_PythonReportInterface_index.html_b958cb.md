@@ -353,11 +353,13 @@ The above methods can be combined to filter through all *metrics* of a report,
 given certain criteria:
 
 ```
+```python
 for metric in metrics:
 if metric.metric_type() == IMetric.MetricType_COUNTER and \
 metric.metric_subtype() == IMetric.MetricSubtype_PER_SECOND and \
 metric.rollup_operation() == IMetric.RollupOperation_AVG:
 print(f"{metric.name()}: {metric.value()} {metric.unit()}")
+```
 ```
 
 ## 2.5. NVTX Support[#](https://docs.nvidia.com#nvtx-support)
@@ -429,6 +431,7 @@ and `TopRange`
 *Push-Pop ranges* of the default NVTX domain.
 
 ```
+```python
 #!/usr/bin/env python3
 import sys
 import ncu_report
@@ -441,6 +444,7 @@ current_range = report.range_by_idx(range_idx)
 for action_idx in current_range.actions_by_nvtx(["BottomRange/*/TopRange"], []):
 action = current_range.action_by_idx(action_idx)
 print(action.name())
+```
 ```
 
 ## 2.7. API Reference[#](https://docs.nvidia.com#api-reference)

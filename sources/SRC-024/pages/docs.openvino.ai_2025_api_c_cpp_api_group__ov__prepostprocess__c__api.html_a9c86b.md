@@ -66,8 +66,10 @@ enumerator BGRX
 enumerator UNDEFINE
 
 -
+```rust
 enum ov_preprocess_resize_algorithm_e
 [#](https://docs.openvino.ai#_CPPv432ov_preprocess_resize_algorithm_e) This enum contains codes for all preprocess resize algorithm.
+```
 
 *Values:*-
 enumerator RESIZE_LINEAR
@@ -534,44 +536,58 @@ Status code of the operation: OK(0) for success.
 
 
 -
+```rust
 struct ov_preprocess_prepostprocessor_t
 [#](https://docs.openvino.ai#_CPPv432ov_preprocess_prepostprocessor_t) *#include <ov_prepostprocess.h>*type define
+```
 
 [ov_preprocess_prepostprocessor_t](https://docs.openvino.ai#structov__preprocess__prepostprocessor__t)from ov_preprocess_prepostprocessor
 
 -
+```rust
 struct ov_preprocess_input_info_t
 [#](https://docs.openvino.ai#_CPPv426ov_preprocess_input_info_t) *#include <ov_prepostprocess.h>*type define
+```
 
 [ov_preprocess_input_info_t](https://docs.openvino.ai#structov__preprocess__input__info__t)from ov_preprocess_input_info
 
 -
+```rust
 struct ov_preprocess_input_tensor_info_t
 [#](https://docs.openvino.ai#_CPPv433ov_preprocess_input_tensor_info_t) *#include <ov_prepostprocess.h>*type define
+```
 
 [ov_preprocess_input_tensor_info_t](https://docs.openvino.ai#structov__preprocess__input__tensor__info__t)from ov_preprocess_input_tensor_info
 
 -
+```rust
 struct ov_preprocess_output_info_t
 [#](https://docs.openvino.ai#_CPPv427ov_preprocess_output_info_t) *#include <ov_prepostprocess.h>*type define
+```
 
 [ov_preprocess_output_info_t](https://docs.openvino.ai#structov__preprocess__output__info__t)from ov_preprocess_output_info
 
 -
+```rust
 struct ov_preprocess_output_tensor_info_t
 [#](https://docs.openvino.ai#_CPPv434ov_preprocess_output_tensor_info_t) *#include <ov_prepostprocess.h>*type define
+```
 
 [ov_preprocess_output_tensor_info_t](https://docs.openvino.ai#structov__preprocess__output__tensor__info__t)from ov_preprocess_output_tensor_info
 
 -
+```rust
 struct ov_preprocess_input_model_info_t
 [#](https://docs.openvino.ai#_CPPv432ov_preprocess_input_model_info_t) *#include <ov_prepostprocess.h>*type define
+```
 
 [ov_preprocess_input_model_info_t](https://docs.openvino.ai#structov__preprocess__input__model__info__t)from ov_preprocess_input_model_info
 
 -
+```rust
 struct ov_preprocess_preprocess_steps_t
 [#](https://docs.openvino.ai#_CPPv432ov_preprocess_preprocess_steps_t) *#include <ov_prepostprocess.h>*type define
+```
 
 [ov_preprocess_preprocess_steps_t](https://docs.openvino.ai#structov__preprocess__preprocess__steps__t)from ov_preprocess_preprocess_steps
 

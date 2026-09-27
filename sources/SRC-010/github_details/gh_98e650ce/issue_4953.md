@@ -109,6 +109,7 @@ Run as library
 **For v0.17:**
 
 
+```yaml
 sys.platform: linux
 Python: 3.12.14 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:46:43) [GCC 14.3.0]
 CUDA available: True
@@ -120,6 +121,7 @@ NVCC: Cuda compilation tools, release 12.6, V12.6.77
 GCC: gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
 PyTorch: 2.12.1+cu130
 PyTorch compiling details: PyTorch built with:
+```
   - GCC 13.3
   - C++ Version: 202002
   - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications
@@ -168,6 +170,7 @@ NIC Legend:
 ---------------------------------------------------
 **For v0.14**
 
+```yaml
 sys.platform: linux
 Python: 3.11.16 (main, Aug 27 2026, 14:44:21) [GCC 14.3.0]
 CUDA available: True
@@ -179,6 +182,7 @@ NVCC: Cuda compilation tools, release 12.6, V12.6.77
 GCC: gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
 PyTorch: 2.10.0+cu128
 PyTorch compiling details: PyTorch built with:
+```
   - GCC 13.3
   - C++ Version: 201703
   - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications

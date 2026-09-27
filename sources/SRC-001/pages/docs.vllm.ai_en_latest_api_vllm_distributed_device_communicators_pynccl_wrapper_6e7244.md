@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/device_communicators/pynccl_wrapper/
 lastmod: 2026-09-27
 
+```python
 class NCCLLibrary:
 exported_functions = [
 # const char* ncclGetErrorString(ncclResult_t result)
@@ -435,3 +436,4 @@ comm, buff, size, ctypes.byref(window), win_flags
 return window
 def ncclCommWindowDeregister(self, comm: ncclComm_t, window: ncclWindow_t) -> None:
 self.NCCL_CHECK(self._funcs["ncclCommWindowDeregister"](comm, window))
+```

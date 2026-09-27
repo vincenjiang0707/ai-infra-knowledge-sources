@@ -39,8 +39,10 @@ static constexpr Property<bool, PropertyMutability::RW> exclusive_async_requests
 
 
 -
+```json
 static constexpr Property<std::string, PropertyMutability::WO> config_device_id = {"CONFIG_DEVICE_ID"}
 [#](https://docs.openvino.ai#_CPPv416config_device_id) the property for setting of required device for which config to be updated values: device id starts from “0” - first device, “1” - second device, etc note: plugin may have different devices naming convention
+```
 
 
 -

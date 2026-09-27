@@ -14,8 +14,10 @@ Functions:
 
 `nixl._api`
 
+```python
 import resolve to the ROCm implementation. -
 –[is_nixl_available](https://docs.vllm.ai#vllm.distributed.nixl_utils.is_nixl_available)Lightweight check for the platform's NIXL package without importing it.
+```
 
 
 ##

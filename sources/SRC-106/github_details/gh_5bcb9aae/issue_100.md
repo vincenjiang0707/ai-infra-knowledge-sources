@@ -35,10 +35,12 @@ MEMORY_PARTITION: NPS4
 ```
 
 **System Info**
+```yaml
 Dell PowerEdge XE9680 (MI300X)
 CPU: 2 x Intel Xeon Platinum 8462Y+: 32c @ 2.8 GHz
 RAM: 2.0 TiB NVMe: 124 TB
 GPUs: 8 x AMD MI300X
+```
 
 Kernel: Linux 5.15.0-142-generic
 ROCm version: 6.4.1

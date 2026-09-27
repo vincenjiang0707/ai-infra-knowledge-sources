@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/moriio/moriio_connector/
 lastmod: 2026-09-27
 
+```python
 class MoRIIOConnectorWorker:
 """Implementation of Worker side methods."""
 def __init__(
@@ -142,6 +143,7 @@ self.block_lens: dict[str, int] = {}
 self._remote_agents: dict[EngineId, set[str]] = {}
 self.side_channel_port: int = (
 self.moriio_config.handshake_port
+```
 + get_port_offset(self.dp_rank, self.tp_rank)
 )
 self.engine_id: EngineId = engine_id

@@ -22,8 +22,10 @@ VERSION="22.04.4 LTS (Jammy Jellyfish)"
 CPU: 
 model name      : Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
 
+```yaml
 GPU:
   Name:                    Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
+```
   Marketing Name:          Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz
   Name:                    gfx1100                            
   Marketing Name:                                             

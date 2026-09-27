@@ -6,9 +6,11 @@ labels:
 
 ## 正文
 
+```python
 raise self._make_status_error_from_response(err.response) from None
 openai.RateLimitError: Error code: 429 - {'error': {'code': 'rpm_rate_limit_exceeded', 'message': 'Rate limit reached for RPM', 'type': 'rate_limit_exceeded'}, 'id': 'as-wbx23eriqh'}
 这个报错是什么
+```
 
 ## 评论 (2)
 

@@ -163,8 +163,10 @@ Every matrix class must identify both `policy_family`
 and `cache_bucket`
 
 ; a
+```python
 class with neither field is explicit, while specifying only one is invalid.
 Every configured family must have exactly one physical class for every bucket.
+```
 Bucket floors begin at zero and increase strictly.
 Class, family, and bucket names use metric-safe identifiers.
 
@@ -173,9 +175,11 @@ synthetic single-class fallback. A model profile completely replaces the root
 profile; fields, buckets, families, and classes are not inherited. With no
 YAML, the router uses a synthetic `default`
 
+```python
 class and does not compute cache
 state for classification. The synthetic class queues only when
 `--router-queue-threshold`
+```
 
 is set. See the tested
 [sample policy](https://docs.nvidia.com/dynamo/examples/router/policy-class-queues.yaml).

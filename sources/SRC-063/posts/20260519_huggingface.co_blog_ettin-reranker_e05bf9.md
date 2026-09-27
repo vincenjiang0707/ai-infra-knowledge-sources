@@ -858,6 +858,7 @@ The complete script (what every released model was trained with) is a single fil
 changes per run, and everything else is automatic:
 
 ```
+```python
 from __future__ import annotations
 import logging
 import os
@@ -1001,6 +1002,7 @@ model.save_pretrained(final_dir)
 if __name__ == "__main__":
 main()
 ```
+```
 
 
 For multi-node training (anything past 17m/32m), launch the same script with `torchrun`
@@ -1057,6 +1059,7 @@ Citation
 If you use the ettin-reranker-v1 family or any of the released artifacts, please cite this blogpost:
 
 ```
+```json
 @misc{aarsen2026ettin-reranker,
 title = "Introducing the Ettin Reranker Family",
 author = "Aarsen, Tom",
@@ -1064,4 +1067,5 @@ year = "2026",
 publisher = "Hugging Face",
 url = "https://huggingface.co/blog/ettin-reranker",
 }
+```
 ```

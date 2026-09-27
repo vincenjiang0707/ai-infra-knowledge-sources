@@ -73,11 +73,13 @@ Key dependencies (e.g., paddlepaddle, fastdeploy)
 
 same problem! @Jonathans575 
 
+```yaml
 My environment info: 
 GPUs: 4090 x8 
 python: 3.10.18
 paddlepaddle-gpu: 3.1.0
 fastdeploy-gpu: 2.1.0
+```
 
 ### Jonathans575 · 2025-08-18
 
@@ -99,6 +101,7 @@ Hi Jonathans575,
 Thanks for your reply! @Jonathans575 
 
 1. Steps to Reproduce:
+```bash
     I followed the tutorial (https://aistudio.baidu.com/projectdetail/9357717?channelType=0), and the problem occurred when I ran the following command:
 python -m fastdeploy.entrypoints.openai.api_server
 --model work/models
@@ -108,6 +111,7 @@ python -m fastdeploy.entrypoints.openai.api_server
 --max-model-len 32768
 --enable-mm
 --reasoning-parser ernie-45-vl \
+```
 
 2. The error log is the same as the one provided by the poster, and I have copied it here:
 
@@ -285,12 +289,14 @@ Best regards
 
 我使用飞浆AI创建的项目，运行以下代码也报相同错误了
 !python -m fastdeploy.entrypoints.openai.api_server \
+```bash
        --model baidu/ERNIE-4.5-0.3B-Paddle \
        --port 8180 \
        --metrics-port 8181 \
        --engine-worker-queue-port 8182 \
        --max-model-len 32768 \
        --max-num-seqs 32
+```
 
 /opt/conda/envs/python35-paddle120-env/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
   warnings.warn(warning_message)

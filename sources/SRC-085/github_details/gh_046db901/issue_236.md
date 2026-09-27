@@ -45,11 +45,14 @@ RuntimeError: Error(s) in loading state_dict for Model:
 
 use code to inference succesfully
 
+```python
 from eagle.model.ea_model import EaModel
 from fastchat.model import get_conversation_template
 import torch
+```
 
 model = EaModel.from_pretrained(
+```bash
     base_model_path='deepseek-ai/DeepSeek-R1-Distill-Llama-8B',
     ea_model_path='yuhuili/EAGLE3-DeepSeek-R1-Distill-LLaMA-8B',
     # base_model_path='Qwen/Qwen2-7B-Instruct',
@@ -59,7 +62,9 @@ model = EaModel.from_pretrained(
     device_map="auto",
     total_token=-1,
     # use_eagle3=False
+```
 )
+```bash
 model.eval()
 your_message="tell me a story"
 conv = get_conversation_template("llama3")
@@ -73,3 +78,4 @@ input_ids = torch.as_tensor(input_ids).cuda()
 output_ids=model.eagenerate(input_ids,temperature=0.5,max_new_tokens=512)
 output=model.tokenizer.decode(output_ids[0])
 print(output)
+```

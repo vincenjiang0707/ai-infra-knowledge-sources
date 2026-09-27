@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityEventInstance.htm
 # 7.32. CUpti_ActivityEventInstance[#](https://docs.nvidia.com#cupti-activityeventinstance)
 
 -
+```rust
 struct CUpti_ActivityEventInstance
 [#](https://docs.nvidia.com#_CPPv427CUpti_ActivityEventInstance) The activity record for a CUPTI event with instance information.
+```
 
 This activity record represents the a CUPTI event value for a specific event domain instance (CUPTI_ACTIVITY_KIND_EVENT_INSTANCE). This activity record kind is not produced by the activity API but is included for completeness and ease-of-use. Profile frameworks built on top of CUPTI that collect event data may choose to use this type to store the collected event data. This activity record should be used when event domain instance information needs to be associated with the event.
 

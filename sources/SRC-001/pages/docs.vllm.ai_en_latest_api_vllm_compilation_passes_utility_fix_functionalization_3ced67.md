@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/passes/utility/fix_functionalization/
 lastmod: 2026-09-27
 
+```python
 class FixFunctionalizationPass(VllmInductorPass):
 """This pass defunctionalizes certain nodes to avoid redundant tensor copies.
 After this pass, DCE (dead-code elimination) should never be run,
@@ -311,3 +312,4 @@ if 0 in users:
 user = users[0]
 user.replace_all_uses_with(fn_node)
 self._remove(user)
+```

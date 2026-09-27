@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v5::Round[#](https://docs.openvino.ai#class-ov-op-v5-round)
 
 -
+```python
 class Round : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v55RoundE) Elementwise round operation. The output is round to the nearest integer for each value. In case of halfs, the rule is defined in attribute ‘mode’: ‘HALF_TO_EVEN’ - round halfs to the nearest even integer. ‘HALF_AWAY_FROM_ZERO’: - round in such a way that the result heads away from zero.
+```
 
 Public Functions
 

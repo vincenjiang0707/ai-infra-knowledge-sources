@@ -201,11 +201,14 @@ It only happens to backend="torchao_int4". I test with prepare_for_inference(mod
 
 I see, I think it's not properly freeing the original HQQLinear layer after deletion. Can you the following:
 ```Python
+```python
 import gc
 import hqq.backends.torchao 
+```
 
 
 def patch_hqq_to_aoint4(layer, patch_params):
+```python
     hqq_layer = None
     if type(layer) is HQQLinear:
         hqq_layer = layer
@@ -246,6 +249,7 @@ def patch_hqq_to_aoint4(layer, patch_params):
         layer.linear_layer = hqq_aoint4_layer
 
     return layer
+```
 
 
 torchao.patch_hqq_to_aoint4 = patch_hqq_to_aoint4
@@ -292,9 +296,11 @@ Traceback (most recent call last):
   File "/scratch/bcjw/bhuang4/anaconda3/envs/doHQQ/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
     return func(*args, **kwargs)
   File "/scratch/bcjw/bhuang4/anaconda3/envs/doHQQ/lib/python3.10/site-packages/hqq/backends/torchao.py", line 226, in hqq_quants_to_torch_quants
+```yaml
     .to(torch.int32)
 torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 224.00 MiB. GPU 0 has a total capacity of 39.39 GiB of which 203.06 MiB is free. Including non-PyTorch memory, this process has 39.19 GiB memory in use. Of the allocated memory 38.61 GiB is allocated by PyTorch, and 102.73 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
 srun: error: gpua072: task 0: Exited with exit code 1
+```
 ```
 
 ### mobicham · 2024-06-05

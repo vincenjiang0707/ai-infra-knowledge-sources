@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityInstructionExecut
 # 7.52. CUpti_ActivityInstructionExecution[#](https://docs.nvidia.com#cupti-activityinstructionexecution)
 
 -
+```rust
 struct CUpti_ActivityInstructionExecution
 [#](https://docs.nvidia.com#_CPPv434CUpti_ActivityInstructionExecution) The activity record for source-level instruction execution.
+```
 
 This activity records result for source level instruction execution. (CUPTI_ACTIVITY_KIND_INSTRUCTION_EXECUTION).
 

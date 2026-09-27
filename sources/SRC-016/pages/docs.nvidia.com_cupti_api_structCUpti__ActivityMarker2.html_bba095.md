@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityMarker2.html
 # 7.69. CUpti_ActivityMarker2[#](https://docs.nvidia.com#cupti-activitymarker2)
 
 -
+```rust
 struct CUpti_ActivityMarker2
 [#](https://docs.nvidia.com#_CPPv421CUpti_ActivityMarker2) The activity record providing a marker which is an instantaneous point in time.
+```
 
 The marker is specified with a descriptive name and unique id (CUPTI_ACTIVITY_KIND_MARKER).
 

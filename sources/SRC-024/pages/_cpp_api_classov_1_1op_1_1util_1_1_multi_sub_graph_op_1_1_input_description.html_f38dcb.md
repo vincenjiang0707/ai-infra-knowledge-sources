@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::MultiSubGraphOp::InputDescription[#](https://docs.openvino.ai#class-ov-op-util-multisubgraphop-inputdescription)
 
 -
+```python
 class InputDescription
 Abstract class describes a connection between a
+```
 
 [MultiSubGraphOp](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multi_sub_graph_op)input and the body.Subclassed by
 

@@ -701,12 +701,14 @@ user_query,system_message
 You would use:
 
 ```
+```bash
 guidellm preprocess dataset \
 "kind=csv_file,path=dataset.csv" \
 "processed.jsonl" \
 --tokenizer kind=huggingface_auto,model=gpt2 \
 --strategy kind=ignore,prompt_tokens=512,output_tokens=256 \
 --data-column-mapper kind=generative_column_mapper,column_mappings.text_column=user_query,column_mappings.prefix_column=system_message
+```
 ```
 
 **Example: Multiple datasets**
@@ -735,6 +737,7 @@ Hugging Face Hub dataset ID for upload (required if `--push-to-hub` is set). |
 **Example 1: Basic preprocessing with custom column names**
 
 ```
+```bash
 guidellm preprocess dataset \
 kind=csv_file,path=my_dataset.csv \
 "processed_dataset.jsonl" \
@@ -742,10 +745,12 @@ kind=csv_file,path=my_dataset.csv \
 --strategy kind=ignore,prompt_tokens=512,output_tokens=256 \
 --data-column-mapper kind=generative_column_mapper,column_mappings.text_column=user_question,column_mappings.prefix_column=system_instruction
 ```
+```
 
 **Example 2: Preprocessing with distribution and concatenate strategy**
 
 ```
+```bash
 guidellm preprocess dataset \
 "kind=json_file,path=dataset.jsonl" \
 "processed.jsonl" \
@@ -753,20 +758,24 @@ guidellm preprocess dataset \
 --strategy kind=concatenate,prompt_tokens=512,prompt_tokens_stdev=50,output_tokens=256,output_tokens_stdev=25,delimiter="\n\n" \
 --seed kind=static,value=123
 ```
+```
 
 **Example 3: Preprocessing with tokenizer load kwargs, prefix limits, and count_prefix**
 
 ```
+```bash
 guidellm preprocess dataset \
 "kind=json_file,path=dataset.jsonl" \
 "processed.jsonl" \
 --tokenizer kind=huggingface_auto,model=gpt2,load_kwargs.use_fast=false \
 --strategy kind=ignore,prompt_tokens=512,output_tokens=256,prefix_tokens_max=100,count_prefix=true
 ```
+```
 
 **Example 4: Limit processed rows with --data-loader**
 
 ```
+```bash
 guidellm preprocess dataset \
 "kind=json_file,path=large_dataset.jsonl" \
 "processed.jsonl" \
@@ -774,10 +783,12 @@ guidellm preprocess dataset \
 --strategy kind=ignore,prompt_tokens=512,output_tokens=256 \
 --data-loader kind=pytorch,samples=1000
 ```
+```
 
 **Example 5: Preprocessing and uploading to Hugging Face Hub**
 
 ```
+```bash
 guidellm preprocess dataset \
 "kind=json_file,path=my_dataset.jsonl" \
 "processed.jsonl" \
@@ -785,6 +796,7 @@ guidellm preprocess dataset \
 --strategy kind=ignore,prompt_tokens=512,output_tokens=256 \
 --push-to-hub \
 --hub-dataset-id "username/processed-dataset"
+```
 ```
 
 - The

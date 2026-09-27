@@ -297,8 +297,10 @@ or hwloc’s `lstopo`
 can enable administrators to
 identify the best pairing of GPUs with NVMes and NICs. Below is an example output of `lstopo`
 
+```python
 from a
 different DGX-2 machine:
+```
 
 Taking the grouping associated with NUMANode L#3 in the bottom left quadrant for an example, it can be seen that
 the GPU identified by PCI 07:00.0 would best be associated with the NVMes `nvme0c0n1`

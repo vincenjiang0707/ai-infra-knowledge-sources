@@ -62,22 +62,26 @@ This will run DP=4, TP=2 on a single 8-GPU node:
 This will run DP=4 with DP ranks 0 and 1 on the head node and ranks 2 and 3 on the second node:
 
 # Node 0 (with ip address 10.99.48.128)
+```bash
 vllm serve $MODEL --data-parallel-size 4 --data-parallel-size-local 2 \
 --data-parallel-address 10.99.48.128 --data-parallel-rpc-port 13345
 # Node 1
 vllm serve $MODEL --headless --data-parallel-size 4 --data-parallel-size-local 2 \
 --data-parallel-start-rank 2 \
 --data-parallel-address 10.99.48.128 --data-parallel-rpc-port 13345
+```
 
 
 This will run DP=4 with only the API server on the first node and all engines on the second node:
 
 # Node 0 (with ip address 10.99.48.128)
+```bash
 vllm serve $MODEL --data-parallel-size 4 --data-parallel-size-local 0 \
 --data-parallel-address 10.99.48.128 --data-parallel-rpc-port 13345
 # Node 1
 vllm serve $MODEL --headless --data-parallel-size 4 --data-parallel-size-local 4 \
 --data-parallel-address 10.99.48.128 --data-parallel-rpc-port 13345
+```
 
 
 This DP mode can also be used with Ray by specifying `--data-parallel-backend=ray`
@@ -148,21 +152,25 @@ We support an equivalent topology for MoE DP+EP which can be configured via the 
 If DP ranks are co-located (same node / ip address), a default RPC port is used, but a different HTTP server port must be specified for each rank:
 
 # Rank 0
+```bash
 CUDA_VISIBLE_DEVICES=0 vllm serve $MODEL --data-parallel-size 2 --data-parallel-rank 0 \
 --port 8000
 # Rank 1
 CUDA_VISIBLE_DEVICES=1 vllm serve $MODEL --data-parallel-size 2 --data-parallel-rank 1 \
 --port 8001
+```
 
 
 For multi-node cases, the address/port of rank 0 must also be specified:
 
 # Rank 0 (with ip address 10.99.48.128)
+```bash
 vllm serve $MODEL --data-parallel-size 2 --data-parallel-rank 0 \
 --data-parallel-address 10.99.48.128 --data-parallel-rpc-port 13345
 # Rank 1
 vllm serve $MODEL --data-parallel-size 2 --data-parallel-rank 1 \
 --data-parallel-address 10.99.48.128 --data-parallel-rpc-port 13345
+```
 
 
 When using `--data-parallel-external-lb`

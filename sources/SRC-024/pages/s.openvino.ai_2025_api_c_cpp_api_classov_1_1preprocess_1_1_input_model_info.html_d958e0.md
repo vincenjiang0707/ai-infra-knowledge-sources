@@ -4,8 +4,10 @@ lastmod:
 # Class ov::preprocess::InputModelInfo[#](https://docs.openvino.ai#class-ov-preprocess-inputmodelinfo)
 
 -
+```python
 class InputModelInfo
 [#](https://docs.openvino.ai#_CPPv4N2ov10preprocess14InputModelInfoE) Information about model’s input tensor. If all information is already included to loaded model, this info may not be needed. However it can be set to specify additional information about model, like ‘layout’.
+```
 
 Example of usage of model ‘layout’: Support model has input parameter with shape {1, 3, 224, 224} and user needs to resize input image to model’s dimensions. It can be done like this
 

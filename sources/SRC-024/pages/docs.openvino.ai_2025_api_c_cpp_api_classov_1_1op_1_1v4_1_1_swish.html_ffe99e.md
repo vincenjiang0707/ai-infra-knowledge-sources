@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v4::Swish[#](https://docs.openvino.ai#class-ov-op-v4-swish)
 
 -
+```python
 class Swish : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v45SwishE) A
+```
 
 [Swish](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_swish)Activation Function f(x) = x / (1.0 + exp(-beta * x)) or f(x) = x * sigmoid(beta * x)Public Functions
 

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/worker_manager/
 lastmod: 2026-09-27
 
+```python
 class WorkerLoRAManager:
 """WorkerLoRAManager that manages LoRA models on the worker side.
 Every request, the requested LoRAs will be loaded (unless they are already
@@ -192,3 +193,4 @@ def remove_all_adapters(self):
 self._adapter_manager.remove_all_adapters()
 def list_adapters(self) -> set[int]:
 return set(self._adapter_manager.list_adapters())
+```

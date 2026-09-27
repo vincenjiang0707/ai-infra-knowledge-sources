@@ -49,8 +49,10 @@ Validated: server `v0.4.6`
 paired with
 `nvcr.io/nvidia/ai-dynamo/vllm-runtime:1.3.0`
 
+```
 (bundles LMCache 0.4.6). Check it with:
 `docker run --rm --entrypoint python3 <worker-image> -c "import lmcache; print(lmcache.__version__)"`
+```
 
 .
 Mismatched versions do not speak the same MP wire protocol.

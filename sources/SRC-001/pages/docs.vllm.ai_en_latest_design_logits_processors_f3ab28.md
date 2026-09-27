@@ -36,6 +36,7 @@ The pseudocode below shows the process by which the vLLM persistent batch notifi
 ## Model Runner Updates Logits Processor States
 
 # gpu_model_runner.py
+```python
 class GPUModelRunner(...):
 ...
 def execute_model(self, scheduler_output, ...):
@@ -66,6 +67,7 @@ batch_size: int
 removed: Sequence[RemovedRequest]
 added: Sequence[AddedRequest]
 moved: Sequence[MovedRequest]
+```
 
 
 ### Applying Logits Processors to the Model Output Logits[¶](https://docs.vllm.ai#applying-logits-processors-to-the-model-output-logits)
@@ -87,6 +89,7 @@ Note that the sampler will access the logits processors via `SamplingMetadata.lo
 ## Apply logits processors to model output logits
 
 # gpu_model_runner.py
+```python
 class GPUModelRunner(...):
 ...
 def execute_model(self, scheduler_output, ...):
@@ -117,6 +120,7 @@ def sample(self, logits, sampling_metadata)
 # Apply argmax-invariant logits processors
 for processor in sampling_metadata.logitsprocs.argmax_invariant:
 logits = processor.apply(logits)
+```
 ...
 # ...perform sampling and return sampling result...
 
@@ -151,6 +155,7 @@ data structure
 
 `BatchUpdate`
 
+```python
 from abc import ABC, abstractmethod
 from collections.abc import Sequence
 from dataclasses import dataclass
@@ -222,6 +227,7 @@ def validate_params(cls, sampling_params: SamplingParams):
 Raise ValueError for invalid ones.
 """
 return None
+```
 
 
 A vLLM logits processor must subclass [ LogitsProcessor](https://docs.vllm.ai/api/vllm/model_executor/layers/logits_processor/#vllm.model_executor.layers.logits_processor.LogitsProcessor) and define (at minimum) the following methods:

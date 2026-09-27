@@ -1,10 +1,12 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/cuda_graph/
 lastmod: 2026-09-27
 
+```python
 class CUDAGraphWrapper:
 """Wraps a runnable to add CUDA graph capturing and replaying ability. And
 provide attribute access to the underlying `runnable` via `__getattr__`.
 The workflow of this wrapper in the cudagraph dispatching is as follows:
+```
 1. At initialization, a runtime mode is assigned to the wrapper (FULL or
 PIECEWISE).
 2. At runtime, the wrapper receives a runtime_mode and a

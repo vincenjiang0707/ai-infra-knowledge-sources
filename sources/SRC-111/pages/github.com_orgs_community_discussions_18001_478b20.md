@@ -27,10 +27,12 @@ Any update on this? I'd still very much like to hide skipped actions on PR's in 
 Bump! Also adding a use-case for this feature. I am using "proxy workflows" as a workaround for a lack of dynamic "uses" when triggering reusable workflows (choosing which to execute). I am using a solution similar to The problem is that every use of the "proxy workflow" results in skipped jobs showing up due to the A job-level setting or even a UI setting would be helpful in making this a better experience. Thank you! |
 
 |
+```yaml
 Maybe an easier/less invasive option would be to extend the ```
 java-build:
 name: java-build
 needs:
+```
 - metaconfig # job
 - ${{ jobs.metaconfig.result == 'success' }} # job result
 ``` This would effectively hide the skipped jobs but would require an evaluation of boolean as well as a job_ids in the |

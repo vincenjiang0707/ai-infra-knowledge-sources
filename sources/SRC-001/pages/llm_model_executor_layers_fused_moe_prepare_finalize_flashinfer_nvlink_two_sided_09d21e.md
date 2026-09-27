@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/prepare_finalize/flashinfer_nvlink_two_sided/
 lastmod: 2026-09-27
 
+```python
 class FlashInferNVLinkTwoSidedPrepareAndFinalize(mk.FusedMoEPrepareAndFinalizeModular):
 """Base class for FlashInfer MoE prepare and finalize operations."""
 all2all_manager: All2AllManagerBase
@@ -89,3 +90,4 @@ token_count=token_count,
 alltoall_info=self.alltoall_info,
 )
 output.copy_(fused_expert_output)
+```

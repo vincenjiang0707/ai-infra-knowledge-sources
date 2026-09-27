@@ -50,8 +50,10 @@ I have the same issue. Not resolved yet.
 
 ### rkuo2000 · 2024-06-05
 
+```
 flash-attn==2.5.8 works
 (mine is python 3.10.14, torch 2.3.0, ubuntu 22.04.4 LTS)
+```
 
 ### AlexYoung757 · 2024-06-06
 
@@ -102,8 +104,10 @@ python 3.10  torch ==2.30 still not works
 
 ### rkuo2000 · 2024-06-06
 
+```bash
 pip uninstall flash-attn 
 pip install flash-attn --no-build-isolation
+```
 
 
 ### Queuecumber · 2024-06-06

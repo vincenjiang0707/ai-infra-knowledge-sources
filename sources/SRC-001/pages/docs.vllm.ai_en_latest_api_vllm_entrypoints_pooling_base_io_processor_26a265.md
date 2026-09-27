@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/pooling/base/io_processor/
 lastmod: 2026-09-27
 
+```python
 class PoolingIOProcessor:
 """Processor for handling preprocessing & postprocessing ops for pooling requests.
 This class manages both online (serving) and offline (batch) processing of pooling
@@ -269,3 +270,4 @@ f"and priority ({len(priority)}) must be the same."
 )
 return priority
 return [0] * num_requests
+```

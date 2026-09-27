@@ -592,8 +592,10 @@ CUpti_ActivityConfig_STRUCT_SIZE
 ## 6.1.7. Enumerations[#](https://docs.nvidia.com#id2)
 
 -
+```rust
 enum CUpti_ActivityApiFieldIds
 [#](https://docs.nvidia.com#_CPPv425CUpti_ActivityApiFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityAPI](https://docs.nvidia.com/structCUpti__ActivityAPI.html#structcupti__activityapi).Each enum value corresponds to a field in
 
@@ -983,8 +985,10 @@ enumerator CUPTI_ACTIVITY_COMPUTE_API_FORCE_INT
 enumerator CUPTI_ACTIVITY_COMPUTE_API_UNKNOWN
 
 -
+```rust
 enum CUpti_ActivityComputeEngineCtxSwitchFieldIds
 [#](https://docs.nvidia.com#_CPPv444CUpti_ActivityComputeEngineCtxSwitchFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityComputeEngineCtxSwitch](https://docs.nvidia.com/structCUpti__ActivityComputeEngineCtxSwitch.html#structcupti__activitycomputeenginectxswitch).Each enum value corresponds to a field in
 
@@ -1019,8 +1023,10 @@ enumerator COMPUTE_ENGINE_CTX_SWITCH_FIELD_MAX
 enumerator COMPUTE_ENGINE_CTX_SWITCH_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityConfidentialComputeRotationFieldIds
 [#](https://docs.nvidia.com#_CPPv449CUpti_ActivityConfidentialComputeRotationFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityConfidentialComputeRotation](https://docs.nvidia.com/structCUpti__ActivityConfidentialComputeRotation.html#structcupti__activityconfidentialcomputerotation).Each enum value corresponds to a field in
 
@@ -1140,8 +1146,10 @@ enumerator CONTEXT_FIELD_MAX
 enumerator CONTEXT_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityCudaEventFieldIds
 [#](https://docs.nvidia.com#_CPPv431CUpti_ActivityCudaEventFieldIds) Enum identifiers for fields to trace CUDA Event operations.
+```
 
 These field IDs are used to reference specific fields when dynamically selecting or parsing activity records of CUPTI_ACTIVITY_KIND_CUDA_EVENT.
 
@@ -1205,8 +1213,10 @@ enumerator CUDA_EVENT_FIELD_MAX
 enumerator CUDA_EVENT_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityDeviceFieldIds
 [#](https://docs.nvidia.com#_CPPv428CUpti_ActivityDeviceFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityDevice6](https://docs.nvidia.com/structCUpti__ActivityDevice6.html#structcupti__activitydevice6).Each enum value corresponds to a field in
 
@@ -1411,8 +1421,10 @@ enumerator DEVICE_FIELD_MAX
 enumerator DEVICE_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityDeviceGraphTraceFieldIds
 [#](https://docs.nvidia.com#_CPPv438CUpti_ActivityDeviceGraphTraceFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityDeviceGraphTrace](https://docs.nvidia.com/structCUpti__ActivityDeviceGraphTrace.html#structcupti__activitydevicegraphtrace).Each enum value corresponds to a field in
 
@@ -1474,8 +1486,10 @@ enumerator DEVICE_GRAPH_TRACE_FIELD_MAX
 enumerator DEVICE_GRAPH_TRACE_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityEnvironmentFieldIds
 [#](https://docs.nvidia.com#_CPPv433CUpti_ActivityEnvironmentFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityEnvironment](https://docs.nvidia.com/structCUpti__ActivityEnvironment.html#structcupti__activityenvironment).Each enum value corresponds to a field in
 
@@ -1558,8 +1572,10 @@ enumerator CUPTI_ACTIVITY_ENVIRONMENT_KIND_FORCE_INT
 enumerator CUPTI_ACTIVITY_ENVIRONMENT_UNKNOWN
 
 -
+```rust
 enum CUpti_ActivityExternalCorrelationFieldIds
 [#](https://docs.nvidia.com#_CPPv441CUpti_ActivityExternalCorrelationFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityExternalCorrelation](https://docs.nvidia.com/structCUpti__ActivityExternalCorrelation.html#structcupti__activityexternalcorrelation).This activity record correlates native CUDA records (e.g. CUDA Driver API, kernels, memcpys, …) with records from external APIs such as OpenACC. (CUPTI_ACTIVITY_KIND_EXTERNAL_CORRELATION).
 
@@ -1788,8 +1804,10 @@ enumerator CUPTI_ACTIVITY_FLAG_FORCE_INT
 enumerator CUPTI_ACTIVITY_FLAG_NONE
 
 -
+```rust
 enum CUpti_ActivityGraphHostNodeFieldIds
 [#](https://docs.nvidia.com#_CPPv435CUpti_ActivityGraphHostNodeFieldIds) Enum identifiers for fields in CUpti_ActivityGraphHostNode.
+```
 
 Each enum value corresponds to a field in CUpti_ActivityGraphHostNode and describes the data type and purpose of that field.
 
@@ -1859,8 +1877,10 @@ enumerator GRAPH_HOST_NODE_FIELD_MAX
 enumerator GRAPH_HOST_NODE_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityGraphTraceFieldIds
 [#](https://docs.nvidia.com#_CPPv432CUpti_ActivityGraphTraceFieldIds) Enum identifiers for fields to trace graph execution.
+```
 
 These field IDs are used to reference specific fields when dynamically selecting or parsing activity records of CUPTI_ACTIVITY_KIND_GRAPH_TRACE.
 
@@ -1929,8 +1949,10 @@ enumerator GRAPH_TRACE_FIELD_MAX
 enumerator GRAPH_TRACE_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityGreenContextFieldIds
 [#](https://docs.nvidia.com#_CPPv434CUpti_ActivityGreenContextFieldIds) Enum identifiers for fields to trace green context information.
+```
 
 These field IDs are used to reference specific fields when dynamically selecting or parsing activity records of CUPTI_ACTIVITY_KIND_GREEN_CONTEXT.
 
@@ -2016,8 +2038,10 @@ enumerator GREEN_CONTEXT_FIELD_MAX
 enumerator GREEN_CONTEXT_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityHostLaunchFieldIds
 [#](https://docs.nvidia.com#_CPPv432CUpti_ActivityHostLaunchFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityHostLaunch](https://docs.nvidia.com/structCUpti__ActivityHostLaunch.html#structcupti__activityhostlaunch).Each enum value corresponds to a field in
 
@@ -2334,8 +2358,10 @@ enumerator CUPTI_ACTIVITY_JIT_OPERATION_TYPE_FORCE_INT
 enumerator CUPTI_ACTIVITY_JIT_OPERATION_INVALID
 
 -
+```rust
 enum CUpti_ActivityKernelFieldIds
 [#](https://docs.nvidia.com#_CPPv428CUpti_ActivityKernelFieldIds) Enum identifiers for fields to trace kernel operations.
+```
 
 These field IDs are used to reference specific fields when dynamically selecting or parsing activity records of CUPTI_ACTIVITY_KIND_CONCURRENT_KERNEL.
 
@@ -3338,8 +3364,10 @@ enumerator CUPTI_ACTIVITY_LAUNCH_TYPE_CBL_COMMANDLIST
 enumerator CUPTI_ACTIVITY_LAUNCH_TYPE_REGULAR
 
 -
+```rust
 enum CUpti_ActivityMarkerDataFieldIds
 [#](https://docs.nvidia.com#_CPPv432CUpti_ActivityMarkerDataFieldIds) Enum identifiers for fields to trace detailed information for a marker.
+```
 
 User must enable CUPTI_ACTIVITY_KIND_MARKER as well to get records for marker data. These field IDs are used to reference specific fields when dynamically selecting or parsing activity records of CUPTI_ACTIVITY_KIND_MARKER_DATA.
 
@@ -3394,8 +3422,10 @@ enumerator MARKER_DATA_FIELD_MAX
 enumerator MARKER_DATA_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityMarkerFieldIds
 [#](https://docs.nvidia.com#_CPPv428CUpti_ActivityMarkerFieldIds) Enum identifiers for fields to trace NVTX markers/ranges.
+```
 
 These field IDs are used to reference specific fields when dynamically selecting or parsing activity records of CUPTI_ACTIVITY_KIND_MARKER.
 
@@ -3450,8 +3480,10 @@ enumerator MARKER_FIELD_MAX
 enumerator MARKER_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityMemDecompressFieldIds
 [#](https://docs.nvidia.com#_CPPv435CUpti_ActivityMemDecompressFieldIds) Enum identifiers for fields to trace decompression operations.
+```
 
 These field IDs are used to reference specific fields when dynamically selecting or parsing activity records of CUPTI_ACTIVITY_KIND_MEM_DECOMPRESS.
 
@@ -3523,8 +3555,10 @@ enumerator MEM_DECOMPRESS_FIELD_MAX
 enumerator MEM_DECOMPRESS_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityMemcpy2FieldIds
 [#](https://docs.nvidia.com#_CPPv429CUpti_ActivityMemcpy2FieldIds) Enum identifiers for fields to trace peer-to-peer memory copies.
+```
 
 These field IDs are used to reference specific fields when dynamically selecting or parsing activity records of CUPTI_ACTIVITY_KIND_MEMCPY2.
 
@@ -3799,8 +3833,10 @@ enumerator MEMCPY_FIELD_MAX
 enumerator MEMCPY_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityMemcpyKind
 [#](https://docs.nvidia.com#_CPPv424CUpti_ActivityMemcpyKind) The kind of a memory copy, indicating the source and destination targets of the copy.
+```
 
 Each kind represents the source and destination targets of a memory copy. Targets are host, device, and array.
 
@@ -3867,8 +3903,10 @@ enumerator CUPTI_ACTIVITY_MEMCPY_KIND_FORCE_INT
 enumerator CUPTI_ACTIVITY_MEMCPY_KIND_UNKNOWN
 
 -
+```rust
 enum CUpti_ActivityMemoryFieldIds
 [#](https://docs.nvidia.com#_CPPv428CUpti_ActivityMemoryFieldIds) Enum identifiers for fields to trace memory allocation and free operation.
+```
 
 This activity record provides separate records for memory allocation and memory release operations. This allows to correlate the corresponding driver and runtime API activity record with the memory operation.
 
@@ -4061,8 +4099,10 @@ enumerator CUPTI_ACTIVITY_MEMORY_OPERATION_TYPE_FORCE_INT
 enumerator CUPTI_ACTIVITY_MEMORY_OPERATION_TYPE_INVALID
 
 -
+```rust
 enum CUpti_ActivityMemoryPoolFieldIds
 [#](https://docs.nvidia.com#_CPPv432CUpti_ActivityMemoryPoolFieldIds) Enum identifiers for fields to trace CUDA memory pool creation, destruction and trimming.
+```
 
 This activity record provides separate records for memory pool creation, destruction and trimming operations. This allows to correlate the corresponding driver and runtime API activity record with the memory pool operation.
 
@@ -4207,8 +4247,10 @@ enumerator CUPTI_ACTIVITY_MEMORY_POOL_TYPE_FORCE_INT
 enumerator CUPTI_ACTIVITY_MEMORY_POOL_TYPE_INVALID
 
 -
+```rust
 enum CUpti_ActivityMemsetFieldIds
 [#](https://docs.nvidia.com#_CPPv428CUpti_ActivityMemsetFieldIds) Enum identifiers for fields to trace memset operations.
+```
 
 These field IDs are used to reference specific fields when dynamically selecting or parsing activity records of CUPTI_ACTIVITY_KIND_MEMSET.
 
@@ -4327,8 +4369,10 @@ enumerator MEMSET_FIELD_MAX
 enumerator MEMSET_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityNameFieldIds
 [#](https://docs.nvidia.com#_CPPv426CUpti_ActivityNameFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityName](https://docs.nvidia.com/structCUpti__ActivityName.html#structcupti__activityname).Each enum value corresponds to a field in
 
@@ -4360,8 +4404,10 @@ enumerator NAME_FIELD_MAX
 enumerator NAME_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityNvLinkFieldIds
 [#](https://docs.nvidia.com#_CPPv428CUpti_ActivityNvLinkFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityNvLink5](https://docs.nvidia.com/structCUpti__ActivityNvLink5.html#structcupti__activitynvlink5).Each enum value corresponds to a field in
 
@@ -4483,8 +4529,10 @@ enumerator CUPTI_ACTIVITY_OBJECT_FORCE_INT
 enumerator CUPTI_ACTIVITY_OBJECT_UNKNOWN
 
 -
+```rust
 enum CUpti_ActivityOpenAccDataFieldIds
 [#](https://docs.nvidia.com#_CPPv433CUpti_ActivityOpenAccDataFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityOpenAccData](https://docs.nvidia.com/structCUpti__ActivityOpenAccData.html#structcupti__activityopenaccdata).Each enum value corresponds to a field in
 
@@ -4659,8 +4707,10 @@ enumerator OPENACC_DATA_FIELD_MAX
 enumerator OPENACC_DATA_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityOpenAccLaunchFieldIds
 [#](https://docs.nvidia.com#_CPPv435CUpti_ActivityOpenAccLaunchFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityOpenAccLaunch](https://docs.nvidia.com/structCUpti__ActivityOpenAccLaunch.html#structcupti__activityopenacclaunch).Each enum value corresponds to a field in
 
@@ -4813,8 +4863,10 @@ enumerator OPENACC_LAUNCH_FIELD_MAX
 enumerator OPENACC_LAUNCH_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityOpenAccOtherFieldIds
 [#](https://docs.nvidia.com#_CPPv434CUpti_ActivityOpenAccOtherFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityOpenAccOther](https://docs.nvidia.com/structCUpti__ActivityOpenAccOther.html#structcupti__activityopenaccother).Each enum value corresponds to a field in
 
@@ -4947,8 +4999,10 @@ enumerator OPENACC_OTHER_FIELD_MAX
 enumerator OPENACC_OTHER_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityOpenMpFieldIds
 [#](https://docs.nvidia.com#_CPPv428CUpti_ActivityOpenMpFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityOpenMp](https://docs.nvidia.com/structCUpti__ActivityOpenMp.html#structcupti__activityopenmp).This activity record records OpenMP activity information.
 
@@ -4997,8 +5051,10 @@ enumerator OPENMP_FIELD_MAX
 enumerator OPENMP_FIELD_KIND
 
 -
+```rust
 enum CUpti_ActivityOverheadFieldIds
 [#](https://docs.nvidia.com#_CPPv430CUpti_ActivityOverheadFieldIds) Enum identifiers for fields to trace CUPTI and driver overhead information.
+```
 
 These field IDs are used to reference specific fields when dynamically selecting or parsing activity records of CUPTI_ACTIVITY_KIND_OVERHEAD.
 
@@ -5272,8 +5328,10 @@ enumerator CUPTI_ACTIVITY_PARTITIONED_GLOBAL_CACHE_CONFIG_FORCE_INT
 enumerator CUPTI_ACTIVITY_PARTITIONED_GLOBAL_CACHE_CONFIG_UNKNOWN
 
 -
+```rust
 enum CUpti_ActivityPcieFieldIds
 [#](https://docs.nvidia.com#_CPPv426CUpti_ActivityPcieFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityPcie](https://docs.nvidia.com/structCUpti__ActivityPcie.html#structcupti__activitypcie).Each enum value corresponds to a field in
 
@@ -5362,8 +5420,10 @@ enumerator CUPTI_ACTIVITY_PREEMPTION_KIND_FORCE_INT
 enumerator CUPTI_ACTIVITY_PREEMPTION_KIND_UNKNOWN
 
 -
+```rust
 enum CUpti_ActivityStreamFieldIds
 [#](https://docs.nvidia.com#_CPPv428CUpti_ActivityStreamFieldIds) Enum identifiers for fields to trace CUDA Stream operations.
+```
 
 These field IDs are used to reference specific fields when dynamically selecting or parsing activity records of CUPTI_ACTIVITY_KIND_STREAM.
 
@@ -5446,8 +5506,10 @@ enumerator CUPTI_ACTIVITY_STREAM_CREATE_FLAG_FORCE_INT
 enumerator CUPTI_ACTIVITY_STREAM_CREATE_FLAG_UNKNOWN
 
 -
+```rust
 enum CUpti_ActivitySynchronizationFieldIds
 [#](https://docs.nvidia.com#_CPPv437CUpti_ActivitySynchronizationFieldIds) Enum identifiers for fields to trace various CUDA synchronization APIs.
+```
 
 These field IDs are used to reference specific fields when dynamically selecting or parsing activity records of CUPTI_ACTIVITY_KIND_SYNCHRONIZATION.
 
@@ -5594,8 +5656,10 @@ enumerator CUPTI_ACTIVITY_THREAD_ID_TYPE_FORCE_INT
 enumerator CUPTI_ACTIVITY_THREAD_ID_TYPE_DEFAULT
 
 -
+```rust
 enum CUpti_ActivityUnifiedMemoryAccessType
 [#](https://docs.nvidia.com#_CPPv437CUpti_ActivityUnifiedMemoryAccessType) Memory access type for unified memory page faults.
+```
 
 This is valid for
 
@@ -5698,8 +5762,10 @@ enumerator CUPTI_ACTIVITY_UNIFIED_MEMORY_COUNTER_KIND_FORCE_INT
 enumerator CUPTI_ACTIVITY_UNIFIED_MEMORY_COUNTER_KIND_UNKNOWN
 
 -
+```rust
 enum CUpti_ActivityUnifiedMemoryCounterScope
 [#](https://docs.nvidia.com#_CPPv439CUpti_ActivityUnifiedMemoryCounterScope) Scope of the unified memory counter (deprecated in CUDA 7.0)
+```
 
 *Values:*-
 enumerator CUPTI_ACTIVITY_UNIFIED_MEMORY_COUNTER_SCOPE_UNKNOWN
@@ -5728,8 +5794,10 @@ enumerator CUPTI_ACTIVITY_UNIFIED_MEMORY_COUNTER_SCOPE_FORCE_INT
 enumerator CUPTI_ACTIVITY_UNIFIED_MEMORY_COUNTER_SCOPE_UNKNOWN
 
 -
+```rust
 enum CUpti_ActivityUnifiedMemoryMigrationCause
 [#](https://docs.nvidia.com#_CPPv441CUpti_ActivityUnifiedMemoryMigrationCause) Migration cause of the Unified Memory counter.
+```
 
 This is valid for
 
@@ -5773,8 +5841,10 @@ Only frequently accessed pages are migrated between CPU and GPU, or between peer
 enumerator CUPTI_ACTIVITY_UNIFIED_MEMORY_MIGRATION_CAUSE_UNKNOWN
 
 -
+```rust
 enum CUpti_ActivityUnifiedMemoryRemoteMapCause
 [#](https://docs.nvidia.com#_CPPv441CUpti_ActivityUnifiedMemoryRemoteMapCause) Remote memory map cause of the Unified Memory counter.
+```
 
 This is valid for
 
@@ -5812,8 +5882,10 @@ enumerator CUPTI_ACTIVITY_UNIFIED_MEMORY_REMOTE_MAP_CAUSE_EVICTION
 enumerator CUPTI_ACTIVITY_UNIFIED_MEMORY_REMOTE_MAP_CAUSE_UNKNOWN
 
 -
+```rust
 enum CUpti_ActivityUvmCounterFieldIds
 [#](https://docs.nvidia.com#_CPPv432CUpti_ActivityUvmCounterFieldIds) Enum identifiers for fields in
+```
 
 [CUpti_ActivityUnifiedMemoryCounter3](https://docs.nvidia.com/structCUpti__ActivityUnifiedMemoryCounter3.html#structcupti__activityunifiedmemorycounter3).Each enum value corresponds to a field in
 
@@ -5886,10 +5958,12 @@ enumerator UVM_COUNTER_FIELD_MAX
 enumerator UVM_COUNTER_FIELD_KIND
 
 -
+```rust
 enum CUpti_ChannelType
 [#](https://docs.nvidia.com#_CPPv417CUpti_ChannelType) *Values:*-
 enumerator CUPTI_CHANNEL_TYPE_INVALID
 [#](https://docs.nvidia.com#_CPPv4N17CUpti_ChannelType26CUPTI_CHANNEL_TYPE_INVALIDE)
+```
 
 -
 enumerator CUPTI_CHANNEL_TYPE_COMPUTE
@@ -5914,8 +5988,10 @@ enumerator CUPTI_CHANNEL_TYPE_FORCE_INT
 enumerator CUPTI_CHANNEL_TYPE_INVALID
 
 -
+```rust
 enum CUpti_ComputeEngineCtxSwitchOperationType
 [#](https://docs.nvidia.com#_CPPv441CUpti_ComputeEngineCtxSwitchOperationType) The operation type of CUDA context switch event records.
+```
 
 *Values:*-
 enumerator CUPTI_COMPUTE_ENGINE_CTX_SWITCH_OPERATION_INVALID
@@ -5939,10 +6015,12 @@ enumerator CUPTI_COMPUTE_ENGINE_CTX_SWITCH_OPERATION_COUNT
 enumerator CUPTI_COMPUTE_ENGINE_CTX_SWITCH_OPERATION_INVALID
 
 -
+```rust
 enum CUpti_ConfidentialComputeRotationEventType
 [#](https://docs.nvidia.com#_CPPv442CUpti_ConfidentialComputeRotationEventType) *Values:*-
 enumerator CUPTI_CONFIDENTIAL_COMPUTE_INVALID_ROTATION_EVENT
 [#](https://docs.nvidia.com#_CPPv4N42CUpti_ConfidentialComputeRotationEventType49CUPTI_CONFIDENTIAL_COMPUTE_INVALID_ROTATION_EVENTE)
+```
 
 -
 enumerator CUPTI_CONFIDENTIAL_COMPUTE_KEY_ROTATION_CHANNEL_BLOCKED
@@ -6045,8 +6123,10 @@ enumerator CUPTI_DEVICE_GRAPH_LAUNCH_MODE_FIRE_AND_FORGET_AS_SIBLING
 enumerator CUPTI_DEVICE_GRAPH_LAUNCH_MODE_INVALID
 
 -
+```rust
 enum CUpti_DeviceVirtualizationMode
 [#](https://docs.nvidia.com#_CPPv430CUpti_DeviceVirtualizationMode) This indicates the virtualization mode in which CUDA device is running.
+```
 
 *Values:*-
 enumerator CUPTI_DEVICE_VIRTUALIZATION_MODE_NONE
@@ -6209,8 +6289,10 @@ enumerator CUPTI_FUNC_EXECUTION_MODEL_FORCE_INT
 enumerator CUPTI_FUNC_EXECUTION_MODEL_UNKNOWN
 
 -
+```rust
 enum CUpti_FuncShmemLimitConfig
 [#](https://docs.nvidia.com#_CPPv426CUpti_FuncShmemLimitConfig) The shared memory limit per block config for a kernel This should be used to set ‘cudaOccFuncShmemConfig’ field in occupancy calculator API.
+```
 
 *Values:*-
 enumerator CUPTI_FUNC_SHMEM_LIMIT_DEFAULT
@@ -6268,10 +6350,12 @@ enumerator CUPTI_LINK_FLAG_FORCE_INT
 enumerator CUPTI_LINK_FLAG_INVALID
 
 -
+```rust
 enum CUpti_NvtxExtPayloadType
 [#](https://docs.nvidia.com#_CPPv424CUpti_NvtxExtPayloadType) *Values:*-
 enumerator CUPTI_NVTX_EXT_PAYLOAD_TYPE_UNKNOWN
 [#](https://docs.nvidia.com#_CPPv4N24CUpti_NvtxExtPayloadType35CUPTI_NVTX_EXT_PAYLOAD_TYPE_UNKNOWNE) The payload type is not known.
+```
 
 
 -
@@ -6292,8 +6376,10 @@ enumerator CUPTI_NVTX_EXT_PAYLOAD_TYPE_FORCE_INT
 enumerator CUPTI_NVTX_EXT_PAYLOAD_TYPE_UNKNOWN
 
 -
+```rust
 enum CUpti_OpenAccConstructKind
 [#](https://docs.nvidia.com#_CPPv426CUpti_OpenAccConstructKind) The OpenAcc parent construct kind for OpenAcc activity records.
+```
 
 *Values:*-
 enumerator CUPTI_OPENACC_CONSTRUCT_KIND_UNKNOWN
@@ -6454,10 +6540,12 @@ enumerator CUPTI_OPENACC_EVENT_KIND_FORCE_INT
 enumerator CUPTI_OPENACC_EVENT_KIND_INVALID
 
 -
+```rust
 enum CUpti_OpenMpEventKind
 [#](https://docs.nvidia.com#_CPPv421CUpti_OpenMpEventKind) *Values:*-
 enumerator CUPTI_OPENMP_EVENT_KIND_INVALID
 [#](https://docs.nvidia.com#_CPPv4N21CUpti_OpenMpEventKind31CUPTI_OPENMP_EVENT_KIND_INVALIDE)
+```
 
 -
 enumerator CUPTI_OPENMP_EVENT_KIND_PARALLEL
@@ -6491,8 +6579,10 @@ enumerator CUPTI_OPENMP_EVENT_KIND_FORCE_INT
 enumerator CUPTI_OPENMP_EVENT_KIND_INVALID
 
 -
+```rust
 enum CUpti_PcieDeviceType
 [#](https://docs.nvidia.com#_CPPv420CUpti_PcieDeviceType) Field to differentiate whether PCIE Activity record is of a GPU or a PCI Bridge.
+```
 
 *Values:*-
 enumerator CUPTI_PCIE_DEVICE_TYPE_GPU

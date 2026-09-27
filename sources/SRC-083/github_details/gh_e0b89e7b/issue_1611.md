@@ -8,8 +8,10 @@ labels:
 
 ### System Info
 
+```yaml
 os: linux
 gpu: a100
+```
 
 ### Reproduction
 

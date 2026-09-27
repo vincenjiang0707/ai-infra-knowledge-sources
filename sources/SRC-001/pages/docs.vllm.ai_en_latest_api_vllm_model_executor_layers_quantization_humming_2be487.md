@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/humming/
 lastmod: 2026-09-27
 
+```python
 class HummingMoEMethod(FusedMoEMethodBase):
 def __init__(
 self, quant_config: HummingLayerQuantizationConfig, moe: "FusedMoEConfig"
@@ -186,6 +187,7 @@ shared_experts_input: torch.Tensor | None,
 ) -> torch.Tensor:
 """Apply Humming-quantized MoE computation using the standard kernel flow.
 This method uses FusedMoEKernel.apply() which orchestrates:
+```
 1. Preparation (quantization if needed - skipped for Humming via
 expects_unquantized_inputs=True to prevent double quantization)
 2. Expert computation (via experts.apply())

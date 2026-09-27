@@ -16,20 +16,24 @@ It is evident from the codebase, as well as expected from my experience working 
 
 is very much the pattern, that should be utilized to register custom components. And it works well:
 
+```python
 from guidellm.backends.backend import Backend
 @Backend.register("my_custom_backend")
 class MyCustomBackend(Backend):
 def __init__(self, target: str, ...):
 super().__init__(type_="my_custom_backend")
+```
 # ...
 
 Similarly for formatters and response handlers:
 
+```python
 @PreprocessorRegistry.register("my_custom_backend")
 class MyCustomRequestFormatter(GenerativeTextCompletionsRequestFormatter):
 # ...
 @GenerationResponseHandlerFactory.register("my_custom_backend")
 class MyCustomResponseHandler(TextCompletionsResponseHandler):
+```
 # ...
 
 However, it feels that I cannot find an elegant way to make use of the registry pathway.
@@ -46,11 +50,13 @@ type annotation at parse time, *before* checking the runtime registry.
 
 As a workaround I have to monkey-patch the type annotations before importing guidellm's CLI:
 
+```python
 from typing import Literal, Union
 import guidellm.backends as _backends_module
 # Patch BackendType to include my custom backend
 _NewBackendType = Union[_backends_module.BackendType, Literal["my_custom_backend"]]
 _backends_module.BackendType = _NewBackendType
+```
 
 The same is needed for `GenerativeRequestType`
 
@@ -63,10 +69,12 @@ and `guidellm.schemas.request`
 Since guidellm doesn't have a plugin loading mechanism, I need a wrapper script that imports my patches before running guidellm:
 
 # my_guidellm.py
+```python
 import my_extension.guidellm_patches # patches + registrations
 import runpy
 def main():
 runpy.run_module("guidellm", run_name="__main__")
+```
 
 **Questions / Feature Requests**
 

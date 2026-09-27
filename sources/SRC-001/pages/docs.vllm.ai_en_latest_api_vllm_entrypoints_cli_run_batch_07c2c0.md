@@ -11,6 +11,7 @@ subcommand for vLLM CLI.
 ## Source code in `vllm/entrypoints/cli/run_batch.py`
 
 
+```python
 | class RunBatchSubcommand(CLISubcommand):
 """The `run-batch` subcommand for vLLM CLI."""
 name = "run-batch"
@@ -48,3 +49,4 @@ run_batch_parser = make_arg_parser(run_batch_parser)
 run_batch_parser.epilog = VLLM_SUBCMD_PARSER_EPILOG.format(subcmd=self.name)
 return run_batch_parser
 |
+```

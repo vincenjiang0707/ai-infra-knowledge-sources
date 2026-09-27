@@ -107,9 +107,11 @@ Other notes:
 The minimal repro above needs none of the following -- it reproduces with a
 bare all_reduce_perf on one GPU. Listed for completeness only.
 
+```yaml
 GPU: 8x NVIDIA H200 per node, 2 nodes, driver 580.159.04
 Topology: GPUs via NVLink (NV18), NICs at NODE/PHB/PIX distance
 Environment: originally observed under Slurm-on-Kubernetes (Soperator),
+```
   container nvcr.io/nvidia/pytorch:25.01-py3 via pyxis/enroot, with host
   NCCL shadow-mounted to test 2.30.1; NCCL 2.28.9 built from source and
   selected via LD_LIBRARY_PATH. Neither the container nor the mount is

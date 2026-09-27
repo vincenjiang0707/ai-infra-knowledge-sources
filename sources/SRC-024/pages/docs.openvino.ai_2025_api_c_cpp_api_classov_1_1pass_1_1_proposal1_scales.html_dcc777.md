@@ -4,8 +4,10 @@ lastmod:
 # Class ov::pass::Proposal1Scales[#](https://docs.openvino.ai#class-ov-pass-proposal1scales)
 
 -
+```python
 class Proposal1Scales : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[pass](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4passE)::[MatcherPass](https://docs.openvino.ai/classov_1_1pass_1_1_matcher_pass.html#_CPPv4N2ov4pass11MatcherPassE)[#](https://docs.openvino.ai#_CPPv4N2ov4pass15Proposal1ScalesE) ProposalScales transformation helps to silently avoid reshape issues on the scale-input of Proposal layer.
+```
 
 Expected sub-graph looks like: Parameter [batch, 3 or 4] -> Reshape [-1] -(in: 3)-> PriorBox
 

@@ -1,10 +1,12 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/lora_experts_mixin/
 lastmod: 2026-09-27
 
+```python
 class LoRAExpertsMixin:
 """Mixin for FusedMoEExpertsModular subclasses that natively handle
 MoELoRAContext inside their apply() implementation.
 Mixing this class in:
+```
 - Flips supports_lora() to True so _can_fused_experts_support lets
 LoRA through the gate check.
 - Stashes a MoELoRAContext on the experts instance via

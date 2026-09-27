@@ -229,6 +229,7 @@ Defaulting to user installation because normal site-packages is not writeable
 Collecting flash_attn
   Using cached flash_attn-2.8.3.tar.gz (8.4 MB)
   Preparing metadata (pyproject.toml) ... done
+```
 Requirement already satisfied: torch in c:\users\conputr\appdata\roaming\python\python311\site-packages (from flash_attn) (2.8.0+cu129)
 Requirement already satisfied: einops in c:\users\conputr\appdata\roaming\python\python311\site-packages (from flash_attn) (0.8.1)
 Requirement already satisfied: filelock in c:\users\conputr\appdata\roaming\python\python311\site-packages (from torch->flash_attn) (3.19.1)
@@ -240,6 +241,7 @@ Requirement already satisfied: fsspec in c:\users\conputr\appdata\roaming\python
 Requirement already satisfied: mpmath<1.4,>=1.1.0 in c:\users\conputr\appdata\roaming\python\python311\site-packages (from sympy>=1.13.3->torch->flash_attn) (1.3.0)
 Requirement already satisfied: MarkupSafe>=2.0 in c:\users\conputr\appdata\roaming\python\python311\site-packages (from jinja2->torch->flash_attn) (3.0.2)
 Building wheels for collected packages: flash_attn
+```
   Building wheel for flash_attn (pyproject.toml) ... error
   error: subprocess-exited-with-error
 

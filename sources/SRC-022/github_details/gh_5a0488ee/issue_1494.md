@@ -8,10 +8,12 @@ labels: Under Investigation
 
 I am trying to measure time spent in reduction operation of RCCL Allreduce. I found that eventually it calls this part of code in common_kernel.h.      
 #pragma unroll Unroll
+```
       for (int u=0; u < Unroll; u++) {
         if (s < PreOpSrcs) tmp[u] = applyPreOp(preFn, tmp[u]);
         acc[u] = applyReduce(redFn, acc[u], tmp[u]);
       }
+```
 
 How can we measure time spent in applyReduce function? tried _clock64, wall_clock64. They are not helpful
 

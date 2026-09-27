@@ -4,8 +4,10 @@ lastmod:
 # Struct ov::device::Properties[#](https://docs.openvino.ai#struct-ov-device-properties)
 
 -
+```rust
 struct Properties : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Property](https://docs.openvino.ai/classov_1_1_property.html#_CPPv4I0_18PropertyMutabilityEN2ov8PropertyE)<std::map<std::string, std::map<std::string,[Any](https://docs.openvino.ai/classov_1_1_any.html#_CPPv4N2ov3AnyE)>>>[#](https://docs.openvino.ai#_CPPv4N2ov6device10PropertiesE) Type for property to pass set of properties to specified device.
+```
 
 Public Functions
 

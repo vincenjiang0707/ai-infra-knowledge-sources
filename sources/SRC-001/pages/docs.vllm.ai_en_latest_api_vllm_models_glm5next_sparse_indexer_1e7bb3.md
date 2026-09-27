@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/glm5next/sparse_indexer/
 lastmod: 2026-09-27
 
+```python
 @CustomOp.register("sparse_attn_indexer_kpool")
 class SparseAttnIndexerKpool(CustomOp):
 """Sparse Attention Indexer Custom Op Layer. This layer is extracted as a
@@ -122,3 +123,4 @@ self.tail_cache.kv_cache if self.tail_cache is not None else None,
 self.tail_cache.prefix if self.tail_cache is not None else None,
 self.topk_backend,
 )
+```

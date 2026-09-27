@@ -17,6 +17,7 @@ org.apache.tvm.Base$TVMError: TVMError: Function vm.builtin.paged_attention_kv_c
 Stack trace:
   File "/Users/kartik/mlc/tvm/include/tvm/runtime/packed_func.h", line 1908
 
+```bash
 	at org.apache.tvm.Base.checkCall(Base.java:173)
 	at org.apache.tvm.Function.invoke(Function.java:130)
 	at ai.mlc.mlcllm.ChatModule.reload(ChatModule.java:46)
@@ -31,6 +32,7 @@ Stack trace:
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
 	at java.lang.Thread.run(Thread.java:1012)
+```
 
 ## To Reproduce
 
@@ -106,6 +108,7 @@ org.apache.tvm.Base$TVMError: ValueError: Error when loading parameters from par
 Stack trace:
   File "/Users/kartik/mlc/tvm/src/runtime/relax_vm/ndarray_cache_support.cc", line 255
 
+```bash
 	at org.apache.tvm.Base.checkCall(Base.java:173)
 	at org.apache.tvm.Function.invoke(Function.java:130)
 	at ai.mlc.mlcllm.ChatModule.reload(ChatModule.java:46)
@@ -120,6 +123,7 @@ Stack trace:
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
 	at java.lang.Thread.run(Thread.java:1012)
+```
 
 
 Error message:
@@ -137,6 +141,7 @@ org.apache.tvm.Base$TVMError: TVMError: Function vm.builtin.paged_attention_kv_c
 Stack trace:
   File "/Users/kartik/mlc/tvm/include/tvm/runtime/packed_func.h", line 1908
 
+```bash
 	at org.apache.tvm.Base.checkCall(Base.java:173)
 	at org.apache.tvm.Function.invoke(Function.java:130)
 	at ai.mlc.mlcllm.ChatModule.reload(ChatModule.java:46)
@@ -151,6 +156,7 @@ Stack trace:
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
 	at java.lang.Thread.run(Thread.java:1012)
+```
 
 
 Error message:
@@ -167,6 +173,7 @@ org.apache.tvm.Base$TVMError: TVMError: Function vm.builtin.paged_attention_kv_c
 Stack trace:
   File "/Users/kartik/mlc/tvm/include/tvm/runtime/packed_func.h", line 1908
 
+```bash
 	at org.apache.tvm.Base.checkCall(Base.java:173)
 	at org.apache.tvm.Function.invoke(Function.java:130)
 	at ai.mlc.mlcllm.ChatModule.reload(ChatModule.java:46)
@@ -181,6 +188,7 @@ Stack trace:
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
 	at java.lang.Thread.run(Thread.java:1012)
+```
 
 
 Error message:

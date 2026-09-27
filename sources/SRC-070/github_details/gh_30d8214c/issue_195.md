@@ -9,8 +9,10 @@ labels:
 Hi team, I am investigating a regression in performance for `m_grouped_gemm_fp8_fp8_bf16_nt_masked`. Benchmarking script to repro: https://gist.github.com/hj-mistral/d38801ce8e35860a7faba1e1688546cc.
 
 ## Env
+```yaml
 GPU: H200
 CUDA: 12.9
+```
 
 ## Script output
 

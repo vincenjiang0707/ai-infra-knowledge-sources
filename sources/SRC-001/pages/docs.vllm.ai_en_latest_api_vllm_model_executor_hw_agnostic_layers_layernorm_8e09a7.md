@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/hw_agnostic/layers/layernorm/
 lastmod: 2026-09-27
 
+```python
 @CustomOp.register("rms_norm")
 class RMSNorm(CustomOp):
 """``x -> w * x / sqrt(E[x^2] + eps)``. With ``residual``, fuses
@@ -75,3 +76,4 @@ else:
 return self._fused_add_rms_norm(x, residual, weight, epsilon, variance_size)
 def extra_repr(self) -> str:
 return f"hidden_size={self.hidden_size}, eps={self.variance_epsilon}"
+```

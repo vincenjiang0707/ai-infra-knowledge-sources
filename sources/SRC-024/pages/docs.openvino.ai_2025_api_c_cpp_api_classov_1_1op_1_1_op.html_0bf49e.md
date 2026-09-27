@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::Op[#](https://docs.openvino.ai#class-ov-op-op)
 
 -
+```python
 class Op : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Node](https://docs.openvino.ai/classov_1_1_node.html#_CPPv4N2ov4NodeE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2OpE) Root of all actual ops.
+```
 
 Subclassed by
 

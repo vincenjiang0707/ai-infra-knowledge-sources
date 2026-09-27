@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v32/amd/rocm/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV32MLAAttention(DeepseekV32Attention):
 indexer_cls = DeepseekV32ROCmIndexer
 def __init__(self, vllm_config, config, prefix, topk_indices_buffer=None):
@@ -223,3 +224,4 @@ attn_out, _ = self.impl.forward_mqa( # type: ignore[attr-defined]
 q_for_attn, kv_cache, attn_metadata, self
 )
 self._compute_uv_out(attn_out, output, num_actual)
+```

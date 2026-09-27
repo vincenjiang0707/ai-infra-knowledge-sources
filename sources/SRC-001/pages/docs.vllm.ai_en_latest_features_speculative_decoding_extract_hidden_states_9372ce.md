@@ -13,6 +13,7 @@ as a layer id. Note that these are *not* normalized using the output norm.
 
 ## Offline Example[¶](https://docs.vllm.ai#offline-example)
 
+```python
 import tempfile
 from vllm import LLM, SamplingParams
 from vllm.config.kv_transfer import KVTransferConfig
@@ -48,6 +49,7 @@ path = output.kv_transfer_params["hidden_states_path"]
 obj = example_hidden_states_connector.load_hidden_states(path)
 print(f"token_ids: {obj['token_ids'].shape}")
 print(f"hidden_states: {obj['hidden_states'].shape}")
+```
 
 
 A complete example is available at [ examples/features/speculative_decoding/extract_hidden_states_offline.py](https://github.com/vllm-project/vllm/blob/main/examples/features/speculative_decoding/extract_hidden_states_offline.py).
@@ -58,9 +60,11 @@ For improved performance, it is recommended to use a RAM-mounted file system suc
 
 for online usage in which the client cleans up the files soon after they are generated.
 
+```json
 vllm serve Qwen/Qwen3-8B \
 --speculative_config '{"method": "extract_hidden_states", "num_speculative_tokens": 1, "draft_model_config": {"hf_config": {"eagle_aux_hidden_state_layer_ids": [1, 2, 3, 4]}}}' \
 --kv_transfer_config '{"kv_connector": "ExampleHiddenStatesConnector", "kv_role": "kv_producer", "kv_connector_extra_config": {"shared_storage_path": "/dev/shm/hidden_states"}}'
+```
 
 
 ## Per-Request Options[¶](https://docs.vllm.ai#per-request-options)
@@ -81,6 +85,7 @@ Pass per-request options via `extra_args`
 on [ SamplingParams](https://docs.vllm.ai/api/vllm/sampling_params/#vllm.sampling_params.SamplingParams):
 
 SamplingParams(
+```json
 max_tokens=32,
 extra_args={
 "kv_transfer_params": {
@@ -89,6 +94,7 @@ extra_args={
 }
 },
 )
+```
 
 
 ### Online usage[¶](https://docs.vllm.ai#online-usage)
@@ -97,6 +103,7 @@ Pass `kv_transfer_params`
 
 as a top-level field in the API request:
 
+```json
 {
 "model": "Qwen/Qwen3-8B",
 "messages": [{"role": "user", "content": "Hello"}],
@@ -106,6 +113,7 @@ as a top-level field in the API request:
 "include_output_tokens": true
 }
 }
+```
 
 
 ## Configuration[¶](https://docs.vllm.ai#configuration)

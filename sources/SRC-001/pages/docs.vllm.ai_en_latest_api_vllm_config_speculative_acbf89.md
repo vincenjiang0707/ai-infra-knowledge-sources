@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/config/speculative/
 lastmod: 2026-09-27
 
+```python
 @config
 class SpeculativeConfig:
 """Configuration for speculative decoding."""
@@ -1469,3 +1470,4 @@ else self.draft_model_config.model
 )
 num_spec_tokens = self.num_speculative_tokens
 return f"SpeculativeConfig({method=}, {model=}, {num_spec_tokens=})"
+```

@@ -13,6 +13,7 @@ C-Eval
 
 
 vlmm 0.9.2
+```yaml
 cuda: 12.9
 python: 3.9
 vlmm 启动命令： `"vllm serve \$模型保存地址    --host 33.236.231.151         --port 8081         --dtype bfloat16         --pipeline-parallel-size 1         --tensor-parallel-size 8       --trust-remote-code         --enable-chunked-prefill         --served-model-name  \$模型保存地址         --max-model-len 131072         --max-num-batched-tokens 2048         --max-num-seqs 256         --gpu-memory-utilization 0.9         --disable-custom-all-reduce --enable-chunked-prefill "`
@@ -20,6 +21,7 @@ vlmm 启动命令： `"vllm serve \$模型保存地址    --host 33.236.231.151 
 temperature: 1
 TopK: 1
 TopP : 1
+```
 
 
 

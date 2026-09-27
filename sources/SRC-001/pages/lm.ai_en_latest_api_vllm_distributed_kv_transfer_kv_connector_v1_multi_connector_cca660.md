@@ -1,13 +1,16 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/multi_connector/
 lastmod: 2026-09-27
 
+```python
 class MultiConnector(KVConnectorBase_V1, SupportsHMA):
 """A wrapper for using multiple KVConnectors at the same time.
 The current logic is:
+```
 - Load KV from the first connector that advertises available tokens from
 get_num_new_matched_tokens(), based on the order in the config.
 - Save to all connectors.
 """
+```python
 @classmethod
 def requires_piecewise_for_cudagraph(cls, extra_config: dict[str, Any]) -> bool:
 """MultiConnector requires PIECEWISE CUDA graph mode if any of its
@@ -523,3 +526,4 @@ prom_metrics,
 def reset_cache(self) -> bool:
 results = [c.reset_cache() is not False for c in self._connectors]
 return all(results)
+```

@@ -25,8 +25,10 @@ concurrency) so any change in e2e latency is attributable to the **router** alon
 
 The experiment searched with `Sweeper.run`
 
+```
 (Vizier GP-bandit) and
 `goal.target = e2e_latency`
+```
 
 . It ran on a 2k-request subset with the same long-context mix, then
 validated the winner on the full trace. The configuration below documents the retired

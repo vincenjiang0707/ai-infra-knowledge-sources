@@ -49,17 +49,21 @@ Quick question before this can be closed: is the **export** side (the second hal
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: ff20d41e994ec14583ff69c2a60798ab53e4836aa627a98341547086f03fce5b
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 92e587d7022ea978ef5ac9337a719d683acf00558c5e7c0e630ec70b7f3dd5b6
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
@@ -82,9 +86,11 @@ I do plan to run the full `mtq.quantize` → `export_hf_checkpoint` → vLLM loa
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 5c98dd4d163a0594a38d8e6fca88e8619da8370de53108d702eb5aa92b177a7f
+```
 
 Release follow-up: this open ModelOpt issue needs release relevance confirmed. Link its planned fix/validation, or confirm it is not a v0.46.0 blocker.
 

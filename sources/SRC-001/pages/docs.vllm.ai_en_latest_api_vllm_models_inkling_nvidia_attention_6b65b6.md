@@ -11,6 +11,7 @@ to per-distance logits.
 ## Source code in `vllm/models/inkling/nvidia/attention.py`
 
 
+```python
 | class RelLogitsProj(nn.Module):
 """Project the per-head relative branch ``r`` to per-distance logits."""
 def __init__(self, d_rel: int, rel_extent: int) -> None:
@@ -22,3 +23,4 @@ def forward(self, r_out: torch.Tensor) -> torch.Tensor:
 # r_out: (T, num_heads, d_rel) -> (T, num_heads, rel_extent)
 return torch.einsum("thd,de->the", r_out, self.proj)
 |
+```

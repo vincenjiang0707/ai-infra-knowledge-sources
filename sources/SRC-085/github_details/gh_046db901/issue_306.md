@@ -10,10 +10,12 @@ Content Summary Upgrading transformers to >=4.54 causes an ImportError in eagle/
 
 Environment
 
+```yaml
 OS: Linux Ubuntu 22.04.3 LTS
 Python: 3.9 (also reproducible on 3.13)
 torch: 2.6.0
 transformers: >=4.54 fails, 4.53.3 works
+```
 
 Steps to Reproduce
 

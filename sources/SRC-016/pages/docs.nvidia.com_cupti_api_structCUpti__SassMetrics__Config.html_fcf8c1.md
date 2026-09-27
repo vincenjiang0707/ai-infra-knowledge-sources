@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__SassMetrics__Config.html
 # 7.223. CUpti_SassMetrics_Config[#](https://docs.nvidia.com#cupti-sassmetrics-config)
 
 -
+```rust
 struct CUpti_SassMetrics_Config
 [#](https://docs.nvidia.com#_CPPv424CUpti_SassMetrics_Config) Public Members
+```
 
 -
 uint64_t metricId

@@ -4,14 +4,18 @@ lastmod:
 # Struct ov::threading::IStreamsExecutor::Config[#](https://docs.openvino.ai#struct-ov-threading-istreamsexecutor-config)
 
 -
+```rust
 struct Config
 [#](https://docs.openvino.ai#_CPPv4N2ov9threading16IStreamsExecutor6ConfigE) Defines
+```
 
 [IStreamsExecutor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1threading_1_1_i_streams_executor)configuration.Public Types
 
 -
+```rust
 enum class StreamsMode
 [#](https://docs.openvino.ai#_CPPv4N2ov9threading16IStreamsExecutor6Config11StreamsModeE) This enum contains definition of each sub streams mode, indicating the main stream situation.
+```
 
 *Values:*-
 enumerator SUB_STREAMS_NULL

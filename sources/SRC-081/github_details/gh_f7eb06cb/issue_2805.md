@@ -434,6 +434,7 @@ but The problem still exists.
 
 I try modified the QuantizeConfig like this:
 quantize_config = QuantizeConfig(
+```bash
             bits=8,
             group_size=128,
             damp_percent=0.01,
@@ -443,6 +444,7 @@ quantize_config = QuantizeConfig(
             sym=True,
             auto_forward_data_parallel=False,       # new add 
             gc_mode="on_stage_end",                 # new add
+```
 )
 
 

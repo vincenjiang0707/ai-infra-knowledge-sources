@@ -397,18 +397,22 @@ If the imported memory pool belongs to a device that is not visible to importing
 process, the user must use the `cudaMemPoolSetAccess`
 
 API to enable access
+```python
 from the GPUs the allocations will be used on.
 (See [Device Accessibility for Multi-GPU Support](https://docs.nvidia.com#stream-ordered-deviceaccessibility))
+```
 
 #### 4.3.3.4.3. Creating and Sharing Allocations from an Exported Pool[#](https://docs.nvidia.com#creating-and-sharing-allocations-from-an-exported-pool)
 
 Once the pool has been shared, allocations made with `cudaMallocAsync()`
 
+```python
 from the pool in the exporting process can be shared with processes that
 have imported the pool. Since the pool’s security policy is established and
 verified at the pool level, the OS does not need extra bookkeeping to provide
 security for specific pool allocations. In other words, the opaque
 `cudaMemPoolPtrExportData`
+```
 
 required to import a pool allocation may be sent
 to the importing process using any mechanism.
@@ -529,8 +533,10 @@ The resource usage stat attribute queries only reflect the allocations imported 
 An application can determine whether or not a device supports the stream-ordered
 memory allocator by calling `cudaDeviceGetAttribute()`
 
+```
 (see [developer blog](https://developer.nvidia.com/blog/cuda-pro-tip-the-fast-way-to-query-device-properties/))
 with the device attribute `cudaDevAttrMemoryPoolsSupported`
+```
 
 .
 

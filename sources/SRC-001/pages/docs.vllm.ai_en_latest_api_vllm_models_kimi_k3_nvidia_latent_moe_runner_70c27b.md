@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/latent_moe_runner/
 lastmod: 2026-09-27
 
+```python
 class LatentMoERunner(MoERunner):
 """MoE runner for latent MoE with a replicated routed up-projection.
 The fused path (tp>1, un-reduced combine output, shared expert, no SP)
@@ -327,3 +328,4 @@ norm_out=norm_out,
 return norm_out
 reduced = tensor_model_parallel_all_reduce(hidden_states)
 return norm(reduced)
+```

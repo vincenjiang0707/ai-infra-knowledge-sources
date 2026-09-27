@@ -50,6 +50,7 @@ After the provisioning, you can interact with the model by using the OpenAI SDK:
 
 ## Code
 
+```python
 from openai import OpenAI
 client = OpenAI(
 base_url="https://gateway.<gateway domain>",
@@ -65,6 +66,7 @@ messages=[
 ],
 )
 print(completion.choices[0].message.content)
+```
 
 
 Note

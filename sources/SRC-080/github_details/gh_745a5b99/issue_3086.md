@@ -61,9 +61,11 @@ Add tests for Granite 4.0-h expert quantization (swap → quantize → to_3d_exp
 
 
 **Environment**
+```yaml
 llm-compressor: 0.12.x (also reproducible on main)
 Model: ibm-granite/granite-4.0-h-small, ibm-granite/granite-4.0-h-tiny (GraniteMoeHybridForCausalLM)
 Quantization schemes affected: W8A8, FP8_DYNAMIC, GPTQ/W4A16 (any scheme targeting MoE expert layers)
+```
 
 ## 评论 (3)
 

@@ -66,10 +66,12 @@ int main() {
 ```
 
 ## Workstation Environment
+```yaml
 CPU: AMD Ryzen 9 7950X
 GPU: 2 x AMD Radeon RX 7900 XTX
 OS: Ubuntu 22.04
 ROCm Driver: ROCm 5.6 (installed following https://docs.amd.com/en/docs-5.6.0/deploy/linux/installer/install.html)
+```
 
 ## 评论 (20)
 

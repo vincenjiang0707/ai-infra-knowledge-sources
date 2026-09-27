@@ -211,6 +211,7 @@ pytest marker to silence PytestUnknownMarkWarning ([#840](https://github.com/vll
 ### Dependency updates
 
 - Bump aiohttp from 3.13.3 to 3.13.4 by
+```
 [@dependabot](https://github.com/dependabot)[bot] in[#682](https://github.com/vllm-project/guidellm/pull/682) - Bump pillow from 12.1.1 to 12.2.0 by
 [@dependabot](https://github.com/dependabot)[bot] in[#693](https://github.com/vllm-project/guidellm/pull/693) - Bump python-dotenv from 1.2.1 to 1.2.2 by
 [@dependabot](https://github.com/dependabot)[bot] in[#702](https://github.com/vllm-project/guidellm/pull/702) - Bump lxml from 6.0.2 to 6.1.0 by
@@ -224,6 +225,7 @@ pytest marker to silence PytestUnknownMarkWarning ([#840](https://github.com/vll
 [@dependabot](https://github.com/dependabot)[bot] in[#822](https://github.com/vllm-project/guidellm/pull/822) - Bump pydantic-settings from 2.12.0 to 2.14.2 by
 [@dependabot](https://github.com/dependabot)[bot] in[#823](https://github.com/vllm-project/guidellm/pull/823) - Bump msgpack from 1.1.2 to 1.2.1 by
 [@dependabot](https://github.com/dependabot)[bot] in[#824](https://github.com/vllm-project/guidellm/pull/824)
+```
 
 ## New Contributors
 

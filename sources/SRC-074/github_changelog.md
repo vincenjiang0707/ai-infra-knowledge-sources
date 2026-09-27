@@ -3428,6 +3428,7 @@ The C++ frontend is a pure C++ interface to the PyTorch backend that follows the
       <td><sub><pre lang="python">
 import torch
 <br>
+```bash
 model = torch.nn.Linear(5, 1)
 optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
 prediction = model.forward(torch.randn(3, 5))
@@ -3436,8 +3437,10 @@ loss.backward()
 optimizer.step()
       </pre></sub></td>
       <td><sub><pre lang="cpp">
+```
 #include &lt;torch/torch.h&gt;
 <br>
+```
 torch::nn::Linear model(5, 1);
 torch::optim::SGD optimizer(model->parameters(), /*lr=*/0.1);
 torch::Tensor prediction = model->forward(torch::randn({3, 5}));
@@ -3446,6 +3449,7 @@ loss.backward();
 optimizer.step();
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -3719,6 +3723,7 @@ The C++ frontend is a pure C++ interface to the PyTorch backend that follows the
       <td><sub><pre lang="python">
 import torch
 <br>
+```bash
 model = torch.nn.Linear(5, 1)
 optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
 prediction = model.forward(torch.randn(3, 5))
@@ -3727,8 +3732,10 @@ loss.backward()
 optimizer.step()
       </pre></sub></td>
       <td><sub><pre lang="cpp">
+```
 #include &lt;torch/torch.h&gt;
 <br>
+```
 torch::nn::Linear model(5, 1);
 torch::optim::SGD optimizer(model->parameters(), /*lr=*/0.1);
 torch::Tensor prediction = model->forward(torch::randn({3, 5}));
@@ -3737,6 +3744,7 @@ loss.backward();
 optimizer.step();
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -5785,6 +5793,7 @@ These rules can be checked at runtime via [torch.can_cast](https://pytorch.org/d
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>Version 1.2</th><th>Version 1.3</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -5796,6 +5805,7 @@ tensor(0)
 tensor([0])
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -6567,6 +6577,7 @@ Note that `optimizer.param_groups[0]['lr']` was in version 1.3.1 and remains in 
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>Version 1.3.1</th><th>Version 1.4.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -6578,6 +6589,7 @@ tensor(5)
 tensor([5])
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -6585,6 +6597,7 @@ tensor([5])
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>Version 1.3.1</th><th>Version 1.4.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -6596,6 +6609,7 @@ torch.Size([3, 3])
 torch.Size([0])
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -7421,6 +7435,7 @@ Please explicitly pass in the desired dtype when constructing tensors with NumPy
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>Version 1.4.0</th><th>Version 1.5.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -7434,6 +7449,7 @@ tensor(0.)
 tensor(0.)
     </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -7596,15 +7612,19 @@ Method 2: Switch back to the old `distutils` backend inside your `setup.py`
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>Version 1.4.0</th><th>Version 1.5.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
 cmdclass={'clean': clean,
+```json
+```
           'build_ext': BuildExtension},
       </pre></sub></td>
       <td><sub><pre lang="python">
 cmdclass={'clean': clean,
           'build_ext': BuildExtension.with_options(use_ninja=False)},
+```
       </pre></sub></td>
     </tr>
   </table>
@@ -7625,6 +7645,7 @@ The behavior of `torch.masked_select` when both "self" and "mask" are 0-dimensio
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>Version 1.4.0</th><th>Version 1.5.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -7636,6 +7657,7 @@ tensor(0)
 tensor([0])
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -7647,6 +7669,7 @@ In previous versions of PyTorch, the output of `torch.index_select` on a 0D inpu
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>Version 1.4.0</th><th>Version 1.5.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -7658,6 +7681,7 @@ tensor([5])
 tensor(5)
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -7669,6 +7693,7 @@ In previous versions of PyTorch, the output of `nn.MultiLabelMarginLoss` on 1D a
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>Version 1.4.0</th><th>Version 1.5.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -7680,6 +7705,7 @@ tensor([0.2959])
 tensor(0.2959)
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -7690,6 +7716,7 @@ In previous versions of PyTorch, the output of `nn.MultiMarginLoss` on a 1D `tar
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>Version 1.4.0</th><th>Version 1.5.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -7701,6 +7728,7 @@ tensor(0.)
 tensor([0.])
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -7729,6 +7757,7 @@ Previously, we supported accepting inputs with the same number of elements. Howe
 
 <p align="center">
   <table align="center">
+```python
     <tr><th>Version 1.4.0</th><th>Version 1.5.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -7742,6 +7771,7 @@ Previously, we supported accepting inputs with the same number of elements. Howe
 >>> torch.nn.functional.binary_cross_entropy(input, target.reshape_as(input))
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -8053,6 +8083,7 @@ The motivation is to prevent potential invalid device errors when the number of 
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>Version 1.4.0</th><th>Version 1.5.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -8072,6 +8103,7 @@ ret = rpc.rpc_sync("worker1", torch.add, args=(x.cpu(), 3))
 rpc.shutdown()
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -8864,6 +8896,7 @@ To floor divide integer tensors, please use `torch.floor_divide` instead.
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>Before</th><th>After</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -8877,6 +8910,7 @@ tensor(1)
 tensor(1)
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -8884,6 +8918,7 @@ The fix for `torch.addcdiv` is similar.
 
 <p align="center">
   <table align="center">
+```python
     <tr><th>Before</th><th>After</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -8904,6 +8939,7 @@ tensor(0)
 tensor(0)
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -8971,6 +9007,7 @@ class Id(Function):
 
 <p align="center">
   <table align="center">
+```python
     <tr><th>Version 1.5.0</th><th>Version 1.5.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -8987,6 +9024,7 @@ class Id(Function):
 >>> output.copy_(other)
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -9111,6 +9149,7 @@ To learn more about what triggers this bug and other workarounds if the above is
 
 <p align="center">
   <table align="center">
+```python
     <tr><th>Version 1.5.0</th><th>Version 1.5.1</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -9127,6 +9166,7 @@ torch.Size([1, 1, 10, 8])
 torch.Size([1, 1, 8, 10])
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -9169,6 +9209,7 @@ torch.Size([1, 1, 8, 10])
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>Version 1.5.0</th><th>Version 1.5.1</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -9180,6 +9221,7 @@ PicklingError: Can't pickle <class 'torch._C._VariableFunctions'>: it's not the 
 # No problem
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -9191,6 +9233,7 @@ PicklingError: Can't pickle <class 'torch._C._VariableFunctions'>: it's not the 
 
 <p align="center">
   <table align="center">
+```python
     <tr><th>Version 1.5.0</th><th>Version 1.5.1</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -9208,6 +9251,7 @@ RuntimeError: In-place leakyReLu backward calculation is triggered with a non-po
 # No error
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -9525,6 +9569,7 @@ To perform binary pointwise operations on data of different devices, please cast
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>Version 1.5.1</th><th>Version 1.6.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -9535,6 +9580,7 @@ torch.tensor([6, 6], device='cuda:1')
 >>> torch.tensor(5, device='cuda:0').to('cuda:1') + torch.tensor((1, 1), device='cuda:1')
 torch.tensor([6, 6], device='cuda:1')
     </tr>
+```
   </table>
 </p>
 
@@ -11079,6 +11125,7 @@ You can recover the original behavior by setting `keepdim=False`.
 
 <p align="center">
   <table align="center">
+```python
     <tr><th>1.6.0</th><th>1.7.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -11102,6 +11149,7 @@ torch.size([1, 1])
 torch.size([1, 1])  
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -11156,6 +11204,7 @@ You need to make sure all inputs are the same size to avoid the error.
 
 <p align="center">
   <table align="center">
+```python
     <tr><th>1.6.0</th><th>1.7.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -11181,6 +11230,7 @@ is deprecated. Please ensure they have the same size.
 tensor(1.0604)
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -11279,6 +11329,7 @@ You can recover the previous behavior by manually slicing the Tensor: `[t[i] for
 
 <p align="center">
   <table align="center">
+```python
     <tr><th>1.6.0</th><th>1.7.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -11292,6 +11343,7 @@ You can recover the previous behavior by manually slicing the Tensor: `[t[i] for
 >>>   v.fill_(i)
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -12381,12 +12433,14 @@ tensor([[0.5000],
             [0.2500]])
       </pre></sub></td>
       <td><sub><pre lang="python">
+```python
 >>> from torch.quasirandom import SobolEngine
 >>> eng = SobolEngine(1)
 >>> eng.draw(3)
 tensor([[0.0000],
             [0.5000],
             [0.7500]])
+```
       </pre></sub></td>
     </tr>
   </table>
@@ -13575,6 +13629,7 @@ Instead, use `from torch import tensor`
 
 <p align="center">
   <table align="center">
+```python
     <tr><th>1.8.1</th><th>1.9.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -13590,6 +13645,7 @@ ModuleNotFoundError: No module named 'torch.tensor'
 tensor(1.)
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -13879,6 +13935,7 @@ This error occurs because `MyClass` is automatically scripted, but `self.attr` i
 *  **`torch.quantization.quantize_fx.convert_fx`’s `debug` argument has been changed to `is_reference` ([#52179](https://github.com/pytorch/pytorch/pull/52179)).**
 <p align="center">
   <table align="center">
+```html
     <tr><th>1.8.1:</th><th>1.9.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -13894,6 +13951,7 @@ File "<stdin>", line 1, in <module>
 TypeError: convert_fx() got an unexpected keyword argument 'debug'
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -15479,6 +15537,7 @@ These two functions match the behavior of NumPy, returning an output dtype of bo
 
 <p align="center">
   <table align="center">
+```python
     <tr><th>1.9.1</th><th>1.10.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -15494,6 +15553,7 @@ tensor(1, dtype=torch.uint8)
 tensor(1, dtype=torch.uint8) # new, corrected and consistent behavior
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -15625,6 +15685,7 @@ Calling `autograd.grad` with an empty list of inputs used to do the same as back
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>1.9.1</th><th>1.10.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -15632,6 +15693,7 @@ grad = autograd.grad(out, tuple())
 assert grad == tuple()
       </pre></sub></td>
       <td><sub><pre lang="python">
+```
 out.backward()
       </pre></sub></td>
     </tr>
@@ -15667,6 +15729,7 @@ This change is finishing the deprecation cycle for the inplace-over-view logic. 
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>1.9.1</th><th>1.10.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -15678,6 +15741,7 @@ b = a.split(1)[0]
 c = b.detach()
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -15777,6 +15841,7 @@ Note: this change makes it so that backward() has [same user-facing stream seman
 
 <p align="center">
   <table align="center">
+```html
     <tr><th>1.9.1</th><th>1.10.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -15784,12 +15849,15 @@ with PackageExporter(buffer, verbose=False) as e:
     e.intern("**")
     e.save_pickle("res", "mod1.pkl", mod1)
     e.save_pickle("res", "mod2.pkl", mod2)
+```
       </pre></sub></td>
       <td><sub><pre lang="python">
+```python
 with PackageExporter(buffer) as e:
     e.intern("**")
     e.save_pickle("res", "mod1.pkl", mod1)
     e.save_pickle("res", "mod2.pkl", mod2)
+```
       </pre></sub></td>
     </tr>
   </table>
@@ -15826,6 +15894,7 @@ print(m.code)
 
 <p align="center">
   <table align="center">
+```python
     <tr><th>1.9.1</th><th>1.10.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -15833,13 +15902,16 @@ def forward(self, x):
     x_activation_post_process_0 = self.x_activation_post_process_0(x); x = None
     maxpool2d = self.maxpool2d(x_activation_post_process_0); x_activation_post_process_0 = None
     return maxpool2d
+```
       </pre></sub></td>
       <td><sub><pre lang="python">
+```python
 def forward(self, x):
     x_activation_post_process_0 = self.x_activation_post_process_0(x); x = None
     maxpool2d = self.maxpool2d(x_activation_post_process_0); x_activation_post_process_0 = None
     maxpool2d_activation_post_process_0 = self.maxpool2d_activation_post_process_0(maxpool2d); maxpool2d = None
     return maxpool2d_activation_post_process_0
+```
       </pre></sub></td>
     </tr>
   </table>
@@ -17037,6 +17109,7 @@ Previously, `fuse_module` used to support both cases and distinguished PTQ/QAT f
 
 <p align="center">
   <table align="center">
+```python
     <tr><th>1.10.2</th><th>1.11.0</th></tr>
     <tr valign="top">
       <td><sub><pre lang="python">
@@ -17080,6 +17153,7 @@ print(type(m.conv))
 &lt;class 'torch.nn.modules.conv.Conv2d'&gt;
       </pre></sub></td>
     </tr>
+```
   </table>
 </p>
 
@@ -30095,11 +30169,13 @@ Complete revamp of float/promotion sympy handling (#126905)
   `at::autocast::get_autocast_gpu_dtype()` -> `at::autocast::get_autocast_dtype(at::kCUDA)`
   `at::autocast::get_autocast_cpu_dtype()` -> `at::autocast::get_autocast_dtype(at::kCPU)`
 - Refactor autocast Python APIs(#124479)
+```
   `torch.get_autocast_gpu_dtype()` -> `torch.get_autocast_dtype(“cuda”)`,
   `torch.set_autocast_gpu_dtype(dtype)` -> `torch.set_autocast_dtype(“cuda”, dtype)`,
   `torch.is_autocast_enabled() ` -> `torch.is_autocast_enabled(“cuda”)`,
   `torch.set_autocast_enabled(enabled)` -> `torch.set_autocast_enabled(”cuda”, enabled)`,
   `torch.get_autocast_cpu_dtype()` -> `torch.get_autocast_dtype(“cpu”)`
+```
 - Make torch.amp.autocast more generic (#125103)
   `torch.cuda.amp.autocast(args…) ` -> `torch.amp.autocast(“cuda”,args…)`,
   `torch.cpu.amp.autocast(args…) ` -> `torch.amp.autocast(“cpu”, args…)`,
@@ -35528,11 +35604,13 @@ For more details about these highlighted features, you can look at the [release 
 Below are the full release notes for this release.
 
 # Tracked Regressions
+```
 ### Windows wheel builds with CUDA 12.9.1 stack overflow during build (#156181)
 Due to a bug introduced in CUDA 12.9.1, we are unable to complete full Windows wheel builds with this
 version, as compilation of `torch.segment_reduce()` crashes the build. Thus, we provide a wheel
 without `torch.segment_reduce()` included in order to sidestep the issue. If you need support
 for `torch.segment_reduce()`, please utilize a different version.
+```
 
 # Backwards Incompatible Changes
 
@@ -39317,12 +39395,14 @@ further execution (#173957).
 # Highlights
 
 <table>
+```html
   <tr><td><strong>Batched linalg.eigh on CUDA</strong> is up to 100x faster due to updated cuSolver backend selection.</td></tr>
   <tr><td>New <strong>torch.accelerator.Graph</strong> API unifies graph capture and replay across CUDA, XPU, and out-of-tree backends.</td></tr>
   <tr><td><strong>torch.export.save</strong> now supports Microscaling (MX) quantization formats, enabling full export of aggressively compressed models.</td></tr>
   <tr><td><strong>Adagrad</strong> now supports <code>fused=True</code>, joining Adam, AdamW, and SGD with a single-kernel optimizer implementation.</td></tr>
   <tr><td><strong>torch.cond</strong> control flow can now be captured and replayed inside CUDA Graphs.</td></tr>
   <tr><td><strong>ROCm</strong> users gain expandable memory segments, rocSHMEM symmetric memory collectives, and FlexAttention pipelining.</td></tr>
+```
 </table>
 
 For more details about these highlighted features, you can look at the release blogpost. Below are the full release notes for this release.
@@ -40599,6 +40679,7 @@ This release is meant to fix the following regressions and silent correctness is
 # Highlights
 
 <table>
+```html
   <tr><td><strong>FlexAttention</strong> lands on Apple Silicon (MPS), with up to ~12x speedup over SDPA on sparse patterns, and gains a deterministic backward path on CUDA for reproducible gradient computation.</td></tr>
   <tr><td><strong>CuTeDSL "Native DSL" backend</strong> gives Inductor a second high-performance code path (alongside Triton) for key GPU operations, with faster compilation. [Prototype]</td></tr>
   <tr><td><strong><code>nn.LinearCrossEntropyLoss</code></strong> combines the final prediction and loss computation to cut peak GPU memory by up to 4x for large-vocabulary language model training.</td></tr>
@@ -40606,6 +40687,7 @@ This release is meant to fix the following regressions and silent correctness is
   <tr><td><strong>FSDP2</strong> now overlaps reduce-scatter and all-gather communications via a dedicated process group (opt-in), increasing distributed training throughput.</td></tr>
   <tr><td><strong>Python 3.15 wheel support</strong> for PyTorch on Linux via the pytorch repository index, including builds compatible with free-threaded 3.15t.</td></tr>
   <tr><td><strong>Broader platform support</strong>: ROCm gains AOTriton 0.12b with native HIP CMake, Arm adds Armv9-A <code>torch.compile</code> targeting, and Intel XPU exposes new device telemetry APIs.</td></tr>
+```
 </table>
 
 For more details about these highlighted features, you can look at the release blogpost. Below are the full release notes for this release.
@@ -40690,9 +40772,11 @@ Workaround: run the `+rocm` wheel on a ROCm image, or install a standard CPU/CUD
   eager-mode graph compilers a zero-fast-path-cost place to commit deferred allocations
   or materialize symbolic buffers on first mutation.
 
+```python
   This is a C++-only change. It affects out-of-tree backends/extensions that called the
   removed `StorageImpl` COW symbols directly; they will fail to compile against 2.13
   with errors such as `no member named 'is_cow' in 'c10::StorageImpl'`. Migrate to the
+```
   new hook API (`set_materializer()` / `has_materializer()` / `clear_materializer()`).
 
   PyTorch 2.12:
@@ -41881,6 +41965,7 @@ Workaround: run the `+rocm` wheel on a ROCm image, or install a standard CPU/CUD
 # Highlights
 
 <table>
+```html
   <tr><td><strong>NVGEMM</strong> brings CuTeDSL-generated CUTLASS kernels to Inductor, with epilogue fusion, scaled and NVFP4 GEMM, and grouped-reduction epilogues autotuned alongside Triton and ATen</td></tr>
   <tr><td><strong><code>torch.switch</code></strong> generalizes <code>torch.cond</code> to multi-way branching, and <code>torch.while_loop</code> can now be captured in a CUDA graph</td></tr>
   <tr><td><strong>Declarative dynamic shapes via <code>@dynamic_spec</code></strong>, shared across <code>torch.compile</code>, <code>torch.export</code> and <code>make_fx</code></td></tr>
@@ -41889,6 +41974,7 @@ Workaround: run the `+rocm` wheel on a ROCm image, or install a standard CPU/CUD
   <tr><td><strong>Fault tolerance becomes a first-class <code>c10d</code> concept</strong>, with in-place process-group reconfiguration, one-sided RMA windows, and a Flight Recorder that works for any backend rather than only NCCL</td></tr>
   <tr><td><strong>Apple Silicon gains native linear algebra</strong>, including Jacobi-kernel SVD, <code>eigh</code>, QR and Cholesky, alongside a five-part reduction rewrite and a further MPSGraph to Metal kernel migration</td></tr>
   <tr><td><strong>Broader platform support</strong>: ROCm 7.14 wheels are produced from the TheRock pip SDK, Intel XPU adds native graph capture, and Inductor targets Rubin (<code>sm_107</code>)</td></tr>
+```
 </table>
 
 For more details about these highlighted features, you can look at the release blogpost. Below are the full release notes for this release.

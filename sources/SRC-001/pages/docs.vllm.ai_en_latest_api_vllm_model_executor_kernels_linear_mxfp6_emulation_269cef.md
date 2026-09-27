@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp6/emulation/
 lastmod: 2026-09-27
 
+```python
 class EmulationMxfp6LinearKernel(MxFp6LinearKernel):
 """Software emulation fallback for OCP MXFP4/MXFP6 (dequant + F.linear)."""
 def __init__(self, config: MxFp6LinearLayerConfig) -> None:
@@ -46,3 +47,4 @@ bias: torch.Tensor | None = None,
 dq_w = self.dequant_func(layer.weight, layer.weight_scale, x.dtype)
 qdq_x = self.quant_dequant_func(x)
 return F.linear(qdq_x, dq_w, bias)
+```

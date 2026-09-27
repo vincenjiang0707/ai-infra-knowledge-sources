@@ -883,9 +883,11 @@ In [A copy kernel that illustrates misaligned accesses](http://docs.nvidia.com#a
 to the output array, both
 of which exist in global memory. The kernel is executed within a loop in host code that varies the parameter `offset`
 
+```python
 from 0 to 32
 (for example, [Figure 4](http://docs.nvidia.com#misaligned-sequential-addresses-fall-5-32-byte-l2-cache-seqments) corresponds to this misalignments).
 The effective bandwidth for the copy with various offsets on an NVIDIA Tesla V100 ([compute capability](http://docs.nvidia.com#cuda-compute-capability) 7.0)
+```
 is shown in [Figure 5](http://docs.nvidia.com#performance-offsetcopy-kernel-figure).
 
 For the NVIDIA Tesla V100, global memory accesses with no offset or with offsets that are multiples of 8 words result in four 32-byte transactions. The achieved bandwidth is approximately 790 GB/s. Otherwise, five 32-byte segments are loaded per warp, and we would expect approximately 4/5th of the memory throughput achieved with no offsets.
@@ -2753,8 +2755,10 @@ If static linking against the CUDA Runtime is impractical for some reason, then 
 
 To use dynamic linking with the CUDA Runtime when using the `nvcc`
 
+```python
 from CUDA 5.5 or later to link the application, add
 the `--cudart=shared`
+```
 
 flag to the link command line; otherwise the [statically-linked CUDA Runtime library](http://docs.nvidia.com#statically-linked-cuda-runtime) is used by default.
 

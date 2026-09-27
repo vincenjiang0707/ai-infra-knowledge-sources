@@ -17,8 +17,10 @@ class TensorAccessor : public[ov](https://docs.openvino.ai/group__ov__dev__exec_
 Public Functions
 
 -
+```
 inline constexpr TensorAccessor(const
 [TContainer](https://docs.openvino.ai#_CPPv4I0EN2ov14TensorAccessorE)*tensors)[#](https://docs.openvino.ai#_CPPv4N2ov14TensorAccessor14TensorAccessorEPK10TContainer) Construct a new
+```
 
 [Tensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_tensor)Accessor object for tensors container.- Parameters:
 **tensors**– Pointer to container with tensors.

@@ -28,10 +28,12 @@ Welcome back to What’s new in AI infrastructure and orchestration this month, 
 -
 Business orchestration software provider
 
+```bash
 was dealing with spiky workloads, and wanted more predictable costs. To get there, it re-architected its infrastructure, moving from isolated clusters to a shared Google Cloud GPU fleet that included both A3 VM instances (NVIDIA H100 GPUs) for training with G4 VM instances (NVIDIA RTX PRO 6000 Blackwell Server Edition GPUs) for inference. You can read more about their architecture**UiPath**[here](https://cloud.google.com/blog/topics/customers/how-uipath-built-its-high-performance-gpu-platform). -
 , an frontier AI lab focused on accelerating AI development, announced that it is**Mirendil**[using AI Hypercomputer](https://cloud.google.com/blog/topics/startups/mirendil-selects-ai-hypercomputer?e=48754805)with both TPUs and NVIDIA GPUs to support its model pre-training and post-training applications. -
 , a retail CRM provider, built its AI decision engine in Google Cloud, using BigQuery, Gemini Enterprise Agent Platform, and open-source Gemma models that it runs on Cloud TPUs. This latter combination provided Replenit with 90% lower pipeline costs than their previous cloud provider, the company reports. Read the**Replenit**[full case study](https://cloud.google.com/customers/replenit?e=48754805&hl=en)for more. -
 architected its AI-powered e-commerce recommendation platform on top of Bigtable, Managed Service for Apache Kafka, Pub/Sub, Compute Engine, and last but not least, GKE. See how it all comes together in**Malachyte**[this blog](https://cloud.google.com/blog/products/data-analytics/solving-retails-cold-start-problem-malachytes-recommendation-reinvention?e=48754805).
+```
 
 ### July 2026
 

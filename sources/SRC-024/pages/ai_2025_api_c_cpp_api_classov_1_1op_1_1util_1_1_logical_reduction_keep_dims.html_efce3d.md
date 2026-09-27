@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::LogicalReductionKeepDims[#](https://docs.openvino.ai#class-ov-op-util-logicalreductionkeepdims)
 
 -
+```python
 class LogicalReductionKeepDims : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[LogicalReduction](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_logical_reduction.html#_CPPv4N2ov2op4util16LogicalReductionE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util24LogicalReductionKeepDimsE) Subclassed by
+```
 
 [ov::op::v1::ReduceLogicalAnd](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_reduce_logical_and),[ov::op::v1::ReduceLogicalOr](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_reduce_logical_or)Public Functions
 

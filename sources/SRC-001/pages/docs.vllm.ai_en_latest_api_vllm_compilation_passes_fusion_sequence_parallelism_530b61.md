@@ -107,6 +107,7 @@ Returns False (SP disabled) when:
 - min_token_num is None (SP disabled for this device/config)
 - The compile range starts below the minimum token threshold
 """
+```python
 assert (
 self.compilation_config.use_inductor_graph_partition
 or not self.compilation_config.splitting_ops
@@ -124,6 +125,7 @@ logger.debug("Replaced %s patterns", self.matched_count)
 # Clean up reshape nodes
 self.noop_cleanup(graph)
 |
+```
 
 ###
 
@@ -149,6 +151,7 @@ Returns False (SP disabled) when:
 - min_token_num is None (SP disabled for this device/config)
 - The compile range starts below the minimum token threshold
 """
+```python
 assert (
 self.compilation_config.use_inductor_graph_partition
 or not self.compilation_config.splitting_ops
@@ -160,3 +163,4 @@ return False
 # Only apply SP when batch size meets the minimum threshold
 return compile_range.start >= self.min_token_num
 |
+```

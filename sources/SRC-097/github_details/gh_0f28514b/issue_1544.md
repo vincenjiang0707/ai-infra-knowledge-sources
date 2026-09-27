@@ -21,6 +21,7 @@ I understand we need etcd to exchange info but how nixlbench will detect which i
 i only see reference of below command 
 
 ./build/nixlbench
+```bash
 --runtime_type=ETCD
 --etcd-endpoints http://x.x.x.x:2379/
 --backend UCX
@@ -30,5 +31,6 @@ i only see reference of below command
 --max_batch_size 1024
 --start_block_size 1024
 --max_block_size 1024
+```
 
 how the nixlbench parameters changes on intiator side and target side.

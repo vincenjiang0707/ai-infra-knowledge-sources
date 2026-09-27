@@ -17,6 +17,7 @@ Architecture:
 - self.visual: SigLIP2 encoder + patch merger + projector
 - self.language_model: Cosmos3EdgeForCausalLM (pure attention + RoPE)
 """
+```python
 hf_to_vllm_mapper = WeightsMapper(
 orig_to_new_stacked={
 ".self_attn.q_proj": (".self_attn.qkv_proj", "q"),
@@ -241,3 +242,4 @@ input_tokens=input_tokens,
 mm_features=mm_features,
 config=self.config,
 )
+```

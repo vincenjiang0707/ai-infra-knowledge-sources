@@ -7,10 +7,10 @@
 
 | 项 | 值 |
 |---|---|
-| 抓取快照日期 | 2026-09-26 |
+| 抓取快照日期 | 2026-09-27 |
 | 来源数 | 170（success 162 / partial 3 / blocked 5，SRC-043 寒武纪 forum 504 partial、SRC-132 AWS ML blog SPA lazy 2 posts partial、SRC-140 Lei Mao networkidle 62 posts partial）|
-| 文件总数 | ~26000 |
-| 总体积 | ~500 MB |
+| 文件总数 | ~29320 |
+| 总体积 | ~508 MB |
 | 来源类型 | GitHub 80 · Blog 14 · HF 8 · 学术 5 · Sitemap/Docs 12 · 论坛/国产社区 9 · 其他 |
 | GitHub 详情 | 33 SRC 批量补抓 `github_details/`（2026-09-25/26）；fork 仓库自动回退上游（SRC-168 从 xlite-dev/Awesome-LLM-Inference 补 12 issue + 100 PR 详情）|
 

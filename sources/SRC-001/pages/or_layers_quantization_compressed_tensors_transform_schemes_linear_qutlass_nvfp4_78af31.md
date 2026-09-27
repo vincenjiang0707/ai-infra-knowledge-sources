@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/transform/schemes/linear_qutlass_nvfp4/
 lastmod: 2026-09-27
 
+```python
 class QutlassNvFP4LinearMethod(CompressedTensorsLinearTransformMethod):
 def create_weights(
 self,
@@ -95,3 +96,4 @@ out[:, start : start + length] = self.output_transform(
 out[:, start : start + length].clone(), part_id=part_id
 )
 return out.view(*output_shape)
+```

@@ -201,11 +201,13 @@ deploys the vision encoder in a data-parallel fashion for better throughput perf
 
 You may encounter the following error:
 
+```
 (Worker_TP0 pid=70) ERROR 02-08 08:39:04 [multiproc_executor.py:852] File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/models/qwen3_next.py", line 585, in _forward_core
 (Worker_TP0 pid=70) ERROR 02-08 08:39:04 [multiproc_executor.py:852] mixed_qkv_non_spec = causal_conv1d_update(
 (Worker_TP0 pid=70) ERROR 02-08 08:39:04 [multiproc_executor.py:852] ^^^^^^^^^^^^^^^^^^^^^
 (Worker_TP0 pid=70) ERROR 02-08 08:39:04 [multiproc_executor.py:852] File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/mamba/ops/causal_conv1d.py", line 1160, in causal_conv1d_update
 (Worker_TP0 pid=70) ERROR 02-08 08:39:04 [multiproc_executor.py:852] assert num_cache_lines >= batch
+```
 
 
 `--max-cudagraph-capture-size`
@@ -231,6 +233,7 @@ vllm bench serve \
 
 ### Consume the OpenAI API Compatible Server[¶](https://docs.vllm.ai#consume-the-openai-api-compatible-server)
 
+```python
 import time
 from openai import OpenAI
 client = OpenAI(
@@ -263,6 +266,7 @@ max_tokens=2048
 )
 print(f"Response costs: {time.time() - start:.2f}s")
 print(f"Generated text: {response.choices[0].message.content}")
+```
 
 
 ### Processing Ultra-Long Texts[¶](https://docs.vllm.ai#processing-ultra-long-texts)
@@ -273,5 +277,7 @@ tokens. For long-horizon tasks where the total length (including both input and 
 
 in your running script. Refer to [Qwen3.5-397B-A17B](https://huggingface.co/Qwen/Qwen3.5-397B-A17B#processing-ultra-long-texts) for more details..
 
+```json
 export VLLM_ALLOW_LONG_MAX_MODEL_LEN=1
 VLLM_ALLOW_LONG_MAX_MODEL_LEN=1 vllm serve ... --hf-overrides '{"text_config": {"rope_parameters": {"mrope_interleaved": true, "mrope_section": [11, 11, 10], "rope_type": "yarn", "rope_theta": 10000000, "partial_rotary_factor": 0.25, "factor": 4.0, "original_max_position_embeddings": 262144}}}' --max-model-len 1010000
+```

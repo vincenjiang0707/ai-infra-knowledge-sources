@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/compute-sanitizer/api/struct_sanitizer___resourc
 # Sanitizer_ResourceLogicalEndpointData[#](https://docs.nvidia.com#sanitizer-resourcelogicalendpointdata)
 
 -
+```rust
 struct Sanitizer_ResourceLogicalEndpointData
 [#](https://docs.nvidia.com#_CPPv437Sanitizer_ResourceLogicalEndpointData) Data passed into a logical endpoint resource callback function.
+```
 
 Data passed into a logical endpoint resource callback function as the
 

@@ -18,6 +18,7 @@ labels:
 
 ### Reproduction
 
+```bash
 export CUDA_VISIBLE_DEVICES=6,7
 lmdeploy serve api_server Qwen3.5-9B \
     --server-port 20019 \
@@ -29,6 +30,7 @@ lmdeploy serve api_server Qwen3.5-9B \
 	--tool-call-parser qwen3coder \   qwen3也不行
 	--reasoning-parser deepseek-r1\
 	--log-level INFO \
+```
 
 ### Environment
 

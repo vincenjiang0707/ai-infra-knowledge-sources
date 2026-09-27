@@ -4,8 +4,10 @@ lastmod:
 # Class ov::frontend::GraphIterator[#](https://docs.openvino.ai#class-ov-frontend-graphiterator)
 
 -
+```python
 class GraphIterator : private
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[RuntimeAttribute](https://docs.openvino.ai/classov_1_1_runtime_attribute.html#_CPPv4N2ov16RuntimeAttributeE)[#](https://docs.openvino.ai#_CPPv4N2ov8frontend13GraphIteratorE) Abstract representation for an input model graph that gives nodes in topologically sorted order.
+```
 
 Public Functions
 

@@ -18,11 +18,14 @@ I tried custom compiling llava-1.5-7b and then interacting with the same input i
 `from mlc_llm import MLCEngine
 
 # Create engine
+```bash
 model = "/root/autodl-tmp/phi-mlc"
 engine = MLCEngine(model)
+```
 
 # Run chat completion in OpenAI API.
 for response in engine.chat.completions.create(
+```
     messages = [
         {
             "role": "user",
@@ -40,6 +43,7 @@ for response in engine.chat.completions.create(
     ],
     model=model,
     stream=True,
+```
 ):
     for choice in response.choices:
         print(choice.delta.content, end="", flush=True)

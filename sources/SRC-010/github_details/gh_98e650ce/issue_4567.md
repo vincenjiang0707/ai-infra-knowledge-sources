@@ -90,6 +90,7 @@ ray::RayWorkerWrapper.warmup() (pid=2431, ip=10.62.192.74, actor_id=bf0acbb5f97b
     return ast_to_ttir(self.fn, self, context=context, options=options, codegen_fns=codegen_fns,
 triton.compiler.errors.CompilationError: at 43:8:
 
+```bash
     h = tl.load(h_ptrs, mask=mask_h, other=0.0)
     w = tl.load(weights_ptrs, mask=mask_k, other=0.0)
 
@@ -102,6 +103,7 @@ triton.compiler.errors.CompilationError: at 43:8:
     wh = h * w[:, None]
     o = wh.sum(axis=0)
         ^
+```
 2026-05-06 11:03:10,805 ERROR worker.py:438 -- Unhandled error (suppress with 'RAY_IGNORE_UNHANDLED_ERRORS=1'): ray::RayWorkerWrapper.warmup() (pid=2432, ip=10.62.192.74, actor_id=96abbf61a6d8a7d8a183ae6301000000, repr=<lmdeploy.pytorch.engine.executor.ray_executor.RayWorkerWrapper object at 0x7fdafc5bd330>)
   File "/home/yexun.zhang/code/mlm-data/venv/lib/python3.10/site-packages/triton/runtime/jit.py", line 770, in __call__
     raise RuntimeError("Cannot call @triton.jit'd outside of the scope of a kernel")
@@ -135,8 +137,10 @@ lmdeploy: 0.12.3
 
 ### lvhan028 · 2026-05-06
 
+```yaml
 torch: 2.10.0
 triton: 3.6.0
+```
 
 ### zhangyexun · 2026-05-06
 

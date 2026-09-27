@@ -4,8 +4,10 @@ lastmod:
 # Class ov::pass::pattern::op::Any[#](https://docs.openvino.ai#class-ov-pass-pattern-op-any)
 
 -
+```python
 class Any : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[pass](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4passE)::[pattern](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4pass7patternE)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4pass7pattern2opE)::[Pattern](https://docs.openvino.ai/classov_1_1pass_1_1pattern_1_1op_1_1_pattern.html#_CPPv4N2ov4pass7pattern2op7PatternE)[#](https://docs.openvino.ai#_CPPv4N2ov4pass7pattern2op3AnyE) The graph value is to the matched value list. If the predicate is true for the node and the arguments match, the match succeeds.
+```
 
 Public Functions
 

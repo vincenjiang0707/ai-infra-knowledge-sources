@@ -401,8 +401,10 @@ https://github.com/Dao-AILab/flash-attention/pull/1507
 
 should virtually fix all the things, but be sure to live in a venv if you try this.
 ```sh
+```bash
 pip install -U pip setuptools packaging wheel ninja pybind11
 FLASH_ATTENTION_TRITON_AMD_ENABLE=TRUE MAX_JOBS=50 pip install flash-attn
+```
 ```
 
 basically fixes it for me, since my virtual environment was slightly dated.
@@ -538,8 +540,10 @@ seems to be problematic when the `bare_metal_version` is `13.0`. I did not have 
 > seems to be problematic when the `bare_metal_version` is `13.0`. I did not have luck by exporting paths likely because the different paths with `13.0` and `12.8`
 
 ```
+```bash
 export CPLUS_INCLUDE_PATH=/usr/local/cuda/include/cccl${CPLUS_INCLUDE_PATH:+:${CPLUS_INCLUDE_PATH}}
 export C_INCLUDE_PATH=/usr/local/cuda/include/cccl${C_INCLUDE_PATH:+:${C_INCLUDE_PATH}}
+```
 ```
 
 ### rajesh-s · 2025-10-23

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/mooncake/transfer/
 lastmod: 2026-09-27
 
+```python
 class MooncakeTransfer:
 """Own a lazy Mooncake engine and transient memory registrations."""
 def __init__(self, hostname: str, protocol: str) -> None:
@@ -154,3 +155,4 @@ logger.error("Mooncake EC batch memory unregistration failed: %d", ret)
 return
 self._source_registrations.clear()
 self._pending_unregister.clear()
+```

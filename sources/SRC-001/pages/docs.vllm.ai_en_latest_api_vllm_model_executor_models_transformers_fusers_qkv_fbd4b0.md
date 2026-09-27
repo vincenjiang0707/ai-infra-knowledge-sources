@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/transformers/fusers/qkv/
 lastmod: 2026-09-27
 
+```python
 @dataclass
 class QKVFuser(StackedFuser):
 """Fuser for the attention QKV pattern `q(x), k(x), v(x)`."""
@@ -164,3 +165,4 @@ o_proj, "rowwise", quant_config, prefix=o_proj_prefix
 )
 setattr(module, self.o_name, new_o)
 log_replacement(o_proj_prefix, o_proj, new_o)
+```

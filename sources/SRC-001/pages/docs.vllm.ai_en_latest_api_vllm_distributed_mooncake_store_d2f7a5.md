@@ -19,6 +19,7 @@ process owns the pool and the SSD tier).
 
 
 | @dataclass
+```python
 class MooncakeStoreConfig:
 """Configuration for MooncakeDistributedStore.
 ``mode`` selects the topology: ``embedded`` (each rank contributes
@@ -72,3 +73,4 @@ raise ValueError(
 )
 return MooncakeStoreConfig.from_file(config_path)
 |
+```

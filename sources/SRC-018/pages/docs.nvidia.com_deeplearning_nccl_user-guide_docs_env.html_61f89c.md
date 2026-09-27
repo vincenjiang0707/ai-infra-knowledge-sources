@@ -1445,8 +1445,10 @@ without first
 trimming it to a single host’s topology.
 To obtain a suitable topology file, either use `NCCL_TOPO_DUMP_FILE`
 
+```python
 from a single-host run or
 manually extract a single host’s portion from a multi-host dump.
+```
 
 ### NCCL_TOPO_DUMP_FILE[](https://docs.nvidia.com#nccl-topo-dump-file)
 

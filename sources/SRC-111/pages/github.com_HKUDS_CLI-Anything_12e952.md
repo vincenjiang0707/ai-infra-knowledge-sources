@@ -55,8 +55,10 @@ flow. -
 **2026-04-17**🌐**CLI-Hub**received another install UX pass — public registry metadata and skill coverage were tightened, visit counting was corrected, and the web hub was further refined. 🧪**Shotcut**render output duration was fixed (#92). 📝**SKILL**contribution paths were corrected for the new docs flow (#224), and the skill generator now safely handles empty intros (#203). -
 **2026-04-16**🗺️**QGIS CLI**merged (#207) — a full GIS / map authoring harness landed. 🧬**UniMol Tools CLI**merged (#219) for molecular modeling workflows. 🌐**CLI-Hub**also added more public CLIs, including**py4csr**, refreshed its generated meta-skill, corrected SKILL contribution docs, and fixed`apt-get`
 
+```go
 package extraction in skill generation (#204). -
 **2026-04-16**📈**Unreal Insights CLI**expanded — added background capture session control (`capture start/status/snapshot/stop`
+```
 
 ), engine-root-matched`UnrealInsights.exe`
 

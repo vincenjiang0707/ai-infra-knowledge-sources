@@ -539,10 +539,12 @@ Step 2: Install bitsandbytes from source
 git clone -b multi-backend-refactor https://github.com/bitsandbytes-foundation/bitsandbytes.git && cd bitsandbytes/
  
 # Compile & install
+```bash
 apt-get install -y build-essential cmake  # install build tools dependencies, unless present
 cmake -DCOMPUTE_BACKEND=hip -S .  # Use -DBNB_ROCM_ARCH="gfx90a;gfx942" to target specific gpu arch
 make -j
 pip install .   # `-e` for "editable" install, when developing BNB (otherwise leave that out)
+```
  
 ```
 
@@ -584,10 +586,12 @@ Installing with
 git clone -b multi-backend-refactor https://github.com/bitsandbytes-foundation/bitsandbytes.git && cd bitsandbytes/
 
 # Compile & install
+```bash
 apt-get install -y build-essential cmake  # install build tools dependencies, unless present
 cmake -DCOMPUTE_BACKEND=hip -S .  # Use -DBNB_ROCM_ARCH="gfx90a;gfx942" to target specific gpu arch
 make
 pip install -e .   # `-e` for "editable" install, when developing BNB (otherwise leave that out)
+```
 ```
 
 Getting error
@@ -674,8 +678,10 @@ WARNING: Please be sure to sanitize sensitive info from the output before postin
 This setup works for me. I tried other versions and they have different issues.
 
 ```
+```bash
 pip install --force-reinstall pytorch-triton-rocm==3.1.0 --index-url https://download.pytorch.org/whl/nightly/rocm6.2
 pip install --no-deps --force-reinstall 'https://github.com/bitsandbytes-foundation/bitsandbytes/releases/download/continuous-release_multi-backend-refactor/bitsandbytes-0.45.1.dev0-py3-none-manylinux_2_24_x86_64.whl'
+```
 ```
 
 ### markg85 · 2025-05-04
@@ -710,11 +716,13 @@ I envy the nvidia users that have such a breeze with all of this. I would've swi
 @markg85 Try this. It uses the old recommended `a0a95fd` commit, and replaces `int8_matmul_mixed_dequantize.py` and `int8_matmul_rowwise_dequantize.py` with dummy code which I found on an issue page to fix the  `ModuleNotFoundError: No module named 'triton.ops'` problem.
 
 ```sh
+```bash
 git clone -b multi-backend-refactor-a0a95fd-hacky-fix https://github.com/xzuyn/bitsandbytes.git
 cd bitsandbytes
 cmake -DCOMPUTE_BACKEND=hip -DBNB_ROCM_ARCH="gfx1100" -S .  # change "gfx1100" to what you need
 make
 pip install .
+```
 ```
 
 ```sh
@@ -1022,15 +1030,18 @@ cmake -DCOMPUTE_BACKEND=hip -DBNB_ROCM_ARCH="gfx942" -S .
 
 Using the main branch seems to be working. Probably no need for `multi-backend-refactor-a0a95fd-hacky-fix` anymore.
 ```
+```bash
 git clone https://github.com/bitsandbytes-foundation/bitsandbytes.git
 cd bitsandbytes
 cmake -DCOMPUTE_BACKEND=hip -DBNB_ROCM_ARCH="gfx1100" -S .  # change "gfx1100" to what you need
 make
 pip install .
 ```
+```
 
 ```
 > python -m bitsandbytes
+```yaml
 ================ bitsandbytes v0.48.0.dev0 =================
 Platform: Linux-6.8.0-79-generic-x86_64-with-glibc2.39
   libc: glibc-2.39
@@ -1049,6 +1060,7 @@ Related packages:
   transformers: 4.54.1
   triton: not found
   trl: not found
+```
 ============================================================
 PyTorch settings found: ROCM_VERSION=64
 Checking that the library is importable and ROCm is callable...

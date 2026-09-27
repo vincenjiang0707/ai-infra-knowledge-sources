@@ -231,12 +231,14 @@ TileLang achieves exceptional performance across a variety of computational patt
 - MLA Decoding Performance on H100
 
   <div style="display: flex; gap: 10px; justify-content: center;">
+```html
     <div style="flex: 1;">
       <img src="./examples/deepseek_mla/figures/bs64_float16.png" alt="mla decode performance bs64 on H100" width="100%" />
     </div>
     <div style="flex: 1;">
       <img src="./examples/deepseek_mla/figures/bs128_float16.png" alt="mla decode performance bs128 on H100" width="100%" />
     </div>
+```
   </div>
 
 - Flash Attention Performance on H100

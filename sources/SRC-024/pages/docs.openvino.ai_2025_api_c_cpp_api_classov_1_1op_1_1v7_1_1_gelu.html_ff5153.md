@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v7::Gelu[#](https://docs.openvino.ai#class-ov-op-v7-gelu)
 
 -
+```python
 class Gelu : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v74GeluE) Gaussian Error Linear Unit f(x) = 0.5 * x * (1 + erf( x / sqrt(2) ) for “approximation” = “erf” f(x) = 0.5 * x * (1 + tanh([sqrt(2 / pi)] * [x + 0.044715^3]) for “approximation” = “tanh”.
+```
 
 Public Functions
 

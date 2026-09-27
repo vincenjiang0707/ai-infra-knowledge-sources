@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/cpu/connector/
 lastmod: 2026-09-27
 
+```python
 class ECCPUConnector(ECConnectorBase):
 """EC connector that offloads encoder cache to a shared CPU mmap region."""
 def __init__(self, vllm_config: "VllmConfig", role: ECConnectorRole) -> None:
@@ -100,3 +101,4 @@ if self.connector_scheduler is not None:
 self.connector_scheduler.shutdown()
 if self.connector_worker is not None:
 self.connector_worker.shutdown()
+```

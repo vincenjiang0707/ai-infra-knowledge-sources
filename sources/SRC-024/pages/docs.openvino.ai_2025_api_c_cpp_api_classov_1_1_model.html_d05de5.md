@@ -4,14 +4,18 @@ lastmod:
 # Class ov::Model[#](https://docs.openvino.ai#class-ov-model)
 
 -
+```python
 class Model : public std::enable_shared_from_this<
 [Model](https://docs.openvino.ai#_CPPv4N2ov5ModelE)>[#](https://docs.openvino.ai#_CPPv4N2ov5ModelE) A user-defined model.
+```
 
 Public Functions
 
 -
+```
 explicit Model(const
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::OutputVector &results, const std::string &name = "")[#](https://docs.openvino.ai#_CPPv4N2ov5Model5ModelERKN2ov12OutputVectorERKNSt6stringE) Constructs a
+```
 
 [Model](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_model). Lists of parameters and variables will be generated automatically based on traversing the graph from the results.
 
@@ -49,8 +53,10 @@ void set_friendly_name(const std::string &name)
 
 
 -
+```rust
 const std::string &get_friendly_name() const
 [#](https://docs.openvino.ai#_CPPv4NK2ov5Model17get_friendly_nameEv) Gets the friendly name for a model. If no friendly name has been set via set_friendly_name then the model’s unique name is returned.
+```
 
 - Returns:
 A const reference to the model’s friendly name.
@@ -100,8 +106,10 @@ int64_t get_result_index(const
 [Output](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_output)object. This method returns -1 if an the passed output is not related to the Results of a model.
 
 -
+```
 int64_t get_result_index(const
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Output](https://docs.openvino.ai/classov_1_1_output.html#_CPPv4I0EN2ov6OutputE)<const[ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Node](https://docs.openvino.ai/classov_1_1_node.html#_CPPv4N2ov4NodeE)> &value) const[#](https://docs.openvino.ai#_CPPv4NK2ov5Model16get_result_indexERKN2ov6OutputIKN2ov4NodeEEE) Return the index of this model’s Result represented by the “value”
+```
 
 [Output](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_output)object. This method returns -1 if an the passed output is not related to the Results of a model.
 

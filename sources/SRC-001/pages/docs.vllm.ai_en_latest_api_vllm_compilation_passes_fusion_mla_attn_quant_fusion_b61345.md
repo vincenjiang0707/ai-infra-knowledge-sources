@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/passes/fusion/mla_attn_quant_fusion/
 lastmod: 2026-09-27
 
+```python
 class MLAAttnFp8GroupQuantPattern(
 VllmPatternReplacement[..., tuple[torch.Tensor, torch.Tensor]]
 ):
@@ -194,3 +195,4 @@ self._quant_matcher.empty_f32(1, 1),
 if _USE_LAYERNAME:
 inputs.append(_encode_layer_name(self._layer_name))
 return inputs
+```

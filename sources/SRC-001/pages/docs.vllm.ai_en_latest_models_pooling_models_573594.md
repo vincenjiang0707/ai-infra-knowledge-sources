@@ -160,11 +160,13 @@ Please use one of the more specific methods or set the task directly when using 
 
 ### Examples[¶](https://docs.vllm.ai#examples)
 
+```python
 from vllm import LLM
 llm = LLM(model="intfloat/e5-small", runner="pooling")
 (output,) = llm.encode("Hello, my name is", pooling_task="embed")
 data = output.outputs.data
 print(f"Data: {data!r}")
+```
 
 
 ## Online Serving[¶](https://docs.vllm.ai#online-serving)
@@ -348,6 +350,7 @@ controls whether that head is applied. Models with custom poolers can implement 
 
 To inspect the resolved fields without loading model weights:
 
+```python
 from vllm.config import ModelConfig, PoolerConfig
 from vllm.model_executor.layers.pooler.activations import get_act_fn
 def inspect(requested: PoolerConfig) -> None:
@@ -370,6 +373,7 @@ get_act_fn(model_config.hf_config)
 )
 inspect(PoolerConfig())
 inspect(PoolerConfig(pooling_type="CLS", use_activation=False))
+```
 
 
 For `intfloat/e5-small`

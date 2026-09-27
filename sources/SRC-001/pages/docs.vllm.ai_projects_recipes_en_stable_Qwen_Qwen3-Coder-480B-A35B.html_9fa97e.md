@@ -15,9 +15,11 @@ support using the following method:
 
 ### ROCm (MI300X, MI325X, MI355X)[¶](https://docs.vllm.ai#rocm-mi300x-mi325x-mi355x)
 
+```bash
 uv venv
 source .venv/bin/activate
 uv pip install vllm --extra-index-url https://wheels.vllm.ai/rocm/
+```
 
 
 [vLLM](https://vllm.ai/)

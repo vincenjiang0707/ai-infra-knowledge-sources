@@ -103,6 +103,7 @@ LLM. `None` if no images are passed.
 - pixel_values_videos: Pixel values of videos to be fed to a
 model. `None` if no videos are passed.
 - video_grid_thw: Tensor `(n_videos, 3)` of video 3D grid in
+```python
 LLM. `None` if no videos are passed.
 """
 if intermediate_tensors is not None:
@@ -153,3 +154,4 @@ num_spec,
 @classmethod
 def get_mamba_state_copy_func(cls) -> tuple[MambaStateCopyFunc, MambaStateCopyFunc]:
 return MambaStateCopyFuncCalculator.gated_delta_net_state_copy_func()
+```

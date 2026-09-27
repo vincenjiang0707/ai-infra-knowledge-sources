@@ -91,6 +91,7 @@ Fusions are exposed through [ PassConfig](https://docs.vllm.ai/api/vllm/config/c
 
 `CompilationConfig`
 
+```python
 from vllm import LLM
 from vllm.config import CompilationConfig, PassConfig
 llm = LLM(
@@ -104,6 +105,7 @@ fuse_allreduce_rms=False, # disable a specific fusion
 )
 ),
 )
+```
 
 
 Fusions can also be enabled using command-line flags with any `vllm ...`

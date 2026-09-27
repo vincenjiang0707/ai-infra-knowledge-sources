@@ -514,6 +514,7 @@ We provide the ability to create custom node initialization behaviors with the A
 function to distribute download tasks across nodes. To enable your custom callback, specify the classname inside `LLMConfig`
 
 .```
+```python
 from user_custom_classes import CustomCallback
 config = LLMConfig(
 ...
@@ -524,6 +525,7 @@ callback_config={
 },
 ...
 )
+```
 ```
 
 

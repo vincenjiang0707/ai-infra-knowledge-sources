@@ -232,8 +232,10 @@ and loads `--model-path deepseek-ai/DeepSeek-V4-Flash`
 ; **MTP** uses that same target
 with `--speculative-algorithm EAGLE --speculative-num-steps {1,3} --speculative-eagle-topk 1 --speculative-num-draft-tokens {2,4}`
 
+```bash
 (per-batch-size best of the two); DSpark compact or static
 sets `SGLANG_RAGGED_VERIFY_MODE=compact|static`
+```
 
 ;
 use `--speculative-dspark-sps-table-path sps_table.json`

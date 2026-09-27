@@ -18,6 +18,7 @@ model = get_peft_model(model, peft_config)
 so l train the model with SFTtrainer
 `
 trainer = SFTTrainer(
+```bash
     model=model,
     tokenizer=tokenizer,
     max_seq_length=max_tokens,
@@ -26,6 +27,7 @@ trainer = SFTTrainer(
     formatting_func=formatting_prompts_func,
     data_collator=collator,
     dataset_text_field="instruction",
+```
 )
 
 model.train()

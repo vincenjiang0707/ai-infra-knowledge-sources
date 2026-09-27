@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/pooling/scoring/io_processor/
 lastmod: 2026-09-27
 
+```python
 class ScoringIOProcessor(PoolingIOProcessor):
 name: str
 pooling_task: PoolingTask
@@ -89,3 +90,4 @@ else:
 raise ValueError(f"Invalid {request.__class__.__name__} request type")
 scoring_data = self.valid_inputs(data_1, data_2)
 return scoring_data
+```

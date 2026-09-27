@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityConfidentialCompu
 # 7.10. CUpti_ActivityConfidentialComputeRotation[#](https://docs.nvidia.com#cupti-activityconfidentialcomputerotation)
 
 -
+```rust
 struct CUpti_ActivityConfidentialComputeRotation
 [#](https://docs.nvidia.com#_CPPv441CUpti_ActivityConfidentialComputeRotation) Event related to confidential compute encryption rotation.
+```
 
 This structure gives timestamps for stages of encryption rotation
 

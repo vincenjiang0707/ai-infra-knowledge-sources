@@ -11,9 +11,11 @@ Hi While running nccl-tests with cuda, libfabric, openmpi over two node nccl-tes
 Driver Version: 550.144.03     CUDA Version: 12.4 
 mpirun (Open MPI) 5.0.6
 
+```yaml
 fi_info: 2.1.0rc1
 libfabric: 2.1.0rc1
 libfabric api: 2.1
+```
 
 
 ` /opt/openmpi/bin/mpirun -v -hostfile hosts.txt   --mca pml cm --mca mtl ofi  -x NCCL_DEBUG_SUBSYS=INIT,GRAPH,ENV,TUNING  -x NCCL_DEBUG=INFO -x NCCL_IB_CUDA_SUPPORT=1 -x NCCL_IB_GID_INDEX=3  -x NCCL_ALGO=RING   -x   LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LD_LIBRARY_PATH:/opt/openmpi/lib/:/usr/local/lib:/opt/rdma-core/build/lib:/opt/gdrcopy/lib/  /home/marvell/alok/nccl-tests/build/all_reduce_perf -b 4 -e 4 -f 2 -g 1 -n 2 -w 5`
@@ -89,8 +91,10 @@ rank:1 name:alpha-nvidia
 
 ```
 ```
+```
 #include <mpi.h>
 int main(int argc, char *argv[]) {
+```
   int rank;
   int size;
   char name[MPI_MAX_PROCESSOR_NAME];

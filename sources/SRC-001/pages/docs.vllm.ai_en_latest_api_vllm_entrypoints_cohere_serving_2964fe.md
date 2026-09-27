@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/cohere/serving/
 lastmod: 2026-09-27
 
+```python
 class CohereServingChatV2(OpenAIServingChat):
 """Handler for the Cohere Chat v2 API (``POST /cohere/v2/chat``).
 The handler is intentionally thin: it converts the v2 request into a
@@ -516,6 +517,7 @@ Mirrors ``PromptRenderIds::from_messages`` in
 ``melody/src/templating/util.rs``. Emits one
 :class:`_CitablePosition` per document-bearing slot melody
 assigns while rendering the prompt:
+```
 * **Bucket numbering.** Bucket ``0`` is reserved for the
 top-level ``documents`` array when present, and each unique
 ``tool_call_id`` claims the next integer on first-seen basis
@@ -865,6 +867,7 @@ models, since ``_chat_completion_to_v2`` surfaces
 ``is_reasoning_model`` flag.
 * Coerce to :class:`cohere.types.Citation` for the wire.
 """
+```python
 raw = getattr(msg, "citations", None)
 if not raw:
 return None
@@ -975,6 +978,7 @@ block: Any,
 """Extract the wire-shape source for one tool-message content block.
 Handles both cohere ``DocumentToolContent`` and
 ``TextToolContent`` blocks:
+```
 * ``document`` blocks with an explicit id produce a
 ``tool`` source keyed by that id (payload is the document's
 ``data`` dict, or ``{"text": ...}`` for scalar data).

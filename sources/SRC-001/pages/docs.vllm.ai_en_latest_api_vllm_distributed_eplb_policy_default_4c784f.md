@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/eplb/policy/default/
 lastmod: 2026-09-27
 
+```python
 class DefaultEplbPolicy(AbstractEplbPolicy):
 @classmethod
 def balanced_packing(
@@ -112,6 +113,7 @@ tokens_per_group, num_nodes
 log2mlog = (
 (
 (group_pack_index * groups_per_node + group_rank_in_pack)[..., None]
+```
 * group_size
 )
 + np.arange(group_size, dtype=np.int64)

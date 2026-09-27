@@ -10,6 +10,7 @@ Hi, I am very interested in your work, but when I tried to replicate it using fo
 
 `CUDA_VISIBLE_DEVICES=0,1,2,3
 torchrun --nproc_per_node=4 medusa/train/train.py --model_name_or_path ~/Medusa-main/models/lmsys_vicuna-7b-v1.5 \
+```bash
     --data_path ShareGPT_Vicuna_unfiltered/ShareGPT_V4.3_unfiltered_cleaned_split.json \
     --bf16 True \
     --output_dir test \
@@ -29,6 +30,7 @@ torchrun --nproc_per_node=4 medusa/train/train.py --model_name_or_path ~/Medusa-
     --lazy_preprocess True \
     --medusa_num_heads 3 \
     --medusa_num_layers 1 \`
+```
 
 I would like to know when you say you can train on four GPUs, what GPUs are they? thanks!
 

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/triton_moe/
 lastmod: 2026-09-27
 
+```python
 class TritonExperts(LoRAExpertsMixin, mk.FusedMoEExpertsModular):
 """Triton-based fused MoE expert implementation."""
 @staticmethod
@@ -517,3 +518,4 @@ if expert_map is not None:
 ops.moe_sum(input, output, topk_ids, expert_map)
 else:
 ops.moe_sum(input, output)
+```

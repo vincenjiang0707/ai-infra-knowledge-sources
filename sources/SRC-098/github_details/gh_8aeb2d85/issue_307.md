@@ -34,8 +34,10 @@ NIC Legend:
 
 **I used the NCCL test to run an all_reduce_perf performance test, and the output is shown below.**
 
+```bash
 NCCL_IGNORE_DISABLED_P2P=1 NCCL_DEBUG=INFO NCCL_DEBUG_SUBSYS=INIT,ENV,GRAPH LD_LIBRARY_PATH=/usr/local/cuda/lib64:/opt/devtools/nccl/lib /opt/devtools/nccl/all_reduce_perf -b 128M -e 1G -f 2 -g 8
 nThread 1 nGpus 8 minBytes 134217728 maxBytes 1073741824 step: 2(factor) warmup iters: 5 iters: 20 agg iters: 1 validation: 1 graph: 0
+```
 
 Using devices
 Rank  0 Group  0 Pid 1936469 on    node031 device  0 [0x4e] NVIDIA GeForce RTX 4090

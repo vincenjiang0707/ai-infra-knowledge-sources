@@ -6,6 +6,7 @@ Wrap a zero-argument callable evaluated only during log formatting.
 ## Source code in `vllm/logging_utils/lazy.py`
 
 
+```python
 | class lazy:
 """Wrap a zero-argument callable evaluated only during log formatting."""
 __slots__ = ("_factory",)
@@ -16,3 +17,4 @@ return str(self._factory())
 def __repr__(self) -> str:
 return str(self)
 |
+```

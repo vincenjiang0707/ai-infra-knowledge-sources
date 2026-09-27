@@ -67,8 +67,10 @@ is short for `--compilation_config`
 ):
 
 # Offline
+```python
 from vllm.config.compilation import CompilationConfig, CompilationMode
 LLM(model, compilation_config=CompilationConfig(mode=CompilationMode.NONE))
+```
 
 
 To turn off just CUDAGraphs, pass `cudagraph_mode = NONE`
@@ -76,8 +78,10 @@ To turn off just CUDAGraphs, pass `cudagraph_mode = NONE`
 :
 
 # Offline
+```python
 from vllm.config.compilation import CompilationConfig, CUDAGraphMode
 LLM(model, compilation_config=CompilationConfig(cudagraph_mode=CUDAGraphMode.NONE))
+```
 
 
 vLLM IR makes heavy use of the compilation pipeline, from functionalization, custom fusions, and lowering. To turn that off and capture eager-mode dispatching behavior of vLLM IR, run with `ir_enable_torch_wrap=False`
@@ -89,8 +93,10 @@ and `backend="inductor"`
 (default).
 
 # Offline
+```python
 from vllm.config.compilation import CompilationConfig
 LLM(model, compilation_config=CompilationConfig(ir_enable_torch_wrap=False))
+```
 
 
 ## Debugging TorchDynamo[¶](https://docs.vllm.ai#debugging-torchdynamo)
@@ -145,6 +151,7 @@ vllm serve meta-llama/Llama-3.2-1B -cc.dynamic_shapes_config.type=backed_size_ob
 
 
 # Offline - using unbacked mode
+```python
 from vllm.config.compilation import CompilationConfig, DynamicShapesConfig, DynamicShapesType
 LLM(model, compilation_config=CompilationConfig(
 dynamic_shapes_config=DynamicShapesConfig(type=DynamicShapesType.UNBACKED)
@@ -154,6 +161,7 @@ from vllm.config.compilation import CompilationConfig, DynamicShapesConfig, Dyna
 LLM(model, compilation_config=CompilationConfig(
 dynamic_shapes_config=DynamicShapesConfig(type=DynamicShapesType.BACKED_SIZE_OBLIVIOUS)
 ))
+```
 
 
 These modes are stricter and reduce or eliminate the need of dynamic shapes guarding, which can help isolate issues:

@@ -95,6 +95,7 @@ I pushed some fixes, can you try again please:
 This works for me:
 
 ```Python
+```python
 import torch
 device        = 'cuda:0'
 compute_dtype = torch.float16
@@ -125,6 +126,7 @@ prompt  = "Write an essay about large language models."
 inputs  = tokenizer.apply_chat_template([{"role":"user", "content":prompt}], tokenize=True, add_generation_prompt=True, return_tensors="pt", return_dict=True)
 outputs = model.generate(**inputs.to(model.device), max_new_tokens=32, cache_implementation="dynamic", pad_token_id=tokenizer.pad_token_id) 
 print(tokenizer.decode(outputs[0]))
+```
 ```
 
 I would recommend you use the default Pytorch backend with `axis=1`  though.

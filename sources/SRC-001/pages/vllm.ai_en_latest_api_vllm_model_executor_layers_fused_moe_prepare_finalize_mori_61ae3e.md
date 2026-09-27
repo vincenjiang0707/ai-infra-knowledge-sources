@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/prepare_finalize/mori/
 lastmod: 2026-09-27
 
+```python
 class MoriPrepareAndFinalize(mk.FusedMoEPrepareAndFinalizeModular):
 """Prepare/Finalize using MoRI kernels."""
 def __init__(
@@ -40,6 +41,7 @@ quant_config: FusedMoEQuantConfig,
 defer_input_quant: bool = False,
 ) -> mk.PrepareResultType:
 """Returns a tuple of:
+```
 - quantized + dispatched a.
 - Optional quantized + dispatched a1_scales.
 - Optional ExpertTokensMetadata containing gpu/cpu tensors

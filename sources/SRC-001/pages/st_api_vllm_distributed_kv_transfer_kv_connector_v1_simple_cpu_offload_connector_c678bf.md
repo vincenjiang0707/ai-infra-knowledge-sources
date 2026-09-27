@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/simple_cpu_offload_connector/
 lastmod: 2026-09-27
 
+```python
 class SimpleCPUOffloadConnector(KVConnectorBase_V1, SupportsHMA):
 """CPU KV cache offloading with custom kernel transfers and BlockPool LRU."""
 @property
@@ -262,3 +263,4 @@ def reset_cache(self) -> bool | None:
 if self.scheduler_manager is not None:
 return self.scheduler_manager.reset()
 return None
+```

@@ -62,10 +62,12 @@ model.save(quantized_model_id)
 
 ```
 
+```yaml
 Quantization has been ongoing for more than 10 hours and is still not complete.
 CPU: AMD EPYC 7K62 48-Core Processor
 RAM: 64GB
 GPU: A100-SXM-64GB
+```
 
 ## 评论 (5)
 

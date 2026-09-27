@@ -85,8 +85,10 @@ nvFatbinGetErrorString returns an error description string for each error code.
 3.1.1. Enumerations[](https://docs.nvidia.com#enumerations)
 
 -
+```rust
 enum nvFatbinResult
 [](https://docs.nvidia.com#_CPPv414nvFatbinResult)
+```
 
 -
 The enumerated type nvFatbinResult defines API call result codes.

@@ -53,6 +53,7 @@ python3 -m vllm.entrypoints.openai.api_server \
 
 ### Client (bash):[¶](https://docs.vllm.ai#client-bash)
 
+```json
 curl -X 'POST' \
 'http://127.0.0.1:5566/v1/chat/completions' \
 -H 'accept: application/json' \
@@ -61,10 +62,12 @@ curl -X 'POST' \
 "model": "nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL-BF16",
 "messages": [{"role": "user", "content": [{"type": "text", "text": "Describe the video."}, {"type": "video_url", "video_url": {"url": "file:///path/to/video.mp4"}}]}]
 }'
+```
 
 
 ### Client (Python):[¶](https://docs.vllm.ai#client-python)
 
+```python
 from openai import OpenAI
 client = OpenAI(
 base_url="http://localhost:5566/v1",
@@ -112,6 +115,7 @@ messages=[
 ],
 )
 print(completion.choices[0].message.content)
+```
 
 
 ### vLLM `LLM`
@@ -136,6 +140,7 @@ to tweak video compression. Read more about EVS on[arXiv](https://arxiv.org/abs/
 
 #### Usage with image path[¶](https://docs.vllm.ai#usage-with-image-path)
 
+```python
 from vllm import LLM, SamplingParams
 model_path = "nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL-BF16"
 messages = [
@@ -169,6 +174,7 @@ mm_processor_kwargs=dict(max_num_tiles=12),
 )
 for o in outputs:
 print(o.outputs[0].text)
+```
 
 
 #### Usage with video path[¶](https://docs.vllm.ai#usage-with-video-path)
@@ -178,6 +184,7 @@ print(o.outputs[0].text)
 
 #### Usage with video tensors and custom sampling[¶](https://docs.vllm.ai#usage-with-video-tensors-and-custom-sampling)
 
+```python
 from vllm import LLM, SamplingParams
 import decord
 import numpy as np
@@ -193,6 +200,7 @@ nframe: Number of frames to sample (used if fps <= 0)
 nframe_max: Maximum number of frames to sample
 Returns:
 tuple: (images, metadata)
+```
 - images: A numpy array of the sampled frame images.
 - metadata: VideoMetadata dataclass containing info about the sampled frames:
 - total_num_frames: Number of sampled frames
@@ -200,6 +208,7 @@ tuple: (images, metadata)
 - duration: Duration covered by the sampled frames (in seconds)
 - video_backend: Backend used for video processing ('opencv_dynamic')
 """
+```bash
 vid = decord.VideoReader(video_path_local)
 total_frames = len(vid)
 video_fps = vid.get_avg_fps()
@@ -312,3 +321,4 @@ print(o.outputs[0].text)
 print("-" * 10)
 if __name__ == "__main__":
 main()
+```

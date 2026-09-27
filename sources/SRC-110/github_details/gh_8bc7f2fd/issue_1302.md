@@ -20,12 +20,14 @@ evalscope 0.0.0_dev
 
 ## 执行的代码或指令
 evalscope eval \
+```json
     --model deepseek-ai/DeepSeek-V3.1-Terminus \
     --api-url ####### \
     --api-key ################ \
     --datasets hle \
     --judge-model-args '{"model_id": "gpt-4.1-mini", "api_url": "#########", "api_key": "############3"}' \
     --dataset-args '{"hle": {"extra_params": {"include_multi_modal": false}}}'
+```
 
 ## 运行环境
 
@@ -76,6 +78,7 @@ generated下方空白，初步怀疑max_tokens设置的问题，导致输出被�
 
 ### twilighgt · 2026-04-21
 
+```json
 @Yunnglin 设置了，完整命令：
 evalscope eval \
     --model moonshotai/kimi-k2.5 \
@@ -84,6 +87,7 @@ evalscope eval \
     --repeats 4 \
     --datasets aime25 \
     --generation-config '{"temperature": 1.0, "top_p": 0.95, "max_tokens": 32768}'
+```
 
 此外我查看了具体代码：
 

@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::ScatterElementsUpdateBase[#](https://docs.openvino.ai#class-ov-op-util-scatterelementsupdatebase)
 
 -
+```python
 class ScatterElementsUpdateBase : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util25ScatterElementsUpdateBaseE) Subclassed by
+```
 
 [ov::op::v12::ScatterElementsUpdate](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v12_1_1_scatter_elements_update),[ov::op::v3::ScatterElementsUpdate](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v3_1_1_scatter_elements_update)Public Functions
 

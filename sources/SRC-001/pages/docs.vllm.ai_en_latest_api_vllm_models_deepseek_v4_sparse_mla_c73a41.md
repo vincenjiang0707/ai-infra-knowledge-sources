@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/sparse_mla/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV4SparseMLAMetadataBuilder(
 AttentionMetadataBuilder[DeepseekV4FlashMLAMetadata]
 ):
@@ -37,6 +38,7 @@ self.model_config.max_model_len, self.compress_ratio
 )
 c128a_max_compressed = (
 cdiv(c128a_max_compressed, _C128A_TOPK_ALIGNMENT)
+```
 * _C128A_TOPK_ALIGNMENT
 )
 # Stored so _build_c128a_metadata passes it as the kernel's

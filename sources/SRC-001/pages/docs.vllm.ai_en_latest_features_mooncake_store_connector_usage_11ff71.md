@@ -33,6 +33,7 @@ Create a JSON configuration file (e.g., `mooncake_config.json`
 
 ):
 
+```json
 {
 "mode": "embedded",
 "metadata_server": "P2PHANDSHAKE",
@@ -43,6 +44,7 @@ Create a JSON configuration file (e.g., `mooncake_config.json`
 "device_name": "",
 "enable_offload": false
 }
+```
 
 
 `mode`
@@ -97,9 +99,11 @@ Set the config path via environment variable:
 
 Use MooncakeStoreConnector to offload KV cache to CPU memory, extending the effective cache size:
 
+```json
 MOONCAKE_CONFIG_PATH=mooncake_config.json \
 vllm serve meta-llama/Llama-3.1-8B-Instruct \
 --kv-transfer-config '{"kv_connector":"MooncakeStoreConnector","kv_role":"kv_both"}'
+```
 
 
 ### Disaggregated Prefill-Decode (XpYd)[¶](https://docs.vllm.ai#disaggregated-prefill-decode-xpyd)
@@ -114,6 +118,7 @@ In disaggregated prefill-decode mode, use [ MultiConnector](https://docs.vllm.ai
 
 **Prefiller Node:**
 
+```bash
 MOONCAKE_CONFIG_PATH=mooncake_config.json \
 VLLM_MOONCAKE_BOOTSTRAP_PORT=50052 \
 vllm serve meta-llama/Llama-3.1-8B-Instruct \
@@ -134,10 +139,12 @@ vllm serve meta-llama/Llama-3.1-8B-Instruct \
 ]
 }
 }'
+```
 
 
 **Decoder Node:**
 
+```bash
 MOONCAKE_CONFIG_PATH=mooncake_config.json \
 VLLM_MOONCAKE_BOOTSTRAP_PORT=50053 \
 vllm serve meta-llama/Llama-3.1-8B-Instruct \
@@ -158,6 +165,7 @@ vllm serve meta-llama/Llama-3.1-8B-Instruct \
 ]
 }
 }'
+```
 
 
 To also offload newly completed decode KV blocks, add the following extra configuration to the decoder's [ MooncakeStoreConnector](https://docs.vllm.ai/api/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/connector/#vllm.distributed.kv_transfer.kv_connector.v1.mooncake.store.connector.MooncakeStoreConnector) entry.
@@ -218,6 +226,7 @@ Example `mooncake_config.json`
 
 for the vLLM side:
 
+```json
 {
 "mode": "standalone-store",
 "metadata_server": "P2PHANDSHAKE",
@@ -228,6 +237,7 @@ for the vLLM side:
 "device_name": "mlx5_0",
 "enable_offload": true
 }
+```
 
 
 Steer this rank to the local owner segment with:
@@ -252,6 +262,7 @@ Set `tenant_id`
 
 in the Mooncake JSON config when different vLLM deployments should use separate Mooncake tenant namespaces:
 
+```json
 {
 "mode": "embedded",
 "metadata_server": "P2PHANDSHAKE",
@@ -263,6 +274,7 @@ in the Mooncake JSON config when different vLLM deployments should use separate 
 "enable_offload": false,
 "tenant_id": "tenant-a"
 }
+```
 
 
 Strict isolation requires a Mooncake master started with `--enable_multi_tenants=true`

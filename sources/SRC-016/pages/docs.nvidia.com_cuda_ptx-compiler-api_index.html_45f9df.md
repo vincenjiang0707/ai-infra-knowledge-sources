@@ -121,8 +121,10 @@ The nvPTXCompiler APIs return the nvPTXCompileResult codes to indicate the call 
 4.2.1. Enumerations[](http://docs.nvidia.com#enumerations)
 
 -
+```rust
 enum nvPTXCompileResult
 [](http://docs.nvidia.com#_CPPv418nvPTXCompileResult)
+```
 
 -
 The nvPTXCompiler APIs return the nvPTXCompileResult codes to indicate the call result.

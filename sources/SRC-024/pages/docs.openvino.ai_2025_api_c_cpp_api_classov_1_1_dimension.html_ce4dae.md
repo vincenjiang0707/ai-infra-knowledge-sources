@@ -4,8 +4,10 @@ lastmod:
 # Class ov::Dimension[#](https://docs.openvino.ai#class-ov-dimension)
 
 -
+```python
 class Dimension
 [#](https://docs.openvino.ai#_CPPv4N2ov9DimensionE) Class representing a dimension, which may be dynamic (undetermined until runtime), in a shape or shape-like object.
+```
 
 Static dimensions may be implicitly converted from value_type. A dynamic dimension is constructed with
 

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/cli/serve/
 lastmod: 2026-09-27
 
+```python
 class ServeSubcommand(CLISubcommand):
 """The `serve` subcommand for the vLLM CLI."""
 name = "serve"
@@ -113,3 +114,4 @@ usage="vllm serve [model_tag] [options]",
 serve_parser = make_arg_parser(serve_parser)
 serve_parser.epilog = VLLM_SUBCMD_PARSER_EPILOG.format(subcmd=self.name)
 return serve_parser
+```

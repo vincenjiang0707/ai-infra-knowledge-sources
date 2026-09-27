@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/ops/triton_ops/lora_shrink_op/
 lastmod: 2026-09-27
 
+```python
 @torch.inference_mode()
 def _lora_shrink(
 inputs: torch.Tensor, # shape [num_tokens, hidden_size]
@@ -125,3 +126,4 @@ num_stages=NUM_STAGES,
 launch_pdl=use_gdc,
 )
 return
+```

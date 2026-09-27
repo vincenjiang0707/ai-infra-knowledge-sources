@@ -22,6 +22,7 @@ Please provide the following information about your environment if applicable:
 ### 🐛 Describe the bug
 
 train code:
+```bash
 NPROC_PER_NODE=4                                    # 多少张卡训
 TARGET_LAYER_IDS="1 10 19 28 37"            # 模型层id
 BLOCK_SIZE=8                                        # 长度
@@ -30,9 +31,11 @@ DRAFT_ARCH="qwen3"                                  # 架构
 SLIDING_WINDOW_SIZE=4096                            # 窗口长度2048或4096
 SLIDING_WINDOW_INDICES="0 1 2 3"                    # 滑动窗口的模型层idx，其余的为full attention
 SQL_LEN=16384
+```
 
 
 # Markov + confidence head settings
+```json
 MARKOV_RANK=256
 MARKOV_HEAD_TYPE="vanilla"   # vanilla | gated | rnn
 LOSS_FN='{"ce": 0.1, "tv": 0.9}'
@@ -40,6 +43,7 @@ CONFIDENCE_HEAD_ALPHA=1.0
 
 MODEL_SAVE_DIR="./output/dspark_260723_qwen3_input_5_fa2_block_size_8_100k_test/checkpoints"
 CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun \
+```
   --nnodes 1 \
   --standalone \
   --nproc_per_node $NPROC_PER_NODE \
@@ -72,6 +76,7 @@ CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun \
 
 infer code:
 
+```bash
 CUDA_VISIBLE_DEVICES=$GPU_ID \
 python -m vllm.entrypoints.openai.api_server \
 --host 0.0.0.0 \
@@ -85,11 +90,13 @@ python -m vllm.entrypoints.openai.api_server \
 --gpu_memory_utilization 0.9 \
 --enable-prefix-caching \
 --speculative-config "{\"method\": \"dspark\", \"model\": \"$DFLASH_MODEL_PATH\", \"num_speculative_tokens\": $NUM_SPECULATIVE_TOKENS, \"attention_backend\": \"flash_attn\"}"
+```
 
 
 
 error msg:
 
+```
 (EngineCore pid=391334)
 (EngineCore pid=391334) INFO 07-23 21:02:53 [default_loader.py:430] Loading weights took 35.58 seconds
 (EngineCore pid=391334) WARNING 07-23 21:02:54 [marlin.py:34] Your GPU does not have native support for FP4 computation but FP4 quantization is being used. Weight-only FP4 compression will be used leveraging the Marlin kernel. This may degrade performance for compute-he
@@ -177,6 +184,7 @@ python-multipart                         0.0.22
 (EngineCore pid=391334) ERROR 07-23 21:03:03 [core.py:1231]     assert param.size() == loaded_weight.size(), (
 (EngineCore pid=391334) ERROR 07-23 21:03:03 [core.py:1231]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 (EngineCore pid=391334) ERROR 07-23 21:03:03 [core.py:1231] AssertionError: Tried to load weights of size torch.Size([2048, 10240])to a parameter of size torch.Size([2048, 4096])
+```
 
 
 

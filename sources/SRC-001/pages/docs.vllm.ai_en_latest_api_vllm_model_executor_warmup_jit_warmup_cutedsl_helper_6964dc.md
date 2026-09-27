@@ -19,6 +19,7 @@ Methods:
 ## Source code in `vllm/model_executor/warmup/jit_warmup_cutedsl_helper.py`
 
 
+```python
 | class VllmCuTeDSLJitKernel(VllmJitKernel[CompileKeyT], Generic[CompileKeyT]):
 """CuTeDSL owner whose compiled executor is shared by warmup and runtime."""
 kernel: ClassVar[Any]
@@ -47,6 +48,7 @@ if len(launch_spec) == 4:
 return launch_spec[3]()
 return launch_spec[2] if len(launch_spec) == 3 else result
 |
+```
 
 Return fake arguments that compile one executor specialization.
 
@@ -54,7 +56,9 @@ Return fake arguments that compile one executor specialization.
 
 
 | @abstractmethod
+```python
 def warmup_inputs(self, compile_key: CompileKeyT) -> tuple[Any, ...]:
 """Return fake arguments that compile one executor specialization."""
 raise NotImplementedError
 |
+```

@@ -36,8 +36,10 @@ accepts a JSON object. Its fields are `log_level`
 
 . For example:
 
+```json
 vllm serve mistralai/Mistral-7B-v0.1 \
 --logging-config '{"log_level":"DEBUG","configure_logging":true}'
+```
 
 
 Fields can also be set individually with dotted arguments:
@@ -101,6 +103,7 @@ For this example, we will customize the vLLM root logger to use [ python-json-lo
 
 ## /path/to/logging_config.json
 
+```json
 {
 "formatters": {
 "json": {
@@ -125,12 +128,15 @@ For this example, we will customize the vLLM root logger to use [ python-json-lo
 },
 "version": 1
 }
+```
 
 
 Finally, run vLLM with the custom logging configuration JSON file:
 
+```bash
 vllm serve mistralai/Mistral-7B-v0.1 --max-model-len 2048 \
 --logging-config.pylogging_config_file /path/to/logging_config.json
+```
 
 
 Each vLLM log record is one JSON object and includes `vllm_process_name`
@@ -171,6 +177,7 @@ First, create an appropriate JSON logging configuration file that includes confi
 
 ## /path/to/logging_config.json
 
+```json
 {
 "formatters": {
 "vllm": {
@@ -199,12 +206,15 @@ First, create an appropriate JSON logging configuration file that includes confi
 },
 "version": 1
 }
+```
 
 
 Finally, run vLLM with the custom logging configuration JSON file:
 
+```bash
 vllm serve mistralai/Mistral-7B-v0.1 --max-model-len 2048 \
 --logging-config.pylogging_config_file /path/to/logging_config.json
+```
 
 
 ### Example 3: Disable vLLM default logging configuration[¶](https://docs.vllm.ai#example-3-disable-vllm-default-logging-configuration)
@@ -213,8 +223,10 @@ To disable vLLM's default logging configuration and silence vLLM log output, set
 
 when running vLLM. This prevents vLLM from configuring the root vLLM logger, which in turn silences other vLLM loggers unless the application or Python root logger configures a handler.
 
+```bash
 vllm serve mistralai/Mistral-7B-v0.1 --max-model-len 2048 \
 --logging-config.configure_logging false
+```
 
 
 For legacy launch scripts, `VLLM_CONFIGURE_LOGGING=0`
@@ -235,8 +247,10 @@ option.
 
 **Disable access logs for health and metrics endpoints:**
 
+```bash
 vllm serve mistralai/Mistral-7B-v0.1 --max-model-len 2048 \
 --disable-access-log-for-endpoints /health,/metrics,/ping
+```
 
 
 **Common endpoints to consider filtering:**

@@ -4,8 +4,10 @@ lastmod:
 # Struct ov_preprocess_output_tensor_info_t[#](https://docs.openvino.ai#struct-ov-preprocess-output-tensor-info-t)
 
 -
+```rust
 struct ov_preprocess_output_tensor_info_t
 [#](https://docs.openvino.ai#_CPPv434ov_preprocess_output_tensor_info_t) type define
+```
 
 [ov_preprocess_output_tensor_info_t](https://docs.openvino.ai/group__ov__prepostprocess__c__api.html#structov__preprocess__output__tensor__info__t)from ov_preprocess_output_tensor_info
 

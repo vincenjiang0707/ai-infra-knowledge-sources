@@ -21,8 +21,10 @@ The standard vLLM production stack is installed using a Helm chart. You can run 
 
 To install the vLLM production stack, run the following commands on your desktop:
 
+```bash
 sudo helm repo add vllm https://vllm-project.github.io/production-stack
 sudo helm install vllm vllm/vllm-stack -f tutorials/assets/values-01-minimal-example.yaml
+```
 
 
 This will instantiate a vLLM-production-stack-based deployment named `vllm`
@@ -62,6 +64,7 @@ To send an actual chatting request, you can issue a curl request to the OpenAI `
 
 endpoint:
 
+```json
 curl -X POST http://localhost:30080/v1/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -69,6 +72,7 @@ curl -X POST http://localhost:30080/v1/completions \
 "prompt": "Once upon a time,",
 "max_tokens": 10
 }'
+```
 
 
 ## Output

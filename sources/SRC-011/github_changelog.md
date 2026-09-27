@@ -19679,9 +19679,11 @@ Add fast matrix and matrix/vector multiplication.
 
 ---------
 
+```yaml
 Co-authored-by: Neha Abbas <nehaabbas@macbookpro.lan>
 Co-authored-by: Neha Abbas <nehaabbas@ReeseLevines-MacBook-Pro.local>
 Co-authored-by: Reese Levine <reeselevine1@gmail.com>
+```
 
 * Comment on dawn toggles
 
@@ -20417,8 +20419,10 @@ Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
 
 * fix: Type fixes
 
+```yaml
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 
@@ -20460,8 +20464,10 @@ Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
 
 ---------
 
+```yaml
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -20953,10 +20959,12 @@ Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 
 ---------
 
+```yaml
 Co-authored-by: Phylliida <phylliidadev@gmail.com>
 Co-authored-by: Ruben Ortlam <picard12@live.de>
 Co-authored-by: Aman Gupta <amangupta052@gmail.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -21947,8 +21955,10 @@ Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 
 ---------
 
+```yaml
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -22328,8 +22338,10 @@ Feature scope:
 - Keep config.ini auto-creation and template generation
 - Preserve per-model customization logic
 
+```yaml
 Co-authored-by: aldehir <aldehir@users.noreply.github.com>
 Co-authored-by: ngxson <ngxson@users.noreply.github.com>
+```
 
 * server: adopt aldehir's line-oriented PEG parser
 
@@ -22400,10 +22412,12 @@ Co-authored-by: aldehir <hello@alde.dev>
 
 ---------
 
+```yaml
 Co-authored-by: aldehir <aldehir@users.noreply.github.com>
 Co-authored-by: ngxson <ngxson@users.noreply.github.com>
 Co-authored-by: Xuan Son Nguyen <son@huggingface.co>
 Co-authored-by: aldehir <hello@alde.dev>
+```
 
 </details>
 
@@ -22831,8 +22845,10 @@ Signed-off-by: Wang Yang <yangwang@iscas.ac.cn>
 
 ---------
 
+```yaml
 Signed-off-by: Wang Yang <yangwang@iscas.ac.cn>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -24659,8 +24675,10 @@ Testing:
 
 ---------
 
+```yaml
 Co-authored-by: ytian218 <ytian218@bloomberg.net>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -25873,9 +25891,11 @@ arg: fix order to use short form before long form (#18196)
 
 * arg: address review feedback from ngxson
 
+```yaml
 simplified to check first.length() <= last.length() only
 fixed: --sampler-seq, --rerank, --draft ordering
 note: middle positions in 3+ arg sets are not verified
+```
 
 * arg: update doc
 
@@ -27251,8 +27271,10 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 
 ---------
 
+```yaml
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 Co-authored-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 </details>
 
@@ -27866,8 +27888,10 @@ CANN: implement the SSM_CONV operator (#17737)
 
 * CANN: implement SSM_CONV operator
 
+```yaml
 Co-authored-by: Aleksei Lobanov, <zeromarblectm@gmail.com>
 Co-authored-by: Sujin Kang, <waterjin326@gmail.com>
+```
 
 * CANN: remove custom error limit for SSM_CONV
 
@@ -28594,8 +28618,10 @@ model : Plamo3 support (#17304)
 
 ---------
 
+```yaml
 Co-authored-by: mmngays <146910567+mmngays@users.noreply.github.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
+```
 
 </details>
 
@@ -29759,8 +29785,10 @@ model: support youtu-vl model (#18479)
 
 ---------
 
+```yaml
 Co-authored-by: Xuan-Son Nguyen <son@huggingface.co>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
+```
 
 </details>
 
@@ -30995,9 +31023,11 @@ Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
 
 ---------
 
+```yaml
 Co-authored-by: Jiacheng (Jason) Chen <76919340+jiachengjason@users.noreply.github.com>
 Co-authored-by: jiachengjason <jasonchen.jiacheng@gmail.com>
 Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
+```
 
 </details>
 
@@ -31841,8 +31871,10 @@ Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 
 ---------
 
+```yaml
 Co-authored-by: jtischbein <jtischbein@gmail.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -32151,9 +32183,11 @@ Add fast matrix and matrix/vector multiplication.
 
 ---------
 
+```yaml
 Co-authored-by: Neha Abbas <nehaabbas@macbookpro.lan>
 Co-authored-by: Neha Abbas <nehaabbas@ReeseLevines-MacBook-Pro.local>
 Co-authored-by: Reese Levine <reeselevine1@gmail.com>
+```
 
 * Comment on dawn toggles
 
@@ -32213,8 +32247,10 @@ Co-authored-by: Xuan Son Nguyen <son@huggingface.co>
 
 ---------
 
+```yaml
 Co-authored-by: Neha Abbas <nehaabbas@eduroam-169-233-141-223.ucsc.edu>
 Co-authored-by: Reese Levine <reeselevine1@gmail.com>
+```
 
 * Start work on flash attention
 
@@ -33686,8 +33722,10 @@ HIP: add fattn-mma-f16 for RDNA4 (#18481)
 
 ---------
 
+```yaml
 Co-authored-by: zhang hui <you@example.com>
 Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
+```
 
 </details>
 
@@ -34786,8 +34824,10 @@ no functional changes
 
 * `pending_token_idx`: switch from `llama_token` to `int32`
 
+```
 functionally identical (`llama.h` has `typedef int32_t llama_token;`),
 but its more correct now
+```
 
 * don't transform logits <= -1e9f
 
@@ -34946,8 +34986,10 @@ The feature was implemented by YushengZhao. Because the previous
 submission was based on an outdated codebase, this PR was rebased to
 merge.
 
+```yaml
 Co-authored-by: YushengZhao <yusheng.chao@outlook.com>
 Co-authored-by: hipudding <huafengchun@gmail.com>
+```
 
 * CANN: optimize OP gla
 
@@ -34957,8 +34999,10 @@ Optimize gla for high preformance
 
 ---------
 
+```yaml
 Co-authored-by: 赵禹昇 <2501112001@cninfer02.localdomain>
 Co-authored-by: YushengZhao <yusheng.chao@outlook.com>
+```
 
 </details>
 
@@ -35370,9 +35414,11 @@ sorry :)
 
 ---------
 
+```yaml
 Co-authored-by: Alde Rojas <hello@alde.dev>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -36406,8 +36452,10 @@ Co-authored-by: Xuan-Son Nguyen <thichthat@gmail.com>
 
 ---------
 
+```yaml
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 Co-authored-by: Xuan-Son Nguyen <thichthat@gmail.com>
+```
 
 </details>
 
@@ -38203,8 +38251,10 @@ Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 
 ---------
 
+```yaml
 Signed-off-by: Alberto Cabrera <alberto.cabrera@liquid.ai>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -38491,11 +38541,13 @@ commit aa1c9b2f8877a405470ca56709c42a1fd43713de
 Author: James Contini <jamescontini@gmail.com>
 Date:   Tue Sep 30 23:55:27 2025 -0700
 
+```yaml
     neg f16xf32xip builds and runs, havent actually ran a model that uses neg kernel yet though
 
 Co-authored-by: James Contini <jamescontini@gmail.com>
 Co-authored-by: Neha Abbas <neabbas@ucsc.edu>
 Co-authored-by: Abhijit Ramesh <abhijitramesh2k@gmail.com>
+```
 
 * Remove extra code and format
 
@@ -39037,8 +39089,10 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 
 ---------
 
+```yaml
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
+```
 
 </details>
 
@@ -39893,9 +39947,11 @@ Signed-off-by: Aaron Teo <aaron.teo1@ibm.com>
 
 ---------
 
+```yaml
 Signed-off-by: Aaron Teo <aaron.teo1@ibm.com>
 Co-authored-by: Your Name <you@example.com>
 Co-authored-by: Aaron Teo <aaron.teo1@ibm.com>
+```
 
 </details>
 
@@ -40318,19 +40374,23 @@ with troubleshooting.
 
 before:
 
+```json
 Error: {
   code = 400,
   message = "model not found",
   type = "invalid_request_error"
 }
+```
 
 After:
 
+```json
 Error: {
   code = 400,
   message = "model 'toto' not found",
   type = "invalid_request_error"
 }
+```
 
 </details>
 
@@ -42082,8 +42142,10 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 
 ---------
 
+```yaml
 Co-authored-by: lvyichen <lvyichen@stepfun.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
+```
 
 </details>
 
@@ -43111,8 +43173,10 @@ Co-authored-by: Yarden Tal <yardent@qti.qualcomm.com>
 
 ---------
 
+```yaml
 Co-authored-by: Yarden Tal <yardent@qti.qualcomm.com>
 Co-authored-by: Manohara Hosakoppa Krishnamurthy <mhosakop@qti.qualcomm.com>
+```
 
 </details>
 
@@ -44623,8 +44687,10 @@ llama : update LoRA API. + fix excessive graph reserves (#19280)
 
 ---------
 
+```yaml
 Co-authored-by: Jake Chavis <jakechavis6@gmail.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -45967,8 +46033,10 @@ ggml webgpu: shader library organization (#19530)
 
 ---------
 
+```yaml
 Co-authored-by: Neha Abbas <nehaabbas@ReeseLevines-MacBook-Pro.local>
 Co-authored-by: Reese Levine <reeselevine1@gmail.com>
+```
 
 * Start work on all-encompassing shader library
 
@@ -46074,8 +46142,10 @@ server: save generated text for the /slots endpoint (for LLAMA_SERVER_SLOTS_DEBU
 
 ---------
 
+```yaml
 Co-authored-by: Matteo <matteo@matteo>
 Co-authored-by: Xuan-Son Nguyen <thichthat@gmail.com>
+```
 
 </details>
 
@@ -46745,8 +46815,10 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 
 ---------
 
+```yaml
 Co-authored-by: Xuan Son Nguyen <son@huggingface.co>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
+```
 
 </details>
 
@@ -47207,8 +47279,10 @@ Co-authored-by: Aman Gupta <amangupta052@gmail.com>
 
 ---------
 
+```yaml
 Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
 Co-authored-by: Aman Gupta <amangupta052@gmail.com>
+```
 
 </details>
 
@@ -49147,9 +49221,11 @@ Ref: https://github.com/ggml-org/llama.cpp/issues/17917
 - Replace #define FATTN_WARP_SIZE with constexpr int warp_size =
   ggml_cuda_get_physical_warp_size() in each device function
 - Use ne[1]*gqa_ratio threshold for MMA vs tile dispatch. Benchmarked
+```bash
   crossover on MI300X @ d32768 with power-of-2 GQA models:
     hsk=64  (Llama 1B, gqa=4): MMA wins at eff >= 128 (+11%)
     hsk=128 (Llama 3B, gqa=4): MMA wins at eff >= 128 (+4%)
+```
   Unified threshold: eff_nq >= 128 for all head sizes.
 - Remove VEC fallback; small batches fall through to tile kernel
 
@@ -52554,8 +52630,10 @@ ggml webgpu: faster normal quant and some k-quant matrix operations, better shad
 
 ---------
 
+```yaml
 Co-authored-by: Neha Abbas <nehaabbas@ReeseLevines-MacBook-Pro.local>
 Co-authored-by: Reese Levine <reeselevine1@gmail.com>
+```
 
 * Start work on all-encompassing shader library
 
@@ -52916,8 +52994,10 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 
 ---------
 
+```yaml
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 Co-authored-by: Alde Rojas <hello@alde.dev>
+```
 
 </details>
 
@@ -53026,8 +53106,10 @@ llama : add support for Nemotron 3 Super (#20411)
 This commit adds support for the Nemotron 3 Super model (120B.A12B)
 enabling this model to be converted to GGUF format and run in llama.cpp.
 
+```yaml
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 Co-authored-by: Matt Clayton <156335168+mattjcly@users.noreply.github.com>
+```
 
 </details>
 
@@ -53325,8 +53407,10 @@ Supports both GDA (scalar gate) and KDA (per-row gate) modes
 with head_size 64 and 128. Unsupported configurations (head_size
 32, non-contiguous tensors) gracefully fall back to CPU.
 
+```yaml
 Performance: Qwen3.5-0.8B Q4_K_M on M4 Max
   tg128: 170 -> 213 t/s (+25%)
+```
 
 Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
 
@@ -53344,8 +53428,10 @@ Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
 
 ---------
 
+```yaml
 Co-authored-by: Paul Flynn <paul@arkavo.com>
 Co-authored-by: Claude Opus 4.6 <noreply@anthropic.com>
+```
 
 * CUDA: AR gated delta net improvements (#20391)
 
@@ -53390,11 +53476,13 @@ Co-authored-by: uvos <devnull@uvos.xyz>
 
 ---------
 
+```yaml
 Co-authored-by: Aman Gupta <amangupta052@gmail.com>
 Co-authored-by: Paul Flynn <paul@arkavo.com>
 Co-authored-by: Claude Opus 4.6 <noreply@anthropic.com>
 Co-authored-by: Oliver Simons <osimons@nvidia.com>
 Co-authored-by: uvos <devnull@uvos.xyz>
+```
 
 </details>
 
@@ -53774,8 +53862,10 @@ Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
 
 ---------
 
+```yaml
 Co-authored-by: Progeny Alpha <ProgenyAlpha@users.noreply.github.com>
 Co-authored-by: Claude Opus 4.6 <noreply@anthropic.com>
+```
 
 </details>
 
@@ -53863,8 +53953,10 @@ Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
 
 ---------
 
+```yaml
 Co-authored-by: Progeny Alpha <ProgenyAlpha@users.noreply.github.com>
 Co-authored-by: Claude Opus 4.6 <noreply@anthropic.com>
+```
 
 </details>
 
@@ -54210,9 +54302,11 @@ Co-authored-by: Rehan Qasim <rehan.qasim@10xengineers.ai>
 
 ---------
 
+```yaml
 Co-authored-by: taimur-10x <taimur.ahmad@10xengineers.ai>
 Co-authored-by: Rehan Qasim <rehan.qasim@10xengineers.ai>
 Co-authored-by: Rehan Qasim <rehanbhatti0317@gmail.com>
+```
 
 </details>
 
@@ -54434,9 +54528,11 @@ Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
 
 ---------
 
+```yaml
 Co-authored-by: Paul Flynn <paul@arkavo.com>
 Co-authored-by: Claude Opus 4.6 <noreply@anthropic.com>
 Co-authored-by: Oliver Simons <osimons@nvidia.com>
+```
 
 </details>
 
@@ -54474,19 +54570,23 @@ tools : enable kvu in perplexity for hellaswag, winogrande, multiple-choice (#19
 
 llama-perplexity -hf unsloth/Qwen3-0.6B-GGUF:Q4_K_M -f winogrande-debiased-eval.csv --winogrande
 
+```yaml
     winogrande_score : tokenizing selected tasks
     winogrande_score : calculating winogrande score over selected tasks.
     split_equal: sequential split is not supported when there are coupled sequences in the input batch (you may need to use the -kvu flag)
     decode: failed to find a memory slot for batch of size 46
     failed to decode the batch, n_batch = 2048, ret = 1
     winogrande_score: llama_decode() failed
+```
 
 same for hellaswag:
 
+```yaml
     split_equal: sequential split is not supported when there are coupled sequences in the input batch (you may need to use the -kvu flag)
     decode: failed to find a memory slot for batch of size 99
     failed to decode the batch, n_batch = 2048, ret = 1
     hellaswag_score: llama_decode() failed
+```
 
 Signed-off-by: Adrien Gallouët <angt@huggingface.co>
 
@@ -55102,6 +55202,7 @@ Co-authored-by: Yamini Nimmagadda <yamini.nimmagadda@intel.com>
 
 ---------
 
+```yaml
 Co-authored-by: Ravi Panchumarthy <ravi.panchumarthy@intel.com>
 Co-authored-by: Cavus Mustafa <mustafa.cavus@intel.com>
 Co-authored-by: Arshath <arshath.ramzan@intel.com>
@@ -55109,6 +55210,7 @@ Co-authored-by: XuejunZhai <Xuejun.Zhai@intel.com>
 Co-authored-by: Yamini Nimmagadda <yamini.nimmagadda@intel.com>
 Co-authored-by: Xuejun Zhai <Xuejun.Zhai@intel>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -55765,8 +55867,10 @@ Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
 
 ---------
 
+```yaml
 Co-authored-by: moonshadow-25 <moonshadow-25@users.noreply.github.com>
 Co-authored-by: Claude Sonnet 4.6 <noreply@anthropic.com>
+```
 
 </details>
 
@@ -57479,6 +57583,7 @@ GBNF support to ripgrep-edit.
 
 llama-server reproducer:
 
+```json
 curl \
   -X POST \
   -d '{
@@ -57487,6 +57592,7 @@ curl \
   }' \
   -H "Content-Type: application/json" \
   http://localhost:8811/v1/chat/completions
+```
 
 * grammar: prevent stack overflow with nullable symbol loop
 
@@ -57572,6 +57678,7 @@ found while adding GBNF support to ripgrep-edit.
 
 llama-server reproducer:
 
+```json
 curl \
   -X POST \
   -d '{
@@ -57580,6 +57687,7 @@ curl \
   }' \
   -H "Content-Type: application/json" \
   http://localhost:8811/v1/chat/completions
+```
 
 * grammar: add repetition threshold check
 
@@ -58098,8 +58206,10 @@ fix(openvino): explicit memset in buffer_context allocation (#20857)
 
 ---------
 
+```yaml
 Co-authored-by: Dan Hoffman <dhoffman@cyket.net>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -59425,10 +59535,12 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 
 ---------
 
+```yaml
 Co-authored-by: bluebread <hotbread70127@gmail.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 Co-authored-by: Xuan Son Nguyen <son@huggingface.co>
 Co-authored-by: Xuan-Son Nguyen <thichthat@gmail.com>
+```
 
 </details>
 
@@ -60187,6 +60299,7 @@ Signed-off-by: Adrien Gallouët <angt@huggingface.co>
 
 * Add --reuse-port
 
+```json
     $ strace -e trace=setsockopt,bind build/bin/llama-server -lv 2 --reuse-port
     setsockopt(3, SOL_TCP, TCP_NODELAY, [1], 4) = 0
     setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
@@ -60197,6 +60310,7 @@ Signed-off-by: Adrien Gallouët <angt@huggingface.co>
     setsockopt(3, SOL_TCP, TCP_NODELAY, [1], 4) = 0
     setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
     bind(3, {sa_family=AF_INET, sin_port=htons(8080), sin_addr=inet_addr("127.0.0.1")}, 16) = 0
+```
 
 Signed-off-by: Adrien Gallouët <angt@huggingface.co>
 
@@ -60752,8 +60866,10 @@ Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 
 ---------
 
+```yaml
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 Co-authored-by: Aleksander Grygier <aleksander.grygier@gmail.com>
+```
 
 </details>
 
@@ -62422,8 +62538,10 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 
 ---------
 
+```yaml
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
+```
 
 </details>
 
@@ -62625,8 +62743,10 @@ compute graph on the server side. This partially addresses a memory leak
 created by the CUDA backend due to using buffer addresses as cache
 keys.
 
+```yaml
 ref: #21265
 ref: #20315
+```
 
 </details>
 
@@ -63330,8 +63450,10 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 
 ---------
 
+```yaml
 Co-authored-by: Xuan-Son Nguyen <thichthat@gmail.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
+```
 
 </details>
 
@@ -64290,9 +64412,11 @@ Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
 
 ---------
 
+```yaml
 Co-authored-by: iacopPBK <iacopPBK@users.noreply.github.com>
 Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
 Co-authored-by: iacopPBK <iacop@deneb.com>
+```
 
 </details>
 
@@ -64914,8 +65038,10 @@ Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
 
 ---------
 
+```yaml
 Co-authored-by: realorko <realorko@nowhere.com>
 Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
+```
 
 </details>
 
@@ -65695,9 +65821,11 @@ Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
 
 ---------
 
+```yaml
 Co-authored-by: Carl Philipp Klemm <carl@uvos.xyz>
 Co-authored-by: Gaurav Garg <gaugarg@nvidia.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -66490,8 +66618,10 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 
 ---------
 
+```yaml
 Co-authored-by: Trivikram Reddy <tamarnat@qti.qualcomm.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
+```
 
 </details>
 
@@ -67185,21 +67315,25 @@ we have to go for the slower DeviceSegmentedRadixSort in that case.
 Perf numbers on RTX Pro 6000 Blackwell Max-Q:
 DeviceSegmentedRadixSort in graph mode (i.e. CUDA Graphs)
 
+```
   ARGSORT(type=f32,ne=[2048,512,1,1],order=1):                 12291 runs -   105.94 us/run -     8192 kB/run -   73.75 GB/s
   ARGSORT(type=f32,ne=[4096,512,1,1],order=1):                 10245 runs -   115.08 us/run -    16384 kB/run -  135.77 GB/s
   ARGSORT(type=f32,ne=[8192,512,1,1],order=1):                  5125 runs -   221.22 us/run -    32768 kB/run -  141.26 GB/s
   ARGSORT(type=f32,ne=[16384,512,1,1],order=1):                 2565 runs -   430.98 us/run -    65536 kB/run -  145.02 GB/s
   ARGSORT(type=f32,ne=[32768,512,1,1],order=1):                 1028 runs -  1185.83 us/run -   131072 kB/run -  105.41 GB/s
   ARGSORT(type=f32,ne=[65536,512,1,1],order=1):                  387 runs -  2748.62 us/run -   262144 kB/run -   90.95 GB/s
+```
 
 DeviceSegmentedSort in immediate mode
 
+```
   ARGSORT(type=f32,ne=[2048,512,1,1],order=1):                 16388 runs -    71.17 us/run -     8192 kB/run -  109.78 GB/s
   ARGSORT(type=f32,ne=[4096,512,1,1],order=1):                 12294 runs -    81.38 us/run -    16384 kB/run -  192.00 GB/s
   ARGSORT(type=f32,ne=[8192,512,1,1],order=1):                  5125 runs -   240.81 us/run -    32768 kB/run -  129.77 GB/s
   ARGSORT(type=f32,ne=[16384,512,1,1],order=1):                 2565 runs -   406.60 us/run -    65536 kB/run -  153.71 GB/s
   ARGSORT(type=f32,ne=[32768,512,1,1],order=1):                 1285 runs -   873.23 us/run -   131072 kB/run -  143.15 GB/s
   ARGSORT(type=f32,ne=[65536,512,1,1],order=1):                  516 runs -  2288.46 us/run -   262144 kB/run -  109.24 GB/s
+```
 
 * Add test case for dispatch to DeviceSegmentedRadixSort
 
@@ -68058,9 +68192,11 @@ Co-authored-by: Max Krasnyansky <max.krasnyansky@gmail.com>
 
 ---------
 
+```yaml
 Co-authored-by: Kim-Chyan Gan <kgan@qti.qualcomm.com>
 Co-authored-by: Max Krasnyansky <maxk@qti.qualcomm.com>
 Co-authored-by: Max Krasnyansky <max.krasnyansky@gmail.com>
+```
 
 </details>
 
@@ -68619,8 +68755,10 @@ Co-authored-by: Rehan Qasim <rehan.qasim@10xengineers.ai>
 
 ---------
 
+```yaml
 Co-authored-by: taimur-10x <taimur.ahmad@10xengineers.ai>
 Co-authored-by: Rehan Qasim <rehan.qasim@10xengineers.ai>
+```
 
 </details>
 
@@ -70364,8 +70502,10 @@ ggml-webgpu: updated matrix-vector multiplication (#21738)
 
 ---------
 
+```yaml
 Co-authored-by: Neha Abbas <nehaabbas@ReeseLevines-MacBook-Pro.local>
 Co-authored-by: Reese Levine <reeselevine1@gmail.com>
+```
 
 </details>
 
@@ -70988,9 +71128,11 @@ openvino: driver setup, CI split, thread safety, and NPU optimizations (#21944)
 
 ---------
 
+```yaml
 Co-authored-by: Mustafa Cavus <mustafa.cavus@intel.com>
 Co-authored-by: Dan Hoffman <dhoff749@gmail.com>
 Co-authored-by: Ravi Panchumarthy <ravi.panchumarthy@intel.com>
+```
 
 </details>
 
@@ -71148,9 +71290,11 @@ In current llama.cpp, this means setting:
 
 This commit removes a couple of unnecessary changes for the PR scope:
 1. BPE decoder bug fix - this affects reka edge because there's a bug
+```bash
 in our tokenization that doesn't represent <think> tokens as special
 tokens. However this isn't meant to be a thinking model so when run
 with --reasoning off the edge case does not affect us
+```
 
 2. --chat-template-file support from llama-mtmd-cli - the focus is on
 llama-server and the reka edge gguf contains the necessary metadata
@@ -72478,8 +72622,10 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 
 ---------
 
+```yaml
 Co-authored-by: Trivikram Reddy <tamarnat@qti.qualcomm.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
+```
 
 </details>
 
@@ -72524,10 +72670,12 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 
 cli: Remove redundant local sampling variables (#20429) (#22264)
 
+```rust
 This change implements the third requested change in issue 20429.
 Because defaults.sampling contains the reasoning budget token count and
 the reasoning budget message, it's not necessary to assign them to
 struct variables.
+```
 
 </details>
 
@@ -74234,8 +74382,10 @@ Optimizations:
 - SET_ROWS: replace IndexCopy with InplaceIndexCopy per batch slice;
   refactor helper into scatter_batched lambda with batch loop inlined
 - OUT_PROD: replace O(ne[3]*ne[2]*ne[1]) Ger+InplaceAdd loop with
+```bash
   per-slice Matmul loop (src0 @ src1^T); handles strided-broadcast
   batch dims where ne02/ne03 may differ from ne2/ne3
+```
 - backend memset_tensor: implement via aclrtMemset (was NULL)
 
 Bug fixes:
@@ -74246,8 +74396,10 @@ Bug fixes:
   missing type checks, causing F16 and BF16 tensors (same nb[0]=2) to
   incorrectly share cached graphs and produce wrong results (ERR≈679)
 - graph cache op_params matching: compare full GGML_MAX_OP_PARAMS
+```
   bytes so that ops differing only in parameters are not incorrectly
   replayed from cache
+```
 
 </details>
 
@@ -75151,8 +75303,10 @@ Co-authored-by: Aaron Teo <taronaeo@gmail.com>
 
 ---------
 
+```yaml
 Signed-off-by: Shalini Salomi Bodapati <Shalini.Salomi.Bodapati@ibm.com>
 Co-authored-by: Aaron Teo <taronaeo@gmail.com>
+```
 
 </details>
 
@@ -76114,8 +76268,10 @@ Switches three single-instruction helpers from inline asm to the matching
 Q6_ intrinsics, matching the style established by aizip f8737609a and used
 by the upstream PR #21554 hmx-matmul-ops.c rewrite:
 
+```
   hmx_set_output_scales       asm "bias=mxmem2"  -> Q6_bias_mxmem2_A
   hmx_load_tile_pair_fp16     asm packet         -> Q6_activation_hf_mxmem_RR
+```
                                                     + Q6_weight_hf_mxmem_RR
   hmx_consume_accumulator_fp16 asm "mxmem=acc"   -> Q6_mxmem_AR_after_hf
 
@@ -76196,8 +76352,10 @@ hs ∈ {64, 128}.
   output double-buffer + worker dispatch when there is no HMX/HVX
   overlap to gain (e.g. shapes that collapse to one n-chunk).
 - tests: add HMX flash-attention coverage over the
+```bash
   {mask, ALiBi (max_bias), logit_softcap} cross-product for the prefill
   path — head_dim 64/128, GQA 4×4, kv=512/nb=64 plus a kv=113/nb=32
+```
   non-aligned case.
 
 * [Help Wanted]: refactor D matrix computation into separate function for clarity and maintainability
@@ -77803,8 +77961,10 @@ Signed-off-by: tc-mb <tianchi_cai@icloud.com>
 
 ---------
 
+```yaml
 Signed-off-by: tc-mb <tianchi_cai@icloud.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
+```
 
 </details>
 
@@ -78136,10 +78296,12 @@ Signed-off-by: Todd Malsbary <todd.malsbary@intel.com>
 
 ---------
 
+```yaml
 Signed-off-by: Chun Tao <chun.tao@intel.com>
 Signed-off-by: Todd Malsbary <todd.malsbary@intel.com>
 Co-authored-by: Chun Tao <chun.tao@intel.com>
 Co-authored-by: Todd Malsbary <todd.malsbary@intel.com>
+```
 
 </details>
 
@@ -78844,8 +79006,10 @@ Signed-off-by: ynankani <ynankani@nvidia.com>
 
 ---------
 
+```yaml
 Signed-off-by: ynankani <ynankani@nvidia.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
+```
 
 </details>
 
@@ -79103,9 +79267,11 @@ Signed-off-by: Chun Tao <chun.tao@intel.com>
 
 ---------
 
+```yaml
 Signed-off-by: Chun Tao <chun.tao@intel.com>
 Co-authored-by: Chun Tao <chun.tao@intel.com>
 Co-authored-by: Todd Malsbary <todd.malsbary@intel.com>
+```
 
 </details>
 
@@ -80033,10 +80199,12 @@ Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 
 * ggml-cuda: drop unused-function warning by guarding try_allreduce_nccl behind GGML_USE_NCCL
 
+```
 The only call site (in init_nccl) is already inside #ifdef GGML_USE_NCCL,
 so the function is unreferenced in non-NCCL builds and trips
 nvcc's -Werror=unused-function check.  Move the guard from inside the
 function body to around the entire definition.
+```
 
 Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 ce
@@ -80532,8 +80700,10 @@ spec : parallel drafting support (#22838)
 * spec : allow for multiple spec types (chain of speculators)
 
 * replace old type field of type common_speculative_type in the
+```
   common_params_speculative struct with a vector to allow multiple
   types to be specified
+```
 
 * introduce common_get_enabled_speculative_impls(const std::vector<enum common_speculative_type>)
   to figure out which implementations the user has enabled
@@ -81847,8 +82017,10 @@ Co-authored-by: Neo Zhang <zhang.jianyu@outlook.com>
 
 ---------
 
+```yaml
 Co-authored-by: Claude Opus 4.6 (1M context) <noreply@anthropic.com>
 Co-authored-by: Neo Zhang <zhang.jianyu@outlook.com>
+```
 
 </details>
 
@@ -81910,8 +82082,10 @@ Closes #21919.
 
 ---------
 
+```yaml
 Co-authored-by: Kabir <kabir@example.com>
 Co-authored-by: Alde Rojas <hello@alde.dev>
+```
 
 </details>
 
@@ -83355,9 +83529,11 @@ cmake : fix LLAMA_BUILD_UI logic (#23190)
 
 feat: Support d_conv=15 for ssm-conv.cu (#23017)
 
+```yaml
 Branch: ModalityConditionalAdapters
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 </details>
 
@@ -83402,8 +83578,10 @@ Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
 
 sycl: route small f32 matmuls to oneMKL, bypass oneDNN (#22150)
 
+```yaml
 Signed-off-by: Chun Tao <chun.tao@intel.com>
 Co-authored-by: Chun Tao <chun.tao@intel.com>
+```
 
 </details>
 
@@ -83448,8 +83626,10 @@ Co-authored-by: Chun Tao <chun.tao@intel.com>
 
 sycl: scalar SWAR byte-subtract in Q6_K MMVQ dot product (#22156)
 
+```yaml
 Signed-off-by: Chun Tao <chun.tao@intel.com>
 Co-authored-by: Chun Tao <chun.tao@intel.com>
+```
 
 </details>
 
@@ -83716,8 +83896,10 @@ hexagon: add support for TRI op (#22822)
 
 ---------
 
+```yaml
 Co-authored-by: Todor Boinovski <todorb@qti.qualcomm.com>
 Co-authored-by: Max Krasnyansky <maxk@qti.qualcomm.com>
+```
 
 </details>
 
@@ -84955,12 +85137,16 @@ to <oov>.
   emit_dna_kmers) factored out for unit testing — no llama_vocab
   dependency, vocab access goes through a std::function.
 * conversion/base.py: detect HybridDNATokenizer by class name in
+```
   get_vocab_base_pre (chktxt collides with Qwen3 base since it
   has no <dna>), and pass trust_remote_code=True in get_vocab_base
   so the custom tokenizer class can load.
+```
 * tests/test-tokenizer-carbon.cpp: 12 cases covering single 6-mer,
+```
   multi 6-mer, lowercase, invalid base -> <oov>, partial k-mer
   right-pad, mixed text+DNA, empty <dna></dna>, unterminated <dna>,
+```
   two regions, vocab miss.
 
 * vocab : align Carbon-3B changes with llama.cpp conventions
@@ -84971,16 +85157,20 @@ to <oov>.
   llama-vocab.cpp.
 
 * Replace the standalone unit test with the conventional
+```bash
   test-tokenizer-0 row backed by models/ggml-vocab-carbon.gguf
   (vocab-only conversion) + .inp/.out fixtures covering single
   6-mer, multi 6-mer, lowercase, invalid base -> <oov>, partial
   right-pad, mixed text+DNA, empty <dna></dna>, unterminated <dna>,
+```
   two regions.
 
 * Register "carbon" in convert_hf_to_gguf_update.py's model list
+```bash
   (pointing at HuggingFaceBio/Carbon-3B) and teach both
   AutoTokenizer call sites in the updater to pass
   trust_remote_code=True for it, matching how t5 is special-cased.
+```
 
 * vocab : move Carbon dispatch to _set_vocab_carbon + LlamaModel branch
 
@@ -86251,9 +86441,11 @@ server: fix checkpoints creation (#22929)
 
 ---------
 
+```yaml
 Co-authored-by: Alde Rojas <hello@alde.dev>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 Co-authored-by: Piotr Wilkin <piotr.wilkin@syndatis.com>
+```
 
 </details>
 
@@ -87710,8 +87902,10 @@ ggml: fixed Arm SVE usage bug in vec.h, vec.cpp (#22841)
 
 Change-Id: I0cb789347f2bf60ffaf9047319f727e788c825f8
 
+```yaml
 Signed-off-by: Martin Klacer <martin.klacer@arm.com>
 Co-authored-by: Milos Puzovic <Milos.Puzovic@arm.com>
+```
 
 </details>
 
@@ -88183,6 +88377,7 @@ Measured on MI250X (gfx90a, ROCm 7.2.1) with Llama-3.2-3B-Instruct,
 llama-bench pp512 across all 20 supported quants, ubatch 1..8, 10 reps.
 Full table in PR description.
 
+```yaml
   Selected pp512 throughput (tok/s, ub=8):
     Q4_K_S:  559 -> 940  (+68%)
     Q5_K_S:  503 -> 884  (+76%)
@@ -88194,6 +88389,7 @@ Full table in PR description.
     Q4_K_S:  444 -> 480  (+ 8%)
     Q4_0  :  682 -> 685  (+ 0%)   (no regression - retains MMVQ)
     IQ4_XS:  706 -> 698  (- 1%)   (no regression - retains MMVQ)
+```
 
 * CUDA: address review — inline MMVQ batch table, drop env hatch & doc block
 
@@ -88257,8 +88453,10 @@ Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
 
 ---------
 
+```yaml
 Co-authored-by: Copilot <copilot@github.com>
 Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
+```
 
 </details>
 
@@ -89075,9 +89273,11 @@ Co-authored-by: ggerganov <ggerganov@users.noreply.github.com>
 
 ---------
 
+```yaml
 Co-authored-by: Stanisław Szymczyk <sszymczy@gmail.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 Co-authored-by: ggerganov <ggerganov@users.noreply.github.com>
+```
 
 </details>
 
@@ -92018,8 +92218,10 @@ Co-authored-by: Rehan Qasim <rehan.qasim@10xengineers.ai>
 
 ---------
 
+```yaml
 Co-authored-by: taimur-10x <taimur.ahmad@10xengineers.ai>
 Co-authored-by: Rehan Qasim <rehan.qasim@10xengineers.ai>
+```
 
 </details>
 
@@ -94373,8 +94575,10 @@ Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
 
 ---------
 
+```yaml
 Co-authored-by: Claude Sonnet 4.6 <noreply@anthropic.com>
 Co-authored-by: Reese Levine <reeselevine1@gmail.com>
+```
 
 </details>
 
@@ -94780,8 +94984,10 @@ preprocessing in another slot.
 
 ---------
 
+```yaml
 Co-authored-by: Christoph Weiss <weiss@wsoptics.de>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -95900,10 +96106,12 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 
 ---------
 
+```yaml
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 Co-authored-by: tnhnyzc <115956684+tnhnyzc@users.noreply.github.com>
 Co-authored-by: Doğaç Eldenk <dogacel@gmail.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
+```
 
 </details>
 
@@ -97481,8 +97689,10 @@ chat: harden peg-native tool call parsing (#24329)
 
 * chat: harden peg-native tool call parsing
 
+```
 accept an optional leading type: function field in
 build_json_tools_flat_keys so openai style tool calls parse on
+```
 templates whose serialization opens on the name field.
 
 return a clean error and log the unparsed fragment on a final peg
@@ -102131,27 +102341,35 @@ model: Granite Speech Plus (#24818)
 
 * feat: Add conversion support for Granite Speech Plus
 
+```yaml
 Branch: GraniteSpeechPlus
 AI-usage: full (Bob, OpenCode + Qwen3.6-35b)
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * feat: Extend granite_speech to support plus multi-layer concatenation
 
+```yaml
 Branch: GraniteSpeechPlus
 AI-usage: draft (Bob, OpenCode + Qwen3.6-35b)
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * fix(conversion): Fix plural naming for feature_layers for audio
 
+```yaml
 Branch: GraniteSpeechPlus
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * fix(mtmd): Align feature_layer usage and naming everywhere
 
+```yaml
 Branch: GraniteSpeechPlus
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * style: Use fstring for log
 
@@ -103449,8 +103667,10 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 
 ---------
 
+```yaml
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@scala.com>
 Co-authored-by: Sigbjørn Skjæret <1629204+CISC@users.noreply.github.com>
+```
 
 </details>
 
@@ -103607,8 +103827,10 @@ vulkan: add INTEL_XE1 arch enum and enable coopmat1 on Intel Xe-LPG Plus (#24404
 
 * vulkan: add INTEL_PRE_XE2 arch enum and enable coopmat1 on Intel Xe-LPG Plus (1/3, Xe1-ARLH)
 
+```yaml
 Co-authored-by: Xia, Jie <jie.xia@intel.com>
 Co-authored-by: Liu, Russell <russell.liu@intel.com>
+```
 
 * Address comments of bf16 and trailing whitespace
 
@@ -103618,8 +103840,10 @@ Co-authored-by: Liu, Russell <russell.liu@intel.com>
 
 ---------
 
+```yaml
 Co-authored-by: Xia, Jie <jie.xia@intel.com>
 Co-authored-by: Liu, Russell <russell.liu@intel.com>
+```
 
 </details>
 
@@ -103792,8 +104016,10 @@ openvino: Update to OV 2026.2.1, self-contained release packages, operator impro
 
 ---------
 
+```yaml
 Co-authored-by: Mostafa <mostafas.main.email@gmail.com>
 Co-authored-by: Xuejun <Xuejun.Zhai@intel.com>
+```
 
 </details>
 
@@ -103905,8 +104131,10 @@ revisited separately anytime.
 
 ---------
 
+```yaml
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
+```
 
 </details>
 
@@ -104673,8 +104901,10 @@ support stays limited to autoparser/diff-analyzer changes.
 
 ---------
 
+```yaml
 Co-authored-by: zhangtao <zhangtao2@modelbest.cn>
 Co-authored-by: 张涛 <>
+```
 
 </details>
 
@@ -105027,11 +105257,13 @@ Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 
 ---------
 
+```yaml
 Co-authored-by: Piotr Wilkin <piotr.wilkin@syndatis.com>
 Co-authored-by: Stanisław Szymczyk <sszymczy@gmail.com>
 Co-authored-by: Xuan Son Nguyen <son@huggingface.co>
 Co-authored-by: fairydreaming <166155368+fairydreaming@users.noreply.github.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -106398,8 +106630,10 @@ per-part whitespace could no longer be reached. Move the trim ahead of
 rendering and apply it to content_parts text as well as the string
 content and reasoning_content. Adds a content-parts regression test.
 
+```yaml
 Co-Authored-By: Piotr Wilkin <ilintar@gmail.com>
 Assisted-By: Claude Fable 5 <noreply@anthropic.com>
+```
 
 ---------
 
@@ -108328,10 +108562,12 @@ should require its own backpropagation implementation. I don't see these
 implemented for the CUDA backend, so we can disable tests to avoid
 triggering GGML_ASSERT for
 
+```python
     ggml_tensor * build_graph(ggml_context * ctx) override {
         GGML_ASSERT(!use_weight_context());
         return build_graph(ctx, nullptr);
     }
+```
 
 * Apply suggestions from code review
 
@@ -108339,8 +108575,10 @@ Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
 
 ---------
 
+```yaml
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
+```
 
 </details>
 
@@ -108665,8 +108903,10 @@ Both issues allow heap-buffer-overflow from malicious T5/UGM GGUF files.
 
 ---------
 
+```yaml
 Co-authored-by: hourhl <hourhl8200@gmail.com>
 Co-authored-by: Sigbjørn Skjæret <1629204+CISC@users.noreply.github.com>
+```
 
 </details>
 
@@ -108826,14 +109066,18 @@ server_stream_ prefix, matching server_stream_session_manager_start/stop.
 
 * server-stream: guard session and manager state with the mutex
 
+```
 address review from ggerganov: make done, completed_ts and the GC running flag plain members under their
 mutex and set the condvar predicates under the lock. keep cancelled atomic for
+```
 the lock-free should_stop poll.
 
 * server-stream: trim comments to the non-obvious
 
+```
 address review from ggerganov: drop comments that restate the code, keep the
 concurrency, lifetime and ordering rationale. de-stale a few comments left by the
+```
 pimpl: g_stream_sessions is now internal and the /v1/streams listing is gone.
 
 * server-stream: update dev docs for the pimpl and prefix
@@ -109044,8 +109288,10 @@ Co-authored-by: Piotr Wilkin (ilintar) <piotr.wilkin@syndatis.com>
 
 ---------
 
+```yaml
 Co-authored-by: Piotr Wilkin <ilintar@gmail.com>
 Co-authored-by: Piotr Wilkin (ilintar) <piotr.wilkin@syndatis.com>
+```
 
 </details>
 
@@ -110165,9 +110411,11 @@ Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
 
 ---------
 
+```yaml
 Co-authored-by: Stanisław Szymczyk <sszymczy@gmail.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
+```
 
 </details>
 
@@ -110870,12 +111118,14 @@ Focusing FA_ext_f16_me
 
 ---------
 
+```yaml
 Co-authored-by: Vidas <vidas@nuolat.lt>
 Co-authored-by: Gianluca Guida <glguida@tlbflush.org>
 Co-authored-by: Gianluca Guida <gianluca@nekko.ai>
 Co-authored-by: ubergarm <leimgrub@gmail.com>
 Co-authored-by: SaqibAkram-10xE <saqib.akram@10xengineers.ai>
 Co-authored-by: Rehan Qasim <rehan.qasim@10xengineers.ai>
+```
 
 </details>
 
@@ -111227,8 +111477,10 @@ mtmd: deepseek-ocr v1 multi-tile (#24717)
 
 ---------
 
+```yaml
 Co-authored-by: Saba Fallah <10401143+sfallah@users.noreply.github.com>
 Co-authored-by: Saba Fallah <sabafallah@gmail.com>
+```
 
 </details>
 
@@ -112819,17 +113071,21 @@ hy_v3): a MoE decoder stack with per-head Q/K RMSNorm, a sigmoid
 router with expert selection bias, an always-active ungated shared
 expert, and leading dense block(s) (first_k_dense_replace).
 
+```
 The base implementation is ported from charlie12345's fork
 (https://github.com/charlie12345/ROCmFPX, src/models/hyv3.cpp),
 adapted to current mainline APIs (hparams.n_layer(), build_qkv,
 build_moe_ffn with fused gate_up + scale tensors, output_s).
+```
 
 Note: blk.N.exp_probs_b is stored without a .bias suffix for
 compatibility with existing hy_v3 GGUFs produced by that fork.
 
+```yaml
 Co-Authored-By: charlie12345 <charlie12345@users.noreply.github.com>
 Co-authored-by: Piotr Wilkin <ilintar@gmail.com>
 Assisted-by: Claude Fable 5
+```
 
 </details>
 
@@ -113719,9 +113975,11 @@ Co-authored-by: maxious <81432+maxious@users.noreply.github.com>
 
 ---------
 
+```yaml
 Co-authored-by: scientist3 <scientist.3@users.noreply.github.com>
 Co-authored-by: hmscider <hmscider@users.noreply.github.com>
 Co-authored-by: maxious <81432+maxious@users.noreply.github.com>
+```
 
 </details>
 
@@ -115302,8 +115560,10 @@ Signed-off-by: Todd Malsbary <todd.malsbary@intel.com>
 
 Error found while running
 
+```bash
   GGML_SYCL_PRIORITIZE_DMMV=1 \
   build/bin/test-backend-ops test -o MUL_MAT
+```
 
 Signed-off-by: Todd Malsbary <todd.malsbary@intel.com>
 
@@ -117815,9 +118075,11 @@ Measured effect on expert offload bound setup: decode 6.2(4WAY)–7.15(MSA_decod
 
 ---------
 
+```yaml
 Co-authored-by: Daniel Han <danielhanchen@gmail.com>
 Co-authored-by: Sigbjørn Skjæret <1629204+CISC@users.noreply.github.com>
 Co-authored-by: Xuan Son Nguyen <son@huggingface.co>
+```
 
 </details>
 
@@ -118712,8 +118974,10 @@ Co-authored-by: YiChen Lv <63285796+forforever73@users.noreply.github.com>
 
 ---------
 
+```yaml
 Co-authored-by: YiChen Lv <63285796+forforever73@users.noreply.github.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -118922,8 +119186,10 @@ Co-authored-by: Gaurav Garg <gaugarg@nvidia.com>
 
 ---------
 
+```yaml
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 Co-authored-by: Gaurav Garg <gaugarg@nvidia.com>
+```
 
 </details>
 
@@ -120784,10 +121050,12 @@ SYCL: add oneMKL GEMM flash attention for XMX-accelerated prompt proc… (#25025
 - Add FA-DISP watchdog (MKL_FA_DEBUG=1) and FA-DIAG output
   fingerprint (MKL_FA_DIAG=1) in fattn.cpp.
 
+```yaml
 Tested: Gemma-4-26B, Gemma-4-31B, Qwen3.6-27B, Qwen3.6-35B-A3B
 Perf (B70/Battlemage, 32K, q8_0 KV):
   Gemma-4-26B:  1473 t/s MKL vs 746 TILE (1.97x)
   Qwen3.6-27B:   609 t/s MKL vs 330 TILE (1.85x)
+```
 
 Co-Authored-By: Claude Code on DeepSeek-v4-Pro
 
@@ -120810,8 +121078,10 @@ Co-Authored-By: Claude Code on DeepSeek-v4-Pro
 * Thank you for the review feedback round 2: use ggml_sycl_get_env, remove dup waits, gate perf macros
 
 - Replace raw getenv() with ggml_sycl_get_env() in all 4 env-var checks
+```
   (fattn.cpp: GGML_SYCL_ENABLE_MKL_FA, GGML_SYCL_MKL_FA_DEBUG,
    GGML_SYCL_MKL_FA_DIAG; fattn-mkl.cpp: GGML_SYCL_MKL_FA_DEBUG)
+```
 - Remove duplicated stream->wait() before ev.wait_and_throw() in GEMM
   KQ and GEMM VKQ — ev.wait_and_throw() already waits for completion
 - Gate MKL_ACCUM macro behind do_print so timing accumulators are
@@ -120890,8 +121160,10 @@ Co-Authored-By: Claude Code using DeepSeek-V4-Pro <noreply@anthropic.com>
 Adding K>=1024 flash-attn test cases surfaced several MKL bugs:
 
 - Quant K/V with a padded seq-view (real KV cache) used the wrong
+```
   strides in the dequant path... only the true Gemma interleave
   layout should reconstruct strides. nb[2] vs ne[1]*nb[1]
+```
 - Gate was firing on shapes the kernel doesn't handle: head_dim < 64
   or not a multiple of 64, MHA, attention sinks, and
   bf16 decode... fell through to vec which no bf16 case.
@@ -120931,8 +121203,10 @@ Co-authored-by: Neo Zhang <zhang.jianyu@outlook.com>
 
 ---------
 
+```yaml
 Co-authored-by: Claude Code using DeepSeek-V4-Pro <noreply@anthropic.com>
 Co-authored-by: Neo Zhang <zhang.jianyu@outlook.com>
+```
 
 </details>
 
@@ -121590,8 +121864,10 @@ cli : persist reasoning_content in chat history (#26362)
 
 * cli : persist reasoning_content in chat history
 
+```bash
 llama-cli collected reasoning from the stream for display but only
 stored assistant content in messages, so --reasoning-preserve could
+```
 not re-inject prior thoughts on later turns.
 
 </details>
@@ -122417,8 +122693,10 @@ Assisted-by: Codex
 
 ---------
 
+```yaml
 Co-authored-by: forforever73 <690105611@qq.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -125270,9 +125548,11 @@ truncated flag
 
 * server: simplify the file_glob_search listing plumbing
 
+```python
 return a small result struct instead of two out params and a caller path
 that only fed an error string, taking list_entries from six parameters
 down to three
+```
 
 scope the error code to the directory being read, act on the status code
 the entry lookups already returned, and treat an unreadable link state as
@@ -125575,11 +125855,13 @@ Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 
 ---------
 
+```yaml
 Signed-off-by: Aaron Teo <aaron.teo1@ibm.com>
 Co-authored-by: Aaron Teo <aaron.teo1@ibm.com>
 Co-authored-by: Jim Wu <ywu@xilinx.com>
 Co-authored-by: Aaron Teo <taronaeo@gmail.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -126554,10 +126836,12 @@ the simdgroup size. The kernels finish their row reduction with a
 cross-simdgroup step where each lane of the last simdgroup reads one
 per-simdgroup partial sum out of shmem_f32:
 
+```bash
     if (tiisg == 0) { shmem_f32[sgitg] = sumf; }
     threadgroup_barrier(mem_flags::mem_threadgroup);
     sumf = shmem_f32[tiisg];
     sumf = simd_sum(sumf);
+```
 
 When the last simdgroup is partial it has fewer lanes than the
 threadgroup has simdgroups, so the tail of the partial sums is never
@@ -126648,12 +126932,14 @@ sycl: coalesce the ssm_conv window loads (#26612)
 test-backend-ops perf -o SSM_CONV on an Arc Pro B70, interleaved A/B against
 master, 6 reps, us/run:
 
+```python
   ne_a=[515,3328,1,1] ne_b=[4,3328,1,1]   n_t=512     97.68 -> 52.95   1.85x
   ne_a=[937,8192,1,1] ne_b=[4,8192,1,1]   n_t=934    516.16 -> 276.13  1.87x
   ne_a=[4,3328,1,1]   ne_b=[4,3328,1,1]   n_t=1        2.73 -> 2.71    flat
 
 llama-bench on qwen35 27B Q4_K - Medium (48 of its 64 blocks run ssm_conv),
 -ngl 99 -fa 1 -ctk f16 -ctv f16, interleaved passes of r=3:
+```
 
   -b 2048 -ub 2048  pp2048  1045.1 / 1043.5 / 1043.7 -> 1069.5 / 1066.3 / 1065.9  +2.2%
   -b 2048 -ub 512   pp2048   771.8 /  772.7          ->  785.5 /  786.6           +1.8%
@@ -126711,8 +126997,10 @@ llama-bench on qwen35 27B Q4_K - Medium (48 of its 64 blocks run ssm_conv),
 
 tts: account for the vocoder pass in the timings line (#26733)
 
+```
 get_output runs the waveform work the pipeline defers to it, from a
 single trailing window to a full pass depending on the model. Measuring
+```
 it keeps the reported total and the audio to process ratio honest.
 
 </details>
@@ -128173,12 +128461,14 @@ model : fix SWA not being enabled for EXAONE 4.5 (#26848)
 
 * model : fix SWA not being enabled for EXAONE 4.5
 
+```
 load_arch_hparams tests `hparams.n_layer() == 64` before
 LLM_KV_NEXTN_PREDICT_LAYERS has been read. n_layer() returns
 n_layer_all - n_layer_nextn and n_layer_nextn defaults to 0, so a GGUF
 carrying the MTP head (block_count=65, nextn=1) evaluates to 65 and the
 whole SWA block is skipped. The model type switch further down in the
 same function reads 64, because by then the key has been loaded.
+```
 
 n_swa is still filled in by the unconditional get_key below the block, so
 llama_model_n_swa() reports 4096 and the logs look correct while only
@@ -128189,8 +128479,10 @@ no MTP head, so block_count is 64 there and the check matches.
 
 * model-loader : skip TENSOR_SKIP tensors in the metadata-only path
 
+```
 create_tensor asserts on a null buffer type when building from metadata
 alone, but buft_for_tensor returns null by design for tensors marked
+```
 TENSOR_SKIP, which is how architectures with nextn/MTP layers mark theirs.
 Those models cannot be constructed by llama_model_init_from_user at all.
 
@@ -129390,9 +129682,11 @@ output (e.g. Phi-3-mini). Lift the data to rank-4 before the split/
 Multiply so the operands are equal-rank, matching what the TYPE_NORMAL
 branch already does. CPU and stateless paths are unaffected.
 
+```yaml
 Phi-3-mini-Q4_K_M, wiki.test perplexity, GPU stateful:
   before: PPL = 27120.43
   after:  PPL = 6.2263   (CPU reference: 6.2251)
+```
 
 * OpenVINO backend: 1) remove the unique name in llama.cpp; 2) add new ov name in ov bk; 3) fix issue in arch test & op test with latest code update
 
@@ -129659,6 +129953,7 @@ from the rest of the (chunk_size-wide) graph.
 
 ---------
 
+```yaml
 Co-authored-by: Xuejun <Xuejun.Zhai@intel.com>
 Co-authored-by: Mustafa Cavus <mustafa.cavus@intel.com>
 Co-authored-by: virajwad <84867530+virajwad@users.noreply.github.com>
@@ -129666,6 +129961,7 @@ Co-authored-by: Copilot Autofix powered by AI <175728472+Copilot@users.noreply.g
 Co-authored-by: suryasidd <surya.siddharth.pemmaraju@intel.com>
 Co-authored-by: Mustafa Cavus <mustafacavus@intel.com>
 Co-authored-by: Ravi Panchumarthy <ravi.panchumarthy@intel.com>
+```
 
 </details>
 
@@ -129964,10 +130260,12 @@ interleaved rounds, tg128:
 
 llama-batched-bench on qwen2.5-3B, S_TG by batch size:
 
+```bash
       B=1   142.72 -> 147.57 t/s    +3.4%
       B=2   243.72 -> 268.26 t/s   +10.1%
       B=4   359.58 -> 398.02 t/s   +10.7%
       B=8   449.75 -> 505.63 t/s   +12.4%
+```
 
 </details>
 
@@ -130244,8 +130542,10 @@ Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 
 ---------
 
+```yaml
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 Co-authored-by: Gaurav Garg <gaugarg@nvidia.com>
+```
 
 </details>
 
@@ -130617,9 +130917,11 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
 
 ---------
 
+```yaml
 Co-authored-by: Stanisław Szymczyk <sszymczy@gmail.com>
 Co-authored-by: QscQ <qscqesze@gmail.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
+```
 
 </details>
 
@@ -131165,12 +131467,14 @@ I propose to emit it from the saver, and set it to -5.0 in the test-llama-archs 
 
 ---------
 
+```yaml
 Co-authored-by: Boris Dvorkin <b_dvorkin@niuitmo.ru>
 Co-authored-by: Stanisław Szymczyk <sszymczy@gmail.com>
 Co-authored-by: Deepankar Singh <singh.deepankar39@gmail.com>
 Co-authored-by: Claude Fable 5 <noreply@anthropic.com>
 Co-authored-by: Caleb DeLeeuw <caleb.deleeuw@gmail.com>
 Co-authored-by: Xuan Son Nguyen <son@huggingface.co>
+```
 
 </details>
 
@@ -132236,159 +132540,205 @@ model : GraniteSWAForCausalLM / GraniteMoeSWAForCausalLM (#25505)
 
 * feat(convert): Add conversion for GraniteSWAForCausalLM
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: full (Bob, OpenCode + Qwen3.6-35b)
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * feat(llama): Add granite_swa support
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: full (Bob, OpenCode + Qwen3.6-35b)
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * feat(conversion): Add conversion infra for rope_pattern array
 
 NOTE: There is other work also targeting this, so this may be
 removed depending on merge order.
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: full (Bob)
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * fix(conversion): Fix SWA pattern logic and support for non-rope layers
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: full (Bob)
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * feat(conversion): Add support for GraniteMoeSWA
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: full (Bob)
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * feat: Add llama_hparams::has_rope and arch constants
 
 NOTE: This shadows the work done for Granite Speech
 https://github.com/ggml-org/llama.cpp/pull/25107
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: full (Bob)
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * feat: Add support for per-layer rope determination
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: full (Bob)
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * style: Fix failing flake8 for extra newlines
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * test: Write out SLIDING_WINDOW_PATTERN in llama-model-saver
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: full (OpenCode + Qwen3.6-35b)
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * fix(convert): Fix missing registration for GraniteMoeSWAForCausalLM
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * fix: Load MoE params as optional
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: draft (OpenCode + Qwen3.6-35b)
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * feat: Handle MoE params in conversion
 
+```yaml
 branch: GraniteSWAForCausalLM
 AI-usage: full (OpenCode + Qwen3.6-35b)
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * style: Remove unnecessary newline
 
+```yaml
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * fix: Remove unnecessary tensor additions to GRANITE architecture
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * fix: Correctly handle naming for ffn gate inp
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * fix: Always default hparams.rope_pattern to 1s
 
 This isn't strictly necessary, but it will allow other models to rely on
 hparams.has_rope(il) without needting to prepopulate.
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * feat: Move to has_rope for all granite model architectures
 
 Now that we have a proper hparam for this, it's better to use it and not
 require a hacky fallback in the hparam method itself.
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * feat: No hacky rope_finetuned fallback in has_rope
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * fix: Fully remove rope hparam filling in granitemoe
 
 There are no granitemoe models that use NoPE (it's not actually used in the
 layer building below), so this was just dead code.
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * fix: Save out rope_pattern in model-saver
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * fix: Set hparams.rope_finetuned for round trip
 
 Since the value is _read_ from rope_finetuned, we need to persist it when
 the model is saved with the saver.
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * fix: Code review cleanup
 
+```yaml
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
+```
 
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
 
 * refactor: Keep gate/up fused for MoE path
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: full (Claude + Sonnet 5)
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * fix: Skip GRANITE_SWA in model saver
 
@@ -132396,31 +132746,39 @@ https://github.com/ggml-org/llama.cpp/pull/25505#discussion_r3773175651
 
 Keeping is_swa_impl in the saver can break other models.
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * add sliding window pattern for model in test
 
 * style: Fix indentation
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * fix: Fix \r\n
 
 Thanks Claude!
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: none
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * feat: Keep shared expert fused
 
+```yaml
 Branch: GraniteSWAForCausalLM
 AI-usage: full (Claude + Sonnet 5)
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
+```
 
 * style: More indentation fixes
 
@@ -132430,8 +132788,10 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
 
 ---------
 
+```yaml
 Signed-off-by: Gabe Goodhart <ghart@us.ibm.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
+```
 
 </details>
 
@@ -132854,16 +133214,20 @@ kernels on it, instead of the in-kernel dequantization path.
   regardless of head sizes, GQA ratio or n_kv; the attention kernels
   themselves are untouched
 - the F16 copies live in the op's own scratch allocation
+```
   (ggml_metal_op_flash_attn_ext_extra_dequant_f16); the KV pad kernel
   reads the dequantized buffers when the path is active
+```
 - the FA pipeline getters gain a use_f16_kv flag selecting the existing
   f16 kernels and contiguous strides
 - ref: https://github.com/ggml-org/llama.cpp/pull/25556
 
 Verification (M2 Ultra):
 - test-backend-ops test -o FLASH_ATTN_EXT: 4798/4798 pass, including the
+```bash
   new q8_0 eval cases (decode/prompt, permuted, sinks+ALiBi+softcap,
   kv=113 pad path, kv=16384)
+```
 - llama-perplexity on Qwen2.5-0.5B with -ctk q8_0 -ctv q8_0 matches the
   f16 KV reference (PPL 1.0008 vs 1.0008)
 
@@ -132871,10 +133235,12 @@ Assisted-by: pi:llama.cpp/Qwen3.8-27B
 
 * metal : launch the FA KV dequant kernel separately for K and V
 
+```rust
 Simplify kernel_flash_attn_ext_dequant_to_f16: it now dequantizes a single
 tensor (its own ne/nb and dst) with no is_v branching, and the op dispatches
 it twice with the same pipeline - once for K and once for V. The kargs
 struct shrinks to a single ne/nb set plus nblocks.
+```
 
 Assisted-by: pi:llama.cpp/Qwen3.8-27B
 
@@ -133062,8 +133428,10 @@ mul_mat_vec_q and MUL_MAT_ID dispatch paths. Default behavior unchanged.
 
 ---------
 
+```yaml
 Co-authored-by: praneshgo <227579474+praneshgo@users.noreply.github.com>
 Co-authored-by: Oliver Simons <osimons@nvidia.com>
+```
 
 </details>
 
@@ -134357,8 +134725,10 @@ ccache limit.
 
 ---------
 
+```yaml
 Co-authored-by: Jim Wu <ywu@xilinx.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
+```
 
 </details>
 
@@ -134683,10 +135053,12 @@ Correctness:
   2/2 tests passed
  - All test are passed
 
+```python
 Performance:
   ne_a=[512,34,2,1] -> 5.38 us/run, 24.55 GB/s
   ne_a=[3000,80,1,1] -> 30.09 us/run, 59.62 GB/s
   ne_a=[3000,384,4,1] -> 158.31 us/run, 54.39 GB/s
+```
 
 * Update ggml/src/ggml-vulkan/vulkan-shaders/pad_reflect_1d.comp
 
@@ -135741,8 +136113,10 @@ kernels/*.metal sources. Copied verbatim, no functional change.
 
 ---------
 
+```yaml
 Co-authored-by: lvyichen <lvyichen@stepfun.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -136695,8 +137069,10 @@ ggml-metal: add chunked SSD MMA for Mamba-2 prefill optimization (#26647)
 
 ---------
 
+```yaml
 Co-authored-by: dpantaleoni <dominikpantaleoni@gmail.com>
 Co-authored-by: forforever73 <690105611@qq.com>
+```
 
 </details>
 
@@ -137992,15 +138368,19 @@ Assisted-by: Claude Opus 5
 
 ---------
 
+```yaml
 Co-authored-by: Jian Chen <jianchen0311@gmail.com>
 Co-authored-by: Xuan-Son Nguyen <son@huggingface.co>
+```
 
 * revert top-k.cu changes
 
 ---------
 
+```yaml
 Co-authored-by: Zihan Zhang <tiancaizhangdaxian@sjtu.edu.cn>
 Co-authored-by: Jian Chen <jianchen0311@gmail.com>
+```
 
 </details>
 
@@ -138452,8 +138832,10 @@ corrupt model. It now names the tensor and continues.
 
 * quantize: let --tensor-type name per_layer_token_embd
 
+```bash
 per_layer_token_embd shares the TOKEN_EMBD category with token_embd.weight, so
 --token-embedding-type is returned for it before any --tensor-type pattern is
+```
 consulted, and there is no way to give it a tier of its own.
 
 That grouping is fine as a default and stays the default. It is a poor fit for
@@ -138755,11 +139137,13 @@ caller is updated.
 
 * llama: segment the qwen4exp fused QKV for tensor split
 
+```
 qwen4exp was missing from the gated delta net branch of get_split_segments,
 so its attn_qkv.weight, shaped {n_embd, 2*key_dim + value_dim}, fell through
 to the generic fused QKV rule and tripped
 GGML_ASSERT(tensor->ne[axis] == n_embd + 2*n_embd_gqa) while loading with
 --split-mode tensor. --split-mode layer was unaffected.
+```
 
 qwen4exp broadcasts K to the V heads by tiling, k_conv is grown with a plain
 ggml_repeat_4d over the head axis so that v head j pairs with k head
@@ -138900,11 +139284,13 @@ ple_conv1d and ple_norm_conv are all mirrored, so every device computes the
 whole dilated conv and needs the whole history. One tensor cannot be both, and
 the split state has no per-segment mirroring.
 
+```python
 Move the PLE history into its own cache_ple_r_l%d row, mark it MIRRORED, and
 return n_embd_r() to n_conv. The row is allocated only on layers where is_ple
 holds, so mirroring one 92160-element row per device replaces a 92160-element
 tail on all 36 recurrent rows: the recurrent R footprint drops rather than
 grows. build_conv_state_at now takes its width from the tensor it was handed
+```
 and keys its gather on that tensor, which also drops a cont of a strided view.
 
 * no more ple_hist (use master version)
@@ -138923,8 +139309,10 @@ the reserved CUDA0 buffer was 217.00 MiB against 275.71 MiB actually
 used, and CUDA_Host 42.31 MiB against 191.14 MiB. reserving the sparse
 graph makes both match exactly, in unified and non-unified cache mode.
 
+```yaml
 Co-authored-by: Pascal <admin@serveurperso.com>
 Assisted-by: Claude
+```
 
 * qwen4exp: shrink the PLE hparams storage
 
@@ -139056,9 +139444,11 @@ their -inf from the mask.
 The mask is F16 and the bias F32, and a mixed ggml_add reinterprets the F16
 buffer as float rather than converting it, so the cast is required.
 
+```bash
 reserved host compute buffer at -c 32768 -np 4:
   --kv-unified      814.86 -> 238.86 MiB, CUDA0 721.07 -> 421.07 MiB
   --no-kv-unified   214.86 ->  70.86 MiB, CUDA0 317.07 -> 265.07 MiB
+```
 
 Selection is unchanged: over 8192 tokens, four times the budget, every QSA
 layer returns identical top-k indices and the logprobs are bitwise equal.
@@ -139100,11 +139490,13 @@ exercised for images, so the 2D case is unverified.
 
 ---------
 
+```yaml
 Co-authored-by: danielhanchen <danielhanchen@users.noreply.github.com>
 Co-authored-by: danielhanchen <unslothshared@gmail.com>
 Co-authored-by: Xuan Son Nguyen <son@huggingface.co>
 Co-authored-by: Pascal <admin@serveurperso.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
+```
 
 </details>
 
@@ -139421,8 +139813,10 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
 
 ---------
 
+```yaml
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
 Co-authored-by: Xuan Son Nguyen <son@huggingface.co>
+```
 
 </details>
 
@@ -139762,10 +140156,12 @@ sycl: bind the f16 KV cache in place for the oneDNN SDPA path (#27468)
 Measured at a live KV length of 34816 (32768 depth plus one 2048 ubatch),
 on Qwen3.8 27B Q4_K_S:
 
+```
   per tensor         4 * 34816 * 256 * 2 B  =  71.3 MB
   staged per call    K and V, so 2x         = 142.6 MB
   traffic per call   read once, write once  = 285.2 MB
   traffic per ubatch 285.2 MB * 16 calls    =   4.56 GB
+```
 
 One ubatch is one ggml_cgraph submission (llama_context::process_ubatch ->
 graph_compute), so that 4.56 GB is the cost of a single 2048-token prefill
@@ -139774,10 +140170,12 @@ at seq = 2048, moves 0.27 GB.
 
 Reproduce the two measured inputs with:
 
+```bash
   GGML_SCHED_DEBUG=2 llama-bench -m MODEL -p 8 -n 0 -r 1 -ngl 0 \
       -fa on -ctk f16 -ctv f16 -v > nd.txt 2>&1
   grep -E 'n_layer|n_head_kv|n_embd_head_k' nd.txt
   awk '/node #  0 /{g++} g==1 && /\(FLASH_ATTN\)/{n++} END{print n+0}' nd.txt
+```
 
 </details>
 
@@ -139978,9 +140376,11 @@ Document the variable, its NPU-only scope, and the optimization-level=3 example 
 
 ---------
 
+```yaml
 Co-authored-by: Mostafa Faheem <mostafaaafaheem@gmail.com>
 Co-authored-by: Ravi Panchumarthy <ravi.panchumarthy@intel.com>
 Co-authored-by: zhaixuejun1993 <xuejun.zhai@intel.com>
+```
 
 </details>
 
@@ -141040,8 +141440,10 @@ ggml: allow passing alloc dependencies in graph_optimize (#27301)
 
 memory : copy Hadamard matrix to k_rot tensor only if it has buffer assigned to prevent crashes during context shift of unquantized K cache (#27967)
 
+```yaml
 Co-authored-by: Stanisław Szymczyk <sszymczy@gmail.com>
 Co-authored-by: AesSedai <7980540+AesSedai@users.noreply.github.com>
+```
 
 </details>
 
@@ -141225,16 +141627,20 @@ Co-authored-by: Marco Colombo <mcolombo@qti.qualcomm.com>
 
 * hex-devices: support for runtime discovery of available NPU cores
 
+```yaml
 Co-authored-by: Alexander Lu <alexlu@qti.qualcomm.com>
 Co-authored-by: Ehsan Bateni <ebateni@qti.qualcomm.com>
+```
 
 * hex-devices: reject non-existing devices early during init
 
 ---------
 
+```yaml
 Co-authored-by: Marco Colombo <mcolombo@qti.qualcomm.com>
 Co-authored-by: Alexander Lu <alexlu@qti.qualcomm.com>
 Co-authored-by: Ehsan Bateni <ebateni@qti.qualcomm.com>
+```
 
 </details>
 
@@ -142608,8 +143014,10 @@ Co-authored-by: Ruixiang Wang <wangruixiang07@outlook.com>
 
 ---------
 
+```yaml
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
 Co-authored-by: Ruixiang Wang <wangruixiang07@outlook.com>
+```
 
 </details>
 
@@ -142923,8 +143331,10 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
 
 ---------
 
+```yaml
 Co-authored-by: Stanisław Szymczyk <sszymczy@gmail.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
+```
 
 </details>
 
@@ -144483,8 +144893,10 @@ Unrecognized or unsafe graphs are left alone and keep the existing
 per-op path. Set GGML_CUDA_MOE_WEIGHTED_REDUCTION=0 to disable the
 fusion.
 
+```bash
 test-backend-ops covers scaled/unscaled, aligned/unaligned, and
 representative values across k=2..15, plus a k=16 case that must
+```
 stay on the per-op path.
 
 * Pruned the test matrix from 15 to 6
@@ -145385,8 +145797,10 @@ Co-authored-by: Niklas Wenzel <dev@nikwen.de>
 
 ---------
 
+```yaml
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 Co-authored-by: Niklas Wenzel <dev@nikwen.de>
+```
 
 </details>
 
@@ -145575,8 +145989,10 @@ of the existing NORM/RMS_NORM/L2_NORM/SCALE/CLAMP/SQR/SQRT set.
   ggml_hexagon_precompute_unary_params() fills kernel_params (n_threads,
   VTCM layout) for ABS nodes -- required for the F16 path to function
 - Narrow the F16 GGML_OP_UNARY gate in ggml_hexagon_supported_unary()
+```
   (ggml-hexagon.cpp) to allow GGML_UNARY_OP_ABS specifically, instead of
   rejecting all GGML_OP_UNARY ops for F16
+```
 - Merge the separate execute_op_unary_f32()/execute_op_unary_f16()
   functions into a single execute_op_unary(), branching on an is_f16
   flag for the parts that actually differ by type (elem_size, the
@@ -145648,8 +146064,10 @@ server : accept data: URLs for input_video and input_audio (#27735)
 
 * server : accept data: URLs for input_video and input_audio
 
+```
 input_video and input_audio passed accept_base64_uri=false to
 handle_media(), so data: URLs got treated as raw base64 strings and
+```
 failed later with a confusing media probe error (#27724).
 
 pass true for these two content types the same way image_url already
@@ -146287,8 +146705,10 @@ Co-authored-by: Aman Gupta <amangupta052@gmail.com>
 
 ---------
 
+```yaml
 Co-authored-by: tannerbruhn <tannerbruhn@users.noreply.github.com>
 Co-authored-by: Aman Gupta <amangupta052@gmail.com>
+```
 
 </details>
 
@@ -146511,8 +146931,10 @@ Assisted-by: pi:llama.cpp/Qwen3.8-27B
   stride, so the per-row mask offset was scaled by 2x; cast to char*
   before applying the byte strides
 - kernel_flash_attn_ext_vec: sparse pidx param is char* so the per-row
+```
   element offset was under-scaled by sizeof(int); scale it by sizeof(int)
   to get the correct byte offset
+```
 - fixes the multi-row (nb*nr23[1] > 1) sparse flash attention failures
 
 Assisted-by: pi:llama.cpp/DeepSeek-v4-0731
@@ -148372,8 +148794,10 @@ opencl: properly choose weights pack for q4_K, q5_K mul_mat (#28402)
 * Add Spark3 Model
 * rename spark3 -> spark2_5
 
+```yaml
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
 Co-authored-by: dongjiang <dongjiang2010@gmail.com>
+```
 
 </details>
 
@@ -148451,8 +148875,10 @@ misalignment between the l2norm in GDN of Qwen3-Next and the implementation
 in the FLA library'. vLLM and SGLang vendor FLA rather than reimplementing
 it, so neither ever had the clamp.
 
+```
 eps keeps coming from the checkpoint, exactly as every call site already
 passed it. The references hardcode 1e-6 for this norm; that is a separate
+```
 question and the two agree on every GDN checkpoint in the wild.
 
 ggml_l2_norm itself is correct and unchanged, as is rwkv7-base, its original
@@ -148977,8 +149403,10 @@ Return false from supports_op() in the misaligned case so the scheduler
 falls back to CPU, matching the existing pattern for PAD_REFLECT_1D and
 other unsupported op/shape combinations.
 
+```yaml
 Repro: llama-tts -m Qwen3-TTS-*.gguf -mm mmproj-*.gguf -ngl 99
 Crash: GGML_ASSERT(dst->op != GGML_OP_GET_ROWS || (a_offset == 0 && ...)) failed
+```
 
 * vulkan: trim comment for GET_ROWS misalign fallback
 
@@ -149988,33 +150416,45 @@ llama : add missing headers (#28566)
 
 * fix compile-error: add missing header
 
+```yaml
 Bug: #28557
 Signed-off-by: Pepper Gray <hello@peppergray.xyz>
+```
 
 * fix compile-error: add missing header
 
+```yaml
 Bug: #28559
 Signed-off-by: Pepper Gray <hello@peppergray.xyz>
+```
 
 * fix compile-error: add missing header
 
+```yaml
 Bug: #28560
 Signed-off-by: Pepper Gray <hello@peppergray.xyz>
+```
 
 * fix compile-error: add missing header
 
+```yaml
 Bug: #28561
 Signed-off-by: Pepper Gray <hello@peppergray.xyz>
+```
 
 * fix compile-error: add missing header
 
+```yaml
 Bug: #28562
 Signed-off-by: Pepper Gray <hello@peppergray.xyz>
+```
 
 * fix compile-error: add missing header
 
+```yaml
 Bug: #28564
 Signed-off-by: Pepper Gray <hello@peppergray.xyz>
+```
 
 ---------
 
@@ -150902,8 +151342,10 @@ Claude-Session: https://claude.ai/code/session_011SYPfRhKoUpU3gMsGxq6go
 
 ---------
 
+```yaml
 Co-authored-by: ravel7524 <58877666+ravel7524@users.noreply.github.com>
 Co-authored-by: Carl Philipp Klemm <carl@uvos.xyz>
+```
 
 </details>
 
@@ -151395,8 +151837,10 @@ vulkan : add command-buffer debug labels for GPU profilers (#28101)
 
 * vulkan : add command-buffer debug labels for GPU profilers
 
+```yaml
 Co-authored-by: gabby-zy <z2262718160@gmail.com>
 Assisted-by: Claude Code
+```
 
 * vulkan : close the queue debug label with the label struct
 
@@ -152186,13 +152630,17 @@ CUDA/HIP: Flash Attention tuning (gfx1201) (#28102)
 
 * HIP: enable mma FA for head size 256 on RDNA4, tune configs
 
+```yaml
 Assisted-by: Claude
 Assisted-by: Codex
+```
 
 * HIP: prefer whole-tile FA grids over stream-k on AMD WMMA
 
+```yaml
 Assisted-by: Claude
 Assisted-by: Codex
+```
 
 * revise stream_k logic
 
@@ -152568,8 +153016,10 @@ the ad-hoc ggml_backend_reg_get_proc_address mechanism with generic names
 so the testing tool is backend-agnostic:
 
 - ggml_backend_fusion_stats_init: start collecting fusion stats; when a
+```bash
   context is created afterwards it registers the labels/counters and
   encodes single-threaded (n_cb == 0) so the counters are race-free
+```
 - ggml_backend_fusion_stats_reset / _get_stats / _set_enabled
 
 The context lives on the metal device (not on the last backend context),
@@ -152600,8 +153050,10 @@ committed per-backend TSV baseline:
 - baseline counts depend only on graph structure, not weights (verified
   stable across weight seeds)
 - the fusion stats API is resolved through the ad-hoc get_proc_address
+```
   mechanism with generic names; a backend that does not export it makes
   the test fail with an error
+```
 
 The committed MTL0.tsv baseline covers 110 dummy archs (298 rows).
 
@@ -152842,8 +153294,10 @@ This commit fixes an issue that I introduced when adding PCH
 
 See linked issue for details.
 
+```yaml
 Co-authored-by: mjungnickel18
 Co-authored-by: Pascal <admin@serveurperso.com>
+```
 
 Resolves: https://github.com/ggml-org/llama.cpp/issues/28758
 Refs: https://github.com/ggml-org/llama.cpp/actions/runs/34592933983/job/103262608990#step:9:1284
@@ -154244,9 +154698,11 @@ Co-authored-by: Titaniumtown <titaniumtown@proton.me>
 
 ---------
 
+```yaml
 Co-authored-by: Neo Zhang Jianyu <jianyu.zhang@intel.com>
 Co-authored-by: Titaniumtown <titaniumtown@proton.me>
 Co-authored-by: Neo Zhang <NA>
+```
 
 </details>
 
@@ -155732,10 +156188,12 @@ Assisted-by: Codex
 
 ---------
 
+```yaml
 Co-authored-by: Mostafa Faheem <mostafaaafaheem@gmail.com>
 Co-authored-by: Mustafa Cavus <mustafa.cavus@intel.com>
 Co-authored-by: zhaixuejun1993 <xuejun.zhai@intel.com>
 Co-authored-by: ravi9 <ravi.panchumarthy@intel.com>
+```
 
 </details>
 
@@ -156026,8 +156484,10 @@ Bump RPC_PROTO_MAJOR_VERSION since the wire format changes.
 
 ---------
 
+```yaml
 Co-authored-by: Patrick Hoffmann <patrickhoffmann@MacBook-Pro-14-HOP.local>
 Co-authored-by: Claude Opus 5 <noreply@anthropic.com>
+```
 
 </details>
 
@@ -156538,6 +156998,7 @@ It is also dispatched only on the mm path, so decode never pays for it.
 Measured on Apple M2 Max, `test-backend-ops perf -o MUL_MAT_ID -b MTL0`,
 99 cases, versus the same build without this change:
 
+```bash
   n=1/4/8   (mul_mv_id, decode)  : -0.8% / -0.8% / -0.4% median (noise)
   n=32      (mul_mm_id, prefill) : +1.73% median
   n=64                           : +1.30% median
@@ -156545,6 +157006,7 @@ Measured on Apple M2 Max, `test-backend-ops perf -o MUL_MAT_ID -b MTL0`,
   n=256                          : +3.98% median
   n=512                          : +3.74% median, +7.20% worst
   overall                        : +1.14% median
+```
 
 Correctness, same machine:
   - the six new test-backend-ops cases go from 4 FAIL / 2 OK to all OK,
@@ -156594,8 +157056,10 @@ Assisted-by: Claude Fable 5.1
 
 ---------
 
+```yaml
 Co-authored-by: Claude Fable 5 <noreply@anthropic.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
+```
 
 </details>
 
@@ -157365,8 +157829,10 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
 
 hexagon: accept the zeroed rope probe in supports_op (#28995)
 
+```bash
 llama probes weight placement with a rope where all params are 0, so rejecting
 n_dims == 0 or freq_base == 0 puts rope_freqs on the CPU. That splits the decode
+```
 graph at every full-attention layer (gemma-4-E2B: 5 splits instead of 2).
 
 Assisted-by: Claude Opus 5
@@ -157433,9 +157899,11 @@ hexagon: Support for K-Quants Q4_K and Q6_K (#28994)
 implement q6k/q4k kernels
 
 Squashed from:
+```yaml
   feat: implement q6k kernel
   hex-q6k: improve unpack accuracy
   hex-q4_k: add support for Q4_K kernels
+```
 
 Co-authored-by: Max Krasnyansky <maxk@qti.qualcomm.com>
 
@@ -158125,8 +158593,10 @@ gguf : align the data section relative to the GGUF start, not the file (#28993)
 
 * gguf : align the data section relative to the GGUF start, not the file
 
+```
 gguf_init_from_file_ptr reads a GGUF from the current file position, but padded
 the data section from file offset 0, so a GGUF embedded at an offset that is not
+```
 a multiple of the alignment loaded without error and returned wrong tensor data.
 
 Also adds llama_adapter_lora_init_from_file_ptr, and disables mmap with a warning
@@ -158215,8 +158685,10 @@ chat : add message delimiters to the DeepSeek V3.2/V4 parser (#29008)
 
 * chat : add message delimiters to the DeepSeek V3.2/V4 parser
 
+```yaml
 Assisted-by: Claude
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
+```
 
 </details>
 
@@ -159589,8 +160061,10 @@ segmented, ascending and descending, size-query and execute).
 
 ---------
 
+```yaml
 Co-authored-by: Claude Opus 4.6 <noreply@anthropic.com>
 Co-authored-by: Oliver Simons <osimons@nvidia.com>
+```
 
 </details>
 
@@ -160181,8 +160655,10 @@ Assisted-by: Kimi Code
 
 ---------
 
+```yaml
 Co-authored-by: aetherbird <aetherbird@users.noreply.github.com>
 Co-authored-by: Alde Rojas <hello@alde.dev>
+```
 
 </details>
 
@@ -160264,8 +160740,10 @@ dispatch also requires src1 and dst to be contiguous and the same shape. A Hadam
 hinted MUL_MAT that passed the first and failed the second reached the generic path,
 which has no F32 src0 by F16 src1 kernel, and aborted on a nil pipeline:
 
+```yaml
   kernel not found in any metal library: base = 'kernel_mul_mv_f32_f16_4'
   ggml_metal_encoder_set_pipeline: nil Metal pipeline
+```
 
 ggml_metal_use_fwht now holds the whole condition and both callers use it, so they
 cannot drift apart again. The added test case has src1 and dst of different shapes,
@@ -160577,11 +161055,13 @@ and fell back to CPU. Kimi-K3 uses dsv4_hc_pre with hc equal to the
 number of banked checkpoints in the cross-layer residual stack, which
 grows with the layer index.
 
+```
 pass n_hc as a function constant (FC_DSV4_HC) with per-n_hc pipeline
 variants, and loop over it in both pre kernels with direct loads
 
 add test-backend-ops cases for hc = 1, 2, 3, 5, 8 and 65, gated and
 not gated
+```
 
 Assisted-by: pi:llama.cpp/Qwen3.8-27B
 
@@ -160833,8 +161313,10 @@ Signed-off-by: Yangyu Chen <cyy@cyyself.name>
 
 ---------
 
+```yaml
 Signed-off-by: Yangyu Chen <cyy@cyyself.name>
 Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
+```
 
 </details>
 
@@ -162259,8 +162741,10 @@ Remove decoder from mmproj convert
 * fix: use autoparser
 ---------
 
+```yaml
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
 Co-authored-by: Piotr Wilkin <piotr.wilkin@syndatis.com>
+```
 
 </details>
 
@@ -162354,11 +162838,13 @@ Co-authored-by: wendadawen <wendadawen@qq.com>
 Converting a DFlash draft with a HunYuan target failed in two ways.
 
 1. DFlashModel.set_vocab() reuses the target class' vocab handling by
+```
    calling it unbound with the draft instance, but HunYuanModel.set_vocab()
    called self._fix_special_tokens(), a method that only exists on
    HunYuanModel, so the conversion always aborted with
 
      AttributeError: 'DFlashModel' object has no attribute '_fix_special_tokens'
+```
 
    Make the vocab helpers module-level functions taking the model
    explicitly, so they do not depend on the instance being a HunYuanModel.
@@ -165342,8 +165828,10 @@ Co-authored-by: Claude Opus 5 (1M context) <noreply@anthropic.com>
 
 ---------
 
+```yaml
 Co-authored-by: Piotr Wilkin (ilintar) <piotr.wilkin@syndatis.com>
 Co-authored-by: Claude Opus 5 (1M context) <noreply@anthropic.com>
+```
 
 </details>
 
@@ -165736,9 +166224,11 @@ Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
 
 ---------
 
+```yaml
 Co-authored-by: Max Krasnyansky <maxk@qti.qualcomm.com>
 Co-authored-by: Aparna M P <aparmp@qti.qualcomm.com>
 Co-authored-by: Sigbjørn Skjæret <sigbjorn.skjaeret@huggingface.co>
+```
 
 </details>
 
@@ -166069,8 +166559,10 @@ metal : fix graph capture and handle empty graphs (#29390)
 
 - return early when the graph has no nodes
 - drop the redundant reset of capture_compute: the decrement at the top
+```bash
   of the function already transitions the counter from 0 to -1, so a
   capture happens exactly once
+```
 - hint at METAL_CAPTURE_ENABLED=1 in the capture error message
 - pass capture_compute == 0 (not the raw counter) as use_capture to
   ggml_metal_op_init, so GPU debug-group markers are only emitted on the
@@ -166832,9 +167324,11 @@ Signed-off-by: ynankani <ynankani@nvidia.com>
 
 ---------
 
+```yaml
 Signed-off-by: ynankani <ynankani@nvidia.com>
 Co-authored-by: Georgi Gerganov <ggerganov@gmail.com>
 Co-authored-by: Johannes Gäßler <johannesg@5d6.de>
+```
 
 </details>
 

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/dots_ocr/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 Qwen2VLMultiModalProcessor,
 info=DotsOCRProcessingInfo,
@@ -166,3 +167,4 @@ language_model="language_model",
 connector="vision_tower.merger",
 tower_model="vision_tower.",
 )
+```

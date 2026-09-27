@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/mamba_mixer/
 lastmod: 2026-09-27
 
+```python
 @PluggableLayer.register("mamba_mixer")
 class MambaMixer(MambaBase, PluggableLayer):
 """Compute ∆, A, B, C, and D the state space parameters and compute
@@ -172,6 +173,7 @@ _encode_layer_name(self.prefix),
 def forward_impl(self, hidden_states: torch.Tensor, output: torch.Tensor):
 """Run the Mamba-1 SSM pipeline.
 Steps
+```
 -----
 1. Apply the gated-MLP linear projection to the raw input.
 2. Pass the projected sequence through the convolutional mixing layer.

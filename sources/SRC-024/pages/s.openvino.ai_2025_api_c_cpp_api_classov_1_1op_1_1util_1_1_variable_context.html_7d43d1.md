@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::VariableContext[#](https://docs.openvino.ai#class-ov-op-util-variablecontext)
 
 -
+```python
 class VariableContext
 [#](https://docs.openvino.ai#_CPPv4N2ov2op4util15VariableContextE) [VariableContext](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_variable_context)stores and manages a evaluation context for Variables.Public Functions
+```
 
 -
 VariableContext() = default

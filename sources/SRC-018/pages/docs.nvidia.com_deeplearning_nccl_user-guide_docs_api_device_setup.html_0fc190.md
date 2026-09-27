@@ -311,8 +311,10 @@ int rank
 ### ncclGinType_t[](https://docs.nvidia.com#ncclgintype-t)
 
 -
+```rust
 enum ncclGinType_t
 [](https://docs.nvidia.com#c.ncclGinType_t) GIN type. Communication between different GIN types is not supported. Possible values include:
+```
 
 -
 enumerator NCCL_GIN_TYPE_NONE
@@ -347,8 +349,10 @@ enumerator NCCL_GIN_TYPE_NONE
 ### ncclGinConnectionType_t[](https://docs.nvidia.com#ncclginconnectiontype-t)
 
 -
+```rust
 enum ncclGinConnectionType_t
 [](https://docs.nvidia.com#c.ncclGinConnectionType_t) Specifies the type of GIN connection for device communicators. This enum controls whether GIN (GPU-Initiated Networking) resources should be allocated and what connection type to use. Used in
+```
 
 when creating device communicators. Available since NCCL 2.29.7.`ncclDevCommRequirements`
 

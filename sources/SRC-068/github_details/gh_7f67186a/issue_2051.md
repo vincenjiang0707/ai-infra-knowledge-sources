@@ -13,6 +13,7 @@ The problem occurs during compilation, and the machine becomes completely unresp
 
 Environment
 
+```yaml
 OS: Ubuntu 20.04
 CUDA: 12.8
 PyTorch: 2.9.0+cu128 (official wheels)
@@ -21,6 +22,7 @@ GPU: NVIDIA RTX 5880 Ada Generation
 Driver Version: 570.133.07
 Compiler: default nvcc from CUDA 12.8
 Python: 3.12
+```
 
 Build command:
 ```bash 

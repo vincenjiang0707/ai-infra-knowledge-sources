@@ -38,6 +38,7 @@ Load your model and tokenizer using the standard `transformers`
 
 AutoModel classes:
 
+```python
 from transformers import AutoTokenizer, AutoModelForCausalLM
 MODEL_ID = "meta-llama/Meta-Llama-3-8B-Instruct"
 model = AutoModelForCausalLM.from_pretrained(
@@ -46,6 +47,7 @@ device_map="auto",
 dtype="auto",
 )
 tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
+```
 
 
 ### 2. Preparing Calibration Data[¶](https://docs.vllm.ai#2-preparing-calibration-data)
@@ -54,6 +56,7 @@ When quantizing weights to INT4, you need sample data to estimate the weight upd
 
 :
 
+```python
 from datasets import load_dataset
 NUM_CALIBRATION_SAMPLES = 512
 MAX_SEQUENCE_LENGTH = 2048
@@ -66,12 +69,14 @@ ds = ds.map(preprocess)
 def tokenize(sample):
 return tokenizer(sample["text"], padding=False, max_length=MAX_SEQUENCE_LENGTH, truncation=True, add_special_tokens=False)
 ds = ds.map(tokenize, remove_columns=ds.column_names)
+```
 
 
 ### 3. Applying Quantization[¶](https://docs.vllm.ai#3-applying-quantization)
 
 Now, apply the quantization algorithms:
 
+```python
 from llmcompressor import oneshot
 from llmcompressor.modifiers.quantization import GPTQModifier
 from llmcompressor.modifiers.smoothquant import SmoothQuantModifier
@@ -89,6 +94,7 @@ num_calibration_samples=NUM_CALIBRATION_SAMPLES,
 SAVE_DIR = MODEL_ID.split("/")[1] + "-W4A16-G128"
 model.save_pretrained(SAVE_DIR, save_compressed=True)
 tokenizer.save_pretrained(SAVE_DIR)
+```
 
 
 This process creates a W4A16 model with weights quantized to 4-bit integers.
@@ -101,12 +107,14 @@ To evaluate accuracy, you can use `lm_eval`
 
 :
 
+```bash
 lm_eval --model vllm \
 --model_args pretrained="./Meta-Llama-3-8B-Instruct-W4A16-G128",add_bos_token=true \
 --tasks gsm8k \
 --num_fewshot 5 \
 --limit 250 \
 --batch_size 'auto'
+```
 
 
 Note
@@ -136,6 +144,7 @@ can improve accuracy without added latency.
 
 The following is an example of an expanded quantization recipe you can tune to your own use case:
 
+```python
 from compressed_tensors.quantization import (
 QuantizationArgs,
 QuantizationScheme,
@@ -162,6 +171,7 @@ ignore=["lm_head"],
 update_size=NUM_CALIBRATION_SAMPLES,
 dampening_frac=0.01,
 )
+```
 
 
 ## Troubleshooting and Support[¶](https://docs.vllm.ai#troubleshooting-and-support)

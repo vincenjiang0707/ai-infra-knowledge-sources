@@ -29,10 +29,12 @@ KeyError: 'scale'
 
 Env:
 
+```yaml
 torch: 2.5.0.dev20240826+cu118
 torchao: 0.4.0+gitc2f44608
 hqq: 0.2.0
 transformers: 4.44.2
+```
 
 Python 3.10.12
 

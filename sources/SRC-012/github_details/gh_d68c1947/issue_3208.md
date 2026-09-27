@@ -17,6 +17,7 @@ Steps to reproduce the behavior:
 1. download tvm from source following docs
 2. echo the following to cmake config
 3. echo "set(CMAKE_BUILD_TYPE RelWithDebInfo)" >> config.cmake
+```
 echo "set(USE_LLVM \"llvm-config --ignore-libllvm --link-static\")" >> config.cmake
 echo "set(HIDE_PRIVATE_SYMBOLS ON)" >> config.cmake
 echo 'set(CMAKE_C_COMPILER_LAUNCHER ccache)' >> config.cmake
@@ -29,6 +30,7 @@ echo "set(USE_CUBLAS ON)" >> config.cmake on
 echo "set(USE_CUDNN ON)" >> config.cmake on 
 echo "set(USE_CUTLASS ON)" >> config.cmake on 
 set(USE_FLASHINFER OFF)
+```
 
 3. build tvm:   cmake .. && cmake --build . --parallel $(nproc)
 
@@ -59,6 +61,7 @@ it works with cutlass off
  - GPU driver version (if applicable):
  - CUDA/cuDNN version (if applicable): 12.6
  - TVM Unity Hash Tag (`python -c "import tvm; print('\n'.join(f'{k}: {v}' for k, v in tvm.support.libinfo().items()))"`,
+```yaml
  applicable if you compile models):
 in applicable since the build wasnt successfull
 but this is what i get when i try with CUTLASS OFF
@@ -110,7 +113,9 @@ USE_UMA: OFF
 USE_FALLBACK_STL_MAP: OFF
 USE_SORT: ON
 USE_RTTI: ON
+```
 GIT_COMMIT_TIME: 2025-04-14 18:52:30 +0900
+```yaml
 USE_HIPBLAS: OFF
 USE_HEXAGON_SDK: /path/to/sdk
 USE_BLAS: none
@@ -156,6 +161,7 @@ USE_PAPI: OFF
 USE_CURAND: OFF
 TVM_CXX_COMPILER_PATH: /usr/bin/c++
 HIDE_PRIVATE_SYMBOLS: ON
+```
  - Any other relevant information:
 
 ## Additional context

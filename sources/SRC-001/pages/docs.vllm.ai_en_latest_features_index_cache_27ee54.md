@@ -38,8 +38,10 @@ vllm serve deepseek-ai/DeepSeek-V3.2 \
 **Using index_topk_pattern** (explicit per-layer control):
 
 # custom pattern for 61 layers: F = compute, S = reuse
+```json
 vllm serve deepseek-ai/DeepSeek-V3.2 \
 --hf-overrides '{"use_index_cache": true, "index_topk_pattern": "FFSFSSSFSSFFFSSSFFFSFSSSSSSFFSFFSFFSSFFFFFFSFFFFFSFFSSSSSSFSF"}'
+```
 
 
 ## How It Works[¶](https://docs.vllm.ai#how-it-works)

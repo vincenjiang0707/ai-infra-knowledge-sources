@@ -14,6 +14,7 @@ Hi, the problem is:
 
 I face a problem like this, but I actually checked the P2P connection between the two GPUs, and I tried the following codes for testing the P2P connection between GPUs:
 
+```bash
     tensor_a = torch.randn(10, device="cuda:0")
     try:
         # Attempt to directly copy tensor_a from GPU 0 to GPU 1
@@ -21,6 +22,7 @@ I face a problem like this, but I actually checked the P2P connection between th
         print("Successfully copied tensor from GPU 0 to GPU 1 using P2P.")
     except RuntimeError as e:
         print("Failed to copy tensor from GPU 0 to GPU 1 using P2P. Error:", e)
+```
 
 and the output is:
 

@@ -91,10 +91,12 @@ msprof --output=./output --application="./run_standalone_train.sh"
 
 ## ⚖️ 相关说明
 
+```
 🔹 《[版本说明](https://gitcode.com/Ascend/msprof/releases)》<br>
 🔹 《[许可证声明](docs/zh/legal/LICENSE.md)》<br>
 🔹 《[安全声明](docs/zh/legal/SECURITY.md)》<br>
 🔹 《[免责声明](docs/zh/legal/disclaimer.md)》<br>
+```
 
 ## 🤝 建议与交流
 

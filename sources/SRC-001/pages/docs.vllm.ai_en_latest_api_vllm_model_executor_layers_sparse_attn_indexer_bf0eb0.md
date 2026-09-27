@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/sparse_attn_indexer/
 lastmod: 2026-09-27
 
+```python
 @CustomOp.register("sparse_attn_indexer")
 class SparseAttnIndexer(CustomOp):
 """Sparse Attention Indexer Custom Op Layer. This layer is extracted as a
@@ -305,6 +306,7 @@ req_idx = (
 torch.searchsorted(
 chunk.local_cu_seq_lens, chunk.cu_seqlen_ks, right=True
 )
+```
 - 1
 )
 page_table = chunk.block_table[req_idx]

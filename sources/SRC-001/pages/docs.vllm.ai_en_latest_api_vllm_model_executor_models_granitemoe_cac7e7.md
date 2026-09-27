@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/granitemoe/
 lastmod: 2026-09-27
 
+```python
 class GraniteMoeMoE(nn.Module):
 """A tensor-parallel MoE implementation for GraniteMoe that shards each
 expert across all ranks.
@@ -58,3 +59,4 @@ final_hidden_states, 0
 num_tokens = orig_shape[0]
 final_hidden_states = final_hidden_states[:num_tokens]
 return final_hidden_states.view(orig_shape)
+```

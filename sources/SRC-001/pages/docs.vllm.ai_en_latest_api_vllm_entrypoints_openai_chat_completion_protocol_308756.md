@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/openai/chat_completion/protocol/
 lastmod: 2026-09-27
 
+```python
 class ChatCompletionRequest(OpenAIBaseModel):
 # Ordered by official OpenAI API documentation
 # https://platform.openai.com/docs/api-reference/chat/create
@@ -300,9 +301,11 @@ return data
 def _normalize_messages_before(cls, data: Any) -> Any:
 """Pre-process message dicts before Pydantic field validation.
 Performs two normalizations in a single pass:
+```
 - Converts tool_calls generators/iterators to lists so one-shot
 generators are not consumed during union type matching.
 - Renames the deprecated ``reasoning_content`` field to
+```python
 ``reasoning`` so downstream code only needs to check one field.
 """
 if not isinstance(data, dict):
@@ -718,9 +721,11 @@ def check_system_message_content_type(cls, data):
 """Warn if system messages contain non-text content.
 According to OpenAI API spec, system messages can only be of type
 'text'. We log a warning instead of rejecting to avoid breaking
+```
 users who intentionally send multimodal system messages.
 See: https://platform.openai.com/docs/api-reference/chat/create#chat_create-messages-system_message
 """
+```python
 if not isinstance(data, dict):
 return data
 messages = data.get("messages", [])
@@ -756,3 +761,4 @@ logger.warning_once(
 part_type,
 )
 return data
+```

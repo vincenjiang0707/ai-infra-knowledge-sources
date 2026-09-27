@@ -91,8 +91,10 @@ sampling_params,
 LONG_PROMPT
 + "Question: what is the age of Zack Blue? Your answer: The age of Zack Blue is ",
 )
+```python
 if __name__ == "__main__":
 main()
+```
 
 
 ## Prefix Caching Offline[¶](https://docs.vllm.ai#prefix-caching-offline)

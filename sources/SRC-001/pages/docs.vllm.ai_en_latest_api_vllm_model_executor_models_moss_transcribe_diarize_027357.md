@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/moss_transcribe_diarize/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 MossTranscribeDiarizeMultiModalProcessor,
 info=MossTranscribeDiarizeProcessingInfo,
@@ -265,3 +266,4 @@ return loader.load_weights(
 weights,
 mapper=self.hf_to_vllm_mapper,
 )
+```

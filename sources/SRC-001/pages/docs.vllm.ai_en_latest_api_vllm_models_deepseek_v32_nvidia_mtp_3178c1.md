@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v32/nvidia/mtp/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV32MTP(nn.Module, DeepseekV2MixtureOfExperts, SupportsPP):
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
 super().__init__()
@@ -203,3 +204,4 @@ f"MTP speculative decoding layer {layer_idx} weights "
 f"missing from checkpoint."
 )
 return loaded_params
+```

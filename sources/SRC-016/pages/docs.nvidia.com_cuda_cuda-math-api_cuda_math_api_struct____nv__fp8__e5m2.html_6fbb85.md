@@ -4,8 +4,10 @@ source: https://docs.nvidia.com/cuda/cuda-math-api/cuda_math_api/struct____nv__f
 15.19. __nv_fp8_e5m2[](https://docs.nvidia.com#nv-fp8-e5m2)
 
 -
+```rust
 struct __nv_fp8_e5m2
 [](https://docs.nvidia.com#_CPPv413__nv_fp8_e5m2)
+```
 
 -
 [__nv_fp8_e5m2](https://docs.nvidia.com#struct____nv__fp8__e5m2)datatypeThis structure implements the datatype for handling

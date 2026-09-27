@@ -1,9 +1,11 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/router/gate_linear/
 lastmod: 2026-09-27
 
+```python
 @PluggableLayer.register("gate_linear")
 class GateLinear(ReplicatedLinear):
 """MoE gate linear layer with multi-tier GEMM dispatch:
+```
 1. cuteDSL ll_bf16_gemm (SM90+, M<=16, bf16 in, fp32 out,
 K divisible by 8)
 2. fp32 specialized kernel (SM90+ or gfx950, bf16/fp32 in, fp32 out,

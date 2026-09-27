@@ -18,9 +18,11 @@ You can either install vLLM from pip or use the pre-built Docker image.
 Note: The vLLM wheel for ROCm requires Python 3.12, ROCm 7.2.1, and glibc >= 2.35. If your environment does not meet these requirements, please use the Docker-based setup as described above. Supported GPUs: MI300X, MI325X, MI355X.
 
 
+```bash
 uv venv --python 3.12
 source .venv/bin/activate
 uv pip install vllm --extra-index-url https://wheels.vllm.ai/rocm
+```
 
 
 ### Use vLLM with Docker[¶](https://docs.vllm.ai#use-vllm-with-docker)
@@ -29,8 +31,10 @@ uv pip install vllm --extra-index-url https://wheels.vllm.ai/rocm
 
 Pull the vLLM release image from [Docker Hub](https://hub.docker.com/r/vllm/vllm-openai/tags?name=17.0):
 
+```bash
 docker pull vllm/vllm-openai:v0.17.0-cu130 # CUDA 13.0
 docker pull vllm/vllm-openai:v0.17.0 # Other CUDA versions
+```
 
 
 ##### Hopper (x86_64)[¶](https://docs.vllm.ai#hopper-x86_64)
@@ -204,9 +208,11 @@ NIXL / UCX (see the NixlConnector doc for transport tuning):
 
 `CUDA_VISIBLE_DEVICES`
 
+```bash
 export CUDA_VISIBLE_DEVICES=0
 export VLLM_NIXL_SIDE_CHANNEL_PORT=<unique_port>
 export VLLM_NIXL_SIDE_CHANNEL_HOST=<routable_ip_of_this_host> # when prefill/decode cross nodes; see NixlConnector doc
+```
 
 
 #### Prefill worker (`vllm serve`
@@ -447,6 +453,7 @@ vllm bench serve \
 
 ### Consume the OpenAI API Compatible Server[¶](https://docs.vllm.ai#consume-the-openai-api-compatible-server)
 
+```python
 import time
 from openai import OpenAI
 client = OpenAI(
@@ -479,6 +486,7 @@ max_tokens=2048
 )
 print(f"Response costs: {time.time() - start:.2f}s")
 print(f"Generated text: {response.choices[0].message.content}")
+```
 
 
 For more usage examples, check out the [vLLM user guide for multimodal models](https://docs.vllm.ai/en/latest/features/multimodal_inputs.html) and the [official Kimi-K2.5 Hugging Face page](https://huggingface.co/moonshotai/Kimi-K2.5)!

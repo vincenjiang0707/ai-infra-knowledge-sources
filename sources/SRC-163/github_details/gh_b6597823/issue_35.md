@@ -73,12 +73,14 @@ $python distserve/api_server/distserve_api_server.py --model ../lama2-7b-hf/
    
 it report another issue:
 
+```
 `(ParaWorker pid=30741) INFO 02:18:28 runtime peak memory: 12.706 GB
 (ParaWorker pid=30741) INFO 02:18:28 total GPU memory: 44.521 GB
 (ParaWorker pid=30741) INFO 02:18:28 kv cache size for one token: 0.50000 MB
 (ParaWorker pid=30741) INFO 02:18:28 num_gpu_blocks: 3502
 (ParaWorker pid=30741) INFO 02:18:28 num_cpu_blocks: 2048
 (ParaWorker pid=30742) Gpt<T>::load() - ../lama2-7b-hf/decoder.embed_tokens.weight.pt not found`
+```
 
 ### RobertLou · 2024-08-06
 
@@ -122,6 +124,7 @@ but I don't have the .bin file in the folder , only got these files:
 
 > root@d7b9ced7ced8:/workspace/DistServe# ls -lt ../lama2-7b-hf/
 total 13163352
+```bash
 -rw-r--r-- 1 root root      23950 Aug  6 02:00 model.safetensors.index.json
 -rw-r--r-- 1 root root 3590488816 Aug  6 02:00 model-00003-of-00003.safetensors
 -rw-r--r-- 1 root root 4947390880 Aug  6 02:00 model-00002-of-00003.safetensors
@@ -132,6 +135,7 @@ total 13163352
 -rw-r--r-- 1 root root        414 Aug  6 01:59 special_tokens_map.json
 -rw-r--r-- 1 root root     499723 Aug  6 01:59 tokenizer.model
 -rw-r--r-- 1 root root        960 Aug  6 01:59 tokenizer_config.json
+```
 
 ### RobertLou · 2024-08-06
 

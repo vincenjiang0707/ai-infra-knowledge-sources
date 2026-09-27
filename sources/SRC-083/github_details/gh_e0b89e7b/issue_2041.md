@@ -61,12 +61,14 @@ hardware is absent.
 Suggested fix — query package metadata instead of spawning a shell. Same
 result, no subprocess, cross-platform:
 
+```python
     def get_gaudi_sw_version():
         from importlib.metadata import PackageNotFoundError, version as _pkg_version
         try:
             return version.parse(_pkg_version("habana-torch-plugin"))
         except PackageNotFoundError:
             return None
+```
 
 I have this patch running locally and it resolves the hang (5/5 clean starts,
 previously ~50% failure rate). Happy to open a PR.

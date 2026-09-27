@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/router/aiter_shared_routed_fused_moe_router/
 lastmod: 2026-09-27
 
+```python
 class AiterSharedRoutedFusedMoERouter(BaseRouter):
 """ROCm AITER router for models with fused shared experts (e.g. Qwen3-MoE).
 When the AITER topk_softmax kernel supports sigmoid fusion, the routing
@@ -105,3 +106,4 @@ num_fused_shared_experts=num_fse,
 shared_expert_weights=shared_weights,
 )
 return topk_weights, topk_ids
+```

@@ -107,10 +107,12 @@ CUpti_SassMetrics_InstanceValue_STRUCT_SIZE
 ## 6.12.6. Enumerations[#](https://docs.nvidia.com#id2)
 
 -
+```rust
 enum CUpti_SassMetrics_OutputGranularity
 [#](https://docs.nvidia.com#_CPPv435CUpti_SassMetrics_OutputGranularity) *Values:*-
 enumerator CUPTI_SASS_METRICS_OUTPUT_GRANULARITY_GPU
 [#](https://docs.nvidia.com#_CPPv4N35CUpti_SassMetrics_OutputGranularity41CUPTI_SASS_METRICS_OUTPUT_GRANULARITY_GPUE) SASS metric data will be collected at GPU level. In
+```
 
 [CUpti_SassMetricsGetDataProperties_Params](https://docs.nvidia.com/structCUpti__SassMetricsGetDataProperties__Params.html#structcupti__sassmetricsgetdataproperties__params)struct the numOfInstances will be equal to 1.
 

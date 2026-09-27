@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/colpali/
 lastmod: 2026-09-27
 
+```python
 @default_pooling_type(seq_pooling_type="CLS", tok_pooling_type="ALL")
 @MULTIMODAL_REGISTRY.register_processor(
 ColPaliMultiModalProcessor,
@@ -14,6 +15,7 @@ SupportsLateInteraction,
 """ColPali late interaction model for multi-modal retrieval/reranking.
 This model extends PaliGemmaForConditionalGeneration with a ColBERT-style
 linear projection layer for per-token embeddings. It supports:
+```
 - "token_embed" task: Per-token embeddings for late interaction scoring
 The model produces L2-normalized per-token embeddings by:
 1. Running the PaliGemma backbone (vision + language) to get hidden states

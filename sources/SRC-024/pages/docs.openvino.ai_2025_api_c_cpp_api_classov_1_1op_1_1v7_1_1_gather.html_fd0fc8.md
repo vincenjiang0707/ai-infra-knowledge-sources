@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v7::Gather[#](https://docs.openvino.ai#class-ov-op-v7-gather)
 
 -
+```python
 class Gather : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[GatherBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_gather_base.html#_CPPv4N2ov2op4util10GatherBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v76GatherE) [Gather](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v7_1_1_gather)slices from axis of data according to indices.Public Functions
+```
 
 -
 Gather(const

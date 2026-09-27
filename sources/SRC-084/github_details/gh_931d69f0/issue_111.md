@@ -10,6 +10,7 @@ Can I ask, I tried following the usage on Hugging Face, but it takes almost 100 
 
 This is the code i using
 
+```python
 import torch
 from transformers import AutoTokenizer
 from hqq.models.hf.base import AutoHQQHFModel
@@ -45,6 +46,7 @@ gen = HFGenerator(model, tokenizer, max_new_tokens=1000, do_sample=True, compile
 gen.generate("Write an essay about large language models", print_tokens=True)
 gen.generate("Tell me a funny joke!", print_tokens=True)
 gen.generate("How to make a yummy chocolate cake?", print_tokens=True)
+```
 
 ## 评论 (18)
 
@@ -328,9 +330,11 @@ Traceback (most recent call last):
   File "C:\Users\i9-4090\miniconda3\envs\pytorch_model\lib\site-packages\torch\_dynamo\output_graph.py", line 1416, in call_user_compiler
     return self._call_user_compiler(gm)
   File "C:\Users\i9-4090\miniconda3\envs\pytorch_model\lib\site-packages\torch\_dynamo\output_graph.py", line 1465, in _call_user_compiler
+```python
     raise BackendCompilerFailed(self.compiler_fn, e) from e
 torch._dynamo.exc.BackendCompilerFailed: backend='inductor' raised:
 RuntimeError: Cannot find a working triton installation. Either the package is not installed or it is too old. More information on installing Triton can be found at https://github.com/openai/triton
+```
 
 Set TORCH_LOGS="+dynamo" and TORCHDYNAMO_VERBOSE=1 for more information
 

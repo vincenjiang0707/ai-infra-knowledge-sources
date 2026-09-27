@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp4/b12x/
 lastmod: 2026-09-27
 
+```python
 class B12xMxFp4LinearKernel(MxFp4LinearKernel):
 """MXFP4 linear through the native B12X SM120 dense GEMM."""
 @classmethod
@@ -73,3 +74,4 @@ layer.weight,
 layer.weight_scale,
 bias,
 )
+```

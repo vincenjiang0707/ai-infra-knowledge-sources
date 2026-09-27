@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/inkling/nvidia/ops/fa4_rel_attention/
 lastmod: 2026-09-27
 
+```python
 class InklingFA4RelAttentionKernel(
 VllmJitKernel["InklingFA4RelAttentionKernel.CompileKey"]
 ):
@@ -300,3 +301,4 @@ rel_logits=rel_logits,
 num_splits=num_splits,
 out=out,
 )
+```

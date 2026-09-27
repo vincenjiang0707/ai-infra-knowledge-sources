@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v8::MatrixNms[#](https://docs.openvino.ai#class-ov-op-v8-matrixnms)
 
 -
+```python
 class MatrixNms : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v89MatrixNmsE) [MatrixNms](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_matrix_nms)operation.Public Functions
+```
 
 -
 MatrixNms() = default
@@ -35,8 +37,10 @@ inline const
 [MatrixNms](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_matrix_nms).
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v89MatrixNms10AttributesE) Structure that specifies attributes of the operation.
+```
 
 
 -

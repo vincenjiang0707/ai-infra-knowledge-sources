@@ -104,10 +104,12 @@ A fix is forthcoming in a linked PR.
 <details>
 <summary>🔗 Related PRs</summary>
 
+```
 vllm-project/llm-compressor#2462 - [Bugfix] QAC with basic pipeline [merged]
 vllm-project/llm-compressor#2591 - [bugfix][awq] fix kv_cache + awq bug [merged]
 vllm-project/llm-compressor#2781 - [Autowrapper] [Tracing] Unpin Gemma4, support tracing `UserDict` and `IfExp` [merged]
 vllm-project/llm-compressor#2823 - [Bugfix] Fix KV cache tests with transformers v5 [closed]
+```
 </details>
 
 ---

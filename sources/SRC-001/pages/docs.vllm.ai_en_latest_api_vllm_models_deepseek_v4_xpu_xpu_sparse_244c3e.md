@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/xpu/xpu_sparse/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV4XPUAttention(DeepseekV4Attention):
 """XPU sparse MLA attention layer for DeepSeek V4."""
 backend_cls = DeepseekV4XPUSparseBackend
@@ -294,3 +295,4 @@ d_v=q.shape[-1],
 block_dpe=0,
 )
 output[query_start:query_end] = out
+```

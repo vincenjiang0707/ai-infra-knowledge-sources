@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/deepseek_v2/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV2MLAAttention(nn.Module):
 """Main reference: DeepseekV2 paper, and FlashInfer Implementation
 (https://arxiv.org/abs/2405.04434 and https://github.com/flashinfer-ai/flashinfer/pull/551).
@@ -229,3 +230,4 @@ hidden_states: torch.Tensor,
 llama_4_scaling: torch.Tensor | None,
 ) -> torch.Tensor:
 return self.mla_attn(positions, hidden_states, llama_4_scaling)
+```

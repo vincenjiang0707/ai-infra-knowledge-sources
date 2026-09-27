@@ -4,8 +4,10 @@ source: https://docs.nvidia.com/cuda/cuda-math-api/cuda_math_api/struct____nv__f
 15.9. __nv_fp4_e2m1[](https://docs.nvidia.com#nv-fp4-e2m1)
 
 -
+```rust
 struct __nv_fp4_e2m1
 [](https://docs.nvidia.com#_CPPv413__nv_fp4_e2m1)
+```
 
 -
 [__nv_fp4_e2m1](https://docs.nvidia.com#struct____nv__fp4__e2m1)datatypeThis structure implements the datatype for handling

@@ -34,6 +34,7 @@ mlc_llm convert_weight Qwen3-Coder-30B-A3B-Instruct --quantization q4f16_ft -o m
  - GPU driver version (if applicable): NVIDIA-SMI 540.4.0                Driver Version: 540.4.0
  - CUDA/cuDNN version (if applicable): 12.6
  - TVM Unity Hash Tag (`python -c "import tvm; print('\n'.join(f'{k}: {v}' for k, v in tvm.support.libinfo().items()))"`, applicable if you compile models):
+```yaml
  BUILD_STATIC_RUNTIME: OFF
 BUILD_DUMMY_LIBTVM: OFF
 COMPILER_RT_PATH: 3rdparty/compiler-rt
@@ -41,7 +42,9 @@ CUDA_VERSION: 12.6
 DLPACK_PATH: 3rdparty/dlpack/include
 DMLC_PATH: 3rdparty/dmlc-core/include
 GIT_COMMIT_HASH: b5736b32584c2c6f5caed655869c799ab494e6e3
+```
 GIT_COMMIT_TIME: 2025-08-09 16:49:10 -0400
+```yaml
 HIDE_PRIVATE_SYMBOLS: ON
 INDEX_DEFAULT_I64: ON
 INSTALL_DEV: OFF
@@ -126,6 +129,7 @@ USE_NVSHMEM: OFF
 USE_NNAPI_CODEGEN: OFF
 USE_NNAPI_RUNTIME: OFF
 BACKTRACE_ON_SEGFAULT: OFF
+```
  - Any other relevant information:
 
 ## Additional context
@@ -183,6 +187,7 @@ modify ft_quantization.py line126 as following, Previously, self.quant_map.param
                         logger.info(
                             'Fallback to GroupQuantize for nn.Linear: "%s", '
                             + "weight.shape: %s, out_dtype: %s",
+```python
                             bold(name),
                             node.weight.shape,
                             node.out_dtype,
@@ -196,6 +201,7 @@ modify ft_quantization.py line126 as following, Previously, self.quant_map.param
                         self.quant_map.param_map[weight_name] = [f"{name}.q_weight", f"{name}.q_scale"]
                         self.quant_map.map_func[weight_name] = self.config.quantize_weight
                         return FTQuantizeLinear.from_linear(node, self.config)
+```
 
 ### rankaiyx · 2025-08-18
 

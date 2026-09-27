@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/gemma3_mm/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 Gemma3MultiModalProcessor,
 info=Gemma3ProcessingInfo,
@@ -288,3 +289,4 @@ image_input = self._parse_and_validate_image_input(**mm_kwargs)
 assert image_input is not None
 results = self._process_image_input(image_input)
 return torch.cat(results, dim=0)
+```

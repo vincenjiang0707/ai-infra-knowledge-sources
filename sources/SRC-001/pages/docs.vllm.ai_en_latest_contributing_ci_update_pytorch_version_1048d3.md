@@ -13,8 +13,10 @@ PyTorch release candidates can be downloaded from [PyTorch test index](https://d
 
 RC can be installed using the following command:
 
+```bash
 uv pip install torch torchvision torchaudio \
 --index-url https://download.pytorch.org/whl/test/cu128
+```
 
 
 When the final RC is ready for testing, it will be announced to the community on the [PyTorch dev-discuss forum](https://dev-discuss.pytorch.org/c/release-announcements). After this announcement, we can begin testing vLLM integration by drafting a pull request following this 3-step process:

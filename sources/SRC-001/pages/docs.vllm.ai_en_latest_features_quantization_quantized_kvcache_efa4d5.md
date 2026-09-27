@@ -72,6 +72,7 @@ Some attention layer types (e.g. sliding-window) are more sensitive to KV-cache 
 flag leaves the specified layers at the model's native dtype while keeping the rest of the layers under the chosen quantized dtype. The flag accepts either layer indices or layer-type names:
 
 # Skip every sliding-window attention layer.
+```bash
 vllm serve <model> \
 --kv-cache-dtype fp8 \
 --kv-cache-dtype-skip-layers sliding_window
@@ -79,15 +80,18 @@ vllm serve <model> \
 vllm serve <model> \
 --kv-cache-dtype fp8 \
 --kv-cache-dtype-skip-layers 0 1 23
+```
 
 
 Programmatic usage:
 
+```python
 llm = LLM(
 model="meta-llama/Llama-3.1-8B-Instruct",
 kv_cache_dtype="fp8",
 kv_cache_dtype_skip_layers=["sliding_window"],
 )
+```
 
 
 ## Examples[¶](https://docs.vllm.ai#examples)
@@ -98,6 +102,7 @@ kv_cache_dtype_skip_layers=["sliding_window"],
 
 All quantization scales are set to 1.0.
 
+```python
 from vllm import LLM, SamplingParams
 sampling_params = SamplingParams(temperature=0.7, top_p=0.8)
 llm = LLM(
@@ -107,6 +112,7 @@ kv_cache_dtype="fp8",
 prompt = "London is the capital of"
 out = llm.generate(prompt, sampling_params)[0].outputs[0].text
 print(out)
+```
 
 
 ### 2. **[Recommended] Calibration Using a Dataset (with **`llm-compressor`

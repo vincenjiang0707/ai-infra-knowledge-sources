@@ -21,6 +21,7 @@ endpoint.## Writing an IO Processor Plugin[¶](https://docs.vllm.ai#writing-an-i
 
 IO Processor plugins implement the [ IOProcessor](https://docs.vllm.ai/api/vllm/plugins/io_processors/interface/#vllm.plugins.io_processors.interface.IOProcessor) interface:
 
+```python
 IOProcessorInput = TypeVar("IOProcessorInput")
 IOProcessorOutput = TypeVar("IOProcessorOutput")
 class IOProcessor(ABC, Generic[IOProcessorInput, IOProcessorOutput]):
@@ -77,6 +78,7 @@ sorted_output = sorted(
 )
 collected_output = [output[1] for output in sorted_output]
 return self.post_process(collected_output, request_id=request_id, **kwargs)
+```
 
 
 The `parse_data`

@@ -8,6 +8,7 @@ labels: bug, stale, auto-closed
 
 ### Bug Report
 
+```
 #0  xxx in ?? () from /usr/lib64/libc.so.6
 #1  xxx in raise () from /usr/lib64/libc.so.6
 #2  xxx in abort () from /usr/lib64/libc.so.6
@@ -28,6 +29,7 @@ labels: bug, stale, auto-closed
 #17 xxx in ?? () from /usr/lib64/libc.so.6
 #18 xxx in __libc_start_main () from /usr/lib64/libc.so.6
 #19 xxx in _start ()
+```
 
 
 ### Before submitting...

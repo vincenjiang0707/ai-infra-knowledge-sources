@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors/
 lastmod: 2026-09-27
 
+```python
 class CompressedTensorsConfig(QuantizationConfig):
 def __init__(
 self,
@@ -41,10 +42,12 @@ The WeightsMapper is designed for weight paths, but some backends
 (e.g. transformers) use broad prefix mappings like "" -> "model."
 which would incorrectly transform non-path targets.
 compressed-tensors targets can be:
+```
 - Layer paths: "layers.0.self_attn.q_proj" -> transformed
 - Module class names: "Linear" -> preserved (no ".")
 - Regex patterns: "re:.*proj" -> preserved (starts with "re:")
 """
+```python
 def _map_target(target: str) -> str | None:
 is_layer_path = "." in target and not target.startswith("re:")
 if is_layer_path:
@@ -167,10 +170,12 @@ cls, config: dict[str, Any]
 config: The `quantization_config` dictionary from config.json
 Returns:
 A tuple with two elements
+```
 1. A dictionary mapping target layer names to their corresponding
 sparsity_config
 2. A list of layer names to ignore for sparsity
 """
+```python
 if not (sparsity_config := config.get(SPARSITY_CONFIG_NAME)):
 return dict(), []
 sparsity_config = SparsityCompressionConfig.model_validate(sparsity_config)
@@ -818,3 +823,4 @@ and weight_quant.strategy == QuantizationStrategy.BLOCK
 ):
 return True
 return False
+```

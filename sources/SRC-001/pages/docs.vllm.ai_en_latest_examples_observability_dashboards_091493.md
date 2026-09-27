@@ -46,9 +46,11 @@ First, navigate to this example's directory:
 
 Import the JSON directly into the Grafana UI, or use the API:
 
+```bash
 curl -X POST http://grafana/api/dashboards/db \
 -H "Content-Type: application/json" \
 -d @grafana/performance_statistics.json
+```
 
 
 ### Perses[¶](https://docs.vllm.ai#perses)
@@ -110,6 +112,7 @@ If you're using the [Grafana Operator](https://github.com/grafana-operator/grafa
 custom resource:
 
 # Note: Adjust the instanceSelector to match your Grafana instance's labels
+```yaml
 # You can check with: kubectl get grafana -o yaml
 apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
@@ -122,6 +125,7 @@ dashboards: grafana # Adjust to match your Grafana instance labels
 folder: "vLLM Monitoring"
 json: |
 # Replace this comment with the complete JSON content from
+```
 # performance_statistics.json - The JSON should start with { and end with }
 
 
@@ -129,6 +133,7 @@ Then apply to your cluster:
 
 ## grafana/performance_statistics.json
 
+```json
 {
 "annotations": {
 "list": [
@@ -1534,10 +1539,12 @@ Then apply to your cluster:
 "version": 40,
 "weekStart": ""
 }
+```
 
 
 ## grafana/query_statistics.json
 
+```json
 {
 "annotations": {
 "list": [
@@ -2297,6 +2304,7 @@ Then apply to your cluster:
 "version": 2,
 "weekStart": ""
 }
+```
 
 
 ## perses/README.md
@@ -2339,18 +2347,23 @@ Place the YAML files in a Perses provisioning folder for automatic loading.
 
 ## perses/performance_statistics.yaml
 
+```yaml
 kind: PersesDashboard
 metadata:
 name: performance-statistics
+```
 createdAt: 0001-01-01T00:00:00Z
 updatedAt: 0001-01-01T00:00:00Z
+```yaml
 version: 0
 project: ""
 spec:
 display:
 name: Performance Statistics
 variables:
+```
 - kind: ListVariable
+```yaml
 spec:
 display:
 name: Deployment_ID
@@ -2359,7 +2372,9 @@ name: Deployment_id
 allowAllValue: true
 allowMultiple: true
 defaultValue:
+```
 - $__all
+```yaml
 sort: alphabetical-asc
 plugin:
 kind: PrometheusLabelValuesVariable
@@ -2370,7 +2385,9 @@ name: accelerators-thanos-querier-datasource
 labelName: model_name
 matchers:
 # Any one vllm metric that always carries model_name
+```
 - vllm:generation_tokens_total{}
+```yaml
 panels:
 "1":
 kind: Panel
@@ -2384,7 +2401,9 @@ legend:
 mode: table
 position: bottom
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2408,7 +2427,9 @@ kind: StatChart
 spec:
 calculation: last-number
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2430,7 +2451,9 @@ kind: StatChart
 spec:
 calculation: last-number
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2455,7 +2478,9 @@ kind: StatChart
 spec:
 calculation: last-number
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2480,7 +2505,9 @@ kind: StatChart
 spec:
 calculation: last-number
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2507,7 +2534,9 @@ legend:
 mode: table
 position: bottom
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2530,7 +2559,9 @@ kind: StatChart
 spec:
 calculation: last-number
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2552,7 +2583,9 @@ kind: StatChart
 spec:
 calculation: last-number
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2577,7 +2610,9 @@ kind: StatChart
 spec:
 calculation: last-number
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2602,7 +2637,9 @@ kind: StatChart
 spec:
 calculation: last-number
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2629,7 +2666,9 @@ legend:
 mode: table
 position: bottom
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2642,7 +2681,9 @@ sum by (model_name) (rate(vllm:inter_token_latency_seconds_sum{model_name=~"$Dep
 /
 sum by (model_name) (rate(vllm:inter_token_latency_seconds_count{model_name=~"$Deployment_id"}[$__interval]))
 seriesNameFormat: '{{model_name}}'
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2658,7 +2699,9 @@ rate(vllm:inter_token_latency_seconds_bucket{model_name=~"$Deployment_id"}[$__in
 )
 )
 seriesNameFormat: '{{model_name}} p50'
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2674,7 +2717,9 @@ rate(vllm:inter_token_latency_seconds_bucket{model_name=~"$Deployment_id"}[$__in
 )
 )
 seriesNameFormat: '{{model_name}} p90'
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2700,7 +2745,9 @@ kind: StatChart
 spec:
 calculation: last-number
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2722,7 +2769,9 @@ kind: StatChart
 spec:
 calculation: last-number
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2747,7 +2796,9 @@ kind: StatChart
 spec:
 calculation: last-number
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2772,7 +2823,9 @@ kind: StatChart
 spec:
 calculation: last-number
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2799,7 +2852,9 @@ legend:
 mode: table
 position: bottom
 queries:
+```
 - kind: TimeSeriesQuery
+```json
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2810,7 +2865,9 @@ name: accelerators-thanos-querier-datasource
 query: >
 sum by (model_name) (rate(vllm:generation_tokens_total{model_name=~"$Deployment_id"}[$__interval]))
 seriesNameFormat: '{{model_name}} generation'
+```
 - kind: TimeSeriesQuery
+```json
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2821,7 +2878,9 @@ name: accelerators-thanos-querier-datasource
 query: >
 sum by (model_name) (rate(vllm:prompt_tokens_total{model_name=~"$Deployment_id"}[$__interval]))
 seriesNameFormat: '{{model_name}} prompt'
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2843,7 +2902,9 @@ kind: StatChart
 spec:
 calculation: last-number
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2866,7 +2927,9 @@ legend:
 mode: table
 position: bottom
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2889,7 +2952,9 @@ legend:
 mode: table
 position: bottom
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2910,7 +2975,9 @@ kind: StatChart
 spec:
 calculation: last-number
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2929,7 +2996,9 @@ kind: StatChart
 spec:
 calculation: last-number
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -2939,157 +3008,217 @@ kind: PrometheusDatasource
 name: accelerators-thanos-querier-datasource
 query: sum(vllm:num_requests_waiting)
 layouts:
+```
 - kind: Grid
+```yaml
 spec:
 display:
+```
 title: Overview
 items:
 - x: 0
+```yaml
 y: 0
 width: 6
 height: 3
 content: { $ref: '#/spec/panels/17' } # KV cache %
+```
 - x: 6
+```yaml
 y: 0
 width: 6
 height: 3
 content: { $ref: '#/spec/panels/20' } # running sum
+```
 - x: 12
+```yaml
 y: 0
 width: 6
 height: 3
 content: { $ref: '#/spec/panels/21' } # waiting sum
+```
 - kind: Grid
+```yaml
 spec:
 display:
+```
 title: E2E Latency
 items:
 - x: 0
+```yaml
 y: 1
 width: 10
 height: 6
 content: { $ref: '#/spec/panels/1' }
+```
 - x: 10
+```yaml
 y: 1
 width: 7
 height: 3
 content: { $ref: '#/spec/panels/2' }
+```
 - x: 17
+```yaml
 y: 1
 width: 7
 height: 3
 content: { $ref: '#/spec/panels/3' }
+```
 - x: 10
+```yaml
 y: 4
 width: 7
 height: 3
 content: { $ref: '#/spec/panels/4' }
+```
 - x: 17
+```yaml
 y: 4
 width: 7
 height: 3
 content: { $ref: '#/spec/panels/5' }
+```
 - kind: Grid
+```yaml
 spec:
 display:
+```
 title: TTFT
 items:
 - x: 0
+```yaml
 y: 8
 width: 10
 height: 6
 content: { $ref: '#/spec/panels/6' }
+```
 - x: 10
+```yaml
 y: 8
 width: 7
 height: 3
 content: { $ref: '#/spec/panels/7' }
+```
 - x: 17
+```yaml
 y: 8
 width: 7
 height: 3
 content: { $ref: '#/spec/panels/8' }
+```
 - x: 10
+```yaml
 y: 11
 width: 7
 height: 3
 content: { $ref: '#/spec/panels/9' }
+```
 - x: 17
+```yaml
 y: 11
 width: 7
 height: 3
 content: { $ref: '#/spec/panels/10' }
+```
 - kind: Grid
+```yaml
 spec:
 display:
+```
 title: ITL (Time per Output Token)
 items:
 - x: 0
+```yaml
 y: 15
 width: 10
 height: 6
 content: { $ref: '#/spec/panels/11' }
+```
 - x: 10
+```yaml
 y: 15
 width: 7
 height: 3
 content: { $ref: '#/spec/panels/12' }
+```
 - x: 17
+```yaml
 y: 15
 width: 7
 height: 3
 content: { $ref: '#/spec/panels/13' }
+```
 - x: 10
+```yaml
 y: 18
 width: 7
 height: 3
 content: { $ref: '#/spec/panels/14' }
+```
 - x: 17
+```yaml
 y: 18
 width: 7
 height: 3
 content: { $ref: '#/spec/panels/15' }
+```
 - kind: Grid
+```yaml
 spec:
 display:
+```
 title: TPS (Prompt / Generation / Iteration)
 items:
 - x: 0
+```yaml
 y: 22
 width: 14
 height: 6
 content: { $ref: '#/spec/panels/16' }
+```
 - kind: Grid
+```yaml
 spec:
 display:
+```
 title: Per-Pod Request State
 items:
 - x: 0
+```yaml
 y: 28
 width: 12
 height: 6
 content: { $ref: '#/spec/panels/18' }
+```
 - x: 12
+```yaml
 y: 28
 width: 12
 height: 6
 content: { $ref: '#/spec/panels/19' }
+```
 
 
 ## perses/query_statistics.yaml
 
+```yaml
 kind: PersesDashboard
 metadata:
 name: query-statistics
+```
 createdAt: 0001-01-01T00:00:00Z
 updatedAt: 0001-01-01T00:00:00Z
+```yaml
 version: 0
 project: ""
 spec:
 display:
 name: Query Statistics_New
 variables:
+```
 - kind: ListVariable
+```yaml
 spec:
 name: NS
 display: { name: Namespace }
@@ -3101,8 +3230,10 @@ spec:
 datasource: { kind: PrometheusDatasource, name: accelerators-thanos-querier-datasource }
 labelName: namespace
 matchers:
+```
 - up{service=~".*vllm.*"}
 - kind: ListVariable
+```yaml
 spec:
 name: SVC
 display: { name: Service }
@@ -3114,8 +3245,10 @@ spec:
 datasource: { kind: PrometheusDatasource, name: accelerators-thanos-querier-datasource }
 labelName: service
 matchers:
+```
 - up{namespace="$NS",service=~".*vllm.*"}
 - kind: ListVariable
+```yaml
 spec:
 name: MODEL
 display: { name: Model (real vLLM) }
@@ -3128,7 +3261,9 @@ spec:
 datasource: { kind: PrometheusDatasource, name: accelerators-thanos-querier-datasource }
 labelName: model_name
 matchers:
+```
 - vllm:request_success_total{namespace="$NS",service="$SVC"}
+```yaml
 panels:
 # --- Core (works on Simulator & Real) ---
 core_running_now:
@@ -3137,7 +3272,9 @@ spec:
 display: { name: Running Requests (now) }
 plugin: { kind: StatChart, spec: { calculation: last-number } }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3151,7 +3288,9 @@ spec:
 display: { name: Waiting Requests (now) }
 plugin: { kind: StatChart, spec: { calculation: last-number } }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3165,7 +3304,9 @@ spec:
 display: { name: KV Cache Usage (0–1) }
 plugin: { kind: StatChart, spec: { calculation: last-number } }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3183,7 +3324,9 @@ spec:
 legend: { mode: table, position: bottom }
 visual: { display: line, lineWidth: 1, areaOpacity: 0.3 }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3201,7 +3344,9 @@ spec:
 legend: { mode: table, position: bottom }
 visual: { display: line, lineWidth: 1, areaOpacity: 0.3 }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3215,7 +3360,9 @@ spec:
 display: { name: Scrape Targets Up }
 plugin: { kind: StatChart, spec: { calculation: last-number } }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3230,7 +3377,9 @@ spec:
 display: { name: KV Cache Usage (%) – now }
 plugin: { kind: StatChart, spec: { calculation: last-number } }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3249,7 +3398,9 @@ spec:
 legend: { mode: table, position: bottom }
 visual: { display: line, lineWidth: 1, areaOpacity: 0.3 }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3268,7 +3419,9 @@ spec:
 legend: { mode: table, position: bottom }
 visual: { display: line, lineWidth: 1, areaOpacity: 0.3 }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3286,7 +3439,9 @@ spec:
 legend: { mode: table, position: bottom }
 visual: { display: line, lineWidth: 1, areaOpacity: 0.3 }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3304,7 +3459,9 @@ spec:
 legend: { mode: table, position: bottom }
 visual: { display: line, lineWidth: 1, areaOpacity: 0.3 }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3324,7 +3481,9 @@ spec:
 legend: { mode: table, position: bottom }
 visual: { display: line, lineWidth: 1, areaOpacity: 0.3 }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3338,7 +3497,9 @@ spec:
 display: { name: p50 Latency (real vLLM) }
 plugin: { kind: StatChart, spec: { calculation: last-number } }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3352,7 +3513,9 @@ spec:
 display: { name: p90 Latency (real vLLM) }
 plugin: { kind: StatChart, spec: { calculation: last-number } }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3366,7 +3529,9 @@ spec:
 display: { name: p99 Latency (real vLLM) }
 plugin: { kind: StatChart, spec: { calculation: last-number } }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3384,7 +3549,9 @@ spec:
 legend: { mode: table, position: bottom }
 visual: { display: line, lineWidth: 1, areaOpacity: 0.3 }
 queries:
+```
 - kind: TimeSeriesQuery
+```yaml
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3402,7 +3569,9 @@ spec:
 legend: { mode: table, position: bottom }
 visual: { display: line, lineWidth: 1, areaOpacity: 0.3 }
 queries:
+```
 - kind: TimeSeriesQuery
+```json
 spec:
 plugin:
 kind: PrometheusTimeSeriesQuery
@@ -3411,10 +3580,13 @@ datasource: { kind: PrometheusDatasource, name: accelerators-thanos-querier-data
 query: sum by (model_name) (rate(vllm:generation_tokens_total{namespace="$NS",service="$SVC",model_name=~"$MODEL"}[$__interval])) or vector(0)
 minStep: "15s"
 layouts:
+```
 - kind: Grid
+```yaml
 spec:
 display: { title: Core (Sim & Real) }
 items:
+```
 - { x: 0, y: 0, width: 6, height: 3, content: { $ref: '#/spec/panels/core_running_now' } }
 - { x: 6, y: 0, width: 6, height: 3, content: { $ref: '#/spec/panels/core_waiting_now' } }
 - { x: 12, y: 0, width: 6, height: 3, content: { $ref: '#/spec/panels/core_kv_usage_now' } }
@@ -3422,22 +3594,28 @@ items:
 - { x: 0, y: 3, width: 12, height: 6, content: { $ref: '#/spec/panels/core_running_ts' } }
 - { x: 12, y: 3, width: 12, height: 6, content: { $ref: '#/spec/panels/core_waiting_ts' } }
 - kind: Grid
+```yaml
 spec:
 display: { title: KV Cache (%) }
 items:
+```
 - { x: 0, y: 9, width: 6, height: 3, content: { $ref: '#/spec/panels/core_kv_usage_pct_now' } }
 - { x: 6, y: 9, width: 18, height: 6, content: { $ref: '#/spec/panels/core_kv_usage_pct_ts' } }
 - kind: Grid
+```yaml
 spec:
 display: { title: Per-Pod breakdowns }
 items:
+```
 - { x: 0, y: 15, width: 12, height: 6, content: { $ref: '#/spec/panels/per_pod_running_ts' } }
 - { x: 12, y: 15, width: 12, height: 6, content: { $ref: '#/spec/panels/per_pod_waiting_ts' } }
 - { x: 0, y: 21, width: 24, height: 6, content: { $ref: '#/spec/panels/per_pod_kv_pct_ts' } }
 - kind: Grid
+```yaml
 spec:
 display: { title: Real vLLM only (shows 0 on simulator) }
 items:
+```
 - { x: 0, y: 27, width: 12, height: 6, content: { $ref: '#/spec/panels/real_req_rate_ts' } }
 - { x: 12, y: 27, width: 4, height: 3, content: { $ref: '#/spec/panels/real_p50' } }
 - { x: 16, y: 27, width: 4, height: 3, content: { $ref: '#/spec/panels/real_p90' } }

@@ -27,6 +27,7 @@ PC: @     0xe1e2567f5014  (unknown)  ncclLocalOpAppend()
 
 ### Steps to Reproduce the Issue
 
+```yaml
 GPU: 2× NVIDIA GB10 (SM121, 128GB unified memory) — dual DGX Spark
 Network: QSFP 200GbE direct cable (RoCE, ConnectX-7)
 Environment: bare-metal, Ubuntu 24.04, kernel 6.17.0-1018-nvidia
@@ -34,6 +35,7 @@ CUDA driver: 13000, aarch64
 Ranks: 2 (one per Spark)
 GDR: disabled — mlx5dv_reg_dmabuf_mr not available (MLX5_1.25)
 CPU-path transport only
+```
 
 ### NCCL Version
 
@@ -41,6 +43,7 @@ CPU-path transport only
 
 ### Your platform details
 
+```yaml
 GPU: 2× NVIDIA GB10 (SM121, 128GB unified memory) — dual DGX Spark
 Network: QSFP 200GbE direct cable (RoCE, ConnectX-7)
 Environment: bare-metal, Ubuntu 24.04, kernel 6.17.0-1018-nvidia
@@ -48,13 +51,16 @@ CUDA driver: 13000, aarch64
 Ranks: 2 (one per Spark)
 GDR: disabled — mlx5dv_reg_dmabuf_mr not available (MLX5_1.25)
 CPU-path transport only
+```
 
 ### Error Message & Behavior
 
 First error: SIGSEGV in ncclLocalOpAppend after ~1.1M AllReduce operations on CPU-path
 
+```yaml
 Expected: NCCL CPU-path proxy handles sustained long-running collective operations without memory corruption
 Actual: SIGSEGV at ncclLocalOpAppend after ~1,155,873 collectives, rank 1 crashes, rank 0 watchdog fires after 1800s timeout
+```
 
 ## 评论 (4)
 

@@ -4,8 +4,10 @@ lastmod:
 # Struct ov::device::UUID[#](https://docs.openvino.ai#struct-ov-device-uuid)
 
 -
+```rust
 struct UUID
 [#](https://docs.openvino.ai#_CPPv4N2ov6device4UUIDE) Structure which defines format of
+```
 
 [UUID](https://docs.openvino.ai/group__ov__transformation__common__api.html#structov_1_1device_1_1_u_u_i_d).Public Members
 

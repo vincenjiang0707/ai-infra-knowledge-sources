@@ -2886,11 +2886,13 @@ generic addresses at runtime, or load from the non-generic address using `ld.glo
 
 .
 
+```
 Device function names appearing in initializers represent the address of the first instruction in
 the function; this can be used to initialize a table of function pointers to be used with indirect
 calls. Beginning in PTX ISA version 3.1, kernel function names can be used as initializers e.g. to
 initialize a table of kernel function pointers, to be used with CUDA Dynamic Parallelism to launch
 kernels from GPU. See the *CUDA Dynamic Parallelism Programming Guide* for details.
+```
 
 Labels cannot be used in initializers.
 
@@ -4467,8 +4469,10 @@ memory. The
 ) window is contained
 within the `.global`
 
+```js
 window. Within each window, a generic address maps to an address in the
 underlying state space by subtracting the window base from the generic address.
+```
 
 ###
 6.4.2. [Arrays as Operands](https://docs.nvidia.com#arrays-as-operands)[](https://docs.nvidia.com#arrays-as-operands)
@@ -5073,10 +5077,12 @@ Application Binary Interface (ABI) for the CUDA® architecture.
 
 In PTX, functions are declared and defined using the `.func`
 
+```
 directive. A function *declaration*
 specifies an optional list of return parameters, the function name, and an optional list of input
 parameters; together these specify the function’s interface, or prototype. A function *definition*
 specifies both the interface and the body of the function. A function must be declared or defined
+```
 prior to being called.
 
 The simplest function has no parameters or return values, and is represented in PTX as follows:
@@ -5096,8 +5102,10 @@ Here, execution of the `call`
 
 instruction transfers control to `foo`
 
+```python
 , implicitly saving the
 return address. Execution of the `ret`
+```
 
 instruction within `foo`
 
@@ -20180,6 +20188,7 @@ source |
 Semantics
 
 ```
+```
 tmp64 = (b<<32) | a; // create 8 byte source
 if ( ! mode ) {
 ctl[0] = (c >> 0) & 0xf;
@@ -20193,6 +20202,7 @@ tmp[07:00] = ReadByte( mode, ctl[0], tmp64 );
 tmp[15:08] = ReadByte( mode, ctl[1], tmp64 );
 tmp[23:16] = ReadByte( mode, ctl[2], tmp64 );
 tmp[31:24] = ReadByte( mode, ctl[3], tmp64 );
+```
 ```
 
 PTX ISA Notes
@@ -20635,11 +20645,13 @@ a performance hint only, and does not change the memory consistency behavior of 
 Semantics
 
 ```
+```bash
 d = a; // named variable a
 d = *(&a+immOff) // variable-plus-offset
 d = *a; // register
 d = *(a+immOff); // register-plus-offset
 d = *(immAddr); // immediate address
+```
 ```
 
 Notes
@@ -21145,11 +21157,13 @@ a performance hint only, and does not change the memory consistency behavior of 
 Semantics
 
 ```
+```bash
 d = a; // named variable a
 d = *(&a+immOff) // variable-plus-offset
 d = *a; // register
 d = *(a+immOff); // register-plus-offset
 d = *(immAddr); // immediate address
+```
 ```
 
 Notes
@@ -21294,11 +21308,13 @@ and alignment requirements are described in
 Semantics
 
 ```
+```bash
 d = a; // named variable a
 d = *(&a+immOff) // variable-plus-offset
 d = *a; // register
 d = *(a+immOff); // register-plus-offset
 d = *(immAddr); // immediate address
+```
 ```
 
 Notes
@@ -22446,6 +22462,7 @@ Syntax
 
 ```
 // Integer type:
+```
 multimem.ld_reduce{.ldsem}{.scope}{.ss}.op.type d, [a];
 multimem.ld_reduce.weak{.ss}.op.type d, [a];
 multimem.st{.stsem}{.scope}{.ss}.type [a], b;
@@ -22475,6 +22492,7 @@ multimem.red{.redsem}{.scope}{.ss}.redop{.vec}.redtype [a], b;
 .vec = { .v2, .v4, .v8 }
 .type= { .f16, .f16x2, .bf16, .bf16x2, .f32, .f64, .e5m2, .e5m2x2, .e5m2x4, .e4m3, .e4m3x2, .e4m3x4 }
 .redtype = { .f16, .f16x2, .bf16, .bf16x2, .f32, .f64 }
+```
 ```
 
 Description
@@ -23011,10 +23029,12 @@ Apply the cache eviction priority to the specified address in the specified cach
 Syntax
 
 ```
+```
 applypriority.async.bulk{.src}.completion_mechanism.level::eviction_priority [a], size;
 .level::eviction_priority = { .L2::evict_normal };
 .src = { .global };
 .completion_mechanism = { .bulk_group };
+```
 ```
 
 Description
@@ -23095,6 +23115,7 @@ Apply the cache eviction priority to the specified tensor address in the specifi
 Syntax
 
 ```
+```
 applypriority.async.bulk.tensor.dim{.src}.completion_mechansim{.load_mode}
 .level::eviction_priority{.override::global_address}{.override_attribute}
 [tensorMap{, gAddrToOverride}{, attributeOverrideInfo}, tensorCoords]{, im2colInfo};
@@ -23105,6 +23126,7 @@ applypriority.async.bulk.tensor.dim{.src}.completion_mechansim{.load_mode}
 .completion_mechanism = { .bulk_group };
 .load_mode = { .tile, .tile::gather4, .im2col,
 .im2col::w, .im2col::w::128 };
+```
 ```
 
 Description
@@ -23795,6 +23817,7 @@ Convert a value from one type to another.
 Syntax
 
 ```
+```
 cvt{.irnd}{.ftz}{.sat}.dtype.atype d, a; // integer rounding
 cvt{.frnd}{.ftz}{.sat}.dtype.atype d, a; // fp rounding
 cvt.frnd2{.relu}{.satfinite}{.pzo}.f16.f32 d, a;
@@ -23847,6 +23870,7 @@ cvt.rn{.satfinite}{.scaled::n2::ue8m0}.bf16x2.ue5m3x2 d, a{, scale-factor};
 .f8x4type = { .e4m3x4, .e5m2x4 };
 .f6x4type = { .e2m3x4, .e3m2x4 };
 .fp16x2type = { .f16x2, .bf16x2 };
+```
 ```
 
 Description
@@ -24774,6 +24798,7 @@ qualifier has no impact on other additional operands such as `rbits`
 Semantics
 
 ```
+```
 if (/* inst type is .f16x2 or .bf16x2 */) {
 d[31:16] = convert(a);
 d[15:0] = convert(b);
@@ -24844,6 +24869,7 @@ d[15:0] = convert(a[3:0]) * scale-factor[7:0]; // scale-factor if present for .b
 } else {
 d = convert(a);
 }
+```
 ```
 
 // Random bits `rbits`
@@ -25828,6 +25854,7 @@ are copied from lower bits of `c`
 Semantics
 
 ```
+```bash
 ta = a < MIN(convertType) ? MIN(convertType) : a;
 ta = a > MAX(convertType) ? MAX(convertType) : a;
 tb = b < MIN(convertType) ? MIN(convertType) : b;
@@ -25847,6 +25874,7 @@ for (i = 2 * size; i <= 31; i++) {
 d[i] = c[i - 2 * size];
 }
 }
+```
 ```
 
 `.sat`
@@ -26276,6 +26304,7 @@ Initiates an asynchronous copy operation from one state space to another.
 Syntax
 
 ```
+```
 cp.async.ca.shared{::cta}.global{.level::cache_hint}{.level::prefetch_size}
 [dst], [src], cp-size{, src-size}{, cache_policy} ;
 cp.async.cg.shared{::cta}.global{.level::cache_hint}{.level::prefetch_size}
@@ -26287,6 +26316,7 @@ cp.async.cg.shared{::cta}.global{.level::cache_hint}{.level::prefetch_size}
 .level::cache_hint = { .L2::cache_hint }
 .level::prefetch_size = { .L2::64B, .L2::128B, .L2::256B }
 cp-size = { 4, 8, 16 }
+```
 ```
 
 Description
@@ -26483,6 +26513,7 @@ or higher.
 Examples
 
 ```
+```
 cp.async.ca.shared.global [shrd], [gbl + 4], 4;
 cp.async.ca.shared::cta.global [%r0 + 8], [%r1], 8;
 cp.async.cg.shared.global [%r2], [%r3], 16;
@@ -26493,6 +26524,7 @@ createpolicy.fractional.L2::evict_last.L2::evict_unchanged.b64 cache_policy, 0.2
 cp.async.ca.shared.global.L2::cache_hint [%r2], [%r1], 4, cache_policy;
 cp.async.ca.shared.global [shrd], [gbl], 4, p;
 cp.async.cg.shared.global.L2::cache_hint [%r0], [%r2], 16, q, cache_policy;
+```
 ```
 
 ######
@@ -27573,11 +27605,13 @@ Provides a hint to the system to initiate the asynchronous prefetch of data to t
 Syntax
 
 ```
+```
 cp.async.bulk.prefetch.L2.src{.level::cache_hint} [srcMem], size {, cache_policy};
 cp.async.bulk.prefetch.L2.src{.level::eviction_priority} [srcMem], size;
 .src = { .global }
 .level::cache_hint = { .L2::cache_hint }
 .level::eviction_priority = { .L2::evict_last }
+```
 ```
 
 Description
@@ -27675,6 +27709,7 @@ Initiates an asynchronous copy operation to a multimem address range.
 Syntax
 
 ```
+```
 multimem.cp.async.bulk{.sem}.dst.src.completion_mechanism{.cp_mask}
 [dstMem], [srcMem], size{, byteMask};
 .sem = { .weak }
@@ -27689,6 +27724,7 @@ multimem.cp.async.bulk.sem.scope.dst.src.completion_mechanism{.cp_mask}.type
 .src = { .shared::cta }
 .completion_mechanism = { .bulk_group }
 .type = { .b128 }
+```
 ```
 
 Description
@@ -29607,6 +29643,7 @@ Syntax
 
 ```
 // global -> L2:
+```
 cp.async.bulk.prefetch.tensor.dim.L2.src{.load_mode}{.level::cache_hint}{.override::global_address}{.override_attribute}
 [tensorMap{, gAddrToOverride}{, attributeOverrideInfo}, tensorCoords]
 {, im2colInfo } {, cache_policy}
@@ -29619,6 +29656,7 @@ cp.async.bulk.prefetch.tensor.dim.L2.src{.load_mode}{.level::eviction_priority}{
 .level::cache_hint = { .L2::cache_hint }
 .level::eviction_priority = { .L2::evict_last }
 .override_attribute = { .override::global_dim, .override::global_dim_stride }
+```
 ```
 
 Description
@@ -30078,6 +30116,7 @@ Modifies the field of a tensor-map object.
 Syntax
 
 ```
+```
 tensormap.replace.mode.field1{.ss}.b1024.type [addr], new_val;
 tensormap.replace.mode.field2{.ss}.b1024.type [addr], ord, new_val;
 tensormap.replace.mode.field3{.ss}.b1024.type [addr], new_val;
@@ -30087,6 +30126,7 @@ tensormap.replace.mode.field3{.ss}.b1024.type [addr], new_val;
 .field3 = { .elemtype, .interleave_layout, .swizzle_mode, .swizzle_atomicity, .fill_mode }
 .ss = { .global, .shared::cta }
 .type = { .b32, .b64 }
+```
 ```
 
 Description
@@ -30845,9 +30885,11 @@ instruction.
 Semantics
 
 ```
+```python
 for N in .num:
 for S in num_source:
 data[mdata[N][S]] = cdata[N][S];
+```
 ```
 
 Notes
@@ -31103,12 +31145,14 @@ Asynchronous copy from fabric handle.
 Syntax
 
 ```
+```
 fabric.try_get.async.dst.completion_mechanism{.level::cache_hint}.sem.scope.b128 [dst], [srcLeId, srcDataOff], size, [bar] {, cache_policy};
 .dst = { .shared::cta }
 .completion_mechanism = { .mbarrier::complete_tx::bytes.mbarrier::report::fabric }
 .sem = { .relaxed }
 .scope = { .sys }
 .level::cache_hint = { .L2::cache_hint }
+```
 ```
 
 Description
@@ -31268,6 +31312,7 @@ Asynchronous copy to fabric handle.
 Syntax
 
 ```
+```
 fabric.try_put.async{.multimem}.src.completion_mechanism0{.level::cache_hint}.sem.scope.b128 [dstLeId, dstDataOff], [src], size, [bar] {, cache_policy};
 fabric.try_put.async{.multimem}.src.completion_mechanism0{.level::cache_hint}.cp_mask.sem.scope.b128 [dstLeId, dstDataOff], [src], size, [bar], bytemask {, cache_policy};
 fabric.try_put.async{.multimem}.src.completion_mechanism1{.level::cache_hint}.sem.scope.b128 [dstLeId, dstDataOff, dstCounterOff], [src], size, [bar] {, cache_policy};
@@ -31277,6 +31322,7 @@ fabric.try_put.async{.multimem}.src.completion_mechanism1{.level::cache_hint}.se
 .sem = { .relaxed }
 .scope = { .sys }
 .level::cache_hint = { .L2::cache_hint }
+```
 ```
 
 Description
@@ -31470,6 +31516,7 @@ Asynchronous copy to fabric handle with reduction.
 Syntax
 
 ```
+```
 fabric.try_red.async{.multimem}.src.completion_mechanism0{.level::cache_hint}.sem.scope.redOpBit.typeBit [dstLeId, dstDataOff], [src], size, [bar] {, cache_policy};
 fabric.try_red.async{.multimem}.src.completion_mechanism0{.level::cache_hint}.sem.scope.redOpMinMax.typeMinMax [dstLeId, dstDataOff], [src], size, [bar] {, cache_policy};
 fabric.try_red.async{.multimem}.src.completion_mechanism0{.level::cache_hint}.sem.scope.redOpArith.typeArith [dstLeId, dstDataOff], [src], size, [bar] {, cache_policy};
@@ -31490,6 +31537,7 @@ fabric.try_red.async{.multimem}.src.completion_mechanism1{.level::cache_hint}.se
 .typeArith = { .u32, .u64, .f16, .bf16, .f32, .f64 }
 .redOpAdd = { .add }
 .typeAdd = { .u32, .u64, .f16, .bf16, .f32, .f64 }
+```
 ```
 
 Description
@@ -32923,6 +32971,7 @@ weak memory-order semantics.
 Semantics
 
 ```
+```bash
 atomic {
 [smem_dst] = [dstLeId, dstDataOff]; // copy as the prev value
 if (operation == cas) { // smem_src must be 32B aligned
@@ -32935,6 +32984,7 @@ c = upper16Bytes([smem_src]); // swap value
 }
 exch(r, s) = s;
 cas(r, s, t) = (r == s) ? t : r;
+```
 ```
 
 PTX ISA Notes
@@ -33871,11 +33921,13 @@ Perform a texture fetch of the 4-texel bilerp footprint.
 Syntax
 
 ```
+```bash
 tld4.comp.2d.v4.dtype.f32 d[|p], [a, c] {, e} {, f};
 tld4.comp.geom.v4.dtype.f32 d[|p], [a, b, c] {, e} {, f}; // explicit sampler
 .comp = { .r, .g, .b, .a };
 .geom = { .2d, .a2d, .cube, .acube };
 .dtype = { .u32, .s32, .f32 };
+```
 ```
 
 Description
@@ -34340,12 +34392,14 @@ Load from surface memory.
 Syntax
 
 ```
+```
 suld.b.geom{.cop}.vec.dtype.clamp d, [a, b]; // unformatted
 .geom = { .1d, .2d, .3d, .a1d, .a2d };
 .cop = { .ca, .cg, .cs, .cv }; // cache operation
 .vec = { none, .v2, .v4 };
 .dtype = { .b8 , .b16, .b32, .b64 };
 .clamp = { .trap, .clamp, .zero };
+```
 ```
 
 Description
@@ -34517,10 +34571,12 @@ or higher.
 Examples
 
 ```
+```bash
 suld.b.1d.v4.b32.trap {s1,s2,s3,s4}, [surf_B, {x}];
 suld.b.3d.v2.b64.trap {r1,r2}, [surf_A, {x,y,z,w}];
 suld.b.a1d.v2.b32 {r0,r1}, [surf_C, {idx,x}];
 suld.b.a2d.b32 r0, [surf_D, {idx,x,y,z}]; // z ignored
+```
 ```
 
 ####
@@ -34538,6 +34594,7 @@ Store to surface memory.
 Syntax
 
 ```
+```
 sust.b.{1d,2d,3d}{.cop}.vec.ctype.clamp [a, b], c; // unformatted
 sust.p.{1d,2d,3d}.vec.b32.clamp [a, b], c; // formatted
 sust.b.{a1d,a2d}{.cop}.vec.ctype.clamp [a, b], c; // unformatted
@@ -34545,6 +34602,7 @@ sust.b.{a1d,a2d}{.cop}.vec.ctype.clamp [a, b], c; // unformatted
 .vec = { none, .v2, .v4 };
 .ctype = { .b8 , .b16, .b32, .b64 };
 .clamp = { .trap, .clamp, .zero };
+```
 ```
 
 Description
@@ -34757,10 +34815,12 @@ or higher.
 Examples
 
 ```
+```bash
 sust.p.1d.v4.b32.trap [surf_B, {x}], {f1,f2,f3,f4};
 sust.b.3d.v2.b64.trap [surf_A, {x,y,z,w}], {r1,r2};
 sust.b.a1d.v2.b64 [surf_C, {idx,x}], {r1,r2};
 sust.b.a2d.b32 [surf_D, {idx,x,y,z}], r0; // z ignored
+```
 ```
 
 ####
@@ -34978,10 +35038,12 @@ or higher.
 Examples
 
 ```
+```
 sured.b.add.2d.u32.trap [surf_A, {x,y}], r1;
 sured.p.min.1d.u32.trap [surf_B, {x}], r1;
 sured.b.max.1d.u64.trap [surf_C, {x}], r1;
 sured.p.min.1d.b64.trap [surf_D, {x}], r1;
+```
 ```
 
 ####
@@ -35198,8 +35260,10 @@ Branch to a target and continue execution there.
 Syntax
 
 ```
+```
 @p bra{.uni} tgt; // tgt is a label
 bra{.uni} tgt; // unconditional branch
+```
 ```
 
 Description
@@ -35214,9 +35278,11 @@ executing this instruction have identical values for the guard predicate and bra
 Semantics
 
 ```
+```bash
 if (p) {
 pc = tgt;
 }
+```
 ```
 
 PTX ISA Notes
@@ -35251,8 +35317,10 @@ Branch to a label indexed from a list of potential branch targets.
 Syntax
 
 ```
+```
 @p brx.idx{.uni} index, tlist;
 brx.idx{.uni} index, tlist;
+```
 ```
 
 Description
@@ -35293,6 +35361,7 @@ must refer to labels within the current function.
 Semantics
 
 ```
+```bash
 if (p) {
 if (index < length(tlist)) {
 pc = tlist[index];
@@ -35300,6 +35369,7 @@ pc = tlist[index];
 pc = undefined;
 }
 }
+```
 ```
 
 PTX ISA Notes
@@ -35685,6 +35755,7 @@ Barrier synchronization.
 Syntax
 
 ```
+```
 barrier{.cta}.sync{.aligned} a{, b};
 barrier{.cta}.arrive{.aligned} a, b;
 barrier{.cta}.red.popc{.aligned}.u32 d, a{, b}, {!}c;
@@ -35694,6 +35765,7 @@ bar{.cta}.arrive a, b;
 bar{.cta}.red.popc.u32 d, a{, b}, {!}c;
 bar{.cta}.red.op.pred p, a{, b}, {!}c;
 .op = { .and, .or };
+```
 ```
 
 Description
@@ -36822,6 +36894,7 @@ atom{.sem}{.scope}{.space}.add.noftz{.level::cache_hint}.type3 d, [a], b{, cache
 Atomic operation with vector type:
 
 ```
+```
 atom{.sem}{.scope}{.global}.add{.noftz}{.level::cache_hint}.vec_32_bit.f32 d, [a], b{, cache_policy};
 atom{.sem}{.scope}{.global}.op.noftz{.level::cache_hint}.vec_16_bit.half_word_type d, [a], b{, cache_policy};
 atom{.sem}{.scope}{.global}.op.noftz{.level::cache_hint}.vec_32_bit.packed_type d, [a], b{, cache_policy};
@@ -36833,6 +36906,7 @@ atom{.sem}{.scope}{.global}.op.noftz{.level::cache_hint}.vec_32_bit.packed_type 
 .vec_16_bit = { .v2, .v4, .v8 }
 .vec_32_bit = { .v2, .v4 };
 .level::cache_hint = { .L2::cache_hint }
+```
 ```
 
 Description
@@ -37198,6 +37272,7 @@ a performance hint only, and does not change the memory consistency behavior of 
 Semantics
 
 ```
+```
 atomic {
 d = *a;
 *a = (operation == cas) ? operation(*a, b, c)
@@ -37208,6 +37283,7 @@ inc(r, s) = (r >= s) ? 0 : r+1;
 dec(r, s) = (r==0 || r > s) ? s : r-1;
 exch(r, s) = s;
 cas(r,s,t) = (r == s) ? t : r;
+```
 ```
 
 Notes
@@ -37491,6 +37567,7 @@ red{.sem}{.scope}{.space}.add.noftz{.level::cache_hint}.type1 [a], b{, cache_pol
 Reduction operation with vector type:
 
 ```
+```
 red{.sem}{.scope}{.global}.add{.noftz}{.level::cache_hint}.vec_32_bit.f32 [a], b{, cache_policy};
 red{.sem}{.scope}{.global}.op.noftz{.level::cache_hint}. vec_16_bit.half_word_type [a], b{, cache_policy};
 red{.sem}{.scope}{.global}.op.noftz{.level::cache_hint}.vec_32_bit.packed_type [a], b {, cache_policy};
@@ -37502,6 +37579,7 @@ red{.sem}{.scope}{.global}.op.noftz{.level::cache_hint}.vec_32_bit.packed_type [
 .vec_16_bit = { .v2, .v4, .v8 }
 .vec_32_bit = { .v2, .v4 };
 .level::cache_hint = { .L2::cache_hint }
+```
 ```
 
 Description
@@ -38324,12 +38402,14 @@ Perform asynchronous reduction with release ordering on the multimem address.
 Syntax
 
 ```
+```
 multimem.red.async.sem.scope{.ss}.op.type [a], b;
 .sem = { .release };
 .scope = { .gpu, .sys };
 .ss = { .global };
 .op = { .add };
 .type = { .u32, .s32, .u64 };
+```
 ```
 
 Description
@@ -39890,6 +39970,7 @@ operation on the *mbarrier object*.
 Syntax
 
 ```
+```
 mbarrier.expect_tx{.sem.scope}{.space}.b64 [addr], txCount;
 .sem = { .relaxed }
 .scope = { .cta, .cluster }
@@ -39899,6 +39980,7 @@ mbarrier.expect_tx{.sem.scope}{.space}{.multicast}.b64 [addr], txCount{, ctaMask
 .scope = { .cta, .cluster }
 .space = { .shared::cluster }
 .multicast = { .multicast::cluster::32b }
+```
 ```
 
 Description
@@ -40039,6 +40121,7 @@ operation on the *mbarrier object*.
 Syntax
 
 ```
+```
 mbarrier.complete_tx{.sem.scope}{.space}.b64 [addr], txCount;
 .sem = { .relaxed }
 .scope = { .cta, .cluster }
@@ -40048,6 +40131,7 @@ mbarrier.complete_tx{.sem.scope}{.space}{.multicast}.b64 [addr], txCount {, ctaM
 .scope = { .cta, .cluster }
 .space = { .shared::cluster }
 .multicast = { .multicast::cluster::32b }
+```
 ```
 
 Description
@@ -40191,6 +40275,7 @@ Performs [arrive-on operation](https://docs.nvidia.com#parallel-synchronization-
 Syntax
 
 ```
+```
 mbarrier.arrive{.sem.scope}{.shared{::cta}}.b64 state, [addr]{, count};
 mbarrier.arrive{.sem.scope}{.shared::cluster}{.multicast}.b64 _, [addr] {,count} {, ctaMask};
 mbarrier.arrive.expect_tx{.sem.scope}{.shared{::cta}}.b64 state, [addr], txCount;
@@ -40199,6 +40284,7 @@ mbarrier.arrive.noComplete{.release.cta}{.shared{::cta}}.b64 state, [addr], coun
 .sem = { .release, .relaxed }
 .scope = { .cta, .cluster }
 .multicast = { .multicast::cluster::32b }
+```
 ```
 
 Description
@@ -40482,6 +40568,7 @@ Decrements the expected count of the *mbarrier object* and performs [arrive-on o
 Syntax
 
 ```
+```
 mbarrier.arrive_drop{.sem.scope}{.shared{::cta}}.b64 state, [addr] {, count};
 mbarrier.arrive_drop{.sem.scope}{.shared::cluster}{.multicast}.b64 _, [addr] {, count} {, ctaMask};
 mbarrier.arrive_drop.expect_tx{.sem.scope}{.shared{::cta}}.b64 state, [addr], tx_count;
@@ -40490,6 +40577,7 @@ mbarrier.arrive_drop.noComplete{.release.cta}{.shared{::cta}}.b64 state, [addr],
 .sem = { .release, .relaxed }
 .scope = { .cta, .cluster }
 .multicast = { .multicast::cluster::32b }
+```
 ```
 
 Description
@@ -42953,6 +43041,7 @@ Floating point format `.f16`
 loads:
 
 ```
+```
 wmma.load.a.sync.aligned.layout.shape{.ss}.atype r, [p] {, stride};
 wmma.load.b.sync.aligned.layout.shape{.ss}.btype r, [p] {, stride};
 wmma.load.c.sync.aligned.layout.shape{.ss}.ctype r, [p] {, stride};
@@ -42963,11 +43052,13 @@ wmma.load.c.sync.aligned.layout.shape{.ss}.ctype r, [p] {, stride};
 .btype = {.f16, .s8, .u8};
 .ctype = {.f16, .f32, .s32};
 ```
+```
 
 Alternate floating point format `.bf16`
 
 loads:
 
+```
 ```
 wmma.load.a.sync.aligned.layout.shape{.ss}.atype r, [p] {, stride}
 wmma.load.b.sync.aligned.layout.shape{.ss}.btype r, [p] {, stride}
@@ -42979,11 +43070,13 @@ wmma.load.c.sync.aligned.layout.shape{.ss}.ctype r, [p] {, stride}
 .btype = {.bf16 };
 .ctype = {.f32 };
 ```
+```
 
 Alternate floating point format `.tf32`
 
 loads:
 
+```
 ```
 wmma.load.a.sync.aligned.layout.shape{.ss}.atype r, [p] {, stride}
 wmma.load.b.sync.aligned.layout.shape{.ss}.btype r, [p] {, stride}
@@ -42995,11 +43088,13 @@ wmma.load.c.sync.aligned.layout.shape{.ss}.ctype r, [p] {, stride}
 .btype = {.tf32 };
 .ctype = {.f32 };
 ```
+```
 
 Double precision Floating point `.f64`
 
 loads:
 
+```
 ```
 wmma.load.a.sync.aligned.layout.shape{.ss}.atype r, [p] {, stride}
 wmma.load.b.sync.aligned.layout.shape{.ss}.btype r, [p] {, stride}
@@ -43011,9 +43106,11 @@ wmma.load.c.sync.aligned.layout.shape{.ss}.ctype r, [p] {, stride}
 .btype = {.f64 };
 .ctype = {.f64 };
 ```
+```
 
 Sub-byte loads:
 
+```
 ```
 wmma.load.a.sync.aligned.row.shape{.ss}.atype r, [p] {, stride}
 wmma.load.b.sync.aligned.col.shape{.ss}.btype r, [p] {, stride}
@@ -43025,9 +43122,11 @@ wmma.load.c.sync.aligned.layout.shape{.ss}.ctype r, [p] {, stride}
 .btype = {.s4, .u4};
 .ctype = {.s32};
 ```
+```
 
 Single-bit loads:
 
+```
 ```
 wmma.load.a.sync.aligned.row.shape{.ss}.atype r, [p] {, stride}
 wmma.load.b.sync.aligned.col.shape{.ss}.btype r, [p] {, stride}
@@ -43038,6 +43137,7 @@ wmma.load.c.sync.aligned.layout.shape{.ss}.ctype r, [p] {, stride}
 .atype = {.b1};
 .btype = {.b1};
 .ctype = {.s32};
+```
 ```
 
 Description
@@ -43258,6 +43358,7 @@ Collectively store a matrix into memory for WMMA
 Syntax
 
 ```
+```
 wmma.store.d.sync.aligned.layout.shape{.ss}.type [p], r {, stride};
 .layout = {.row, .col};
 .shape = {.m16n16k16, .m8n32k16, .m32n8k16};
@@ -43278,6 +43379,7 @@ wmma.store.d.sync.aligned.layout.shape{.ss}.type [p], r {, stride}
 .shape = {.m8n8k4 };
 .ss = {.global, .shared{::cta}};
 .type = {.f64};
+```
 ```
 
 Description
@@ -43522,11 +43624,13 @@ Floating point Double precision `wmma.mma`
 :
 
 ```
+```
 wmma.mma.sync.aligned.alayout.blayout.shape{.rnd}.f64.f64.f64.f64 d, a, b, c;
 .alayout = {.row, .col};
 .blayout = {.row, .col};
 .shape = {.m8n8k4 };
 .rnd = { .rn, .rz, .rm, .rp };
+```
 ```
 
 Sub-byte (`.u4`
@@ -43538,10 +43642,12 @@ multiplicands) `wmma.mma`
 :
 
 ```
+```
 wmma.mma.sync.aligned.row.col.shape.s32.atype.btype.s32{.satfinite} d, a, b, c;
 .shape = {.m8n8k32};
 .atype = {.s4, .u4};
 .btype = {.s4, .u4};
+```
 ```
 
 Single-bit (`.b1`
@@ -45872,6 +45978,7 @@ mma.sync.aligned.m16n8k32.row.col.kind.dtype.f8f6f4type.f8f6f4type.ctype d, a, b
 Alternate floating point type with block scaling:
 
 ```
+```
 mma.sync.aligned.m16n8k64.row.col.kind.block_scale{.scale_vec_size}.f32.e2m1.e2m1.f32.stype d, a, b, c, scale-a-data, {byte-id-a, thread-id-a}, scale-b-data, {byte-id-b, thread-id-b};
 .kind = {.kind::mxf4};
 .scale_vec_size = {.scale_vec::2X};
@@ -45886,6 +45993,7 @@ mma.sync.aligned.m16n8k32.row.col.kind.block_scale{.scale_vec_size}.f32.f8f6f4ty
 .f8f6f4type = {.e4m3, .e5m2, .e3m2, .e2m3, .e2m1};
 .stype = {.ue8m0};
 ```
+```
 
 Double precision floating point type:
 
@@ -45897,6 +46005,7 @@ mma.sync.aligned.shape.row.col.f64.f64.f64.f64 d, a, b, c;
 Integer type:
 
 ```
+```
 mma.sync.aligned.shape.row.col{.satfinite}.s32.atype.btype.s32 d, a, b, c;
 .shape = {.m8n8k16, .m16n8k16, .m16n8k32}
 .atype = {.u8, .s8};
@@ -45905,6 +46014,7 @@ mma.sync.aligned.shape.row.col{.satfinite}.s32.atype.btype.s32 d, a, b, c;
 .shape = {.m8n8k32, .m16n8k32, .m16n8k64}
 .atype = {.u4, .s4};
 .btype = {.u4, .s4};
+```
 ```
 
 Single bit:
@@ -46973,6 +47083,7 @@ instruction
 Syntax
 
 ```
+```
 ldmatrix.sync.aligned.shape.num{.trans}{.ss}.type r, [p];
 ldmatrix.sync.aligned.m8n16.num{.ss}.dst_fmt.src_fmt r, [p];
 ldmatrix.sync.aligned.m16n16.num.trans{.ss}.dst_fmt.src_fmt r, [p];
@@ -46985,6 +47096,7 @@ ldmatrix.sync.aligned.m8n16.num{.ss}.dtype.ctype r, [p];
 .src_fmt = { .b6x16_p32, .b4x16_p64 };
 .dtype = { .s8 };
 .ctype = { .s4 };
+```
 ```
 
 Description
@@ -47424,11 +47536,13 @@ Collectively store one or more matrices to shared memory.
 Syntax
 
 ```
+```
 stmatrix.sync.aligned.shape.num{.trans}{.ss}.type [p], r;
 .shape = {.m8n8, .m16n8};
 .num = {.x1, .x2, .x4};
 .ss = {.shared{::cta}};
 .type = {.b16, .b8};
+```
 ```
 
 Description
@@ -48866,6 +48980,7 @@ mma.sp::ordered_metadata.sync.aligned.m16n8k64.row.col.kind.dtype.f8f6f4type.f8f
 Alternate floating point type with block scaling:
 
 ```
+```
 mma.spvariant.sync.aligned.m16n8k128.row.col.kind.block_scale{.scale_vec_size}.f32.e2m1.e2m1.f32.stype d, a, b, c, e, f, scale-a-data, {byte-id-a, thread-id-a}, scale-b-data, {byte-id-b, thread-id-b};
 .spvariant = {.sp::ordered_metadata};
 .kind = {.kind::mxf4};
@@ -48883,9 +48998,11 @@ mma.spvariant.sync.aligned.m16n8k64.row.col.kind.block_scale{.scale_vec_size}.f3
 .f8f6f4type = {.e4m3, .e5m2, .e3m2, .e2m3, .e2m1};
 .stype = {.ue8m0};
 ```
+```
 
 Integer type:
 
+```
 ```
 mma.spvariant.sync.aligned.shape.row.col{.satfinite}.s32.atype.btype.s32 d, a, b, c, e, f;
 .shape = {.m16n8k32, .m16n8k64}
@@ -48897,6 +49014,7 @@ mma.spvariant.sync.aligned.shape.row.col{.satfinite}.s32.atype.btype.s32 d, a, b
 .atype = {.u4, .s4};
 .btype = {.u4, .s4};
 .spvariant = {.sp, .sp::ordered_metadata};
+```
 ```
 
 Description
@@ -54428,12 +54546,14 @@ Asynchronous collective store to tensor memory from registers.
 Syntax
 
 ```
+```
 tcgen05.st.sync.aligned.shape1.num{.unpack}.b32 [taddr], r;
 tcgen05.st.sync.aligned.shape2.num{.unpack}.b32 [taddr], immHalfSplitoff, r;
 .shape1 = { .16x64b, .16x128b, .16x256b, .32x32b }
 .shape2 = { .16x32bx2 }
 .num = { .x1, .x2, .x4, .x8, .x16, .x32, .x64, .x128 }
 .unpack = { .unpack::16b }
+```
 ```
 
 Description
@@ -54758,12 +54878,14 @@ Initiates an asynchronous copy operation from shared memory to the [Tensor Memor
 Syntax
 
 ```
+```
 tcgen05.cp.cta_group.shape{.multicast}{.dst_fmt.src_fmt} [taddr], s-desc;
 .cta_group = { .cta_group::1, .cta_group::2 }
 .src_fmt = { .b6x16_p32 , .b4x16_p64 }
 .dst_fmt = { .b8x16 }
 .shape = { .128x256b, .4x256b, .128x128b, .64x128b**, .32x128b*** }
 .multicast = { .warpx2::02_13** , .warpx2::01_23**, .warpx4*** }
+```
 ```
 
 Description
@@ -57612,6 +57734,7 @@ enable-input-d {, zero-column-mask-desc };
 .kind = { .kind::f16, .kind::tf32, .kind::f8f6f4 }
 ----------------------------------------------------------------------------------
 // 2. Integer type:
+```
 tcgen05.mma.ws.cta_group::1.kind{.collector_usage} [d-tmem], a-desc, b-desc, idesc,
 enable-input-d {, zero-column-mask-desc};
 tcgen05.mma.ws.cta_group::1.kind{.collector_usage} [d-tmem], [a-tmem], b-desc, idesc,
@@ -57620,6 +57743,7 @@ enable-input-d {, zero-column-mask-desc};
 .kind = { .kind::i8, .kind::ti16 }
 ::buffer = { ::b0, ::b1, ::b2, ::b3 }
 ::op = { ::fill, ::use, ::lastuse, ::discard}
+```
 ```
 
 Description
@@ -58157,6 +58281,7 @@ Makes the mbarrier object track the completion of all prior async-tcgen05 operat
 Syntax
 
 ```
+```
 tcgen05.commit.cta_group.completion_mechanism{.shared::cluster}{.multicast}.b64
 [mbar] {, ctaMask};
 tcgen05.commit.cta_group.completion_mechanism.sync_restrict::shared::read::mma::a{.shared::cluster}{.multicast}.b64
@@ -58164,6 +58289,7 @@ tcgen05.commit.cta_group.completion_mechanism.sync_restrict::shared::read::mma::
 .completion_mechanism = { .mbarrier::arrive::one }
 .cta_group = { .cta_group::1, .cta_group::2 }
 .multicast = { .multicast::cluster{::16b, ::32b} }
+```
 ```
 
 Description
@@ -58792,6 +58918,7 @@ third operand is based on `dtype`
 .
 
 ```
+```
 .s33 optSecOp(Modifier secop, .s33 tmp, .s33 c) {
 switch ( secop ) {
 .add: return tmp + c;
@@ -58801,7 +58928,9 @@ default: return tmp;
 }
 }
 ```
+```
 
+```
 ```
 .s33 optMerge( Modifier dsel, .s33 tmp, .s33 c ) {
 switch ( dsel ) {
@@ -58814,6 +58943,7 @@ case .b3: return ((tmp & 0xff) << 24) | (0x00ffffff & c);
 default: return tmp;
 }
 }
+```
 ```
 
 The lower 32-bits are then written to the destination operand.
@@ -60114,8 +60244,10 @@ Examples
 
 ```
 pmevent 1;
+```
 @p pmevent 7;
 @q pmevent.mask 0xff;
+```
 ```
 
 ####
@@ -63483,6 +63615,7 @@ Declare a prototype for use in an indirect call.
 Syntax
 
 ```
+```yaml
 // no input or return parameters
 label: .callprototype _ .noreturn {.abi_preserve N} {.abi_preserve_control N};
 // input params, no return params
@@ -63491,6 +63624,7 @@ label: .callprototype _ (param-list) .noreturn {.abi_preserve N} {.abi_preserve_
 label: .callprototype (ret-param) _ {.abi_preserve N} {.abi_preserve_control N};
 // input, return parameters
 label: .callprototype (ret-param) _ (param-list) {.abi_preserve N} {.abi_preserve_control N};
+```
 ```
 
 Description

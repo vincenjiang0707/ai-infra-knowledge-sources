@@ -151,16 +151,19 @@ Atlas300I Pro 使用 mindIE 刚刚支持了 GLM4 ，但是推理报错 RuntimeEr
 附权重量化代码：
 `# Copyright Huawei Technologies Co., Ltd. 2023-2024. All rights reserved.
 
+```python
 from msmodelslim.pytorch.llm_ptq.llm_ptq_tools import Calibrator, QuantConfig
 from atb_llm.models.chatglm.config_chatglm import ChatglmConfig
 from examples.models.chatglm.v2_6b.quant_utils \
     import get_model_and_tokenizer, get_calib_dataset, read_dataset
 from examples.convert.convert_utils import copy_tokenizer_files, modify_config
 from examples.convert.model_slim.quantifier import parse_arguments
+```
 
 NPU = "npu"
 
 def main():
+```bash
     args = parse_arguments()
     fp16_path = args.model_path  # 原始浮点模型路径
     model, tokenizer = get_model_and_tokenizer(fp16_path, True)
@@ -185,6 +188,7 @@ def main():
     copy_tokenizer_files(fp16_path, args.save_directory)
     config = ChatglmConfig.from_pretrained(fp16_path)
     modify_config(fp16_path, args.save_directory, config.torch_dtype, 'w8a8', args)
+```
 
 
 if __name__ == '__main__':

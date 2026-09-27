@@ -102,6 +102,7 @@ Bumps [googleapis/code-suggester](https://github.com/googleapis/code-suggester) 
 <details>
 <summary>Commits</summary>
 <ul>
+```html
 <li><a href="https://github.com/googleapis/code-suggester/commit/9c92ffb751cbdc880473aa650013b3a3292f743a"><code>9c92ffb</code></a> chore(main): release 4.3.3 (<a href="https://redirect.github.com/googleapis/code-suggester/issues/479">#479</a>)</li>
 <li><a href="https://github.com/googleapis/code-suggester/commit/cfa1d6b8ca8406a298485173b0ee639ab4a15d7e"><code>cfa1d6b</code></a> build: add extra test for Node 20, update windows tests (<a href="https://redirect.github.com/googleapis/code-suggester/issues/478">#478</a>)</li>
 <li><a href="https://github.com/googleapis/code-suggester/commit/4946260e430ad597db6b4b8779b45394fd8e5a84"><code>4946260</code></a> fix(deps): update word-wrap dependency to 1.2.6 (<a href="https://redirect.github.com/googleapis/code-suggester/issues/477">#477</a>)</li>
@@ -113,6 +114,7 @@ Bumps [googleapis/code-suggester](https://github.com/googleapis/code-suggester) 
 <li><a href="https://github.com/googleapis/code-suggester/commit/2e6b85ec0e65b7fcda3ee0b27aeae094765f43ee"><code>2e6b85e</code></a> build(action): build dist (<a href="https://redirect.github.com/googleapis/code-suggester/issues/471">#471</a>)</li>
 <li><a href="https://github.com/googleapis/code-suggester/commit/940f0b01485663c27000ec06908ad764c60d63e0"><code>940f0b0</code></a> chore: store nodejs build artifacts in placer (<a href="https://redirect.github.com/googleapis/code-suggester/issues/470">#470</a>)</li>
 <li>Additional commits viewable in <a href="https://github.com/googleapis/code-suggester/compare/v2...v4">compare view</a></li>
+```
 </ul>
 </details>
 <br />

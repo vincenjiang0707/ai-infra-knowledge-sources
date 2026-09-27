@@ -4,8 +4,10 @@ lastmod:
 # Class ov::Layout[#](https://docs.openvino.ai#class-ov-layout)
 
 -
+```python
 class Layout
 [#](https://docs.openvino.ai#_CPPv4N2ov6LayoutE) [ov::Layout](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_layout)represents the text information of tensor’s dimensions/axes. E.g. layout`NCHW`
+```
 
 means that 4D tensor`{-1, 3, 480, 640}`
 

@@ -81,17 +81,21 @@ base_rollout.RolloutConfig.__init__ = patched_init
 I've updated the workaround to apply the `inspect` firewall to both configuration classes. For anyone blocked, run this before `rl_train`:
 
 ```python
+```python
 import inspect
 from tunix.rl.rollout import base_rollout
 from tunix.rl import rl_cluster
+```
 
 def build_firewall(config_class):
+```bash
     original_init = config_class.__init__
     valid_params = set(inspect.signature(original_init).parameters.keys())
     def patched_init(self, *args, **kwargs):
         filtered_kwargs = {k: v for k, v in kwargs.items() if k in valid_params}
         original_init(self, *args, **filtered_kwargs)
     config_class.__init__ = patched_init
+```
 
 build_firewall(base_rollout.RolloutConfig)
 build_firewall(rl_cluster.ClusterConfig)

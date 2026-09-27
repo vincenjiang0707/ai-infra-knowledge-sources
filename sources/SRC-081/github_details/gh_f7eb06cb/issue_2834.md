@@ -28,61 +28,79 @@ Show output of:
 ```
 pip show gptqmodel torch transformers accelerate triton
 ```
+```yaml
 (gptq) user@user-Super-Server:~/YKK/AICASGC$ pip show gptqmodel torch transformers accelerate triton
 Name: GPTQModel
 Version: 5.4.0+cu126torch2.8
 Summary: Production ready LLM model compression/quantization toolkit with hw accelerated inference support for both cpu/gpu via HF, vLLM, and SGLang.
+```
 Home-page: https://github.com/ModelCloud/GPTQModel
 Author: 
+```yaml
 Author-email: ModelCloud <qubitium@modelcloud.ai>
 License-Expression: Apache-2.0
 Location: /home/user/anaconda3/envs/gptq/lib/python3.11/site-packages
 Requires: accelerate, datasets, device-smi, dill, hf_transfer, huggingface_hub, logbar, maturin, numpy, packaging, pillow, protobuf, pyarrow, pypcre, random_word, safetensors, threadpoolctl, tokenicer, torch, torchao, transformers
 Required-by: 
+```
 ---
+```yaml
 Name: torch
 Version: 2.8.0+cu126
 Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+```
 Home-page: https://pytorch.org/
 Author: PyTorch Team
+```yaml
 Author-email: packages@pytorch.org
 License: BSD-3-Clause
 Location: /home/user/anaconda3/envs/gptq/lib/python3.11/site-packages
 Requires: filelock, fsspec, jinja2, networkx, nvidia-cublas-cu12, nvidia-cuda-cupti-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-runtime-cu12, nvidia-cudnn-cu12, nvidia-cufft-cu12, nvidia-cufile-cu12, nvidia-curand-cu12, nvidia-cusolver-cu12, nvidia-cusparse-cu12, nvidia-cusparselt-cu12, nvidia-nccl-cu12, nvidia-nvjitlink-cu12, nvidia-nvtx-cu12, sympy, triton, typing-extensions
 Required-by: accelerate, GPTQModel, torchaudio, torchvision
+```
 ---
 Name: transformers
 Version: 5.6.2
 Summary: Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.
 Home-page: https://github.com/huggingface/transformers
 Author: The Hugging Face team (past and future) with the help of all our contributors (https://github.com/huggingface/transformers/graphs/contributors)
+```yaml
 Author-email: transformers@huggingface.co
 License: Apache 2.0 License
 Location: /home/user/anaconda3/envs/gptq/lib/python3.11/site-packages
 Requires: huggingface-hub, numpy, packaging, pyyaml, regex, safetensors, tokenizers, tqdm, typer
 Required-by: GPTQModel
+```
 ---
+```yaml
 Name: accelerate
 Version: 1.13.0
 Summary: Accelerate
+```
 Home-page: https://github.com/huggingface/accelerate
 Author: The Hugging Face team
+```yaml
 Author-email: transformers@huggingface.co
 License: Apache
 Location: /home/user/anaconda3/envs/gptq/lib/python3.11/site-packages
 Requires: huggingface_hub, numpy, packaging, psutil, pyyaml, safetensors, torch
 Required-by: GPTQModel
+```
 ---
+```yaml
 Name: triton
 Version: 3.4.0
 Summary: A language and compiler for custom Deep Learning operations
+```
 Home-page: https://github.com/triton-lang/triton/
 Author: Philippe Tillet
+```yaml
 Author-email: phil@openai.com
 License: 
 Location: /home/user/anaconda3/envs/gptq/lib/python3.11/site-packages
 Requires: setuptools
 Required-by: torch
+```
 
 
 **If you are reporting an inference bug of a post-quantized model, please post the content of `config.json` and `quantize_config.json`.**

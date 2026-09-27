@@ -1,15 +1,18 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/scaled_mm/pytorch/
 lastmod: 2026-09-27
 
+```python
 class BlockWiseTorchFP8ScaledMMLinearKernel(Fp8BlockScaledMMLinearKernel):
 """FP8 block-scaled linear kernel using ``torch._scaled_mm``.
 Implements the block-scaled path of ``torch._scaled_mm``, which
 dispatches on the shapes of the scale tensors. For ``A = [M, K]`` and
 ``B = [K, N]`` (both fp8) the op's block path requires, with float32
 scales:
+```
 * 1x128 activation: ``scale_a = [M, ceil(K / 128)]``
 * 128x128 weight: ``scale_b = [ceil(K / 128), ceil(N / 128)]``
 """
+```python
 def __init__(self, config: FP8ScaledMMLinearLayerConfig) -> None:
 super().__init__(config)
 act_scale_descriptor = config.activation_quant_key.scale
@@ -97,3 +100,4 @@ output = output[0]
 if pad:
 output = output[:M, :]
 return output
+```

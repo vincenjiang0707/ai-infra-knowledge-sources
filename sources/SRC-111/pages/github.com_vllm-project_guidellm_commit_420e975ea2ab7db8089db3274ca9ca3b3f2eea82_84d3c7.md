@@ -6,8 +6,10 @@ committed
 
 Fix min_concurrent_sessions flattening all requests in trace_synthetic
 
+```yaml
 Generated-by: Cursor AI Grok 4.6
 Signed-off-by: Jared O'Connell <joconnel@redhat.com>1 parent[a512271]commit 420e975
+```
 
 4 files changed
 

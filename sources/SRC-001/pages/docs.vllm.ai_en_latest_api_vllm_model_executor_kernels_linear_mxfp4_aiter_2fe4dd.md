@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp4/aiter/
 lastmod: 2026-09-27
 
+```python
 class AiterMxfp4LinearKernel(MxFp4LinearKernel):
 """AITER-based native MXFP4 GEMM kernel for ROCm."""
 def __init__(self, config: MxFp4LinearLayerConfig) -> None:
@@ -82,3 +83,4 @@ self.out_dtype,
 if bias is not None:
 y = y + bias
 return y
+```

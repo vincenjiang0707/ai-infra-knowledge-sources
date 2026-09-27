@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/openai/completion/protocol/
 lastmod: 2026-09-27
 
+```python
 class CompletionRequest(OpenAIBaseModel):
 # Ordered by official OpenAI API documentation
 # https://platform.openai.com/docs/api-reference/completions/create
@@ -511,3 +512,4 @@ f"the maximum allowed count of {max_prompts}. To increase "
 parameter="prompt_embeds",
 )
 return data
+```

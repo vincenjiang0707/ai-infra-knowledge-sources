@@ -4,8 +4,10 @@ lastmod:
 # Class ov::frontend::NodeContext[#](https://docs.openvino.ai#class-ov-frontend-nodecontext)
 
 -
+```python
 class NodeContext
 [#](https://docs.openvino.ai#_CPPv4N2ov8frontend11NodeContextE) Public Functions
+```
 
 -
 inline virtual size_t get_input_size() const

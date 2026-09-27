@@ -42,6 +42,7 @@ IR operations are declared using the `@register_op`
 decorator with a native PyTorch implementation that defines the op's semantics:
 
 # vllm/ir/ops/layernorm.py
+```python
 from torch import Tensor
 from vllm.ir import register_op
 @register_op
@@ -56,6 +57,7 @@ x = x.to(orig_dtype)
 if weight is not None:
 x = x * weight
 return x
+```
 
 
 The native implementation serves three purposes:
@@ -69,6 +71,7 @@ Kernel implementations are registered using the `register_impl`
 decorator on the IR op object:
 
 # vllm/kernels/vllm_c.py
+```python
 from vllm import ir
 rms_norm_no_var = lambda x, weight, epsilon, variance_size=None: variance_size is None
 @ir.ops.rms_norm.register_impl("vllm_c", supports_args=rms_norm_no_var, supported=current_platform.is_cuda_alike())
@@ -76,6 +79,7 @@ def rms_norm(x: Tensor, weight: Tensor | None, epsilon: float, variance_size: in
 output = torch.empty_like(x)
 torch.ops._C.rms_norm(output, x, weight, epsilon)
 return output
+```
 
 
 Implementations can specify:
@@ -93,6 +97,7 @@ Implementations can specify:
 IR operations are imported and called directly in model code:
 
 # vllm/model_executor/layers/layernorm.py
+```python
 from vllm import ir
 class RMSNorm(nn.Module):
 def __init__(self, hidden_size: int, eps: float = 1e-6):
@@ -107,6 +112,7 @@ return ir.ops.rms_norm(x, self.weight, self.variance_epsilon)
 return ir.ops.fused_add_rms_norm.maybe_inplace(
 x, residual, self.weight, self.variance_epsilon
 )
+```
 
 
 ### Configuring Kernel Selection[¶](https://docs.vllm.ai#configuring-kernel-selection)
@@ -137,6 +143,7 @@ vllm serve meta-llama/Llama-3.2-1B \
 
 #### Python Configuration[¶](https://docs.vllm.ai#python-configuration)
 
+```python
 from vllm import LLM
 from vllm.config import VllmConfig, KernelConfig
 llm = LLM(
@@ -150,6 +157,7 @@ ir_op_priority={
 )
 )
 )
+```
 
 
 #### Platform Defaults[¶](https://docs.vllm.ai#platform-defaults)
@@ -157,6 +165,7 @@ ir_op_priority={
 Each platform provides default priority lists that are automatically applied:
 
 # CUDA/XPU/ROCm platform defaults (when compiling with Inductor)
+```
 {
 "rms_norm": ["native"], # Native torch is default
 "fused_add_rms_norm": ["native"],
@@ -176,6 +185,7 @@ Each platform provides default priority lists that are automatically applied:
 "rms_norm": ["xpu_kernels", "native"],
 "fused_add_rms_norm": ["xpu_kernels", "native"],
 }
+```
 
 
 User-specified priorities are prepended to platform defaults, so you only need to specify the out-of-order implementations, other implementations are appended automatically.
@@ -195,6 +205,7 @@ traces the model's forward pass, vLLM IR operations appear as custom operations 
 torch library. These operations are opaque to Dynamo, meaning they appear directly in the FX graph without decomposition:
 
 # Python code (epsilon=1e-5)
+```bash
 x1 = ir.ops.rms_norm(x, weight, epsilon)
 x2, residual_out = ir.ops.fused_add_rms_norm.maybe_inplace(x1, residual, weight, epsilon)
 # FX graph after Dynamo tracing
@@ -202,6 +213,7 @@ x1 = torch.ops.vllm_ir.rms_norm.default(x, weight, 1e-5); x = None
 out = torch.ops.vllm_ir.fused_add_rms_norm.maybe_inplace(x1, residual, weight, 1e-5); x1 = residual = None
 x2 = out[0]
 residual_out = out[1]
+```
 
 
 ### 2. AOTAutograd and Functionalization[¶](https://docs.vllm.ai#2-aotautograd-and-functionalization)
@@ -213,10 +225,12 @@ overloads, we perform this manually before AOTAutograd, converting them to the f
 overload using the pre-grad custom pass hook.
 
 # After functionalization
+```bash
 x1 = torch.ops.vllm_ir.rms_norm.default(x, weight, 1e-5); x = None
 out = torch.ops.vllm_ir.fused_add_rms_norm.default(x1, residual, weight, 1e-5); x1 = residual = None
 x2 = out[0]
 residual_out = out[1]
+```
 
 
 The pass also tracks which inputs were "donated" (passed to `maybe_inplace`
@@ -248,6 +262,7 @@ The lowering pass ([ VllmIRLoweringPass](https://docs.vllm.ai/api/vllm/compilati
 **fake tensors**in the graph's metadata in place of op arguments:
 
 # Implementation selection, same in eager dispatch and compile lowering
+```python
 def dispatch(*args) -> IrOpImpl:
 for provider in priority_list: # e.g., ["vllm_c", "native"]
 impl = ir_op.impls[provider]
@@ -260,6 +275,7 @@ return impl
 impl_graph = make_fx(selected_impl.impl_fn)
 # Replace IR op node with impl_graph's nodes
 match.replace_by_example(selected_impl.impl_fn, node.args)
+```
 
 
 For example, lowering `rms_norm`
@@ -339,12 +355,14 @@ decorator, which creates an `IrOp`
 
 object:
 
+```bash
 @register_op(
 name=None, # Operation name (defaults to function name)
 activations=None, # List of activation parameters (defaults to params starting with 'x')
 allow_inplace=False, # Whether to create a maybe_inplace overload
 )
 def op_name(...):
+```
 ...
 
 
@@ -409,6 +427,7 @@ to the functional `default`
 overload:
 
 # Inplace functionalization pass (pre-grad)
+```python
 for node in graph.nodes:
 if node.target == torch.ops.vllm_ir.fused_add_rms_norm.maybe_inplace:
 # Check that activation inputs aren't used after this node
@@ -422,6 +441,7 @@ node.target = torch.ops.vllm_ir.fused_add_rms_norm.default
 for i, arg in enumerate(node.args):
 if arg.op == "placeholder" and i in activation_indices:
 pass_context.donated_input_ids.add(node_to_idx[arg])
+```
 
 
 The donated input information is then used by the clone cleanup pass to eliminate unnecessary copies when in-place kernels are lowered.
@@ -435,6 +455,7 @@ In eager mode (without `torch.compile`
 enables **maximally memory-efficient** execution by allowing the IR operation to dispatch directly to in-place implementations:
 
 # Eager dispatch logic for maybe_inplace
+```python
 impl: IrOpImpl = ir_op.dispatch(*args)
 return impl.impl_fn(*args)
 # Eager dispatch logic for default:
@@ -445,6 +466,7 @@ arg.clone() if i in ir_op.activations else arg
 for i, arg in enumerate(args)
 ]
 return impl.impl_fn(*args)
+```
 
 
 The combination of `maybe_inplace`
@@ -471,12 +493,14 @@ Implementations are registered using the `register_impl`
 
 method:
 
+```bash
 @ir.ops.op_name.register_impl(
 provider="provider_name", # Unique identifier (e.g., "vllm_c", "aiter", "triton")
 supported=True, # Static availability check
 supports_args=None, # Dynamic argument support check
 )
 def impl_fn(...):
+```
 ...
 
 
@@ -520,6 +544,7 @@ checking argument compatibility- Called with
 
 Example support predicate:
 
+```python
 def aiter_rms_norm_supports(x, weight, epsilon, variance_size=None):
 # Check dtype (OK: doesn't depend on batch size)
 if x.dtype not in [torch.float16, torch.bfloat16]:
@@ -530,6 +555,7 @@ return False
 return True
 @ir.ops.rms_norm.register_impl("aiter", supports_args=aiter_rms_norm_supports)
 def rms_norm(...):
+```
 ...
 
 
@@ -568,19 +594,23 @@ This consistency enables:
 External platforms can register implementations without modifying vLLM:
 
 # In external package
+```python
 from vllm import ir
 @ir.ops.rms_norm.register_impl("my_platform", supported=is_my_platform())
 def rms_norm(x, weight, epsilon, variance_size=None):
 return my_platform.rms_norm(x, weight, epsilon)
+```
 
 
 Then configure priority to use your implementation:
 
+```python
 class MyPlatform(Platform):
 def get_default_ir_op_priority(self):
 return IrOpPriorityConfig(rms_norm=['my_platform', 'native'])
 # Users can still override priority in the same way
 llm = LLM(ir_op_priority=IrOpPriorityConfig(rms_norm=['custom_oot_kernel']))
+```
 
 
 ### Debugging and Observability[¶](https://docs.vllm.ai#debugging-and-observability)
@@ -601,8 +631,10 @@ This logs:
 Check selected implementations in compiled graphs:
 
 # After compilation, inspect the lowering pass
+```bash
 lowering_pass = backend.lowering_pass
 print(lowering_pass.selected_impls)
+```
 # Output: {'rms_norm': {'node_123': 'vllm_c', 'node_456': 'vllm_c'}}
 
 

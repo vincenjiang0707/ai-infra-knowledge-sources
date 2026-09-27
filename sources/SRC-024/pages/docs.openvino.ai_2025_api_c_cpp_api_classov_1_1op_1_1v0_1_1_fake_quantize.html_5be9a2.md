@@ -4,8 +4,10 @@ lastmod:
 # Class This class creates a node which performs the following[#](https://docs.openvino.ai#class-this-class-creates-a-node-which-performs-the-following)
 
 -
+```python
 class FakeQuantize : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v012FakeQuantizeE) Class performing element-wise linear quantization.
+```
 
 Note
 

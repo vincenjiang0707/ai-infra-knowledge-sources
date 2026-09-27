@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/step3p5_mtp/
 lastmod: 2026-09-27
 
+```python
 class Step3p5MTP(nn.Module):
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
 super().__init__()
@@ -169,3 +170,4 @@ name = name.replace(
 f"model.layers.{spec_layer}.", f"model.layers.{spec_layer}.mtp_block."
 )
 return name
+```

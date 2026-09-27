@@ -29,5 +29,7 @@ copy out of hiding so I can merge it into the repo.
 Generated-by: Codex 5.4 High
 Signed-off-by: David Butenhof <dbutenho@redhat.com>
 ---------
+```yaml
 Generated-by: Codex 5.4 High
 Signed-off-by: David Butenhof <dbutenho@redhat.com>
+```

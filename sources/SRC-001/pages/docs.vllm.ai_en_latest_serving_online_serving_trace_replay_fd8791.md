@@ -17,6 +17,7 @@ Trace replay reserves a per-request trace buffer, so it is off by default. Enabl
 
 ## Usage[¶](https://docs.vllm.ai#usage)
 
+```python
 from vllm import LLM, SamplingParams
 llm = LLM(model="Qwen/Qwen3-0.6B", enable_trace_replay=True)
 # Token sequence captured from a previous run or training log
@@ -31,6 +32,7 @@ outputs[0].outputs[0].token_ids,
 outputs[0].outputs[0].logprobs,
 ):
 print(f"token={token} logprob={logprob[token].logprob:.4f}")
+```
 
 
 The output tokens will always be `[15, 284, 1026, 374]`

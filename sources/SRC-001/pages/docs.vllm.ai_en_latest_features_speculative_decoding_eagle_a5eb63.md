@@ -7,6 +7,7 @@ The following code configures vLLM to use speculative decoding where proposals a
 
 ## Eagle Drafter Example[¶](https://docs.vllm.ai#eagle-drafter-example)
 
+```python
 from vllm import LLM, SamplingParams
 prompts = ["The future of AI is"]
 sampling_params = SamplingParams(temperature=0.8, top_p=0.95)
@@ -25,10 +26,12 @@ for output in outputs:
 prompt = output.prompt
 generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+```
 
 
 ## Eagle3 Drafter Example[¶](https://docs.vllm.ai#eagle3-drafter-example)
 
+```python
 from vllm import LLM, SamplingParams
 prompts = ["The future of AI is"]
 sampling_params = SamplingParams(temperature=0.8, top_p=0.95)
@@ -47,6 +50,7 @@ for output in outputs:
 prompt = output.prompt
 generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+```
 
 
 ## Pre-Trained Eagle Draft Models[¶](https://docs.vllm.ai#pre-trained-eagle-draft-models)

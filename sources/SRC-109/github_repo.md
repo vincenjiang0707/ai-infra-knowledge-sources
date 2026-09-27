@@ -167,10 +167,12 @@ then fork and create a pull request.
 
 # Reporting problems, asking questions
 
+```js
 We appreciate any feedback, questions or bug reporting regarding this
 project. When help with code is needed, follow the process outlined in
 the Stack Overflow (https://stackoverflow.com/help/mcve)
 document. Ensure posted examples are:
+```
 
 - minimal - use as little code as possible that still produces the
   same problem

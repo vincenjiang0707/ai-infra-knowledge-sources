@@ -481,8 +481,10 @@ The corresponding rank in the LSA team, or
 
 `-1`
 
+```python
 if the device resource state could not be initialized.- Raises:
 – If the communicator is not initialized.**NcclInvalid**
+```
 
 
 ### NcclCftTeamMode[](https://docs.nvidia.com#ncclcftteammode)

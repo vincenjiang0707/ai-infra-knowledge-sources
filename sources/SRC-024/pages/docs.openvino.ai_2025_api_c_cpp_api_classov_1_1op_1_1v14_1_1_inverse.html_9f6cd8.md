@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v14::Inverse[#](https://docs.openvino.ai#class-ov-op-v14-inverse)
 
 -
+```python
 class Inverse : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v147InverseE) [Inverse](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v14_1_1_inverse)operation computes the inverse of the input tensor.Public Functions
+```
 
 -
 Inverse(const

@@ -227,11 +227,13 @@ or`Generated-by:`
 
 ). For example:
 
+```yaml
 Your commit message here
 Co-authored-by: GitHub Copilot
 Co-authored-by: Claude
 Co-authored-by: gemini-code-assist
 Signed-off-by: Your Name <[[email protected]](https://docs.vllm.ai/cdn-cgi/l/email-protection)>
+```
 
 
 AI-assisted code must meet all quality standards: proper testing, documentation, adherence to style guides, and thorough review. Attribution helps reviewers evaluate contributions in context and maintains legal clarity for the project.

@@ -93,8 +93,10 @@ Returns map of available opsets.
 
 
 -
+```python
 class OpSet
 [#](https://docs.openvino.ai#_CPPv4N2ov5OpSetE) *#include <opset.hpp>*Run-time opset information.
+```
 
 Public Functions
 

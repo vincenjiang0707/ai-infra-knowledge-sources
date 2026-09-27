@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp4/xpu/
 lastmod: 2026-09-27
 
+```python
 class XPUMxFp4LinearKernel(MxFp4LinearKernel):
 """MXFP4 W4A4 GEMM on XPU."""
 @classmethod
@@ -37,3 +38,4 @@ layer.weight_scale,
 out_dtype,
 bias,
 )
+```

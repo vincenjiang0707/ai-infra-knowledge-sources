@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityComputeEngineCtxS
 # 7.9. CUpti_ActivityComputeEngineCtxSwitch[#](https://docs.nvidia.com#cupti-activitycomputeenginectxswitch)
 
 -
+```rust
 struct CUpti_ActivityComputeEngineCtxSwitch
 [#](https://docs.nvidia.com#_CPPv436CUpti_ActivityComputeEngineCtxSwitch) The activity record for trace of CUDA context switch events.
+```
 
 The corresponding activity kind is CUPTI_ACTIVITY_KIND_COMPUTE_ENGINE_CTX_SWITCH.
 

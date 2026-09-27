@@ -54,6 +54,7 @@ Aggregated statistics for a single benchmark metric.
 ## Source code in `vllm/benchmarks/startup.py`
 
 
+```yaml
 | class MetricStats(NamedTuple):
 """Aggregated statistics for a single benchmark metric."""
 key: str # e.g. "cold_startup", "warm_encoder_compilation"
@@ -62,6 +63,7 @@ values: list[float]
 avg: float
 percentiles: dict[int, float]
 |
+```
 
 
 ##
@@ -75,12 +77,15 @@ Context manager to measure cold startup time: 1. Uses a temporary directory for 
 
 
 | @contextmanager
+```python
 def cold_startup():
 """Context manager to measure cold startup time:
+```
 1. Uses a temporary directory for vLLM cache to avoid any pollution
 between cold startup iterations.
 2. Uses inductor's fresh_cache to clear torch.compile caches.
 """
+```python
 from torch._inductor.utils import fresh_cache
 # Use temporary directory for caching to avoid any pollution between cold startups
 original_cache_root = os.environ.get("VLLM_CACHE_ROOT")
@@ -97,6 +102,7 @@ os.environ["VLLM_CACHE_ROOT"] = original_cache_root
 else:
 os.environ.pop("VLLM_CACHE_ROOT", None)
 |
+```
 
 ##
 

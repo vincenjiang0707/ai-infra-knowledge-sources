@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/mimo_v2/
 lastmod: 2026-09-27
 
+```python
 @support_torch_compile
 class MiMoV2Model(nn.Module, EagleModelMixin):
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
@@ -250,3 +251,4 @@ tensor = tensor[: param.shape[0]]
 default_weight_loader(param, tensor)
 loaded_params.add(param_name)
 return True
+```

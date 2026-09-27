@@ -116,6 +116,7 @@ says:
 
 5. Build Triton as above, but set the following environment variables:
 
+```bash
        # Modify as appropriate to point to your LLVM build.
        $ export LLVM_BUILD_DIR=$HOME/llvm-project/build
 
@@ -124,6 +125,7 @@ says:
          LLVM_LIBRARY_DIR=$LLVM_BUILD_DIR/lib \
          LLVM_SYSPATH=$LLVM_BUILD_DIR \
          pip install -e .
+```
 
 </details>
 

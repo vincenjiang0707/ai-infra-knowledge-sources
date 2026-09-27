@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/metrics/
 lastmod: 2026-09-27
 
+```python
 class MooncakeStorePromMetrics(KVConnectorPromMetrics):
 """Prometheus metrics for Mooncake store communication."""
 def __init__(
@@ -86,3 +87,4 @@ metrics["calls"].inc()
 metrics["keys"].inc(int(record["num_keys"]))
 metrics["bytes"].inc(int(record["num_bytes"]))
 metrics["failed_keys"].inc(int(record["num_failed_keys"]))
+```

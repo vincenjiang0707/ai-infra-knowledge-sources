@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityCdpKernel.html
 # 7.8. CUpti_ActivityCdpKernel[#](https://docs.nvidia.com#cupti-activitycdpkernel)
 
 -
+```rust
 struct CUpti_ActivityCdpKernel
 [#](https://docs.nvidia.com#_CPPv423CUpti_ActivityCdpKernel) The activity record for CDP (CUDA Dynamic Parallelism) kernel.
+```
 
 This activity record represents a CDP kernel execution.
 

@@ -558,6 +558,7 @@ The following [pooling parameters](https://docs.vllm.ai/api/vllm/#vllm.PoolingPa
 
 The [score](https://docs.vllm.ai/api/vllm/entrypoints/pooling/offline/#vllm.entrypoints.pooling.offline.PoolingOfflineMixin.score) method outputs similarity scores between sentence pairs.
 
+```python
 from vllm import LLM
 llm = LLM(model="BAAI/bge-reranker-v2-m3", runner="pooling")
 (output,) = llm.score(
@@ -566,6 +567,7 @@ llm = LLM(model="BAAI/bge-reranker-v2-m3", runner="pooling")
 )
 score = output.outputs.score
 print(f"Score: {score}")
+```
 
 
 A code example can be found here: [ examples/basic/offline_inference/score.py](https://github.com/vllm-project/vllm/blob/main/examples/basic/offline_inference/score.py)
@@ -694,6 +696,7 @@ and `documents`
 
 , forming a single sentence pair.
 
+```json
 curl -X 'POST' \
 'http://127.0.0.1:8000/score' \
 -H 'accept: application/json' \
@@ -704,6 +707,7 @@ curl -X 'POST' \
 "queries": "What is the capital of France?",
 "documents": "The capital of France is Paris."
 }'
+```
 
 
 ## Response
@@ -776,6 +780,7 @@ library:
 
 ## Code
 
+```python
 import requests
 response = requests.post(
 "http://localhost:8000/v1/score",
@@ -810,6 +815,7 @@ response.raise_for_status()
 response_json = response.json()
 print("Scoring output:", response_json["data"][0]["score"])
 print("Scoring output:", response_json["data"][1]["score"])
+```
 
 
 Full example:
@@ -960,6 +966,7 @@ curl -X 'POST' \
 
 ## Response
 
+```json
 {
 "id": "rerank-fae51b2b664d4ed38f5969b612edff77",
 "model": "BAAI/bge-reranker-base",
@@ -983,6 +990,7 @@ curl -X 'POST' \
 }
 ]
 }
+```
 
 
 ## More examples[¶](https://docs.vllm.ai#more-examples)

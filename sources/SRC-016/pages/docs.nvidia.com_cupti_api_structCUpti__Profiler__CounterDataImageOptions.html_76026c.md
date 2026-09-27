@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__Profiler__CounterDataImag
 # 7.168. CUpti_Profiler_CounterDataImageOptions[#](https://docs.nvidia.com#cupti-profiler-counterdataimageoptions)
 
 -
+```rust
 struct CUpti_Profiler_CounterDataImageOptions
 [#](https://docs.nvidia.com#_CPPv438CUpti_Profiler_CounterDataImageOptions) Input parameter to define the counterDataImage.
+```
 
 Public Members
 

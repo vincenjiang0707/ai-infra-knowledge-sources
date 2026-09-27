@@ -4,8 +4,10 @@ lastmod:
 # Class ov::frontend::FWVisitor[#](https://docs.openvino.ai#class-ov-frontend-fwvisitor)
 
 -
+```python
 class FWVisitor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[AttributeVisitor](https://docs.openvino.ai/classov_1_1_attribute_visitor.html#_CPPv4N2ov16AttributeVisitorE)[#](https://docs.openvino.ai#_CPPv4N2ov8frontend9FWVisitorE) Public Functions
+```
 
 -
 inline virtual void on_adapter(const std::string &name,

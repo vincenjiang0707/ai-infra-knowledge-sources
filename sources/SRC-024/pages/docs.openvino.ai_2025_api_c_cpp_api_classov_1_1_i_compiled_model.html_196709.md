@@ -4,8 +4,10 @@ lastmod:
 # Class ov::ICompiledModel[#](https://docs.openvino.ai#class-ov-icompiledmodel)
 
 -
+```python
 class ICompiledModel : public std::enable_shared_from_this<
 [ICompiledModel](https://docs.openvino.ai#_CPPv4N2ov14ICompiledModelE)>[#](https://docs.openvino.ai#_CPPv4N2ov14ICompiledModelE) OpenVINO
+```
 
 [ICompiledModel](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_i_compiled_model)interface.Public Functions
 

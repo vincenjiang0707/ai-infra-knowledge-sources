@@ -226,6 +226,7 @@ and blow is the last couple of lines of the log, the distribution of memory usag
 By the way, loss": "999999999.0000000000 means the quantization is bad?
 
 {
+```json
     "process": "gptq",
     "layer": 43,
     "module": "mlp.experts.4.down_proj",
@@ -237,8 +238,10 @@ By the way, loss": "999999999.0000000000 means the quantization is bad?
     "time": "2.013",
     "fwd_time": "94.184",
     "(v)ram": "cuda 44.1G, 21.5G, 12.1G, 3.7G"
+```
 }
 {
+```json
     "process": "gptq",
     "layer": 43,
     "module": "mlp.experts.2.down_proj",
@@ -250,6 +253,7 @@ By the way, loss": "999999999.0000000000 means the quantization is bad?
     "time": "2.018",
     "fwd_time": "94.184",
     "(v)ram": "cuda 44.1G, 21.5G, 12.1G, 3.7G"
+```
 }
 
 ### tommyip · 2025-11-27

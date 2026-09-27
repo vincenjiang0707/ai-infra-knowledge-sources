@@ -73,8 +73,10 @@ Possibly related: #1546.
 
 ### 🛠️ Steps to reproduce
 
+```yaml
 Model: `google/gemma-3-4b-pt`
 Revision: `cc012e0a6d0787b4adcc0fa2c4da74402494554d`
+```
 
 1. In the compression environment, load the model with `AutoModelForImageTextToText.from_pretrained`, using the revision above, `dtype="bfloat16"` and `device_map="cpu"`.
 

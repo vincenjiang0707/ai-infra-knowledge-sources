@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/cpu/data/nixl/
 lastmod: 2026-09-27
 
+```python
 class NixlDataTransport(DataTransport):
 """Adapts NixlWrapper to the DataTransport interface.
 Dlist handles (prepped xfer descriptor lists for remote peers) are stored
@@ -126,3 +127,4 @@ self._nixl.deregister_memory(self._reg_descs)
 except Exception:
 logger.warning("EC: deregister failed", exc_info=True)
 self._reg_descs = None
+```

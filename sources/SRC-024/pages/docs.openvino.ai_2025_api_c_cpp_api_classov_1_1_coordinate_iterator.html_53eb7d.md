@@ -4,8 +4,10 @@ lastmod:
 # Class ov::CoordinateIterator[#](https://docs.openvino.ai#class-ov-coordinateiterator)
 
 -
+```python
 class CoordinateIterator
 [#](https://docs.openvino.ai#_CPPv4N2ov18CoordinateIteratorE) A useful class that allows to iterate over the tensor coordinates. For example, for tensor with dimensions {2, 3} this iterator produces the following coordinates: {0,0}, {0,1}, {0,2}, {1,0}, {1,1}, {2,2}.
+```
 
 Public Functions
 

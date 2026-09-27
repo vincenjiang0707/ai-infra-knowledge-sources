@@ -9,17 +9,21 @@ LoRA adapters can be used with any vLLM model that implements [SupportsLoRA](htt
 
 Adapters can be efficiently served on a per-request basis with minimal overhead. First we download the adapter(s) and save them locally with
 
+```python
 from huggingface_hub import snapshot_download
 sql_lora_path = snapshot_download(repo_id="jeeejeee/llama32-3b-text2sql-spider")
+```
 
 
 Then we instantiate the base model and pass in the `enable_lora=True`
 
 flag:
 
+```python
 from vllm import LLM, SamplingParams
 from vllm.lora.request import LoRARequest
 llm = LLM(model="meta-llama/Llama-3.2-3B-Instruct", enable_lora=True)
+```
 
 
 We can now submit the prompts and call `llm.generate`
@@ -54,9 +58,11 @@ LoRA adapted models can also be served with the Open-AI compatible vLLM server. 
 
 to specify each LoRA module when we kick off the server:
 
+```bash
 vllm serve meta-llama/Llama-3.2-3B-Instruct \
 --enable-lora \
 --lora-modules sql-lora=jeeejeee/llama32-3b-text2sql-spider
+```
 
 
 The server entrypoint accepts all other LoRA configuration parameters (`max_loras`
@@ -81,6 +87,7 @@ is set high enough).
 
 The following is an example request
 
+```json
 curl http://localhost:8000/v1/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -89,6 +96,7 @@ curl http://localhost:8000/v1/completions \
 "max_tokens": 7,
 "temperature": 0
 }' | jq
+```
 
 
 ## Dynamically serving LoRA Adapters[¶](https://docs.vllm.ai#dynamically-serving-lora-adapters)
@@ -115,12 +123,14 @@ endpoint with the necessary details of the adapter to be loaded. The request pay
 
 Example request to load a LoRA adapter:
 
+```json
 curl -X POST http://localhost:8000/v1/load_lora_adapter \
 -H "Content-Type: application/json" \
 -d '{
 "lora_name": "sql_adapter",
 "lora_path": "/path/to/sql-lora-adapter"
 }'
+```
 
 
 Upon a successful request, the API will respond with a `200 OK`
@@ -151,11 +161,13 @@ returns the response body: `Success: LoRA adapter 'sql_adapter' removed successf
 
 Example request to unload a LoRA adapter:
 
+```json
 curl -X POST http://localhost:8000/v1/unload_lora_adapter \
 -H "Content-Type: application/json" \
 -d '{
 "lora_name": "sql_adapter"
 }'
+```
 
 
 ### Using Plugins[¶](https://docs.vllm.ai#using-plugins)
@@ -226,6 +238,7 @@ When `load_inplace=True`
 
 Example request to load or replace a LoRA adapter with the same name:
 
+```json
 curl -X POST http://localhost:8000/v1/load_lora_adapter \
 -H "Content-Type: application/json" \
 -d '{
@@ -233,6 +246,7 @@ curl -X POST http://localhost:8000/v1/load_lora_adapter \
 "lora_path": "/path/to/adapter/v2",
 "load_inplace": true
 }'
+```
 
 
 ## New format for `--lora-modules`
@@ -270,6 +284,7 @@ field.
 
 Server startup (static modules):
 
+```json
 vllm serve Qwen/Qwen3.6-35B-A3B \
 --enable-lora \
 --enable-mixed-moe-lora-format \
@@ -278,12 +293,14 @@ vllm serve Qwen/Qwen3.6-35B-A3B \
 --lora-modules \
 '{"name": "lora-2d", "path": "jeeejeee/qwen36-35ba3b-2d-weights-poken-lora", "is_3d_lora_weight": false}' \
 '{"name": "lora-3d", "path": "jeeejeee/qwen36-35ba3b-moe-all-linear-poken-lora", "is_3d_lora_weight": true}'
+```
 
 
 Dynamic load via `/v1/load_lora_adapter`
 
 :
 
+```json
 curl -X POST http://localhost:8000/v1/load_lora_adapter \
 -H "Content-Type: application/json" \
 -d '{
@@ -291,6 +308,7 @@ curl -X POST http://localhost:8000/v1/load_lora_adapter \
 "lora_path": "/path/to/3d-format-lora",
 "is_3d_lora_weight": true
 }'
+```
 
 
 You must know your adapter's layout
@@ -391,6 +409,7 @@ To this end, we allow registration of default multimodal LoRAs to handle this au
 
 ## Example usage for offline inference
 
+```python
 from transformers import AutoTokenizer
 from vllm import LLM, SamplingParams
 from vllm.assets.audio import AudioAsset
@@ -434,17 +453,20 @@ temperature=0.2,
 max_tokens=64,
 ),
 )
+```
 
 
 You can also pass a json dictionary of `--default-mm-loras`
 
 mapping modalities to LoRA model IDs. For example, when starting the server:
 
+```json
 vllm serve ibm-granite/granite-speech-3.3-2b \
 --max-model-len 2048 \
 --enable-lora \
 --default-mm-loras '{"audio":"ibm-granite/granite-speech-3.3-2b"}' \
 --max-lora-rank 64
+```
 
 
 Note: Default multimodal LoRAs are currently only available for `.generate`

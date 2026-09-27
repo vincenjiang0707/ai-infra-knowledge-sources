@@ -45,8 +45,10 @@ MTT AIBOOK 为您提供开箱即用的 AI 开发工具，包含 Python、Jupyter
 -
 在新建的 Notebook 中选择一个单元格，然后输入以下代码：
 
+```python
 import torchimport torch_musaimport torchvision.models as models# 1. 加载模型并打印模型状态model = models.resnet50().eval()print("===== 步骤1：加载ResNet50模型 =====")print(f"模型初始设备（默认CPU）: {next(model.parameters()).device}") # 查看模型初始设备print("-" * 50)# 2. 生成随机输入张量并打印信息x = torch.rand((1, 3, 224, 224), device="musa")print("===== 步骤2：生成随机输入张量 =====")print(f"输入张量设备: {x.device}") # 验证是否在MUSA上print("-" * 50)# 3. 将模型迁移到MUSA并验证model = model.to("musa")print("===== 步骤3：模型迁移到MUSA设备 =====")print(f"模型迁移后设备: {next(model.parameters()).device}") # 验证模型是否成功到MUSAprint("-" * 50)# 4. 执行推理并打印结果信息print("===== 步骤4：执行模型推理 =====")y = model(x)print(f"输出张量设备: {y.device}") # 验证输出是否也在MUSA上print(f"输出张量前10个值（分类得分）: {y[0][:10]}") # 查看前10个分类的预测得分print(f"预测得分最高的类别索引: {torch.argmax(y).item()}") # 看随机输入的“预测类别" -
 选中代码单元格，点击 ，或按
+```
 
 `Shift`
 

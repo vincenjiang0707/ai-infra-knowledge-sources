@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/model_manager/
 lastmod: 2026-09-27
 
+```python
 class LoRAModelManager:
 """A manager that manages multiple LoRA-fine-tuned models."""
 def __init__(
@@ -564,6 +565,7 @@ module_name,
 module.w13_input_size,
 module.w13_output_size,
 rank
+```
 * module.w13_lora_a_stacked[0].shape[1], # rank*num_experts
 module.w13_lora_a_stacked[0].dtype,
 "cpu",
@@ -880,6 +882,7 @@ On disk the 3D PEFT layout stores two flat tensor pairs per layer:
 `(rank * num_experts, hidden)` / `(intermediate * 2,
 rank * num_experts)`
 - `{module}.lora_{A,B}`: down_proj, with shapes
+```python
 `(rank * num_experts, intermediate)` / `(hidden,
 rank * num_experts)`
 The 2D wrapper expects three stacked per-expert tensors,
@@ -1146,3 +1149,4 @@ def list_adapters(self) -> dict[int, LoRAModel]:
 return dict(self._registered_adapters.cache)
 def get_adapter(self, adapter_id: int) -> LoRAModel | None:
 return self._registered_adapters.get(adapter_id)
+```

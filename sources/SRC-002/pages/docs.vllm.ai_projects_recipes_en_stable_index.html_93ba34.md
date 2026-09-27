@@ -73,10 +73,12 @@ The top-level Markdown directories (`DeepSeek/`
 
 , etc.) are the historical MkDocs site, kept as a reference during the YAML migration. To preview them:
 
+```bash
 uv venv
 source .venv/bin/activate
 uv pip install -r requirements.txt
 uv run mkdocs serve --dev-addr 127.0.0.1:8001
+```
 
 
 ## License[¶](https://docs.vllm.ai#license)

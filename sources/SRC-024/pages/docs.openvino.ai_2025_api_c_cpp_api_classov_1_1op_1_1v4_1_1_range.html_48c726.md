@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v4::Range[#](https://docs.openvino.ai#class-ov-op-v4-range)
 
 -
+```python
 class Range : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v45RangeE) [Range](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_range)operation, analogous to`arange()`
+```
 
 in Numpy.Public Functions
 

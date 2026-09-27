@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v0::Tile[#](https://docs.openvino.ai#class-ov-op-v0-tile)
 
 -
+```python
 class Tile : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v04TileE) Dynamic Tiling operation which repeats a tensor multiple times along each dimension.
+```
 
 Public Functions
 

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/aiter_mxfp8_moe/
 lastmod: 2026-09-27
 
+```python
 class AiterMxfp8Experts(Mxfp8TritonExpertsBase):
 """MXFP8 MoE through AITER's FlyDSL two-stage grouped GEMM (gfx950)."""
 consumes_expert_mask = True
@@ -98,3 +99,4 @@ swiglu_limit=swiglu_limit,
 output_dtype=output.dtype,
 )
 output.copy_(out.to(output.dtype))
+```

@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__RangeProfiler__GetDeviceP
 # 7.210. CUpti_RangeProfiler_GetDevicePartitionInfo_Params[#](https://docs.nvidia.com#cupti-rangeprofiler-getdevicepartitioninfo-params)
 
 -
+```rust
 struct CUpti_RangeProfiler_GetDevicePartitionInfo_Params
 [#](https://docs.nvidia.com#_CPPv449CUpti_RangeProfiler_GetDevicePartitionInfo_Params) Params for cuptiRangeProfilerGetDevicePartitionInfo.
+```
 
 Public Members
 

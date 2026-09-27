@@ -77,6 +77,7 @@ and so never triggers a gather.
 
 Subclass [ WeightSource](https://docs.vllm.ai/api/vllm/distributed/weight_transfer/base/#vllm.distributed.weight_transfer.base.WeightSource) when the weights need work to reach HF format — a framework-specific export, a re-fusing step, a dtype cast.
 
+```python
 from vllm.distributed.weight_transfer import ParamMeta, WeightSource
 class MegatronBridgeSource(WeightSource):
 """Megatron model -> HF names, via a bridge that gathers TP/PP/EP internally
@@ -99,6 +100,7 @@ def __iter__(self):
 # Must yield exactly what metadata() declared, in the same order.
 for name, tensor in self._export():
 yield name, tensor.to(self._dtype).detach().contiguous()
+```
 
 
 `held_names()`
@@ -113,9 +115,11 @@ when the ranks are split so each holds only part of the model. It returns the pa
 
 , the default, for all of them):
 
+```python
 def held_names(self):
 # This pipeline stage's layers, and within them only this EP rank's experts.
 return self._my_stage_names - self._foreign_expert_names
+```
 
 
 This covers various trainer layouts — pipeline stages (a rank holds some layers), expert parallelism (a rank holds some experts), both at once, or a shape that fits neither. Backends that can route per parameter (see [sharded RDT](https://docs.vllm.ai/sharded_rdt/)) then pull each name from a rank that actually holds it.
@@ -207,11 +211,13 @@ once at setup, then `start_weight_update`
 
 per round. Everything a trainer engine needs from the inference side goes through them.
 
+```python
 class VLLMWeightSyncClient(Protocol):
 def init_weight_transfer_engine(self, init_info: dict[str, Any]) -> None: ...
 def start_weight_update(self) -> None: ...
 def update_weights(self, update_info: dict[str, Any]) -> None: ...
 def finish_weight_update(self, weight_version: str | None = None) -> None: ...
+```
 
 
 It is a `@runtime_checkable`
@@ -235,6 +241,7 @@ Two implementations ship with vLLM:
 
 Custom weight sync clients can be implemented like so:
 
+```python
 class MyFrameworkWeightSyncClient:
 """Adapts one RL framework's rollout pool to the four weight-sync calls."""
 def __init__(self, rollout_pool):
@@ -250,6 +257,7 @@ def finish_weight_update(self, weight_version=None):
 self.pool.broadcast_rpc("finish_weight_update")
 if weight_version is not None:
 self.pool.broadcast_rpc("update_weight_version", weight_version)
+```
 
 
 Two things to get right in any adapter:
@@ -312,6 +320,7 @@ passed to `trainer_init`
 
 above. It is how a caller configures a transfer: it selects the backend, says which rank this process is, and carries the wire params. Each backend subclasses it; the base class holds the one field every backend needs.
 
+```python
 @dataclass
 class TrainerInitInfo:
 backend: ClassVar[str] # factory dispatch key
@@ -319,6 +328,7 @@ rank: int = field(kw_only=True)
 @property
 def is_sender(self) -> bool:
 return self.rank == 0
+```
 
 
 is this trainer process's rank, supplied`rank`
@@ -371,6 +381,7 @@ and each round's payload is passed straight to`send_weights(patches)`
 
 #### Implementing a Custom Trainer Engine[¶](https://docs.vllm.ai#implementing-a-custom-trainer-engine)
 
+```python
 from dataclasses import dataclass
 from typing import ClassVar
 from typing_extensions import Self
@@ -396,6 +407,7 @@ cls,
 init_info: MyTrainerInitInfo,
 *,
 client: VLLMWeightSyncClient,
+```
 source: WeightSource | None = None,
 ) -> Self:
 if source is None:
@@ -445,6 +457,7 @@ on a side thread concurrently with a transmit (as NCCL does) and the transmit ra
 
 ### WeightTransferTrainerFactory[¶](https://docs.vllm.ai#weighttransfertrainerfactory)
 
+```python
 from vllm.distributed.weight_transfer import WeightTransferTrainerFactory
 # Lazy loading (recommended): the module is imported only when the backend is used
 WeightTransferTrainerFactory.register_engine(
@@ -459,6 +472,7 @@ init_info=MyTrainerInitInfo(rank=0, endpoint="..."), # `backend` selects the eng
 client=client,
 source=source,
 )
+```
 
 
 ## Inference Side[¶](https://docs.vllm.ai#inference-side)
@@ -574,6 +588,7 @@ runs.
 
 The API-level request classes provide backend-agnostic serialization using plain dictionaries.
 
+```python
 from vllm.distributed.weight_transfer.base import (
 WeightTransferInitRequest,
 WeightTransferUpdateRequest,
@@ -586,6 +601,7 @@ init_info={"master_address": "10.0.0.1", "master_port": 29500, ...}
 update_request = WeightTransferUpdateRequest(
 update_info={"names": [...], "dtype_names": [...], "shapes": [...]}
 )
+```
 
 
 Using a built-in client, you never construct these by hand — [ RayVLLMWeightSyncClient](https://docs.vllm.ai/api/vllm/distributed/weight_transfer/clients/#vllm.distributed.weight_transfer.clients.RayVLLMWeightSyncClient) wraps the dicts for you, and
@@ -610,6 +626,7 @@ are unchanged. Engines that cannot support this set `supports_draft_weight_updat
 
 #### 1. Define Info Dataclasses[¶](https://docs.vllm.ai#1-define-info-dataclasses)
 
+```python
 from dataclasses import dataclass
 from vllm.distributed.weight_transfer.base import (
 WeightTransferEngine,
@@ -625,11 +642,13 @@ class MyUpdateInfo(WeightTransferUpdateInfo):
 names: list[str]
 dtype_names: list[str]
 shapes: list[list[int]]
+```
 # Per-round metadata only.
 
 
 #### 2. Implement the Engine[¶](https://docs.vllm.ai#2-implement-the-engine)
 
+```python
 class MyWeightTransferEngine(WeightTransferEngine[MyInitInfo, MyUpdateInfo]):
 init_info_cls = MyInitInfo
 update_info_cls = MyUpdateInfo
@@ -656,11 +675,13 @@ weights.append((name, weight))
 self.model.load_weights(weights)
 def shutdown(self) -> None:
 # Clean up resources
+```
 ...
 
 
 #### 3. Register with the Factory[¶](https://docs.vllm.ai#3-register-with-the-factory)
 
+```python
 from vllm.distributed.weight_transfer import WeightTransferEngineFactory
 # Option 1: Lazy loading (recommended for built-in engines)
 WeightTransferEngineFactory.register_engine(
@@ -673,6 +694,7 @@ WeightTransferEngineFactory.register_engine(
 "my_backend",
 MyWeightTransferEngine,
 )
+```
 
 
 Once registered, users select your backend via `WeightTransferConfig(backend="my_backend")`
@@ -691,6 +713,7 @@ and `sharded_rdt`
 
 ) are registered at import time but their modules are only loaded when the backend is actually requested. This avoids importing heavy dependencies (like NCCL communicators) when they aren't needed.
 
+```python
 from vllm.distributed.weight_transfer import WeightTransferEngineFactory
 # Create an engine from config
 engine = WeightTransferEngineFactory.create_engine(
@@ -699,6 +722,7 @@ vllm_config=vllm_config,
 device=device,
 model=model,
 )
+```
 
 
 vLLM calls this for you during worker startup; you only need it directly when embedding the engine in your own worker.

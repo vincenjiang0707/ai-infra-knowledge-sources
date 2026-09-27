@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/cute_utils/
 lastmod: 2026-09-27
 
+```python
 def simple_tma_copy(atom, src, dst, mbar=None, cache_policy=None):
 """A simple helper that wraps group_modes() and tma_partition()
 NOTE: this should be called WITHOUT cute.elect_one()
@@ -26,3 +27,4 @@ elif isinstance(atom.op, cpasync.CopyBulkTensorTileS2GOp):
 cute.copy(atom, s_part, g_part, cache_policy=cache_policy)
 else:
 raise ValueError
+```

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/online/moe_base/
 lastmod: 2026-09-27
 
+```python
 class OnlineMoEMethodBase(FusedMoEMethodBase):
 """Base for MoE methods that load full-precision weights on meta device
 and quantize them after loading via the QeRL layerwise processing system.
@@ -149,3 +150,4 @@ apply_router_weight_on_input=layer.apply_router_weight_on_input,
 shared_experts=shared_experts,
 shared_experts_input=shared_experts_input,
 )
+```

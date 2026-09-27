@@ -27,6 +27,7 @@ docker tag vllm/vllm-openai:v0.12.0 vllm/vllm-openai:deploy
 
 Build container from source based on 0.12.0 or later release https://github.com/vllm-project/vllm/blob/v0.12.0/docker/Dockerfile
 
+```bash
 git clone https://github.com/vllm-project/vllm.git
 cd vllm
 DOCKER_BUILDKIT=1 docker build \
@@ -40,6 +41,7 @@ DOCKER_BUILDKIT=1 docker build \
 --target vllm-openai \
 --progress plain \
 -f docker/Dockerfile \
+```
 .
 
 

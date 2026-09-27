@@ -1460,9 +1460,11 @@ Arguments:
 
 : URL of CSS document to include.
 
+```js
 The HDoc formatter generates a complete, verifiable (mostly), standalone HTML
 document. It is designed to be opened in a web browser, or included in a larger
 document via an `<iframe>`
+```
 
 .
 
@@ -3934,9 +3936,11 @@ Peak VRAM (MB) |
 
 When writing a recipe, you use `CompositeTable`
 
+```rust
 enum values to request
 pre-processed DataFrames. These composite tables join, rename, and resolve
 raw parquet export tables into analysis-ready DataFrames, so you don’t
+```
 have to do the merging and ID-to-string resolution yourself.
 
 #### Available Composite Tables[#](https://docs.nvidia.com#available-composite-tables)
@@ -4082,8 +4086,10 @@ are the CPU-side runtime API call times. `gpu_start`
 
 are the GPU-side activity times. `name`
 
+```
 is the resolved API function name
 (e.g., `"cudaLaunchKernel"`
+```
 
 ). `pid`
 

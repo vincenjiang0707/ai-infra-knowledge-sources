@@ -29,9 +29,11 @@ Title: [Potential Bug] Memory Visibility and Race Condition in bootstrapNetInit 
 Description:
 A potential concurrency risk was identified in src/bootstrap.cc during a scan by RustCC (a specialized C++ profiler/static analysis tool based on Rust-style memory safety rules). The implementation of bootstrapNetInit uses a Double-Checked Locking (DCL) pattern that lacks the necessary atomic synchronization required by the C++11 (and later) memory model.
 
+```yaml
 Location:
 File: src/bootstrap.cc
 Lines: 86-96
+```
 
 C++
 86  static char bootstrapNetIfName[MAX_IF_NAME_SIZE+1];
@@ -63,6 +65,7 @@ C++
 static std::atomic<int> bootstrapNetInitDone{0};
 
 ncclResult_t bootstrapNetInit() {
+```
     if (bootstrapNetInitDone.load(std::memory_order_acquire) == 0) {
         std::lock_guard<std::mutex> lock(bootstrapNetMutex);
         if (bootstrapNetInitDone.load(std::memory_order_relaxed) == 0) {
@@ -71,6 +74,7 @@ ncclResult_t bootstrapNetInit() {
         }
     }
     return ncclSuccess;
+```
 }
 
 ### Error Message & Behavior

@@ -4,8 +4,10 @@ lastmod:
 # Struct ov::MemorySolver::Box[#](https://docs.openvino.ai#struct-ov-memorysolver-box)
 
 -
+```rust
 struct Box
 [#](https://docs.openvino.ai#_CPPv4N2ov12MemorySolver3BoxE) Representation of edge (size and live time)
+```
 
 Public Members
 

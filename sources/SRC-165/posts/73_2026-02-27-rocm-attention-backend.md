@@ -100,8 +100,10 @@ sets this to 1, ensuring every mixed batch is reordered before the three-path ro
 **4. Hardware-Optimized KV Cache Layout**: Uses a preshuffled KV cache layout designed by AMD's AITER kernel team:
 
 ```
+```yaml
 k_cache: [num_blocks, num_heads, head_dim // x, block_size, x]
 v_cache: [num_blocks, num_heads, block_size // x, head_dim, x]
+```
 ```
 
 
@@ -132,6 +134,7 @@ layout to align with the highly optimized AITER MHA kernel and avoid any extra m
 ) to fetch and convert context Key/Value to standard layout. Long contexts are chunked into segments to manage memory:
 
 ```
+```python
 def extend_forward():
 # Stage 1: Attention for new tokens
 flash_attn_varlen_func() # calling AITER MHA
@@ -142,6 +145,7 @@ flash_attn_varlen_func() # calling AITER MHA
 merge_attn_states() # LSE-based merge
 # Stage 3: Get the final result
 merge_attn_states()
+```
 ```
 
 
@@ -205,6 +209,7 @@ All MLA backends use the same fundamental processing strategy:
 **Prefill/Extend (Non-Absorbed)**: Compute attention with standard MHA kernels on the uncompressed representation**Decode (Absorbed)**: Use specialized MLA kernels operating directly on the compressed 576-dim latent space
 
 ```
+```python
 def _forward_prefill():
 # Stage 1: Attention for new tokens (non-absorbed)
 _run_prefill_new_tokens()
@@ -215,6 +220,7 @@ _run_prefill_context_chunk()
 merge_attn_states()
 # Stage 3: Final merge
 merge_attn_states()
+```
 ```
 
 
@@ -402,9 +408,11 @@ For advanced users who want to experiment, backends can be specified via `--atte
 :
 
 ```
+```bash
 vllm serve deepseek-ai/DeepSeek-R1-0528 \
 --tensor-parallel-size 8 \
 --attention-backend ROCM_AITER_TRITON_MLA
+```
 ```
 
 

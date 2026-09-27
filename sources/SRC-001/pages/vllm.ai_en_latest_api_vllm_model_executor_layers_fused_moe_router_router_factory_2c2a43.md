@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/router/router_factory/
 lastmod: 2026-09-27
 
+```python
 def create_fused_moe_router(
 # common parameters
 top_k: int,
@@ -32,6 +33,7 @@ skip_padding: bool = False,
 """Factory function to create the appropriate FusedMoERouter subclass based on
 the provided parameters.
 The selection logic follows this priority order:
+```
 1. RoutingSimulatorRouter - if VLLM_MOE_ROUTING_SIMULATION_STRATEGY env var is set
 2. ZeroExpertRouter - if zero_expert_type is not None
 3. GroupedTopKRouter - if use_grouped_topk is True and the grouping is not

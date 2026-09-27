@@ -97,6 +97,7 @@ Gate for running the MLA output gating through hpc.gated_mla_gemm.
 ## Source code in `vllm/model_executor/layers/hpc/gated_mla.py`
 
 
+```python
 | def hpc_gated_mla_supported(
 gating_type: str | None, attn_output_gate: torch.nn.Module | None
 ) -> bool:
@@ -149,3 +150,4 @@ return False
 logger.info_once("HPC gated MLA enabled by set VLLM_ENABLE_HPC_OPS.")
 return True
 |
+```

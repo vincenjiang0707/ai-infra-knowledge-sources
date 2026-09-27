@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/triton_deep_gemm_moe/
 lastmod: 2026-09-27
 
+```python
 class TritonOrDeepGemmExperts(FallbackExperts):
 """DeepGemm with fallback to Triton for low latency shapes."""
 def __init__(self, moe_config: FusedMoEConfig, quant_config: FusedMoEQuantConfig):
@@ -60,3 +61,4 @@ if is_deep_gemm_e8m0_used() or _valid_deep_gemm(hidden_states, w1, w2):
 return self.experts
 else:
 return self.fallback_experts
+```

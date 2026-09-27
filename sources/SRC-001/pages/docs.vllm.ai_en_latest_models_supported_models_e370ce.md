@@ -39,9 +39,11 @@ If the Transformers model implementation follows all the steps in [writing a cus
 
 Checking if the modeling backend is Transformers is as simple as:
 
+```python
 from vllm import LLM
 llm = LLM(model=...) # Name or path of your model
 llm.apply_model(lambda model: print(type(model)))
+```
 
 
 If the printed type starts with `Transformers...`
@@ -98,8 +100,10 @@ If the compatible model is:
 
 for[offline-inference](https://docs.vllm.ai/serving/offline_inference/)or`--trust-remote-code`
 
+```bash
 for the[online serving](https://docs.vllm.ai/serving/online_serving/). - in a local directory, simply pass directory path to
 `model=<MODEL_DIR>`
+```
 
 for[offline-inference](https://docs.vllm.ai/serving/offline_inference/)or`vllm serve <MODEL_DIR>`
 
@@ -193,6 +197,7 @@ dispatches through the interface.
 
 ## modeling_my_model.py
 
+```python
 from transformers import PreTrainedModel
 from torch import nn
 class MyAttention(nn.Module):
@@ -232,6 +237,7 @@ def forward(self, hidden_states: torch.Tensor):
 hidden_states = self.experts(hidden_states, top_k_index, top_k_weights)
 ...
 class MyModel(PreTrainedModel):
+```
 ...
 
 
@@ -260,6 +266,7 @@ to your model's config class:
 
 ## configuration_my_model.py
 
+```python
 from transformers import PreTrainedConfig
 class MyConfig(PreTrainedConfig):
 base_model_tp_plan = {
@@ -275,6 +282,7 @@ base_model_pp_plan = {
 "layers": (["hidden_states", "attention_mask"], ["hidden_states"]),
 "norm": (["hidden_states"], ["hidden_states"]),
 }
+```
 
 
 `base_model_tp_plan`
@@ -370,6 +378,7 @@ Tip
 
 The easiest way to check if your model is really supported at runtime is to run the program below:
 
+```python
 from vllm import LLM
 # For generative models (runner=generate) only
 llm = LLM(model=..., runner="generate") # Name or path of your model
@@ -379,6 +388,7 @@ print(output)
 llm = LLM(model=..., runner="pooling") # Name or path of your model
 output = llm.encode("Hello, my name is")
 print(output)
+```
 
 
 If vLLM successfully returns text (for generative models) or hidden states (for pooling models), it indicates that your model is supported.
@@ -428,9 +438,11 @@ https_proxy=http://your.proxy.server:port vllm serve <model_name>
 
 - Set the proxy in Python interpreter:
 
+```python
 import os
 os.environ["http_proxy"] = "http://your.proxy.server:port"
 os.environ["https_proxy"] = "http://your.proxy.server:port"
+```
 
 
 ### MatrixHub[¶](https://docs.vllm.ai#matrixhub)
@@ -453,6 +465,7 @@ And use with `trust_remote_code=True`
 
 .
 
+```python
 from vllm import LLM
 llm = LLM(model=..., revision=..., runner=..., trust_remote_code=True)
 # For generative models (runner=generate) only
@@ -461,6 +474,7 @@ print(output)
 # For pooling models (runner=pooling) only
 output = llm.encode("Hello, my name is")
 print(output)
+```
 
 
 ## Feature Status Legend[¶](https://docs.vllm.ai#feature-status-legend)
@@ -2019,10 +2033,12 @@ When comparing the output of
 
 from Hugging Face Transformers with the output of`llm.generate`
 
+```python
 from vLLM, note that the former reads the model's generation config file (i.e.,[generation_config.json](https://github.com/huggingface/transformers/blob/19dabe96362803fb0a9ae7073d03533966598b17/src/transformers/generation/utils.py#L1945)) and applies the default parameters for generation, while the latter only uses the parameters passed to the function. Ensure all sampling parameters are identical when comparing outputs. -
 **Issue Resolution and Model Updates**: Users are encouraged to report any bugs or issues they encounter with third-party models. Proposed fixes should be submitted via PRs, with a clear explanation of the problem and the rationale behind the proposed solution. If a fix for one model impacts another, we rely on the community to highlight and address these cross-model dependencies. Note: for bugfix PRs, it is good etiquette to inform the original author to seek their feedback. -
 **Monitoring and Updates**: Users interested in specific models should monitor the commit history for those models (e.g., by tracking changes in the main/vllm/model_executor/models directory). This proactive approach helps users stay informed about updates and changes that may affect the models they use. -
 **Selective Focus**: Our resources are primarily directed towards models with significant user interest and impact. Models that are less frequently used may receive less attention, and we rely on the community to play a more active role in their upkeep and improvement.
+```
 
 Through this approach, vLLM fosters a collaborative environment where both the core development team and the broader community contribute to the robustness and diversity of the third-party models supported in our ecosystem.
 

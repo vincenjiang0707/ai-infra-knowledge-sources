@@ -1865,8 +1865,10 @@ llvm-objdump --disassemble-all path/to/code-object.co
 Disabling memory caching strategies within the ROCm stack and PyTorch is recommended, where possible. This gives the debug agent the best chance of finding the memory fault where it originates. Otherwise, it could be masked by writing past the end of a cached block within a larger allocation.
 
 ```
+```bash
 PYTORCH_NO_HIP_MEMORY_CACHING=1
 HSA_DISABLE_FRAGMENT_ALLOCATOR=1
+```
 ```
 
 ### Compute the occupancy of a kernel[#](https://rocm.docs.amd.com#compute-the-occupancy-of-a-kernel)

@@ -42,19 +42,23 @@ Steps to reproduce the behavior (In colab):
 8. `!emcc --version` (verification)
 9. Find the location of `tvm` and `mlc_llm` for reference:
 
+```python
     ```python
     import mlc_llm
     print(mlc_llm)
     import tvm
     print(tvm.__file__)
     ```
+```
 10. Set env vars:
 
+```python
     ```python
     import os
     os.environ['TVM_SOURCE_DIR'] = '/usr/local/lib/python3.12/dist-packages/tvm'
     os.environ['MLC_LLM_SOURCE_DIR'] = '/usr/local/lib/python3.12/dist-packages/mlc_llm'
     ```
+```
 11. `!git clone https://github.com/mlc-ai/mlc-llm.git --recursive`
 12. `!cd  mlc-llm && ./web/prep_emcc_deps.sh`
 

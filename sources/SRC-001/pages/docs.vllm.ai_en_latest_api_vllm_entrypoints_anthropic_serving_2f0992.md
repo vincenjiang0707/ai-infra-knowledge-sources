@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/anthropic/serving/
 lastmod: 2026-09-27
 
+```python
 class AnthropicServingMessages(OpenAIServingChat):
 """Handler for Anthropic Messages API requests."""
 def __init__(
@@ -151,6 +152,7 @@ return True
 def _convert_image_source_to_url(source: dict[str, Any]) -> str:
 """Convert an Anthropic image source to an OpenAI-compatible URL.
 Anthropic supports two image source types:
+```
 - base64: {"type": "base64", "media_type": "image/jpeg", "data": "..."}
 - url: {"type": "url", "url": "https://..."}
 For base64 sources, this constructs a proper data URI that

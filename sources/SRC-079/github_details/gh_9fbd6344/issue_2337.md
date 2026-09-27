@@ -36,11 +36,13 @@ Build an NPZ calibration file with >= ~50-100 samples per ONNX graph input (foll
 Run:
 
 
+```python
 import modelopt.onnx.autocast as autocast
 autocast.convert_to_mixed_precision(
     onnx_path="model.onnx",
     low_precision_type="fp16",
     calibration_data="calibration_data.npz",
+```
 )
 
 Observe the process being killed by the OS OOM killer (check dmesg | grep -i "out of memory") shortly after logging "Setting up CalibrationDataProvider for calibration", with peak RSS scaling with the number of samples in the NPZ.

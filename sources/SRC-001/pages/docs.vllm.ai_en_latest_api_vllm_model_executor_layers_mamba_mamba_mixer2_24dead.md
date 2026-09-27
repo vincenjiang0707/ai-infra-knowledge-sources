@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/mamba_mixer2/
 lastmod: 2026-09-27
 
+```python
 @PluggableLayer.register("mamba_mixer2")
 class MambaMixer2(MambaBase, PluggableLayer):
 """Compute ∆, A, B, C, and D the state space parameters and compute
@@ -689,10 +690,13 @@ if self.num_spec > 0:
 assert block_idx_last_scheduled_token_prev_step_d is not None
 input_indices = (
 block_idx_last_scheduled_token_prev_step_d.unsqueeze(1)
+```
 + self._decode_state_offsets
 )
+```python
 output_indices = (
 block_idx_last_scheduled_token_d.unsqueeze(1)
+```
 + self._decode_state_offsets
 )
 state_indices_tensor_d_input = state_indices_tensor_d.gather(

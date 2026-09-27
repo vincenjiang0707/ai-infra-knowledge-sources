@@ -60,10 +60,12 @@ There is currently no rule enforcing user to disable `SPLIT_UNMASKED_LOOP` with 
 
 ## Reproduction
 
+```bash
 gfx1151. Gemma-4-style sliding geometry: `head_size=256`, 16 Q / 8 KV heads,
 `block_size=64`, bf16 Q+KV, `q_tokens=512`, `kv_len=1536`, `SLIDING_WINDOW=1024`,
 validated against a naive reference. `num_warps=8`, `num_stages=1`,
 `waves_per_eu=0`.
+```
 
 | BLOCK_M | BLOCK_Q | TILE_SIZE | `SPLIT=1` rel err | `SPLIT=0` |
 |--------:|--------:|----------:|------------------:|----------:|

@@ -23,11 +23,13 @@ overrides to the `hf_overrides`
 
 option. For example:
 
+```python
 from vllm import LLM
 llm = LLM(
 model="cerebras/Cerebras-GPT-1.3B",
 hf_overrides={"architectures": ["GPT2LMHeadModel"]}, # GPT-2
 )
+```
 
 
 Our [list of supported models](https://docs.vllm.ai/models/supported_models/) shows the model architectures that are recognized by vLLM.

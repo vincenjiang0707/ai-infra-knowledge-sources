@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/colqwen3/
 lastmod: 2026-09-27
 
+```python
 @default_pooling_type(seq_pooling_type="CLS", tok_pooling_type="ALL")
 @MULTIMODAL_REGISTRY.register_processor(
 Qwen3VLMultiModalProcessor,
@@ -11,6 +12,7 @@ class ColQwen3Model(Qwen3VLForConditionalGeneration, SupportsLateInteraction):
 """ColQwen3 late interaction model for multi-modal retrieval/reranking.
 This model extends Qwen3VLForConditionalGeneration with a ColBERT-style
 linear projection layer for per-token embeddings. It supports:
+```
 - "token_embed" task: Per-token embeddings for late interaction scoring
 The model produces L2-normalized per-token embeddings by:
 1. Running the Qwen3-VL backbone (vision + language) to get hidden states

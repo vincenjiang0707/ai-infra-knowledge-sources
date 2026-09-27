@@ -10,9 +10,11 @@ labels: documentation, RFC, keep-open
 
 Baseline: [zai-org/GLM-4.7-Flash](https://huggingface.co/zai-org/GLM-4.7-Flash) (bf16, 47L, 64 routed experts, top-4) and [moonshotai/Moonlight-16B-A3B-Instruct](https://huggingface.co/moonshotai/Moonlight-16B-A3B-Instruct) (bf16, 27L, 64 routed experts, top-6)
 
+```yaml
 Hardware: 1xH100
 Serving: vLLM, TP=1, max-model-len=4096 (lm-eval `--model vllm`; offline `LLM.generate` for throughput). `out tok/s` is whole-generation (prefill+decode) wall-clock from a single batched `generate` (128 prompts x 256 tokens, `ignore_eos`), n=1 
 Recipe: `REAPPruningModifier(sparsity=0.25 / 0.50)`, prune-only (no quantization stage), sequential pipeline, `moe_calibrate_all_experts=False`, bf16, saved with `save_compressed=True`
+```
 
 ## Summary
 

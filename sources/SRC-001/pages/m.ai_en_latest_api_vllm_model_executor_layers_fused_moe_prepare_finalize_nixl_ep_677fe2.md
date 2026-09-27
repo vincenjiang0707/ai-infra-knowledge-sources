@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/prepare_finalize/nixl_ep/
 lastmod: 2026-09-27
 
+```python
 class NixlEPPrepareAndFinalize(mk.FusedMoEPrepareAndFinalizeModular):
 """Prepare/Finalize using NIXL EP kernels."""
 # NIXL EP kernels are compiled only for certain specific hidden sizes.
@@ -303,3 +304,4 @@ apply_router_weight_on_input,
 weight_and_reduce_impl,
 do_async=False,
 )
+```

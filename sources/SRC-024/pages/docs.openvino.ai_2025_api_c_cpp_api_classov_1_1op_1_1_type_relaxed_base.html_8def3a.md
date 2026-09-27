@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::TypeRelaxedBase[#](https://docs.openvino.ai#class-ov-op-typerelaxedbase)
 
 -
+```python
 class TypeRelaxedBase
 [#](https://docs.openvino.ai#_CPPv4N2ov2op15TypeRelaxedBaseE) A base class for templated
+```
 
 [TypeRelaxed](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1_type_relaxed)that maintains overridden input types and output types for an operation.Subclassed by
 

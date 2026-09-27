@@ -246,8 +246,10 @@ With lookup, hit, mask, tail-key, and payload shape all checking out, I have no 
 1. SSD offload & client_buffer_gc_ttl_ms
 SSD offload is enabled:
 
+```yaml
 mc-master: --enable_offload=true --offload_on_evict=true --eviction_high_watermark_ratio=0.95 --promotion_on_hit=true --promotion_admission_threshold=1
 mc-client: --enable_offload=true --start_offload_rpc_server=true, MOONCAKE_OFFLOAD_FILE_STORAGE_PATH=/data/file_storage (XFS RAID on /dev/md0), global_segment_size=1099511627776 (1 TiB)
+```
 client_buffer_gc_ttl_ms is not set (left at the store default; I can read the compiled default and report it if useful).
 
 2. Lease warnings in the incident window

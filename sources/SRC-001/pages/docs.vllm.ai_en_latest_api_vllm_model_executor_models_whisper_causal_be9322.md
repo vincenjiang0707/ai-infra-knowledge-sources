@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/whisper_causal/
 lastmod: 2026-09-27
 
+```python
 class WhisperCausalAttentionWithBlockPooling(Attention):
 """Attention layer with block pooling."""
 def __init__(
@@ -68,3 +69,4 @@ if isinstance(kv_cache_spec, SlidingWindowSpec):
 pooled = cdiv(kv_cache_spec.sliding_window, self.block_pool_size) + 1
 kv_cache_spec = replace(kv_cache_spec, sliding_window=pooled)
 return kv_cache_spec
+```

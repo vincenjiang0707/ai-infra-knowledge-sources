@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::GatherBase[#](https://docs.openvino.ai#class-ov-op-util-gatherbase)
 
 -
+```python
 class GatherBase : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util10GatherBaseE) [GatherBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_gather_base)basic class for Gather[v1](https://docs.openvino.ai/group__ov__transformation__common__api.html#namespaceov_1_1op_1_1v1)and[v7](https://docs.openvino.ai/group__ov__transformation__common__api.html#namespaceov_1_1op_1_1v7).Subclassed by
+```
 
 [ov::op::v1::Gather](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_gather),[ov::op::v7::Gather](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v7_1_1_gather),[ov::op::v8::Gather](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v8_1_1_gather)Public Functions
 

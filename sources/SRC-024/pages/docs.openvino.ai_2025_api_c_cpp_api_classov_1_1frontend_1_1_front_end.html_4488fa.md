@@ -4,8 +4,10 @@ lastmod:
 # Class ov::frontend::FrontEnd[#](https://docs.openvino.ai#class-ov-frontend-frontend)
 
 -
+```python
 class FrontEnd
 [#](https://docs.openvino.ai#_CPPv4N2ov8frontend8FrontEndE) An interface for identifying a frontend for a particular framework. Provides an ability to load and convert of input model.
+```
 
 Unnamed Group
 

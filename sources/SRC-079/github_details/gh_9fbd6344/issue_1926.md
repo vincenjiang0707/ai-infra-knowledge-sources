@@ -41,25 +41,31 @@ calib/bias.py: the axis docstring (and collect()'s comment block incl. its examp
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 1e8c003bbbb3e6ec84ec39228784f950e397ef7e70e5133c8c7997715aa7f25f
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 8cb2cc418c0001514a03cd829628cdb93e3fb3d99469c5c9142507ef7d270a26
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 0c165896b820bb1926baa48ddcc035d088adc807d55d15d8665439b236724b9c
+```
 
 Release follow-up: this open ModelOpt issue needs release relevance confirmed. Link its planned fix/validation, or confirm it is not a v0.46.0 blocker.
 

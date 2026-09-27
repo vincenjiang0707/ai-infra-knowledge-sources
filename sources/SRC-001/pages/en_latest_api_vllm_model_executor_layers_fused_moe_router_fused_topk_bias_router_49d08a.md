@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/router/fused_topk_bias_router/
 lastmod: 2026-09-27
 
+```python
 class FusedTopKBiasRouter(BaseRouter):
 """Router using fused top-k with e_score_correction_bias."""
 def __init__(
@@ -94,3 +95,4 @@ device=topk_weights.device,
 topk_ids = torch.cat([topk_ids, shared_ids], dim=-1)
 topk_weights = torch.cat([topk_weights, shared_w], dim=-1)
 return topk_weights, topk_ids
+```

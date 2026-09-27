@@ -50,6 +50,7 @@ llama serve -hf ggml-org/Qwen3.5-0.8B-GGUF
 ```
 
 <table align="center">
+```html
     <tr>
         <td align="center" width=50%>
             <img width="1310" height="888" alt="VLM session with `llama cli`" src="https://github.com/user-attachments/assets/88726b48-1713-48aa-a525-95a02e78afc4" />
@@ -60,6 +61,7 @@ llama serve -hf ggml-org/Qwen3.5-0.8B-GGUF
             <i>Built-in web UI against <b>llama serve</b></i>
         </td>
     </tr>
+```
 <table>
 
 ## Description

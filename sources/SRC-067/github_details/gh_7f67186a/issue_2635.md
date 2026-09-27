@@ -24,6 +24,7 @@ flashinfer-cubin                         0.6.8.post1
 flashinfer-python                        0.6.8.post1
 
 Training Command
+```bash
 --model /mnt/wfs2139/model/Qwen3.5-35B-A3B \
 --cached_dataset /opt/wfs2139/data/vlm/cache/train \
 --use_distributed_optimizer true \
@@ -62,6 +63,7 @@ Training Command
 --packing true \
 --dataloader_pin_memory false \
 --gradient_accumulation_fusion false
+```
 
 Problem
 
@@ -445,11 +447,13 @@ https://github.com/Dao-AILab/flash-attention/pull/2647
 
 > Hi [@yszhli](https://github.com/yszhli) Could you please help to try this PR with notes in part one and part two in PR description ? [#2647](https://github.com/Dao-AILab/flash-attention/pull/2647)
 
+```
 I’ve tested this PR following the notes in parts one and two of the description. The local cache is being hit successfully, but the training speed hasn't improved. Below are the speed logs from my test:    {'loss': 0.47705832, 'grad_norm': 1.23246276, 'learning_rate': 2e-08, 'load_balancing_loss': 1.01558769, 'iteration': '1/10635', 'elapsed_time': '3m 12s', 'remaining_time': '23d 14h 27m 6s', 'memory(GiB)': 204.12, 'train_speed(s/it)': 191.764682}
 {'loss': 0.43613276, 'grad_norm': 1.75246286, 'learning_rate': 9e-08, 'load_balancing_loss': 1.04061723, 'iteration': '5/10635', 'elapsed_time': '9m 40s', 'remaining_time': '14d 6h 48m 17s', 'memory(GiB)': 258.51, 'train_speed(s/it)': 116.095699}
 {'loss': 0.4270708, 'grad_norm': 1.16587019, 'learning_rate': 1.9e-07, 'load_balancing_loss': 1.04042268, 'iteration': '10/10635', 'elapsed_time': '17m 17s', 'remaining_time': '12d 18h 10m 6s', 'memory(GiB)': 258.57, 'train_speed(s/it)': 103.737077}
 {'loss': 0.42510602, 'grad_norm': 0.97488004, 'learning_rate': 2.8e-07, 'load_balancing_loss': 1.03240323, 'iteration': '15/10635', 'elapsed_time': '24m 54s', 'remaining_time': '12d 5h 53m 10s', 'memory(GiB)': 258.57, 'train_speed(s/it)': 99.622367}
 {'loss': 0.40979832, 'grad_norm': 0.99568218, 'learning_rate': 3.8e-07, 'load_balancing_loss': 1.0337826, 'iteration': '20/10635', 'elapsed_time': '32m 41s', 'remaining_time': '12d 1h 6m 28s', 'memory(GiB)': 258.57, 'train_speed(s/it)': 98.048812}
+```
 
 ### Johnsonms · 2026-06-15
 

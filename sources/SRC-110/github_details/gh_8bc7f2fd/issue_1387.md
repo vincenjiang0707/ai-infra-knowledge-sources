@@ -90,12 +90,14 @@ evalscope eval \
   --work-dir ./outputs/MiniMax-M2.5  \
   --ignore-errors \
   --generation-config '{
+```json
     "timeout": 360000,
     "stream": true,
     "temperature": 1.0, 
     "top_p": 0.95, 
     "top_k": 40, 
     "min_p": 0.01
+```
   }'
 
 [20260602_093234.zip](https://github.com/user-attachments/files/28531914/20260602_093234.zip)

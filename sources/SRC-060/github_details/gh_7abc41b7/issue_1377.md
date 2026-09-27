@@ -7,10 +7,12 @@ labels:
 ## 正文
 
 vllm命令：
+```bash
 vllm serve ERNIE-4.5-VL-28B-A3B-Thinking --trust-remote-code
 --reasoning-parser ernie45
 --tool-call-parser ernie45
 --enable-auto-tool-choice --cpu-offload-gb 48
+```
 
 跟踪模型的输入，结果是：
 <|begin_of_sentence|>You are a multimodal AI assistant called ERNIE developed by Baidu based on the PaddlePaddle framework.\nUser: <|IMAGE_START|><|image@placeholder|><|IMAGE_END|>\nFrom which era does the artifact in the image originate?\nAssistant: \n\n

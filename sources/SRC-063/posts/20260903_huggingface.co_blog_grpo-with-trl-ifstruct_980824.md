@@ -73,6 +73,7 @@ GGUF ([LiquidAI/LFM2.5-350M-GGUF](https://huggingface.co/LiquidAI/LFM2.5-350M-GG
 Then we start the base-model server with the following command:
 
 ```
+```bash
 llama-server \
 -hf LiquidAI/LFM2.5-350M-GGUF:BF16 \
 -c 32768 \
@@ -81,6 +82,7 @@ llama-server \
 --alias LiquidAI/LFM2.5-350M \
 --host 127.0.0.1 \
 --port 8080
+```
 ```
 
 
@@ -249,6 +251,7 @@ Training
 We train for 100 steps with 8 generations per prompt group, sized for a free-tier 16 GB GPU:
 
 ```
+```python
 from trl import GRPOConfig
 training_args = GRPOConfig(
 output_dir="./outputs/lfm25-350m-nemotron-schema-grpo",
@@ -268,6 +271,7 @@ logging_steps=1,
 save_steps=100,
 )
 ```
+```
 
 
 As you can see in the notebook, over the run, all three reward components climb, the KL from the reference model lifts off zero after warmup, and the truncated-completion fraction stays near zero.
@@ -280,10 +284,12 @@ Merging and saving the model
 Finally, we merge the LoRA adapter back into the base weights and save it as a single self-contained checkpoint, ready to convert to GGUF for serving:
 
 ```
+```json
 MERGED_DIR = f"{training_args.output_dir}-merged"
 merged_model = trainer.model.merge_and_unload()
 merged_model.save_pretrained(MERGED_DIR)
 tokenizer.save_pretrained(MERGED_DIR)
+```
 ```
 
 
@@ -297,6 +303,7 @@ After GRPO fine-tuning, we rerun the IFStruct evaluation. For this, we need to c
 package.
 
 ```
+```bash
 git clone --depth 1 https://github.com/ggml-org/llama.cpp
 pip install ./llama.cpp/gguf-py
 mkdir -p models
@@ -305,11 +312,13 @@ PATH_TO_YOUR_MERGED_MODEL \
 --outfile ./models/lfm25-350m-grpo-bf16.gguf \
 --outtype bf16
 ```
+```
 
 
 Then we serve the merged model with the following command:
 
 ```
+```bash
 llama-server \
 -m ./models/lfm25-350m-grpo-bf16.gguf \
 --alias lfm25-350m-grpo-structured-output \
@@ -318,6 +327,7 @@ llama-server \
 -ngl 99 \
 --host 127.0.0.1 \
 --port 8081
+```
 ```
 
 

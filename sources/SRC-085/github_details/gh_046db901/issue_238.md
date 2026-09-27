@@ -12,12 +12,15 @@ original model inf time 14.811357259750366
 code 
 
 # step1 deepseek-ai/DeepSeek-R1-Distill-Llama-8B inference with eagle3 model
+```python
 from eagle.model.ea_model import EaModel
 from fastchat.model import get_conversation_template
 import torch
 import time
+```
 
 model = EaModel.from_pretrained(
+```bash
     base_model_path='deepseek-ai/DeepSeek-R1-Distill-Llama-8B',
     ea_model_path='yuhuili/EAGLE3-DeepSeek-R1-Distill-LLaMA-8B',
     # base_model_path='Qwen/Qwen2-7B-Instruct',
@@ -27,7 +30,9 @@ model = EaModel.from_pretrained(
     device_map="auto",
     total_token=-1,
     # use_eagle3=False
+```
 )
+```bash
 model = model.to("cuda")
 model.eval()
 your_message="tell me a story"
@@ -46,9 +51,11 @@ end_time = time.time()
 print('inf time', end_time - start_time)
 print('-------------------------')
 print(output)
+```
 
 
 # step2 deepseek-ai/DeepSeek-R1-Distill-Llama-8B original model inference
+```python
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import time
@@ -56,6 +63,7 @@ import time
 model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.float16)
+```
 
 model = model.to("cuda")
 

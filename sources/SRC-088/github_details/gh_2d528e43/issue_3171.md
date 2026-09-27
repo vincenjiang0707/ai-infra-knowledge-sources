@@ -189,10 +189,12 @@ full transparency: i am a college freshman and i leaned on Claude Code to script
 
 Thanks for the full sweep above, that's handy. Claiming three of the script-based ones (config-side path swaps, per [#3870](https://github.com/shubhangithub/collusionguard/issues/3870)'s pattern):
 
+```yaml
 mathqa: math_qa -> regisss/math_qa (the alternative suggested earlier in the thread)
 siqa: allenai/social_i_qa -> lighteval/siqa
 moral_stories: demelin/moral_stories (config full) -> LabHC/moral_stories (single config, so dataset_name becomes null)
 Provenance: I loaded each original with datasets 3.6.0 (trust_remote_code=True) and md5-hashed every split over the columns the tasks consume, then did the same for the mirrors on datasets 5.0.0. All hashes match exactly: math_qa 29837/4475/2985 (all seven columns), siqa 33410/1954, moral_stories 12000. So the mirrors are content-identical to the originals for eval purposes, not just similarly sized.
+```
 
 One find while checking the rest: CogComp/mc_taco and corypaik/prost have no faithful script-less mirror I could locate. corypaik/prost ships its data as jsonl in the repo, so the fix there is probably the author dropping prost.py.
 

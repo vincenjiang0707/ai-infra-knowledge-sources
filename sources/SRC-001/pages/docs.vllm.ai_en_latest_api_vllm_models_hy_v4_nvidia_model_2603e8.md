@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/hy_v4/nvidia/model/
 lastmod: 2026-09-27
 
+```python
 class HYV4Model(nn.Module):
 """HY V4 backbone."""
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
@@ -376,3 +377,4 @@ else:
 weight_loader(param, loaded_weight, stacked_shard_id)
 loaded_params.add(name)
 return loaded_params
+```

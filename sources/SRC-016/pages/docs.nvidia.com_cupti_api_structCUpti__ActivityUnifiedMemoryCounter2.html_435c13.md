@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityUnifiedMemoryCoun
 # 7.131. CUpti_ActivityUnifiedMemoryCounter2[#](https://docs.nvidia.com#cupti-activityunifiedmemorycounter2)
 
 -
+```rust
 struct CUpti_ActivityUnifiedMemoryCounter2
 [#](https://docs.nvidia.com#_CPPv435CUpti_ActivityUnifiedMemoryCounter2) The activity record for Unified Memory counters (deprecated in 12.8)
+```
 
 This activity record represents a Unified Memory counter (CUPTI_ACTIVITY_KIND_UNIFIED_MEMORY_COUNTER).
 

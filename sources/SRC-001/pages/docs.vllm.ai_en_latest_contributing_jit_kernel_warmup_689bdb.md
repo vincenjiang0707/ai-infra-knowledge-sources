@@ -21,6 +21,7 @@ Here, a **kernel wrapper** (or just **wrapper**) is an instance of a concrete [ 
 
 Expose one wrapper near the kernel's normal runtime entry point. Prefer this backend-agnostic shape:
 
+```python
 class MyKernel(VllmJitKernel["MyKernel.CompileKey"]):
 @dataclass(frozen=True)
 class CompileKey:
@@ -37,6 +38,7 @@ def compile(self, compile_key: CompileKey) -> None:
 def __call__(self, ...):
 return self.kernel(...)
 _MY_KERNEL = MyKernel()
+```
 
 
 `CompileKey`
@@ -73,11 +75,13 @@ Use `_trace_dispatch(self.dispatch)`
 
 to describe representative inputs. The tracer maps them through the same specialization logic and deduplicates equal keys:
 
+```python
 def get_warmup_keys(self, vllm_config: VllmConfig) -> list[CompileKey]:
 max_tokens = vllm_config.scheduler_config.max_num_batched_tokens
 return self._trace_dispatch(self.dispatch)(
 num_tokens=WarmupIntRange(1, max_tokens + 1),
 )
+```
 
 
 Use independent ranges or alternatives for cartesian products, `zip_inputs(...)`
@@ -199,11 +203,13 @@ cannot be combined with a non-default `step`
 
 Use tuples or lists for independent alternatives. Multiple expanded inputs form a cartesian product:
 
+```python
 return self._trace_dispatch(self.dispatch)(
 query_slice_start=WarmupIntRange(0, 2),
 query_slice_stop=(1, 2 * max_tokens - 1, 2 * max_tokens),
 COMPRESS_RATIO=list(compress_ratios),
 )
+```
 
 
 #### Coupled Inputs[¶](https://docs.vllm.ai#coupled-inputs)
@@ -242,6 +248,7 @@ to filter generated input points before they are passed to `dispatch(...)`
 
 . This is useful when independent ranges contain invalid combinations, but the validity rule belongs with the kernel warmup definition.
 
+```python
 def _is_valid_warmup_input(
 self,
 *,
@@ -256,6 +263,7 @@ num_reqs=WarmupIntRange(1, max_reqs + 1),
 max_num_batched_tokens=max_tokens,
 _when=self._is_valid_warmup_input,
 )
+```
 
 
 `_when`
@@ -278,6 +286,7 @@ The traced body may contain local assignments, optionally annotated, followed by
 
 call. Local assignments let a kernel name intermediate specialization choices once and reuse them across fields:
 
+```python
 def dispatch(
 self,
 *,
@@ -289,6 +298,7 @@ return self.CompileKey(
 BLOCK_SIZE=block_size,
 VECTOR_WIDTH=4 if vectorized and block_size >= 4 else 1,
 )
+```
 
 
 #### Supported Expressions[¶](https://docs.vllm.ai#supported-expressions)
@@ -323,10 +333,12 @@ are resolved unless the name is overridden locally or globally.
 
 Helpers are useful for small specialization rules:
 
+```python
 def dispatch(self, *, num_tokens: int, block_size: int) -> CompileKey:
 return self.CompileKey(
 PADDED_TOKENS=round_up(num_tokens, multiple=block_size),
 )
+```
 
 
 `_trace_dispatch(...)`
@@ -341,6 +353,7 @@ parameter may be unpacked into `CompileKey(...)`
 
 :
 
+```python
 def dispatch(
 self,
 *,
@@ -351,6 +364,7 @@ return self.CompileKey(
 **compile_key_fields,
 block_size=next_power_of_2(num_tokens),
 )
+```
 
 
 Unmatched dispatch arguments become compile-key fields and warmup inputs. Keep transformed inputs named and explicit. The unpacking must use the dispatch method's own `**kwargs`
@@ -383,6 +397,7 @@ deduplicates the resulting keys while preserving order. This is important when m
 
 For example, this warmup range expands every token count, but the compile key only depends on the power-of-two bucket:
 
+```python
 def dispatch(
 self,
 *,
@@ -396,6 +411,7 @@ max_tokens = vllm_config.scheduler_config.max_num_batched_tokens
 return self._trace_dispatch(self.dispatch)(
 num_tokens=WarmupIntRange(1, max_tokens + 1),
 )
+```
 
 
 For `max_tokens == 8`
@@ -405,11 +421,13 @@ For `max_tokens == 8`
 , but the returned keys are:
 
 [
+```
 CompileKey(BLOCK_SIZE=1),
 CompileKey(BLOCK_SIZE=2),
 CompileKey(BLOCK_SIZE=4),
 CompileKey(BLOCK_SIZE=8),
 ]
+```
 
 
 Deduplication happens after `dispatch(...)`

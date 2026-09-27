@@ -4,8 +4,10 @@ source: https://docs.nvidia.com/cuda/cuda-math-api/cuda_math_api/struct____nv__f
 15.18. __nv_fp8_e4m3[](https://docs.nvidia.com#nv-fp8-e4m3)
 
 -
+```rust
 struct __nv_fp8_e4m3
 [](https://docs.nvidia.com#_CPPv413__nv_fp8_e4m3)
+```
 
 -
 [__nv_fp8_e4m3](https://docs.nvidia.com#struct____nv__fp8__e4m3)datatypeThis structure implements the datatype for storing

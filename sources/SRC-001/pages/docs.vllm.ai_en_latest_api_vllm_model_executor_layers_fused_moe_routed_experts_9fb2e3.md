@@ -1,14 +1,17 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/routed_experts/
 lastmod: 2026-09-27
 
+```python
 @PluggableLayer.register("routed_experts")
 class RoutedExperts(PluggableLayer):
 """Container for routed expert weights and execution logic.
 This module owns the expert weight parameters (w13_weight, w2_weight, scales, etc.)
 and handles:
+```
 - Loading checkpoint weights into parameters
 - Executing routed experts via quant_method.apply()
 """
+```python
 def __init__(
 self,
 layer_name: str,
@@ -285,6 +288,7 @@ shard_dim, 0 if shard_id == "w1" else half, half
 shard_size = destination.shape[shard_dim]
 expected_size = (
 self.moe_config.intermediate_size
+```
 * shard_size
 // self.moe_config.intermediate_size_per_partition
 )

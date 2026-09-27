@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__Profiler__Host__GetMetric
 # 7.188. CUpti_Profiler_Host_GetMetricProperties_Params[#](https://docs.nvidia.com#cupti-profiler-host-getmetricproperties-params)
 
 -
+```rust
 struct CUpti_Profiler_Host_GetMetricProperties_Params
 [#](https://docs.nvidia.com#_CPPv446CUpti_Profiler_Host_GetMetricProperties_Params) Params for cuptiProfilerHostGetMetricProperties.
+```
 
 Public Members
 

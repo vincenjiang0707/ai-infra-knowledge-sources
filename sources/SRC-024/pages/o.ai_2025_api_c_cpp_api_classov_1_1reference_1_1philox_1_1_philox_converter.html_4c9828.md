@@ -4,8 +4,10 @@ lastmod:
 # Class ov::reference::philox::PhiloxConverter[#](https://docs.openvino.ai#class-ov-reference-philox-philoxconverter)
 
 -
+```python
 class PhiloxConverter
 [#](https://docs.openvino.ai#_CPPv4N2ov9reference6philox15PhiloxConverterE) Subclassed by
+```
 
 [ov::reference::philox::MockPhiloxConverter](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1reference_1_1philox_1_1_mock_philox_converter),[ov::reference::philox::PyTorchPhiloxConverter](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1reference_1_1philox_1_1_py_torch_philox_converter),[ov::reference::philox::TensorflowPhiloxConverter](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1reference_1_1philox_1_1_tensorflow_philox_converter)Public Functions
 

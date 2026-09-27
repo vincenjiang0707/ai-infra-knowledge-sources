@@ -167,10 +167,12 @@ CUpti_Profiler_Host_SetDevicePartitionInfo_Params_STRUCT_SIZE
 ## 6.8.7. Enumerations[#](https://docs.nvidia.com#id2)
 
 -
+```rust
 enum CUpti_MetricCollectionScope
 [#](https://docs.nvidia.com#_CPPv427CUpti_MetricCollectionScope) *Values:*-
 enumerator CUPTI_METRIC_COLLECTION_SCOPE_CONTEXT
 [#](https://docs.nvidia.com#_CPPv4N27CUpti_MetricCollectionScope37CUPTI_METRIC_COLLECTION_SCOPE_CONTEXTE)
+```
 
 -
 enumerator CUPTI_METRIC_COLLECTION_SCOPE_DEVICE

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/fp_quant/
 lastmod: 2026-09-27
 
+```python
 class FPQuantLinearMethod(LinearMethodBase):
 """Linear method for FPQuant.
 Args:
@@ -122,3 +123,4 @@ layer.forward_hadamard_matrix,
 self.quant_config.forward_method,
 self.quant_config.forward_dtype,
 )
+```

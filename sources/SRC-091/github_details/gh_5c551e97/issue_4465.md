@@ -287,10 +287,12 @@ Summary: A new DeviceOps method validates a request and runs the first registere
 <details><summary>Details and tests</summary>
 For example transfer_kv_blocks(request), next to the pointer-based multi_layer_block_kv_transfer. Each backend registers an ordered list of implementations, each with a support check and an enabled check. For example:
 
+```yaml
 CUDA: native adapter, then generic torch
 RBLN: its own tensor implementation
 MUSA: native adapter, then TorchMUSA
 Vendor tensor implementations are entries in their own right, not forced into "native or generic torch". Rules:
+```
 
 Pointer natives need an adapter. A pointer-only native (CUDA today, possibly the out-of-tree NPU plugin) is never passed tensors directly.
 No retry once execution starts. An exception or a failure return is an execution failure and propagates. No other implementation re-runs the request.

@@ -63,6 +63,7 @@ The third execution of simple_dyn, where "dispatch" mode is used, reads zero val
 
 Backtrace:
 
+```
 #0  0x00007ffff555e52f in raise () from /lib64/libc.so.6
 #1  0x00007ffff5531e65 in abort () from /lib64/libc.so.6
 #2  0x00007fffe7046318 in google::DumpStackTraceAndExit() [clone .cold.31] () from /opt/rocm-6.4.0/lib/librocprofiler-sdk.so
@@ -77,6 +78,7 @@ Backtrace:
 #11 0x00007ffff7f5cde5 in rocp_sdk_start (ctx=0xc67dd0, ctl=0xca94c0) at components/rocp_sdk/rocp_sdk.c:360
 #12 0x00007ffff7ef6456 in PAPI_start (EventSet=0) at papi.c:2938
 #13 0x000000000020398e in main ()
+```
 
 
 
@@ -813,6 +815,7 @@ I recommend approach #2. rocprofiler-sdk provides all the same information per a
 What is the preferred way to get the agent information from rocprofiler-sdk?
 If I try to enumerate the agents on a machine with no AMD devices, I get a segfault. I'm pasting the backtrace below. I have a reproducer, but the form won't let me attach anything other than an image or video.
 
+```
 #0  0x00007ffff60d3a6c in __pthread_kill_implementation () from /lib64/libc.so.6
 #1  0x00007ffff6086686 in raise () from /lib64/libc.so.6
 #2  0x00007ffff6070833 in abort () from /lib64/libc.so.6
@@ -821,6 +824,7 @@ If I try to enumerate the agents on a machine with no AMD devices, I get a segfa
 #5  0x00007ffff63f2597 in std::terminate() () from /lib64/libstdc++.so.6
 #6  0x00007ffff63f27f9 in __cxa_throw () from /lib64/libstdc++.so.6
 #7  0x00007fffea903e6a in rocprofiler::agent::(anonymous namespace)::read_topology() [clone .cold] ()
+```
    from /apps/rocm/rocm-6.4afar7/lib/librocprofiler-sdk.so
 #8  0x00007fffea922d6d in rocprofiler::agent::get_agents() () from /apps/rocm/rocm-6.4afar7/lib/librocprofiler-sdk.so
 #9  0x00007fffea92442f in rocprofiler_query_available_agents () from /apps/rocm/rocm-6.4afar7/lib/librocprofiler-sdk.so

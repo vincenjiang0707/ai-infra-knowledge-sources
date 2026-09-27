@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/b12x/
 lastmod: 2026-09-27
 
+```python
 class B12xExperts(mk.FusedMoEExpertsModular):
 """FP4 MoE experts backed by the b12x SM12x planned API."""
 def __init__(
@@ -531,3 +532,4 @@ unit_scale_contract=self._quant_mode == "w4a16",
 )
 def moe_sum(self, input: torch.Tensor, output: torch.Tensor) -> None:
 raise NotImplementedError("LoRA is not supported for B12xExperts")
+```

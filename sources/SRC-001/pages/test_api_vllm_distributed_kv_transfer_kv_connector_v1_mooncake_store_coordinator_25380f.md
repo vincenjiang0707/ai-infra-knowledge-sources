@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/store/coordinator/
 lastmod: 2026-09-27
 
+```python
 class MooncakeStoreCoordinator:
 """Mirror of ``HybridKVCacheCoordinator.find_longest_cache_hit`` over an
 ``ExternalCachedBlockPool``."""
@@ -349,3 +350,4 @@ return (
 tuple(blks if blks is not None else [] for blks in hit_blocks_by_group),
 hit_length,
 )
+```

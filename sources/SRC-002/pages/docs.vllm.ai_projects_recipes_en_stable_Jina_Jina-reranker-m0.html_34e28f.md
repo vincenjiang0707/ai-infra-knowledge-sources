@@ -22,17 +22,20 @@ Deploy the model as a production-ready API server using vLLM.
 ### 1. Deploy Model Server[¶](https://docs.vllm.ai#1-deploy-model-server)
 
 # https://docs.vllm.ai/en/latest/cli/serve.html
+```bash
 vllm serve jinaai/jina-reranker-m0 \
 --host 0.0.0.0 \
 --port 8000 \
 --tensor_parallel_size 2 \
 --gpu-memory-utilization 0.75 \
 --max_num_seqs 32
+```
 
 
 ### 1.1 Deploy Model Server on 8xMI300x/MI325x/MI355x[¶](https://docs.vllm.ai#11-deploy-model-server-on-8xmi300xmi325xmi355x)
 
 # https://docs.vllm.ai/en/latest/cli/serve.html
+```bash
 export VLLM_ROCM_USE_AITER=1
 vllm serve jinaai/jina-reranker-m0 \
 --host 0.0.0.0 \
@@ -40,6 +43,7 @@ vllm serve jinaai/jina-reranker-m0 \
 --tensor_parallel_size 2 \
 --gpu-memory-utilization 0.75 \
 --max_num_seqs 32
+```
 
 
 `export VLLM_ROCM_USE_AITER=1`
@@ -207,6 +211,7 @@ curl -X POST http://localhost:8000/v1/score \
 
 Use the model directly in your Python code without running a server.
 
+```python
 from vllm import LLM
 MODEL = "jinaai/jina-reranker-m0"
 # Initialize the LLM engine
@@ -231,3 +236,4 @@ res = llm.score(query, documents)
 # Extract and print scores
 for item in res:
 print(item.outputs.score)
+```

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/minicpmv/
 lastmod: 2026-09-27
 
+```python
 class _MiniCPMVEncoderCudaGraphMixin(MiniCPMVBaseModel, SupportsEncoderCudaGraph):
 """SupportsEncoderCudaGraph for MiniCPM-V Idefics2 + resampler (not 2.0)."""
 supports_encoder_cudagraph: ClassVar[Literal[True]] = True
@@ -348,3 +349,4 @@ raise RuntimeError(
 "or video_pixel_values"
 )
 return torch.cat(segments, dim=0)
+```

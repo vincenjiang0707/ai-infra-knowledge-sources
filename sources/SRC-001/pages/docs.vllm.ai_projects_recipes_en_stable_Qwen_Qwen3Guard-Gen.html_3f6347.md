@@ -45,6 +45,7 @@ vllm bench serve \
 
 ## Querying with OpenAI API Client[¶](https://docs.vllm.ai#querying-with-openai-api-client)
 
+```python
 from openai import OpenAI
 client = OpenAI(
 api_key="EMPTY",
@@ -66,6 +67,7 @@ print("Generated text:", response.choices[0].message.content)
 # '''
 # Safety: Unsafe
 # Categories: Violent
+```
 # '''
 
 

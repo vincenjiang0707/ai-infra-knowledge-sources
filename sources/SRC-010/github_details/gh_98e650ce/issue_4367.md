@@ -188,6 +188,7 @@ internal error happened, status code ResponseType.INPUT_LENGTH_ERROR
 "[TM][WARNING] session_len truncated to 42880 due to limited KV cache memory"
 这个表示 token的最大容量是 42880，因为 kv cache mem 有限。
 
+```bash
 --session-len 196608 # 并不是设置多长就能有多长，它和系统能分配出多少 kv cache 资源强相关。
 --cache-max-entry-count 0.85
 --cache-block-seq-len 128 # 用默认值
@@ -198,6 +199,7 @@ internal error happened, status code ResponseType.INPUT_LENGTH_ERROR
 --max-prefill-token-num 16384  # 不要设置那么大，要么用默认值，要么调小
 --max-prefill-iters 12 # 不要设置
 --rope-scaling-factor 0.0 # 不要设置
+```
 
 建议，当不了解推理引擎的各选项含义的时候，先用默认值。
 

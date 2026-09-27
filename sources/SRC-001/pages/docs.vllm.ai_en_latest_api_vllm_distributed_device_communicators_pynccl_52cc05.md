@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/device_communicators/pynccl/
 lastmod: 2026-09-27
 
+```python
 class PyNcclCommunicator:
 # None for communicators built via `from_unique_id_bytes` (no process group).
 group: ProcessGroup | StatelessProcessGroup | None
@@ -487,3 +488,4 @@ self.send(op.tensor, op.group_peer, stream)
 elif op.op is torch.distributed.irecv:
 self.recv(op.tensor, op.group_peer, stream)
 self.group_end()
+```

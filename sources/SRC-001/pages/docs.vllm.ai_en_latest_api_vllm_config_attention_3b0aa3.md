@@ -41,8 +41,10 @@ for "auto". -
 
 `backend`
 
+```rust
 enum type from string. -
 –[validate_backend_per_kind_before](https://docs.vllm.ai#vllm.config.attention.AttentionConfig.validate_backend_per_kind_before)Parse the
+```
 
 `backend_per_kind`
 

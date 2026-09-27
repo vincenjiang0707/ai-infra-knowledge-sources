@@ -19,6 +19,7 @@ Attributes:
 
 
 | @config
+```python
 class ReasoningConfig:
 """Configuration for reasoning models.
 Set `reasoning_start_str` and `reasoning_end_str` to the strings used to
@@ -119,6 +120,7 @@ f"reasoning_end_str='{self.reasoning_end_str}'. "
 )
 self._enabled = True
 |
+```
 
 ###
 

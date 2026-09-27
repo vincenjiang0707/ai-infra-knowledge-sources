@@ -21,6 +21,7 @@ Hi，thanks for pay attention. I have changed two files:
 
 
 class BaseQwen2_5_OmniGPTQ(BaseGPTQModel):
+```python
     loader = AutoModelForTextToWaveform
     layer_modules = [
         ["self_attn.k_proj", "self_attn.v_proj", "self_attn.q_proj"],
@@ -63,6 +64,7 @@ class BaseQwen2_5_OmniGPTQ(BaseGPTQModel):
         self.model.talker.model.rotary_emb = self.model.talker.model.rotary_emb.to(CPU)
         for layer in self.model.talker.model.layers:
             layer.self_attn.rotary_emb = layer.self_attn.rotary_emb.to(CPU)
+```
 
 2.module_looper.py:
 self.gptq_model.model.generate(**example, return_audio=False)->self.gptq_model.model.generate(**example)

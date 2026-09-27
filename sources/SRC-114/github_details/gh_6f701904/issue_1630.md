@@ -10,15 +10,19 @@ Running GPTJ even on accelerated systems can be quite demanding, as the Server l
 
 However, when trying to set `min_query_count` in `user.conf` (or indeed in `mlperf.conf` proper) e.g.:
 <pre>
+```
 gptj.SingleStream.min_query_count = 100
 gptj.SingleStream.max_query_count = 100
 gptj.SingleStream.performance_sample_count_override = 13368
 gptj.SingleStream.target_latency = 19000
+```
 </pre>
 I still see in `mlperf_log_summary.txt`:
 <pre>
+```yaml
 min_query_count : 13368
 max_query_count : 100
+```
 </pre>
 with the following experiment summary:
 <pre>

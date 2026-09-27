@@ -299,14 +299,18 @@ ov_profiling_info_list_free(
 
 
 -
+```rust
 struct ov_infer_request_t
 [#](https://docs.openvino.ai#_CPPv418ov_infer_request_t) *#include <ov_infer_request.h>*type define
+```
 
 [ov_infer_request_t](https://docs.openvino.ai#structov__infer__request__t)from ov_infer_request
 
 -
+```rust
 struct ov_callback_t
 [#](https://docs.openvino.ai#_CPPv413ov_callback_t) *#include <ov_infer_request.h>*Completion callback definition about the function and args.
+```
 
 Public Functions
 
@@ -323,13 +327,17 @@ void *args
 
 
 -
+```rust
 struct ov_ProfilingInfo_t
 [#](https://docs.openvino.ai#_CPPv418ov_ProfilingInfo_t) *#include <ov_infer_request.h>*Store profiling info data.
+```
 
 
 -
+```rust
 struct ov_profiling_info_list_t
 [#](https://docs.openvino.ai#_CPPv424ov_profiling_info_list_t) *#include <ov_infer_request.h>*A list of profiling info data.
+```
 
 Public Members
 

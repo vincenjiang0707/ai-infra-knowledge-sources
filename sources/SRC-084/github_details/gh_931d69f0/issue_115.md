@@ -655,10 +655,12 @@ Oh thanks for mentioning that :thinking: , which version of transformers are you
 
 ### zxbjushuai · 2024-09-12
 
+```bash
 transformers == 4.44.2
 trl == 0.9.6
 hqq == 0.1.8
 I have tried transformers == 4.40.0 before.And I got the same error. 
+```
 
 ### mobicham · 2024-09-12
 

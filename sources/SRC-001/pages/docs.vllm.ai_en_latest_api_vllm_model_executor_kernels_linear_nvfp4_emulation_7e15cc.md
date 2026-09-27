@@ -9,6 +9,7 @@ Software emulation fallback for NVFP4 (dequant → BF16 matmul).
 ## Source code in `vllm/model_executor/kernels/linear/nvfp4/emulation.py`
 
 
+```python
 | class EmulationNvFp4LinearKernel(NvFp4LinearKernel):
 """Software emulation fallback for NVFP4 (dequant → BF16 matmul)."""
 @classmethod
@@ -42,3 +43,4 @@ if bias is not None:
 out = out + bias
 return out
 |
+```

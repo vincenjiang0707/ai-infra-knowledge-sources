@@ -445,11 +445,13 @@ Two distinct failure modes occurred in this scheduled run on `main` (commit `5af
    - Line 678 calls `einsum = quant.einsum(mesh_axes=())`, where `quant` is obtained via `_configure_quantization(quant_str="int8")`.
    - `_configure_quantization` delegates to `quantizations.configure_quantization`, which has multiple branches returning either `Quantization` subclasses or `AqtQuantization` (which does not inherit from `Quantization`). Pylint statically infers the return type as base class `Quantization`.
    - In `src/maxtext/layers/quantizations.py`, `Quantization.einsum` is defined as:
+```python
      ```python
      def einsum(self, dtype: DType = jnp.float32):
        """Placeholder for einsum implementation in subclasses."""
      ```
      Because this base method lacks a return value and only defines parameter `dtype`, pylint flags `assignment-from-no-return (E1111)` and `unexpected-keyword-arg (E1123)`.
+```
    - In PR CI runs, pylint runs only on changed files (`pre-commit run --from-ref "$MERGE_BASE" --to-ref HEAD`), so PRs not touching this test file passed. In scheduled CI runs on `main`, `pre-commit run --all-files` runs across the whole repo, surfacing this error.
 
 2. **Infrastructure / Environment Flake (Jupyter Notebook runner timeout):**

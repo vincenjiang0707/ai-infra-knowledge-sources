@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityPCSamplingRecordI
 # 7.119. CUpti_ActivityPCSamplingRecordInfo[#](https://docs.nvidia.com#cupti-activitypcsamplingrecordinfo)
 
 -
+```rust
 struct CUpti_ActivityPCSamplingRecordInfo
 [#](https://docs.nvidia.com#_CPPv434CUpti_ActivityPCSamplingRecordInfo) The activity record for record status for PC sampling.
+```
 
 This activity records information obtained by sampling PC (CUPTI_ACTIVITY_KIND_PC_SAMPLING_RECORD_INFO).
 

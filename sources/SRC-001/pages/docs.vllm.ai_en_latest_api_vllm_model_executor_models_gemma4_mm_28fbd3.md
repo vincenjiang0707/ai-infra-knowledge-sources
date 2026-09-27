@@ -1143,6 +1143,7 @@ math.ceil(num_mm_embeds / min_soft_tokens)
 * max_soft_tokens
 * pooling_k2
 )
+```python
 elif modality == "audio":
 tower_tokens = num_mm_embeds
 connector_tokens = num_mm_embeds
@@ -1168,3 +1169,4 @@ return "<audio_soft_token>"
 if modality == "video":
 return "<|video|>"
 raise ValueError(f"Unsupported modality: {modality}")
+```

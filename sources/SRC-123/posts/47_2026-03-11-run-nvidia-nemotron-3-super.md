@@ -62,6 +62,7 @@ python3 -m sglang.launch_server \
 Once the server is up and running, you can prompt the model using the below code snippets:
 
 ```
+```python
 from openai import OpenAI
 # The model name we used when launching the server.
 SERVED_MODEL_NAME = "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16"
@@ -78,6 +79,7 @@ temperature=0.6,
 max_tokens=512,
 )
 print("Reasoning:", resp.choices[0].message.reasoning_content, "\nContent:", resp.choices[0].message.content)
+```
 ```
 
 

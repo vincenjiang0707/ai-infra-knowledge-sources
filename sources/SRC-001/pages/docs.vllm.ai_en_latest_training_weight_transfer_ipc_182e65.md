@@ -39,9 +39,11 @@ on both the server and client. This is because IPC handles are pickled and base6
 
 ## Inference Side[¶](https://docs.vllm.ai#inference-side)
 
+```python
 from vllm import LLM
 from vllm.config import WeightTransferConfig
 llm = LLM(model="my-model", weight_transfer_config=WeightTransferConfig(backend="ipc"))
+```
 
 
 IPC needs no data-plane rendezvous, so `init_transfer_engine`
@@ -54,6 +56,7 @@ then reads. Whether a transfer is packed is therefore never something you config
 
 ## Trainer Side[¶](https://docs.vllm.ai#trainer-side)
 
+```python
 from vllm.distributed.weight_transfer import (
 ModuleSource,
 HTTPVLLMWeightSyncClient,
@@ -66,6 +69,7 @@ client=HTTPVLLMWeightSyncClient("http://localhost:8000"),
 source=ModuleSource(model),
 )
 engine.send_weights() # once per sync
+```
 
 
 `send_weights()`

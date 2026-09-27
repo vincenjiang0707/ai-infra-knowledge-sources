@@ -6,8 +6,10 @@ committed
 
 Polish mock server tokenizer fixes
 
+```yaml
 Signed-off-by: Tayo Ogunbiyi <eyitayoogunbiyi@gmail.com>
 Generated-by: Claude Opus 51 parent[cee1840]commit 355a2a8
+```
 
 3 files changed
 

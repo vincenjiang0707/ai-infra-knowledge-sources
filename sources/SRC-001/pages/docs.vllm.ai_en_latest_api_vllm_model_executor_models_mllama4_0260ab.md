@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/mllama4/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 Mllama4MultiModalProcessor,
 info=Mllama4ProcessingInfo,
@@ -477,3 +478,4 @@ return 0, 0
 raw_patches = (vision_config.image_size // vision_config.patch_size) ** 2
 num_chunks = num_mm_embeds // patches_per_chunk
 return num_chunks * (raw_patches + 1), num_chunks * patches_per_chunk
+```

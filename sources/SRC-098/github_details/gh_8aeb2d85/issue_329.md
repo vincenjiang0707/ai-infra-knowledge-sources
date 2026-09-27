@@ -25,12 +25,14 @@ when i tried to run nccl-tests using openmpi on these two nodes i see that both 
 20.20.20.3 slot=1
 
 **tune.txt**
+```bash
 -x NCCL_IB_DISABLE=0
 -x NCCL_SOCKET_IFNAME=eth0
 -x NCCL_IB_HCA=roce0
 -x NCCL_IB_GID_INDEX=3
 -x NCCL_DEBUG=TRACE
 -x NCCL_DEBUG_SUBSYS=INIT,GRAPH,ENV,TUNING
+```
 
 RUN LOG
 

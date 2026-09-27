@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/lfm2/
 lastmod: 2026-09-27
 
+```python
 class Lfm2ForCausalLM(
 nn.Module, HasInnerState, SupportsLoRA, SupportsPP, IsHybrid, SupportsQuant
 ):
@@ -42,8 +43,10 @@ Args:
 vllm_config: vLLM config
 Returns:
 Tuple containing:
+```
 - conv_state_shape: Shape for convolutional state cache
 """
+```python
 parallel_config = vllm_config.parallel_config
 hf_config = vllm_config.model_config.hf_config
 return MambaStateShapeCalculator.short_conv_state_shape(
@@ -102,3 +105,4 @@ return logits
 def load_weights(self, weights: Iterable[tuple[str, torch.Tensor]]) -> set[str]:
 loader = AutoWeightsLoader(self)
 return loader.load_weights(weights)
+```

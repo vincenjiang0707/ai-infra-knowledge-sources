@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__Profiler__Host__GetConfig
 # 7.186. CUpti_Profiler_Host_GetConfigImage_Params[#](https://docs.nvidia.com#cupti-profiler-host-getconfigimage-params)
 
 -
+```rust
 struct CUpti_Profiler_Host_GetConfigImage_Params
 [#](https://docs.nvidia.com#_CPPv441CUpti_Profiler_Host_GetConfigImage_Params) Params for cuptiProfilerHostGetConfigImage.
+```
 
 Public Members
 

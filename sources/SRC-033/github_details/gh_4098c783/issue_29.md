@@ -8,6 +8,7 @@ labels:
 
 1. torch_npu可正常加载计算，测试代码如下：
 
+```python
 import torch
 import torch_npu
 
@@ -15,6 +16,7 @@ x = torch.randn(2, 2).npu()
 y = torch.randn(2, 2).npu()
 z = x.mm(y)
 print(z)
+```
 
 tensor([[-0.1196,  0.2381],
         [-0.4408,  0.6469]], device='npu:0')
@@ -22,6 +24,7 @@ tensor([[-0.1196,  0.2381],
 2. 可正常加载大模型，并进行推理
 3. 进行lora 微调时，报错如下：
 
+```
 [TRACE] GE(2440326,python):2024-04-08-15:18:42.280.217 [status:INIT] [ge_api.cc:208]2440326 GEInitializeImpl:GEInitialize start
 [TRACE] GE(2440326,python):2024-04-08-15:18:42.590.702 [status:RUNNING] [ge_api.cc:276]2440326 GEInitializeImpl:Initializing environment
 [ERROR] TUNE(2440326,python):2024-04-08-15:18:43.444.270 [pywrapper.cpp:94][CANNKB][Tid:2440326]"ModuleNotFoundError: No module named 'tbe.common'
@@ -43,6 +46,7 @@ tensor([[-0.1196,  0.2381],
 [ERROR] ASCENDCL(2440326,python):2024-04-08-15:18:43.456.865 [local_compiler.cpp:76]2440326 Init: [INIT][OPS_KER][Initialize][Ge]GEInitialize failed. ge result = 4294967295
 [ERROR] ASCENDCL(2440326,python):2024-04-08-15:18:43.456.895 [op_compile_service.cpp:73]2440326 SetCompileStrategy: [INIT][OPS_KER][Init][Compiler]Init compiler failed
 [ERROR] ASCENDCL(2440326,python):2024-04-08-15:18:43.456.913 [op_compile_processor.cpp:67]2440326 Init: [INIT][OPS_KER][Set][Options]OpCompileProcessor init failed!
+```
 
 ## 评论 (9)
 

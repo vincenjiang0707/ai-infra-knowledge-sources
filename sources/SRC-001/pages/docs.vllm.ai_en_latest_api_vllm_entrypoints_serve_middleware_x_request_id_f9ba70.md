@@ -6,6 +6,7 @@ Middleware the set's the X-Request-Id header for each response to a random uuid4
 ## Source code in `vllm/entrypoints/serve/middleware/x_request_id.py`
 
 
+```python
 | class XRequestIdMiddleware:
 """Middleware the set's the X-Request-Id header for each response
 to a random uuid4 (hex) value if the header isn't already
@@ -29,3 +30,4 @@ response_headers.append("X-Request-Id", request_id)
 await send(message)
 return self.app(scope, receive, send_with_request_id)
 |
+```

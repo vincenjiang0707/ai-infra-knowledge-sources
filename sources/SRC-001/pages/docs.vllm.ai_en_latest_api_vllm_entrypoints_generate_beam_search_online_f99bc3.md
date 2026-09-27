@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/generate/beam_search/online/
 lastmod: 2026-09-27
 
+```python
 class BeamSearchOnlineMixin(ABC):
 """online serving for beam search."""
 renderer: BaseRenderer
@@ -189,3 +190,4 @@ finished=True,
 prompt_token_ids=prompt_token_ids,
 prompt_logprobs=None,
 )
+```

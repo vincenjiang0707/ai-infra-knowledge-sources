@@ -148,16 +148,20 @@ A decorator to add support for compiling the forward method of a class.
 
 Usage 1: use directly as a decorator without arguments:
 
+```python
 @support_torch_compile
 class MyModel(nn.Module):
 def forward(self, x: torch.Tensor, y: Optional[torch.Tensor]): ...
+```
 
 
 Usage 2: use as a decorator with arguments:
 
+```python
 @support_torch_compile(dynamic_arg_dims={"x": 0, "y": 0})
 class MyModel(nn.Module):
 def forward(self, x: torch.Tensor, y: Optional[torch.Tensor]): ...
+```
 
 
 `dynamic_arg_dims`

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/llama_eagle3/
 lastmod: 2026-09-27
 
+```python
 class LlamaDecoderLayer(_Eagle3LlamaDecoderLayerBase):
 def __init__(
 self,
@@ -72,3 +73,4 @@ hidden_states, residual = self.post_attention_layernorm(hidden_states, residual)
 # Fully Connected
 hidden_states = self.mlp(hidden_states)
 return hidden_states, residual
+```

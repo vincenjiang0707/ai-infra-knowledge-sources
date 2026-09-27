@@ -157,6 +157,7 @@ Next, make a request to the model that should return the reasoning content in th
 
 ## Code
 
+```python
 from openai import OpenAI
 # Modify OpenAI's API key and API base to use vLLM's API server.
 openai_api_key = "EMPTY"
@@ -177,6 +178,7 @@ reasoning = response.choices[0].message.reasoning
 content = response.choices[0].message.content
 print("reasoning:", reasoning)
 print("content:", content)
+```
 
 
 The `reasoning`
@@ -195,6 +197,7 @@ field in [chat completion response chunks](https://platform.openai.com/docs/api-
 
 ## Json
 
+```json
 {
 "id": "chatcmpl-123",
 "object": "chat.completion.chunk",
@@ -213,6 +216,7 @@ field in [chat completion response chunks](https://platform.openai.com/docs/api-
 }
 ]
 }
+```
 
 
 OpenAI Python client library does not officially support `reasoning`
@@ -225,6 +229,7 @@ attribute is present in the response. For example:
 
 ## Code
 
+```python
 from openai import OpenAI
 # Modify OpenAI's API key and API base to use vLLM's API server.
 openai_api_key = "EMPTY"
@@ -265,6 +270,7 @@ printed_content = True
 print("\ncontent:", end="", flush=True)
 # Extract and print the content
 print(content, end="", flush=True)
+```
 
 
 Remember to check whether the `reasoning`
@@ -281,6 +287,7 @@ field, not from the `reasoning`
 
 ## Code
 
+```python
 from openai import OpenAI
 client = OpenAI(base_url="http://localhost:8000/v1", api_key="dummy")
 tools = [
@@ -311,6 +318,7 @@ tool_call = response.choices[0].message.tool_calls[0].function
 print(f"reasoning: {response.choices[0].message.reasoning}")
 print(f"Function called: {tool_call.name}")
 print(f"Arguments: {tool_call.arguments}")
+```
 
 
 For more examples, please refer to [ examples/reasoning/openai_chat_completion_tool_calls_with_reasoning.py](https://github.com/vllm-project/vllm/blob/main/examples/reasoning/openai_chat_completion_tool_calls_with_reasoning.py).
@@ -327,18 +335,22 @@ CLI argument. This is useful for configuring reasoning behavior across all reque
 
 For models like Qwen3 where thinking is enabled by default, you can disable it server-wide:
 
+```json
 vllm serve Qwen/Qwen3-8B \
 --reasoning-parser qwen3 \
 --default-chat-template-kwargs '{"enable_thinking": false}'
+```
 
 
 ### Enabling Thinking Mode by Default[¶](https://docs.vllm.ai#enabling-thinking-mode-by-default)
 
 For models like IBM Granite 3.2 or DeepSeek-V3.1 where thinking is disabled by default, you can enable it server-wide:
 
+```json
 vllm serve ibm-granite/granite-3.2-2b-instruct \
 --reasoning-parser granite \
 --default-chat-template-kwargs '{"thinking": true}'
+```
 
 
 ### Request-Level Override[¶](https://docs.vllm.ai#request-level-override)
@@ -349,11 +361,13 @@ always take priority over server defaults. For example, if the server is started
 
 , a client can still enable it for a specific request:
 
+```json
 response = client.chat.completions.create(
 model=model,
 messages=messages,
 extra_body={"chat_template_kwargs": {"enable_thinking": True}} # Overrides server default
 )
+```
 
 
 ## Thinking Budget Control[¶](https://docs.vllm.ai#thinking-budget-control)
@@ -411,15 +425,18 @@ instructs the model to emit that phrase when the budget is exhausted, making the
 
 ### Online Serving[¶](https://docs.vllm.ai#online-serving)
 
+```json
 vllm serve Qwen/Qwen3-0.6B \
 --reasoning-parser qwen3 \
 --reasoning-config '{"reasoning_start_str": "<think>", "reasoning_end_str": "I have to give the solution based on the reasoning directly now.</think>"}'
+```
 
 
 Then make a request with `thinking_token_budget`
 
 to limit the reasoning tokens:
 
+```json
 curl http://localhost:8000/v1/chat/completions \
 -H "Content-Type: application/json" \
 -d '{
@@ -429,10 +446,12 @@ curl http://localhost:8000/v1/chat/completions \
 ],
 "thinking_token_budget": 10
 }'
+```
 
 
 ### Offline Inference[¶](https://docs.vllm.ai#offline-inference)
 
+```python
 from vllm import LLM, SamplingParams
 from vllm.config import ReasoningConfig
 llm = LLM(
@@ -449,6 +468,7 @@ messages = [
 outputs = llm.chat(messages, sampling_params=sampling_params)
 for output in outputs:
 print("text:", output.outputs[0].text)
+```
 
 
 ## Automatic `enable_thinking`
@@ -511,6 +531,7 @@ For models whose templates don't declare `enable_thinking`
 
 ### Example[¶](https://docs.vllm.ai#example)
 
+```python
 from openai import OpenAI
 client = OpenAI(base_url="http://localhost:8000/v1", api_key="dummy")
 # reasoning_effort automatically enables thinking for models that need it
@@ -521,6 +542,7 @@ reasoning_effort="high", # Automatically sets enable_thinking=true
 )
 print(response.choices[0].message.reasoning)
 print(response.choices[0].message.content)
+```
 
 
 ## Suppressing Reasoning Output[¶](https://docs.vllm.ai#suppressing-reasoning-output)
@@ -539,6 +561,7 @@ When `include_reasoning=false`
 
 ### Chat Completions API[¶](https://docs.vllm.ai#chat-completions-api)
 
+```python
 from openai import OpenAI
 client = OpenAI(base_url="http://localhost:8000/v1", api_key="EMPTY")
 model = client.models.list().data[0].id
@@ -551,10 +574,12 @@ extra_body={"include_reasoning": False},
 msg = response.choices[0].message
 assert msg.content # Content is still present
 assert not getattr(msg, "reasoning", None) # Reasoning is suppressed
+```
 
 
 Streaming works the same way, reasoning deltas are omitted from chunks:
 
+```bash
 stream = client.chat.completions.create(
 model=model,
 messages=[{"role": "user", "content": "What is 15 * 37?"}],
@@ -566,10 +591,12 @@ delta = chunk.choices[0].delta
 # delta.reasoning will always be None
 if delta.content:
 print(delta.content, end="", flush=True)
+```
 
 
 ### Responses API[¶](https://docs.vllm.ai#responses-api)
 
+```python
 from openai import OpenAI
 client = OpenAI(base_url="http://localhost:8000/v1", api_key="EMPTY")
 response = client.responses.create(
@@ -580,6 +607,7 @@ include_reasoning=False,
 # No "reasoning" items in output
 types = [item.type for item in response.output]
 assert "reasoning" not in types
+```
 
 
 ## Limitations[¶](https://docs.vllm.ai#limitations)
@@ -602,6 +630,7 @@ You can add a new [ ReasoningParser](https://docs.vllm.ai/api/vllm/reasoning/abs
 ## Code
 
 # import the required packages
+```python
 from vllm.reasoning import ReasoningParser, ReasoningParserManager
 from vllm.entrypoints.openai.chat_completion.protocol import ChatCompletionRequest
 from vllm.entrypoints.openai.engine.protocol import DeltaMessage
@@ -651,6 +680,7 @@ name="example",
 module_path="vllm.reasoning.example_reasoning_parser",
 class_name="ExampleParser",
 )
+```
 
 
 Additionally, to enable structured output, you'll need to create a new `Reasoner`
@@ -659,6 +689,7 @@ similar to the one in [ vllm/reasoning/deepseek_r1_reasoning_parser.py](https://
 
 ## Code
 
+```python
 @dataclass
 class DeepSeekReasoner(Reasoner):
 """
@@ -678,6 +709,7 @@ def is_reasoning_end(self, input_ids: list[int]) -> bool:
 return self.end_token_id in input_ids
 def is_reasoning_end_streaming(self, input_ids: list[int], delta_ids: list[int]) -> bool:
 return self.end_token_id in delta_token_ids
+```
 ...
 
 

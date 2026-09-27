@@ -97,8 +97,10 @@ A couple things to add:
 
 ### arnabwithab · 2026-06-27
 
+```
 @fynnsu @HaizhouPeng 
 would like to work on it myself! been deep into spec decoding for a bit, and this paper was really interesting. want to see if we can reflect the same gains on vllm (gives me an excuse to try it out from a non-transformer backend locally :))) )
+```
 
 ### HaizhouPeng · 2026-06-28
 

@@ -120,9 +120,11 @@ Mem:           251Gi        10Gi       158Gi       3.5Mi        85Gi       241Gi
 Swap:          8.0Gi       2.3Gi       5.7Gi
 下面时执行lmdeploy命令加载模型后的内存使用情况：
 (base) zenking@admin123:~$ free -h
+```yaml
                total        used        free      shared  buff/cache   available
 Mem:           251Gi       166Gi       1.3Gi       149Gi       235Gi        84Gi
 Swap:          8.0Gi       2.3Gi       5.7Gi
+```
 
 ### 18610361898 · 2026-09-12
 

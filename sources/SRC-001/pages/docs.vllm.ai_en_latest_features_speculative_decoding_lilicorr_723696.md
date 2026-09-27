@@ -9,8 +9,10 @@ LiLiCorr uses a DFlash backbone to produce per-position candidates, then scores 
 
 For a checkpoint trained with block size 16:
 
+```json
 vllm serve /path/to/target --dtype bfloat16 \
 --speculative-config '{"method":"dflash","model":"/path/to/lilicorr","num_speculative_tokens":15,"draft_sample_method":"probabilistic"}'
+```
 
 
 We strongly recommend explicitly setting `num_speculative_tokens`

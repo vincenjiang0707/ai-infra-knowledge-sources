@@ -46,6 +46,7 @@ Codex is configured via a TOML file located at `~/.codex/config.toml`
 
 . Create or edit this file to point Codex at your vLLM server:
 
+```bash
 model = "my-model"
 model_provider = "vllm"
 [model_providers.vllm]
@@ -53,6 +54,7 @@ name = "vLLM"
 env_key = "VLLM_API_KEY"
 base_url = "http://localhost:8000/v1"
 wire_api = "responses"
+```
 
 
 The configuration fields:

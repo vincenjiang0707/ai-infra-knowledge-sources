@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/inc/schemes/inc_mxfp8_moe/
 lastmod: 2026-09-27
 
+```python
 class INCMxfp8MoEMethod(FusedMoEMethodBase):
 """W8A8 MXFP8 MoE method for serialized AutoRound checkpoints."""
 def __init__(self, moe) -> None:
@@ -151,3 +152,4 @@ apply_router_weight_on_input=layer.apply_router_weight_on_input,
 shared_experts=shared_experts,
 shared_experts_input=shared_experts_input,
 )
+```

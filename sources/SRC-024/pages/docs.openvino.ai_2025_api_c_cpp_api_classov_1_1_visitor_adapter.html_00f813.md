@@ -4,8 +4,10 @@ lastmod:
 # Class ov::VisitorAdapter[#](https://docs.openvino.ai#class-ov-visitoradapter)
 
 -
+```python
 class VisitorAdapter : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[ValueAccessor](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4IEN2ov13ValueAccessorIvEE)<void>[#](https://docs.openvino.ai#_CPPv4N2ov14VisitorAdapterE) Adapters will see visitor.
+```
 
 Subclassed by
 

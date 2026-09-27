@@ -4,8 +4,10 @@ lastmod:
 # Class ov::intel_gpu::ocl::VAContext[#](https://docs.openvino.ai#class-ov-intel-gpu-ocl-vacontext)
 
 -
+```python
 class VAContext : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[intel_gpu](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9intel_gpuE)::[ocl](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9intel_gpu3oclE)::[ClContext](https://docs.openvino.ai/classov_1_1intel__gpu_1_1ocl_1_1_cl_context.html#_CPPv4N2ov9intel_gpu3ocl9ClContextE)[#](https://docs.openvino.ai#_CPPv4N2ov9intel_gpu3ocl9VAContextE) This class represents an abstraction for GPU plugin remote context which is shared with VA display object. The plugin object derived from this class can be obtained either with
+```
 
 [CompiledModel::get_context()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_compiled_model_1a22c5537d4c7182072d327077c386b01a)or[Core::create_context()](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_core_1ab9a3eef07c3471037070242f8da2fb01)calls.Note
 

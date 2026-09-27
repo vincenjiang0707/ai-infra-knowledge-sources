@@ -50,10 +50,12 @@ Optional URL parameters:
 
 | Parameter | Description | Example |
 |---|---|---|
+```
 `groups=<ids>` |
 Enable specific tool groups | `...&groups=social,ecommerce` |
 `tools=<names>` |
 Enable specific tools only | `...&tools=search_engine,scrape_as_markdown` |
+```
 
 **Claude Desktop**
 

@@ -9,10 +9,12 @@ labels:
 做Qwen3-Omni-30B-A3B-Thinking量化的时候，使用单卡(NVIDIA RTX Pro 6000(96G))出现OOM问题。
 换成双卡：
 oneshot(
+```bash
     model=model,
     recipe=recipe,
     save_compressed=True,
     output_dir=OUTPUT_DIR,
+```
 )
 出现：RuntimeError: We could not revert some weight conversions because of offlading, and several weights needed for a single conversion operation living in different shard files. Try reducing `max_shard_size` a bit, or worst case set `save_original_format=False`.
 如果：1、设置oneshot里save_compressed=False。
@@ -25,16 +27,20 @@ oneshot(
 ### winniewyz · 2026-08-27
 
 前面：
+```python
 import os
 import torch
 from transformers import AutoProcessor, AutoModelForMultimodalLM
 from llmcompressor import oneshot
 from llmcompressor.modifiers.quantization import QuantizationModifier
+```
 
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
+```bash
 MODEL_ID = "./Qwen3-Omni-30B-A3B-Thinking"
 OUTPUT_DIR = "./Qwen3-Omni-30B-A3B-Thinking-FP8"
+```
 
 processor = AutoProcessor.from_pretrained(MODEL_ID, trust_remote_code=True)
 

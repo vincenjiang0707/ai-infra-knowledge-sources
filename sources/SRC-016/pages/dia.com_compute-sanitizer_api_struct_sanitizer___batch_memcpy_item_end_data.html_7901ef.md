@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/compute-sanitizer/api/struct_sanitizer___batch_m
 # Sanitizer_BatchMemcpyItemEndData[#](https://docs.nvidia.com#sanitizer-batchmemcpyitemenddata)
 
 -
+```rust
 struct Sanitizer_BatchMemcpyItemEndData
 [#](https://docs.nvidia.com#_CPPv432Sanitizer_BatchMemcpyItemEndData) Data passed into a item batch memcpy end callback function.
+```
 
 Public Members
 

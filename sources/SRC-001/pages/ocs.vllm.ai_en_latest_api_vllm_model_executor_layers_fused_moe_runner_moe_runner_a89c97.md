@@ -1,16 +1,19 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/runner/moe_runner/
 lastmod: 2026-09-27
 
+```python
 class MoERunner(MoERunnerInterface):
 """Standard MoE runner implementation for executing Mixture of Experts layers.
 This is the primary concrete implementation of MoE execution logic, providing
 comprehensive support for standard MoE operations. It handles:
+```
 - Expert routing and token dispatching using various routing strategies
 - Shared experts computation with optional parallel execution using CUDA streams
 - Tensor model parallel and expert parallel operations
 - Multiple quantization methods and optimized kernel selection
 - Both monolithic and decomposed expert execution paths
 - Integration with various parallel execution modes (TP, EP, DP)
+```python
 The runner orchestrates the complete MoE forward pass including routing tokens
 to experts, executing expert computations in parallel, and combining results.
 It supports advanced features like overlapped execution of shared experts,
@@ -176,6 +179,7 @@ shared_output: torch.Tensor | None,
 fused_output_is_reduced: bool | None = None,
 ) -> torch.Tensor | None:
 """All-reduce shared expert output when the combine kernel already
+```
 reduced fused output.
 * If the combine kernel does the reduction for fused_output, reduce
 shared_output separately. O.w, reduce fused_output+shared_output later.
@@ -530,6 +534,7 @@ torch.Tensor
 | UnfinalizedMoEOutput
 | tuple[torch.Tensor | None, torch.Tensor | UnfinalizedMoEOutput]
 ):
+```python
 if self.do_naive_dispatch_combine:
 if isinstance(hidden_states, UnfinalizedMoEOutput):
 raise RuntimeError(
@@ -563,6 +568,7 @@ input_ids: torch.Tensor | None = None,
 ) -> (
 torch.Tensor
 | UnfinalizedMoEOutput
+```
 | tuple[torch.Tensor, torch.Tensor | UnfinalizedMoEOutput]
 ):
 """Entry point called by the custom op to run the MoE computation.
@@ -572,6 +578,7 @@ within the sequence-parallel context.
 - Performs expert routing
 - fused MoE kernel execution
 - shared expert computation.
+```python
 Returns routed output, optionally paired with shared-expert output. A
 fused consumer may request the routed output in deferred-finalize form.
 """
@@ -698,3 +705,4 @@ expert_load_view,
 logical_to_physical_map,
 logical_replica_count,
 )
+```

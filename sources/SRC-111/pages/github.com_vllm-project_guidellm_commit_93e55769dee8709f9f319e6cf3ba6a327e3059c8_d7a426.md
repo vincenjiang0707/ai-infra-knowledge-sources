@@ -36,11 +36,13 @@ Move requeue delay to request settings
 Signed-off-by: Samuel Monson <smonson@redhat.com>
 commit a12e135
 Author: Samuel Monson <smonson@redhat.com>
+```yaml
 Date: Mon Jun 29 16:19:12 2026 -0400
 Fixup Tests
 Generated-by: claude-code Opus 4.6
 Signed-off-by: Samuel Monson <smonson@redhat.com>
 commit 8732459
+```
 Author: SkiHatDuckie <SkiHatDuckie@gmail.com>
 Date: Wed Jul 1 14:56:34 2026 -0400
 Add requeue_delay_column to column mapper
@@ -72,25 +74,33 @@ Rework random number generation logic x2
 Signed-off-by: SkiHatDuckie <63932363+SkiHatDuckie@users.noreply.github.com>
 commit 6a2dea3
 Author: SkiHatDuckie <63932363+SkiHatDuckie@users.noreply.github.com>
+```yaml
 Date: Thu Jul 2 15:29:52 2026 -0400
 fix: Call correct random generator
 Signed-off-by: SkiHatDuckie <63932363+SkiHatDuckie@users.noreply.github.com>
 commit 25048e9
+```
 Author: SkiHatDuckie <63932363+SkiHatDuckie@users.noreply.github.com>
+```yaml
 Date: Thu Jul 2 15:33:36 2026 -0400
 Don't round in FloatRangeSampler
 Co-authored-by: Samuel Monson <smonson@irbash.net>
 Signed-off-by: SkiHatDuckie <63932363+SkiHatDuckie@users.noreply.github.com>
 commit 8b68f67
+```
 Author: SkiHatDuckie <63932363+SkiHatDuckie@users.noreply.github.com>
+```yaml
 Date: Thu Jul 2 15:38:09 2026 -0400
 Set minimum val of calc_min to 0.0 instead of 1
 Signed-off-by: SkiHatDuckie <63932363+SkiHatDuckie@users.noreply.github.com>
+```
 ---------
+```yaml
 Co-authored-by: Samuel Monson <smonson@irbash.net>
 Generated-by: claude-code Opus 4.6
 Signed-off-by: Samuel Monson <smonson@redhat.com>
 Signed-off-by: SkiHatDuckie <SkiHatDuckie@gmail.com>
 Signed-off-by: SkiHatDuckie <63932363+SkiHatDuckie@users.noreply.github.com>
+```
 
 ## 0 commit comments

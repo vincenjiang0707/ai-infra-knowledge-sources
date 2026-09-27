@@ -18,9 +18,11 @@ Introduce a new CLI command, guidellm compare, which allows users to pass multip
 
 ### Usage Examples
 
+```bash
 guidellm compare vllm_benchmark.json sglang_benchmark.json \
 --output-formats plot \
 --output-path ./results/engine_comparison.png
+```
 
 ### Additional Context
 

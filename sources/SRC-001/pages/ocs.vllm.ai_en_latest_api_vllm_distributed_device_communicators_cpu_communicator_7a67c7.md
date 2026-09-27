@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/device_communicators/cpu_communicator/
 lastmod: 2026-09-27
 
+```python
 class CpuCommunicator(DeviceCommunicatorBase):
 def __init__(
 self,
@@ -112,9 +113,11 @@ output_tensor = output_tensor.reshape((self.world_size,) + input_size)
 output_tensor = output_tensor.movedim(0, dim)
 output_tensor = output_tensor.reshape(
 input_size[:dim]
+```
 + (self.world_size * input_size[dim],)
 + input_size[dim + 1 :]
 )
+```python
 return output_tensor
 def send_tensor_dict(
 self,
@@ -190,3 +193,4 @@ return self.all2all_manager.combine(
 hidden_states,
 is_sequence_parallel,
 )
+```

@@ -4,8 +4,10 @@ lastmod:
 # Class ov::reference::philox::PytorchPhiloxGenerator[#](https://docs.openvino.ai#class-ov-reference-philox-pytorchphiloxgenerator)
 
 -
+```python
 class PytorchPhiloxGenerator : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[reference](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9referenceE)::[philox](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov9reference6philoxE)::[PhiloxGenerator](https://docs.openvino.ai/classov_1_1reference_1_1philox_1_1_philox_generator.html#_CPPv4N2ov9reference6philox15PhiloxGeneratorE)[#](https://docs.openvino.ai#_CPPv4N2ov9reference6philox22PytorchPhiloxGeneratorE) PyTorch specialization of the
+```
 
 [PhiloxGenerator](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1reference_1_1philox_1_1_philox_generator)class.Public Functions
 

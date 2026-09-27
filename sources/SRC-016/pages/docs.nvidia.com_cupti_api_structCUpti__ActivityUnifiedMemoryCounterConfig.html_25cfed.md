@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityUnifiedMemoryCoun
 # 7.133. CUpti_ActivityUnifiedMemoryCounterConfig[#](https://docs.nvidia.com#cupti-activityunifiedmemorycounterconfig)
 
 -
+```rust
 struct CUpti_ActivityUnifiedMemoryCounterConfig
 [#](https://docs.nvidia.com#_CPPv440CUpti_ActivityUnifiedMemoryCounterConfig) Unified Memory counters configuration structure.
+```
 
 This structure controls the enable/disable of the various Unified Memory counters consisting of scope, kind and other parameters. See function
 

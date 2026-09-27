@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/offloading/scheduler/
 lastmod: 2026-09-27
 
+```python
 class OffloadingConnectorScheduler:
 """Implementation of Scheduler side methods"""
 def __init__(
@@ -449,6 +450,7 @@ max_num_new_tokens (int | None): cap on the number of tokens that
 may be loaded beyond `num_computed_tokens`, if any.
 Returns:
 A tuple with the following elements:
+```
 - The number of tokens that can be loaded beyond what is
 already computed.
 If None, it means that the connector needs more time to

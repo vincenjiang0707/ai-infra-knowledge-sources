@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__SassMetrics__Data.html
 # 7.224. CUpti_SassMetrics_Data[#](https://docs.nvidia.com#cupti-sassmetrics-data)
 
 -
+```rust
 struct CUpti_SassMetrics_Data
 [#](https://docs.nvidia.com#_CPPv422CUpti_SassMetrics_Data) Public Members
+```
 
 -
 size_t structSize
@@ -27,8 +29,10 @@ uint32_t functionIndex
 
 
 -
+```
 const char *functionName
 [#](https://docs.nvidia.com#_CPPv4N22CUpti_SassMetrics_Data12functionNameE) [out] The function name
+```
 
 
 -

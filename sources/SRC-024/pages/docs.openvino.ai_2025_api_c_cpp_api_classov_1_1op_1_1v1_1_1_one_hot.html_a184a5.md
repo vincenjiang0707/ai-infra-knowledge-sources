@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v1::OneHot[#](https://docs.openvino.ai#class-ov-op-v1-onehot)
 
 -
+```python
 class OneHot : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[OneHotBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_one_hot_base.html#_CPPv4N2ov2op4util10OneHotBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v16OneHotE) [OneHot](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v1_1_1_one_hot)operation.Public Functions
+```
 
 -
 OneHot() = default

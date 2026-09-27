@@ -4,8 +4,10 @@ lastmod:
 # Class ov::pass::DeReshapeMatMul[#](https://docs.openvino.ai#class-ov-pass-dereshapematmul)
 
 -
+```python
 class DeReshapeMatMul : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[pass](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4passE)::[MatcherPass](https://docs.openvino.ai/classov_1_1pass_1_1_matcher_pass.html#_CPPv4N2ov4pass11MatcherPassE)[#](https://docs.openvino.ai#_CPPv4N2ov4pass15DeReshapeMatMulE) Transformation uses symbol information to optimize out Reshape operations surrounding MatMul. It checks that surrounding Reshapes are only manipulating with batch dimensions of tensor in a do-undo kind of way.
+```
 
 Example: Before: [A,B,C,D] -> Reshape -> [A*B,C,D] MatMul [A*B,C,E] -> Reshape -> [A,B,C,E] [A,B,D,E] -> Reshape -> [A*B,D,E]
 

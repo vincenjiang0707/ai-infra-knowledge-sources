@@ -22,9 +22,11 @@ Note: The vLLM wheel for ROCm requires Python 3.12 and glibc >= 2.35. If your en
 
 [documentation]. Supported GPUs: MI300X, MI325X, MI355X
 
+```bash
 uv venv
 source .venv/bin/activate
 uv pip install vllm --extra-index-url https://wheels.vllm.ai/rocm/
+```
 
 
 ## Running Seed-OSS-36B with BF16[¶](https://docs.vllm.ai#running-seed-oss-36b-with-bf16)
@@ -88,6 +90,7 @@ through `extra_body`
 
 to control the thinking budget:
 
+```python
 from openai import OpenAI
 openai_api_key = "EMPTY"
 openai_api_base = "http://localhost:8000/v1"
@@ -107,6 +110,7 @@ model=model, messages=messages, extra_body=extra_body
 )
 content = response.choices[0].message.content
 print("content:\n", content)
+```
 
 
 ### Example Outputs[¶](https://docs.vllm.ai#example-outputs)

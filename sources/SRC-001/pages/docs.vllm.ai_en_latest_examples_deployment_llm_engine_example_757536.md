@@ -6,6 +6,7 @@ lastmod: 2026-09-27
 Source [https://github.com/vllm-project/vllm/blob/main/examples/deployment/llm_engine_example.py](https://github.com/vllm-project/vllm/blob/main/examples/deployment/llm_engine_example.py).
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """This file demonstrates using the `LLMEngine`
 for processing prompts with various sampling parameters.
@@ -61,3 +62,4 @@ process_requests(engine, test_prompts)
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```

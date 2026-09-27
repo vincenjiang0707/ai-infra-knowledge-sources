@@ -107,8 +107,10 @@ must be registered with; pass the peer’s window handle as`register_window()`
 
 `peer_window`
 
+```
 (e.g. obtained via an allgather of window handles).- Parameters:
 **local_buffer**– Source buffer whose contents are put to the peer.**peer**– Target rank to put the data to and send the signal to.**peer_window**– Peer’s(from`RegisteredWindowHandle`
+```
 
 ).`register_window()`
 

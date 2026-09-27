@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_wNa8o8/
 lastmod: 2026-09-27
 
+```python
 class CompressedTensorsWNA8O8Int(CompressedTensorsScheme):
 def __init__(
 self,
@@ -190,3 +191,4 @@ out = self.kernel.apply_weights(layer, x, bias)
 if self.has_output_act:
 out = fake_quant_static_int8(out, self._output_scale)
 return out
+```

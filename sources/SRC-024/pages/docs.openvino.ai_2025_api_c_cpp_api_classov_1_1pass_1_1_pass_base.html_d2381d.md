@@ -4,8 +4,10 @@ lastmod:
 # Class ov::pass::PassBase[#](https://docs.openvino.ai#class-ov-pass-passbase)
 
 -
+```python
 class PassBase
 [#](https://docs.openvino.ai#_CPPv4N2ov4pass8PassBaseE) Base class for transformation passes.
+```
 
 Subclassed by
 

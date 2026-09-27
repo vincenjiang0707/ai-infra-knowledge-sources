@@ -9,9 +9,11 @@ labels: stale
 RayCluster pods do not automatically recover after a worker node failure, while other pods (including KubeRay Operator) are successfully rescheduled. Manual intervention (deleting Terminating pods) is required to trigger recovery.
 
 
+```yaml
 Environment:
 KubeRay Operator: v1.2.2
 RayCluster: 2.34.0
+```
 
 
 Steps to Reproduce:

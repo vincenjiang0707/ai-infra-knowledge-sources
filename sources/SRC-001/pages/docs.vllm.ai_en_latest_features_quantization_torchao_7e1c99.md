@@ -20,6 +20,7 @@ You can quantize your own huggingface model with torchao, e.g. [transformers](ht
 
 ## Code
 
+```python
 import torch
 from transformers import TorchAoConfig, AutoModelForCausalLM, AutoTokenizer
 from torchao.quantization import Int8WeightOnlyConfig
@@ -37,6 +38,7 @@ input_ids = tokenizer(input_text, return_tensors="pt").to("cuda")
 hub_repo = # YOUR HUB REPO ID
 tokenizer.push_to_hub(hub_repo)
 quantized_model.push_to_hub(hub_repo, safe_serialization=False)
+```
 
 
 Alternatively, you can use the [TorchAO Quantization space](https://huggingface.co/spaces/medmekk/TorchAO_Quantization) for quantizing models with a simple UI.

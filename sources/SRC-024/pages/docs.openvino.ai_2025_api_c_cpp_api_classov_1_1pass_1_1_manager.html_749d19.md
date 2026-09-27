@@ -4,12 +4,16 @@ lastmod:
 # Class ov::pass::Manager[#](https://docs.openvino.ai#class-ov-pass-manager)
 
 -
+```python
 class Manager
 [#](https://docs.openvino.ai#_CPPv4N2ov4pass7ManagerE) [Manager](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1_manager)class allows to manage transformation passes.Public Functions
+```
 
 -
+```
 explicit Manager(const
 [PassConfig](https://docs.openvino.ai/classov_1_1pass_1_1_pass_config.html#_CPPv4N2ov4pass10PassConfigE)&pass_config, std::string name = "UnnamedManager")[#](https://docs.openvino.ai#_CPPv4N2ov4pass7Manager7ManagerERK10PassConfigNSt6stringE) Construct
+```
 
 [Manager](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1_manager)with a copied[PassConfig](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1_pass_config)instance; it will not share[PassConfig](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1_pass_config)as in the constructor above.
 

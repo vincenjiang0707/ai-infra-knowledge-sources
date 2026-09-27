@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/parakeet/
 lastmod: 2026-09-27
 
+```python
 class ParakeetExtractor:
 def __init__(self, config: PreTrainedConfig) -> None:
 self.config = ExtractorConfig.from_hf_config(config)
@@ -67,7 +68,9 @@ input_features = torch.cat(
 [
 input_features[:, :1],
 input_features[:, 1:]
+```
 - self.config.preemphasis * input_features[:, :-1],
+```python
 ],
 dim=1,
 )
@@ -181,3 +184,4 @@ return {
 def audio_length(raw_config: PreTrainedConfig, audio_tokens: int) -> int:
 config = ExtractorConfig.from_hf_config(raw_config)
 return int(audio_tokens * config.subsampling_factor * config.hop_length)
+```

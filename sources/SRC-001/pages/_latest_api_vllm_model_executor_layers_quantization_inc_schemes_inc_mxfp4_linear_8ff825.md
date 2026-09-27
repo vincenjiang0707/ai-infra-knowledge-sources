@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/inc/schemes/inc_mxfp4_linear/
 lastmod: 2026-09-27
 
+```python
 class INCMxfp4LinearMethod(INCLinearScheme):
 """MXFP4 (W4A4) linear method for AutoRound checkpoints.
 E2M1 weights packed two per byte with per-group E8M0 scales
@@ -69,3 +70,4 @@ x: torch.Tensor,
 bias: torch.Tensor | None = None,
 ) -> torch.Tensor:
 return self.kernel.apply_weights(layer, x, bias)
+```

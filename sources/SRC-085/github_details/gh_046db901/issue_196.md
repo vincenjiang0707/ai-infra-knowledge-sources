@@ -41,8 +41,10 @@ Thanks for your work! Could you please provide a script when using the Deepseek-
 
 ### junghye01 · 2025-05-07
 
+```
 @Qinghao-Hu 
 Did you verify whether d2t (the mapping from draft to target vocab indices) is working correctly,
+```
 especially given that the target vocab size and draft vocab size are different in DeepSeek-R1-Distill-Llama-8B?
 
 ### littlewhitebee · 2025-06-14

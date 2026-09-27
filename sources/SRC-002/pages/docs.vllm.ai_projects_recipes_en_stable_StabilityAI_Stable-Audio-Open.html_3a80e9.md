@@ -11,10 +11,12 @@ This guide provides instructions for running Stable Audio Open text-to-audio gen
 
 ## Installing vLLM-Omni[¶](https://docs.vllm.ai#installing-vllm-omni)
 
+```bash
 uv venv
 source .venv/bin/activate
 uv pip install vllm==0.14.1
 uv pip install git+https://github.com/vllm-project/vllm-omni.git
+```
 
 
 For audio file saving, install one of these packages:
@@ -27,6 +29,7 @@ directory.
 
 ### Basic Usage[¶](https://docs.vllm.ai#basic-usage)
 
+```python
 import torch
 import soundfile as sf
 from vllm_omni.entrypoints.omni import Omni
@@ -46,6 +49,7 @@ extra={
 # Save audio output
 audio_data = audio[0].cpu().float().numpy().T # [samples, channels]
 sf.write("output.wav", audio_data, 44100)
+```
 
 
 ### CLI Usage[¶](https://docs.vllm.ai#cli-usage)
@@ -64,6 +68,7 @@ python examples/offline_inference/text_to_audio/text_to_audio.py \
 ### More Examples[¶](https://docs.vllm.ai#more-examples)
 
 # Generate a piano melody
+```bash
 python examples/offline_inference/text_to_audio/text_to_audio.py \
 --prompt "A piano playing a gentle melody" \
 --audio-length 15.0 \
@@ -79,6 +84,7 @@ python examples/offline_inference/text_to_audio/text_to_audio.py \
 --prompt "A bird singing in the forest" \
 --num-waveforms 3 \
 --output bird_singing.wav
+```
 
 
 ## Key Parameters[¶](https://docs.vllm.ai#key-parameters)

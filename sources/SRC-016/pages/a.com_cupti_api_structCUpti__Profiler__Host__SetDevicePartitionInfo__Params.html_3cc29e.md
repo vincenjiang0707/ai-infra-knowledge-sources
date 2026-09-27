@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__Profiler__Host__SetDevice
 # 7.196. CUpti_Profiler_Host_SetDevicePartitionInfo_Params[#](https://docs.nvidia.com#cupti-profiler-host-setdevicepartitioninfo-params)
 
 -
+```rust
 struct CUpti_Profiler_Host_SetDevicePartitionInfo_Params
 [#](https://docs.nvidia.com#_CPPv449CUpti_Profiler_Host_SetDevicePartitionInfo_Params) Params for cuptiProfilerHostSetDevicePartitionInfo.
+```
 
 Public Members
 

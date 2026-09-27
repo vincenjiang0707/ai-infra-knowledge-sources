@@ -20,6 +20,7 @@ Selection strategy:
 2. Find the closest kv_heads among available configs
 (exact match preferred).
 3. Among the num_tokens values tuned for that q_heads and q_heads, pick
+```python
 the smallest num_tokens >= the input's num_tokens. If the input is
 larger than all available num_tokens, fall back to the largest.
 """
@@ -56,3 +57,4 @@ result = CaseKey(
 _pick_cache[cache_key] = result
 return result
 |
+```

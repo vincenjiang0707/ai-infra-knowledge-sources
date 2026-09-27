@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/nvfp4/fbgemm/
 lastmod: 2026-09-27
 
+```python
 class FbgemmNvFp4LinearKernel(NvFp4LinearKernel):
 """NVFP4 GEMM via FBGEMM."""
 @classmethod
@@ -46,3 +47,4 @@ out = slice_nvfp4_output(out, output_size)
 if bias is not None:
 out = out + bias
 return out.view(*output_shape)
+```

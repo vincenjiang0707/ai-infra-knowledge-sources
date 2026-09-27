@@ -4,8 +4,10 @@ lastmod:
 # Struct ov::PropertyName[#](https://docs.openvino.ai#struct-ov-propertyname)
 
 -
+```rust
 struct PropertyName : public std::string
 [#](https://docs.openvino.ai#_CPPv4N2ov12PropertyNameE) This class is used to return property name and its mutability attribute.
+```
 
 Public Functions
 

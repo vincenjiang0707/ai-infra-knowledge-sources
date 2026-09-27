@@ -168,8 +168,10 @@ information from host code before creating a CFT-enabled device communicator.
 ## CFT Operations[](https://docs.nvidia.com#cft-operations)
 
 -
+```rust
 struct ncclCftSmem
 [](https://docs.nvidia.com#_CPPv411ncclCftSmem) A user-managed shared memory state object used by
+```
 
 to track progress of outstanding CFT operations. The object can track a specific amount of in-flight data, limiting the number of outstanding CFT operations. Specifically, the object can track up to 16MB of non-fetching CFT operations (i.e.,`ncclCft`
 
@@ -316,28 +318,40 @@ then calls [ ncclCft::submit()](https://docs.nvidia.com#_CPPv4N7ncclCft6submitE6
 Reduction fabric operations use operation tag types:
 
 -
+```rust
 struct ncclCftOpSum
 [](https://docs.nvidia.com#_CPPv412ncclCftOpSum)
+```
 
 -
+```rust
 struct ncclCftOpAnd
 [](https://docs.nvidia.com#_CPPv412ncclCftOpAnd)
+```
 
 -
+```rust
 struct ncclCftOpXor
 [](https://docs.nvidia.com#_CPPv412ncclCftOpXor)
+```
 
 -
+```rust
 struct ncclCftOpOr
 [](https://docs.nvidia.com#_CPPv411ncclCftOpOr)
+```
 
 -
+```rust
 struct ncclCftOpMin
 [](https://docs.nvidia.com#_CPPv412ncclCftOpMin)
+```
 
 -
+```rust
 struct ncclCftOpMax
 [](https://docs.nvidia.com#_CPPv412ncclCftOpMax)
+```
 
 Refer to CFT PTX documentation for supported reductions and data types.
 

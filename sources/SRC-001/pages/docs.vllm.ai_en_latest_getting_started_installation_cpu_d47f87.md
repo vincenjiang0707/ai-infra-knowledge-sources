@@ -137,8 +137,10 @@ If you want to access the wheels for previous commits (e.g. to bisect the behavi
 
 Pre-built vLLM wheels for Arm are available since version 0.11.2. These wheels contain pre-compiled C++ binaries.
 
+```json
 export VLLM_VERSION=$(curl -s https://api.github.com/repos/vllm-project/vllm/releases/latest | jq -r .tag_name | sed 's/^v//')
 uv pip install "https://github.com/vllm-project/vllm/releases/download/v${VLLM_VERSION}/vllm-${VLLM_VERSION}+cpu-cp38-abi3-manylinux_2_34_aarch64.whl" --torch-backend cpu
+```
 
 
 ## pip
@@ -220,9 +222,11 @@ Install recommended compiler. We recommend to use `gcc/g++ >= 12.3.0`
 
 as the default compiler to avoid potential problems. For example, on Ubuntu 22.4, you can run:
 
+```bash
 sudo apt-get update -y
 sudo apt-get install -y gcc-12 g++-12 libnuma-dev
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 10 --slave /usr/bin/g++ g++ /usr/bin/g++-12
+```
 
 
 It's recommended to use [uv](https://docs.astral.sh/uv/), a very fast Python environment manager, to create and manage Python environments. Please follow the [documentation](https://docs.astral.sh/uv/#getting-started) to install `uv`
@@ -235,8 +239,10 @@ Clone the vLLM project:
 
 Install the required dependencies:
 
+```bash
 uv pip install -r requirements/build/cpu.txt --torch-backend cpu --index-strategy unsafe-best-match
 uv pip install -r requirements/cpu.txt --torch-backend cpu --index-strategy unsafe-best-match
+```
 
 
 ## pip
@@ -282,17 +288,21 @@ First, install the recommended compiler. We recommend using `gcc/g++ >= 12.3.0`
 
 as the default compiler to avoid potential problems. For example, on Ubuntu 22.4, you can run:
 
+```bash
 sudo apt-get update -y
 sudo apt-get install -y --no-install-recommends ccache git curl wget ca-certificates gcc-12 g++-12 libtcmalloc-minimal4 libnuma-dev ffmpeg libsm6 libxext6 libgl1 jq lsof
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 10 --slave /usr/bin/g++ g++ /usr/bin/g++-12
+```
 
 
 Second, clone the vLLM project:
 
 Third, install required dependencies:
 
+```bash
 uv pip install -r requirements/build/cpu.txt --torch-backend cpu --index-strategy unsafe-best-match
 uv pip install -r requirements/cpu.txt --torch-backend cpu --index-strategy unsafe-best-match
+```
 
 
 ## pip
@@ -312,10 +322,12 @@ Before use vLLM CPU installed via wheels, make sure TCMalloc is installed and ad
 
 After installation of XCode and the Command Line Tools, which include Apple Clang, execute the following commands to build and install vLLM from source.
 
+```bash
 git clone https://github.com/vllm-project/vllm.git
 cd vllm
 uv pip install -r requirements/cpu.txt
 uv pip install -e .
+```
 
 
 Note
@@ -362,23 +374,27 @@ On Apple Clang 16 you should see:`#define __cplusplus 201703L`
 
 Install the following packages from the package manager before building the vLLM. For example on RHEL 9.6:
 
+```bash
 dnf install -y \
 which procps findutils tar vim git patch xz ninja-build \
 gcc-toolset-14 gcc-toolset-14-binutils gcc-toolset-14-libatomic-devel zlib-devel \
 libjpeg-turbo-devel libtiff-devel libpng-devel libwebp-devel freetype-devel harfbuzz-devel \
 openssl-devel openblas openblas-devel autoconf automake libtool cmake numpy libsndfile \
 clang llvm-devel llvm-static clang-devel
+```
 
 
 Build and install `numactl`
 
 from source:
 
+```bash
 curl -LO https://github.com/numactl/numactl/archive/refs/tags/v2.0.19.tar.gz
 tar -xvzf v2.0.19.tar.gz
 cd numactl-2.0.19
 ./autogen.sh && ./configure && make && make install
 cd ..
+```
 
 
 Install rust>=1.80 which is needed for `outlines-core`
@@ -415,6 +431,7 @@ requires LLVM 20, but UBI 9.6 repos ship LLVM 21 which is not compatible. You mu
 
 :
 
+```bash
 curl -LO https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.8/llvm-project-20.1.8.src.tar.xz
 tar -xf llvm-project-20.1.8.src.tar.xz
 cmake -G Ninja -S llvm-project-20.1.8.src/llvm -B llvm-build \
@@ -430,12 +447,14 @@ cmake -G Ninja -S llvm-project-20.1.8.src/llvm -B llvm-build \
 -DLLVM_INCLUDE_EXAMPLES=OFF \
 -DLLVM_INCLUDE_BENCHMARKS=OFF
 ninja -C llvm-build install
+```
 
 
 Then build `llvmlite`
 
 pointing to LLVM 20:
 
+```bash
 uv pip install -v \
 /path/to/torchvision.whl \
 /path/to/llvmlite.whl \
@@ -448,10 +467,12 @@ uv pip install -v \
 --index-strategy unsafe-best-match && \
 VLLM_TARGET_DEVICE=cpu VLLM_CPU_MOE_PREPACK=0 python setup.py bdist_wheel && \
 uv pip install dist/*.whl
+```
 
 
 ## pip
 
+```bash
 pip install -v \
 --extra-index-url https://download.pytorch.org/whl/cpu \
 /path/to/torchvision.whl \
@@ -463,6 +484,7 @@ pip install -v \
 -r requirements/cpu.txt && \
 VLLM_TARGET_DEVICE=cpu VLLM_CPU_MOE_PREPACK=0 python setup.py bdist_wheel && \
 pip install dist/*.whl
+```
 
 
 set `LD_PRELOAD`
@@ -498,8 +520,10 @@ You can pull the latest available CPU image from Docker Hub:
 
 To pull an image for a specific vLLM version:
 
+```bash
 export VLLM_VERSION=$(curl -s https://api.github.com/repos/vllm-project/vllm/releases/latest | jq -r .tag_name | sed 's/^v//')
 docker pull vllm/vllm-openai-cpu:v${VLLM_VERSION}-x86_64
+```
 
 
 All available image tags are here: [https://hub.docker.com/r/vllm/vllm-openai-cpu/tags](https://hub.docker.com/r/vllm/vllm-openai-cpu/tags)
@@ -510,19 +534,23 @@ To pull the latest image from Docker Hub:
 
 To pull an image with a specific vLLM version:
 
+```bash
 export VLLM_VERSION=$(curl -s https://api.github.com/repos/vllm-project/vllm/releases/latest | jq -r .tag_name | sed 's/^v//')
 docker pull vllm/vllm-openai-cpu:v${VLLM_VERSION}-arm64
+```
 
 
 All available image tags are here: [https://hub.docker.com/r/vllm/vllm-openai-cpu/tags](https://hub.docker.com/r/vllm/vllm-openai-cpu/tags).
 
 You can run these images via:
 
+```bash
 docker run \
 -v ~/.cache/huggingface:/root/.cache/huggingface \
 -p 8000:8000 \
 --env "HF_TOKEN=<secret>" \
 vllm/vllm-openai-cpu:latest-arm64 <args...>
+```
 
 
 You can also access the latest code with Docker images. These are not intended for production use and are meant for CI and testing only. They will expire after several days.
@@ -537,10 +565,12 @@ Currently, there are no pre-built IBM Z CPU images.
 
 #### Building for your target CPU[¶](https://docs.vllm.ai#building-for-your-target-cpu)
 
+```bash
 docker build -f docker/Dockerfile.cpu \
 --build-arg VLLM_CPU_X86=<false (default)|true> \ # For cross-compilation
 --tag vllm-cpu-env \
 --target vllm-openai .
+```
 
 
 #### Building with AMD Zen optimizations[¶](https://docs.vllm.ai#building-with-amd-zen-optimizations)
@@ -567,11 +597,13 @@ The resulting image accepts the same arguments and environment variables as `vll
 
 #### Building for your target ARM CPU[¶](https://docs.vllm.ai#building-for-your-target-arm-cpu)
 
+```bash
 docker build -f docker/Dockerfile.cpu \
 --platform=linux/arm64 \
 --build-arg VLLM_CPU_ARM_BF16=<false (default)|true> \
 --tag vllm-cpu-env \
 --target vllm-openai .
+```
 
 
 Auto-detection by default
@@ -591,23 +623,28 @@ build argument is used for cross-compilation:
 ###### Auto-detection build (native ARM)[¶](https://docs.vllm.ai#auto-detection-build-native-arm)
 
 # Building on ARM64 system - platform auto-detected
+```bash
 docker build -f docker/Dockerfile.cpu \
 --tag vllm-cpu-arm64 \
 --target vllm-openai .
+```
 
 
 ###### Cross-compile for ARM with BF16 support[¶](https://docs.vllm.ai#cross-compile-for-arm-with-bf16-support)
 
 # Building on ARM64 for newer ARM CPUs with BF16
+```bash
 docker build -f docker/Dockerfile.cpu \
 --build-arg VLLM_CPU_ARM_BF16=true \
 --tag vllm-cpu-arm64-bf16 \
 --target vllm-openai .
+```
 
 
 ###### Cross-compile from x86_64 to ARM64 with BF16[¶](https://docs.vllm.ai#cross-compile-from-x86_64-to-arm64-with-bf16)
 
 # Requires Docker buildx with ARM emulation (QEMU)
+```bash
 docker buildx build -f docker/Dockerfile.cpu \
 --platform=linux/arm64 \
 --build-arg VLLM_CPU_ARM_BF16=true \
@@ -615,6 +652,7 @@ docker buildx build -f docker/Dockerfile.cpu \
 --tag vllm-cpu-arm64-bf16 \
 --target vllm-openai \
 --load .
+```
 
 
 ARM BF16 requirements
@@ -623,6 +661,7 @@ ARM BF16 support requires ARMv8.6-A or later (FEAT_BF16). Supported on AWS Gravi
 
 #### Launching the OpenAI server[¶](https://docs.vllm.ai#launching-the-openai-server_1)
 
+```bash
 docker run --rm \
 --security-opt seccomp=unconfined \
 --cap-add SYS_NICE \
@@ -634,6 +673,7 @@ vllm-cpu-arm64 \
 meta-llama/Llama-3.2-1B-Instruct \
 --dtype=bfloat16 \
 other vLLM OpenAI server arguments
+```
 
 
 Alternative to --privileged
@@ -644,6 +684,7 @@ Instead of `--privileged=true`
 
 for better security.
 
+```bash
 docker build -f docker/Dockerfile.s390x \
 --tag vllm-cpu-env .
 # Launch OpenAI server
@@ -658,6 +699,7 @@ vllm-cpu-env \
 --model meta-llama/Llama-3.2-1B-Instruct \
 --dtype bfloat16 \
 other vLLM OpenAI server arguments
+```
 
 
 Tip
@@ -823,16 +865,20 @@ at model load time. See[AMD Zen optimizations](https://docs.vllm.ai#amd-zen-opti
 
 - When using the online serving, it is recommended to reserve 1-2 CPU cores for the serving framework to avoid CPU oversubscription. For example, on a platform with 32 physical CPU cores, reserving CPU 31 for the framework and using CPU 0-30 for inference threads:
 
+```bash
 export VLLM_CPU_KVCACHE_SPACE=40
 export VLLM_CPU_OMP_THREADS_BIND=0-30
 vllm serve facebook/opt-125m --dtype=bfloat16
+```
 
 
 or using default auto thread binding:
 
+```bash
 export VLLM_CPU_KVCACHE_SPACE=40
 export VLLM_CPU_NUM_OF_RESERVED_CPU=1
 vllm serve facebook/opt-125m --dtype=bfloat16
+```
 
 
 Note, it is recommended to manually reserve 1 CPU for vLLM front-end process when `world_size == 1`
@@ -885,8 +931,10 @@ extra so vLLM pulls the tested `zentorch`
 
 version for that release:
 
+```json
 export VLLM_VERSION=$(curl -s https://api.github.com/repos/vllm-project/vllm/releases/latest | jq -r .tag_name | sed 's/^v//')
 uv pip install "vllm[zen]" --extra-index-url https://wheels.vllm.ai/${VLLM_VERSION}/cpu --index-strategy first-index --torch-backend cpu
+```
 
 
 vLLM auto-detects the platform and routes linear layers through ZenDNN-optimized kernels - no flag needed. To verify it is engaged, look for the platform-selection line in the server's startup logs:

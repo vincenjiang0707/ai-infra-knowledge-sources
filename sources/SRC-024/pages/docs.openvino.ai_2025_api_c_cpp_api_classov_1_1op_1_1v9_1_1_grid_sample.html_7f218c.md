@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v9::GridSample[#](https://docs.openvino.ai#class-ov-op-v9-gridsample)
 
 -
+```python
 class GridSample : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v910GridSampleE) Operator performing interpolated sampling of the input tensor.
+```
 
 Public Functions
 
@@ -31,8 +33,10 @@ virtual bool has_evaluate() const override
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v910GridSample10AttributesE) A Structure which contains all
+```
 
 [GridSample](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v9_1_1_grid_sample)attributes.
 

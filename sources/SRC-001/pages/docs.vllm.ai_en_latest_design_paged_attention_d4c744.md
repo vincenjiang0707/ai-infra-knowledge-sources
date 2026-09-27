@@ -242,23 +242,27 @@ for all `qk`
 
 s that are calculated by current thread group.
 
+```
 if (thread_group_offset == 0) {
 const bool mask = token_idx >= context_len;
 logits[token_idx - start_token_idx] = mask ? 0.f : qk;
 qk_max = mask ? qk_max : fmaxf(qk_max, qk);
 }
+```
 
 
 Please note that the `logits`
 
 here is on shared memory, so each thread group will set the fields for its own assigned context tokens. Overall, the size of logits should be number of context tokens.
 
+```bash
 for (int mask = WARP_SIZE / 2; mask >= THREAD_GROUP_SIZE; mask /= 2) {
 qk_max = fmaxf(qk_max, VLLM_SHFL_XOR_SYNC(qk_max, mask));
 }
 if (lane == 0) {
 red_smem[warp_idx] = qk_max;
 }
+```
 
 
 Then we need to get the reduced `qk_max`
@@ -267,10 +271,12 @@ across each warp. The main idea is to make threads in warp to communicate with e
 
 .
 
+```bash
 for (int mask = NUM_WARPS / 2; mask >= 1; mask /= 2) {
 qk_max = fmaxf(qk_max, VLLM_SHFL_XOR_SYNC(qk_max, mask));
 }
 qk_max = VLLM_SHFL_SYNC(qk_max, 0);
+```
 
 
 Finally, we can get the reduced `qk_max`
@@ -287,6 +293,7 @@ Similar to `qk_max`
 
 , we need to get the reduced sum value from the entire thread block too.
 
+```
 for (int i = thread_idx; i < num_tokens; i += NUM_THREADS) {
 float val = __expf(logits[i] - qk_max);
 logits[i] = val;
@@ -294,6 +301,7 @@ exp_sum += val;
 }
 ...
 exp_sum = block_sum<NUM_WARPS>(&red_smem[NUM_WARPS], exp_sum);
+```
 
 
 Firstly, sum all exp values from each thread group, and meanwhile, convert each entry of `logits`
@@ -312,10 +320,12 @@ across whole thread block just like the `qk_max`
 
 .
 
+```
 const float inv_sum = __fdividef(1.f, exp_sum + 1e-6f);
 for (int i = thread_idx; i < num_tokens; i += NUM_THREADS) {
 logits[i] *= inv_sum;
 }
+```
 
 
 Finally, with the reduced `qk_max`
@@ -411,6 +421,7 @@ within each warp. This process allows each thread to accumulate the `accs`
 
 for the assigned head positions of all tokens in one block.
 
+```
 for (int i = 0; i < NUM_ROWS_PER_THREAD; i++) {
 float acc = accs[i];
 for (int mask = NUM_V_VECS_PER_ROW / 2; mask >= 1; mask /= 2) {
@@ -418,6 +429,7 @@ acc += VLLM_SHFL_XOR_SYNC(acc, mask);
 }
 accs[i] = acc;
 }
+```
 
 
 Next, we perform reduction for `accs`
@@ -462,12 +474,14 @@ First, we need to define the `out_ptr`
 
 variable, which points to the start address of the assigned sequence and assigned head.
 
+```
 for (int i = 0; i < NUM_ROWS_PER_THREAD; i++) {
 const int row_idx = lane / NUM_V_VECS_PER_ROW + i * NUM_ROWS_PER_ITER;
 if (row_idx < HEAD_SIZE && lane % NUM_V_VECS_PER_ROW == 0) {
 from_float(*(out_ptr + row_idx), accs[i]);
 }
 }
+```
 
 
 Finally, we need to iterate over different assigned head positions and write out the corresponding accumulated result based on the `out_ptr`
@@ -476,9 +490,11 @@ Finally, we need to iterate over different assigned head positions and write out
 
 ## Citation[¶](https://docs.vllm.ai#citation)
 
+```bash
 @inproceedings{kwon2023efficient,
 title={Efficient Memory Management for Large Language Model Serving with PagedAttention},
 author={Woosuk Kwon and Zhuohan Li and Siyuan Zhuang and Ying Sheng and Lianmin Zheng and Cody Hao Yu and Joseph E. Gonzalez and Hao Zhang and Ion Stoica},
 booktitle={Proceedings of the ACM SIGOPS 29th Symposium on Operating Systems Principles},
 year={2023}
 }
+```

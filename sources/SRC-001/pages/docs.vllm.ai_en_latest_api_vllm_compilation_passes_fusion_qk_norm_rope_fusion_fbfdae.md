@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/passes/fusion/qk_norm_rope_fusion/
 lastmod: 2026-09-27
 
+```python
 class QkNormRopePattern:
 """Match the unfused sequence in attention blocks and replace with the fused op.
 Unfused (conceptually):
@@ -143,3 +144,4 @@ QkNormRopePattern.fx_view_to_reshape,
 ),
 pm_pass,
 )
+```

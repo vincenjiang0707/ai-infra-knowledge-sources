@@ -644,9 +644,11 @@ The fair objection to multi-vector retrieval is index size, and this domain is c
 `1 / pool_factor`
 
 of the vectors:```
+```python
 from sentence_transformers.multi_vector_encoder.modules import HierarchicalTokenPooling
 pooling = HierarchicalTokenPooling(pool_factor=4)
 document_embeddings = model.encode_document(passages, token_pooling=pooling)
+```
 ```
 
 

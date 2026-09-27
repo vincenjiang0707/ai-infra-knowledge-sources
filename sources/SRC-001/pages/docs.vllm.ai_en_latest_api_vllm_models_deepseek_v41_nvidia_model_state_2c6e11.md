@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/nvidia/model_state/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV41ModelState(DefaultModelState):
 """DefaultModelState plus the engram lookback window and SWA bounded replay.
 The engram n-gram hash needs the ids of the ``depth`` tokens preceding
@@ -135,3 +136,4 @@ for_capture=for_capture,
 ubatch_idx=ubatch_idx,
 model_specific_attn_metadata=model_specific_attn_metadata,
 )
+```

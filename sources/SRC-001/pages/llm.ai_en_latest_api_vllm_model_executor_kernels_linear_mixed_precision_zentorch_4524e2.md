@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mixed_precision/zentorch/
 lastmod: 2026-09-27
 
+```python
 class ZentorchWNA16LinearKernel(CPUWNA16LinearKernel):
 """W4A16 GPTQ kernel backed by ``torch.ops.zentorch.zentorch_woq_linear``."""
 @classmethod
@@ -137,3 +138,4 @@ layer._zentorch_woq_zero_point,
 bias,
 )
 return super().apply_weights(layer, x, bias)
+```

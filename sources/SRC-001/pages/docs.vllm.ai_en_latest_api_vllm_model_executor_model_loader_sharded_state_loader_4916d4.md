@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/model_loader/sharded_state_loader/
 lastmod: 2026-09-27
 
+```python
 class ShardedStateLoader(BaseModelLoader):
 """Model loader that directly loads each worker's model state dict, which
 enables a fast load path for large tensor-parallel models where each worker
@@ -168,3 +169,4 @@ save_file(
 state_dict_part,
 os.path.join(path, filename),
 )
+```

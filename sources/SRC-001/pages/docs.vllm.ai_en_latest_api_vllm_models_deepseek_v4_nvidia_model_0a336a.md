@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/nvidia/model/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV4MegaMoEExperts(nn.Module):
 _symm_buffer_cache: dict[tuple[int, int, int, int, int, int, int, int], object] = {}
 def __init__(
@@ -523,3 +524,4 @@ activation_clamp=activation_clamp,
 fast_math=fast_math,
 )
 return y
+```

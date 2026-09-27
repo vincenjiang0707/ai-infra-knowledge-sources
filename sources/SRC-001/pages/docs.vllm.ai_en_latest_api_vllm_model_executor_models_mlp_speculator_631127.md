@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/mlp_speculator/
 lastmod: 2026-09-27
 
+```python
 class MLPSpeculator(nn.Module):
 """An implementation of the speculative models introduced in
 "Accelerating Production LLMs with Combined Token/Embedding
@@ -110,3 +111,4 @@ weight_loader = getattr(param, "weight_loader", default_weight_loader)
 weight_loader(param, loaded_weight)
 loaded_params.add(name)
 return loaded_params
+```

@@ -12,10 +12,12 @@ On Fedora and OpenSUSE, the location of rocm_version.h is independent  of the ve
 
  > dnf provides */rocm_version.h
 
+```yaml
 rocm-core-devel-6.3.3-1.fc43.x86_64 : Libraries and headers for rocm-core
 Repo         : rawhide
 Matched From : 
 Filename     : /usr/include/rocm_version.h
+```
 
 In the RCCL cmake infra there is logic hard coded to the version assuming the path here
 

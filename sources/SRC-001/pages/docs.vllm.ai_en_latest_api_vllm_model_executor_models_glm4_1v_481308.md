@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/glm4_1v/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 Glm4vMultiModalProcessor,
 info=Glm4vProcessingInfo,
@@ -570,3 +571,4 @@ num_mm_embeds: int,
 del modality, mm_kwargs
 merge_size = self.config.vision_config.spatial_merge_size
 return num_mm_embeds * (merge_size**2), num_mm_embeds
+```

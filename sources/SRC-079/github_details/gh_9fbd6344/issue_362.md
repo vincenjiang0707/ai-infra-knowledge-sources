@@ -10,11 +10,13 @@ labels: bug
 /examples)/onnx_ptq/torch_quant_to_onnx.py example is given and working for VIT based model. However when trying with Vision based model MobileNetv5_300m, Resnet50, Convnext, etc errors are produced consistently. A note in the documentation on the current limitations on what models can be converted using ONNX PTQ and nvfp4 would be helpful.
 
 ### Steps/Code to reproduce bug
+```bash
 cd /examples)/onnx_ptq/
 python torch_quant_to_onnx.py \
     --timm_model_name=resnet50 \
     --quantize_mode=nvfp4 \
     --onnx_save_path=resnet50_nvfp4.onnx
+```
 
 ### Expected behavior
 Produces nvfp4 quantized onnx file without error.

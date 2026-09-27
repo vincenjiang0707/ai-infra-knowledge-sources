@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/inkling/common/mm_preprocess/
 lastmod: 2026-09-27
 
+```python
 class InklingMultiModalProcessor(BaseMultiModalProcessor[InklingProcessingInfo]):
 def _apply_hf_processor_main(
 self,
@@ -156,3 +157,4 @@ replacement=audio_replacement,
 )
 )
 return updates
+```

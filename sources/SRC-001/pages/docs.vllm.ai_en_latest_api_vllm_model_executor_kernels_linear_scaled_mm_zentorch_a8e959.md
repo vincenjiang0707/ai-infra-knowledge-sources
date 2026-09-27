@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/scaled_mm/zentorch/
 lastmod: 2026-09-27
 
+```python
 class ZentorchInt8ScaledMMLinearKernel(Int8ScaledMMLinearKernel):
 @classmethod
 def is_supported(
@@ -68,3 +69,4 @@ getattr(layer, w_s_name),
 bias,
 zentorch_op_name="zentorch::zentorch_dynamic_qlinear",
 )
+```

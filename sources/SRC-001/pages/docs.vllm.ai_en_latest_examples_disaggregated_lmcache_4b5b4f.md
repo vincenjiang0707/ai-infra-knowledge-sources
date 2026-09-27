@@ -109,6 +109,7 @@ example demonstrates how to share KV caches between vLLM v1 instances through a 
 ## cpu_offload_lmcache.py
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """This file demonstrates the example usage of CPU offloading
 with LMCache in vLLM v1.
@@ -194,6 +195,7 @@ time.sleep(1)
 print_output(llm, second_prompt, sampling_params, "second")
 if __name__ == "__main__":
 main()
+```
 
 
 ## cpu_offload_lmcache_mp.sh
@@ -362,6 +364,7 @@ main
 ## disagg_prefill_lmcache_v1/disagg_proxy_server.py
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 import argparse
 import os
@@ -531,6 +534,7 @@ global global_args
 global_args = parse_args()
 import uvicorn
 uvicorn.run(app, host=global_args.host, port=global_args.port)
+```
 
 
 ## disagg_prefill_lmcache_v1/disagg_vllm_launcher.sh

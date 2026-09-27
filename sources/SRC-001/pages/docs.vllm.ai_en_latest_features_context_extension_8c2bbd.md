@@ -29,15 +29,18 @@ You can also use vLLM's OpenAI-compatible API to serve models with extended cont
 
 Run the vLLM server with the following command to extend the context length using YARN:
 
+```json
 vllm serve Qwen/Qwen3-0.6B \
 --hf-overrides '{"rope_parameters": {"factor": 4.0, "original_max_position_embeddings": 32768, "rope_theta": 1000000, "rope_type": "yarn"}}' \
 --max-model-len 131072
+```
 
 
 ### Client Example[¶](https://docs.vllm.ai#client-example)
 
 After starting the server, you can use the OpenAI Python client to interact with it:
 
+```python
 from openai import OpenAI
 client = OpenAI(
 base_url="http://localhost:8000/v1",
@@ -54,6 +57,7 @@ temperature=0.8,
 top_p=0.95
 )
 print(response.choices[0].message.content)
+```
 
 
 ### Key Parameters[¶](https://docs.vllm.ai#key-parameters)

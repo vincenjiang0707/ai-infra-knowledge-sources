@@ -34,9 +34,11 @@ I supposed that he has the same issue as me when setting up AWQ kernel on the ma
 run:
 python setup.py install
 
+```yaml
 get:
 RuntimeError: 
 The detected CUDA version (11.2) mismatches the version that was used to compile
+```
 PyTorch (12.4). Please make sure to use the same CUDA versions.
 
 Previously, I have successfully installed AWQ kernel in 2 other machines with CUDA version 12 installed.

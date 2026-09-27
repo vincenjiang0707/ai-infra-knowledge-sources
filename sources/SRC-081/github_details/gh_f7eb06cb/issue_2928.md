@@ -14,12 +14,14 @@ qwen3_5_moe.py
  (v7.1.0):
 
 class Qwen3_5_MoeQModel(BaseQModel):
+```json
     loader = AutoModelForImageTextToText
     require_load_processor = True
     ...
     module_tree = [
         "model", "language_model", "layers", "#", { ... }
     ]
+```
 Two things stand out:
 
 Qwen3_5_MoeQModel inherits from BaseQModel, which defaults to modality = [MODALITY.TEXT] (in 
@@ -32,11 +34,13 @@ As a consequence, in
 model_test.py
  the calibration branch:
 
+```python
 is_image_to_text_model = MODALITY.IMAGE_TO_TEXT in model.modality
 calibration_dataset = (
     get_calib_dataset(model)          # image+text path
     if is_image_to_text_model
     else self.load_dataset(tokenizer, dataset_size)  # text-only path
+```
 )
 evaluates is_image_to_text_model = False for Qwen3.5-MoE, so it goes down the text-only calibration path, and 
 test_qwen3_5_moe.py

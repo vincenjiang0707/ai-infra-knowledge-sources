@@ -158,12 +158,14 @@ Specifically, when I enable debugging output, I see that with 6.3.1 I get result
  output_records[3].id: 0 -> counter_id: 0 Value= 0.000000 
  output_records[4].id: 2 -> counter_id: 0 Value= 0.000000 
 
+```
 versus the same code built with the container prints:
  output_records[0].id: 174514485560606720 -> counter_id: 620 Value= 306521271.000000
  output_records[1].id: 174514485560610816 -> counter_id: 620 Value= 306521271.000000
  output_records[2].id: 174514485560614912 -> counter_id: 620 Value= 306521271.000000
  output_records[3].id: 174514485560619008 -> counter_id: 620 Value= 306521271.000000
  output_records[4].id: 174514485560623104 -> counter_id: 620 Value= 306521271.000000
+```
 
 ### darren-amd · 2025-01-09
 

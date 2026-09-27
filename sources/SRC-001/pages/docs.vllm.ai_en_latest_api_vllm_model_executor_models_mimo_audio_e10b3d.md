@@ -1,14 +1,17 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/mimo_audio/
 lastmod: 2026-09-27
 
+```python
 class MimoAudioEncoder(nn.Module):
 """Audio encoder for MiMo-V2-Omni.
 Encodes mel spectrograms into LLM-compatible embeddings via:
+```
 1. Audio tokenizer (VQ codes)
 2. Speech embeddings lookup
 3. Local Qwen2 transformer
 4. Linear projection
 """
+```python
 def __init__(self, config, model_path: str = "") -> None:
 super().__init__()
 if isinstance(config, dict):
@@ -131,6 +134,7 @@ audio = audio[:, : self.audio_channels]
 padded_T = (
 (T + self.audio_group_size - 1)
 // self.audio_group_size
+```
 * self.audio_group_size
 )
 padded_audio = torch.cat(
@@ -163,6 +167,7 @@ Tuple of:
 - audio_embeds: [total_tokens, out_hidden_size] concatenated embeddings
 - item_token_lens: list of int, number of tokens per input item
 """
+```python
 if self.audio_tokenizer is None:
 raise RuntimeError(
 "audio_tokenizer is not loaded. "
@@ -196,3 +201,4 @@ audio_embeds = self.apply_input_local_transformer(_audio_embeddings)
 B = audio_embeds.shape[0]
 audio_embeds = self.projection(audio_embeds.reshape(B, -1))
 return audio_embeds, item_token_lens
+```

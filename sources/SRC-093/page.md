@@ -107,9 +107,11 @@ instance. ([#2096](https://github.com/vllm-project/aibrix/pull/2096),[#2106](htt
 
 returning 404 without a trailing slash and remove`min_tokens`
 
+```python
 from PD prefill requests to avoid vLLM validation failure. ([#2194](https://github.com/vllm-project/aibrix/pull/2194),[#2237](https://github.com/vllm-project/aibrix/pull/2237)) - Prevent goroutine leaks in periodical sync loops and make the gRPC max message size configurable via env var. (
 [#2077](https://github.com/vllm-project/aibrix/pull/2077),[#2364](https://github.com/vllm-project/aibrix/pull/2364)) - Clean up orphan resources when RoleSet
 `podGroupSize`
+```
 
 changes. ([#2131](https://github.com/vllm-project/aibrix/pull/2131))
 

@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityApiOptions.html
 # 7.4. CUpti_ActivityApiOptions[#](https://docs.nvidia.com#cupti-activityapioptions)
 
 -
+```rust
 struct CUpti_ActivityApiOptions
 [#](https://docs.nvidia.com#_CPPv424CUpti_ActivityApiOptions) Kind-specific options for API activity kinds (RUNTIME, DRIVER).
+```
 
 Pass a pointer to this struct via
 

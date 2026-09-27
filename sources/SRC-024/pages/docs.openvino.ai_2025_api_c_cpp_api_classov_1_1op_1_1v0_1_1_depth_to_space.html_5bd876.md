@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v0::DepthToSpace[#](https://docs.openvino.ai#class-ov-op-v0-depthtospace)
 
 -
+```python
 class DepthToSpace : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v012DepthToSpaceE) [DepthToSpace](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_depth_to_space)permutes data from the depth dimension of the input blob into spatial dimensions.[Output](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_output)node produces a tensor with shape: [N, C/(blocksize * blocksize), H * blocksize, W * blocksize]Note
+```
 
 Values from the depth dimension (assuming NCHW layout) are moved in spatial blocks to the height and width dimensions.
 

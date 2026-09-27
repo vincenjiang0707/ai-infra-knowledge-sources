@@ -13,8 +13,10 @@ __managed__ cuda::atomic<int, cuda::thread_scope_system> b(0);
 ``` |
 ||
 Thread 1 (SM) ```
+```bash
 x = 1;
 a = 1;
+```
 ``` |
 Thread 2 (SM) ```
 while (a != 1) ;

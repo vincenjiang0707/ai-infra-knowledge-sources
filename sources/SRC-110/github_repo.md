@@ -23,12 +23,14 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/python-%E2%89%A53.10-5be.svg">
+```html
 <a href="https://badge.fury.io/py/evalscope"><img src="https://badge.fury.io/py/evalscope.svg" alt="PyPI version" height="18"></a>
 <a href="https://pypi.org/project/evalscope"><img alt="PyPI - Downloads" src="https://static.pepy.tech/badge/evalscope"></a>
 <a href="https://github.com/modelscope/evalscope/pulls"><img src="https://img.shields.io/badge/PR-welcome-55EB99.svg"></a>
 <a href="https://github.com/modelscope/evalscope"><img alt="GitHub stars" src="https://img.shields.io/github/stars/modelscope/evalscope?style=flat&logo=github"></a>
 <a href='https://evalscope.readthedocs.io/en/latest/?badge=latest'><img src='https://readthedocs.org/projects/evalscope/badge/?version=latest' alt='Documentation Status' /></a>
 <a href="https://modelscope.github.io/evalscope/"><img alt="EvalScope Website" src="https://img.shields.io/badge/Website-EvalScope-1D5EFF?style=flat&logo=googlechrome&logoColor=white"></a>
+```
 <p>
 
 <p align="center">
@@ -64,6 +66,7 @@ EvalScope provides an interactive Web Dashboard for multi-dimensional model comp
 
 <table>
   <tr>
+```html
     <td style="text-align: center;">
       <img src="https://sail-moe.oss-cn-hangzhou.aliyuncs.com/yunlin/images/evalscope/dashboard/dashboard_overview.png" alt="Dashboard" style="width: 100%;" />
       <p>Dashboard Overview</p>
@@ -72,8 +75,10 @@ EvalScope provides an interactive Web Dashboard for multi-dimensional model comp
       <img src="https://sail-moe.oss-cn-hangzhou.aliyuncs.com/yunlin/images/evalscope/dashboard/compare_score_tab.png" alt="Model Compare" style="width: 100%;" />
       <p>Model Comparison</p>
     </td>
+```
   </tr>
   <tr>
+```html
     <td style="text-align: center;">
       <img src="https://sail-moe.oss-cn-hangzhou.aliyuncs.com/yunlin/images/evalscope/dashboard/report_overview_tab.png" alt="Report Overview" style="width: 100%;" />
       <p>Report Overview</p>
@@ -82,6 +87,7 @@ EvalScope provides an interactive Web Dashboard for multi-dimensional model comp
       <img src="https://sail-moe.oss-cn-hangzhou.aliyuncs.com/yunlin/images/evalscope/dashboard/report_predictions_tab.png" alt="Report Predictions" style="width: 90%;" />
       <p>Prediction Details</p>
     </td>
+```
   </tr>
 </table>
 
@@ -387,11 +393,13 @@ Thanks to all developers who have contributed to EvalScope!
 
 <a href="https://github.com/modelscope/evalscope/graphs/contributors" target="_blank">
   <table>
+```html
     <tr>
       <th colspan="2">
         <br><img src="https://contrib.rocks/image?repo=modelscope/evalscope"><br><br>
       </th>
     </tr>
+```
   </table>
 </a>
 

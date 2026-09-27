@@ -4,8 +4,10 @@ lastmod:
 # Class ov::reference::philox::PhiloxGenerator[#](https://docs.openvino.ai#class-ov-reference-philox-philoxgenerator)
 
 -
+```python
 class PhiloxGenerator
 [#](https://docs.openvino.ai#_CPPv4N2ov9reference6philox15PhiloxGeneratorE) Generator of random numbers based on the Philox algorithm. Abstract base class for various specializations used to match outputs based on input seed(s) for supported frameworks.
+```
 
 Subclassed by
 

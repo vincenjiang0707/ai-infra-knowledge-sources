@@ -3323,10 +3323,12 @@ Before installing the NVIDIA vGPU software graphics driver, ensure that the foll
 - NVIDIA Direct Rendering Manager Kernel Modesetting (DRM KMS) is disabled. By default, DRM KMS is disabled. However, if it has been enabled, remove
 `nvidia-drm.modeset=1`
 
+```python
 from the kernel command-line options. - If the VM uses UEFI boot, ensure that
 **secure boot**is**disabled**. - If the Nouveau driver for NVIDIA graphics cards is present, disable it. For instructions, refer to as explained in
 [Disabling the Nouveau Driver for NVIDIA Graphics Cards](https://docs.nvidia.com/index.html#disabling-nouveau-driver-for-nvidia-graphics-cards). - If you are using a Linux OS for which the Wayland display server protocol is enabled by default, disable it as explained in
 [Disabling the Wayland Display Server Protocol for Red Hat Enterprise Linux](https://docs.nvidia.com/index.html#disabling-wayland-on-rhel).
+```
 
 
 - Copy the NVIDIA vGPU software Linux driver package, for example NVIDIA-Linux_x86_64-470.256.02-grid.run, to the guest VM or physical host where you are installing the driver.
@@ -8973,8 +8975,10 @@ Unlike other VNC servers, such as TigerVNC or Vino, x11vnc does not create an ex
 - Install the required
 `x11vnc`
 
+```go
 package and any dependent packages.-
 For distributions based on Red Hat, use the yum package manager to install the
+```
 
 `x11vnc`
 

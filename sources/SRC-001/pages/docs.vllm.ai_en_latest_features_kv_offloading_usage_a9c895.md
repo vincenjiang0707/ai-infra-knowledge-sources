@@ -69,6 +69,7 @@ parameter allows larger chunks, yielding larger I/Os to the host and secondary t
 
 ## Single-Tier Setup (CPU Only)[¶](https://docs.vllm.ai#single-tier-setup-cpu-only)
 
+```json
 vllm serve <model> \
 --kv-transfer-config '{
 "kv_connector": "OffloadingConnector",
@@ -78,6 +79,7 @@ vllm serve <model> \
 "cpu_bytes_to_use": 1000000000
 }
 }'
+```
 
 
 ## Multi-Tier Setup[¶](https://docs.vllm.ai#multi-tier-setup)
@@ -94,6 +96,7 @@ key plus tier-specific fields (and an optional `module_path`
 
 for out-of-tree tiers). The list is ordered: tier 0 is consulted before tier 1, and so on. See [Secondary Tiers](https://docs.vllm.ai#secondary-tiers) for tier-specific keys.
 
+```json
 vllm serve <model> \
 --kv-transfer-config '{
 "kv_connector": "OffloadingConnector",
@@ -113,6 +116,7 @@ vllm serve <model> \
 ]
 }
 }'
+```
 
 
 `kv_connector_extra_config`
@@ -228,11 +232,13 @@ Implement [ CachePolicy](https://docs.vllm.ai/api/vllm/v1/kv_offload/cpu/policie
 
 ) in your own package — no vLLM fork or patch required — and point `kv_connector_extra_config`
 
+```json
 at it directly:{
 "cpu_bytes_to_use": 10737418240,
 "eviction_policy": "MyCachePolicy",
 "cache_policy_module_path": "my_package.my_module"
 }
+```
 
 
 `eviction_policy`
@@ -249,8 +255,10 @@ provides for a custom [ OffloadingSpec](https://docs.vllm.ai/api/vllm/v1/kv_offl
 
 If you control the process that constructs the vLLM engine (e.g. an embedding application), you can register a short name once at startup instead of repeating the module path in every config:
 
+```python
 from vllm.v1.kv_offload.cpu.policies.factory import CachePolicyFactory
 CachePolicyFactory.register_cache_policy("my_policy", "my_package.my_module", "MyCachePolicy")
+```
 
 
 Then set `"eviction_policy": "my_policy"`
@@ -502,6 +510,7 @@ running in the same process.A producer parks a request's blocks until the consum
 
 `unbound_store_timeout_s`
 
+```json
 the blocks are released so they stop pinning primary-tier slots. Raise it when prefills legitimately take longer than the default:vllm serve <model> \
 --kv-transfer-config '{
 "kv_connector": "OffloadingConnector",
@@ -516,6 +525,7 @@ the blocks are released so they stop pinning primary-tier slots. Raise it when p
 ]
 }
 }'
+```
 
 
 #### Environment Variables[¶](https://docs.vllm.ai#environment-variables)
@@ -616,6 +626,7 @@ Minimal examples (values that would appear in the request's `kv_transfer_params`
 ):
 
 # Prefill producer — compute and keep KV for a remote decoder to pull
+```
 kv_transfer_params = {"remote_decoder": {"kv_request_id": "<unique-transfer-id>"}}
 # Decode consumer — pull KV from a specific prefiller (classic P/D)
 kv_transfer_params = {
@@ -633,6 +644,7 @@ kv_transfer_params = {
 "remote_port": 5710,
 }
 }
+```
 
 
 Runtime handshake for a P2P (or P/D) pull, once the orchestrator has set the keys above:
@@ -688,6 +700,7 @@ Implement [ SecondaryTierManager](https://docs.vllm.ai/api/vllm/v1/kv_offload/ti
 
 `vllm/v1/kv_offload/tiering/base.py`
 
+```json
 ) in your own package — no vLLM fork or patch required — and point the tier config at it directly:{
 "spec_name": "TieringOffloadingSpec",
 "cpu_bytes_to_use": 10737418240,
@@ -699,6 +712,7 @@ Implement [ SecondaryTierManager](https://docs.vllm.ai/api/vllm/v1/kv_offload/ti
 }
 ]
 }
+```
 
 
 `type`

@@ -4,8 +4,10 @@ lastmod:
 # Class ov::frontend::ComplexTypeMark[#](https://docs.openvino.ai#class-ov-frontend-complextypemark)
 
 -
+```python
 class ComplexTypeMark : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[FrameworkNode](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_framework_node.html#_CPPv4N2ov2op4util13FrameworkNodeE)[#](https://docs.openvino.ai#_CPPv4N2ov8frontend15ComplexTypeMarkE) Public Functions
+```
 
 -
 inline virtual void validate_and_infer_types() override

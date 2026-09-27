@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/mooncake/scheduler/
 lastmod: 2026-09-27
 
+```python
 class ECMooncakeScheduler:
 """Coordinate Mooncake transfers from the vLLM Scheduler process."""
 def __init__(self, vllm_config: VllmConfig) -> None:
@@ -279,8 +280,10 @@ if self._is_producer:
 for index, feature in enumerate(request.mm_features):
 if (
 feature.mm_position.offset + feature.mm_position.length
+```
 > num_computed_tokens
 ):
+```python
 self._prepare_push_spec(request, index)
 if not self._is_consumer:
 return True
@@ -455,3 +458,4 @@ def close(self) -> None:
 self._control_executor.shutdown(wait=True, cancel_futures=True)
 self._control_client.close()
 self._event_inbox.close()
+```

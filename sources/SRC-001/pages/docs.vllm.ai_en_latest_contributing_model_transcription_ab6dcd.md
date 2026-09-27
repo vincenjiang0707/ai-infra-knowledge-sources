@@ -27,6 +27,7 @@ if the model should not serve text generation (eg Whisper).
 
 ## supported_languages and supports_transcription_only
 
+```python
 from typing import ClassVar, Mapping, Literal
 import numpy as np
 import torch
@@ -44,6 +45,7 @@ supported_languages: ClassVar[Mapping[str, str]] = {
 # If your model only supports audio-conditioned generation
 # (no text-only generation), enable this flag.
 supports_transcription_only: ClassVar[bool] = True
+```
 
 
 Provide an ASR configuration via [get_speech_to_text_config](https://docs.vllm.ai/api/vllm/model_executor/models/interfaces/#vllm.model_executor.models.interfaces.SupportsTranscription.get_speech_to_text_config).
@@ -52,6 +54,7 @@ This is for controlling general behavior of the API when serving your model:
 
 ## get_speech_to_text_config()
 
+```python
 class YourASRModel(nn.Module, SupportsTranscription):
 ...
 @classmethod
@@ -67,6 +70,7 @@ max_audio_clip_s=30,
 # model/processor handles it already
 min_energy_split_window_size=None,
 )
+```
 
 
 See [Audio preprocessing and chunking](https://docs.vllm.ai#audio-preprocessing-and-chunking) for what each field controls.
@@ -85,6 +89,7 @@ string or `prompt_token_ids`
 
 ## get_generation_prompt()
 
+```python
 from vllm.config.speech_to_text import SpeechToTextParams
 class YourASRModel(nn.Module, SupportsTranscription):
 ...
@@ -106,6 +111,7 @@ return {
 "multi_modal_data": {"audio": (audio, stt_config.sample_rate)},
 "prompt": prompt,
 }
+```
 
 
 For further clarification on multi modal inputs, please refer to [Multi-Modal Inputs](https://docs.vllm.ai/features/multimodal_inputs/).
@@ -120,6 +126,7 @@ entries:
 
 ## get_generation_prompt()
 
+```python
 from vllm.config.speech_to_text import SpeechToTextParams
 class YourASRModel(nn.Module, SupportsTranscription):
 ...
@@ -144,11 +151,14 @@ prompt = {
 },
 "decoder_prompt": (
 (f"<|prev|>{request_prompt}" if request_prompt else "")
+```
 + f"<|startoftranscript|><|{language}|>"
 + f"<|{task_type}|><|notimestamps|>"
 ),
+```python
 }
 return cast(PromptType, prompt)
+```
 
 
 `validate_language`
@@ -161,6 +171,7 @@ If your model requires a language and you want a default, override this method (
 
 ## validate_language()
 
+```python
 @classmethod
 def validate_language(cls, language: str | None) -> str | None:
 if language is None:
@@ -171,6 +182,7 @@ logger.warning(
 )
 language = "en"
 return super().validate_language(language)
+```
 
 
 `get_num_audio_tokens`
@@ -183,6 +195,7 @@ Provide a fast duration→token estimate to improve streaming usage statistics:
 
 ## get_num_audio_tokens()
 
+```python
 class YourASRModel(nn.Module, SupportsTranscription):
 ...
 @classmethod
@@ -194,6 +207,7 @@ model_config: ModelConfig,
 ) -> int | None:
 # Return None if unknown; otherwise return an estimate.
 return int(audio_duration_s * stt_config.sample_rate // 320) # example
+```
 
 
 ## Audio preprocessing and chunking[¶](https://docs.vllm.ai#audio-preprocessing-and-chunking)
@@ -220,6 +234,7 @@ Relevant server logic:
 ## _preprocess_speech_to_text()
 
 # vllm/entrypoints/openai/speech_to_text.py
+```python
 async def _preprocess_speech_to_text(...):
 language = self.model_cls.validate_language(request.language)
 ...
@@ -239,22 +254,27 @@ task_type=self.task_type,
 prompt = self.model_cls.get_generation_prompt(stt_params)
 prompts.append(prompt)
 return prompts, duration
+```
 
 
 ## Exposing tasks automatically[¶](https://docs.vllm.ai#exposing-tasks-automatically)
 
 vLLM automatically advertises transcription support if your model implements the interface:
 
+```python
 if supports_transcription(model):
 if model.supports_transcription_only:
 return ["transcription"]
 supported_tasks.append("transcription")
+```
 
 
 When enabled, the server initializes the transcription and translation handlers:
 
+```
 state.openai_serving_transcription = OpenAIServingTranscription(...) if "transcription" in supported_tasks else None
 state.openai_serving_translation = OpenAIServingTranslation(...) if "transcription" in supported_tasks else None
+```
 
 
 No extra registration is required beyond having your model class available via the model registry and implementing [ SupportsTranscription](https://docs.vllm.ai/api/vllm/model_executor/models/interfaces/#vllm.model_executor.models.interfaces.SupportsTranscription).

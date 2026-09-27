@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/minimax_m3/amd/ops/index_topk/
 lastmod: 2026-09-24
 
+```python
 @torch.no_grad()
 def minimax_m3_index_decode(
 idx_q: torch.Tensor, # [total_q, num_idx_heads, head_dim]
@@ -340,3 +341,4 @@ num_warps=selector_num_warps,
 num_stages=selector_num_stages,
 )
 return topk_idx
+```

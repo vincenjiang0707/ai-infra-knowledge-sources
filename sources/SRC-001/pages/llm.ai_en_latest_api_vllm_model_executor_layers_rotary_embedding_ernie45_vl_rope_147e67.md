@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/ernie45_vl_rope/
 lastmod: 2026-09-27
 
+```python
 class Ernie4_5_VLRotaryEmbedding(MRotaryEmbedding):
 """3D rotary positional embedding. 3D is t:time h:height w:width."""
 def forward_native( # type: ignore[override]
@@ -75,3 +76,4 @@ key: torch.Tensor | None = None,
 # MRotaryEmbedding.forward_xpu forwards an extra `offsets` arg that
 # this class's forward_cuda override doesn't accept. Use native path.
 return self.forward_native(positions, query, key)
+```

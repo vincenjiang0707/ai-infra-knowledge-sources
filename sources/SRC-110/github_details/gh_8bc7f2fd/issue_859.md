@@ -27,10 +27,13 @@ RAGAS v0.2.14
 
 ## 执行的代码或指令
 
+```python
 from evalscope.run import run_task
 from evalscope.utils.logger import get_logger
+```
 
 generate_testset_task_cfg = {
+```json
     "eval_backend": "RAGEval", 
     "eval_config": {
         "tool": "RAGAS",
@@ -58,10 +61,13 @@ generate_testset_task_cfg = {
             "language": "chinese"  
         }
     },
+```
 }
 
+```bash
 logger = get_logger()
 run_task(task_cfg=generate_testset_task_cfg)
+```
 
 ## 错误日志
 

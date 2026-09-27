@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/phi3_long_rope_scaled_rope/
 lastmod: 2026-09-27
 
+```python
 class Phi3LongRoPEScaledRotaryEmbedding(nn.Module):
 """Phi3 family of models scaled rotary embedding.
 Based on the original RotaryEmbedding implementation.
@@ -75,6 +76,7 @@ def _compute_inv_freq(self, rescale_factors: list[float]) -> torch.Tensor:
 rescale_factors = torch.tensor(rescale_factors, dtype=torch.float32)
 inv_freq = 1.0 / (
 rescale_factors
+```
 * (
 self.base
 ** (

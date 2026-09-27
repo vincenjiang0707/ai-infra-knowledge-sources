@@ -8,6 +8,7 @@ labels:
 
 I would like to ask, I have two virtual machines, each with only one GPU Nividia A10, I modified the source code, started the ray cluster with two machines, and started the api server with the following command, there will be the following error, what is the problem? Thank you very much
 python -m distserve.api_server.distserve_api_server \
+```bash
     --host 0.0.0.0 \
     --port 8000 \
     --model openai-community/gpt2 \
@@ -26,6 +27,7 @@ python -m distserve.api_server.distserve_api_server \
     --decoding-sched-policy fcfs \
     --decoding-max-batch-size 1024 \
     --decoding-max-tokens-per-batch 65536
+```
 
 <img width="1358" alt="image" src="https://github.com/user-attachments/assets/02aab532-1596-4e92-85af-8ee45b720e61" />
 <img width="1066" alt="image" src="https://github.com/user-attachments/assets/39bebaec-32e4-4602-ac17-2d07d4224f24" />

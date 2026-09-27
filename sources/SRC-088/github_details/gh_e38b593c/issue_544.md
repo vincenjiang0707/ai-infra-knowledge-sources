@@ -233,10 +233,12 @@ Could you provide more details on how you started the vLLM service and what erro
 
 The vLLM server started without any issues, and access is also fine.
 python3 -m vllm.entrypoints.cli.main serve 'model'\
+```json
     --speculative_config '{"method": "extract_hidden_states", "num_speculative_tokens": 1, "draft_model_config": {"hf_config": {"eagle_aux_hidden_state_layer_ids": [2, 18, 33, 36]}}}' \
     --kv_transfer_config '{"kv_connector": "ExampleHiddenStatesConnector", "kv_role": "kv_producer", "kv_connector_extra_config": {"shared_storage_path": "/tmp/hidden_states"}}' \
     --data-parallel-size 1 \
     --port 8001
+```
 
 ### sunny-infra · 2026-05-25
 

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/attention/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV4Attention(nn.Module, AttentionLayerBase, ABC):
 """DeepseekV4 MLA attention layer.
 The platform-specific sparse-MLA forward (``forward_mqa`` /
@@ -875,3 +876,4 @@ return self.kv_cache
 assert self.compressed_cache_prefix is not None
 source = self._static_forward_context[self.compressed_cache_prefix]
 return source.kv_cache
+```

@@ -16,6 +16,7 @@ Environment variables:
 - VLLM_GPT_OSS_SYSTEM_TOOL_MCP_LABELS=code_interpreter,container
 - VLLM_GPT_OSS_HARMONY_SYSTEM_INSTRUCTIONS=1
 """
+```python
 from openai import OpenAI
 def example_no_filter():
 """Example with no allowed_tools filter - allows all tools."""
@@ -152,3 +153,4 @@ print(" - web_search_preview (browser): Has 'search', 'open', 'find'")
 print("=" * 60)
 if __name__ == "__main__":
 main()
+```

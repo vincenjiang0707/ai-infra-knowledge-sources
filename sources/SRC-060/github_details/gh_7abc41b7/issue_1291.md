@@ -38,6 +38,7 @@ erniekit train examples/configs/ERNIE-4.5-0.3B/sft/run_sft_8k.yaml
 
 
 ### data
+```yaml
 train_dataset_type: "erniekit"
 eval_dataset_type: "erniekit"
 train_dataset_path: "/home/aistudio/data/data348854/train-1000.jsonl"
@@ -46,14 +47,18 @@ eval_dataset_path: "/home/aistudio/data/data348854/test-200.jsonl"
 eval_dataset_prob: "1.0"
 max_seq_len: 8192
 num_samples_each_epoch: 6000000
+```
 
 ### model
+```yaml
 model_name_or_path: baidu/ERNIE-4.5-0.3B-Paddle
 fine_tuning: Full
 fuse_rope: True
 use_sparse_head_and_loss_fn: True
+```
 
 ### finetuning
+```yaml
 # base
 stage: SFT
 seed: 23
@@ -76,22 +81,28 @@ gradient_accumulation_steps: 8
 logging_dir: ./vdl_log
 output_dir: ./output
 disable_tqdm: True
+```
 
 # train
+```yaml
 warmup_steps: 20
 learning_rate: 1.0e-5
 lr_scheduler_type: cosine
 min_lr: 1.0e-6
 layerwise_lr_decay_bound: 1.0
+```
 
 # optimizer
+```yaml
 weight_decay: 0.1
 adam_epsilon: 1.0e-8
 adam_beta1: 0.9
 adam_beta2: 0.95
 offload_optim: True
+```
 
 # performance
+```yaml
 tensor_parallel_degree: 1
 pipeline_parallel_degree: 1
 sharding_parallel_degree: 1
@@ -105,6 +116,7 @@ fp16_opt_level: O2
 disable_ckpt_quant: True
 amp_master_grad: True
 amp_custom_white_list:
+```
   - lookup_table
   - lookup_table_v2
   - flash_attn
@@ -118,8 +130,10 @@ amp_custom_black_list:
   - elementwise_div
   - sin
   - cos
+```yaml
 unified_checkpoint: True
 unified_checkpoint_config: async_save
+```
 
 
 ## 评论 (8)
@@ -149,11 +163,13 @@ commit 8c94332492e07dfec206ddff50207682e3430b6b
 ### Jonathans575 · 2025-09-26
 
 麻烦重装一下erniekit试一下：
+```
 cd your_path_to_ERNIE
 cd ..
 pip uninstall erniekit
 cd ERNIE
 pip install -e .
+```
 
 我们也尝试复现一下
 

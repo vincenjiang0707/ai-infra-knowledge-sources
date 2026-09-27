@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__StreamAttrData.html
 # 7.231. CUpti_StreamAttrData[#](https://docs.nvidia.com#cupti-streamattrdata)
 
 -
+```rust
 struct CUpti_StreamAttrData
 [#](https://docs.nvidia.com#_CPPv420CUpti_StreamAttrData) Stream attribute data passed into a resource callback function for CUPTI_CBID_RESOURCE_STREAM_ATTRIBUTE_CHANGED callback.
+```
 
 Data passed into a resource callback function as the
 

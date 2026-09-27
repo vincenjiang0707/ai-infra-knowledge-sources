@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/dots3_note/nvidia/vision_moe/
 lastmod: 2026-09-27
 
+```python
 def note_vision_fused_moe_fp8(
 hidden_states: torch.Tensor,
 w13: torch.Tensor,
@@ -120,3 +121,4 @@ _BLOCK_SHAPE,
 output = torch.empty_like(hidden_states)
 ops.moe_sum(second_gemm, output)
 return output
+```

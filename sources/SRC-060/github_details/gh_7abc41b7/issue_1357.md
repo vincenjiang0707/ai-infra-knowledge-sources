@@ -9,10 +9,12 @@ labels:
 问题描述
 在使用 ERNIE-KIT 工具微调 PaddleOCR-VL 模型时，是否支持自定义 prompt，而不仅限于论文中提到的以下四种固定 prompt？
 TASKS = {
+```json
     "ocr": "OCR:",
     "table": "Table Recognition:",
     "formula": "Formula Recognition:",
     "chart": "Chart Recognition:",
+```
 }
 
 

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/quark/quark_moe/
 lastmod: 2026-09-27
 
+```python
 class QuarkOCP_MX_MoEMethod(QuarkMoEMethod):
 supported_activation_quant_keys = [
 *_ACTIVATION_QUANT_KEY_MAP.values(),
@@ -391,3 +392,4 @@ global_num_experts=layer.global_num_experts,
 expert_map=layer.expert_map,
 apply_router_weight_on_input=layer.apply_router_weight_on_input,
 )
+```

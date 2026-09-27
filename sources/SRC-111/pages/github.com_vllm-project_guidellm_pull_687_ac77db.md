@@ -68,6 +68,7 @@ A few questions / minor concerns to consider, but looks OK.
 [src/guidellm/backends/openai/request_handlers.py](https://github.com/vllm-project/guidellm/pull/687/files#diff-60cfc62dcd68426ebab8f6d637eba19d6423ac6fe297be59efdfb943b9f0d79f)Outdated
 
 |
+```json
 Using the following command with the 7B parameter model, I was able to get it to use tool calls some of the time, which confirmed proper differentiation between all text metrics, and tool call only metrics. The smaller models were not able to automatically execute tool calls. `vllm serve Qwen/Qwen2.5-7B-Instruct --tool-call-parser hermes --enable-auto-tool-choice` `guidellm benchmark run --target "http://localhost:8000" --request-format chat_completions --data mixed_tool_call_prompts.jsonl --data-column-mapper '{"text_column":"text"}' --backend-kwargs '{"extras":{"body":{"tools":[{"type":"function","function":{"name":"get_weather","description":"Get current weather for a location","parameters":{"type":"object","properties":{"location":{"type":"string"}},"required":["location"]}}}],"tool_choice":"auto"}}}' --max-requests 5 --profile constant --rate 1` With this input file: ```
 {"prompt": "Use the get_weather function to check the weather in San Francisco."}
 {"prompt": "Explain how photosynthesis works."}
@@ -75,6 +76,7 @@ Using the following command with the 7B parameter model, I was able to get it to
 {"prompt": "Write a haiku about mountains."}
 {"prompt": "Please call the get_weather tool for London."}
 {"prompt": "Summarize the history of the Roman Empire."}
+```
 ``` Here is a snippet of the output:
 |
 

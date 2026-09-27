@@ -93,8 +93,10 @@ The enumerated type nvJitLinkResult defines API call result codes.
 3.1.1. Enumerations[](https://docs.nvidia.com#enumerations)
 
 -
+```rust
 enum nvJitLinkResult
 [](https://docs.nvidia.com#_CPPv415nvJitLinkResult)
+```
 
 -
 The enumerated type nvJitLinkResult defines API call result codes.
@@ -360,8 +362,10 @@ nvJitLinkHandle is the unit of linking, and an opaque handle for a program.
 3.2.1. Enumerations[](https://docs.nvidia.com#id1)
 
 -
+```rust
 enum nvJitLinkInputType
 [](https://docs.nvidia.com#_CPPv418nvJitLinkInputType)
+```
 
 -
 The enumerated type nvJitLinkInputType defines the kind of inputs that can be passed to nvJitLinkAdd* APIs.

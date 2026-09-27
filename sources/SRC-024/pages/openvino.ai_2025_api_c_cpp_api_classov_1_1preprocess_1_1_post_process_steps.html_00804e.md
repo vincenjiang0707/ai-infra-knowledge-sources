@@ -4,8 +4,10 @@ lastmod:
 # Class ov::preprocess::PostProcessSteps[#](https://docs.openvino.ai#class-ov-preprocess-postprocesssteps)
 
 -
+```python
 class PostProcessSteps
 [#](https://docs.openvino.ai#_CPPv4N2ov10preprocess16PostProcessStepsE) Postprocessing steps. Each step typically intends adding of some operation to output parameter User application can specify sequence of postprocessing steps in a builder-like manner.
+```
 
 auto proc = PrePostProcessor(function); proc.output().postprocess().convert_element_type(element::u8); function = proc.build();
 

@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__Profiler__Host__GetConfig
 # 7.185. CUpti_Profiler_Host_GetConfigImageSize_Params[#](https://docs.nvidia.com#cupti-profiler-host-getconfigimagesize-params)
 
 -
+```rust
 struct CUpti_Profiler_Host_GetConfigImageSize_Params
 [#](https://docs.nvidia.com#_CPPv445CUpti_Profiler_Host_GetConfigImageSize_Params) Params for cuptiProfilerHostGetConfigImageSize.
+```
 
 Public Members
 

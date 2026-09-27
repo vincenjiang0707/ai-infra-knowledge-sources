@@ -291,6 +291,7 @@ def exact_match(gold, pred=None):
 
 and I used the exact match her
 
+```yaml
 dataset_path: hails/mmlu_no_train # a copy of `cais/mmlu` with no
 auxiliary_train split
 test_split: test
@@ -303,16 +304,19 @@ doc_to_text: "{{question.strip()}}\nA. {{choices[0]}}\nB. {{choices[1]}}\nC.
 doc_to_target: "{{['A', 'B', 'C', 'D'][answer]}}"
 generation_kwargs:
 until:
+```
 - "</s>"
 - "\n"
 metric_list:
 - metric: !function utils.exact_match
+```yaml
 aggregation: mean
 higher_is_better: true
 metadata:
 version: 2.0
 dataset_kwargs:
 trust_remote_code: true
+```
 
 Let me know if you have any other questions.
 

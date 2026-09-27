@@ -213,6 +213,7 @@ I have the same problem.
 
 **Quantization Script：**
 quantize_config = QuantizeConfig(
+```bash
         bits=4,
         group_size = -1,
         sym = True,
@@ -224,6 +225,7 @@ quantize_config = QuantizeConfig(
         act_group_aware=False,
         gptaq=GPTAQConfig(alpha=0.25, device="auto")
     )
+```
 model = GPTQModel.load(pretrained_model_id, 
         quantize_config,
         device="cuda",

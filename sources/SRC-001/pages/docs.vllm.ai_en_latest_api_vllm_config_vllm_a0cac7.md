@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/config/vllm/
 lastmod: 2026-09-27
 
+```python
 @config(config=ConfigDict(arbitrary_types_allowed=True))
 class VllmConfig:
 """Dataclass which contains all vllm-related configuration. This
@@ -474,6 +475,7 @@ return enabled
 def needs_dp_coordinator(self) -> bool:
 """Determine if the DPCoordinator process is needed.
 The DPCoordinator is needed in two cases:
+```
 1. For MoE models with DP > 1: to handle wave coordination
 (even in external LB mode, since wave coordination runs in the coordinator)
 2. For non-MoE models in internal/hybrid LB mode: to collect and publish

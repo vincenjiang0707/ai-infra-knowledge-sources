@@ -8,6 +8,7 @@ Source [https://github.com/vllm-project/vllm/tree/main/examples/features/profili
 ## Run One Batch Offline[¶](https://docs.vllm.ai#run-one-batch-offline)
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 from __future__ import annotations
 from vllm import LLM, EngineArgs
@@ -96,6 +97,7 @@ print("-" * 50)
 if __name__ == "__main__":
 parser = create_parser()
 main(vars(parser.parse_args()))
+```
 
 
 ## Simple Profiling Offline[¶](https://docs.vllm.ai#simple-profiling-offline)

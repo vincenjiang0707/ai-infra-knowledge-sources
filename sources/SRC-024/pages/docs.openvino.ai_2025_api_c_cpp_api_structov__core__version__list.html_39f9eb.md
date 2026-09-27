@@ -4,8 +4,10 @@ lastmod:
 # Struct ov_core_version_list[#](https://docs.openvino.ai#struct-ov-core-version-list)
 
 -
+```rust
 struct ov_core_version_list
 [#](https://docs.openvino.ai#_CPPv420ov_core_version_list) Represents version information that describes all devices and ov runtime library.
+```
 
 
 Site Navigation

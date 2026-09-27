@@ -4,8 +4,10 @@ lastmod:
 # Struct ov::device::LUID[#](https://docs.openvino.ai#struct-ov-device-luid)
 
 -
+```rust
 struct LUID
 [#](https://docs.openvino.ai#_CPPv4N2ov6device4LUIDE) Structure which defines format of
+```
 
 [LUID](https://docs.openvino.ai/group__ov__transformation__common__api.html#structov_1_1device_1_1_l_u_i_d).Public Members
 

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/glm5next/common/multimodal/
 lastmod: 2026-09-27
 
+```python
 class Glm5NextVisionTransformer(nn.Module):
 # Stacked-weight remap for the GLM-OCR/GLM-4V vision checkpoint layout.
 hf_to_vllm_mapper = WeightsMapper(
@@ -249,3 +250,4 @@ return x
 def load_weights(self, weights) -> set[str]:
 loader = AutoWeightsLoader(self)
 return loader.load_weights(weights, mapper=self.hf_to_vllm_mapper)
+```

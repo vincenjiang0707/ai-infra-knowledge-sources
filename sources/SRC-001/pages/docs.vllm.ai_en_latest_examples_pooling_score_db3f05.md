@@ -589,14 +589,19 @@ prediction to a sequence classification format for compatibility with standard
 classification and rerank pipelines.
 Usage examples:
 - For BAAI/bge-reranker-v2-gemma:
+```bash
 python convert_model_to_seq_cls.py --model_name BAAI/bge-reranker-v2-gemma \
 --classifier_from_tokens '["Yes"]' --method no_post_processing \
 --path ./bge-reranker-v2-gemma-seq-cls
+```
 - For mxbai-rerank-v2:
+```bash
 python convert_model_to_seq_cls.py --model_name mixedbread-ai/mxbai-rerank-base-v2 \
 --classifier_from_tokens '["0", "1"]' --method from_2_way_softmax \
 --path ./mxbai-rerank-base-v2-seq-cls
+```
 - For Qwen3-Reranker:
+```python
 python convert_model_to_seq_cls.py --model_name Qwen/Qwen3-Reranker-0.6B \
 --classifier_from_tokens '["no", "yes"]' --method from_2_way_softmax \
 --path ./Qwen3-Reranker-0.6B-seq-cls
@@ -615,6 +620,7 @@ seq_cls_model: The target sequence classification model
 tokenizer: Model tokenizer
 tokens: List of two tokens representing [false_token, true_token]
 device: Target device (cpu/cuda)
+```
 Reference: https://huggingface.co/Qwen/Qwen3-Reranker-0.6B/discussions/3
 """
 assert len(tokens) == 2, (
@@ -937,6 +943,7 @@ main()
 ## Score API Online[¶](https://docs.vllm.ai#score-api-online)
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """Example online usage of Score API.
 Run `vllm serve <model> --runner pooling` to start up the server in vLLM.
@@ -990,6 +997,7 @@ pprint.pprint(score_response.json())
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```
 
 
 ## Template - Bge-Reranker-V2-Gemma[¶](https://docs.vllm.ai#template-bge-reranker-v2-gemma)
@@ -1019,6 +1027,7 @@ passage:{{ (messages | selectattr("role", "eq", "document") | first).content }}
 
 ## Template - Nemotron-Vl-Rerank[¶](https://docs.vllm.ai#template-nemotron-vl-rerank)
 
+```bash
 {%- set query_msg = (messages | selectattr('role', 'equalto', 'query') | list | first) -%}
 {%- set doc_msg = (messages | selectattr('role', 'equalto', 'document') | list | first) -%}
 {%- set q = query_msg['content'] -%}
@@ -1031,6 +1040,7 @@ passage:{{ (messages | selectattr("role", "eq", "document") | first).content }}
 question:{{ q_clean }}{{ " " }}
 {{ " " }}
 {{ " " }}passage:{{ d_clean }}
+```
 
 
 ## Template - Qwen3 Reranker[¶](https://docs.vllm.ai#template-qwen3-reranker)
@@ -1265,6 +1275,7 @@ main()
 ## Vision Rerank API Online[¶](https://docs.vllm.ai#vision-rerank-api-online)
 
 # SPDX-License-Identifier: Apache-2.0
+```bash
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 # ruff: noqa: E501
 """Example Python client for multimodal rerank API which is compatible with
@@ -1374,6 +1385,7 @@ pprint.pprint(response.json())
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```
 
 
 ## Vision Reranker Offline[¶](https://docs.vllm.ai#vision-reranker-offline)
@@ -1538,6 +1550,7 @@ main(args)
 ## Vision Score API Online[¶](https://docs.vllm.ai#vision-score-api-online)
 
 # SPDX-License-Identifier: Apache-2.0
+```bash
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 # ruff: noqa: E501
 """Example online usage of Score API.
@@ -1664,3 +1677,4 @@ pprint.pprint(response.json())
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/passes/ir/lowering_pass/
 lastmod: 2026-09-27
 
+```python
 class VllmIRLoweringPass(VllmInductorPass):
 """This pass lowers vLLM IR ops to their implementations the priority list."""
 def __init__(self, vllm_config: VllmConfig) -> None:
@@ -83,7 +84,10 @@ f"{name}={','.join(p)}" for name, p in priorities.items()
 )
 impl_uuids_str = ";".join(
 f"{name}="
+```
 + ",".join(IrOp.registry[name].impls[provider].uuid() for provider in p)
+```python
 for name, p in priorities.items()
 )
 return f"{super().uuid()}|{priorities_str}|{impl_uuids_str}"
+```

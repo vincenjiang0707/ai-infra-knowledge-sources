@@ -31,8 +31,10 @@ ov_status_e The return status code.
 
 
 -
+```rust
 struct ov_shape_t
 [#](https://docs.openvino.ai#_CPPv410ov_shape_t) *#include <ov_shape.h>*Reprents a static shape.
+```
 
 
 -

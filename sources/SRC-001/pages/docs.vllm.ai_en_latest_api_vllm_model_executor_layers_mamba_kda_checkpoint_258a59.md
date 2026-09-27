@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/kda_checkpoint/
 lastmod: 2026-09-27
 
+```python
 @dataclass(frozen=True)
 class FlashKDAPrefillCheckpointExporter(MambaPrefillCheckpointExporter):
 """Store FlashKDA recurrent and convolution checkpoint states."""
@@ -48,3 +49,4 @@ recurrent_row_size,
 NULL_BLOCK_ID,
 block_size,
 )
+```

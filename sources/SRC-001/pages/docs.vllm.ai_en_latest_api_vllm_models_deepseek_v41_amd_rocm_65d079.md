@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/amd/rocm/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV41ROCMAiterMLAAttention(DeepseekV4Attention):
 """ROCm sparse MLA attention layer for DeepSeek V4.1."""
 backend_cls = DeepseekV4ROCMAiterMLASparseBackend
@@ -551,3 +552,4 @@ torch.bfloat16,
 )
 )
 return shapes
+```

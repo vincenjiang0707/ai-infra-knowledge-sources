@@ -91,6 +91,7 @@ Looking at the code of HF's `LlavaForConditionalGeneration`
 ## Code
 
 # https://github.com/huggingface/transformers/blob/v4.47.1/src/transformers/models/llava/modeling_llava.py#L530-L544
+```python
 n_image_tokens = (input_ids == self.config.image_token_index).sum().item()
 n_image_features = image_features.shape[0] * image_features.shape[1]
 if n_image_tokens != n_image_features:
@@ -105,6 +106,7 @@ special_image_mask = (
 )
 image_features = image_features.to(inputs_embeds.device, inputs_embeds.dtype)
 inputs_embeds = inputs_embeds.masked_scatter(special_image_mask, image_features)
+```
 
 
 The number of placeholder feature tokens per image is `image_features.shape[1]`
@@ -118,6 +120,7 @@ method:
 ## Code
 
 # https://github.com/huggingface/transformers/blob/v4.47.1/src/transformers/models/llava/modeling_llava.py#L290-L300
+```python
 image_outputs = self.vision_tower(pixel_values, output_hidden_states=True)
 selected_image_feature = image_outputs.hidden_states[vision_feature_layer]
 if vision_feature_select_strategy == "default":
@@ -128,6 +131,7 @@ else:
 raise ValueError(f"Unexpected select feature strategy: {self.config.vision_feature_select_strategy}")
 image_features = self.multi_modal_projector(selected_image_feature)
 return image_features
+```
 
 
 We can infer that `image_features.shape[1]`
@@ -160,6 +164,7 @@ To find the sequence length, we turn to the code of `CLIPVisionEmbeddings`
 ## Code
 
 # https://github.com/huggingface/transformers/blob/v4.47.1/src/transformers/models/clip/modeling_clip.py#L247-L257
+```python
 target_dtype = self.patch_embedding.weight.dtype
 patch_embeds = self.patch_embedding(pixel_values.to(dtype=target_dtype)) # shape = [*, width, grid, grid]
 patch_embeds = patch_embeds.flatten(2).transpose(1, 2)
@@ -170,6 +175,7 @@ embeddings = embeddings + self.interpolate_pos_encoding(embeddings, height, widt
 else:
 embeddings = embeddings + self.position_embedding(self.position_ids)
 return embeddings
+```
 
 
 We can infer that `embeddings.shape[1] == self.num_positions`
@@ -177,14 +183,17 @@ We can infer that `embeddings.shape[1] == self.num_positions`
 , where
 
 # https://github.com/huggingface/transformers/blob/v4.47.1/src/transformers/models/clip/modeling_clip.py#L195-L196
+```bash
 self.num_patches = (self.image_size // self.patch_size) ** 2
 self.num_positions = self.num_patches + 1
+```
 
 
 Overall, the number of placeholder feature tokens for an image can be calculated as:
 
 ## Code
 
+```python
 def get_num_image_tokens(
 self,
 *,
@@ -199,6 +208,7 @@ num_image_tokens = (image_size // patch_size) ** 2 + 1
 if hf_processor.vision_feature_select_strategy == "default":
 num_image_tokens -= 1
 return num_image_tokens
+```
 
 
 Notice that the number of image tokens doesn't depend on the image width and height. We can simply use a dummy `image_size`
@@ -247,6 +257,7 @@ PaliGemma resizes every image to a square of `vision_config.image_size`
 ## Code
 
 # vllm/model_executor/models/siglip.py
+```python
 class SiglipEncoderInfo(VisionEncoderInfo[SiglipVisionConfig]):
 def get_num_image_tokens(
 self,
@@ -258,12 +269,14 @@ return self.get_patch_grid_length() ** 2
 def get_patch_grid_length(self) -> int:
 image_size, patch_size = self.get_image_size(), self.get_patch_size()
 return image_size // patch_size
+```
 
 
 Since the number of image tokens doesn't depend on the input image dimensions, we can simply use a dummy image of the model's expected input size for the multimodal profiling data:
 
 ## Code
 
+```python
 def get_dummy_mm_data(
 self,
 seq_len: int,
@@ -283,6 +296,7 @@ num_images=num_images,
 overrides=image_overrides,
 )
 }
+```
 
 
 ## 4. Specify processing details[¶](https://docs.vllm.ai#4-specify-processing-details)
@@ -300,16 +314,19 @@ is a simple tensor with shape `(num_images, num_channels, image_height, image_wi
 :
 
 # https://github.com/huggingface/transformers/blob/v4.47.1/src/transformers/models/clip/image_processing_clip.py#L339-L345
+```python
 images = [
 to_channel_dimension_format(image, data_format, input_channel_dim=input_data_format)
 for image in all_images
 ]
 data = {"pixel_values": images}
 return BatchFeature(data=data, tensor_type=return_tensors)
+```
 
 
 So, we override [_get_mm_fields_config](https://docs.vllm.ai/api/vllm/multimodal/processing/#vllm.multimodal.processing.BaseMultiModalProcessor._get_mm_fields_config) as follows:
 
+```python
 def _get_mm_fields_config(
 self,
 hf_inputs: BatchFeature,
@@ -318,6 +335,7 @@ hf_processor_mm_kwargs: Mapping[str, object],
 return dict(
 pixel_values=MultiModalFieldConfig.batched("image"),
 )
+```
 
 
 Note
@@ -334,6 +352,7 @@ To use [MultiModalFieldConfig.batched](https://docs.vllm.ai/api/vllm/multimodal/
 
 ## Code
 
+```python
 def _get_hf_mm_text(self, mm_counts: Mapping[str, int]) -> str:
 # Mistral3Processor requires text corresponding to the images
 return self.dummy_inputs.get_dummy_text(mm_counts)
@@ -355,6 +374,7 @@ processed_data["pixel_values"] = [
 p[:, :h, :w] for p, (h, w) in zip(pixel_values, image_sizes)
 ]
 return processed_data
+```
 
 
 The default implementation of [_apply_hf_processor_main](https://docs.vllm.ai/api/vllm/multimodal/processing/#vllm.multimodal.processing.BaseMultiModalProcessor._apply_hf_processor_main) calls the HF processor on the multi-modal data without passing any text. If the HF processor instead requires text corresponding to the multi-modal items, you should override [_get_hf_mm_text](https://docs.vllm.ai/api/vllm/multimodal/processing/#vllm.multimodal.processing.BaseMultiModalProcessor._get_hf_mm_text) to return the dummy text from [BaseDummyInputsBuilder.get_dummy_text](https://docs.vllm.ai/api/vllm/multimodal/processing/#vllm.multimodal.processing.BaseDummyInputsBuilder.get_dummy_text) like in the example above. If the HF processor expects the multi-modal data under different keys than those provided by the multi-modal items, or requires additional keyword arguments (e.g. `sampling_rate`
@@ -369,6 +389,7 @@ Since `pixel_values`
 
 is now a list with one tensor per image, we can override [_get_mm_fields_config](https://docs.vllm.ai/api/vllm/multimodal/processing/#vllm.multimodal.processing.BaseMultiModalProcessor._get_mm_fields_config) as follows:
 
+```python
 def _get_mm_fields_config(
 self,
 hf_inputs: BatchFeature,
@@ -378,6 +399,7 @@ return dict(
 pixel_values=MultiModalFieldConfig.batched("image"),
 image_embeds=MultiModalFieldConfig.batched("image"),
 )
+```
 
 
 Note
@@ -401,10 +423,12 @@ Looking at HF's `LlavaProcessor`
 :
 
 # https://github.com/huggingface/transformers/blob/v4.47.1/src/transformers/models/llava/processing_llava.py#L167-L170
+```python
 prompt_strings = []
 for sample in text:
 sample = sample.replace(self.image_token, self.image_token * num_image_tokens)
 prompt_strings.append(sample)
+```
 
 
 It simply repeats each input `image_token`
@@ -415,6 +439,7 @@ a number of times equal to the number of placeholder feature tokens (`num_image_
 
 ## Code
 
+```python
 def _get_prompt_updates(
 self,
 mm_items: MultiModalDataItems,
@@ -438,6 +463,7 @@ target=[image_token_id],
 replacement=get_replacement,
 ),
 ]
+```
 
 
 PaliGemma's HF processor inserts, after the prompt's leading `<bos>`
@@ -448,6 +474,7 @@ token that marks the start of the text prompt. We start by building the run of i
 
 ## Code
 
+```python
 def get_insertion(item_idx: int):
 images = mm_items.get_items(
 "image", (ImageEmbeddingItems, ImageProcessorItems)
@@ -461,6 +488,7 @@ image_width=image_size.width,
 image_height=image_size.height,
 )
 image_tokens = [image_token_id] * num_image_tokens
+```
 ...
 
 
@@ -478,6 +506,7 @@ Putting it together, we override [_get_prompt_updates](https://docs.vllm.ai/api/
 
 ## Code
 
+```python
 def _get_prompt_updates(
 self,
 mm_items: MultiModalDataItems,
@@ -515,6 +544,7 @@ target=PromptIndexTargets.prefix(
 insertion=get_insertion,
 )
 ]
+```
 
 
 ## 5. Register processor-related classes[¶](https://docs.vllm.ai#5-register-processor-related-classes)

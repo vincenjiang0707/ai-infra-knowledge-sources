@@ -21,9 +21,11 @@ selects one backend for all quantized linear layers. For mixed-precision models 
 
 to override the backend for individual schemes:
 
+```json
 vllm serve <model> \
 --linear-backend cutlass \
 --kernel-config '{"linear_backend_per_quant":{"nvfp4_w4a16":"humming"}}'
+```
 
 
 Here, NVFP4 W4A16 linear layers use Humming, while all other quantized linear layers use CUTLASS. Per-quantization overrides take precedence over `--linear-backend`
@@ -78,6 +80,7 @@ To register a custom quantization method, create a class that inherits from [ Qu
 
 . The `get_quant_method`
 
+```python
 dispatches to the appropriate quantize method based on the layer type:import torch
 from vllm.model_executor.layers.quantization import (
 register_quantization_config,
@@ -117,6 +120,7 @@ return MyQuantLinearMethod()
 elif isinstance(layer, FusedMoE):
 return MyQuantMoEMethod(layer.moe_config)
 return None
+```
 
 
 ### Required QuantizationConfig Methods[¶](https://docs.vllm.ai#required-quantizationconfig-methods)
@@ -142,6 +146,7 @@ For linear layers, return a [ QuantizeMethodBase](https://docs.vllm.ai/api/vllm/
 
 `UnquantizedLinearMethod`
 
+```python
 from vllm.model_executor.layers.linear import UnquantizedLinearMethod
 class MyQuantLinearMethod(UnquantizedLinearMethod):
 """Custom quantization method for linear layers."""
@@ -157,6 +162,7 @@ x: torch.Tensor,
 bias: torch.Tensor | None = None,
 ) -> torch.Tensor:
 # Apply custom quantization logic here
+```
 ...
 
 
@@ -168,6 +174,7 @@ subclass from `get_quant_method`
 
 . You can use [ UnquantizedFusedMoEMethod](https://docs.vllm.ai/api/vllm/model_executor/layers/fused_moe/unquantized_fused_moe_method/#vllm.model_executor.layers.fused_moe.unquantized_fused_moe_method.UnquantizedFusedMoEMethod) to skip MoE quantization:
 
+```python
 from vllm.model_executor.layers.fused_moe.layer import UnquantizedFusedMoEMethod
 from vllm.model_executor.layers.fused_moe.fused_moe_method_base import (
 FusedMoEMethodBase,
@@ -199,6 +206,7 @@ def get_fused_moe_quant_config(
 self, layer: torch.nn.Module
 ) -> FusedMoEQuantConfig | None:
 # Return the MoE quantization configuration
+```
 ...
 
 
@@ -211,10 +219,12 @@ for reference.### Using the Plugin[¶](https://docs.vllm.ai#using-the-plugin)
 Once registered, you can use your custom quantization method with vLLM:
 
 # Register your quantization method (import the module containing your config)
+```python
 import my_quant_plugin
 from vllm import LLM
 # Use the custom quantization method
 llm = LLM(model="your-model", quantization="my_quant")
+```
 
 
 For more information on the plugin system, see the [Plugin System documentation](https://docs.vllm.ai/design/plugin_system/).

@@ -130,8 +130,10 @@ I have the same feeling too that download is not happening.
 
 yes, the download is not working. Can you please try this to download from an alternate source?
 ```
+```bash
 cm rm cache --tags=get,ml-model,bert-large,_pytorch
 cm run script --tags=get,ml-model,bert-large,_pytorch,_zenodo -j
+```
 ```
 
 ### willamloo3192 · 2024-02-29
@@ -1934,6 +1936,7 @@ Mean latency (ns)               : 1970115780
 ================================================
 Test Parameters Used
 ================================================
+```yaml
 samples_per_query : 10
 target_qps : 1
 target_latency (ns): 0
@@ -1953,6 +1956,7 @@ performance_issue_unique : 0
 performance_issue_same : 0
 performance_issue_same_index : 0
 performance_sample_count : 10833
+```
 
 No warnings encountered during test.
 

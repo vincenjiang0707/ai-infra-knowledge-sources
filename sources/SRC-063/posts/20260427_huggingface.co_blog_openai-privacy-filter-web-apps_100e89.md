@@ -60,6 +60,7 @@ Try it at [ysharma/OPF-Document-PII-Explorer](https://huggingface.co/spaces/ysha
 
 and a sidebar, and it would work. The reading experience we wanted (serif body, category filters that toggle CSS classes client-side instead of re-running the model, a summary dashboard that doesn't force a page re-render) was easier to hand-author than to compose. `gr.Server`
 
+```python
 lets us serve the reader view as a single HTML file and expose the model behind one queued endpoint:```
 import gradio as gr
 from fastapi.responses import HTMLResponse
@@ -78,6 +79,7 @@ return {
 "stats": compute_stats(source_text, spans),
 }
 ```
+```
 
 
 Note the decorator: `@server.api(name="analyze_document")`
@@ -92,12 +94,14 @@ with no duplicated code. The browser calls it with the Gradio JS client:
 
 ```
 <script type="module">
+```python
 import { Client, handle_file } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
 const client = await Client.connect(window.location.origin);
 async function uploadFile(file) {
 const result = await client.predict("/analyze_document", { file: handle_file(file) });
 renderResults(result.data[0]); // { text, spans, stats }
 }
+```
 </script>
 ```
 

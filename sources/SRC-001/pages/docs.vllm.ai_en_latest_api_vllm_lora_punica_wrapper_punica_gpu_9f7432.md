@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/punica_wrapper/punica_gpu/
 lastmod: 2026-09-27
 
+```python
 @final
 class PunicaWrapperGPU(PunicaWrapperBase):
 """PunicaWrapperGPU is designed to manage and provide metadata for the punica
@@ -171,6 +172,7 @@ y[i] += (
 x[i].unsqueeze(0)
 @ lora_a_stacked[indices[i], layer_idx, :, :]
 @ lora_b_stacked[indices[i], layer_idx, :, :]
+```
 * scale
 ).squeeze(0)
 Args:

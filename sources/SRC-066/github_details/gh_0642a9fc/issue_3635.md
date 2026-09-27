@@ -77,9 +77,11 @@ Should be able to compile with static library link? Or is it an intended breakin
 
 **Environment details (please complete the following information):**
 
+```yaml
 nvidia-cutlass-dsl: 4.7.1
 nvidia-cutlass-dsl-libs-cu13: 4.7.1
 apache-tvm-ffi: 0.1.13.post3
+```
 
 **Additional context**
 Add any other context about the problem here.

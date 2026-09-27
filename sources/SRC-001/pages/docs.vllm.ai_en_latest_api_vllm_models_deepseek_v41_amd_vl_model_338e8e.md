@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/amd/vl_model/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 DeepseekV4VLMultiModalProcessor,
 info=DeepseekV4VLProcessingInfo,
@@ -211,3 +212,4 @@ def process_weights_after_loading(self) -> None:
 if getattr(self, "_weights_finalized", False):
 return
 self.language_model.process_weights_after_loading()
+```

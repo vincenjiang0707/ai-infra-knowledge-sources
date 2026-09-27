@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::internal::GenerateProposalsIEInternal[#](https://docs.openvino.ai#class-ov-op-internal-generateproposalsieinternal)
 
 -
+```python
 class GenerateProposalsIEInternal : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[v9](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op2v9E)::[GenerateProposals](https://docs.openvino.ai/classov_1_1op_1_1v9_1_1_generate_proposals.html#_CPPv4N2ov2op2v917GenerateProposalsE)[#](https://docs.openvino.ai#_CPPv4N2ov2op8internal27GenerateProposalsIEInternalE) Public Functions
+```
 
 -
 virtual void validate_and_infer_types() override

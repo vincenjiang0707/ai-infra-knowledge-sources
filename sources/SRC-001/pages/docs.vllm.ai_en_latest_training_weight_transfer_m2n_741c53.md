@@ -68,12 +68,14 @@ Correctness never depends on a parameter resolving. The engine logs how many par
 
 ## Configuration[¶](https://docs.vllm.ai#configuration)
 
+```python
 from vllm import LLM
 from vllm.config import WeightTransferConfig
 llm = LLM(
 model="my-model",
 weight_transfer_config=WeightTransferConfig(backend="nccl_m2n"),
 )
+```
 
 
 ## Trainer Side[¶](https://docs.vllm.ai#trainer-side)

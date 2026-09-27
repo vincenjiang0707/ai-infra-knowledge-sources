@@ -1047,10 +1047,12 @@ nsys [global-options] import [options] <input-file>
 For example:
 
 ```
+```bash
 nsys import report.qdstrm
 nsys import --input-file report.qdstrm
 nsys import --input-file report.qdstrm --output-file report.nsys-rep
 nsys import --input-file report.qdstrm --output-file report.nsys-rep --force-overwrite=true
+```
 ```
 
 If `--output-file`
@@ -2049,8 +2051,10 @@ Effect: Launch the application using the legacy software-instrumented CUDA trace
 **Delayed start run**
 
 ```
+```bash
 nsys profile -e TEST_ONLY=0 -y 20
 <application> [application-arguments]
+```
 ```
 
 Effect: Set environment variable TEST_ONLY=0. Launch the application using the given arguments. Start collecting after 20 seconds and end collection at application exit. Trace CUDA, OpenGL, NVTX, and OS runtime libraries APIs. Collect CPU sampling and thread schedule information. Profile any child processes. Generate the report#.nsys-rep file in the default location, incrementing if needed to avoid overwriting any existing output files.
@@ -2110,8 +2114,10 @@ The separator ‘@’ can be escaped with backslash ‘\’. If multiple separat
 **Collect ftrace events**
 
 ```
+```bash
 nsys profile --ftrace=drm/drm_vblank_event
 -d 20
+```
 ```
 
 Effect: Collect ftrace `drm_vblank_event`
@@ -2128,8 +2134,10 @@ sudo cat /sys/kernel/debug/tracing/available_events
 **Run GPU metric sampling on one TU10x**
 
 ```
+```bash
 nsys profile --gpu-metrics-devices=0
 --gpu-metrics-set=tu10x-gfxt <application>
+```
 ```
 
 Effect: Launch application. Collect default options and GPU metrics for the
@@ -2143,8 +2151,10 @@ existing output files.
 **Run GPU metric sampling on all GPUs at a set frequency**
 
 ```
+```bash
 nsys profile --gpu-metrics-devices=all
 --gpu-metrics-frequency=20000 <application>
+```
 ```
 
 Effect: Launch application. Collect default options and GPU metrics for all available GPUs using the first suitable metric set for each and sampling at 20 kHz. Profile any child processes. Generate the report#.nsys-rep file in the default location, incrementing if needed to avoid overwriting any existing output files.
@@ -2174,9 +2184,11 @@ Effect: Lists the CPU core/uncore events, derived metrics, and CPU core single-p
 **Collect system-wide CPU events and metrics, and trace application**
 
 ```
+```bash
 nsys profile --event-sample=system-wide
 --cpu-metrics=ITLB_WALK,DTLB_WALK,ipc,PCIe/RD_BYTES_LOC
 --event-sampling-interval=5 <app> [app args]
+```
 ```
 
 Effect: Collects CPU IP/backtrace samples using the default backtrace mechanism, traces CPU context switch activity, collects CPU core events: ITLB_WALK, DTLB_WALK, CPU core metrics: ipc, and CPU uncore events: PCIe/RD_BYTES_LOC every 5 ms for the whole system. Note that it requires root permission or a Linux paranoid level of 0 or less to run. Note that CUDA, NVTX, OpenGL, and OSRT within the app launched by Nsight Systems are traced by default while using this command. Post processing of this collection will take longer due to the large number of symbols to be resolved caused by system-wide sampling.
@@ -2276,9 +2288,11 @@ EVENT_TRACE_FLAG_VIRTUAL_ALLOC
 **Typical case: profile a Python script that uses CUDA**
 
 ```
+```bash
 nsys profile --trace=cuda,cudnn,cublas,osrt,nvtx
 --cudabacktrace=all --python-backtrace=cuda --python-sampling=true
 --delay=60 python my_dnn_script.py
+```
 ```
 
 Effect: Launch a Python script and start profiling it 60 seconds after the launch, tracing CUDA, cuDNN, cuBLAS, OS runtime APIs, and NVTX as well as collecting CPU IP and Python call stack samples and thread scheduling information. CUDA and Python call stacks are also collected on CUDA API calls.
@@ -2286,9 +2300,11 @@ Effect: Launch a Python script and start profiling it 60 seconds after the launc
 **Typical case: profile a Python script that uses PyTorch and CUDA**
 
 ```
+```bash
 nsys profile --trace=cuda,cudnn,cublas,osrt,nvtx --pytorch=functions-trace-shapes,autograd-nvtx
 --cudabacktrace=all --python-backtrace=cuda --python-sampling=true
 --delay=60 python my_torch_script.py
+```
 ```
 
 Effect: Launch a Python script and start profiling it 60 seconds after the
@@ -2302,8 +2318,10 @@ CUDA and Python call stacks are also collected on CUDA API calls.
 **Typical case: profile an app that uses Vulkan**
 
 ```
+```bash
 nsys profile --trace=vulkan,osrt,nvtx
 --delay=60 ./myapp
+```
 ```
 
 Effect: Launch an app and start profiling it 60 seconds after the launch, tracing Vulkan, OS runtime APIs, and NVTX as well as collecting CPU sampling and thread schedule information.
@@ -2340,9 +2358,11 @@ If you launch an application and that application and any descendants exit befor
 **Run application, name the session, keep only the last seconds**
 
 ```
+```bash
 nsys start --session-new=mysession
 nsys launch --session=mysession myapp [application-arguments]
 nsys stop --session=mysession --keep=3
+```
 ```
 
 Effect: Create named interactive CLI process and launch your app with default collection options. Manually stop that session and keep only the last three seconds of data.
@@ -2523,8 +2543,10 @@ nsys finalize --id <uuid-from-list>
 To discard deferred collections without generating reports:
 
 ```
+```bash
 nsys finalize --discard=all
 nsys finalize --discard=<uuid>
+```
 ```
 
 ### Example Stats Command Sequences[#](https://docs.nvidia.com#example-stats-command-sequences)
@@ -2651,8 +2673,10 @@ To trace a DX11 or DX12 target application, it must gain the system focus, the u
 For example, to trace multiple DX12 applications with PIX markers and GPU workload trace, as well as WDDM events for the next 20 seconds, run the command:
 
 ```
+```bash
 nsys profile --trace=dx12-annotations,wddm --dx12-gpu-workload=individual
 --duration=20
+```
 ```
 
 Then click each of the target applications’ windows to give them focus.
@@ -2864,6 +2888,7 @@ Here is an example of using Nsight Systems to selectively profile GPUs in a mult
 
 ```
 $ cat run.py
+```python
 import subprocess
 import sys
 import os local_rank = int(os.environ["LOCAL_RANK"])
@@ -2878,6 +2903,7 @@ command = "python " + args_string
 #Run the command
 subprocess.run(command, shell=True)
 $ torchrun --nnodes=1 --nproc-per-node=8 run.py target_python_script.py
+```
 ```
 
 #### GPU and NIC metrics collection[#](https://docs.nvidia.com#gpu-and-nic-metrics-collection)
@@ -2903,10 +2929,12 @@ fi
 This above script will collect NIC and GPU metrics only for one rank, the node-local rank 0. Alternatively, if one rank per GPU is used, the GPU metrics devices can be specified based on the node-local rank in a wrapper script as follows:
 
 ```
+```json
 #!/bin/bash
 # Use $SLURM_LOCALID with srun.
 nsys profile -e CUDA_VISIBLE_DEVICES=${OMPI_COMM_WORLD_LOCAL_RANK} \
 --gpu-metrics-devices=${OMPI_COMM_WORLD_LOCAL_RANK} "$@"
+```
 ```
 
 ## Profiling from the GUI[#](https://docs.nvidia.com#profiling-from-the-gui)
@@ -2962,8 +2990,10 @@ open for listening. You can confirm that these ports are open with the following
 command:
 
 ```
+```bash
 sudo firewall-cmd --list-ports --permanent
 sudo firewall-cmd --reload
+```
 ```
 
 To open a port use the following command, skip `--permanent`
@@ -2971,8 +3001,10 @@ To open a port use the following command, skip `--permanent`
 option to open only for this session:
 
 ```
+```bash
 sudo firewall-cmd --permanent --add-port 45555/tcp
 sudo firewall-cmd --reload
+```
 ```
 
 Likewise, if you are running on a cloud system, you must open port 22 and port 45555 for ingress.
@@ -3555,6 +3587,7 @@ flag accepts
 by absolute path so nothing in the image environment is modified:
 
 ```
+```bash
 srun \
 --container-image=nvcr.io#nvidia/pytorch:<tag> \
 --container-mounts=/opt/nvidia/nsight-systems/2026.2.1:/opt/nvidia/nsight-systems/2026.2.1:ro \
@@ -3562,6 +3595,7 @@ srun \
 -t cuda,nvtx,mpi \
 -o /reports/run_%q{SLURM_PROCID}_%p \
 python train.py
+```
 ```
 
 Key points:
@@ -3704,6 +3738,7 @@ and other environment variables are preserved.
 Docker / Podman flags on the launch command:
 
 ```
+```bash
 docker run --rm --gpus all \
 --cap-add=SYS_ADMIN \
 -v /opt/nvidia/nsight-systems/2026.2.1:/opt/nvidia/nsight-systems/2026.2.1:ro \
@@ -3712,6 +3747,7 @@ my-workload:latest \
 -t cuda,nvtx,mpi \
 -o /reports/run_%p \
 python train.py
+```
 ```
 
 Or in the OCI runtime `config.json`
@@ -3800,11 +3836,13 @@ runs outside the profiler and `nsys profile`
 wraps the per-rank program:
 
 ```
+```bash
 srun [srun args] \
 --container-image=... --container-mounts=... \
 /opt/nvidia/nsight-systems/2026.2.1/bin/nsys profile -t cuda,nvtx,mpi \
 -o /reports/run_%q{SLURM_PROCID}_%p \
 ./myapp [app args]
+```
 ```
 
 Use `%q{SLURM_PROCID}`
@@ -3858,11 +3896,13 @@ fi
 Launch:
 
 ```
+```bash
 srun --container-image=... \
 --container-mounts=/opt/nvidia/nsight-systems/2026.2.1:/opt/nvidia/nsight-systems/2026.2.1:ro,/scratch/$USER/reports:/reports:rw \
 --export=ALL,NSYS_PATH=/opt/nvidia/nsight-systems/2026.2.1/bin \
 --container-env=NSYS_PATH \
 ./nsys_profile.sh python train.py
+```
 ```
 
 Note
@@ -3893,9 +3933,11 @@ fi
 Or one rank per GPU, with metrics scoped to that GPU:
 
 ```
+```json
 #!/bin/bash
 nsys profile -e CUDA_VISIBLE_DEVICES=${SLURM_LOCALID} \
 --gpu-metrics-devices=${SLURM_LOCALID} "$@"
+```
 ```
 
 #### Troubleshooting checklist[#](https://docs.nvidia.com#troubleshooting-checklist)
@@ -5809,8 +5851,10 @@ The NVTX C++ header is available in the `<target-platform-folder>/nvtx/include`
 directory of the Nsight Systems installation.
 
 ```
+```bash
 export NSYS_NVTX_PATH=<nsys_install_dir>/<target-platform-folder>/nvtx
 g++ -o example example.cpp -I${NSYS_NVTX_PATH}/include
+```
 ```
 
 Using the NVTX C API, the following example creates the same function and loop ranges.
@@ -6945,10 +6989,12 @@ command. For example, to disable the default source
 file and line collection:
 
 ```
+```bash
 ./nsys profile --show-source-info=false --backtrace=dwarf --trace=cuda,osrt,nvtx \
 --stats=true --cuda-memory-usage=true --export sqlite \
 --cuda-um-cpu-page-faults=true --force-overwrite=true \
 -o myReport /path/to/myApp
+```
 ```
 
 For an interactive session, set this option on `nsys start`
@@ -7177,8 +7223,10 @@ during a single profiling session by
 placing them in separate, multiplexed event groups:
 
 ```
+```bash
 nsys profile --event-sample=system-wide \
 --cpu-metrics=Topdown_L1%Frontend_Backend -- sleep 10
+```
 ```
 
 The `%`
@@ -7451,8 +7499,10 @@ following [link](https://download.nvidia.com/XFree86/Linux-x86_64/550.142/README
 To turn off GSP permanently:
 
 ```
+```bash
 sudo su -c 'echo options nvidia NVreg_EnableGpuFirmware=0 > /etc/modprobe.d/nvidia-gsp.conf'
 sudo update-initramfs -u # for Ubuntu-based systems
+```
 ```
 
 Then reboot.
@@ -7460,9 +7510,11 @@ Then reboot.
 Alternatively if you do not wish to reboot, this will disable until the next reboot:
 
 ```
+```bash
 sudo rmmod nvidia_uvm nvidia_drm nvidia_modeset nvidia && \
 sudo insmod /lib/modules/$(uname -r)/updates/dkms/nvidia.ko NVreg_EnableGpuFirmware=0
 for i in $(seq 0 7); do sudo nvidia-smi -i $i -pm ENABLED; done
+```
 ```
 
 #### Running from the CLI[#](https://docs.nvidia.com#running-from-the-cli)
@@ -8752,6 +8804,7 @@ Create the same account with the same password on every switch listed in the con
 Create a JSON file on the profiling target that identifies the switches and the account that DTS uses to access them. The top-level value must be an object containing exactly the four fields shown in the following example:
 
 ```
+```json
 {
 "version": 0.01,
 "switch_ip_addresses": [
@@ -8761,6 +8814,7 @@ Create a JSON file on the profiling target that identifies the switches and the 
 "switch_user_name": "nsys-hft",
 "switch_user_password": "<switch-account-password>"
 }
+```
 ```
 
 Field |
@@ -8804,10 +8858,12 @@ listening on that port and pass the port to the profiling command with `--dts-ap
 For example, collect switch metrics:
 
 ```
+```bash
 nsys profile \
 --eth-switch-metrics-config=/secure/path/spectrum-x-switches.json \
 --dts-api-port=9120 \
 ./<application>
+```
 ```
 
 The default port does not need to be specified. The switch options can also be used with
@@ -11466,9 +11522,11 @@ on a system where the Nsight Systems CLI is installed. For
 example:
 
 ```
+```bash
 nsys import --input-file report.qdstrm
 nsys import --input-file report.qdstrm --output-file report.nsys-rep
 nsys import --input-file report.qdstrm --output-file report.nsys-rep --force-overwrite
+```
 ```
 
 For the complete command reference, see [CLI Import Command Switch Options](https://docs.nvidia.com#cli-import-command-switch-options).

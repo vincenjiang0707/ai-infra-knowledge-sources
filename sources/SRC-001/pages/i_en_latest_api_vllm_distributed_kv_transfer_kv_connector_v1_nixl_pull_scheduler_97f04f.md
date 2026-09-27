@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/nixl/pull_scheduler/
 lastmod: 2026-09-27
 
+```python
 class NixlPullConnectorScheduler(NixlBaseConnectorScheduler):
 """Pull-specific scheduler logic (READ-based KV transfer)."""
 def __init__(
@@ -20,6 +21,7 @@ request (Request): the request object.
 num_computed_tokens (int): the number of locally
 computed tokens for this request
 Returns:
+```
 * the number of tokens that can be loaded from the
 external KV cache beyond what is already computed.
 * true if the external KV cache tokens will be loaded

@@ -6,8 +6,10 @@ Fully qualified name: `CUPTI::PcSamplingUtil::CUptiUtil_GetHeaderDataParams`
 
 
 -
+```rust
 struct CUptiUtil_GetHeaderDataParams
 [#](https://docs.nvidia.com#_CPPv4N5CUPTI14PcSamplingUtil29CUptiUtil_GetHeaderDataParamsE) Params for
+```
 
 [CuptiUtilGetHeaderData](https://docs.nvidia.com/group__CUPTI__PCSAMPLING__UTILITY.html#group__cupti__pcsampling__utility_1ga873b630c7ec1a2ada140d2f03b6934c4).Public Members
 

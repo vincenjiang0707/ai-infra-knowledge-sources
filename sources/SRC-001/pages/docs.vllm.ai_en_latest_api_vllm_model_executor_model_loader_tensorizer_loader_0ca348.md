@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/model_loader/tensorizer_loader/
 lastmod: 2026-09-27
 
+```python
 class TensorizerLoader(BaseModelLoader):
 """Model loader using CoreWeave's tensorizer library."""
 def __init__(self, load_config: LoadConfig):
@@ -96,3 +97,4 @@ model=model,
 tensorizer_config=tensorizer_config,
 model_config=model_config,
 )
+```

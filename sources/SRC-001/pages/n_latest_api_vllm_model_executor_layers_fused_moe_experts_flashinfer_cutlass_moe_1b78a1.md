@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/flashinfer_cutlass_moe/
 lastmod: 2026-09-27
 
+```python
 class FlashInferExperts(mk.FusedMoEExpertsModular):
 def process_weights_after_loading(self, layer: torch.nn.Module) -> None:
 if self.quant_config.use_nvfp4_w4a4:
@@ -149,6 +150,7 @@ and activation in the fused expert function. Since the gemms are
 independent, the workspace for the first gemm can be shared with the
 workspace for the last gemm.
 Returns a tuple of:
+```
 - workspace13 shape tuple: must be large enough to hold the
 result of either expert gemm.
 - workspace2 shape tuple: must be large enough to hold the

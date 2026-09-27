@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/online/base/
 lastmod: 2026-09-27
 
+```python
 class OnlineQuantizationConfig(QuantizationConfig):
 """Model-level config for online quantization (quantize fp16/bf16 weights
 during model loading, without requiring a pre-quantized checkpoint)."""
@@ -233,3 +234,4 @@ return UnquantizedLinearMethod()
 if isinstance(layer, RoutedExperts):
 return UnquantizedFusedMoEMethod(layer.moe_config)
 return None
+```

@@ -1,15 +1,18 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/attention/attention/
 lastmod: 2026-09-27
 
+```python
 class Attention(nn.Module, AttentionLayerBase):
 """Attention layer.
 This class takes query, key, and value tensors as input. The input tensors
 can either contain prompt tokens or generation tokens.
 The class does the following:
+```
 1. Store the input key and value tensors in the KV cache.
 2. Perform (multi-head/multi-query/grouped-query) attention.
 3. Return the output tensor.
 """
+```python
 def __init__(
 self,
 num_heads: int,
@@ -418,3 +421,4 @@ head_size_v=self.head_size_v,
 dtype=self.kv_cache_torch_dtype,
 kv_quant_mode=quant_mode,
 )
+```

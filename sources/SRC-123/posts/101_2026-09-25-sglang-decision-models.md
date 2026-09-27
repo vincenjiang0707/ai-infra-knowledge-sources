@@ -627,6 +627,7 @@ and per-request `samples.jsonl`
 
 `latency_ms_by_candidate_count`
 
+```python
 from the concurrency-1 closed-loop run```
 import json
 import os
@@ -640,6 +641,7 @@ path.parent.name,
 "errors=", result["num_errors"],
 "workers=", result["num_workers"],
 )
+```
 ```
 
 

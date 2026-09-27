@@ -6,8 +6,10 @@ labels:
 
 ## 正文
 
+```
 when I run Qwen3-Next-80B-A3B-Instruct ,  got error below 
 [2025-09-13 05:28:15 TP4] Scheduler hit an exception: Traceback (most recent call last):
+```
   File "/workspace/sglang/python/sglang/srt/managers/scheduler.py", line 2615, in run_scheduler_process
     scheduler = Scheduler(
                 ^^^^^^^^^^

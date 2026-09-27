@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::UnaryElementwiseArithmetic[#](https://docs.openvino.ai#class-ov-op-util-unaryelementwisearithmetic)
 
 -
+```python
 class UnaryElementwiseArithmetic : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE) Abstract base class for elementwise unary arithmetic operations, i.e., operations where the same scalar arithmetic operation is applied to each element.
+```
 
 For example, if the underlying operation (determined by the subclass) is \(\mathit{op}(x)\), the input tensor \([[x,y],[z,w]]\) will be mapped to \([[\mathit{op}(x),\mathit{op}(y)],[\mathit{op}(z),\mathit{op}(w)]]\).
 

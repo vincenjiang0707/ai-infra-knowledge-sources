@@ -21,12 +21,14 @@ Endpoint plugins implement the [ EndpointPlugin](https://docs.vllm.ai/api/vllm/p
 
 `Protocol`
 
+```python
 :class EndpointPlugin(Protocol):
 name: str
 required_tasks: tuple[SupportedTask, ...] | None
 def attach_router(self, app: FastAPI) -> None: ...
 async def init_state(
 self, engine_client: EngineClient | None, state: State, args: Namespace
+```
 ) -> None: ...
 
 
@@ -139,6 +141,7 @@ the way `tests/plugins/vllm_add_dummy_endpoint_plugin`
 
 does before shipping it:
 
+```python
 from fastapi import FastAPI, Request
 class MyAdminEndpointPlugin:
 name = "my_admin_endpoint_plugin"
@@ -151,6 +154,7 @@ results = await engine_client.collective_rpc("get_scheduler_config")
 return {"scheduler_config": results}
 async def init_state(self, engine_client, state, args) -> None:
 state.my_engine_client = engine_client
+```
 
 
 A complete and tested version of this example is in-repo as `tests/plugins/vllm_add_dummy_endpoint_plugin`
@@ -172,6 +176,7 @@ my_admin_api = "my_pkg.endpoints:MyAdminEndpointPlugin"
 
 # setup.py equivalent
 setup(
+```json
 name="my_pkg",
 entry_points={
 "vllm.endpoint_plugins": [
@@ -179,6 +184,7 @@ entry_points={
 ]
 },
 )
+```
 
 
 The entry point name (`my_admin_api`

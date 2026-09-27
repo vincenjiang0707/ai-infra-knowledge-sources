@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/funaudiochat/
 lastmod: 2026-09-27
 
+```python
 class FunAudioChatAudioEncoder(nn.Module):
 """Continuous audio tower."""
 def __init__(self, config: Any):
@@ -192,3 +193,4 @@ self, input_lengths: torch.LongTensor
 input_lengths = (input_lengths - 1) // 2 + 1
 output_lengths = (input_lengths - 2) // 2 + 1
 return input_lengths, output_lengths
+```

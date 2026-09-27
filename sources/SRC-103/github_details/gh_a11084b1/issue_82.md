@@ -10,9 +10,11 @@ labels: Under Investigation
 
 On a system that uses the Flux scheduler,  `rocprofv3` **before** the mpi launcher `flux run` does not work:
 
+```yaml
 Error: 
 $ rocprofv3 -- flux run -N 1 -n 1 ./mpi_hip_matrix_norm-output
 flux-run: ERROR: signal handler must be signal.SIG_IGN, signal.SIG_DFL, or a callable object
+```
 
 Note:
 $ flux run -N 1 -n 1 rocprofv3 -- ./mpi_hip_matrix_norm-output
@@ -67,6 +69,7 @@ Thanks for reporting the issue. Could you please share the sample `mpi_hip_matri
 
 The test example:
 
+```
 #include <mpi.h>
 #include <hip/hip_runtime.h>
 #include <iostream>
@@ -74,6 +77,7 @@ The test example:
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
+```
 
 #define N 1024 // Matrix size (N x N)
 #define NUM_ITER 100 // Reduced for debugging purposes
@@ -110,6 +114,7 @@ void generate_random_matrix(float* matrix, int size) {
 }
 
 float compute_matrix_norm(float* d_matrix, float* d_norm, int n) {
+```
     const int threads_per_block = 256;
     const int blocks_per_grid = (n * n + threads_per_block - 1) / threads_per_block;
 
@@ -121,6 +126,7 @@ float compute_matrix_norm(float* d_matrix, float* d_norm, int n) {
     hipMemcpy(&norm, d_norm, sizeof(float), hipMemcpyDeviceToHost);
 
     return std::sqrt(norm);
+```
 }
 
 void using_allreduce(MPI_Comm comm, const std::vector<float>& norms, std::vector<float>& smallest_norms) {

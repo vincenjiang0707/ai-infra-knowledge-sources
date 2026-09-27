@@ -49,6 +49,7 @@ nv-hostengine shows following errors in logs:
 We are using DCGM go APIs for GPU data collection.Sequence of DCGM calls as follows:
 Init:
 ```
+```json
 	cleanup, err := dcgm.Init(dcgm.Standalone, nvhengine, "0")
 	fieldsGroupId, err = dcgm.FieldGroupCreate(fieldGroupName, deviceFields)
 	gpucount, err = dcgm.GetAllDeviceCount()
@@ -56,8 +57,10 @@ Init:
 		_, err = dcgm.WatchFields(counter, fieldsGroupId, groupName)
 	}
 ```
+```
 At regular intervals:
 ```	nvhengine := getNvHostEngineURL()
+```go
 	cleanup, err := dcgm.Init(dcgm.Standalone, nvhengine, "0")
 	err = dcgm.UpdateAllFields()
 	var allGpuUsageInfo []GpuUsageInfo
@@ -65,3 +68,4 @@ At regular intervals:
 		values, err := dcgm.GetLatestValuesForFields(uint(gpunum), deviceFields)
 		//assignment from values to return structure vars 
 		}
+```

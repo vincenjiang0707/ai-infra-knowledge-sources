@@ -146,15 +146,19 @@ from hqq.engine.hf import HQQModelForCausalLM, AutoTokenizer
 model     = HQQModelForCausalLM.from_pretrained(model_id, use_auth_token=hf_auth, cache_dir=cache_path)
 tokenizer = AutoTokenizer.from_pretrained(model_id,       use_auth_token=hf_auth, cache_dir=cache_path)
 
+```python
 #Quantize the model
 ######################################################################################
 from hqq.core.quantize import *
+```
 
 quant_config = BaseQuantizeConfig(nbits=4, group_size=64, quant_scale=False, quant_zero=False, axis=1)
 
+```bash
 device = 'cuda:0'
 compute_dtype = torch.bfloat16  # int4 kernel only works with bfloat16
 model.quantize_model(quant_config=quant_config, compute_dtype=compute_dtype, device=device)
+```
 
 
 if (quant_config['weight_quant_params']['axis'] == 0):
@@ -175,9 +179,11 @@ from hqq.utils.generation_hf import HFGenerator
 # Generate
 gen = HFGenerator(model, tokenizer, max_new_tokens=1000, do_sample=True, compile="partial")
 
+```bash
 out = gen.generate("Write an essay about large language models.", print_tokens=True)
 out = gen.generate("Tell me a funny joke!", print_tokens=True)
 out = gen.generate("How to make a yummy chocolate cake?", print_tokens=True)
+```
 ```
 
 ### mobicham · 2024-06-04

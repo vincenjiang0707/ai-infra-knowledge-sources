@@ -1,13 +1,16 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/openai/models/serving/
 lastmod: 2026-09-27
 
+```python
 class OpenAIServingModels:
 """Shared instance to hold data about the loaded base model(s) and adapters.
 Handles the routes:
+```
 - /v1/models
 - /v1/load_lora_adapter
 - /v1/unload_lora_adapter
 """
+```python
 def __init__(
 self,
 engine_client: EngineClient,
@@ -230,3 +233,4 @@ message=f"LoRA adapter {lora_name} does not exist",
 err_type="NotFoundError",
 status_code=HTTPStatus.NOT_FOUND,
 )
+```

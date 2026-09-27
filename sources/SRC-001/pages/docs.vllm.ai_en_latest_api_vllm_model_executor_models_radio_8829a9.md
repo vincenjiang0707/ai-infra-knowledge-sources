@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/radio/
 lastmod: 2026-09-27
 
+```python
 class ViTPatchGenerator(nn.Module):
 def __init__(
 self,
@@ -209,8 +210,10 @@ keeps = (
 torch.rand(
 patches.shape[0], 1, 1, dtype=pos_enc.dtype, device=pos_enc.device
 )
+```
 > self.pos_dropout
 )
+```python
 pos_enc_drop = torch.where(keeps, pos_enc, 0)
 else:
 pos_enc_drop = pos_enc
@@ -265,3 +268,4 @@ pos_embed.float(), size=input_dims, align_corners=False, mode="bilinear"
 ).to(pos_embed.dtype)
 pos_embed = pos_embed.flatten(2).permute(0, 2, 1)
 return pos_embed
+```

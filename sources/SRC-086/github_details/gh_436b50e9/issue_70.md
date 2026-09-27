@@ -14,6 +14,7 @@ I am able to run inference even on instance with one GPU successfully (I guess t
 Currently I'm trying to run training script on instance with 2 GPUs (I changed it to 2 nodes, not to use `bf16` since I don't have Ampere GPUs, reduced everything that I can and added `load_in_4bit`:
 
 `torchrun --nproc_per_node=2 medusa/train/train.py --model_name_or_path lmsys/vicuna-7b-v1.3 \
+```bash
     --data_path ShareGPT_Vicuna_unfiltered/ShareGPT_V4.3_unfiltered_cleaned_split.json \
     --bf16 False \
     --output_dir test \
@@ -34,6 +35,7 @@ Currently I'm trying to run training script on instance with 2 GPUs (I changed i
     --medusa_num_heads 3 \
     --medusa_num_layers 1 \
     --load_in_4bit True`
+```
 
 
 I have torch version 2.1.2+cu121 and CUDA 12.2. 
@@ -63,6 +65,7 @@ Hey 😄 axolotl doesn't work for me for some weird reason.
 I'm trying to run a legacy training script. I reduced everything that I could (except sequence length). 
 
 `torchrun --nproc_per_node=4 medusa/train/train_legacy.py --model_name_or_path lmsys/vicuna-7b-v1.3 \
+```bash
     --data_path ShareGPT_Vicuna_unfiltered/ShareGPT_V4.3_unfiltered_cleaned_split.json \
     --bf16 False \
     --output_dir test \
@@ -82,6 +85,7 @@ I'm trying to run a legacy training script. I reduced everything that I could (e
     --lazy_preprocess True \
     --medusa_num_heads 3 \
     --medusa_num_layers 1`
+```
 
 
 And I am still getting CUDA OOM on Azure instance with 4xV100 GPUs...
@@ -89,8 +93,10 @@ What takes up this much memory?
 
 ### junphine · 2024-03-15
 
+```bash
 medusa_logits = logits[i, :, : -(2 + i)].contiguous()
 medusa_labels = labels[..., 2 + i :].contiguous()
+```
 
 Why use 2 as start gap for logits and label align？
 

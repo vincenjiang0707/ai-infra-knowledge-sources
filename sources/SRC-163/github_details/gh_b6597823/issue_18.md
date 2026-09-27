@@ -30,9 +30,11 @@ labels: question
 
 ### PKUFlyingPig · 2024-06-25
 
+```
 (1) 在论文实验中我们为了公平比较所以让 vllm 也调用了新的算子，此前我理解成了你直接跑的官方的 vllm
 (2) 是的，如果只看 prefill 的话，distserve 是在用相同的计算资源承受 2倍的 rate，理论上 TTFT latency 就是会更高
 (3) goodput 的计算是要求同时满足 TTFT 和 TPOT 的 SLO，（2）中vllm为了更好的 TTFT 会损失大量的 TPOT 性能。distserve 可以在两个 SLO 之间 tradeoff，如果 TTFT 的要求很高，distserve 会增加 P：D 的比例，例如 7 张卡 prefill，1张卡 decode。通过调整最优配比来实现更好的 TTFT latency。
+```
 
 ### YLSnowy · 2024-06-25
 

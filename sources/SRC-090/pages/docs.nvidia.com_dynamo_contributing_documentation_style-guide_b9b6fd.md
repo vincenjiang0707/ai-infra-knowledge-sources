@@ -225,8 +225,10 @@ to enable KV-aware routing.” Readers who do not need the condition can skip th
 
 and`<Step>`
 
+```
 for meaningful tutorial and installation sequences. Use a plain ordered list for two trivial actions that do not benefit from named steps. - Use
 `<Tabs>`
+```
 
 and`<Tab>`
 

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/ec_transfer/ec_connector/mooncake_ec_connector/
 lastmod: 2026-09-27
 
+```python
 class ECMooncakeConnector(ECConnectorBase):
 """Preserve the public API while delegating to one process-role component."""
 def __init__(self, vllm_config: VllmConfig, role: ECConnectorRole):
@@ -81,3 +82,4 @@ if self._scheduler is not None:
 self._scheduler.close()
 if self._worker is not None:
 self._worker.close()
+```

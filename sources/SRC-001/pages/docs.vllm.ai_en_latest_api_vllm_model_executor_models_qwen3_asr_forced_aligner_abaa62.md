@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/qwen3_asr_forced_aligner/
 lastmod: 2026-09-27
 
+```python
 @default_pooling_type(tok_pooling_type="ALL")
 @MULTIMODAL_REGISTRY.register_processor(
 Qwen3ASRMultiModalProcessor,
@@ -83,3 +84,4 @@ return self.classifier(hidden_states)
 def load_weights(self, weights: Iterable[tuple[str, torch.Tensor]]) -> set[str]:
 loader = AutoWeightsLoader(self)
 return loader.load_weights(weights, mapper=self.hf_to_vllm_mapper)
+```

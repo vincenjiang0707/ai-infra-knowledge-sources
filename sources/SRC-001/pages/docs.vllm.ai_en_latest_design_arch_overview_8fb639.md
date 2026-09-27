@@ -17,6 +17,7 @@ Here is a sample of [ LLM](https://docs.vllm.ai/api/vllm/entrypoints/llm/#vllm.e
 
 ## Code
 
+```python
 from vllm import LLM, SamplingParams
 # Define a list of input prompts
 prompts = [
@@ -35,6 +36,7 @@ for output in outputs:
 prompt = output.prompt
 generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}, Generated text: {generated_text!r}")
+```
 
 
 More API details can be found in the [Offline Inference](https://docs.vllm.ai/api/#offline-inference) section of the API docs.
@@ -219,6 +221,7 @@ To avoid accidentally passing incorrect arguments, the constructor is now keywor
 
 ## Code
 
+```python
 class MyOldModel(nn.Module):
 def __init__(
 self,
@@ -242,6 +245,7 @@ if version.parse(__version__) >= version.parse("0.6.4"):
 MyModel = MyNewModel
 else:
 MyModel = MyOldModel
+```
 
 
 This way, the model can work with both old and new versions of vLLM.

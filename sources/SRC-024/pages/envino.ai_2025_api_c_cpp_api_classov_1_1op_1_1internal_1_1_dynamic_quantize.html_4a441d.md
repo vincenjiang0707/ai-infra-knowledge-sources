@@ -4,14 +4,18 @@ lastmod:
 # Class ov::op::internal::DynamicQuantize[#](https://docs.openvino.ai#class-ov-op-internal-dynamicquantize)
 
 -
+```python
 class DynamicQuantize : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op8internal15DynamicQuantizeE) Operator performing Dynamic Quantize.
+```
 
 Public Types
 
 -
+```rust
 enum class QuantizationType
 [#](https://docs.openvino.ai#_CPPv4N2ov2op8internal15DynamicQuantize16QuantizationTypeE) Configuration for the type of quantization applied to the data:
+```
 
 Symmetric: Quantization where the zero point is fixed at zero, and the range is symmetric around zero.
 
@@ -28,8 +32,10 @@ enumerator Asymmetric
 
 
 -
+```rust
 enum class OutputStorageType
 [#](https://docs.openvino.ai#_CPPv4N2ov2op8internal15DynamicQuantize17OutputStorageTypeE) Configuration for how Activations, Scales and Zero Points will be stored in output buffers:
+```
 
 Planar: Activations, Scales, and Zero Points are stored in independent buffers.
 
@@ -64,8 +70,10 @@ Throws if the node is invalid.
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op8internal15DynamicQuantize10AttributesE) Structure that specifies attributes for interpolation.
+```
 
 
 -

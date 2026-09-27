@@ -4,8 +4,10 @@ lastmod:
 # Class ov::pass::ModelPass[#](https://docs.openvino.ai#class-ov-pass-modelpass)
 
 -
+```python
 class ModelPass : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[pass](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4passE)::[PassBase](https://docs.openvino.ai/classov_1_1pass_1_1_pass_base.html#_CPPv4N2ov4pass8PassBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov4pass9ModelPassE) Base class for
+```
 
 [Model](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_model)passes.Subclassed by
 

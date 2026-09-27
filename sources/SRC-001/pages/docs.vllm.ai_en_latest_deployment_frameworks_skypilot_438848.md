@@ -64,11 +64,13 @@ Check the output of the command. There will be a shareable gradio link (like the
 
 **Optional**: Serve the 70B model instead of the default 8B and use more GPU:
 
+```bash
 HF_TOKEN="your-huggingface-token" \
 sky launch serving.yaml \
 --gpus A100:8 \
 --env HF_TOKEN \
 --env MODEL_NAME=meta-llama/Meta-Llama-3-70B-Instruct
+```
 
 
 ## Scale up to multiple replicas[¶](https://docs.vllm.ai#scale-up-to-multiple-replicas)
@@ -79,6 +81,7 @@ SkyPilot can scale up the service to multiple service replicas with built-in aut
 
 ## Yaml
 
+```yaml
 service:
 replicas: 2
 # An actual request for readiness probe.
@@ -87,6 +90,7 @@ path: /v1/chat/completions
 post_data:
 model: $MODEL_NAME
 messages:
+```
 - role: user
 content: Hello! What is your name?
 max_completion_tokens: 1
@@ -136,6 +140,7 @@ After the service is READY, you can find a single endpoint for the service and a
 
 ## Commands
 
+```
 ENDPOINT=$(sky serve status --endpoint 8081 vllm)
 curl -L http://$ENDPOINT/v1/chat/completions \
 -H "Content-Type: application/json" \
@@ -153,6 +158,7 @@ curl -L http://$ENDPOINT/v1/chat/completions \
 ],
 "stop_token_ids": [128009, 128001]
 }'
+```
 
 
 To enable autoscaling, you could replace the `replicas`
@@ -165,6 +171,7 @@ This will scale the service up to when the QPS exceeds 2 for each replica.
 
 ## Yaml
 
+```yaml
 service:
 replica_policy:
 min_replicas: 2
@@ -176,6 +183,7 @@ path: /v1/chat/completions
 post_data:
 model: $MODEL_NAME
 messages:
+```
 - role: user
 content: Hello! What is your name?
 max_completion_tokens: 1

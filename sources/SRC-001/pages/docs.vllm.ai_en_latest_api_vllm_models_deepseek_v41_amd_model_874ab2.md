@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/amd/model/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV4Model(nn.Module, EagleModelMixin):
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
 super().__init__()
@@ -455,3 +456,4 @@ if layer.hc_attn_fn_broadcast is None:
 layer.hc_attn_fn_broadcast = broadcast
 else:
 layer.hc_attn_fn_broadcast.copy_(broadcast)
+```

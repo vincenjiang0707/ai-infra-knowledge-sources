@@ -9,8 +9,10 @@ source: https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/api/device_gin
 ### ncclGin[](https://docs.nvidia.com#ncclgin)
 
 -
+```python
 class ncclGin
 [](https://docs.nvidia.com#_CPPv47ncclGin) A class encompassing major elements of the GIN support.
+```
 
 -
 ncclGin(ncclDevComm const &comm, int contextIndex)
@@ -79,8 +81,10 @@ void flush(Coop coop, cuda::memory_order ord = cuda::memory_order_acquire)
 *coop*are locally consumed. For put operations, this means that the source buffers are safe to reuse; this makes no claims regarding the completion status on the remote peer(s). For get operations, this means that the data is visible to the local rank.
 
 -
+```
 void flushAsync(ncclTeam team, uint32_t peer, ncclGinRequest_t *request, Coop coop = ncclCoopThread{}, uint32_t optFlags =
 [ncclGinOptFlagsDefault](https://docs.nvidia.com/flags.html#_CPPv422ncclGinOptFlagsDefault), DescriptorSmem descriptor = ncclGin_None{})[](https://docs.nvidia.com#_CPPv4N7ncclGin10flushAsyncE8ncclTeam8uint32_tP16ncclGinRequest_t4Coop8uint32_t14DescriptorSmem) Initiates a non-blocking flush operation for one peer (see
+```
 
 ).`ncclGin::flush()`
 
@@ -111,16 +115,20 @@ Since NCCL 2.30.5, there are two types of signals:
 *strong*and*weak*. Strong signals imply the visibility of all the preceding puts to the same peer on the same context. Weak signals imply only the visibility of the put data the signal is attached to.
 
 -
+```rust
 struct ncclGin_StrongSignalInc
 [](https://docs.nvidia.com#_CPPv423ncclGin_StrongSignalInc) -
 [ncclGinSignal_t](https://docs.nvidia.com#_CPPv415ncclGinSignal_t)signal[](https://docs.nvidia.com#_CPPv4N23ncclGin_StrongSignalInc6signalE)
+```
 
 -
 
 -
+```rust
 struct ncclGin_StrongSignalAdd
 [](https://docs.nvidia.com#_CPPv423ncclGin_StrongSignalAdd) -
 [ncclGinSignal_t](https://docs.nvidia.com#_CPPv415ncclGinSignal_t)signal[](https://docs.nvidia.com#_CPPv4N23ncclGin_StrongSignalAdd6signalE)
+```
 
 -
 uint64_t value
@@ -129,16 +137,20 @@ uint64_t value
 -
 
 -
+```rust
 struct ncclGin_WeakSignalInc
 [](https://docs.nvidia.com#_CPPv421ncclGin_WeakSignalInc) -
 [ncclGinSignal_t](https://docs.nvidia.com#_CPPv415ncclGinSignal_t)signal[](https://docs.nvidia.com#_CPPv4N21ncclGin_WeakSignalInc6signalE)
+```
 
 -
 
 -
+```rust
 struct ncclGin_WeakSignalAdd
 [](https://docs.nvidia.com#_CPPv421ncclGin_WeakSignalAdd) -
 [ncclGinSignal_t](https://docs.nvidia.com#_CPPv415ncclGinSignal_t)signal[](https://docs.nvidia.com#_CPPv4N21ncclGin_WeakSignalAdd6signalE)
+```
 
 -
 uint64_t value
@@ -181,9 +193,11 @@ and
 
 `RemoteAction`
 
+```rust
 or GIN signal method).-
 struct ncclGin_VASignalInc
 [](https://docs.nvidia.com#_CPPv419ncclGin_VASignalInc) Deprecated since version 2.30.5: Prefer
+```
 
 or`ncclGin_StrongVASignalInc`
 
@@ -201,8 +215,10 @@ size_t signalOffset
 ncclWindow_t signalWindow
 
 -
+```rust
 struct ncclGin_VASignalAdd
 [](https://docs.nvidia.com#_CPPv419ncclGin_VASignalAdd) Deprecated since version 2.30.5: Prefer
+```
 
 or`ncclGin_StrongVASignalAdd`
 
@@ -224,8 +240,10 @@ uint64_t value
 ncclWindow_t signalWindow
 
 -
+```rust
 struct ncclGin_SignalInc
 [](https://docs.nvidia.com#_CPPv417ncclGin_SignalInc) Deprecated since version 2.30.5: Prefer
+```
 
 or`ncclGin_StrongSignalInc`
 
@@ -237,8 +255,10 @@ instead.`ncclGin_WeakSignalInc`
 -
 
 -
+```rust
 struct ncclGin_SignalAdd
 [](https://docs.nvidia.com#_CPPv417ncclGin_SignalAdd) Deprecated since version 2.30.5: Prefer
+```
 
 or`ncclGin_StrongSignalAdd`
 
@@ -329,9 +349,11 @@ type ncclGinCounter_t
 
 
 -
+```rust
 struct ncclGin_CounterInc
 [](https://docs.nvidia.com#_CPPv418ncclGin_CounterInc) -
 [ncclGinCounter_t](https://docs.nvidia.com#_CPPv416ncclGinCounter_t)counter[](https://docs.nvidia.com#_CPPv4N18ncclGin_CounterInc7counterE)
+```
 
 -
 

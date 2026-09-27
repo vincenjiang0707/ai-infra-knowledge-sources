@@ -8,11 +8,13 @@ labels: Low Priority, x64 CPU
 
 ### System Info
 
+```yaml
 Distributor ID: Ubuntu
 Description:    Ubuntu 22.04.4 LTS
 Release:        22.04
 Codename:       jammy
 Python 3.10.12
+```
 
 ### Reproduction
 

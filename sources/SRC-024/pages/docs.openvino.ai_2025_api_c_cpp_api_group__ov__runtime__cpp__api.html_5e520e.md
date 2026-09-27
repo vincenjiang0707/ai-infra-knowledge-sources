@@ -20,8 +20,10 @@ means device name supporting this operation
 
 
 -
+```python
 class Allocator
 [#](https://docs.openvino.ai#_CPPv4N2ov9AllocatorE) *#include <allocator.hpp>*Wraps allocator implementation to provide safe way to store allocater loaded from shared library And constructs default based on
+```
 
 `new`
 
@@ -117,8 +119,10 @@ if and only if memory allocated from one[Allocator](https://docs.openvino.ai/gro
 ~Allocator()
 
 -
+```python
 class Tensor
 [#](https://docs.openvino.ai#_CPPv4N2ov6TensorE) *#include <tensor.hpp>*[Tensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_tensor)API holding host memory It can throw exceptions safely for the application, where it is properly handled.Subclassed by
+```
 
 [ov::RemoteTensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_remote_tensor)Unnamed Group
 
@@ -361,8 +365,10 @@ true if this object can be dynamically cast to the type const T*. Otherwise, fal
 void *data() const
 
 -
+```python
 class CompiledModel
 [#](https://docs.openvino.ai#_CPPv4N2ov13CompiledModelE) *#include <compiled_model.hpp>*This class represents a compiled model.
+```
 
 A model is compiled by a specific device by applying multiple optimization transformations, then mapping to compute kernels.
 
@@ -388,8 +394,10 @@ A model containing Executable Graph Info.
 
 
 -
+```rust
 const std::vector<
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Output](https://docs.openvino.ai/classov_1_1_output.html#_CPPv4I0EN2ov6OutputE)<const[ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Node](https://docs.openvino.ai/classov_1_1_node.html#_CPPv4N2ov4NodeE)>> &inputs() const[#](https://docs.openvino.ai#_CPPv4NK2ov13CompiledModel6inputsEv) Gets all inputs of a compiled model. Inputs are represented as a vector of outputs of the
+```
 
 [ov::op::v0::Parameter](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_parameter)operations. They contain information about input tensors such as tensor shape, names, and element type.- Returns:
 std::vector of model inputs.
@@ -446,8 +454,10 @@ Compiled model input.
 
 
 -
+```rust
 const std::vector<
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Output](https://docs.openvino.ai/classov_1_1_output.html#_CPPv4I0EN2ov6OutputE)<const[ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Node](https://docs.openvino.ai/classov_1_1_node.html#_CPPv4N2ov4NodeE)>> &outputs() const[#](https://docs.openvino.ai#_CPPv4NK2ov13CompiledModel7outputsEv) Get all outputs of a compiled model. Outputs are represented as a vector of output from the
+```
 
 [ov::op::v0::Result](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_result)operations. Outputs contain information about output tensors such as tensor shape, names, and element type.- Returns:
 std::vector of model outputs.
@@ -606,8 +616,10 @@ if the current[CompiledModel](https://docs.openvino.ai/group__ov__transformation
 CompiledModel() = default
 
 -
+```python
 class Core
 [#](https://docs.openvino.ai#_CPPv4N2ov4CoreE) *#include <core.hpp>*This class represents an OpenVINO runtime
+```
 
 [Core](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_core)entity.User applications can create several
 
@@ -1365,19 +1377,25 @@ Reference to a default remote context.
 std::shared_ptr<
 
 -
+```python
 class Cancelled : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Exception](https://docs.openvino.ai/classov_1_1_exception.html#_CPPv4N2ov9ExceptionE)[#](https://docs.openvino.ai#_CPPv4N2ov9CancelledE) *#include <exception.hpp>*Thrown in case of cancelled asynchronous operation.
+```
 
 
 -
+```python
 class Busy : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Exception](https://docs.openvino.ai/classov_1_1_exception.html#_CPPv4N2ov9ExceptionE)[#](https://docs.openvino.ai#_CPPv4N2ov4BusyE) *#include <exception.hpp>*Thrown in case of calling the
+```
 
 [InferRequest](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_infer_request)methods while the request is busy with compute operation.
 
 -
+```python
 class InferRequest
 [#](https://docs.openvino.ai#_CPPv4N2ov12InferRequestE) *#include <infer_request.hpp>*This is a class of infer request that can be run in asynchronous or synchronous manners.
+```
 
 Public Functions
 
@@ -1781,8 +1799,10 @@ True if the current
 InferRequest() = default
 
 -
+```python
 class RemoteContext
 [#](https://docs.openvino.ai#_CPPv4N2ov13RemoteContextE) *#include <remote_context.hpp>*This class represents an abstraction
+```
 
 for remote (non-CPU) accelerator device-specific inference context. Such context represents a scope on the device within which compiled models and remote memory tensors can exist, function, and exchange data.
 
@@ -1910,8 +1930,10 @@ static void type_check(const
 RemoteContext() = default
 
 -
+```python
 class RemoteTensor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Tensor](https://docs.openvino.ai/classov_1_1_tensor.html#_CPPv4N2ov6TensorE)[#](https://docs.openvino.ai#_CPPv4N2ov12RemoteTensorE) *#include <remote_tensor.hpp>*Remote memory access and interoperability API.
+```
 
 Subclassed by
 
@@ -1963,8 +1985,10 @@ void copy_to(
 
 
 -
+```
 void copy_from(const
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Tensor](https://docs.openvino.ai/classov_1_1_tensor.html#_CPPv4N2ov6TensorE)&src)[#](https://docs.openvino.ai#_CPPv4N2ov12RemoteTensor9copy_fromERKN2ov6TensorE) Copies data from the specified source tensor to this
+```
 
 [RemoteTensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_remote_tensor).- Parameters:
 **src**– The source tensor from which data will be copied.
@@ -1982,8 +2006,10 @@ A map of name/parameter elements.
 RemoteTensor() = default
 
 -
+```python
 class VariableState
 [#](https://docs.openvino.ai#_CPPv4N2ov13VariableStateE) *#include <variable_state.hpp>*[VariableState](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_variable_state)class.Public Functions
+```
 
 -
 VariableState() = default
@@ -2017,8 +2043,10 @@ A string representing state name.
 VariableState() = default
 
 -
+```rust
 struct ProfilingInfo
 [#](https://docs.openvino.ai#_CPPv4N2ov13ProfilingInfoE) *#include <profiling_info.hpp>*Represents basic inference profiling information per operation.
+```
 
 If the operation is executed using tiling, the sum time per each tile is indicated as the total execution time. Due to parallel execution, the total execution time for all nodes might be greater than the total inference time.
 

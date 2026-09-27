@@ -11,6 +11,7 @@ Qwen3.6-35B A3B NVPF4 Quantization  IndexError: tuple index out of range error
 
 ### Steps/Code to reproduce bug
 
+```bash
 docker run --rm -it --gpus all --ipc=host --ulimit memlock=-1 --ulimit stack=67108864   -v "./output_models:/workspace/output_models"   -v "$HOME/.cache/huggingface:/root/.cache/huggi
 ngface"   -e HF_TOKEN=$HF_TOKEN   nvcr.io/nvidia/tensorrt-llm/release:1.3.0rc20   bash -c "                                                                                                                   
     git clone --depth 1 --branch main https://github.com/NVIDIA/Model-Optimizer.git /app/Model-Optimizer && \                                                                                                 
@@ -19,6 +20,7 @@ ngface"   -e HF_TOKEN=$HF_TOKEN   nvcr.io/nvidia/tensorrt-llm/release:1.3.0rc20 
     cd /app/Model-Optimizer/examples/hf_ptq && \                                                                                                                                                              
     export ROOT_SAVE_PATH='/workspace/output_models' && \                                                                                                                                                     
     scripts/huggingface_example.sh --model 'Qwen/Qwen3.6-35B-A3B' --quant nvfp4 --tasks quant --tp 1                                                                                                          
+```
   "                                                            
 
 
@@ -161,24 +163,30 @@ Looks the issue is on Tensor RTT. I'll let this here but also look on their repo
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: cd71356b3da6054effff115da5971277a3ebe8dc73f6c465579de9c647600a56
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: f8c9398a05c9ed3cf201a018369ff6ad595d7ef219788870fa1214b86c4048b6
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 0bad577c8ce045cf7d809f2b96a751ad6cddce39f625dc4e3332019141a5f67e
+```
 
 Release follow-up: this open ModelOpt issue needs release relevance confirmed. Link its planned fix/validation, or confirm it is not a v0.46.0 blocker.

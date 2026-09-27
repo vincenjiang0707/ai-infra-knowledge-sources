@@ -26,9 +26,11 @@ Deployment | Virtual Machines (QEMU)
 GPU topo file | [virtualTopology.txt](https://github.com/user-attachments/files/20982866/virtualTopology.txt)
 
 ## Test Setup
+```yaml
 Tool: nccl-tests (e.g., all_reduce_perf)
 Topology: 8 GPUs per node
 NCCL-Test command sample:
+```
 ```bash
 mpirun --oversubscribe -np 24 \
 -H node1,node2,node3 \

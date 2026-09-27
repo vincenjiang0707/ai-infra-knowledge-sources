@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/inc/schemes/inc_wna16_linear/
 lastmod: 2026-09-27
 
+```python
 class INCXPULinearBase(INCLinearScheme):
 # AWQ packs nibbles within each int32 in the order [0, 2, 4, 6, 1, 3, 5, 7];
 # this permutation undoes that ordering so values can be repacked in
@@ -127,3 +128,4 @@ output_partition_sizes=output_partition_sizes,
 params_dtype=params_dtype,
 weight_loader=extra_weight_attrs.get("weight_loader"),
 )
+```

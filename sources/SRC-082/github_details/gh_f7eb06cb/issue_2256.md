@@ -213,6 +213,7 @@ Haven't rebuilt it since November.
 It crashes:
 <details>
 <pre>
+```yaml
 stdout: #11 8.246 Collecting pypcre>=0.2.9 (from gptqmodel[auto_round])
 stdout: #11 8.276   Downloading pypcre-0.2.9.tar.gz (118 kB)
 stdout: #11 8.278      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 118.5/118.5 kB 79.9 MB/s eta 0:00:00
@@ -232,6 +233,7 @@ stdout: #11 8.378       self._execute_child(args, executable, preexec_fn, close_
 stdout: #11 8.378     File "/opt/conda/lib/python3.11/subprocess.py", line 1955, in _execute_child
 stdout: #11 8.378       raise child_exception_type(errno_num, err_msg, err_filename)
 stdout: #11 8.378   FileNotFoundError: [Errno 2] No such file or directory: 'gcc'
+```
 </pre>
 </details>
 Is GCC now required to be installed in the image for the library?

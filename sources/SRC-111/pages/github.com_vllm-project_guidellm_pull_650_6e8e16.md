@@ -7,6 +7,7 @@ source: https://github.com/vllm-project/guidellm/pull/650
 We previously had an unversioned dependency on datasets, and a recent report shows that GuideLLM is not compatible with versions of datasets prior to 3.1.0. Since the "audio" extra already depends on datasets 4.1.0 we know that works and it seems a reasonable target. Signed-off-by: David Butenhof <dbutenho@redhat.com>
 
 |
+```python
 Starting with ```
 async def test_requeue_with_positive_delay(self, worker_instance):
 """Test requeueing with positive delay sleeps then appends to turns_queue.
@@ -19,6 +20,7 @@ start = time.time()
 await worker_instance._wait_then_requeue(history, conversation, delay)
 elapsed = time.time() - start
 # Should have slept for approximately the delay time
+```
 > assert elapsed >= delay
 E assert 0.09976863861083984 >= 0.1
 ``` |

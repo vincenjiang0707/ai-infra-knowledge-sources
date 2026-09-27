@@ -7,8 +7,10 @@ lastmod:
 *group*Asynchronous Inference Request base classes A set of base and helper classes to implement asynchronous inference request class.
 
 -
+```python
 class IAsyncInferRequest : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[IInferRequest](https://docs.openvino.ai/classov_1_1_i_infer_request.html#_CPPv4N2ov13IInferRequestE)[#](https://docs.openvino.ai#_CPPv4N2ov18IAsyncInferRequestE) *#include <iasync_infer_request.hpp>*Base class with default implementation of asynchronous multi staged inference request. To customize pipeline stages derived class should change the content of IAsyncInferRequest::m_pipeline member container. It consists of pairs of tasks and executors which will run the task. The class is recommended to be used by plugins as a base class for asynchronous inference request implementation.
+```
 
 **Example**Here is an example of asynchronous inference request implementation for some accelerator device. It uses 5 different executors to run different stages of a synchronous inference request.
 
@@ -146,8 +148,10 @@ Vector of Variable State objects.
 
 
 -
+```
 virtual const std::shared_ptr<const
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[ICompiledModel](https://docs.openvino.ai/classov_1_1_i_compiled_model.html#_CPPv4N2ov14ICompiledModelE)> &get_compiled_model() const override[#](https://docs.openvino.ai#_CPPv4NK2ov18IAsyncInferRequest18get_compiled_modelEv) Gets pointer to compiled model (usually synchronous request holds the compiled model)
+```
 
 - Returns:
 Pointer to the compiled model

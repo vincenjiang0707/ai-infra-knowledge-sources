@@ -49,6 +49,7 @@ Once a chunk is computed and admitted to L1, it should reliably be offloaded to 
 **Screenshots**
 N/A (server-side KV-cache behavior; log evidence included above).
 
+```yaml
 **Desktop (please complete the following information):**
 OS: Linux
 LMCache: v0.5.5
@@ -57,6 +58,7 @@ PyTorch: 2.11.0+cu130
 Python: 3.12.3
 GPU: NVIDIA L40S
 Mode: MP (LMCacheMPConnector, kv_role: kv_both), --chunk-size 256, --l1-size-gb 60, L2 sized to hold full working set with no L2 eviction
+```
 
 **Smartphone (please complete the following information):**
 N/A (not a mobile/browser issue)

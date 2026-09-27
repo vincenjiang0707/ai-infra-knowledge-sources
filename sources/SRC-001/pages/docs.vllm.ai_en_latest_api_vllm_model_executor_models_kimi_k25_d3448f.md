@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/kimi_k25/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 KimiK25MultiModalProcessor,
 info=KimiK25ProcessingInfo,
@@ -374,3 +375,4 @@ return torch.cat(embeddings, dim=0)
 def load_weights(self, weights: Iterable[tuple[str, torch.Tensor]]):
 loader = AutoWeightsLoader(self)
 return loader.load_weights(weights, mapper=self.hf_to_vllm_mapper)
+```

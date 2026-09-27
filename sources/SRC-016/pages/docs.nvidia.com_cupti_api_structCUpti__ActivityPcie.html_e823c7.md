@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityPcie.html
 # 7.120. CUpti_ActivityPcie[#](https://docs.nvidia.com#cupti-activitypcie)
 
 -
+```rust
 struct CUpti_ActivityPcie
 [#](https://docs.nvidia.com#_CPPv418CUpti_ActivityPcie) PCI devices information required to construct topology.
+```
 
 This structure gives capabilities of GPU and PCI bridge connected to the PCIE bus which can be used to understand the topology.
 

@@ -320,10 +320,12 @@ Concrete proposal for WG consideration:
 
 I would like to formally propose one of the following contributions, whichever the WG finds most actionable:
 
+```yaml
 Near-term: Contribute our open dataset ([Zenodo DOI: 10.5281/zenodo.18900289](https://zenodo.org/records/18900289)) as reference data for a potential MLPerf quantization energy extension
 Medium-term: Submit a Technical Note proposing energy-per-token as a supplementary metric in MLPerf Inference, alongside the existing power-constrained performance metric
 Longer-term: Co-develop a new MLPerf scenario covering 1B–5B models with dequantization-on-the-fly evaluation
 What I need from the group:
+```
 
 Does the WG see value in pursuing any of the above?
 If so, what is the appropriate submission channel — a formal RFC, a Working Group meeting slot, or an async written proposal?

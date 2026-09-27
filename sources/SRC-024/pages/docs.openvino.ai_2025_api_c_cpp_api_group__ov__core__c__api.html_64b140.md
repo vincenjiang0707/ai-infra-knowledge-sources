@@ -224,23 +224,31 @@ Status code of the operation: OK(0) for success.
 
 
 -
+```rust
 struct ov_version
 [#](https://docs.openvino.ai#_CPPv410ov_version) *#include <ov_core.h>*Represents OpenVINO version information.
+```
 
 
 -
+```rust
 struct ov_core_version
 [#](https://docs.openvino.ai#_CPPv415ov_core_version) *#include <ov_core.h>*Represents version information that describes device and ov runtime library.
+```
 
 
 -
+```rust
 struct ov_core_version_list
 [#](https://docs.openvino.ai#_CPPv420ov_core_version_list) *#include <ov_core.h>*Represents version information that describes all devices and ov runtime library.
+```
 
 
 -
+```rust
 struct ov_available_devices_t
 [#](https://docs.openvino.ai#_CPPv422ov_available_devices_t) *#include <ov_core.h>*Represent all available devices.
+```
 
 
 -

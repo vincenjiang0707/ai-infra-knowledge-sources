@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/offline_utils/
 lastmod: 2026-09-27
 
+```python
 class OfflineInferenceMixin:
 """Offline inference utils."""
 request_counter: Counter
@@ -220,6 +221,7 @@ self,
 prompts: PromptType | Sequence[PromptType],
 params: SamplingParams
 | PoolingParams
+```
 | Sequence[SamplingParams | PoolingParams],
 *,
 use_tqdm: bool | Callable[..., tqdm] = True,

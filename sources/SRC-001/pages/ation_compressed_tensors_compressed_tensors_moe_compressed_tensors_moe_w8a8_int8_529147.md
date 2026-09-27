@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe_w8a8_int8/
 lastmod: 2026-09-27
 
+```python
 class CompressedTensorsW8A8Int8MoEMethod(CompressedTensorsMoEMethod):
 """W8A8 Int8 MoE quantization using compressed tensors."""
 def __init__(
@@ -240,3 +241,4 @@ topk_group=layer.topk_group,
 e_score_correction_bias=layer.e_score_correction_bias,
 routed_scaling_factor=layer.routed_scaling_factor,
 )
+```

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/hy_v4/nvidia/moe/
 lastmod: 2026-09-27
 
+```python
 class HYV4MoEFused(nn.Module):
 """HY V4 MoE layer with optional SwiGLU clamp support.
 When ``config.swiglu_limit > 0`` the routed experts use a clamped SwiGLU::
@@ -109,3 +110,4 @@ final_hidden_states = self.experts(
 hidden_states=hidden_states, router_logits=router_logits
 )
 return final_hidden_states.view(orig_shape)
+```

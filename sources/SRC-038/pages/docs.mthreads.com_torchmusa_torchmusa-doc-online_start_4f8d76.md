@@ -12,10 +12,12 @@ source: https://docs.mthreads.com/torchmusa/torchmusa-doc-online/start
 
 | 环境变量示例 | 所属组件 | 功能说明 |
 |---|---|---|
+```bash
 `export TORCH_SHOW_CPP_STACKTRACES=1` | PyTorch | 当 python 程 序 发 生 错 误 时 显 示PyTorch 中 C++ 调用栈 |
 `export MUDNN_LOG_LEVEL=INFO` | MUDNN | 使能 MUDNN 算子库调用的 log |
 `export MUSA_VISIBLE_DEVICES=0,1,2,3` | Driver | 控制当前可见的显卡序号 |
 `export MUSA_LAUNCH_BLOCKING=1` | Driver | 驱动以同��步模式下发 MUSA kernel，即当前 kernel 执行结束后再下发下一个 kernel |
+```
 
 ## 常用api示例代码[](https://docs.mthreads.com#常用api示例代码)
 

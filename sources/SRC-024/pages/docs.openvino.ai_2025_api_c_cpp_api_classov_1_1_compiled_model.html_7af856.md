@@ -4,8 +4,10 @@ lastmod:
 # Class ov::CompiledModel[#](https://docs.openvino.ai#class-ov-compiledmodel)
 
 -
+```python
 class CompiledModel
 [#](https://docs.openvino.ai#_CPPv4N2ov13CompiledModelE) This class represents a compiled model.
+```
 
 A model is compiled by a specific device by applying multiple optimization transformations, then mapping to compute kernels.
 
@@ -31,8 +33,10 @@ A model containing Executable Graph Info.
 
 
 -
+```rust
 const std::vector<
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Output](https://docs.openvino.ai/classov_1_1_output.html#_CPPv4I0EN2ov6OutputE)<const[ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Node](https://docs.openvino.ai/classov_1_1_node.html#_CPPv4N2ov4NodeE)>> &inputs() const[#](https://docs.openvino.ai#_CPPv4NK2ov13CompiledModel6inputsEv) Gets all inputs of a compiled model. Inputs are represented as a vector of outputs of the
+```
 
 [ov::op::v0::Parameter](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_parameter)operations. They contain information about input tensors such as tensor shape, names, and element type.- Returns:
 std::vector of model inputs.
@@ -89,8 +93,10 @@ Compiled model input.
 
 
 -
+```rust
 const std::vector<
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Output](https://docs.openvino.ai/classov_1_1_output.html#_CPPv4I0EN2ov6OutputE)<const[ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Node](https://docs.openvino.ai/classov_1_1_node.html#_CPPv4N2ov4NodeE)>> &outputs() const[#](https://docs.openvino.ai#_CPPv4NK2ov13CompiledModel7outputsEv) Get all outputs of a compiled model. Outputs are represented as a vector of output from the
+```
 
 [ov::op::v0::Result](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v0_1_1_result)operations. Outputs contain information about output tensors such as tensor shape, names, and element type.- Returns:
 std::vector of model outputs.

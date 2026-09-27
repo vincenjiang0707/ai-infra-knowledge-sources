@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v13::NMSRotated[#](https://docs.openvino.ai#class-ov-op-v13-nmsrotated)
 
 -
+```python
 class NMSRotated : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op3v1310NMSRotatedE) [NMSRotated](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v13_1_1_n_m_s_rotated)operation.Public Functions
+```
 
 -
 NMSRotated(const

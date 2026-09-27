@@ -6,8 +6,10 @@ Fully qualified name: `CUPTI::PcSamplingUtil::BufferInfo`
 
 
 -
+```rust
 struct BufferInfo
 [#](https://docs.nvidia.com#_CPPv4N5CUPTI14PcSamplingUtil10BufferInfoE) [BufferInfo](https://docs.nvidia.com#structcupti_1_1pcsamplingutil_1_1bufferinfo)will be stored in the file for every buffer i.e for every call of UtilDumpPcSamplingBufferInFile() API.
+```
 
 Fully qualified name: `CUPTI::PcSamplingUtil::BufferInfo`
 

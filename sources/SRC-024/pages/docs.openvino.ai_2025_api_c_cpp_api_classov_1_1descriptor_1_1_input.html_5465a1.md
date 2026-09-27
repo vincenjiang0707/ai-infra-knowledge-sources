@@ -4,8 +4,10 @@ lastmod:
 # Class ov::descriptor::Input[#](https://docs.openvino.ai#class-ov-descriptor-input)
 
 -
+```python
 class Input
 [#](https://docs.openvino.ai#_CPPv4N2ov10descriptor5InputE) Public Functions
+```
 
 -
 Input(

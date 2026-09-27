@@ -4,8 +4,10 @@ lastmod:
 # Class ov::Node[#](https://docs.openvino.ai#class-ov-node)
 
 -
+```python
 class Node : public std::enable_shared_from_this<
 [Node](https://docs.openvino.ai#_CPPv4N2ov4NodeE)>[#](https://docs.openvino.ai#_CPPv4N2ov4NodeE) Nodes are the backbone of the graph of Value dataflow. Every node has zero or more nodes as arguments and one value, which is either a tensor or a (possibly empty) tuple of values.
+```
 
 Subclassed by
 
@@ -120,8 +122,10 @@ void set_friendly_name(const std::string &name)
 
 
 -
+```rust
 const std::string &get_friendly_name() const
 [#](https://docs.openvino.ai#_CPPv4NK2ov4Node17get_friendly_nameEv) Gets the friendly name for a node. If no friendly name has been set via set_friendly_name then the node’s unique name is returned.
+```
 
 - Returns:
 A const reference to the node’s friendly name.
@@ -141,8 +145,10 @@ The stream os
 
 
 -
+```rust
 const std::vector<std::shared_ptr<
 [Node](https://docs.openvino.ai#_CPPv4N2ov4NodeE)>> &get_control_dependencies() const[#](https://docs.openvino.ai#_CPPv4NK2ov4Node24get_control_dependenciesEv) Get control dependencies registered on the node.
+```
 
 
 This node cannot execute until node executes.

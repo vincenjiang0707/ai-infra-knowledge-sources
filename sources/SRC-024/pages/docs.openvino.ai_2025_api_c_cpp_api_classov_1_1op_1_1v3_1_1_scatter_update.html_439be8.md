@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v3::ScatterUpdate[#](https://docs.openvino.ai#class-ov-op-v3-scatterupdate)
 
 -
+```python
 class ScatterUpdate : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ScatterBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_scatter_base.html#_CPPv4N2ov2op4util11ScatterBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v313ScatterUpdateE) Set new values to slices from data addressed by indices.
+```
 
 Public Functions
 

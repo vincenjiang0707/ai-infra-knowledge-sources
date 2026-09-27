@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/piecewise_backend/
 lastmod: 2026-09-27
 
+```python
 class PiecewiseBackend:
 def __init__(
 self,
@@ -21,10 +22,12 @@ We will compile `self.graph` once for the general shape,
 and then compile for different shapes specified in
 `compilation_config.compile_sizes`.
 This class supports two mutually exclusive modes:
+```
 1. Compilation (graph is set, compiled_runnables is None):
 Used during initial compilation when we have the FX graph
 and need to compile it for each shape range.
 2. Precompilation (graph is None, compiled_runnables is set):
+```python
 Used when loading from cache/AOT artifacts where we already
 have pre-compiled callables and don't need the original graph.
 Exactly one of graph or compiled_runnables must be provided.
@@ -258,3 +261,4 @@ assert range_entry.compiled, (
 f"range_entry={range_entry.compile_range}"
 )
 return range_entry.runnable(*args)
+```

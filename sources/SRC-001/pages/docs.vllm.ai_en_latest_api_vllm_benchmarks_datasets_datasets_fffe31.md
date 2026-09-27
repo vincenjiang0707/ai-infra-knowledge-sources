@@ -728,9 +728,11 @@ Bases: [BenchmarkDataset](https://docs.vllm.ai#vllm.benchmarks.datasets.datasets
 
 Implements the Custom dataset. Loads data from a JSONL file and generates sample requests based on conversation turns. E.g.,
 
+```json
 {"prompt": "What is the capital of India?", "output_tokens": 10}
 {"prompt": "What is the capital of Iran?", "output_tokens": 1520}
 {"prompt": "What is the capital of China?", "output_tokens": 819}
+```
 
 
 ## Source code in `vllm/benchmarks/datasets/datasets.py`
@@ -749,6 +751,7 @@ Bases: [CustomDataset](https://docs.vllm.ai#vllm.benchmarks.datasets.datasets.Cu
 
 Implements the Custom image dataset. Loads data from a JSONL file and generates sample requests based on conversation turns. E.g.,
 
+```
 {
 "prompt": "How many red blocks in the given images?",
 "image_files": ["path/to/image1.png", "path/to/image2.png"],
@@ -765,6 +768,7 @@ Implements the Custom image dataset. Loads data from a JSONL file and generates 
 {"type": "image_url", "image_url": {"url": "path/to/image2.png"}},
 ],
 }
+```
 
 
 This is used to benchmark multimodal LLMs on arbitrary datasets.

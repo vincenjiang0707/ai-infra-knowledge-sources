@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/qwen3_next/
 lastmod: 2026-09-27
 
+```python
 class Qwen3NextAttention(nn.Module):
 def __init__(
 self,
@@ -178,3 +179,4 @@ if gate is not None:
 attn_output = attn_output * torch.sigmoid(gate)
 output, _ = self.o_proj(attn_output)
 return output
+```

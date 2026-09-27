@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::VariableExtension[#](https://docs.openvino.ai#class-ov-op-util-variableextension)
 
 -
+```python
 class VariableExtension
 [#](https://docs.openvino.ai#_CPPv4N2ov2op4util17VariableExtensionE) Subclassed by
+```
 
 [ov::op::util::AssignBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_assign_base),[ov::op::util::ReadValueBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_read_value_base)Public Functions
 

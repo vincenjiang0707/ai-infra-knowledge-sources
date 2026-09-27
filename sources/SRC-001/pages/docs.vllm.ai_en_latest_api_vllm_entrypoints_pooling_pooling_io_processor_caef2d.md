@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/pooling/pooling/io_processor/
 lastmod: 2026-09-27
 
+```python
 class PluginWithIOProcessorPlugins(PoolingIOProcessor):
 """IO Processor plugins are a feature that allows pre- and post-processing
 of the model input and output for pooling models."""
@@ -136,3 +137,4 @@ prompt_token_ids=[],
 finished=True,
 )
 ]
+```

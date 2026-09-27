@@ -101,9 +101,11 @@ cc: @fynnsu @mgoin @shanjiaz
 ### rasyosef · 2026-09-25
 
 ---
+```yaml
 license: apache-2.0
 base_model: google/gemma-4-E2B-it
 library_name: transformers
+```
 tags:
 - speculative-decoding
 - speculators

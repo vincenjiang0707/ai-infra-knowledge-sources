@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v6::Assign[#](https://docs.openvino.ai#class-ov-op-v6-assign)
 
 -
+```python
 class Assign : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[AssignBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_assign_base.html#_CPPv4N2ov2op4util10AssignBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v66AssignE) [Assign](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_assign)operation sets an input value to the variable with`variable_id`
+```
 
 Public Functions
 

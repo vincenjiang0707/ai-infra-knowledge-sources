@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v6::ExperimentalDetectronDetectionOutput[#](https://docs.openvino.ai#class-ov-op-v6-experimentaldetectrondetectionoutput)
 
 -
+```python
 class ExperimentalDetectronDetectionOutput : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v636ExperimentalDetectronDetectionOutputE) An operation
+```
 
 [ExperimentalDetectronDetectionOutput](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v6_1_1_experimental_detectron_detection_output)performs non-maximum suppression to generate the detection output using information on location and score predictions.Public Functions
 
@@ -40,8 +42,10 @@ void set_attrs(
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v636ExperimentalDetectronDetectionOutput10AttributesE) Structure that specifies attributes of the operation.
+```
 
 
 -

@@ -7,8 +7,10 @@ labels:
 ## 正文
 
 [环境]
+```bash
 paddlepaddle-gpu==3.2.0
 erniekit==0.0.0         /home/aistudio/ERNIE
+```
 
 [运行]
 erniekit train ERNIE/examples/configs/ERNIE-4.5-21B-A3B/sft/run_sft_lora_8k.yaml

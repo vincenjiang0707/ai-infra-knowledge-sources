@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cuda/npp/nppdefs.html
 # Data Types, Structs, Enums, and Constants[](https://docs.nvidia.com#data-types-structs-enums-and-constants)
 
 -
+```rust
 struct Npp16f
 [](https://docs.nvidia.com#c.Npp16f)
+```
 
 -
 Workarounds for cuda_fp16.h C incompatibility
@@ -23,8 +25,10 @@ Original Cuda fp16 data size and format.
 short fp16
 
 -
+```rust
 enum NppiInterpolationMode
 [](https://docs.nvidia.com#c.NppiInterpolationMode)
+```
 
 -
 Filtering methods.
@@ -121,8 +125,10 @@ Smooth edge filtering.
 enumerator NPPI_INTER_UNDEFINED
 
 -
+```rust
 enum NppiBayerGridPosition
 [](https://docs.nvidia.com#c.NppiBayerGridPosition)
+```
 
 -
 Bayer Grid Position Registration.
@@ -163,8 +169,10 @@ Registration position GRBG.
 enumerator NPPI_BAYER_BGGR
 
 -
+```rust
 enum NppiMaskSize
 [](https://docs.nvidia.com#c.NppiMaskSize)
+```
 
 -
 Fixed filter-kernel sizes.
@@ -261,8 +269,10 @@ enumerator NPP_MASK_SIZE_15_X_15
 enumerator NPP_MASK_SIZE_1_X_3
 
 -
+```rust
 enum NppiDifferentialKernel
 [](https://docs.nvidia.com#c.NppiDifferentialKernel)
+```
 
 -
 Differential Filter types.
@@ -287,8 +297,10 @@ Differential kernel filter type scharr.
 enumerator NPP_FILTER_SOBEL
 
 -
+```rust
 enum NppStatus
 [](https://docs.nvidia.com#c.NppStatus)
+```
 
 -
 Error Status Codes.
@@ -788,8 +800,10 @@ Speed reduction due to uncoalesced memory accesses warning.
 enumerator NPP_LIBRARY_VERSION_MISMATCH_ERROR
 
 -
+```rust
 struct NppLibraryVersion
 [](https://docs.nvidia.com#c.NppLibraryVersion)
+```
 
 -
 NPPLibraryVersion This struct contains the NPP Library Version information.
@@ -876,72 +890,90 @@ typedef double Npp64f
 
 
 -
+```rust
 struct Npp8uc
 [](https://docs.nvidia.com#c.Npp8uc)
+```
 
 -
 Complex Number This struct represents an unsigned char complex number.
 
 
 -
+```rust
 struct Npp16uc
 [](https://docs.nvidia.com#c.Npp16uc)
+```
 
 -
 Complex Number This struct represents an unsigned short complex number.
 
 
 -
+```rust
 struct Npp16sc
 [](https://docs.nvidia.com#c.Npp16sc)
+```
 
 -
 Complex Number This struct represents a short complex number.
 
 
 -
+```rust
 struct Npp32uc
 [](https://docs.nvidia.com#c.Npp32uc)
+```
 
 -
 Complex Number This struct represents an unsigned int complex number.
 
 
 -
+```rust
 struct Npp32sc
 [](https://docs.nvidia.com#c.Npp32sc)
+```
 
 -
 Complex Number This struct represents a signed int complex number.
 
 
 -
+```rust
 struct Npp32fc
 [](https://docs.nvidia.com#c.Npp32fc)
+```
 
 -
 Complex Number This struct represents a single floating-point complex number.
 
 
 -
+```rust
 struct Npp64sc
 [](https://docs.nvidia.com#c.Npp64sc)
+```
 
 -
 Complex Number This struct represents a long long complex number.
 
 
 -
+```rust
 struct Npp64fc
 [](https://docs.nvidia.com#c.Npp64fc)
+```
 
 -
 Complex Number This struct represents a double floating-point complex number.
 
 
 -
+```rust
 enum NppDataType
 [](https://docs.nvidia.com#c.NppDataType)
+```
 
 -
 Data types for nppiPlus functions.
@@ -1038,8 +1070,10 @@ enumerator NPP_64F
 enumerator NPP_8U
 
 -
+```rust
 enum NppiChannels
 [](https://docs.nvidia.com#c.NppiChannels)
+```
 
 -
 Image channel counts for nppiPlus functions.
@@ -1272,48 +1306,60 @@ Largest positive 64-bit floating point value.
 
 
 -
+```rust
 struct NppiPoint
 [](https://docs.nvidia.com#c.NppiPoint)
+```
 
 -
 2D Point
 
 
 -
+```rust
 struct NppiPoint32f
 [](https://docs.nvidia.com#c.NppiPoint32f)
+```
 
 -
 2D Npp32f Point
 
 
 -
+```rust
 struct NppiPoint64f
 [](https://docs.nvidia.com#c.NppiPoint64f)
+```
 
 -
 2D Npp64f Point
 
 
 -
+```rust
 struct NppPointPolar
 [](https://docs.nvidia.com#c.NppPointPolar)
+```
 
 -
 2D Polar Point
 
 
 -
+```rust
 struct NppiSize
 [](https://docs.nvidia.com#c.NppiSize)
+```
 
 -
 2D Size This struct typically represents the size of a a rectangular region in two space.
 
 
 -
+```rust
 struct NppiRect
 [](https://docs.nvidia.com#c.NppiRect)
+```
 
 -
 2D Rectangle This struct contains position and size information of a rectangle in two space.
@@ -1322,8 +1368,10 @@ The rectangle’s position is usually signified by the coordinate of its upper-l
 
 
 -
+```rust
 enum NppiAxis
 [](https://docs.nvidia.com#c.NppiAxis)
+```
 
 -
 nppiMirror direction controls
@@ -1356,8 +1404,10 @@ Flip around both axes in mirror function.
 enumerator NPP_HORIZONTAL_AXIS
 
 -
+```rust
 enum NppCmpOp
 [](https://docs.nvidia.com#c.NppCmpOp)
+```
 
 -
 Pixel comparison control values.
@@ -1406,8 +1456,10 @@ Threshold test for greater than.
 enumerator NPP_CMP_LESS
 
 -
+```rust
 enum NppRoundMode
 [](https://docs.nvidia.com#c.NppRoundMode)
+```
 
 -
 Rounding Modes.
@@ -1497,8 +1549,10 @@ Alias name for NPP_RND_ZERO.
 enumerator NPP_RND_NEAR
 
 -
+```rust
 enum NppiBorderType
 [](https://docs.nvidia.com#c.NppiBorderType)
+```
 
 -
 Supported image border modes.
@@ -1563,8 +1617,10 @@ Image border type mirror with replication (IPP mirrored border with replication 
 enumerator NPP_BORDER_UNDEFINED
 
 -
+```rust
 enum NppHintAlgorithm
 [](https://docs.nvidia.com#c.NppHintAlgorithm)
+```
 
 -
 Hints.
@@ -1597,8 +1653,10 @@ Hint accurate, currently these are all ignored.
 enumerator NPP_ALG_HINT_NONE
 
 -
+```rust
 enum NppiAlphaOp
 [](https://docs.nvidia.com#c.NppiAlphaOp)
+```
 
 -
 Alpha composition mode controls.
@@ -1711,8 +1769,10 @@ Alpha composition premultiply operation.
 enumerator NPPI_OP_ALPHA_OVER
 
 -
+```rust
 struct NppiHOGConfig
 [](https://docs.nvidia.com#c.NppiHOGConfig)
+```
 
 -
 The
@@ -1770,24 +1830,30 @@ max number of descriptor window locations per function call.
 
 
 -
+```rust
 struct NppiHaarClassifier_32f
 [](https://docs.nvidia.com#c.NppiHaarClassifier_32f)
+```
 
 -
 Data structure for HaarClassifier_32f.
 
 
 -
+```rust
 struct NppiHaarBuffer
 [](https://docs.nvidia.com#c.NppiHaarBuffer)
+```
 
 -
 Data structure for Haar buffer.
 
 
 -
+```rust
 enum NppsZCType
 [](https://docs.nvidia.com#c.NppsZCType)
+```
 
 -
 Signal sign operations.
@@ -1820,8 +1886,10 @@ sign change count_0
 enumerator nppZCR
 
 -
+```rust
 enum NppiHuffmanTableType
 [](https://docs.nvidia.com#c.NppiHuffmanTableType)
+```
 
 -
 HuffMan Table controls.
@@ -1846,8 +1914,10 @@ AC Table.
 enumerator nppiDCTable
 
 -
+```rust
 enum NppiNorm
 [](https://docs.nvidia.com#c.NppiNorm)
+```
 
 -
 Norm controls.
@@ -1880,16 +1950,20 @@ square root of sum of squares
 enumerator nppiNormInf
 
 -
+```rust
 struct NppiConnectedRegion
 [](https://docs.nvidia.com#c.NppiConnectedRegion)
+```
 
 -
 Data structure of connected pixel region information.
 
 
 -
+```rust
 struct NppiImageDescriptor
 [](https://docs.nvidia.com#c.NppiImageDescriptor)
+```
 
 -
 General image descriptor.
@@ -1898,8 +1972,10 @@ Defines the basic parameters of an image, including data pointer, step, and imag
 
 
 -
+```rust
 struct NppiBufferDescriptor
 [](https://docs.nvidia.com#c.NppiBufferDescriptor)
+```
 
 -
 struct
@@ -1907,16 +1983,20 @@ struct
 [NppiBufferDescriptor](https://docs.nvidia.com#structnppibufferdescriptor)
 
 -
+```rust
 struct NppiCompressedMarkerLabelsInfo
 [](https://docs.nvidia.com#c.NppiCompressedMarkerLabelsInfo)
+```
 
 -
 Provides details of uniquely labeled pixel regions of interest returned by CompressedLabelMarkersUF function.
 
 
 -
+```rust
 struct NppiContourBlockSegment
 [](https://docs.nvidia.com#c.NppiContourBlockSegment)
+```
 
 -
 Provides details of contour pixel grid map location and association.
@@ -1925,8 +2005,10 @@ Public Members
 
 
 -
+```rust
 struct NppiContourPixelGeometryInfo
 [](https://docs.nvidia.com#c.NppiContourPixelGeometryInfo)
+```
 
 -
 Provides contour (boundary) geometry info of uniquely labeled pixel regions returned by nppiCompressedMarkerLabelsUFInfo function in host memory in counterclockwise order relative to contour interiors.
@@ -2059,8 +2141,10 @@ Contour direction any east.
 
 
 -
+```rust
 struct NppiContourPixelDirectionInfo
 [](https://docs.nvidia.com#c.NppiContourPixelDirectionInfo)
+```
 
 -
 Data structure for contour pixel direction information.
@@ -2091,16 +2175,20 @@ Pixel geometry info structure.
 -
 
 -
+```rust
 struct NppiContourTotalsInfo
 [](https://docs.nvidia.com#c.NppiContourTotalsInfo)
+```
 
 -
 Data structure for contour total counts.
 
 
 -
+```rust
 enum NppiWatershedSegmentBoundaryType
 [](https://docs.nvidia.com#c.NppiWatershedSegmentBoundaryType)
+```
 
 -
 Provides control of the type of segment boundaries, if any, added to the image generated by the watershed segmentation function.
@@ -2149,8 +2237,10 @@ Image watershed segment boundary type render boundaries only.
 enumerator NPP_WATERSHED_SEGMENT_BOUNDARIES_NONE
 
 -
+```rust
 struct NppStreamContext
 [](https://docs.nvidia.com#c.NppStreamContext)
+```
 
 -
 ## Application Managed Stream Context
@@ -2261,32 +2351,40 @@ union
 cudaStream_t hStream
 
 -
+```rust
 struct NppiResizeBatchCXR
 [](https://docs.nvidia.com#c.NppiResizeBatchCXR)
+```
 
 -
 NPP Batch Geometry Structure Definitions.
 
 
 -
+```rust
 struct NppiResizeBatchROI_Advanced
 [](https://docs.nvidia.com#c.NppiResizeBatchROI_Advanced)
+```
 
 -
 Data structure for variable ROI image batch resizing.
 
 
 -
+```rust
 struct NppiMirrorBatchCXR
 [](https://docs.nvidia.com#c.NppiMirrorBatchCXR)
+```
 
 -
 Data structure for batched nppiMirrorBatch.
 
 
 -
+```rust
 struct NppiWarpAffineBatchCXR
 [](https://docs.nvidia.com#c.NppiWarpAffineBatchCXR)
+```
 
 -
 Data structure for batched nppiWarpAffineBatch.
@@ -2329,8 +2427,10 @@ device image byte count per row.
 const void *pSrc
 
 -
+```rust
 struct NppiWarpPerspectiveBatchCXR
 [](https://docs.nvidia.com#c.NppiWarpPerspectiveBatchCXR)
+```
 
 -
 Data structure for batched nppiWarpPerspectiveBatch.
@@ -2373,8 +2473,10 @@ device image byte count per row.
 const void *pSrc
 
 -
+```rust
 struct NppiColorTwistBatchCXR
 [](https://docs.nvidia.com#c.NppiColorTwistBatchCXR)
+```
 
 -
 Data structure for batched nppiColorTwistBatch.

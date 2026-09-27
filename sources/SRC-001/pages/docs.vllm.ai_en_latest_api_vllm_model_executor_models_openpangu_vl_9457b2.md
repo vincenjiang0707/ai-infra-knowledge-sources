@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/openpangu_vl/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 OpenPanguVLMultiModalProcessor,
 info=OpenPanguVLProcessingInfo,
@@ -431,3 +432,4 @@ torch.arange(text_len).view(1, -1).expand(3, -1) + st_idx
 llm_positions = torch.cat(llm_pos_ids_list, dim=1).reshape(3, -1)
 mrope_position_delta = (llm_positions.max() + 1 - len(input_tokens)).item()
 return llm_positions, mrope_position_delta
+```

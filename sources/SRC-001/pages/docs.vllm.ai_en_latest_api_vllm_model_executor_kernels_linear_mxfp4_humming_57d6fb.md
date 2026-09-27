@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp4/humming/
 lastmod: 2026-09-27
 
+```python
 class HummingMxFp4LinearKernel(MxFp4LinearKernel):
 """Humming GEMM Kernel for MXFP4."""
 @classmethod
@@ -52,3 +53,4 @@ layer_config=self.layer_config,
 compute_config=self.compute_config,
 locks=self.locks,
 )
+```

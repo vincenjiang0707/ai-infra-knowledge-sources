@@ -20,6 +20,7 @@ mechanism. This mechanism allows developers to register functions in their Pytho
 ## Code
 
 # inside `setup.py` file
+```python
 from setuptools import setup
 setup(name='vllm_add_dummy_model',
 version='0.1',
@@ -36,6 +37,7 @@ ModelRegistry.register_model(
 "MyLlava",
 "vllm_add_dummy_model.my_llava:MyLlava",
 )
+```
 
 
 For more information on adding entry points to your package, please check the [official documentation](https://setuptools.pypa.io/en/latest/userguide/entry_point.html).

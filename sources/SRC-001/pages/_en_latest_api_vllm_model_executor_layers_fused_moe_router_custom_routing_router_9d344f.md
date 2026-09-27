@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/router/custom_routing_router/
 lastmod: 2026-09-27
 
+```python
 class CustomRoutingRouter(BaseRouter):
 """Router using a custom user-provided routing function."""
 def __init__(
@@ -49,3 +50,4 @@ renormalize=self.renormalize,
 return topk_weights.to(torch.float32), topk_ids.to(
 torch.int32 if indices_type is None else indices_type
 )
+```

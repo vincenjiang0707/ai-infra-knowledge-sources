@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v8::DetectionOutput[#](https://docs.openvino.ai#class-ov-op-v8-detectionoutput)
 
 -
+```python
 class DetectionOutput : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[DetectionOutputBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_detection_output_base.html#_CPPv4N2ov2op4util19DetectionOutputBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v815DetectionOutputE) Layer which performs non-max suppression to generate detection output using location and confidence predictions.
+```
 
 Public Functions
 

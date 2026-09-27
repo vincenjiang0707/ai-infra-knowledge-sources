@@ -1261,8 +1261,10 @@ __managed__ cuda::atomic<int, cuda::thread_scope_system> b(0);
 ``` |
 ||
 Thread 1 (SM) ```
+```bash
 x = 1;
 a = 1;
+```
 ``` |
 Thread 2 (SM) ```
 while (a != 1) ;
@@ -1492,8 +1494,10 @@ Streams are released by calling `cudaStreamDestroy()`
 .
 
 ```
+```
 for (int i = 0; i < 2; ++i)
 cudaStreamDestroy(stream[i]);
+```
 ```
 
 In case the device is still doing work in the stream when `cudaStreamDestroy()`
@@ -2581,6 +2585,7 @@ This function returns the handle of the currently running graph if it is a devic
 Below is sample code showing usage of this function for a relaunch loop:
 
 ```
+```
 __device__ int relaunchCount = 0;
 __global__ void relaunchSelf() {
 int relaunchMax = 100;
@@ -2591,6 +2596,7 @@ cudaGraphLaunch(cudaGetCurrentGraphExec(), cudaStreamGraphTailLaunch);
 relaunchCount++;
 }
 }
+```
 ```
 
 [](https://docs.nvidia.com#sibling-launch)
@@ -3261,6 +3267,7 @@ from a resource description of type `struct cudaResourceDesc`
 , which specifies the texture, and from a texture description defined as such:
 
 ```
+```rust
 struct cudaTextureDesc
 {
 enum cudaTextureAddressMode addressMode[3];
@@ -3274,6 +3281,7 @@ float mipmapLevelBias;
 float minMipmapLevelClamp;
 float maxMipmapLevelClamp;
 };
+```
 ```
 
 `addressMode`
@@ -3797,6 +3805,7 @@ glutPostRedisplay();
 
 ```
 void deleteVBO()
+```
 {
 cudaGraphicsUnregisterResource(positionsVBO_CUDA);
 glDeleteBuffers(1, &positionsVBO);
@@ -3814,6 +3823,7 @@ v = v * 2.0f - 1.0f;
 // calculate simple sine wave pattern
 float freq = 4.0f;
 float w = sinf(u * freq + time)
+```
 * cosf(v * freq + time) * 0.5f;
 // Write positions
 positions[y * width + x] = make_float4(u, w, v, 1.0f);
@@ -4350,6 +4360,7 @@ A device pointer can be mapped onto an imported memory object as shown below. Th
 .
 
 ```
+```
 void * mapBufferOntoExternalMemory(cudaExternalMemory_t extMem, unsigned long long offset, unsigned long long size) {
 void *ptr = NULL;
 cudaExternalMemoryBufferDesc desc = {};
@@ -4361,6 +4372,7 @@ cudaExternalMemoryGetMappedBuffer(&ptr, extMem, &desc);
 return ptr;
 }
 ```
+```
 
 ##### 6.2.16.1.4. Mapping Mipmapped Arrays onto Imported Memory Objects[](https://docs.nvidia.com#mapping-mipmapped-arrays-onto-imported-memory-objects)
 
@@ -4370,6 +4382,7 @@ must be set. All mapped mipmapped arrays must be freed using `cudaFreeMipmappedA
 
 . The following code sample shows how to convert Vulkan parameters into the corresponding CUDA parameters when mapping mipmapped arrays onto imported memory objects.
 
+```
 ```
 cudaMipmappedArray_t mapMipmappedArrayOntoExternalMemory(cudaExternalMemory_t extMem, unsigned long long offset, cudaChannelFormatDesc *formatDesc, cudaExtent *extent, unsigned int flags, unsigned int numLevels) {
 cudaMipmappedArray_t mipmap = NULL;
@@ -4412,6 +4425,7 @@ case VK_FORMAT_R32G32B32A32_SINT: d.x = 32; d.y = 32; d.z = 32; d.w = 32; d.f = 
 case VK_FORMAT_R32G32B32A32_SFLOAT: d.x = 32; d.y = 32; d.z = 32; d.w = 32; d.f = cudaChannelFormatKindFloat; break;
 default: assert(0);
 }
+```
 ```
 
 ```
@@ -4524,21 +4538,25 @@ return extSem;
 An imported Vulkan semaphore object can be signaled as shown below. Signaling such a semaphore object sets it to the signaled state. The corresponding wait that waits on this signal must be issued in Vulkan. Additionally, the wait that waits on this signal must be issued after this signal has been issued.
 
 ```
+```
 void signalExternalSemaphore(cudaExternalSemaphore_t extSem, cudaStream_t stream) {
 cudaExternalSemaphoreSignalParams params = {};
 memset(¶ms, 0, sizeof(params));
 cudaSignalExternalSemaphoresAsync(&extSem, ¶ms, 1, stream);
 }
 ```
+```
 
 An imported Vulkan semaphore object can be waited on as shown below. Waiting on such a semaphore object waits until it reaches the signaled state and then resets it back to the unsignaled state. The corresponding signal that this wait is waiting on must be issued in Vulkan. Additionally, the signal must be issued before this wait can be issued.
 
+```
 ```
 void waitExternalSemaphore(cudaExternalSemaphore_t extSem, cudaStream_t stream) {
 cudaExternalSemaphoreWaitParams params = {};
 memset(¶ms, 0, sizeof(params));
 cudaWaitExternalSemaphoresAsync(&extSem, ¶ms, 1, stream);
 }
+```
 ```
 
 #### 6.2.16.2. OpenGL Interoperability[](https://docs.nvidia.com#opengl-interoperability-ext-res-int)
@@ -4610,6 +4628,7 @@ return extMem;
 A shareable Direct3D 12 heap memory object can also be imported using a named handle if one exists as shown below.
 
 ```
+```
 cudaExternalMemory_t importD3D12HeapFromNamedNTHandle(LPCWSTR name, unsigned long long size) {
 cudaExternalMemory_t extMem = NULL;
 cudaExternalMemoryHandleDesc desc = {};
@@ -4620,6 +4639,7 @@ desc.size = size;
 cudaImportExternalMemory(&extMem, &desc);
 return extMem;
 }
+```
 ```
 
 A shareable Direct3D 12 committed resource, created by setting the flag `D3D12_HEAP_FLAG_SHARED`
@@ -4669,6 +4689,7 @@ A device pointer can be mapped onto an imported memory object as shown below. Th
 .
 
 ```
+```
 void * mapBufferOntoExternalMemory(cudaExternalMemory_t extMem, unsigned long long offset, unsigned long long size) {
 void *ptr = NULL;
 cudaExternalMemoryBufferDesc desc = {};
@@ -4680,6 +4701,7 @@ cudaExternalMemoryGetMappedBuffer(&ptr, extMem, &desc);
 return ptr;
 }
 ```
+```
 
 ##### 6.2.16.3.4. Mapping Mipmapped Arrays onto Imported Memory Objects[](https://docs.nvidia.com#mapping-mipmapped-arrays-onto-imported-memory-objects-dir3d-12-int)
 
@@ -4689,6 +4711,7 @@ must be set. All mapped mipmapped arrays must be freed using `cudaFreeMipmappedA
 
 . The following code sample shows how to convert Vulkan parameters into the corresponding CUDA parameters when mapping mipmapped arrays onto imported memory objects.
 
+```
 ```
 cudaMipmappedArray_t mapMipmappedArrayOntoExternalMemory(cudaExternalMemory_t extMem, unsigned long long offset, cudaChannelFormatDesc *formatDesc, cudaExtent *extent, unsigned int flags, unsigned int numLevels) {
 cudaMipmappedArray_t mipmap = NULL;
@@ -4730,6 +4753,7 @@ case DXGI_FORMAT_R32G32B32A32_UINT: d.x = 32; d.y = 32; d.z = 32; d.w = 32; d.f 
 case DXGI_FORMAT_R32G32B32A32_SINT: d.x = 32; d.y = 32; d.z = 32; d.w = 32; d.f = cudaChannelFormatKindSigned; break;
 case DXGI_FORMAT_R32G32B32A32_FLOAT: d.x = 32; d.y = 32; d.z = 32; d.w = 32; d.f = cudaChannelFormatKindFloat; break;
 default: assert(0);
+```
 ```
 
 ```
@@ -4810,6 +4834,7 @@ return extSem;
 An imported Direct3D 12 fence object can be signaled as shown below. Signaling such a fence object sets its value to the one specified. The corresponding wait that waits on this signal must be issued in Direct3D 12. Additionally, the wait that waits on this signal must be issued after this signal has been issued.
 
 ```
+```
 void signalExternalSemaphore(cudaExternalSemaphore_t extSem, unsigned long long value, cudaStream_t stream) {
 cudaExternalSemaphoreSignalParams params = {};
 memset(¶ms, 0, sizeof(params));
@@ -4817,9 +4842,11 @@ params.params.fence.value = value;
 cudaSignalExternalSemaphoresAsync(&extSem, ¶ms, 1, stream);
 }
 ```
+```
 
 An imported Direct3D 12 fence object can be waited on as shown below. Waiting on such a fence object waits until its value becomes greater than or equal to the specified value. The corresponding signal that this wait is waiting on must be issued in Direct3D 12. Additionally, the signal must be issued before this wait can be issued.
 
+```
 ```
 void waitExternalSemaphore(cudaExternalSemaphore_t extSem, unsigned long long value, cudaStream_t stream) {
 cudaExternalSemaphoreWaitParams params = {};
@@ -4827,6 +4854,7 @@ memset(¶ms, 0, sizeof(params));
 params.params.fence.value = value;
 cudaWaitExternalSemaphoresAsync(&extSem, ¶ms, 1, stream);
 }
+```
 ```
 
 #### 6.2.16.4. Direct3D 11 Interoperability[](https://docs.nvidia.com#direct3d-11-interoperability)
@@ -4952,6 +4980,7 @@ A device pointer can be mapped onto an imported memory object as shown below. Th
 .
 
 ```
+```
 void * mapBufferOntoExternalMemory(cudaExternalMemory_t extMem, unsigned long long offset, unsigned long long size) {
 void *ptr = NULL;
 cudaExternalMemoryBufferDesc desc = {};
@@ -4963,6 +4992,7 @@ cudaExternalMemoryGetMappedBuffer(&ptr, extMem, &desc);
 return ptr;
 }
 ```
+```
 
 ##### 6.2.16.4.4. Mapping Mipmapped Arrays onto Imported Memory Objects[](https://docs.nvidia.com#mapping-mipmapped-arrays-onto-imported-memory-objects-dir3d-11-int)
 
@@ -4972,6 +5002,7 @@ must be set. All mapped mipmapped arrays must be freed using `cudaFreeMipmappedA
 
 . The following code sample shows how to convert Direct3D 11 parameters into the corresponding CUDA parameters when mapping mipmapped arrays onto imported memory objects.
 
+```
 ```
 cudaMipmappedArray_t mapMipmappedArrayOntoExternalMemory(cudaExternalMemory_t extMem, unsigned long long offset, cudaChannelFormatDesc *formatDesc, cudaExtent *extent, unsigned int flags, unsigned int numLevels) {
 cudaMipmappedArray_t mipmap = NULL;
@@ -5014,6 +5045,7 @@ case DXGI_FORMAT_R32G32B32A32_SINT: d.x = 32; d.y = 32; d.z = 32; d.w = 32; d.f 
 case DXGI_FORMAT_R32G32B32A32_FLOAT: d.x = 32; d.y = 32; d.z = 32; d.w = 32; d.f = cudaChannelFormatKindFloat; break;
 default: assert(0);
 }
+```
 ```
 
 ```
@@ -5143,6 +5175,7 @@ return extSem;
 An imported Direct3D 11 fence object can be signaled as shown below. Signaling such a fence object sets its value to the one specified. The corresponding wait that waits on this signal must be issued in Direct3D 11. Additionally, the wait that waits on this signal must be issued after this signal has been issued.
 
 ```
+```
 void signalExternalSemaphore(cudaExternalSemaphore_t extSem, unsigned long long value, cudaStream_t stream) {
 cudaExternalSemaphoreSignalParams params = {};
 memset(¶ms, 0, sizeof(params));
@@ -5150,9 +5183,11 @@ params.params.fence.value = value;
 cudaSignalExternalSemaphoresAsync(&extSem, ¶ms, 1, stream);
 }
 ```
+```
 
 An imported Direct3D 11 fence object can be waited on as shown below. Waiting on such a fence object waits until its value becomes greater than or equal to the specified value. The corresponding signal that this wait is waiting on must be issued in Direct3D 11. Additionally, the signal must be issued before this wait can be issued.
 
+```
 ```
 void waitExternalSemaphore(cudaExternalSemaphore_t extSem, unsigned long long value, cudaStream_t stream) {
 cudaExternalSemaphoreWaitParams params = {};
@@ -5161,9 +5196,11 @@ params.params.fence.value = value;
 cudaWaitExternalSemaphoresAsync(&extSem, ¶ms, 1, stream);
 }
 ```
+```
 
 An imported Direct3D 11 keyed mutex object can be signaled as shown below. Signaling such a keyed mutex object by specifying a key value releases the keyed mutex for that value. The corresponding wait that waits on this signal must be issued in Direct3D 11 with the same key value. Additionally, the Direct3D 11 wait must be issued after this signal has been issued.
 
+```
 ```
 void signalExternalSemaphore(cudaExternalSemaphore_t extSem, unsigned long long key, cudaStream_t stream) {
 cudaExternalSemaphoreSignalParams params = {};
@@ -5172,9 +5209,11 @@ params.params.keyedmutex.key = key;
 cudaSignalExternalSemaphoresAsync(&extSem, ¶ms, 1, stream);
 }
 ```
+```
 
 An imported Direct3D 11 keyed mutex object can be waited on as shown below. A timeout value in milliseconds is needed when waiting on such a keyed mutex. The wait operation waits until the keyed mutex value is equal to the specified key value or until the timeout has elapsed. The timeout interval can also be an infinite value. In case an infinite value is specified the timeout never elapses. The windows INFINITE macro must be used to specify an infinite timeout. The corresponding signal that this wait is waiting on must be issued in Direct3D 11. Additionally, the Direct3D 11 signal must be issued before this wait can be issued.
 
+```
 ```
 void waitExternalSemaphore(cudaExternalSemaphore_t extSem, unsigned long long key, unsigned int timeoutMs, cudaStream_t stream) {
 cudaExternalSemaphoreWaitParams params = {};
@@ -5183,6 +5222,7 @@ params.params.keyedmutex.key = key;
 params.params.keyedmutex.timeoutMs = timeoutMs;
 cudaWaitExternalSemaphoresAsync(&extSem, ¶ms, 1, stream);
 }
+```
 ```
 
 #### 6.2.16.5. NVIDIA Software Communication Interface Interoperability (NVSCI)[](https://docs.nvidia.com#nvidia-software-communication-interface-interoperability-nvsci)
@@ -5265,10 +5305,12 @@ return bufferObjRaw;
 ```
 
 ```
+```python
 NvSciBufObj bufferObjRo; // Readonly NvSciBuf memory obj
 // Create a duplicate handle to the same memory buffer with reduced permissions
 NvSciBufObjDupWithReducePerm(bufferObjRaw, NvSciBufAccessPerm_Readonly, &bufferObjRo);
 return bufferObjRo;
+```
 ```
 
 The allocated NvSciBuf memory object can be imported in CUDA using the NvSciBufObj handle as shown below. Application should query the allocated NvSciBufObj for attributes required for filling CUDA External Memory Descriptor. Note that the attribute list and NvSciBuf objects should be maintained by the application. If the NvSciBuf object imported into CUDA is also mapped by other drivers, then based on `NvSciBufGeneralAttrKey_GpuSwNeedCacheCoherency`
@@ -5332,6 +5374,7 @@ A device pointer can be mapped onto an imported memory object as shown below. Th
 .
 
 ```
+```
 void * mapBufferOntoExternalMemory(cudaExternalMemory_t extMem, unsigned long long offset, unsigned long long size) {
 void *ptr = NULL;
 cudaExternalMemoryBufferDesc desc = {};
@@ -5342,6 +5385,7 @@ cudaExternalMemoryGetMappedBuffer(&ptr, extMem, &desc);
 // Note: 'ptr' must eventually be freed using cudaFree()
 return ptr;
 }
+```
 ```
 
 ##### 6.2.16.5.3. Mapping Mipmapped Arrays onto Imported Memory Objects[](https://docs.nvidia.com#mapping-mipmapped-arrays-onto-imported-memory-objects-nvsci)
@@ -5381,6 +5425,7 @@ NvSciSync attributes that are compatible with a given CUDA device can be generat
 that is guaranteed compatibility with a given CUDA device.
 
 ```
+```
 NvSciSyncObj createNvSciSyncObject() {
 NvSciSyncObj nvSciSyncObj
 int cudaDev0 = 0;
@@ -5400,6 +5445,7 @@ NvSciSyncAttrListReconcile(unreconciledList, 2, &reconciledList, &newConflictLis
 NvSciSyncObjAlloc(reconciledList, &nvSciSyncObj);
 return nvSciSyncObj;
 }
+```
 ```
 
 An NvSciSync object (created as above) can be imported into CUDA using the NvSciSyncObj handle as shown below. Note that ownership of the NvSciSyncObj handle continues to lie with the application even after it is imported.
@@ -5428,6 +5474,7 @@ then memory synchronization operations (over all the imported NvSciBuf in this p
 is FALSE, this flag should be set.
 
 ```
+```
 void signalExternalSemaphore(cudaExternalSemaphore_t extSem, cudaStream_t stream, void *fence) {
 cudaExternalSemaphoreSignalParams signalParams = {};
 memset(&signalParams, 0, sizeof(signalParams));
@@ -5435,6 +5482,7 @@ signalParams.params.nvSciSync.fence = (void*)fence;
 signalParams.flags = 0; //OR cudaExternalSemaphoreSignalSkipNvSciBufMemSync
 cudaSignalExternalSemaphoresAsync(&extSem, &signalParams, 1, stream);
 }
+```
 ```
 
 An imported `NvSciSyncObj`
@@ -5446,6 +5494,7 @@ then memory synchronization operations (over all the imported NvSciBuf in this p
 is FALSE, this flag should be set.
 
 ```
+```
 void waitExternalSemaphore(cudaExternalSemaphore_t extSem, cudaStream_t stream, void *fence) {
 cudaExternalSemaphoreWaitParams waitParams = {};
 memset(&waitParams, 0, sizeof(waitParams));
@@ -5453,6 +5502,7 @@ waitParams.params.nvSciSync.fence = (void*)fence;
 waitParams.flags = 0; //OR cudaExternalSemaphoreWaitSkipNvSciBufMemSync
 cudaWaitExternalSemaphoresAsync(&extSem, &waitParams, 1, stream);
 }
+```
 ```
 
 ## 6.3. Versioning and Compatibility[](https://docs.nvidia.com#versioning-and-compatibility)
@@ -5841,20 +5891,24 @@ For structures, the size and alignment requirements can be enforced by the compi
 , such as
 
 ```
+```rust
 struct __align__(8) {
 float x;
 float y;
 };
 ```
+```
 
 or
 
 ```
+```rust
 struct __align__(16) {
 float x;
 float y;
 float z;
 };
+```
 ```
 
 Any address of a variable residing in global memory or returned by one of the memory allocation routines from the driver or runtime API is always aligned to at least 256 bytes.
@@ -6288,12 +6342,14 @@ function parameter with `__grid_constant__`
 ensures that the compiler will not create a copy of the kernel parameter in thread local memory, but will instead use the generic address of the parameter itself. Avoiding the local copy may result in improved performance.
 
 ```
+```json
 __device__ void unknown_function(S const&);
 __global__ void kernel(const __grid_constant__ S s) {
 s.x += threadIdx.x; // Undefined Behavior: tried to modify read-only memory
 // Compiler will _not_ create a per-thread thread local copy of "s":
 unknown_function(s);
 }
+```
 ```
 
 ### 10.2.5. __managed__[](https://docs.nvidia.com#managed)
@@ -6324,6 +6380,7 @@ Restricted pointers were introduced in C99 to alleviate the aliasing problem tha
 Here is an example subject to the aliasing issue, where use of restricted pointer can help the compiler to reduce the number of instructions:
 
 ```
+```
 void foo(const float* a,
 const float* b,
 float* c)
@@ -6336,6 +6393,7 @@ c[4] = a[0] * b[0];
 c[5] = b[0];
 ...
 }
+```
 ```
 
 In C-type languages, the pointers `a`
@@ -6399,6 +6457,7 @@ Note that all pointer arguments need to be made restricted for the compiler opti
 keywords added, the compiler can now reorder and do common sub-expression elimination at will, while retaining functionality identical with the abstract execution model:
 
 ```
+```
 void foo(const float* __restrict__ a,
 const float* __restrict__ b,
 float* __restrict__ c)
@@ -6415,6 +6474,7 @@ c[3] = t0 * t3;
 c[5] = t1;
 ...
 }
+```
 ```
 
 The effects here are a reduced number of memory accesses and reduced number of computations. This is balanced by an increase in register pressure due to “cached” loads and common sub-expressions.
@@ -7734,11 +7794,13 @@ or `__nv_bfloat162`
 These load functions are only supported by devices of compute capability 5.0 and higher.
 
 ```
+```
 T __ldcg(const T* address);
 T __ldca(const T* address);
 T __ldcs(const T* address);
 T __ldlu(const T* address);
 T __ldcv(const T* address);
+```
 ```
 
 returns the data of type `T`
@@ -7830,10 +7892,12 @@ or `__nv_bfloat162`
 These store functions are only supported by devices of compute capability 5.0 and higher.
 
 ```
+```
 void __stwb(T* address, T value);
 void __stcg(T* address, T value);
 void __stcs(T* address, T value);
 void __stwt(T* address, T value);
+```
 ```
 
 stores the `value`
@@ -8111,6 +8175,7 @@ For the supported data types, please refer to the corresponding section of diffe
 #### 10.14.1.1. atomicAdd()[](https://docs.nvidia.com#atomicadd)
 
 ```
+```
 int atomicAdd(int* address, int val);
 unsigned int atomicAdd(unsigned int* address,
 unsigned int val);
@@ -8124,6 +8189,7 @@ __nv_bfloat162 atomicAdd(__nv_bfloat162 *address, __nv_bfloat162 val);
 __nv_bfloat16 atomicAdd(__nv_bfloat16 *address, __nv_bfloat16 val);
 float2 atomicAdd(float2* address, float2 val);
 float4 atomicAdd(float4* address, float4 val);
+```
 ```
 
 reads the 16-bit, 32-bit or 64-bit `old`
@@ -9399,8 +9465,10 @@ void *res = __builtin_assume_aligned(ptr, 32); // compiler can assume 'res' is
 Three parameter version:
 
 ```
+```
 void * __builtin_assume_aligned (const void *exp, size_t align,
 <integral type> offset)
+```
 ```
 
 Allows the compiler to assume that `(char *)exp - offset`
@@ -9428,10 +9496,12 @@ Allows the compiler to assume that the Boolean argument is true. If the argument
 Example:
 
 ```
+```python
 __device__ int get(int *ptr, int idx) {
 __builtin_assume(idx <= 2);
 return ptr[idx];
 }
+```
 ```
 
 ### 10.18.3. __assume()[](https://docs.nvidia.com#assume)
@@ -9445,10 +9515,12 @@ Allows the compiler to assume that the Boolean argument is true. If the argument
 Example:
 
 ```
+```python
 __device__ int get(int *ptr, int idx) {
 __assume(idx <= 2);
 return ptr[idx];
 }
+```
 ```
 
 ### 10.18.4. __builtin_expect()[](https://docs.nvidia.com#builtin-expect)
@@ -9604,8 +9676,10 @@ Supported by devices of compute capability 7.x or higher.
 ### 10.20.1. Synopsis[](https://docs.nvidia.com#synopsis-match)
 
 ```
+```
 unsigned int __match_any_sync(unsigned mask, T value);
 unsigned int __match_all_sync(unsigned mask, T value, int *pred);
+```
 ```
 
 `T`
@@ -9686,6 +9760,7 @@ Supported by devices of compute capability 8.x or higher.
 
 ```
 // add/min/max
+```
 unsigned __reduce_add_sync(unsigned mask, unsigned value);
 unsigned __reduce_min_sync(unsigned mask, unsigned value);
 unsigned __reduce_max_sync(unsigned mask, unsigned value);
@@ -9696,6 +9771,7 @@ int __reduce_max_sync(unsigned mask, int value);
 unsigned __reduce_and_sync(unsigned mask, unsigned value);
 unsigned __reduce_or_sync(unsigned mask, unsigned value);
 unsigned __reduce_xor_sync(unsigned mask, unsigned value);
+```
 ```
 
 ### 10.21.2. Description[](https://docs.nvidia.com#warp-reduce-description)
@@ -9769,10 +9845,12 @@ are no longer available and their sync variants should be used instead.
 ### 10.22.1. Synopsis[](https://docs.nvidia.com#warp-shuffle-synopsis)
 
 ```
+```
 T __shfl_sync(unsigned mask, T var, int srcLane, int width=warpSize);
 T __shfl_up_sync(unsigned mask, T var, unsigned int delta, int width=warpSize);
 T __shfl_down_sync(unsigned mask, T var, unsigned int delta, int width=warpSize);
 T __shfl_xor_sync(unsigned mask, T var, int laneMask, int width=warpSize);
+```
 ```
 
 `T`
@@ -10025,6 +10103,7 @@ It is supported with compute capability 7.0 or higher.
 The following code implements a mutex with exponential back-off.
 
 ```
+```
 __device__ void mutex_lock(unsigned int *mutex) {
 unsigned int ns = 8;
 while (atomicCAS(mutex, 0, 1) == 1) {
@@ -10037,6 +10116,7 @@ ns *= 2;
 __device__ void mutex_unlock(unsigned int *mutex) {
 atomicExch(mutex, 0);
 }
+```
 ```
 
 ## 10.24. Warp Matrix Functions[](https://docs.nvidia.com#warp-matrix-functions)
@@ -10054,12 +10134,14 @@ All following functions and types are defined in the namespace `nvcuda::wmma`
 namespace.
 
 ```
+```
 template<typename Use, int m, int n, int k, typename T, typename Layout=void> class fragment;
 void load_matrix_sync(fragment<...> &a, const T* mptr, unsigned ldm);
 void load_matrix_sync(fragment<...> &a, const T* mptr, unsigned ldm, layout_t layout);
 void store_matrix_sync(T* mptr, const fragment<...> &a, unsigned ldm, layout_t layout);
 void fill_fragment(fragment<...> &a, const T& v);
 void mma_sync(fragment<...> &d, const fragment<...> &a, const fragment<...> &b, const fragment<...> &c, bool satf=false);
+```
 ```
 
 `fragment`
@@ -10266,8 +10348,10 @@ is unspecified, individual matrix elements must be accessed from memory (shared 
 class members.
 
 ```
+```rust
 enum fragment<Use, m, n, k, T, Layout>::num_elements;
 T fragment<Use, m, n, k, T, Layout>::x[num_elements];
+```
 ```
 
 As an example, the following code scales an `accumulator`
@@ -10358,6 +10442,7 @@ Sub-byte WMMA operations provide a way to access the low-precision capabilities 
 namespace:
 
 ```
+```rust
 namespace experimental {
 namespace precision {
 struct u4; // 4-bit unsigned
@@ -10370,6 +10455,7 @@ bmmaBitOpAND = 2 // compute_80 minimum
 };
 enum bmmaAccumulateOp { bmmaAccumulateOpPOPC = 1 };
 }
+```
 ```
 
 For 4 bit precision, the APIs available remain the same, but you must specify `experimental::precision::u4`
@@ -10477,8 +10563,10 @@ Since fragments are architecture-specific, it is unsafe to pass them from functi
 An example of two link-compatible architectures, where the layout of the fragment differs, is sm_70 and sm_75.
 
 ```
+```yaml
 fragA.cu: void foo() { wmma::fragment<...> mat_a; bar(&mat_a); }
 fragB.cu: void bar(wmma::fragment<...> *mat_a) { // operate on mat_a }
+```
 ```
 
 ```
@@ -10748,6 +10836,7 @@ DPX is exceptionally useful when implementing dynamic programming algorithms, su
 Max value of three signed 32-bit integers, with ReLU
 
 ```
+```bash
 const int a = -15;
 const int b = 8;
 const int c = 5;
@@ -10756,16 +10845,19 @@ const int d = -2;
 const int e = -4;
 int max_value_1 = __vimax3_s32_relu(a, d, e); // max(-15, -2, -4, 0) = 0
 ```
+```
 
 Min value of the sum of two 32-bit signed integers, another 32-bit signed integer and a zero (ReLU)
 
 ```
+```bash
 const int a = -5;
 const int b = 6;
 const int c = -2;
 int max_value_0 = __viaddmax_s32_relu(a, b, c); // max(-5 + 6, -2, 0) = max(1, -2, 0) = 1
 const int d = 4;
 int max_value_1 = __viaddmax_s32_relu(a, d, c); // max(-5 + 4, -2, 0) = max(-1, -2, 0) = 0
+```
 ```
 
 Min value of two unsigned 32-bit integers and determining which value is smaller
@@ -10780,10 +10872,12 @@ unsigned int min_value = __vibmin_u32(a, b, &smaller_value); // min_value is 6, 
 Max values of three pairs of unsigned 16-bit integers
 
 ```
+```bash
 const unsigned a = 0x00050002;
 const unsigned b = 0x00070004;
 const unsigned c = 0x00020006;
 unsigned int max_value = __vimax3_u16x2(a, b, c); // max(5, 7, 2) and max(2, 4, 6), so max_value is 0x00070006
+```
 ```
 
 ## 10.26. Asynchronous Barrier[](https://docs.nvidia.com#asynchronous-barrier)
@@ -10843,6 +10937,7 @@ The temporally-split synchronization pattern with the `std::barrier`
 is as follows.
 
 ```
+```
 #include <cuda/barrier>
 #include <cooperative_groups.h>
 __device__ void compute(float* data, int curr_iteration);
@@ -10862,6 +10957,7 @@ bar.wait(std::move(token)); /* wait for all threads participating in the barrier
 /* code after wait */
 }
 }
+```
 ```
 
 In this pattern, the synchronization point (`block.sync()`
@@ -10913,6 +11009,7 @@ Initialization must happen before any thread begins participating in a `cuda::ba
 .
 
 ```
+```
 #include <cuda/barrier>
 #include <cooperative_groups.h>
 __global__ void init_barrier() {
@@ -10923,6 +11020,7 @@ init(&bar, block.size()); // Single thread initializes the total expected arriva
 }
 block.sync();
 }
+```
 ```
 
 Before any thread can participate in `cuda::barrier`
@@ -11249,8 +11347,10 @@ header.
 #### 10.26.8.1. Data Types[](https://docs.nvidia.com#data-types)
 
 ```
+```bash
 typedef /* implementation defined */ __mbarrier_t;
 typedef /* implementation defined */ __mbarrier_token_t;
+```
 ```
 
 #### 10.26.8.2. Memory Barrier Primitives API[](https://docs.nvidia.com#memory-barrier-primitives-api)
@@ -11420,6 +11520,7 @@ When this pattern occurs within an iterative algorithm, each thread block needs 
 assignment, to ensure all writes to shared memory have completed before the compute phase can begin. The thread block also needs to synchronize again after the compute phase, to prevent overwriting shared memory before all threads have completed their computations. This pattern is illustrated in the following code snippet.
 
 ```
+```
 #include <cooperative_groups.h>
 __device__ void compute(int* global_out, int const* shared_in) {
 // Computes using all values of current batch from shared memory.
@@ -11441,6 +11542,7 @@ compute(global_out + block_batch_idx, shared); // Compute and write result to gl
 block.sync(); // Wait for compute using shared memory to finish
 }
 }
+```
 ```
 
 ### 10.27.4. With `memcpy_async`
@@ -11474,6 +11576,7 @@ On devices with compute capability 8.0 or higher, `memcpy_async`
 transfers from global to shared memory can benefit from hardware acceleration, which avoids transfering the data through an intermediate register.
 
 ```
+```
 #include <cooperative_groups.h>
 #include <cooperative_groups/memcpy_async.h>
 __device__ void compute(int* global_out, int const* shared_in);
@@ -11491,6 +11594,7 @@ compute(global_out + block_batch_idx, shared);
 block.sync();
 }
 }}
+```
 ```
 
 ### 10.27.5. Asynchronous Data Copies using `cuda::barrier`
@@ -11511,6 +11615,7 @@ bound to the current phase of the barrier have completed. The following example 
 
 , while providing the same functionality as the previous example:
 
+```
 ```
 #include <cooperative_groups.h>
 #include <cuda/barrier>
@@ -11534,6 +11639,7 @@ compute(global_out + block_batch_idx, shared);
 block.sync();
 }
 }
+```
 ```
 
 ### 10.27.6. Performance Guidance for `memcpy_async`
@@ -11924,6 +12030,7 @@ __shared__ cuda::pipeline_shared_state<
 cuda::thread_scope::thread_scope_block,
 stages_count
 > shared_state;
+```
 auto pipeline = cuda::make_pipeline(block, &shared_state);
 auto block_batch = [&](size_t batch) -> int {
 return block.group_index().x * block.size() + grid.size() * batch;
@@ -11948,6 +12055,7 @@ compute(global_out + block_batch(batch_idx), shared + shared_offset[shared_idx])
 pipeline.consumer_release();
 }
 }
+```
 ```
 
 The `pipeline<thread_scope_block>`
@@ -12629,8 +12737,10 @@ kernel<<<1, 1>>>(global_tensor_map);
 
 **Use**. The kernel below loads a 2D tile of size `SMEM_HEIGHT x SMEM_WIDTH`
 
+```python
 from a larger 2D array. The top-left corner of the tile is indicated by the
 indices `x`
+```
 
 and `y`
 

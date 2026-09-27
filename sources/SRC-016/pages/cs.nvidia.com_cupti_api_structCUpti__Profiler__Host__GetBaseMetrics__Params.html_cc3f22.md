@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__Profiler__Host__GetBaseMe
 # 7.184. CUpti_Profiler_Host_GetBaseMetrics_Params[#](https://docs.nvidia.com#cupti-profiler-host-getbasemetrics-params)
 
 -
+```rust
 struct CUpti_Profiler_Host_GetBaseMetrics_Params
 [#](https://docs.nvidia.com#_CPPv441CUpti_Profiler_Host_GetBaseMetrics_Params) Params for cuptiProfilerHostGetSupportedMetrics.
+```
 
 Public Members
 

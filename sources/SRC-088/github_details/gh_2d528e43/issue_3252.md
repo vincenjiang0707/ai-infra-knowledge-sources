@@ -37,6 +37,7 @@ A more accurate estimation can be achieved by calculating the expected maximum s
 
 1.  **Modify `_detect_batch_size`** to accept an optional `max_length` argument. If provided, this length is used for the test tensor instead of `self.max_length`.
 
+```python
     ```python
     def _detect_batch_size(self, requests: Sequence | None = None, pos: int = 0, max_length: int | None = None):
         if max_length is not None:
@@ -50,6 +51,7 @@ A more accurate estimation can be achieved by calculating the expected maximum s
             max_length = self.max_length
             ...
     ```
+```
 
 2.  **Update `generate_until`** to calculate this `max_length` before calling `_detect_batch_size`. The logic would be:
     *   Find the maximum token length of all input contexts in the `requests` list.

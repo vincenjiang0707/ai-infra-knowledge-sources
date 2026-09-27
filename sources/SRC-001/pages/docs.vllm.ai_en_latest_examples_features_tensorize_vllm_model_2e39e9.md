@@ -100,6 +100,7 @@ vllm serve s3://my-bucket/vllm/facebook/opt-125m/v1 \
 --enable-lora
 ```
 """
+```python
 def get_parser():
 parser = FlexibleArgumentParser(
 description="An example script that can be used to serialize and "
@@ -329,3 +330,4 @@ else:
 raise ValueError("Either serialize or deserialize must be specified.")
 if __name__ == "__main__":
 main()
+```

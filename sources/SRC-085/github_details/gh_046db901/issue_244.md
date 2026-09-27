@@ -75,8 +75,10 @@ I also encountered this issue following your blog. Could you show the specific c
 > 
 > I also encountered this issue following your blog. Could you show the specific code changes? [@jiahe7ay](https://github.com/jiahe7ay)
 
+```bash
 @rainkert 
 outs = self.target_model(input_ids=input_ids, attention_mask=attention_mask,output_hidden_states=True)   
+```
 
 ### jiahe7ay · 2025-07-04
 
@@ -93,6 +95,7 @@ We have open-sourced the ​Eagle3 model from the `​Qwen3` series and released
 
 <table>
   <thead>
+```html
     <tr>
         <th>&nbsp</th><th>&nbsp</th>
         <th colspan="2" style="text-align: center; vertical-align: middle;">MT-bench</th>
@@ -101,8 +104,10 @@ We have open-sourced the ​Eagle3 model from the `​Qwen3` series and released
         <th colspan="2" style="text-align: center; vertical-align: middle;">Alpaca</th>
         <th colspan="2" style="text-align: center; vertical-align: middle;">Mean</th></tr>
     <tr><th>Temperature</th><th>Model</th><th>Speedup</th><th>τ</th><th>Speedup</th><th>τ</th><th>Speedup</th><th>τ</th><th>Speedup</th><th>τ</th><th>Speedup</th><th>τ</th></tr>
+```
   </thead>
   <tbody>
+```html
     <!-- <tr><td colspan="12" style="text-align: center; vertical-align: middle;"><strong>Temperature=0</strong></td></tr> -->
     <tr><td rowspan="6"><strong>T=0</strong></td>
     <td>Qwen3-1.7B</td><td>2.05x</td><td>2.81</td><td>2.07x</td><td>2.93</td><td>2.11x</td><td>2.98</td><td>1.93x</td><td>2.69</td><td>2.04x</td><td>2.85</td></tr>
@@ -119,6 +124,7 @@ We have open-sourced the ​Eagle3 model from the `​Qwen3` series and released
     <tr><td>Qwen3-14B</td><td>1.71x</td><td>2.61</td><td>1.95x</td><td>2.87</td><td>2.04x</td><td>3.08</td><td>1.68x</td><td>2.55</td><td>2.90x</td><td>2.78</td></tr>
     <tr><td>Qwen3-32B</td><td>1.62x</td><td>1.91</td><td>1.71x</td><td>2.05</td><td>1.78x</td><td>2.10</td><td>1.80x</td><td>1.95</td><td>1.62x</td><td>2.00</td></tr>
     <tr><td>Qwen3-30B-A3B</td><td>1.91x</td><td>2.46</td><td>2.00x</td><td>2.64</td><td>1.90x</td><td>2.53</td><td>1.80x</td><td>2.32</td><td>1.90x</td><td>2.48</td></tr>
+```
   </tbody>
 </table>
 

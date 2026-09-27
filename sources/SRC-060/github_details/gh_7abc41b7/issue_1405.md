@@ -42,8 +42,10 @@ Traceback (most recent call last):
 paddlepaddle-gpu==3.2.0 paddleformers==0.4.0 
 ------------------------------------------------------------
 Welcome to ErnieKit
+```yaml
 version : 1.5.0
 commit : 9658b15012103b3a22c5732942ff903d49351b7a.dirty
+```
 ------------------------------------------------------------
 
 
@@ -91,6 +93,7 @@ commit : 9658b15012103b3a22c5732942ff903d49351b7a.dirty
 
 <img width="365" height="464" alt="Image" src="https://github.com/user-attachments/assets/e60c0a81-848a-4506-81ec-bc74fdb8fb5b" />
 2、模型测试
+```python
 `import json
 import os
 import shutil
@@ -98,6 +101,7 @@ from pathlib import Path
 import paddle
 from paddlex import create_model
 import time
+```
 
 def batch_process_ocr(val_path, model_dir, output_folder="./output", batch_size=8):
     """批量处理OCR检测"""

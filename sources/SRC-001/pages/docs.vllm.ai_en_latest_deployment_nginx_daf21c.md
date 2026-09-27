@@ -33,6 +33,7 @@ entry to `upstream backend`
 
 ## Config
 
+```bash
 upstream backend {
 least_conn;
 server vllm0:8000 max_fails=3 fail_timeout=10000s;
@@ -48,18 +49,21 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 proxy_set_header X-Forwarded-Proto $scheme;
 }
 }
+```
 
 
 ## Build vLLM Container[¶](https://docs.vllm.ai#build-vllm-container)
 
 If you are behind proxy, you can pass the proxy settings to the docker build command as shown below:
 
+```bash
 cd $vllm_root
 docker build \
 -f docker/Dockerfile . \
 --tag vllm \
 --build-arg http_proxy=$http_proxy \
 --build-arg https_proxy=$https_proxy
+```
 
 
 ## Create Docker Network[¶](https://docs.vllm.ai#create-docker-network)
@@ -90,6 +94,7 @@ environment variables to the docker run command. - Adjust the model name that yo
 
 ## Commands
 
+```bash
 mkdir -p ~/.cache/huggingface/hub/
 hf_cache_dir=~/.cache/huggingface/
 docker run \
@@ -112,6 +117,7 @@ docker run \
 -p 8082:8000 \
 --name vllm1 vllm \
 --model meta-llama/Llama-2-7b-chat-hf
+```
 
 
 Note
@@ -122,12 +128,14 @@ If you are behind proxy, you can pass the proxy settings to the docker run comma
 
 ## Launch Nginx[¶](https://docs.vllm.ai#launch-nginx)
 
+```bash
 docker run \
 -itd \
 -p 8000:80 \
 --network vllm_nginx \
 -v ./nginx_conf/:/etc/nginx/conf.d/ \
 --name nginx-lb nginx-lb:latest
+```
 
 
 ## Verify That vLLM Servers Are Ready[¶](https://docs.vllm.ai#verify-that-vllm-servers-are-ready)

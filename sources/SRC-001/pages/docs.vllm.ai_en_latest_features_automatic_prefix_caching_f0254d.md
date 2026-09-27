@@ -36,10 +36,12 @@ This helps when many requests share a long system prompt and then diverge. It is
 
 smaller than the Mamba block size- the model does not use multi-module MTP
 
+```bash
 vllm serve <hybrid-model> \
 --mamba-cache-mode align \
 --prefix-match-unit 64 \
 --enable-mamba-shared-prefix-checkpoint
+```
 
 
 `--prefix-match-unit`

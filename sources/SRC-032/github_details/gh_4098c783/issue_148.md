@@ -58,6 +58,7 @@ labels:
           build op model failed, result = 500002[FUNC:ReportInnerError][FILE:log_inner.cpp][LINE:145]
 
   Traceback (most recent call last):
+```python
     File "/home/zhenglin/lrs/code/Qwen3-ASR-main/finetuning/qwen3_asr_sft.py", line 371, in <module>
       main()
     File "/home/zhenglin/lrs/code/Qwen3-ASR-main/finetuning/qwen3_asr_sft.py", line 367, in main
@@ -88,6 +89,7 @@ labels:
       return forward_call(*args, **kwargs)
     File "/usr/local/miniconda3/envs/qwen3/lib/python3.10/site-packages/qwen_asr/core/transformers_backend/modeling_qwen3_asr.py", line 718, in forward
       hidden_states = padded_embed[padded_mask_after_cnn]
+```
   RuntimeError: The Inner error as above.
    ASCEND kernel errors might be asynchronously reported at some other API call, so the stacktrace may not correct.
   For getting the stacktrace of OP in PyTorch, consider passing ASCEND_LAUNCH_BLOCKING=1.

@@ -60,12 +60,14 @@ then run the model_server like this:
 
 but it's still missing something:
 
+```
 (ParaWorker pid=715665) INFO 13:35:56 runtime peak memory: 12.922 GB
 (ParaWorker pid=715665) INFO 13:35:56 total GPU memory: 39.392 GB
 (ParaWorker pid=715665) INFO 13:35:56 kv cache size for one token: 0.50000 MB
 (ParaWorker pid=715665) INFO 13:35:56 num_gpu_blocks: 2883
 (ParaWorker pid=715665) INFO 13:35:56 num_cpu_blocks: 128
 (ParaWorker pid=715665) Gpt<T>::load() - /data/fx/cql/llama-2-7B/decoder.output_projection.weight.pt not found
+```
 
 
 

@@ -115,11 +115,13 @@ Output a JSON mapping:
 ```json
 {
   "args": [
+```json
     {
       "kernel_arg": "<argument name in kernel_function>",
       "source": "input|param|buffer|computed",
       "expr": "<Python expression to get value from Model instance or inputs>"
     }
+```
   ],
   "weight_fusion": {
     "needed": true|false,

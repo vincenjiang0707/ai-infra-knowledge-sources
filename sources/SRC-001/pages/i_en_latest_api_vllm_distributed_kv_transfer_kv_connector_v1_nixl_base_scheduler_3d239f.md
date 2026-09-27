@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/nixl/base_scheduler/
 lastmod: 2026-09-27
 
+```python
 class NixlBaseConnectorScheduler:
 """Base implementation of Scheduler side methods shared by pull and push."""
 # Emitted in kv_transfer_params so an external router can distinguish a
@@ -26,6 +27,7 @@ self.kv_cache_config = kv_cache_config
 self.side_channel_host = envs.VLLM_NIXL_SIDE_CHANNEL_HOST
 self.side_channel_port = (
 envs.VLLM_NIXL_SIDE_CHANNEL_PORT
+```
 + vllm_config.parallel_config.data_parallel_index
 )
 assert vllm_config.kv_transfer_config is not None

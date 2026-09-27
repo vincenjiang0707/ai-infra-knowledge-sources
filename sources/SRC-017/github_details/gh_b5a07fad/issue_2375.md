@@ -39,6 +39,7 @@ index e4736f0..8f7b9d4 100644
 -    struct ncclReg* recvReg = NULL;
 +    //struct ncclReg* sendReg = NULL;
 +    //struct ncclReg* recvReg = NULL;
+```
      bool allowUB = false;
      bool captured = false;
      struct ncclCudaGraph graph;
@@ -46,6 +47,7 @@ index e4736f0..8f7b9d4 100644
      NCCLCHECK(ncclCudaGetCapturingGraph(&graph, info->stream, comm->config.graphUsageMode));
      captured = ncclCudaGraphValid(graph);
      if (info->coll == ncclFuncAlltoAll) {
+```
 -     NCCLCHECK(ncclRegFind(comm, info->sendbuff, comm->nRanks * info->count * ncclTypeSize(info->datatype), &sendReg));
 -     NCCLCHECK(ncclRegFind(comm, info->recvbuff, comm->nRanks * info->count * ncclTypeSize(info->datatype), &recvReg));
 -     allowUB = captured || (sendReg != NULL && recvReg != NULL);
@@ -78,11 +80,13 @@ index e4736f0..8f7b9d4 100644
 +      //NCCLCHECK(p2pTaskAppend(comm, info, ncclFuncSend, collAPI, (void*)((char*)info->sendbuff+r*info->count*ncclTypeSize(info->datatype)), info->count, info->datatype, r, allowUB));
 +      //NCCLCHECK(p2pTaskAppend(comm, info, ncclFuncRecv, collAPI, (void*)((char*)info->recvbuff+r*info->count*ncclTypeSize(info->datatype)), info->count, info->datatype, r, allowUB));
 +     }
+```
      } else if (info->coll == ncclFuncGather){
       size_t offset = 0;
       allowUB = captured;
 @@ -2977,6 +2997,8 @@ static ncclResult_t taskAppend(struct ncclComm* comm, struct ncclInfo* info) {
  }
+```
 
  ncclResult_t ncclEnqueueCheck(struct ncclInfo* info) {
 + bool wait_alltoall = (info->count != 0) && (info->coll == ncclFuncAlltoAll);
@@ -165,8 +169,10 @@ if [ "$#" -ne 1 ]; then
   exit 2
 fi
 
+```bash
 times="$1"
 i=1
+```
 
 while [ "$i" -le "$times" ]; do
   echo "=== Run $i/$times ==="

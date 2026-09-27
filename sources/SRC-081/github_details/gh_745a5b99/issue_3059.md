@@ -95,8 +95,10 @@ index 965afc18f..329581901 100644
 
 ### original4422 · 2026-08-26
 
+```python
 @kylesayrs
 Hi guy, I'm a human
+```
 
 
 ### princesavsaviya · 2026-08-26

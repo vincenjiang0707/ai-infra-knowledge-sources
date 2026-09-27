@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__Profiler__CounterDataImag
 # 7.171. CUpti_Profiler_CounterDataImage_InitializeScratchBuffer_Params[#](https://docs.nvidia.com#cupti-profiler-counterdataimage-initializescratchbuffer-params)
 
 -
+```rust
 struct CUpti_Profiler_CounterDataImage_InitializeScratchBuffer_Params
 [#](https://docs.nvidia.com#_CPPv462CUpti_Profiler_CounterDataImage_InitializeScratchBuffer_Params) Params for cuptiProfilerCounterDataImageInitializeScratchBuffer.
+```
 
 Public Members
 

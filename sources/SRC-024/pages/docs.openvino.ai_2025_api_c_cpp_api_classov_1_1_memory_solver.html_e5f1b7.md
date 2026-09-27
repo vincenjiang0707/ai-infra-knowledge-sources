@@ -4,8 +4,10 @@ lastmod:
 # Class ov::MemorySolver[#](https://docs.openvino.ai#class-ov-memorysolver)
 
 -
+```python
 class MemorySolver
 [#](https://docs.openvino.ai#_CPPv4N2ov12MemorySolverE) Helps to solve issue of optimal memory allocation only for particular execution order.
+```
 
 It works with abstract data description where
 
@@ -46,8 +48,10 @@ inline int64_t max_top_depth()
 Public Static Functions
 
 -
+```rust
 struct Box
 [#](https://docs.openvino.ai#_CPPv4N2ov12MemorySolver3BoxE) Representation of edge (size and live time)
+```
 
 Public Members
 

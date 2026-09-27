@@ -35,8 +35,10 @@ source: https://docs.mthreads.com/playbook/playbook-doc-online/mineru
 -
 **检查 Conda 是否已安装：**conda --version若已安装则终端会返回类似下方这样的版本信息，您可以直接跳到 3.2 节：
 
+```bash
 conda 25.11.1 -
 **安装 Conda：**wget https://mirrors.tuna.tsinghua.edu.cn/github-release/conda-forge/miniforge/LatestRelease/Miniforge3-Linux-aarch64.shchmod +x Miniforge3-Linux-aarch64.sh./Miniforge3-Linux-aarch64.sh# 安装过程中需要输入 `yes` 并回车确认安装路径，默认安装路径在 `/home/$User`。source ~/.bashrc # 激活 conda
+```
 
 ### 3.2 创建并激活 Conda 环境[](https://docs.mthreads.com#32-创建并激活-conda-环境)
 

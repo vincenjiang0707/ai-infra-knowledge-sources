@@ -524,9 +524,11 @@ processes should use `cuMemUnmap`
 
 functions in that order. The `cuMemUnmap`
 
+```
 function un-maps a previously
 mapped memory region from an address range, effectively detaching the physical
 memory from the reserved virtual address space. Next, `cuMemRelease`
+```
 
 deallocates the physical memory that was previously created, returning it to
 the system. Finally, `cuMemAddressFree`

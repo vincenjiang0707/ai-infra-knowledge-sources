@@ -35,6 +35,7 @@ configuration error: `project.license` must be valid exactly by one definition (
   OFFENDING RULE: 'oneOf'
 
   DEFINITION:
+```
       {
           "oneOf": [
               {
@@ -68,6 +69,7 @@ configuration error: `project.license` must be valid exactly by one definition (
               }
           ]
       }
+```
   Traceback (most recent call last):
     File "/usr/local/lib/python3.11/dist-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 353, in <module>
       main()

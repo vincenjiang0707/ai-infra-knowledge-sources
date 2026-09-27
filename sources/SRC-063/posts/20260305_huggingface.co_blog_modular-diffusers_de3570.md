@@ -14,8 +14,10 @@ Introducing Modular Diffusers - Composable Building Blocks for Diffusion Pipelin
 
 `DiffusionPipeline`
 
+```python
 class with a more flexible, composable alternative.
 In this post, we'll walk through how Modular Diffusers works — from the familiar API to run a modular pipeline, to building fully custom blocks and composing them into your own workflow. We'll also show how it integrates with Mellon, a node-based visual workflow interface that you can use to wire Modular Diffusers blocks together.
+```
 
 **Table of contents**
 

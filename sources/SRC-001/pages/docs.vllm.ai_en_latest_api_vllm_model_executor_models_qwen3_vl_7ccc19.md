@@ -1119,6 +1119,7 @@ LLM. `None` if no images are passed.
 - pixel_values_videos: Pixel values of videos to be fed to a
 model. `None` if no videos are passed.
 - video_grid_thw: Tensor `(n_videos, 3)` of video 3D grid in
+```python
 LLM. `None` if no videos are passed.
 """
 if intermediate_tensors is not None:
@@ -1167,3 +1168,4 @@ hf_config = self.config
 vision_config = hf_config.vision_config
 merge_size = vision_config.spatial_merge_size
 return num_mm_embeds * merge_size**2, num_mm_embeds
+```

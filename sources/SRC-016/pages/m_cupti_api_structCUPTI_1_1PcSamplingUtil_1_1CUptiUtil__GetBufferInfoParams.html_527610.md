@@ -6,8 +6,10 @@ Fully qualified name: `CUPTI::PcSamplingUtil::CUptiUtil_GetBufferInfoParams`
 
 
 -
+```rust
 struct CUptiUtil_GetBufferInfoParams
 [#](https://docs.nvidia.com#_CPPv4N5CUPTI14PcSamplingUtil29CUptiUtil_GetBufferInfoParamsE) Params for
+```
 
 [CuptiUtilGetBufferInfo](https://docs.nvidia.com/group__CUPTI__PCSAMPLING__UTILITY.html#group__cupti__pcsampling__utility_1gae4c397f1c21a9baecdc74d38b1b783dd).Public Members
 

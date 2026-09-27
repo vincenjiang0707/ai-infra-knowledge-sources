@@ -209,8 +209,10 @@ All inference runs in background ([ src/background/background.ts](https://github
 
 with consistent KV Caching enabled by our new`DynamicCache`
 
+```python
 class - embeddings via
 `pipeline("feature-extraction", ...)`
+```
 
 plus vector normalization
 

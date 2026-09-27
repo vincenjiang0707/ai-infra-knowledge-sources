@@ -6,6 +6,7 @@ labels:
 
 ## 正文
 
+```yaml
 worker-1:   File "loader.py", line 163, in get_dataset
 worker-1:     with training_args.main_process_first(desc="pre-process dataset"):
 worker-1:   File "/usr/local/python3.10.12/lib/python3.10/contextlib.py", line 142, in __exit__
@@ -95,6 +96,7 @@ worker-1: EH9999: 2024-07-03-11:28:40.455.800  wait for compute device to finish
 worker-1:         TraceBack (most recent call last):
 worker-1:  (function npuSynchronizeDevice)
 worker-1: Inner error, see details in Ascend logs.Inner error, see details in Ascend logs.Inner error, see details in Ascend logs.Inner error, see details in Ascend logs.Inner error, see details in Ascend logs.Inner error, see details in Ascend logs.Inner error, see details in Ascend logs.256
+```
 
 
 

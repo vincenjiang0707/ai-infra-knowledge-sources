@@ -1,10 +1,13 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/mellum/
 lastmod: 2026-09-27
 
+```python
 class MellumAttention(Qwen3MoeAttention):
 """Differences from `Qwen3MoeAttention`:
+```
 - Supports `per_layer_sliding_window` for `Attention`.
 """
+```python
 def __init__(
 self,
 hidden_size: int,
@@ -87,3 +90,4 @@ prefix=f"{prefix}.attn",
 )
 self.q_norm = RMSNorm(self.head_dim, eps=rms_norm_eps)
 self.k_norm = RMSNorm(self.head_dim, eps=rms_norm_eps)
+```

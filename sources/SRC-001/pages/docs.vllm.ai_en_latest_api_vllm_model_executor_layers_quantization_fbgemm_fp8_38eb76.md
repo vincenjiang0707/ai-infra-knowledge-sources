@@ -9,6 +9,7 @@ Config class for FBGEMM Fp8.
 ## Source code in `vllm/model_executor/layers/quantization/fbgemm_fp8.py`
 
 
+```python
 | class FBGEMMFp8Config(QuantizationConfig):
 """Config class for FBGEMM Fp8."""
 def __init__(self, ignore_list: list[str], input_scale_ub: float):
@@ -48,3 +49,4 @@ return UnquantizedLinearMethod()
 return FBGEMMFp8LinearMethod(self)
 return None
 |
+```

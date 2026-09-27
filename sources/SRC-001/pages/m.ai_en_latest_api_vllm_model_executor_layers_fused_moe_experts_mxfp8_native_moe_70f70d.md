@@ -38,6 +38,7 @@ Native MXFP8 MoE (CDNA4 `dot_scaled`
 ## Source code in `vllm/model_executor/layers/fused_moe/experts/mxfp8_native_moe.py`
 
 
+```python
 | class Mxfp8NativeTritonExperts(Mxfp8TritonExpertsBase):
 """Native MXFP8 MoE (CDNA4 ``dot_scaled``) on gfx950."""
 @property
@@ -88,6 +89,7 @@ expert_map=expert_map,
 )
 output.copy_(out)
 |
+```
 
 
 ##

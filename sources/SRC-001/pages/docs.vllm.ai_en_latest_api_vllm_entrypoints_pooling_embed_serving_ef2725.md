@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/pooling/embed/serving/
 lastmod: 2026-09-27
 
+```python
 class ServingEmbedding(PoolingServing):
 """Embedding API supporting both OpenAI and Cohere formats."""
 request_id_prefix = "embd"
@@ -156,3 +157,4 @@ image_tokens=image_tokens,
 ),
 )
 return self.json_response_cls(content=response.model_dump(exclude_none=True))
+```

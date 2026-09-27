@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/input_quant_fp8/
 lastmod: 2026-09-27
 
+```python
 @CustomOp.register("quant_fp8")
 class QuantFP8(CustomOp):
 """Quantize input tensor to FP8 (per-tensor, per-token, per-channel, or per-group).
@@ -169,8 +170,10 @@ scale = prep_scale_for_group_broadcast(scale, x, self.group_shape)
 # reciprocal performs slightly better than division
 out = (
 x.to(torch.float32)
+```
 * group_broadcast(scale.to(torch.float32), x.shape[-2:]).reciprocal()
 )
+```bash
 out = out.clamp(_FP8_MIN, _FP8_MAX).to(_FP8_DTYPE)
 # This currently generates an extra Triton kernel in compilation.
 # Fortunately, we don't use padding if compiling.
@@ -207,3 +210,4 @@ scales = scales.reshape(orig_shape[:-1] + (num_groups,))
 if self.column_major_scales:
 scales = scales.transpose(-2, -1).contiguous().transpose(-1, -2)
 return x_quant, scales
+```

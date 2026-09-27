@@ -4,8 +4,10 @@ lastmod:
 # Class ov::IRemoteContext[#](https://docs.openvino.ai#class-ov-iremotecontext)
 
 -
+```python
 class IRemoteContext : public std::enable_shared_from_this<
 [IRemoteContext](https://docs.openvino.ai#_CPPv4N2ov14IRemoteContextE)>[#](https://docs.openvino.ai#_CPPv4N2ov14IRemoteContextE) Public Functions
+```
 
 -
 virtual const

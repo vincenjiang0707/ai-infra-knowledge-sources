@@ -1,9 +1,11 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/quark/schemes/quark_nvfp4/
 lastmod: 2026-09-27
 
+```python
 class QuarkNVFP4(QuarkScheme):
 """Quark NVFP4 quantization scheme.
 Supports loading NVFP4 checkpoints with the following structure:
+```
 - weight: uint8, shape [out_features, in_features // 2] (packed FP4)
 - weight_scale: float8_e4m3fn, shape [out_features, in_features // group_size]
 - weight_scale_2: bfloat16/float32, scalar (global weight scale)

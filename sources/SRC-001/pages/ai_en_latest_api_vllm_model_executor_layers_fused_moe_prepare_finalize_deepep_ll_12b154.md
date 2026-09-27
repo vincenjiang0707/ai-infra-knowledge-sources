@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/prepare_finalize/deepep_ll/
 lastmod: 2026-09-27
 
+```python
 class DeepEPLLPrepareAndFinalize(mk.FusedMoEPrepareAndFinalizeModular):
 """Prepare/Finalize using DeepEP low-latency kernels."""
 # DeepEP low-latency kernels are compiled only for certain
@@ -351,3 +352,4 @@ apply_router_weight_on_input,
 weight_and_reduce_impl,
 do_async=False,
 )
+```

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/deepseek_vl2/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 DeepseekVL2MultiModalProcessor,
 info=DeepseekVL2ProcessingInfo,
@@ -255,3 +256,4 @@ def load_weights(self, weights: Iterable[tuple[str, torch.Tensor]]) -> set[str]:
 loader = AutoWeightsLoader(self)
 autoloaded_weights = loader.load_weights(weights, mapper=self.hf_to_vllm_mapper)
 return autoloaded_weights
+```

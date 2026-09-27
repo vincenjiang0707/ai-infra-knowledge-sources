@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/online/int8/
 lastmod: 2026-09-27
 
+```python
 class Int8OnlineMoEMethod(OnlineMoEMethodBase):
 """Online per-channel INT8 MoE quantization.
 Loads fp16/bf16 weights and quantizes them per-row to int8 during loading.
@@ -89,3 +90,4 @@ w1_bias=getattr(layer, "w13_bias", None),
 w2_bias=getattr(layer, "w2_bias", None),
 layer=layer,
 )
+```

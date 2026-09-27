@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/compilation/backends/
 lastmod: 2026-09-27
 
+```python
 class VllmBackend:
 """The compilation backend for `torch.compile` with vLLM.
 It is used for compilation mode of `CompilationMode.VLLM_COMPILE`,
@@ -65,6 +66,7 @@ self,
 Returns:
 tuple: (standalone_compile_artifacts, sym_shape_indices_map,
 returns_tuple_map)
+```
 - standalone_compile_artifacts: StandaloneCompiledArtifacts
 with compiled artifacts
 - sym_shape_indices_map: dict mapping submod_name to

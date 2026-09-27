@@ -103,6 +103,7 @@ return (
 self.embed_tokens_per_layer(per_layer_inputs_tokens)
 * self.embed_scale_per_layer
 )
+```python
 def get_per_layer_inputs(
 self,
 hidden_states_0: torch.Tensor,
@@ -166,3 +167,4 @@ per_layer_input=adjusted_per_layer_inputs[:, layer_idx, :],
 # [num_tokens, hidden_size, altnum_inputs]
 hidden_states = hidden_states.permute(1, 2, 0)
 return hidden_states, adjusted_per_layer_inputs
+```

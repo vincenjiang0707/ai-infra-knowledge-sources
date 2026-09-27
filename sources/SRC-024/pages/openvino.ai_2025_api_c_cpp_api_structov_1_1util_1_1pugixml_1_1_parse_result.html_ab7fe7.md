@@ -4,8 +4,10 @@ lastmod:
 # Struct ov::util::pugixml::ParseResult[#](https://docs.openvino.ai#struct-ov-util-pugixml-parseresult)
 
 -
+```rust
 struct ParseResult
 [#](https://docs.openvino.ai#_CPPv4N2ov4util7pugixml11ParseResultE) A XML parse result structure with an error message and the
+```
 
 `pugi::xml_document`
 

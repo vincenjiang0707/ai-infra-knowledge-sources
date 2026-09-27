@@ -32,6 +32,7 @@ genai-perf profile \
 Then inside the artifacts folder, an inputs.json file is created, with the following: 
 `{
   "data": [
+```json
     {
       "payload": [
         {
@@ -52,6 +53,7 @@ Then inside the artifacts folder, an inputs.json file is created, with the follo
         }
       ]
     }
+```
   ]`.
 As you can see the messages field is empty, so the result is the following: 
 ```

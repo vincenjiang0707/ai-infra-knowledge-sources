@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/speech_to_text/translation/serving/
 lastmod: 2026-09-27
 
+```python
 class OpenAIServingTranslation(SpeechToTextBaseServing):
 """Handles translation requests."""
 def __init__(
@@ -68,3 +69,4 @@ separator=separator,
 )
 async for chunk in generator:
 yield chunk
+```

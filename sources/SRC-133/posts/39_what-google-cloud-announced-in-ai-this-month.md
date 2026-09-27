@@ -15,10 +15,12 @@ This month, we focused on making AI highly practical for your business, includin
 **Top announcements**
 
 -
+```
 [FinOps for the AI era: New flexible billing and cost controls for agents:](https://cloud.google.com/blog/products/ai-machine-learning/flexible-billing-and-cost-controls-for-agents-on-google-cloud?e=48754805)To help you get better return on AI, we announced expanded billing flexibility and new cost management tools for agent workloads across Gemini Enterprise and developer tools like Google Antigravity in Gemini Enterprise and Android Studio. -
 [Gemini Enterprise for Financial Services](https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-financial-services?e=48754805): We’re bringing Google’s agentic AI directly into the workflows of capital markets and corporate banking. -
 [Gemini Enterprise for Legal](https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-for-legal?e=48754805): Gemini Enterprise for Legal provides an integrated, fully governed environment configured for rapid deployment across firms and corporate legal departments. -
 [Expanding Google Antigravity for enterprise customers:](https://cloud.google.com/blog/products/ai-machine-learning/expanding-google-antigravity-for-enterprise-customers?e=48754805)Antigravity is available now as part of eligible Gemini Enterprise app subscriptions, including out-of-the-box administrative and spend controls.
+```
 
 **Thought leadership (editor’s pick): **
 
@@ -80,10 +82,12 @@ We even shared a cool virtual shopping demo at Cannes to show how retailers can 
 **Top announcements**
 
 -
+```
 [Introducing the Open Knowledge Format](https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing?e=48754805): We introduced the Open Knowledge Format (OKF), an open specification that formalizes the LLM-wiki pattern into a portable, interoperable format. This is a vendor-neutral, agent- and human-friendly standard for representing the metadata, context, and curated knowledge that modern AI systems need. -
 [Collaboration with Apple on its expanded Private Cloud Compute (PCC) systems](https://cloud.google.com/blog/products/identity-security/powering-the-next-era-of-confidential-ai?e=48754805): Our collaboration with Apple is built on a foundation of deep commitment to privacy that leverages Google Cloud's security and privacy technologies. At the heart of this collaboration is our Confidential Computing portfolio and our Titanium security architecture. -
 [Claude Fable 5: Available on Google Cloud:](https://cloud.google.com/blog/products/ai-machine-learning/cloud-fable-5-on-google-cloud?e=48754805)Claude Fable 5, Anthropic’s latest frontier model, is now generally available on Google Cloud. This launch is the latest proof point of our ongoing commitment to bring the industry's latest models straight to our Agent Platform. -
 [Cloud Atelier: How Gemini Enterprise is helping restyle the retail playbook](https://cloud.google.com/transform/gemini-enterprise-is-helping-restyle-the-retail-playbook?e=48754805): This year at Cannes, we showcased Cloud Atelier — a destination-based, virtual shopping experience that highlights how retail brands can turn this classic dilemma into an exciting moment of product discovery.
+```
 
 **Thought leadership (editor’s pick): **
 

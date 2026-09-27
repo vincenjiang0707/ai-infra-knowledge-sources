@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/cli/preload/
 lastmod: 2026-09-27
 
+```python
 class PreloadSubcommand(CLISubcommand):
 """The `preload` subcommand for the vLLM CLI."""
 name = "preload"
@@ -190,3 +191,4 @@ usage="vllm preload --model <model> [options]",
 self.add_cli_args(preload_parser)
 preload_parser.epilog = VLLM_SUBCMD_PARSER_EPILOG.format(subcmd=self.name)
 return preload_parser
+```

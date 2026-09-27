@@ -1,10 +1,13 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/inc/inc/
 lastmod: 2026-09-27
 
+```python
 class INCConfig(QuantizationConfig):
 """Config class for Intel Neural Compressor (INC).
+```
 Repo: https://github.com/intel/neural-compressor
 """
+```python
 SUPPORTED_BITS = {2, 3, 4, 5, 6, 7, 8}
 DEFAULT_INT_PACKING_FORMAT = "auto_round:auto_gptq"
 SUPPORTED_DTYPES = {"int", "mx_fp", "fp"}
@@ -304,3 +307,4 @@ is_auto_round_format = hf_quant_cfg.get("quant_method", None) == "auto-round"
 if is_auto_round_format:
 return cls.get_name()
 return None
+```

@@ -65,6 +65,7 @@ But my compressed config.json contains:
 "block"structure":....
 ..........
 
+```python
 **Script to generate the model:**
 `import os
 import time
@@ -78,20 +79,24 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from llmcompressor import oneshot
 from llmcompressor.modifiers.quantization import GPTQModifier
 from llmcompressor.modifiers.transform.smoothquant import SmoothQuantModifier
+```
 
 # Optional: helps reduce CUDA memory fragmentation
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 # Update these paths for your local environment
+```bash
 MODEL_PATH = Path("/path/to/model")
 OUTPUT_PATH = Path("/path/to/output")
 CALIBRATION_FILE = Path("/path/to/calibration_data.txt")
 
 NUM_CALIBRATION_SAMPLES = 128
 MAX_SEQUENCE_LENGTH = 1024
+```
 
 
 def load_calibration_data(path: Path):
+```python
     """Load calibration samples from a text file."""
 
     with open(path, "r", encoding="utf-8") as f:
@@ -104,6 +109,7 @@ def load_calibration_data(path: Path):
     ]
 
     return samples[:NUM_CALIBRATION_SAMPLES]
+```
 
 
 calibration_data = load_calibration_data(CALIBRATION_FILE)
@@ -156,15 +162,19 @@ recipe = [
 ]
 
 oneshot(
+```bash
     model=model,
     dataset=dataset,
     recipe=recipe,
     max_seq_length=MAX_SEQUENCE_LENGTH,
     num_calibration_samples=NUM_CALIBRATION_SAMPLES,
+```
 )
 
+```json
 elapsed = time.time() - start
 print(f"Load and quantization time: {elapsed / 60:.1f} minutes")
+```
 
 model.save_pretrained(
     OUTPUT_PATH,

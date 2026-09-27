@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/utils/b12x_moe/
 lastmod: 2026-09-27
 
+```python
 def prepare_nvfp4_moe_layer_for_b12x(
 w13: torch.Tensor,
 w13_scale: torch.Tensor,
@@ -41,3 +42,4 @@ w2 = F.pad(w2, (0, pad_size // 2, 0, 0))
 w2_scale = F.pad(w2_scale, (0, pad_size // 16))
 w2_scale = swizzle_blockscale(w2_scale)
 return w13, w13_scale, w13_scale_2, a13_scale, w2, w2_scale, w2_scale_2, a2_scale
+```

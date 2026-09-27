@@ -85,12 +85,14 @@ deepseek-v3.2 不包含Jinja格式的模板，可以尝试使用 deepseek-ai/Dee
 
 请问 curl 是正常的，
 curl http://127.0.0.1:35000/v1/chat/completions   -H "Content-Type: application/json"   -d '{
+```json
     "model": "DeepSeek-V3.2",
     "messages": [
       {"role": "user", "content": "Hello, DeepSeek-V3.2!"}
     ],
     "temperature": 0.0,
     "max_tokens": 100
+```
   }'
 
 问题是不是出在 evalscope 组装请求上呢？

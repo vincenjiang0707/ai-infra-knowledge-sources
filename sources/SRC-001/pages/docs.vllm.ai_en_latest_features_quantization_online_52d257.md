@@ -11,6 +11,7 @@ Pass a scheme name to the `quantization`
 
 parameter:
 
+```python
 from vllm import LLM
 # Per-tensor FP8 quantization (one scale per weight tensor)
 llm = LLM("meta-llama/Llama-3.1-8B", quantization="fp8_per_tensor")
@@ -26,16 +27,19 @@ llm = LLM(
 quantization="mxfp4",
 quantization_config={"linear": {"activation": None, "weight": None}}
 )
+```
 
 
 Or with the CLI:
 
+```json
 vllm serve meta-llama/Llama-3.1-8B --quantization fp8_per_tensor
 vllm serve meta-llama/Llama-3.1-8B --quantization fp8_per_block
 vllm serve meta-llama/Llama-3.1-8B --quantization mxfp8
 vllm serve meta-llama/Llama-3.1-8B --quantization mxfp4
 vllm serve Qwen/Qwen3.5-35B-A3B --quantization mxfp4 \
 --quantization-config '{"linear":{"activation":null,"weight":null}}'
+```
 
 
 ## Supported Schemes[¶](https://docs.vllm.ai#supported-schemes)
@@ -62,6 +66,7 @@ dictionary.
 
 ### Schema[¶](https://docs.vllm.ai#schema)
 
+```yaml
 quantization_config:
 linear:
 weight: <name> # see QUANT_KEY_NAMES in vllm/config/quantization.py
@@ -70,6 +75,7 @@ moe:
 weight: <name>
 activation: <name>
 ignore: [<layer-name-or-regex-or-fnmatch-pattern>, ...]
+```
 
 
 `linear`
@@ -98,8 +104,10 @@ instead of the custom XPU kernel.
 
 The CLI accepts the same shape as JSON or as dotted keys:
 
+```json
 vllm serve <model> --quantization-config '{"moe":{"activation":"mxfp8"}}'
 vllm serve <model> --quantization-config.moe.activation mxfp8
+```
 
 
 ### Activation overrides on already-quantized checkpoints[¶](https://docs.vllm.ai#activation-overrides-on-already-quantized-checkpoints)
@@ -154,6 +162,7 @@ fields. Each accepts either a full spec dict, or a bare string naming an online 
 
 ); fields not set fall back to the shorthand defaults.
 
+```python
 from vllm import LLM
 # Linear: per-block FP8; MoE: per-tensor FP8 (inherited from the shorthand)
 llm = LLM(
@@ -163,10 +172,12 @@ quantization_config={
 "linear": "fp8_per_block",
 },
 )
+```
 
 
 Or,
 
+```python
 from vllm import LLM
 # Linear: per-tensor FP8 (inherited); MoE: per-block FP8
 llm = LLM(
@@ -176,6 +187,7 @@ quantization_config={
 "moe": "fp8_per_block",
 },
 )
+```
 
 
 ### Excluding Layers from Quantization[¶](https://docs.vllm.ai#excluding-layers-from-quantization)
@@ -186,6 +198,7 @@ parameter to skip specific layers. It accepts exact layer names, regex patterns 
 
 ), and patterns understood by [ fnmatch.fnmatch](https://docs.python.org/3/library/fnmatch.html#fnmatch.fnmatch):
 
+```python
 from vllm import LLM
 llm = LLM(
 "ibm-granite/granite-3.0-1b-a400m-base",
@@ -201,6 +214,7 @@ quantization_config={
 ],
 },
 )
+```
 
 
 Note
@@ -241,6 +255,7 @@ parameter to apply different online shorthands to different layers, instead of o
 
 ).Example:
 
+```python
 from vllm import LLM
 llm = LLM(
 "Qwen/Qwen3.5-35B-A3B",
@@ -256,13 +271,16 @@ r"re:.*self_attn\.qkv_proj.*": "mxfp8",
 },
 },
 )
+```
 
 
 Or with the CLI:
 
+```json
 vllm serve Qwen/Qwen3.5-35B-A3B \
 --quantization online \
 --quantization-config '{"targets":{"model.layers.0.self_attn.o_proj":"fp8_per_tensor","re:.*self_attn\\.qkv_proj.*":"mxfp8","*mlp.experts*":"mxfp4"}}'
+```
 
 
 Info

@@ -34,18 +34,22 @@ resume command just had --use-cache outputs/run_name
 
 its not unique to this it happened me in all runs from gpqa diamond, aime2026 etc
 
+```yaml
 pip show evalscope returns this
  pip show evalscope
 Name: evalscope
 Version: 1.8.0
 Summary: EvalScope: Lightweight LLMs Evaluation Framework
+```
 Home-page: https://github.com/modelscope/evalscope
 Author: ModelScope team
+```yaml
 Author-email: contact@modelscope.cn
 License-Expression: Apache-2.0
 Location: C:\Users\shahid\AppData\Roaming\Python\Python314\site-packages
 Requires: aiohttp, colorlog, docstring_parser, dotenv, editdistance, jieba, jinja2, jsonlines, jsonschema, latex2sympy2_extended, litellm, Markdown, modelscope, more_itertools, nltk, openai, overrides, pandas, pillow, plotly, pydantic, pylatexenc, pyyaml, requests, rich, rouge-chinese, rouge-score, sacrebleu, sympy, tabulate, tqdm, transformers, word2number, zhconv
 Required-by: 
+```
 
 i exit using ctrl c usually when benchmark goes on a loop
 

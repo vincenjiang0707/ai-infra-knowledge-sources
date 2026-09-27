@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/hy_v4/nvidia/flashmla_sparse/
 lastmod: 2026-09-27
 
+```python
 class HYV4FlashMLASparseImpl(FlashMLASparseImpl):
 """FlashMLA sparse impl that applies HY V4's per-head learnable sink.
 The sink enters as the ``sinks`` impl kwarg of
@@ -175,6 +176,7 @@ actual_num_heads = q.shape[1]
 padded_num_heads = (
 (actual_num_heads + self.prefill_padding - 1)
 // self.prefill_padding
+```
 * self.prefill_padding
 )
 # q_concat_buffer may already include the kernel-required padding.

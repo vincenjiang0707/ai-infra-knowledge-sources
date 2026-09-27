@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/openpangu_mtp/
 lastmod: 2026-09-27
 
+```python
 @support_torch_compile
 class OpenPanguMTP(nn.Module):
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
@@ -163,3 +164,4 @@ elif shared_weight:
 # treat shared weights as top level weights
 name = name.replace(f"model.layers.{spec_layer}.", "model.")
 return name
+```

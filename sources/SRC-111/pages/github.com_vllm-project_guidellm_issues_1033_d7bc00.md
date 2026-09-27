@@ -24,9 +24,11 @@ Add support for **persistent, pre-generated datasets** with three key features:
 
 Generate a deterministic seed from the workload configuration so the same config always produces the same dataset:
 
+```python
 import hashlib
 seed_input = f"{model_name}:{isl}:{osl}:{hit_pct}:{isl_stdev}:{osl_stdev}:{cache_mode}:{groups}"
 seed = int(hashlib.sha256(seed_input.encode()).hexdigest()[:8], 16)
+```
 
 The dataset filename includes the seed, enabling automatic reuse:
 
@@ -38,11 +40,13 @@ calibration-decode-1-1000-1184319629.jsonl
 
 When a benchmark run starts, check if the dataset file already exists before regenerating:
 
+```python
 dataset_path = f'/datasets/prefix-cache-{cache_mode}-{seed}.jsonl'
 if os.path.exists(dataset_path):
 print(f"Reusing existing dataset: {dataset_path}")
 else:
 generate_dataset(config, seed, output=dataset_path)
+```
 
 ### Feature 2: Multi-worker parallel generation
 
@@ -50,6 +54,7 @@ Split dataset generation across multiple workers using `multiprocessing.Pool`
 
 . Each worker generates a chunk with a deterministic seed offset:
 
+```python
 import multiprocessing
 import random
 def _generate_chunk(chunk_args):
@@ -86,6 +91,7 @@ with open(output_path, 'w') as f:
 for chunk_rows in results:
 for row in chunk_rows:
 f.write(row + '\n')
+```
 
 This produces identical results to sequential generation (same seed → same output) but runs N× faster. For 100K rows with ISL=15000, 8 workers complete in ~30 seconds vs ~4 minutes single-threaded.
 
@@ -95,6 +101,7 @@ Support three cache simulation modes for realistic prefix cache benchmarking:
 
 **Identical mode** — A percentage of rows share the exact same prompt (simulating FAQ bots, fixed system prompts):
 
+```python
 def generate_cache_dataset(config, seed, output_path, hit_pct):
 # Generate one shared prompt at max ISL
 shared_rng = random.Random(seed)
@@ -116,9 +123,11 @@ rng = random.Random(seed + hit_count + i + 1)
 rows.append(make_unique_row(rng, ...))
 random.Random(seed + 999).shuffle(rows) # Mix hits and misses
 write_jsonl(rows, output_path)
+```
 
 **Prefix group mode** — N groups of rows share a common prefix (simulating multi-tenant platforms, multi-repo coding assistants):
 
+```python
 def generate_prefix_group_dataset(config, seed, output_path,
 num_groups, prefix_pct):
 # Generate N unique group prefixes
@@ -135,11 +144,13 @@ prefix = group_prefixes[group_idx]
 suffix = make_prompt(isl - len(prefix_tokens), rng, ...)
 prompt = prefix + '\n' + suffix
 rows.append({'prompt': prompt, ...})
+```
 
 **Multi-turn conversation persistence** — For multi-turn datasets, use guidellm's existing `SyntheticTextDataset`
 
 but persist to disk with parallel workers:
 
+```python
 from guidellm.data.deserializers.synthetic import (
 SyntheticTextDataArgs,
 SyntheticTextDataset,
@@ -163,10 +174,12 @@ worker_seed = seed + w * 10000 # Deterministic per-worker seed
 worker_args.append((w, model, config_dict, chunk_size, worker_seed))
 with multiprocessing.Pool(num_workers) as pool:
 chunks = pool.map(_worker_generate_turns, worker_args)
+```
 
 ## CLI Interface
 
 # Single-turn with prefix cache simulation
+```bash
 guidellm generate-dataset \
 --model google/gemma-4-26B-A4B \
 --isl 15000 --osl 1000 \
@@ -189,14 +202,17 @@ guidellm generate-dataset \
 --mode prefix_group --prefix-groups 10 --hit-pct 60 \
 --rows 50000 --seed 12345 \
 --output /datasets/multi-tenant.jsonl
+```
 
 ## Then use the pre-generated dataset in benchmarks
 
 # All benchmark runs use the EXACT same dataset
+```json
 guidellm run \
 --data '{"kind":"json_file","path":"/datasets/benchmark.jsonl"}' \
 --backend "http://localhost:8000/v1" \
 --profile "concurrent:30"
+```
 
 ## Why This Matters
 

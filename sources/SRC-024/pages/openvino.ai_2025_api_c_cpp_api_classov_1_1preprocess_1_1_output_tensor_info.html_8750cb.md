@@ -4,8 +4,10 @@ lastmod:
 # Class ov::preprocess::OutputTensorInfo[#](https://docs.openvino.ai#class-ov-preprocess-outputtensorinfo)
 
 -
+```python
 class OutputTensorInfo
 [#](https://docs.openvino.ai#_CPPv4N2ov10preprocess16OutputTensorInfoE) Information about user’s desired output tensor. By default, it will be initialized to same data (type/shape/etc) as model’s output parameter. User application can override particular parameters (like ‘element_type’) according to application’s data and specify appropriate conversions in post-processing steps.
+```
 
 auto proc = PrePostProcessor(function); auto& output = proc.output(); output.postprocess().<add steps + conversion to user's output element type>; output.tensor().set_element_type(ov::element::u8); function = proc.build();
 

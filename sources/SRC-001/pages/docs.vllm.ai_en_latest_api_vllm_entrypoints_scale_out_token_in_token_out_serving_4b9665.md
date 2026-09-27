@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/scale_out/token_in_token_out/serving/
 lastmod: 2026-09-27
 
+```python
 class ServingTokens(GenerateBaseServing):
 """Provides Tokens IN <> Tokens OUT functionality to vLLM API."""
 def __init__(
@@ -477,3 +478,4 @@ or i < max(num_output_top_logprobs, 1)
 )
 )
 return ChatCompletionLogProbs(content=logprobs_content)
+```

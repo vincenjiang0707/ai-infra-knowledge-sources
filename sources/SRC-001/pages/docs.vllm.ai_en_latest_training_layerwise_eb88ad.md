@@ -31,6 +31,7 @@ For more information on implementation, see [Low Level layerwise API](https://do
 
 Online quantization refers to when a user provides full precision weights and those weights are quantized on-the-fly as they are loaded into the model. The layerwise reloading system handles this by treating online quantization as a **processing** step, which is then handled in an online way both during first-time load and during reload. A typical online quantization method implementation should look like this:
 
+```python
 class Fp8PerTensorOnlineLinearMethod(LinearMethodBase):
 """Online version of FP8 per-tensor quantization which loads a full
 precision checkpoint and quantizes weights during loading."""
@@ -49,6 +50,7 @@ return
 layer.weight, layer.weight_scale = ops.scaled_fp8_quant(layer.weight)
 # Prevent duplicate processing (e.g., during weight reload)
 layer._already_called_process_weights_after_loading = True
+```
 
 
 ## Example Usages[¶](https://docs.vllm.ai#example-usages)
@@ -73,6 +75,7 @@ This interface also allows specifying a `weights_path`
 
 which can be used to select a checkpoint path to load from:
 
+```python
 from vllm import LLM
 # fine tuned model checkpoints for testing
 mul_path = "inference-optimization/Qwen3-0.6B-debug-multiply"
@@ -82,16 +85,19 @@ llm.collective_rpc("reload_weights", kwargs={"weights_path": mul_path})
 llm.generate("3 4 = ") # 12
 llm.collective_rpc("reload_weights", kwargs={"weights_path": add_path})
 llm.generate("3 4 = ") # 7
+```
 
 
 Finally, a `weights_iterator`
 
 can be provided directly. This iterator can be lazy or eagerly defined.
 
+```python
 from vllm import LLM
 weights_iterator = [("q_proj", ...), ("k_proj", ...), ...]
 llm = LLM("Qwen/Qwen3-0.6B")
 llm.collective_rpc("reload_weights", kwargs={"weights_iterator": weights_iterator})
+```
 
 
 ### Low Level `layerwise`
@@ -145,6 +151,7 @@ You can plug into this lifecycle directly by calling the `initialize_layerwise_r
 
 :
 
+```python
 from vllm import LLM
 from vllm.model_executor.model_loader.reload import initialize_layerwise_reload, finalize_layerwise_processing
 llm = LLM("Qwen/Qwen3-0.6B")
@@ -154,6 +161,7 @@ model = llm.llm_engine.engine_core.engine_core.model_executor.driver_worker.work
 initialize_layerwise_reload(model)
 model.load_weights(...)
 finalize_layerwise_processing(model, llm.model_config)
+```
 
 
 ## Troubleshooting Excessive Memory Usage[¶](https://docs.vllm.ai#troubleshooting-excessive-memory-usage)

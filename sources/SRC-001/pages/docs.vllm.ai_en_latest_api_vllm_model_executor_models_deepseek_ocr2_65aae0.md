@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/deepseek_ocr2/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 DeepseekOCR2MultiModalProcessor,
 info=DeepseekOCR2ProcessingInfo,
@@ -180,3 +181,4 @@ language_model="language_model",
 connector="projector",
 tower_model=["sam_model", "qwen2_model"],
 )
+```

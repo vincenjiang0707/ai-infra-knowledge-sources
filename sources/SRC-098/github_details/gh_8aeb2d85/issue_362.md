@@ -11,12 +11,14 @@ I have tested Multinode ( 2 node ) NCCL Tests on Ubuntu 5.15.x Kernel and 6.8.X 
 
 ****_5.15.X Kernel_**** 
 
+```bash
 export NCCL_DEBUG=INFO
 export NCCL_IB_DISABLE=0
 export NCCL_SOCKET_IFNAME=bond0           
 export NCCL_IB_GID_INDEX=3
 export NCCL_MIN_NCHANNELS=32
 export NCCL_MAX_NCHANNELS=32
+```
 
 export NCCL_IB_HCA="mlx5_0:1,mlx5_1:1,mlx5_2:1,mlx5_3:1,mlx5_4:1,mlx5_5:1,mlx5_6:1, mlx5_11:1"
 
@@ -38,12 +40,14 @@ Avg bus bandwidth    : 481
 
 ****_6.8.X Kernel_**** 
 
+```bash
 export NCCL_DEBUG=INFO
 export NCCL_IB_DISABLE=0
 export NCCL_SOCKET_IFNAME=bond0           
 export NCCL_IB_GID_INDEX=3
 export NCCL_MIN_NCHANNELS=32
 export NCCL_MAX_NCHANNELS=32
+```
 
 
 export NCCL_IB_HCA="mlx5_0:1,mlx5_1:1,mlx5_2:1,mlx5_3:1,mlx5_4:1,mlx5_5:1,mlx5_6:1, mlx5_11:1"
@@ -88,6 +92,7 @@ Nvidia_peermem enabled and ACS also disabled . I have attached NCCL logs below
 
 [NCCL Logs.txt](https://github.com/user-attachments/files/24148057/NCCL.Logs.txt)
 
+```yaml
 root@que-srv-hpc-8p:~# lsmod | grep nvidia_peermem
 nvidia_peermem         16384  0
 ib_uverbs             200704  3 nvidia_peermem,rdma_ucm,mlx5_ib
@@ -163,6 +168,7 @@ root@que-srv-hpc-8p:~# sudo lspci -vvv | grep ACSCtl
                 ACSCtl: SrcValid- TransBlk- ReqRedir- CmpltRedir- UpstreamFwd- EgressCtrl- DirectTrans-
                 ACSCtl: SrcValid- TransBlk- ReqRedir- CmpltRedir- UpstreamFwd- EgressCtrl- DirectTrans-
                 ACSCtl: SrcValid- TransBlk- ReqRedir- CmpltRedir- UpstreamFwd- EgressCtrl- DirectTrans-
+```
 
 
 ### AddyLaddy · 2025-12-15

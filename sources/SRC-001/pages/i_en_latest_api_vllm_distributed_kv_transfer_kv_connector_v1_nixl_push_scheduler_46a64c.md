@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/nixl/push_scheduler/
 lastmod: 2026-09-27
 
+```python
 class NixlPushConnectorScheduler(NixlBaseConnectorScheduler):
 """Push-specific scheduler logic (WRITE-based KV transfer).
 All P2P communication is deferred to the worker level via NIXL
@@ -267,3 +268,4 @@ self._finished_request_blocks.pop(req_id, None)
 # watchdog so we don't trip an expiration on a fulfilled request.
 for req_id in connector_output.finished_recving or ():
 self._push_registration_deadlines.pop(req_id, None)
+```

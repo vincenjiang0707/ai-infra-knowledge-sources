@@ -7,6 +7,7 @@ Qwen3-ASR is a speech-to-text model that achieves accurate and robust speech rec
 
 ## Installing vllm[¶](https://docs.vllm.ai#installing-vllm)
 
+```bash
 uv venv
 source .venv/bin/activate
 uv pip install -U vllm --pre \
@@ -14,6 +15,7 @@ uv pip install -U vllm --pre \
 --extra-index-url https://download.pytorch.org/whl/cu129 \
 --index-strategy unsafe-best-match
 uv pip install "vllm[audio]" # For additional audio dependencies
+```
 
 
 ## Launching Qwen3-ASR with vLLM[¶](https://docs.vllm.ai#launching-qwen3-asr-with-vllm)
@@ -24,6 +26,7 @@ You can easily deploy Qwen3-ASR with vLLM by running the following command
 
 After the model server is successfully deployed, you can interact with it in multiple ways.#### Using OpenAI SDK[¶](https://docs.vllm.ai#using-openai-sdk)
 
+```python
 import base64
 import httpx
 from openai import OpenAI
@@ -66,6 +69,7 @@ model="Qwen/Qwen3-ASR-1.7B",
 file=audio_file,
 )
 print(transcription.text)
+```
 
 
 #### Using cURL[¶](https://docs.vllm.ai#using-curl)
@@ -87,6 +91,7 @@ curl http://localhost:8000/v1/chat/completions \
 
 See the following example on using vLLM to run offline infernece with Qwen3-ASR
 
+```python
 from vllm import LLM, SamplingParams
 from vllm.assets.audio import AudioAsset
 import base64
@@ -113,3 +118,4 @@ sampling_params = SamplingParams(temperature=0.01, max_tokens=256)
 # Run inference using .chat()
 outputs = llm.chat(conversation, sampling_params=sampling_params)
 print(outputs[0].outputs[0].text)
+```

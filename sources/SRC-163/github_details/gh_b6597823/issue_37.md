@@ -27,12 +27,14 @@ labels:
                wmma::fragment<wmma::matrix_b, 16ul, 16ul, 16ul, __half, wmma::col_major> b_frag;
                                                                                          ^
 **编译环境**
+```yaml
 nvcr.io/nvidia/pytorch/23.10-py3镜像
 CXX compiler: GNU 11.4.0
 CUDA: NVIDIA 12.2.140
 CUDAToolkit: 12.2.140
 NCCL: libnccl.so.2.19.3
 MPI: 3.1  
+```
 
 ## 评论 (5)
 

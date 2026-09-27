@@ -4,8 +4,10 @@ lastmod:
 # Class ov::pass::pattern::op::Optional[#](https://docs.openvino.ai#class-ov-pass-pattern-op-optional)
 
 -
+```python
 class Optional : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[pass](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4passE)::[pattern](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4pass7patternE)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov4pass7pattern2opE)::[Pattern](https://docs.openvino.ai/classov_1_1pass_1_1pattern_1_1op_1_1_pattern.html#_CPPv4N2ov4pass7pattern2op7PatternE)[#](https://docs.openvino.ai#_CPPv4N2ov4pass7pattern2op8OptionalE) A submatch on the graph value which contains optional op types defined in constructor.
+```
 
 
 pattern supports multi input operations. In this case the pattern checks inputs with optional node type or 1st input. The match is succeed in case of full graphs matching or extended by one of optional type graph or pattern. Otherwise fails.[Optional](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1pass_1_1pattern_1_1op_1_1_optional)Public Functions

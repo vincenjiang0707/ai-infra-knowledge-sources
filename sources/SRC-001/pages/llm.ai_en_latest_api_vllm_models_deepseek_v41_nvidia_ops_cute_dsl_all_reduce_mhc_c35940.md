@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/nvidia/ops/cute_dsl/all_reduce_mhc/
 lastmod: 2026-09-27
 
+```python
 class AllReduceMHC:
 """Lamport TP all-reduce fused with mHC post, collapse and RMSNorm.
 ``__call__`` reduces ``x`` across the TP group, writes the post-mixed hc
@@ -271,3 +272,4 @@ Int32(m),
 current_cu_stream(),
 )
 return residual_output, layer_input
+```

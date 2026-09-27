@@ -37,6 +37,7 @@ labels:
 似乎是patch_getenv.py中的patch导致了accelerate的代码中奇怪的行为(get和[] 行为不一致引起)。
 ---------------------------------
 # accelerate-1.15.0  state.py:974 行
+```python
             elif os.environ.get("ACCELERATE_USE_DEEPSPEED", "false").lower() == "true" and not cpu:
                 self.distributed_type = DistributedType.DEEPSPEED
                 if not isinstance(deepspeed_plugin, dict):
@@ -49,6 +50,7 @@ labels:
                     first_plugin = next(iter(deepspeed_plugin.values()))
                     first_plugin.select(_from_accelerator_state=True)
                 self.deepspeed_plugins = deepspeed_plugin
+```
 
 ---------------------------------
 torch_npu/utils/patch_getenv.py:26:def _patched_environ_get(key, default=None):                                                                                                                                  

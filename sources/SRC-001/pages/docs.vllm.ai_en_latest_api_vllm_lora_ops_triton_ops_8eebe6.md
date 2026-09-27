@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/ops/triton_ops/
 lastmod: 2026-09-27
 
+```python
 @dataclass
 class LoRAKernelMeta:
 token_lora_mapping: torch.Tensor
@@ -167,3 +168,4 @@ self.active_lora_ids,
 self.no_lora_flag_cpu,
 num_active_loras,
 )
+```

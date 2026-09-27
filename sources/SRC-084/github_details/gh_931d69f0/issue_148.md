@@ -8,25 +8,31 @@ labels:
 
 Everything goes well when I use HQQ to quantize Llama model and use vLLM to do the serving. However, when I use HQQ to compress Mixtral8x7B model and do serving, I got assertion error: ” File “/u/zshao3/vllm/vllm/model_executor/layers/linear.py”, line 238, in weight_loader assert param.size() == loaded_weight.size()“. I asked vLLM's team and they said maybe my model compression is wrong. So I want to know how can I correctly compress the MoE model using HQQ. My quantization script is here:
 
+```python
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, HqqConfig
 model_id      = "mistralai/Mixtral-8x7B-v0.1" 
 model_path = "/scratch/bcjw/zshao3/huggingface/models--mistralai--Mixtral-8x7B-v0.1"
 quant_model = "/scratch/bcjw/zshao3/huggingface/models--mistralai--Mixtral-8x7B-v0.1-w4-gs64"
+```
 
 quant_config = HqqConfig(nbits=4, group_size=64, axis=1)
 
 model = AutoModelForCausalLM.from_pretrained(model_path,
+```bash
                                             torch_dtype=torch.float16,
                                             cache_dir="/scratch/bcjw/zshao3/huggingface/",
                                             device_map="cuda:0",
                                             quantization_config=quant_config,
                                             low_cpu_mem_usage=True)
+```
 
 tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
 
+```
 model.save_pretrained(quant_model)
 tokenizer.save_pretrained(quant_model)
+```
 
 
 ## 评论 (15)

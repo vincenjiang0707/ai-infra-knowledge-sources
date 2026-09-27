@@ -22,6 +22,7 @@ $ torchrun --nproc-per-node=8 examples/features/torchrun/torchrun_dp_example_off
 --tp-size=2 --pp-size=1 --dp-size=4 --enable-ep
 ```
 """ # noqa: E501
+```python
 import argparse
 from vllm import LLM, SamplingParams
 def parse_args():
@@ -116,6 +117,7 @@ f"DP Rank: {dp_rank} Prompt: {prompt!r}\nGenerated text: {generated_text!r}\n"
 )
 """
 Further tips:
+```
 1. to communicate control messages across all ranks, use the cpu group,
 a PyTorch ProcessGroup with GLOO backend.
 ```python

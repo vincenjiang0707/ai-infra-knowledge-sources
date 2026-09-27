@@ -88,8 +88,10 @@ layout from port and empty layout in other case
 
 
 -
+```python
 class Layout
 *#include <layout.hpp>*[ov::Layout](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_layout)represents the text information of tensor’s dimensions/axes. E.g. layout`NCHW`
+```
 
 means that 4D tensor`{-1, 3, 480, 640}`
 
@@ -165,8 +167,10 @@ Advanced syntax can be used for multi-character names like “[N,C,H,W,…,Custo
 
 
 -
+```
 bool operator==(const
 [Layout](https://docs.openvino.ai/classov_1_1_layout.html#_CPPv4N2ov6LayoutE)&rhs) const Comparison operator (equal)
+```
 
 
 -

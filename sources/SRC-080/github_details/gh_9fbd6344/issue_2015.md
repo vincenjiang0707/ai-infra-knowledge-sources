@@ -63,24 +63,30 @@ I expect fp8 models to go faster than bf16, both with quantized and not quantize
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: f284fea27c192d58ffb73369fbb1fa2aed7a646850b3708185c777962e1b4ac1
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: fc256f2a3c81006507e2886789898ceecc96601886cfff92b6b686f92bfcc723
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: aeb6c1bd4aa116d826f2a6ac8d03556075597403de0e4f5ab7f41abd9a2e0217
+```
 
 Release follow-up: this open ModelOpt issue needs release relevance confirmed. Link its planned fix/validation, or confirm it is not a v0.46.0 blocker.

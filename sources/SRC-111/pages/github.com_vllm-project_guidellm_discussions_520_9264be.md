@@ -3,6 +3,7 @@ source: https://github.com/vllm-project/guidellm/discussions/520
 # How to test a multimodal model？ #520
 
 |
+```
 Hi team, I just learned about GuideLLM recently, and I tried to use a custom dataset to test a multimodal model(Qwen2.5-VL-3B-Instruct), but I found that the request sent was Incorrect. My dataset looks like: `{"image": "/path/text.jpeg", "text": "What do you see happening in this image?\n<image>"}` And the generated request body looks like: ```
 {
 "messages": [
@@ -15,6 +16,7 @@ Hi team, I just learned about GuideLLM recently, and I tried to use a custom dat
 "content": [{"type": "image_url", "image_url": "data:image/jpeg;basexxxxxx"}]
 }]
 }
+```
 ``` But the request body expected to be generated looks like: ```
 {
 "messages": [
@@ -26,6 +28,7 @@ Hi team, I just learned about GuideLLM recently, and I tried to use a custom dat
 }]
 }
 ``` My command looks like: ```
+```bash
 guidellm benchmark run \
 --target http://xxxx \
 --data /path/dataset.json \
@@ -33,6 +36,7 @@ guidellm benchmark run \
 --profile constant \
 --rate 1 \
 --max-seconds 20
+```
 ``` I'm not sure if I'm using it the wrong way, and I'm really looking forward to your support, Thanks. |
 
 Answered by

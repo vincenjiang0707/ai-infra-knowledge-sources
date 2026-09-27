@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/bailing_moe_linear/
 lastmod: 2026-09-27
 
+```python
 @support_torch_compile(
 dynamic_arg_dims={
 "input_ids": 0,
@@ -220,3 +221,4 @@ continue
 # General parameters
 load_param(norm_name, weight)
 return loaded_params
+```

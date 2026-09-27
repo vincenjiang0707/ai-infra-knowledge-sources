@@ -100,6 +100,7 @@ Multiple CUDA Graphs are pre-captured at different **token budget** levels (e.g.
 
 ). Each budget defines a fixed token capacity, and all budgets share the same maximum batch size (number of images). The [ BudgetGraphMetadata](https://docs.vllm.ai/api/vllm/v1/worker/encoder_cudagraph/#vllm.v1.worker.encoder_cudagraph.BudgetGraphMetadata) for each level stores the graph along with pre-allocated input, metadata, and output buffers:
 
+```python
 @dataclass
 class BudgetGraphMetadata:
 token_budget: int
@@ -108,6 +109,7 @@ max_frames_per_batch: int
 graph: torch.cuda.CUDAGraph
 input_buffers: dict[str, torch.Tensor] # e.g. pixel_values, embeddings, seq metadata
 output_buffer: torch.Tensor # encoder hidden states
+```
 
 
 Budgets are auto-generated as power-of-2 levels from a model-provided range via `get_encoder_cudagraph_budget_range()`
@@ -389,19 +391,24 @@ For `Llama 4`
 
 (image only):
 
+```json
 vllm serve meta-llama/Llama-4-Scout-17B-16E-Instruct \
 --limit-mm-per-prompt '{"image": 1}' \
 --compilation-config '{"cudagraph_mm_encoder": true}'
+```
 
 
 With explicit budgets:
 
+```json
 vllm serve Qwen/Qwen3-VL-32B \
 --compilation-config '{"cudagraph_mm_encoder": true, "encoder_cudagraph_token_budgets": [2048, 4096, 8192, 13824], "encoder_cudagraph_max_vision_items_per_batch": 8}'
+```
 
 
 Python example:
 
+```python
 import vllm
 compilation_config = {
 "cudagraph_mm_encoder": True,
@@ -413,6 +420,7 @@ model = vllm.LLM(
 model="Qwen/Qwen3-VL-32B",
 compilation_config=compilation_config,
 )
+```
 
 
 The manager tracks hit/miss statistics and logs them periodically. A "hit" means an image was processed via CUDA Graph replay; a "miss" means eager fallback (image exceeded all budgets).
@@ -425,12 +433,15 @@ Enable encoder CUDA Graphs via `compilation_config`
 
 With explicit budgets:
 
+```json
 vllm serve Qwen/Qwen3-VL-32B \
 --compilation-config '{"cudagraph_mm_encoder": true, "encoder_cudagraph_token_budgets": [2048, 4096, 8192, 13824], "encoder_cudagraph_max_vision_items_per_batch": 8, "encoder_cudagraph_max_frames_per_batch": 64}'
+```
 
 
 Python example:
 
+```python
 import vllm
 compilation_config = {
 "cudagraph_mm_encoder": True,
@@ -443,6 +454,7 @@ model = vllm.LLM(
 model="Qwen/Qwen3-VL-32B",
 compilation_config=compilation_config,
 )
+```
 
 
 ## Benchmark Results[¶](https://docs.vllm.ai#benchmark-results)
@@ -468,6 +480,7 @@ Model: `Qwen/Qwen3-VL-30B-A3B-Instruct`
 
 To reproduce:
 
+```json
 vllm bench mm-processor \
 --model Qwen/Qwen3-VL-30B-A3B-Instruct \
 --dataset-name hf --dataset-path lmarena-ai/VisionArena-Chat \
@@ -475,6 +488,7 @@ vllm bench mm-processor \
 --max-model-len 32768 --seed 42 \
 --mm-encoder-attn-backend FLASH_ATTN \
 --compilation-config '{"cudagraph_mm_encoder": true, "encoder_cudagraph_token_budgets": [512, 1024, 1536, 2048, 2560, 3072, 3584, 4096, 4864], "encoder_cudagraph_max_vision_items_per_batch": 8}'
+```
 
 
 ### Multi-GPU (4x GB200, TP=4, DP=4)[¶](https://docs.vllm.ai#multi-gpu-4x-gb200-tp4-dp4)
@@ -494,6 +508,7 @@ Model: `Qwen/Qwen3-VL-32B-Instruct`
 
 To reproduce:
 
+```bash
 vllm bench mm-processor \
 --model Qwen/Qwen3-VL-32B-Instruct \
 --dataset-name random-mm \
@@ -505,6 +520,7 @@ vllm bench mm-processor \
 --mm-encoder-attn-backend FLASHINFER \
 --tensor-parallel-size 4 --mm-encoder-tp-mode data \
 --compilation-config '{"cudagraph_mm_encoder": true, "encoder_cudagraph_token_budgets": [512, 1024, 1536, 2048, 2560, 3072, 3584, 4096, 4864], "encoder_cudagraph_max_vision_items_per_batch": 8}'
+```
 
 
 Note

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/ops/cute_dsl/latent_moe_tail/lamport_copy/
 lastmod: 2026-09-24
 
+```python
 class LamportCopy:
 """Consume the local physical copy of an NVLS-multicast mailbox."""
 def __init__(self, hidden_dim: int, ctas: int, threads: int):
@@ -58,3 +59,4 @@ destination = cutlass.Int64((local_output.iterator + element).toint())
 store_global_u32x4(destination, packed, volatile=False)
 store_lamport_sentinel_128(source)
 fragment = fragment + stride
+```

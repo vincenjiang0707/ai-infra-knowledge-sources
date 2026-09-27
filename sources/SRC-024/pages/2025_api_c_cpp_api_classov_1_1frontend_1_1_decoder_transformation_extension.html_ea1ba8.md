@@ -4,8 +4,10 @@ lastmod:
 # Class ov::frontend::DecoderTransformationExtension[#](https://docs.openvino.ai#class-ov-frontend-decodertransformationextension)
 
 -
+```python
 class DecoderTransformationExtension : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Extension](https://docs.openvino.ai/classov_1_1_extension.html#_CPPv4N2ov9ExtensionE)[#](https://docs.openvino.ai#_CPPv4N2ov8frontend30DecoderTransformationExtensionE) Holds a transformation that is applied just after the original model graph is decoded. This class is a holder for transformation. The transformation can be specified as FunctionPass or MathcerPass derivatives or as a function that can be used to build corresponding FunctionPass or MatcherPass object. The type of the extension is determined in the moment of creation by calling corresponding ctor.
+```
 
 Public Functions
 

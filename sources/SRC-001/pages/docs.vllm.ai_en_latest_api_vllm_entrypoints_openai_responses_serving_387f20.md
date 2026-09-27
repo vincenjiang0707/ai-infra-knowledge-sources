@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/openai/responses/serving/
 lastmod: 2026-09-27
 
+```python
 class OpenAIServingResponses(GenerateBaseServing):
 def __init__(
 self,
@@ -1186,3 +1187,4 @@ sequence_number=-1,
 response=final_response,
 )
 )
+```

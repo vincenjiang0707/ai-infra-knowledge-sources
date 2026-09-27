@@ -18,12 +18,14 @@ model_id = 'mobiuslabsgmbh/Llama-2-7b-chat-hf_1bitgs8_hqq'
 model     = HQQModelForCausalLM.from_quantized(model_id, adapter='adapter_v0.1.lora')
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 
+```
 #Setup Inference Mode
 tokenizer.add_bos_token = False
 tokenizer.add_eos_token = False
 if not tokenizer.pad_token: tokenizer.add_special_tokens({'pad_token': '[PAD]'})
 model.config.use_cache  = True
 model.eval();
+```
 
 # Optional: torch compile for faster inference
 model = torch.compile(model)
@@ -33,6 +35,7 @@ import torch, transformers
 from threading import Thread
 
 def chat_processor(chat, max_new_tokens=100, do_sample=True, device='cuda'):
+```bash
     tokenizer.use_default_system_prompt = False
     streamer = transformers.TextIteratorStreamer(tokenizer,skip_prompt=True, skip_special_tokens=True)
 
@@ -62,6 +65,7 @@ def chat_processor(chat, max_new_tokens=100, do_sample=True, device='cuda'):
     torch.cuda.empty_cache()
   
     return outputs
+```
 
 
 outputs = chat_processor("What is the solution to x^2 - 1 = 0", max_new_tokens=1000).to(cuda)
@@ -120,15 +124,19 @@ RuntimeError: Expected all tensors to be on the same device, but found at least 
 
 
 
+```python
 from hqq.engine.hf import HQQModelForCausalLM, AutoTokenizer
 import torch
 import transformers  # Make sure transformers is imported
 from threading import Thread  # Make sure Thread is imported
+```
 
 # Load the model
+```bash
 model_id = 'mobiuslabsgmbh/Llama-2-7b-chat-hf_1bitgs8_hqq'
 model = HQQModelForCausalLM.from_quantized(model_id, adapter='adapter_v0.1.lora', compute_dtype=torch.float16, device="cuda")
 tokenizer = AutoTokenizer.from_pretrained(model_id)
+```
 
 # Define the device before using it
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -136,17 +144,20 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model.to(device)
 
 # Setup Inference Mode
+```
 tokenizer.add_bos_token = False
 tokenizer.add_eos_token = False
 if not tokenizer.pad_token:
     tokenizer.add_special_tokens({'pad_token': '[PAD]'})
 model.config.use_cache = True
 model.eval()
+```
 
 # Optional: torch compile for faster inference
 # model = torch.compile(model)  # You might want to enable this for potential speedup
 
 def chat_processor(chat, max_new_tokens=100, do_sample=True, device='cuda'):
+```bash
     tokenizer.use_default_system_prompt = False
     streamer = transformers.TextIteratorStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True)
 
@@ -182,10 +193,13 @@ def chat_processor(chat, max_new_tokens=100, do_sample=True, device='cuda'):
     torch.cuda.empty_cache()
 
     return outputs
+```
 
 # Now you can call the function:
+```bash
 results = chat_processor("What is the solution to x^2 - 1 = 0", max_new_tokens=100, device=device)
 print(results)
+```
 
 
 
@@ -226,8 +240,10 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.10/dist-packages/transformers/tokenization_utils_base.py", line 285, in __getattr__
     raise AttributeError
 AttributeError
+```yaml
 User:  What is the solution to x^2 - 1 = 0
 Assistant: 
+```
 
 ### werruww · 2024-12-13
 
@@ -235,13 +251,17 @@ colab t4
 
 ### werruww · 2024-12-13
 
+```python
 from hqq.engine.hf import HQQModelForCausalLM, AutoTokenizer
 from transformers import AutoModelForCausalLM
 import torch
+```
 
 # Device configuration
+```bash
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 torch_dtype = torch.float16
+```
 
 # Load the quantized model
 quantized_model_id = 'mobiuslabsgmbh/Llama-2-7b-chat-hf_1bitgs8_hqq'
@@ -249,23 +269,29 @@ one_bit_model = HQQModelForCausalLM.from_quantized(
     quantized_model_id, 
     adapter='adapter_v0.1.lora'
 )
+```bash
 one_bit_model = one_bit_model.to(device)
 one_bit_model.config.use_cache = True
 one_bit_model.eval()
+```
 
 # Load tokenizer
+```python
 tokenizer = AutoTokenizer.from_pretrained(quantized_model_id)
 tokenizer.add_bos_token = False
 tokenizer.add_eos_token = False
 if not tokenizer.pad_token:
     tokenizer.add_special_tokens({'pad_token': '[PAD]'})
+```
 tokenizer.padding_side = 'left'
 
 def debug_tensor_devices(inputs):
+```json
     """Helper function to print device information for all tensors"""
     for key, value in inputs.items():
         if torch.is_tensor(value):
             print(f"Tensor {key} is on device: {value.device}")
+```
 
 def chat_processor(chat, current_model, current_tokenizer, max_new_tokens=100, do_sample=True, device=device):
     print(f"\nStarting chat_processor with device: {device}")
@@ -601,8 +627,10 @@ https://github.com/werruww/hqq-/blob/main/hQQ%20(1).ipynb
 
 ### werruww · 2025-02-04
 
+```python
 from hqq.utils.patching import prepare_for_inference
 prepare_for_inference(model, backend, verbose=True)
+```
 
 HQQLinear.set_backend(HQQBackend.PYTORCH_COMPILE)
 
@@ -619,12 +647,14 @@ NameError: name 'backend' is not defined
 
 ### werruww · 2025-02-04
 
+```python
 from hqq.utils.patching import prepare_for_inference
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torchao
 prepare_for_inference(model, backend="torchao_int4", verbose=True)
+```
 
 HQQLinear.set_backend(HQQBackend.PYTORCH_COMPILE)
 
@@ -880,6 +910,7 @@ https://github.com/werruww/hqq-/blob/main/succ_hqq.ipynb
 
 
 
+```python
 import torch
 from transformers import AutoTokenizer
 from hqq.models.hf.base import AutoHQQHFModel
@@ -895,6 +926,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_id)
 
 from hqq.utils.patching import prepare_for_inference
 #prepare_for_inference(model)
+```
 
 HQQLinear.set_backend(HQQBackend.PYTORCH_COMPILE)
 
@@ -905,8 +937,10 @@ gen.generate("What is the result of the following addition operation 34+67?", pr
 
 ### werruww · 2025-02-04
 
+```python
 from hqq.utils.patching import prepare_for_inference
 #prepare_for_inference(model)
+```
 
 HQQLinear.set_backend(HQQBackend.PYTORCH_COMPILE)
 
@@ -920,6 +954,7 @@ colab t4
 
 ### werruww · 2025-02-04
 
+```python
 import torch
 from transformers import AutoTokenizer
 from hqq.models.hf.base import AutoHQQHFModel
@@ -932,6 +967,7 @@ from hqq.utils.generation_hf import HFGenerator
 model_id = 'mobiuslabsgmbh/Llama-3-8b-instruct_2bitgs64_hqq' 
 model     = AutoHQQHFModel.from_quantized(model_id, cache_dir='.', compute_dtype=torch.float16, adapter='adapter_v0.1.lora')
 tokenizer = AutoTokenizer.from_pretrained(model_id)
+```
 
 patch_linearlayers(model, patch_add_quant_config, 
                           BaseQuantizeConfig(nbits=2, group_size=64, quant_scale=False, quant_zero=False, axis=1))
@@ -998,6 +1034,7 @@ TypeError: 'NoneType' object is not subscriptable
 
 ### werruww · 2025-02-05
 
+```python
 import torch
 from transformers import AutoTokenizer
 from hqq.models.hf.base import AutoHQQHFModel
@@ -1013,20 +1050,26 @@ tokenizer = AutoTokenizer.from_pretrained(model_id)
 
 from hqq.utils.patching import prepare_for_inference
 #prepare_for_inference(model, backend="torchao_int4", verbose=True)
+```
 
 HQQLinear.set_backend(HQQBackend.PYTORCH_COMPILE)
 
+```python
 #Warmup
 for i in range(10):
     with torch.no_grad():
         out = model(torch.ones((1, 1), dtype=torch.int32, device='cuda'))
+```
 del out
 cleanup()
 
+```python
 import transformers
 from threading import Thread
+```
 
 def chat_processor(chat, max_new_tokens=100, do_sample=True):
+```bash
     tokenizer.use_default_system_prompt = False
     streamer = transformers.TextIteratorStreamer(tokenizer, timeout=10.0, skip_prompt=True, skip_special_tokens=True)
 
@@ -1054,6 +1097,7 @@ def chat_processor(chat, max_new_tokens=100, do_sample=True):
         print(text, end="", flush=True)
 
     return outputs
+```
 
 ################################################################################################
 #Generation
@@ -1075,6 +1119,7 @@ The output is very bad.
 
 ### werruww · 2025-02-05
 
+```python
 import torch
 from transformers import AutoTokenizer
 from hqq.models.hf.base import AutoHQQHFModel
@@ -1089,9 +1134,11 @@ model     = AutoHQQHFModel.from_quantized(model_id, cache_dir='.', compute_dtype
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 from hqq.utils.patching import prepare_for_inference
 #prepare_for_inference(model, backend="torchao_int4", verbose=True)
+```
 
 HQQLinear.set_backend(HQQBackend.PYTORCH_COMPILE)
 
+```python
 #Warmup
 for i in range(10):
     with torch.no_grad():
@@ -1100,8 +1147,10 @@ del out
 cleanup()
 import transformers
 from threading import Thread
+```
 
 def chat_processor(chat, max_new_tokens=100, do_sample=True):
+```bash
     tokenizer.use_default_system_prompt = False
     streamer = transformers.TextIteratorStreamer(tokenizer, timeout=10.0, skip_prompt=True, skip_special_tokens=True)
 
@@ -1129,6 +1178,7 @@ def chat_processor(chat, max_new_tokens=100, do_sample=True):
         print(text, end="", flush=True)
 
     return outputs
+```
 
 ################################################################################################
 #Generation
@@ -1150,6 +1200,7 @@ and use the new code here: https://huggingface.co/mobiuslabsgmbh/Llama-3-8b-inst
 
 ### werruww · 2025-02-05
 
+```python
 import torch
 from transformers import AutoTokenizer
 from hqq.models.hf.base import AutoHQQHFModel
@@ -1169,6 +1220,7 @@ cache_dir     = '.'
 model_id = 'mobiuslabsgmbh/Llama-3-8b-instruct_2bitgs64_hqq' 
 model     = AutoHQQHFModel.from_quantized(model_id, cache_dir=cache_dir, compute_dtype=compute_dtype, device=device, adapter='adapter_v0.1.lora').eval();
 tokenizer = AutoTokenizer.from_pretrained(model_id, cache_dir=cache_dir)
+```
 
 #Use optimized inference kernels
 ###################################################
@@ -1180,9 +1232,11 @@ prepare_for_inference(model, backend=backend) #It takes a while...
 #gen = HFGenerator(model, tokenizer, max_new_tokens=1000, do_sample=True, compile=None) #Slower generation but no warm-up 
 gen = HFGenerator(model, tokenizer, max_new_tokens=10, do_sample=True, compile="partial").warmup() #Faster generation, but warm-up takes a while
 
+```
 gen.generate("Write an essay about large language models", print_tokens=True)
 #gen.generate("Tell me a funny joke!", print_tokens=True)
 #gen.generate("How to make a yummy chocolate cake?", print_tokens=True)
+```
 
 
 

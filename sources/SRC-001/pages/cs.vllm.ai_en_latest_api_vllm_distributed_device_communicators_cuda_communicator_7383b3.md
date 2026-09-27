@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/device_communicators/cuda_communicator/
 lastmod: 2026-09-27
 
+```python
 class CudaCommunicator(DeviceCommunicatorBase):
 def __init__(
 self,
@@ -247,8 +248,10 @@ nccl_symm_ws_ok = self.world_size >= NCCL_SYMM_MEM_ALL_REDUCE_CONFIG[
 self.world_size
 in NCCL_SYMM_MEM_ALL_REDUCE_CONFIG["custom_ar_preferred_ranges"]
 or self.world_size
+```
 > NCCL_SYMM_MEM_ALL_REDUCE_CONFIG["always_use_above_world_size"]
 )
+```python
 if (
 self.pynccl_comm is not None
 and not self.pynccl_comm.disabled
@@ -391,9 +394,11 @@ output_tensor = output_tensor.reshape((self.world_size,) + input_size)
 output_tensor = output_tensor.movedim(0, dim)
 return output_tensor.reshape(
 input_size[:dim]
+```
 + (self.world_size * input_size[dim],)
 + input_size[dim + 1 :]
 )
+```python
 def reduce_scatter(self, input_: torch.Tensor, dim: int = -1):
 world_size = self.world_size
 pynccl_comm = self.pynccl_comm
@@ -590,9 +595,11 @@ self.all2all_manager = None # type: ignore[assignment]
 def _can_use_aiter_ag_rs(self, sizes: list[int] | None) -> bool:
 """Whether the AITER custom AG/RS fast path may run for this collective.
 Requires:
+```
 - uniform batches
 - FULL CUDAgraphs
 """
+```python
 if (
 not self.use_aiter_ag_rs
 or self.aiter_ar_comm is None
@@ -790,3 +797,4 @@ if pynccl_comm is not None and not pynccl_comm.disabled:
 pynccl_comm.batch_isend_irecv(p2p_ops)
 else:
 raise ValueError("No PyNCCL communicator found")
+```

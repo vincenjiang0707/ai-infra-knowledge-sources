@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/amd/model/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 KimiK3MultiModalProcessor,
 info=KimiK3ProcessingInfo,
@@ -176,3 +177,4 @@ return KimiLinearForCausalLM.get_mamba_state_copy_func()
 def load_weights(self, weights: Iterable[tuple[str, torch.Tensor]]):
 loader = AutoWeightsLoader(self)
 return loader.load_weights(weights, mapper=self.hf_to_vllm_mapper)
+```

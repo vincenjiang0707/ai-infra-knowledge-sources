@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/flashinfer_b12x_moe/
 lastmod: 2026-09-27
 
+```python
 class FlashInferB12xExperts(mk.FusedMoEExpertsModular):
 """FlashInfer CuteDSL fused MoE expert for SM12x (SM120/SM121,
 RTX Pro 6000 / DGX Spark).
@@ -243,3 +244,4 @@ token_selected_experts=topk_ids.to(torch.int32),
 token_final_scales=topk_weights,
 )
 output.copy_(wrapper_output)
+```

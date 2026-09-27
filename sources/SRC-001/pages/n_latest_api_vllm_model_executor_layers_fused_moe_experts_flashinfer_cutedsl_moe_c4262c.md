@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/flashinfer_cutedsl_moe/
 lastmod: 2026-09-27
 
+```python
 class FlashInferCuteDSLExperts(mk.FusedMoEExpertsModular):
 """CuteDSL NvFP4 MoE experts using the FlashInfer functional API.
 Uses Standard activation format (non-batched). The kernel handles
@@ -168,3 +169,4 @@ MoEActivation.SILU if activation == MoEActivation.SITU else activation
 ),
 **swiglu_kwargs,
 )
+```

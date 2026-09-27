@@ -4,8 +4,10 @@ lastmod:
 # Class ov::InferRequest[#](https://docs.openvino.ai#class-ov-inferrequest)
 
 -
+```python
 class InferRequest
 [#](https://docs.openvino.ai#_CPPv4N2ov12InferRequestE) This is a class of infer request that can be run in asynchronous or synchronous manners.
+```
 
 Public Functions
 

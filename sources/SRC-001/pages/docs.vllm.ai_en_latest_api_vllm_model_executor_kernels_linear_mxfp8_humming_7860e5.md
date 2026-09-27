@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp8/humming/
 lastmod: 2026-09-27
 
+```python
 class HummingMxfp8LinearKernel(Mxfp8LinearKernel):
 """Humming GEMM Kernel for MXFP8."""
 @classmethod
@@ -48,3 +49,4 @@ layer_config=self.layer_config,
 compute_config=self.compute_config,
 locks=self.locks,
 )
+```

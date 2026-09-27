@@ -29,6 +29,7 @@ turns it off). It serves `/v1/chat/completions`
 
 : the system message is the schema, the user message is the state JSON, and the reply content is one distribution per question with a standard error over a few noise draws.
 
+```json
 vllm serve google/diffusiongemma-26B-A4B-it \
 --diffusion-config '{"canvas_length": 64}' --max-logprobs 32 --enable-prefix-caching
 python examples/features/structured_diffusion/structured_server.py \
@@ -38,6 +39,7 @@ curl -s localhost:8011/v1/chat/completions -H 'content-type: application/json' -
 {"role": "system", "content": "{\"questions\": [{\"id\": \"urgent\", \"type\": \"noul\", \"instructions\": \"Does the customer need a reply within the hour?\"}]}"},
 {"role": "user", "content": "{\"ticket\": \"Everything is down and we have a demo at noon.\"}"}
 ]}'
+```
 
 
 The attention backend is picked as for Gemma 4: FlashAttention 4 on every layer when available, otherwise Triton. FlashInfer cannot serve this model (a batch mixes causal prefill with bidirectional denoising), and `--attention-backend FLASHINFER`
@@ -104,10 +106,12 @@ and each image as a file part, or as an `images`
 
 array of data URLs.
 
+```json
 curl -s localhost:8011/v1/systemone -H 'content-type: application/json' -d '{
 "model": "jev-latest",
 "state": {"ticket": "Everything is down and we have a demo at noon."},
 "questions": {"urgent": {"type": "noul", "instructions": "Does the customer need a reply within the hour?"}}}'
+```
 
 
 `"think": N`
@@ -121,6 +125,7 @@ returns the text, its length in tokens, whether the model closed the channel its
 ## structured_server.py
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """Structured decisions in front of a vLLM DiffusionGemma server.
 POST /v1/systemone takes Jev's request body: {"model", "state", "questions"}.
@@ -754,6 +759,7 @@ continue
 trial = group + [q]
 rows = (
 len(SCAFFOLD)
+```
 + len(
 enc(answer_text(trial, [0] * len(trial), schema.get("format", "lines")))
 )

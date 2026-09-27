@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/prepare_finalize/batched/
 lastmod: 2026-09-27
 
+```python
 class BatchedPrepareAndFinalize(mk.FusedMoEPrepareAndFinalizeModular):
 """A reference prepare/finalize class that reorganizes the tokens into
 expert batched format, i.e. E x max_num_tokens x K. This is the format
@@ -143,3 +144,4 @@ topk_weights=topk_weights,
 topk_ids=topk_ids,
 apply_router_weight_on_input=apply_router_weight_on_input,
 )
+```

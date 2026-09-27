@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/dots3_note/nvidia/model/
 lastmod: 2026-09-27
 
+```python
 class Dots3NoteSlidingAttention(nn.Module):
 """NOTE SWA constructed directly as dense sliding-window MLA."""
 def __init__(
@@ -148,3 +149,4 @@ q_lora_scale=self.q_lora_scale,
 kv_lora_scale=self.kv_lora_scale,
 llama_4_scaling=llama_4_scaling,
 )
+```

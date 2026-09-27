@@ -87,9 +87,11 @@ Returns:
 
 Example usage:
 
+```python
 @vllm.ir.register_op
 def my_add(x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
 return x + y
 @vllm.ir.register_op(name="custom_mul")
 def multiply(x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
 return x * y
+```

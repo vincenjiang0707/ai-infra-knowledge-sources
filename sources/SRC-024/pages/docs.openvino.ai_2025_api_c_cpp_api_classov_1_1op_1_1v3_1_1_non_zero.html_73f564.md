@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v3::NonZero[#](https://docs.openvino.ai#class-ov-op-v3-nonzero)
 
 -
+```python
 class NonZero : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v37NonZeroE) [NonZero](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v3_1_1_non_zero)operation returning indices of non-zero elements in the input tensor.Note
+```
 
 The indices are returned by-dimension in row-major order. For example the following output contains 3 indices of a 3D input tensor elements: [[0, 0, 2], [0, 1, 1], [0, 1, 2]] The values point to input elements at [0,0,0], [0,1,1] and [2,1,2]
 

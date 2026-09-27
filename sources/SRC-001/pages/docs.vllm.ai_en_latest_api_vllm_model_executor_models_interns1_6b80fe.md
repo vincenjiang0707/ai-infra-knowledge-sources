@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/interns1/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 InternS1MultiModalProcessor,
 info=InternS1ProcessingInfo,
@@ -269,3 +270,4 @@ language_model="language_model",
 connector="multi_modal_projector",
 tower_model="vision_tower",
 )
+```

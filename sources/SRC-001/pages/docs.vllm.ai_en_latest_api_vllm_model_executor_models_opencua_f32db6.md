@@ -18,6 +18,7 @@ Methods:
 ## Source code in `vllm/model_executor/models/opencua.py`
 
 
+```python
 | class OpenCUAProcessingInfo(Qwen2VLProcessingInfo):
 def get_data_parser(self):
 return Qwen2VLMultiModalDataParser(
@@ -39,6 +40,7 @@ tokenizer=tokenizer,
 **kwargs,
 )
 |
+```
 
 ###
 

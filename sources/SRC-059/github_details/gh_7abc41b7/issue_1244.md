@@ -27,5 +27,7 @@ labels:
 
 ### Jonathans575 · 2025-09-23
 
+```bash
 paddleformers==0.2.4
 paddlepaddle==3.1
+```

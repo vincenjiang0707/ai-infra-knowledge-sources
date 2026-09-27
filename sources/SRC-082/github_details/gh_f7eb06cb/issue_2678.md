@@ -128,6 +128,7 @@ Required-by: torch
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+```python
 import json
 import os
 from typing import List, Dict, Any
@@ -135,10 +136,12 @@ import argparse
 
 from gptqmodel import GPTQModel
 from gptqmodel.quantization import QuantizeConfig, FORMAT, METHOD
+```
 
 
 def _extract_text_from_content(content: Any) -> str:
 
+```python
     if isinstance(content, str):
         return content.strip()
 
@@ -164,6 +167,8 @@ def _clean_messages(
     keep_system: bool,
     drop_assistant: bool,
 ) -> List[Dict[str, str]]:
+```python
+```
     out: List[Dict[str, str]] = []
 
     for m in msgs:
@@ -188,6 +193,8 @@ def load_conversations(
     drop_assistant: bool,
     max_samples: int,
 ) -> List[List[Dict[str, str]]]:
+```
+```
     conversations: List[List[Dict[str, str]]] = []
 
     with open(jsonl_path, "r", encoding="utf-8") as f:
@@ -220,6 +227,7 @@ def load_conversations(
 
 def conversations_to_calibration_texts(
     conversations: List[List[Dict[str, str]]],
+```
     tokenizer,
 ) -> List[str]:
     texts: List[str] = []

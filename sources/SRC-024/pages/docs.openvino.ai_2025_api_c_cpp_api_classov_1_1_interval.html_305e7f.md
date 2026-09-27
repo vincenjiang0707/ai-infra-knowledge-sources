@@ -4,8 +4,10 @@ lastmod:
 # Class ov::Interval[#](https://docs.openvino.ai#class-ov-interval)
 
 -
+```python
 class Interval
 [#](https://docs.openvino.ai#_CPPv4N2ov8IntervalE) [Interval](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_interval)arithmetic.An interval is the set of integers from m_min_val through m_max_val. The value s_max acts like infinity. The addition, subtraction, or multiplication of intervals is the smallest interval containing the sums, differences, or products of elements of the two intervals. An empty interval is canonicalized to [s_max, s_max].
+```
 
 Public Functions
 

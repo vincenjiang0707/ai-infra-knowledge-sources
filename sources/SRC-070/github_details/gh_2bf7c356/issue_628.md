@@ -6,10 +6,12 @@ labels:
 
 ## 正文
 
+```yaml
  DeepEP version: 2.0.0 (commit <你那 commit>)
   NCCL: 2.30.4+cuda13.2
   GPU: B300 SXM6, driver 590.48.01
   NIC: ConnectX-7, fw_ver 40.46.5500
+```
   Host OFED: MLNX_OFED_LINUX-24.10-3.2.5.0 (libmlx5 max symbol MLX5_1.17)
 
   NCCL_DEBUG=INFO shows:

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/audioflamingo3/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 AudioFlamingo3MultiModalProcessor,
 info=AudioFlamingo3ProcessingInfo,
@@ -172,3 +173,4 @@ return self.language_model.compute_logits(hidden_states)
 def load_weights(self, weights: Iterable[tuple[str, torch.Tensor]]) -> set[str]:
 loader = AutoWeightsLoader(self)
 return loader.load_weights(weights)
+```

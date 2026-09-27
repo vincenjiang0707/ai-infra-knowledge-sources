@@ -287,6 +287,7 @@ Any idea why I would get this info in the GNU traceback but not @mathomp4 ? One 
 
 FWIW this is the full output from `uxc_info` (installed with the system package manager on RHEL 8.2):
 ~~~
+```bash
 # configured with: --build=x86_64-redhat-linux-gnu --host=x86_64-redhat-linux-gnu --program-prefix= 
 --disable-dependency-tracking --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin 
 --sysconfdir=/etc --datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib64 --libexecdir=/usr/libexec 
@@ -295,6 +296,7 @@ FWIW this is the full output from `uxc_info` (installed with the system package 
 --disable-params-check --enable-cma --with-cuda --without-gdrcopy --with-verbs --with-cm 
 --with-knem --with-rdmacm --without-rocm --without-xpmem --without-ugni --without-java 
 --with-cuda=/usr/local/cuda-10.2
+```
 ~~~
 
 ### yosefe · 2021-10-14

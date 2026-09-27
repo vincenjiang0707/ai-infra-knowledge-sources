@@ -82,9 +82,11 @@ Supported AMD GPUs: MI300X, MI325X, MI350X, MI355X.
 - If you encounter corrupted output when using vLLM to serve these models, you can upgrade to the nightly version (ensure it is a version after commit
 [cf3eacfe58fa9e745c2854782ada884a9f992cf7](https://github.com/vllm-project/vllm/commit/cf3eacfe58fa9e745c2854782ada884a9f992cf7))
 
+```bash
 uv venv
 source .venv/bin/activate
 uv pip install -U vllm --extra-index-url https://wheels.vllm.ai/nightly
+```
 
 
 #### Install verified version[¶](https://docs.vllm.ai#install-verified-version)

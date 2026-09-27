@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/mooncake/mooncake_utils/
 lastmod: 2026-09-27
 
+```python
 class MooncakeBootstrapServer:
 """A centralized server running on the global rank 0 prefiller worker.
 Prefiller workers register their connection info (IP, port, ranks) here.
@@ -79,3 +80,4 @@ payload.addr,
 return {"status": "ok"}
 async def query(self) -> dict[int, EngineEntry]:
 return self.workers
+```

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/inc/schemes/inc_mxfp4_moe/
 lastmod: 2026-09-27
 
+```python
 class INCMxfp4MoEMethod(FusedMoEMethodBase):
 """W4A4 MXFP4 group MoE for AutoRound ``auto_round:llm_compressor`` exports.
 Registers the packed MXFP4 layout (uint8 ``weight_packed`` + uint8 E8M0
@@ -190,3 +191,4 @@ apply_router_weight_on_input=layer.apply_router_weight_on_input,
 shared_experts=shared_experts,
 shared_experts_input=shared_experts_input,
 )
+```

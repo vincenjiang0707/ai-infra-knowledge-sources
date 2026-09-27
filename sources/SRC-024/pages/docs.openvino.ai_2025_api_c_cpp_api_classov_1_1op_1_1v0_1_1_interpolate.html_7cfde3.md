@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v0::Interpolate[#](https://docs.openvino.ai#class-ov-op-v0-interpolate)
 
 -
+```python
 class Interpolate : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v011InterpolateE) Layer which performs bilinear interpolation.
+```
 
 Public Functions
 
@@ -23,8 +25,10 @@ Throws if the node is invalid.
 
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op2v011Interpolate10AttributesE) Structure that specifies attributes for interpolation.
+```
 
 
 -

@@ -1,10 +1,12 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/prepare_finalize/deepep_v2/
 lastmod: 2026-09-27
 
+```python
 class DeepEPV2PrepareAndFinalize(mk.FusedMoEPrepareAndFinalizeModular):
 """Prepare/Finalize using DeepEP v2 ElasticBuffer (unified API).
 Supports two modes controlled by the `use_cudagraph` constructor arg:
 **Decode mode (use_cudagraph=True):**
+```
 - do_expand=False, do_cpu_sync=False
 - Tokens returned in original order with recv_topk_idx (global IDs)
 - Worst-case tensor allocation; padding rows zeroed via
@@ -18,6 +20,7 @@ handle.psum_num_recv_tokens_per_scaleup_rank
 - Not cudagraph-capturable (CPU polling), but prefill doesn't
 use cudagraphs anyway
 - Provides expert_tokens_meta for efficient batched expert kernels
+```python
 Dispatch always uses async_with_compute_stream=False. finalize_async
 issues the combine with async_with_compute_stream=True (except under
 DBO) so the modular kernel can overlap the shared-expert FFN with the
@@ -65,6 +68,7 @@ ids = self._global_expert_ids_cache
 if ids is None or ids.numel() != num_local or ids.device != device:
 ids = (
 torch.arange(num_local, dtype=torch.int64, device=device)
+```
 + self.rank_expert_offset
 )
 self._global_expert_ids_cache = ids

@@ -68,8 +68,10 @@ Methods:
 
 `Enum`
 
+```python
 class enumerating this oracle's -
 –[backend_to_kernel_cls](https://docs.vllm.ai#vllm.model_executor.layers.fused_moe.oracle.MoEKernelOracle.backend_to_kernel_cls)Map a backend enum value to its concrete
+```
 
 `FusedMoEExperts`
 

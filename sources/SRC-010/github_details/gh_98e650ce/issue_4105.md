@@ -65,9 +65,11 @@ lmdeploy serve api_server OpenGVLab/InternVL3-14B \
 
 ### Reproduction
 
+```bash
 lmdeploy serve api_server OpenGVLab/InternVL3-14B \
 	--adapters mylora=HsinHui04/internvl3-14b-lora-mdc-advice \
 	--backend pytorch
+```
 
 ### Environment
 

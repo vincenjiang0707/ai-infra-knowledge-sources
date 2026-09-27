@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__Profiler__PushRange__Para
 # 7.200. CUpti_Profiler_PushRange_Params[#](https://docs.nvidia.com#cupti-profiler-pushrange-params)
 
 -
+```rust
 struct CUpti_Profiler_PushRange_Params
 [#](https://docs.nvidia.com#_CPPv431CUpti_Profiler_PushRange_Params) Public Members
+```
 
 -
 size_t structSize

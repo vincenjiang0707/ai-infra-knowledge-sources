@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/nvidia/flash_mla_mega_attn/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV4MegaAttnAttention(DeepseekV4FlashMLAAttention):
 """FlashMLA mega-attention layer for DeepSeek V4.1 (SM100)."""
 backend_cls = FlashMLAMegaAttnBackend
@@ -319,3 +320,4 @@ self.n_wv_group,
 chunk_out.data,
 chunk_out.scale,
 )
+```

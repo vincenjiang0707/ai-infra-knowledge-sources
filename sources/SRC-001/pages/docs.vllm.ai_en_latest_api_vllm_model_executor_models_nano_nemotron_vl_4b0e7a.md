@@ -381,6 +381,7 @@ text embeddings of indicator tokens.
 These final embeddings contain:
 - Actual video embeddings in positions corresponding to video content
 - Text embeddings for indicator tokens (<img>, </img>, and
+```python
 frame separation text) in their respective positions
 These embeddings will replace the placeholder embeddings to create
 input_embeds for the LLM.
@@ -695,3 +696,4 @@ return NemotronHForCausalLM.get_mamba_state_dtype_from_config(temp_vllm_config)
 @classmethod
 def get_mamba_state_copy_func(cls):
 return NemotronHForCausalLM.get_mamba_state_copy_func()
+```

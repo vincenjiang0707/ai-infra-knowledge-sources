@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v1::Equal[#](https://docs.openvino.ai#class-ov-op-v1-equal)
 
 -
+```python
 class Equal : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseComparison](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_comparison.html#_CPPv4N2ov2op4util27BinaryElementwiseComparisonE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v15EqualE) Elementwise is-equal operation.
+```
 
 *Inputs*Type
 

@@ -411,6 +411,7 @@ and a `text`
 
 field. An example is provided below:
 
+```bash
 completion = client.chat.completions.create(
 model="NousResearch/Meta-Llama-3-8B-Instruct",
 messages=[
@@ -422,6 +423,7 @@ messages=[
 },
 ],
 )
+```
 
 
 Most chat templates for LLMs expect the `content`

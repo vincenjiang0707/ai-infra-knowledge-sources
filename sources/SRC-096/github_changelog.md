@@ -49,8 +49,10 @@ Known issues:
 
 ## 1.1.0 (September 1, 2015)
 
+```yaml
 Workarounds:
 Features:
+```
   - Added support for AM based on FIFO in `mm` shared memory transport
   - Added support for UCT `knem` shared memory transport (http://knem.gforge.inria.fr)
   - Added support for UCT `mm/xpmem` shared memory transport (https://github.com/hjelmn/xpmem)

@@ -26,6 +26,7 @@
 --------------------------------------------------------------------------------
 
 <p align="center">
+```html
 <a href="https://www.sglang.io/"><b>🌐 Website</b></a> |
 <a href="https://lmsys.org/blog/"><b>Blog</b></a> |
 <a href="https://docs.sglang.io/"><b>Documentation</b></a> |
@@ -33,6 +34,7 @@
 <a href="https://slack.sglang.io/"><b>Join Slack</b></a> |
 <a href="https://meet.sglang.io/"><b>Weekly Dev Meeting</b></a> |
 <a href="https://github.com/sgl-project/sgl-learning-materials?tab=readme-ov-file#slides"><b>Slides</b></a>
+```
 </p>
 
 ## News

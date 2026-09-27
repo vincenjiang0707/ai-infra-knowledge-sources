@@ -25,24 +25,30 @@ Issue has not received an update in over 14 days. Adding stale label.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 97b0dd60788e87a93314c11a9080b8aabf3bdca4eca8158fe7ae3d4dffdd9829
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 5a6c176ef4af2d69b74ad734f75f5dd4d55e4e82387278d473401ccab2973dba
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 50b1b79323ce4753f0f00dd0042dbefb42f3559799d0f791efeed6acaa051017
+```
 
 Release follow-up: this open ModelOpt issue needs release relevance confirmed. Link its planned fix/validation, or confirm it is not a v0.46.0 blocker.

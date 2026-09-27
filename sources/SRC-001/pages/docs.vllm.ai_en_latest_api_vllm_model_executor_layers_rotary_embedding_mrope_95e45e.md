@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/mrope/
 lastmod: 2026-09-27
 
+```python
 class MRotaryEmbedding(RotaryEmbeddingBase):
 """Rotary Embedding with Multimodal Sections."""
 def __init__(
@@ -241,3 +242,4 @@ mrope_position_delta + context_len + num_new_tokens,
 dtype=out.dtype,
 )
 out[:, out_offset : out_offset + num_new_tokens] = values
+```

@@ -21,11 +21,13 @@ There are two ways to specify the backend from the command line:
 
 
 # Dot notation
+```json
 vllm serve <model> --attention-config.backend FLASH_ATTN
 vllm serve <model> -ac.backend FLASH_ATTN
 # JSON format
 vllm serve <model> --attention-config '{"backend": "FLASH_ATTN"}'
 vllm serve <model> -ac '{"backend": "FLASH_ATTN"}'
+```
 
 
 
@@ -43,6 +45,7 @@ Use [ AttentionConfig](https://docs.vllm.ai/api/vllm/config/attention/#vllm.conf
 
 `LLM`
 
+```python
 from vllm import LLM
 from vllm.config import AttentionConfig
 from vllm.v1.attention.backends.registry import AttentionBackendEnum
@@ -56,6 +59,7 @@ llm = LLM(
 model="Qwen/Qwen3-0.6B",
 attention_backend="FLASH_ATTN",
 )
+```
 
 
 ## Backend Selection Behavior[¶](https://docs.vllm.ai#backend-selection-behavior)
@@ -256,10 +260,12 @@ To explicitly select a prefill backend, use `-ac.mla_prefill_backend=<BACKEND>`
 
 | Backend | Description | Dtypes | Compute Cap. | Notes |
 |---|---|---|---|---|
+```bash
 `FLASH_ATTN` ‡ | FlashAttention varlen (FA2/FA3/FA4) | fp16, bf16 | Any | (qk_nope_head_dim=128, qk_rope_head_dim=64, v_head_dim=128) or (qk_nope_head_dim=192, qk_rope_head_dim=64, v_head_dim=256) or (qk_nope_head_dim=64, qk_rope_head_dim=64, v_head_dim=128) or (qk_nope_head_dim=256, qk_rope_head_dim=0, v_head_dim=256) only |
 `TRTLLM_RAGGED` | TensorRT-LLM ragged attention | fp16, bf16 | 10.x | (qk_nope_head_dim=128, qk_rope_head_dim=64, v_head_dim=128) or (qk_nope_head_dim=192, qk_rope_head_dim=64, v_head_dim=256) only |
 `FLASHINFER` | FlashInfer CUTLASS backend | fp16, bf16 | 10.x | (qk_nope_head_dim=128, qk_rope_head_dim=64, v_head_dim=128) only |
 `TOKENSPEED_MLA` | fp16, bf16 | 10.x | (qk_nope_head_dim=128, qk_rope_head_dim=64, v_head_dim=128) only |
+```
 
 
 ‡Automatic selection tries FlashAttention first. On Blackwell (SM100), the fallback order is TRT-LLM Ragged, FlashInfer, then TokenSpeed MLA; for (qk_nope_head_dim=192, qk_rope_head_dim=64, v_head_dim=256) TRT-LLM Ragged is tried before FlashAttention. On other GPUs, only FlashAttention is considered.

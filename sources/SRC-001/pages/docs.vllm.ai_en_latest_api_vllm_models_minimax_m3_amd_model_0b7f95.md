@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/minimax_m3/amd/model/
 lastmod: 2026-09-24
 
+```python
 class MiniMaxM3SparseAttention(nn.Module, AttentionLayerBase):
 """Block-sparse attention layer with the lightning-indexer branch.
 This is a merged attention layer: it owns the projections (qkv + index
@@ -622,3 +623,4 @@ output,
 decode_sparse_table=decode_sparse_table,
 )
 return self.impl.forward(self, query, self.kv_cache, output)
+```

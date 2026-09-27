@@ -11,12 +11,16 @@ Note: The vLLM wheel for ROCm requires Python 3.12 and glibc >= 2.35. If your en
 
 [documentation]. Supported GPUs: MI300X, MI325X, MI355X
 
+```bash
 uv venv
 source .venv/bin/activate
 uv pip install vllm --extra-index-url https://wheels.vllm.ai/rocm/
+```
 
 
 ## Deploying Hunyuan-A13B Instruct[¶](https://docs.vllm.ai#deploying-hunyuan-a13b-instruct)
 
+```bash
 export VLLM_ROCM_USE_AITER=1
 vllm serve tencent/Hunyuan-A13B-Instruct --tensor-parallel-size 2 --trust-remote-code
+```

@@ -11,12 +11,14 @@ My question:
  Hi,I am currently using the following INT8 quantization configuration:
 
 `INT8_WEIGHT_ONLY_CFG = {
+```json
     "quant_cfg": {
         "*weight_quantizer": {"num_bits": 8, "axis": 0},
         "*input_quantizer": {"enable": False},
         **_default_disabled_quantizer_cfg,
     },
     "algorithm": "max",
+```
 }`
 
 I would like to use the histogram calibration algorithm instead of max. Could you please advise on how to correctly modify this configuration to enable histogram-based calibration?

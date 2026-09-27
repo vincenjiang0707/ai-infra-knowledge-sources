@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp8/b12x/
 lastmod: 2026-09-27
 
+```python
 class B12xMxfp8LinearKernel(Mxfp8LinearKernel):
 """ModelOpt MXFP8 linear through the native b12x SM120 dense GEMM path."""
 @classmethod
@@ -99,3 +100,4 @@ x: torch.Tensor,
 bias: torch.Tensor | None = None,
 ) -> torch.Tensor:
 return _apply_b12x_mxfp8_packed_linear(layer, x, bias)
+```

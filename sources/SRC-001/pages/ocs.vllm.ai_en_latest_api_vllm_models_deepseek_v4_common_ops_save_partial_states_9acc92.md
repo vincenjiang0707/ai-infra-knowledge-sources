@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/common/ops/save_partial_states/
 lastmod: 2026-09-27
 
+```python
 class SavePartialStatesKernel(
 VllmTritonJitKernel["SavePartialStatesKernel.CompileKey"]
 ):
@@ -49,6 +50,7 @@ block_idx = slot_id // block_size
 pos_in_block = slot_id % block_size
 base_ptr = (
 state_cache_ptr
+```
 + block_idx * state_cache_stride0
 + pos_in_block * state_cache_stride1
 )

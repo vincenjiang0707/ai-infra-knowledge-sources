@@ -36,6 +36,7 @@ Methods:
 ## Source code in `vllm/kernels/helion/case_key.py`
 
 
+```python
 | class CaseKey(dict[str, Any]):
 """Immutable, hashable dict for identifying kernel cases.
 Used as the key for config lookup, autotuning, benchmarking, and
@@ -86,6 +87,7 @@ popitem = _readonly # type: ignore[assignment]
 setdefault = _readonly # type: ignore[assignment]
 clear = _readonly # type: ignore[assignment]
 |
+```
 
 ###
 
@@ -100,10 +102,12 @@ Create a default case key (empty).
 
 
 | @classmethod
+```python
 def default(cls) -> CaseKey:
 """Create a default case key (empty)."""
 return cls(_allow_empty=True)
 |
+```
 
 ###
 
@@ -115,7 +119,9 @@ Return True if this is the default case key (empty).
 ## Source code in `vllm/kernels/helion/case_key.py`
 
 
+```python
 | def is_default(self) -> bool:
 """Return True if this is the default case key (empty)."""
 return not self
 |
+```

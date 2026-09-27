@@ -8,6 +8,7 @@ On entry: waits for the KV layer from the connector. On exit: saves the KV layer
 ## Source code in `vllm/model_executor/layers/attention/kv_transfer_utils.py`
 
 
+```python
 | def maybe_transfer_kv_layer(func: Callable) -> Callable:
 """Decorator that handles KV layer transfer prior and after execution of
 an attention layer, if enabled. Otherwise, the wrapper is a no-op.
@@ -45,3 +46,4 @@ connector.save_kv_layer(layer_name, kv_cache, attn_metadata)
 return result
 return wrapper
 |
+```

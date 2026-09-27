@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/lora/layers/base_linear/
 lastmod: 2026-09-27
 
+```python
 class BaseLinearLayerWithLoRA(BaseLayerWithLoRA):
 # The adapter branch consumes the original activation, independently of
 # whether the wrapped base layer can consume a pre-quantized activation.
@@ -231,3 +232,4 @@ if hasattr(self.base_layer, "bias"):
 return self.base_layer.bias
 else:
 return None
+```

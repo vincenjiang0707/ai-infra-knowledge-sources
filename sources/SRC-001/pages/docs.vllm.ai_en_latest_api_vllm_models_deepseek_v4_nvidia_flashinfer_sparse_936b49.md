@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/nvidia/flashinfer_sparse/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV4FlashInferMLAAttention(DeepseekV4Attention):
 """FlashInfer TRTLLM-gen sparse MLA attention layer for SM100 DeepSeek V4."""
 backend_cls = DeepseekV4FlashInferMLASparseBackend
@@ -390,3 +391,4 @@ slice(num_decodes, num_reqs),
 prefill_cu,
 int(prefill_lens_cpu.max().item()),
 )
+```

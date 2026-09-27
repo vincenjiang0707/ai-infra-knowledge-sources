@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/rotary_embedding/base/
 lastmod: 2026-09-27
 
+```python
 class RotaryEmbedding(RotaryEmbeddingBase):
 def __init__(
 self,
@@ -172,3 +173,4 @@ s = f"head_size={self.head_size}, rotary_dim={self.rotary_dim}"
 s += f", max_position_embeddings={self.max_position_embeddings}"
 s += f", base={self.base}, is_neox_style={self.is_neox_style}"
 return s
+```

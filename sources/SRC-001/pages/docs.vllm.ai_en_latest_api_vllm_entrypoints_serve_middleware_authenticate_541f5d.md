@@ -19,6 +19,7 @@ There are two cases in which authentication is skipped:
 1. The HTTP method is OPTIONS.
 2. The request path doesn't start with GUARDED_PREFIX (e.g. /health).
 """
+```python
 def __init__(self, app: ASGIApp, tokens: list[str]) -> None:
 self.app = app
 self.api_tokens = [hashlib.sha256(t.encode("utf-8")).digest() for t in tokens]
@@ -51,3 +52,4 @@ response = JSONResponse(content={"error": "Unauthorized"}, status_code=401)
 return response(scope, receive, send)
 return self.app(scope, receive, send)
 |
+```

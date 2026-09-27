@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/openai/completion/serving/
 lastmod: 2026-09-27
 
+```python
 class OpenAIServingCompletion(GenerateBaseServing):
 def __init__(
 self,
@@ -595,3 +596,4 @@ token_logprobs=out_token_logprobs,
 tokens=out_tokens,
 top_logprobs=out_top_logprobs,
 )
+```

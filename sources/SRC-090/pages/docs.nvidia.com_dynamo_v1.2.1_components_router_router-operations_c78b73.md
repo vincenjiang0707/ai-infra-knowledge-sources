@@ -100,8 +100,10 @@ or `dynamo.router`
 
 on router or frontend replicas that should expose`kv_indexer_query`
 
+```python
 from the worker component. - Use
 `--use-remote-indexer`
+```
 
 on consumer routers or frontends that should query that served endpoint instead of maintaining a local overlap indexer. `dynamo.indexer`
 

@@ -722,11 +722,13 @@ can be found in [Tracking Asynchronous Memory Operations](https://docs.nvidia.co
 memory. To make the writes visible to subsequent bulk-asynchronous copies, the
 `cuda::ptx::fence_proxy_async`
 
+```
 function is used. This orders the writes to
 shared memory before subsequent reads from bulk-asynchronous copy operations,
 which read through the async proxy. So each thread first orders the writes to
 objects in shared memory in the async proxy via the
 `cuda::ptx::fence_proxy_async`
+```
 
 , and these operations by all threads are
 ordered before the async operation performed in thread 0 using

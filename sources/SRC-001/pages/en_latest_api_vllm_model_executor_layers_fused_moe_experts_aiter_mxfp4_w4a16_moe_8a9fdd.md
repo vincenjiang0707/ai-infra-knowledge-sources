@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/aiter_mxfp4_w4a16_moe/
 lastmod: 2026-09-27
 
+```python
 def _aiter_w4a16_silu_via_a8w4(
 hidden_states: torch.Tensor,
 w1_data,
@@ -81,3 +82,4 @@ unpadded_N=unpadded_N_w2,
 unpadded_K=unpadded_K_w2,
 )
 return out
+```

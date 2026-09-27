@@ -68,6 +68,7 @@ distinct from the engine's `--master-port`
 :
 
 # node 0 (8 local GPUs)
+```bash
 vllm preload --model /path/to/model --tensor-parallel-size 16 \
 --nnodes 2 --node-rank 0 --master-addr 10.0.0.1 \
 --weight-cache-master-port 29600
@@ -75,6 +76,7 @@ vllm preload --model /path/to/model --tensor-parallel-size 16 \
 vllm preload --model /path/to/model --tensor-parallel-size 16 \
 --nnodes 2 --node-rank 1 --master-addr 10.0.0.1 \
 --weight-cache-master-port 29600
+```
 
 
 For data parallelism (e.g. a TP1 x DP16 x EP decode fleet), run one launcher per node with the engine's DP placement flags. Local GPU `i`
@@ -92,11 +94,13 @@ daemons form one world group on `--data-parallel-address`
 so the expert shards are laid out exactly as in the engine:
 
 # node r (4 local GPUs)
+```bash
 vllm preload --model /path/to/model --tensor-parallel-size 1 \
 --enable-expert-parallel \
 --data-parallel-size 16 --data-parallel-size-local 4 \
 --data-parallel-start-rank 4r --data-parallel-address 10.0.0.1 \
 --weight-cache-master-port 29600
+```
 
 
 Data parallelism also combines with multi-node tensor parallelism: pass both flag sets. Each node then serves a contiguous block of the `dp_size * tp_size`
@@ -141,9 +145,11 @@ loader accepts extra keys via `--model-loader-extra-config`
 
 :
 
+```json
 vllm serve meta-llama/Llama-3.1-8B-Instruct \
 --load-format ipc_cache \
 --model-loader-extra-config '{"mode": "copy", "fallback": false}'
+```
 
 
 | Key | Default | Description |

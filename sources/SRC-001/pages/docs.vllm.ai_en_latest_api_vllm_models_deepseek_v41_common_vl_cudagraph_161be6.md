@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/common/vl_cudagraph/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV4VLEncoderCudaGraphMixin:
 """``SupportsEncoderCudaGraph`` for ``DeepseekV41ForCausalLM``.
 Expects ``self.vision``/``self.aligner``/``self.config``/
@@ -315,3 +316,4 @@ offset = 0
 for idx, span_len in zip(indices, span_lens):
 dest[idx] = span[offset : offset + span_len]
 offset += span_len
+```

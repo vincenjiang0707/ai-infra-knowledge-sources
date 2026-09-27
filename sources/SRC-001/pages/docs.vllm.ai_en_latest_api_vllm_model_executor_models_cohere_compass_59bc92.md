@@ -658,6 +658,7 @@ inputs_embeds: Pre-computed input embeddings.
 - pixel_values: Pixel values to be fed to a model.
 `None` if no images are passed.
 - image_grid_thw: Tensor `(n_images, 3)` of image 3D grid in
+```python
 LLM. `None` if no images are passed.
 """
 if intermediate_tensors is not None:
@@ -710,3 +711,4 @@ hf_config = self.config
 vision_config = hf_config.vision_config
 merge_size = vision_config.spatial_merge_size
 return num_vision_tokens // merge_size**2
+```

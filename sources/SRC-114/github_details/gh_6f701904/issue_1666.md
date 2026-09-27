@@ -65,6 +65,7 @@ Mean latency (ns)               : 635649808
 ================================================
 Test Parameters Used
 ================================================
+```yaml
 samples_per_query : 1
 target_qps : 1
 target_latency (ns): 0
@@ -84,6 +85,7 @@ performance_issue_unique : 0
 performance_issue_same : 0
 performance_issue_same_index : 0
 performance_sample_count : 10833
+```
 
 No warnings encountered during test.
 

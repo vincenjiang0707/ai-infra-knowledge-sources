@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/granitemoehybrid/
 lastmod: 2026-09-27
 
+```python
 class GraniteMoeHybridForCausalLM(
 nn.Module,
 HasInnerState,
@@ -44,6 +45,7 @@ Args:
 vllm_config: vLLM config
 Returns:
 Tuple containing:
+```
 - conv_state_shape: Shape for convolutional state cache
 - temporal_state_shape: Shape for state space model cache
 """

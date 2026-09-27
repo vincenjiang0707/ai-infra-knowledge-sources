@@ -32,6 +32,7 @@ when the config is not an OCP MX weight quantization.
 ## Source code in `vllm/model_executor/layers/quantization/utils/ocp_mx_utils.py`
 
 
+```python
 | def ocp_mx_weight_dtype_and_rows(
 weight_quant: dict[str, Any] | None,
 ) -> tuple[str, int] | None:
@@ -75,3 +76,4 @@ return None
 return mx_dtype, block_size[0]
 return None
 |
+```

@@ -17,9 +17,11 @@ To run model from Google Cloud Storage run:
 
 To run model from Azure Blob Storage run:
 
+```bash
 AZURE_STORAGE_ACCOUNT_NAME=<account> \
 vllm serve az://<container>/<model-path> \
 --load-format runai_streamer
+```
 
 
 Authentication uses `DefaultAzureCredential`
@@ -36,11 +38,13 @@ Authentication uses `DefaultAzureCredential`
 
 To run model from a S3 compatible object store run:
 
+```bash
 RUNAI_STREAMER_S3_USE_VIRTUAL_ADDRESSING=0 \
 AWS_EC2_METADATA_DISABLED=true \
 AWS_ENDPOINT_URL=https://storage.googleapis.com \
 vllm serve s3://core-llm/Llama-3-8b \
 --load-format runai_streamer
+```
 
 
 ## Tunable parameters[¶](https://docs.vllm.ai#tunable-parameters)
@@ -53,25 +57,31 @@ You can tune `distributed`
 
 that controls whether distributed streaming should be used. This is currently only possible on CUDA and ROCM devices. This can significantly improve loading times from object storage or high-throughput network fileshares. You can read further about Distributed streaming [here](https://github.com/run-ai/runai-model-streamer/blob/master/docs/src/usage.md#distributed-streaming)
 
+```json
 vllm serve /home/meta-llama/Llama-3.2-3B-Instruct \
 --load-format runai_streamer \
 --model-loader-extra-config '{"distributed":true}'
+```
 
 
 You can tune `concurrency`
 
 that controls the level of concurrency and number of OS threads reading tensors from the file to the CPU buffer. For reading from S3, it will be the number of client instances the host is opening to the S3 server.
 
+```json
 vllm serve /home/meta-llama/Llama-3.2-3B-Instruct \
 --load-format runai_streamer \
 --model-loader-extra-config '{"concurrency":16}'
+```
 
 
 You can control the size of the CPU Memory buffer to which tensors are read from the file, and limit this size. You can read further about CPU buffer memory limiting [here](https://github.com/run-ai/runai-model-streamer/blob/master/docs/src/env-vars.md#runai_streamer_memory_limit).
 
+```json
 vllm serve /home/meta-llama/Llama-3.2-3B-Instruct \
 --load-format runai_streamer \
 --model-loader-extra-config '{"memory_limit":5368709120}'
+```
 
 
 Note
@@ -92,9 +102,11 @@ parameter in `--model-loader-extra-config`
 
 :
 
+```json
 vllm serve /path/to/sharded/model \
 --load-format runai_streamer_sharded \
 --model-loader-extra-config '{"pattern":"custom-model-rank-{rank}-part-{part}.safetensors"}'
+```
 
 
 To create sharded model files, you can use the script provided in [ examples/features/sharded_state/save_sharded_state_offline.py](https://github.com/vllm-project/vllm/blob/main/examples/features/sharded_state/save_sharded_state_offline.py). This script demonstrates how to save a model in the sharded format that is compatible with the Run:ai Model Streamer sharded loader.
@@ -105,9 +117,11 @@ and `memory_limit`
 
 . These can be configured in the same way:
 
+```json
 vllm serve /path/to/sharded/model \
 --load-format runai_streamer_sharded \
 --model-loader-extra-config '{"concurrency":16, "memory_limit":5368709120}'
+```
 
 
 Note

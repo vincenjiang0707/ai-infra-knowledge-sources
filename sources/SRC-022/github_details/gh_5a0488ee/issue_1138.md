@@ -66,6 +66,7 @@ After that the process stuck on linking library:
 
 and after a while (few hours)  and 30 load average the system killed the process because no more memory and swap memory with reason:
 
+```yaml
 akeFiles/rccl.dir/hipify/src/collectives/device/msccl_kernel_SumPostDiv_int8_t.cpp.o CMakeFiles/rccl.dir/hipify/src/collectives/device/msccl_kernel_SumPostDiv_uint8_t.cpp.o CMakeFiles/rccl.dir/hipify/src/collectives/device/msccl_kernel_SumPostDiv_int32_t.cpp.o CMakeFiles/rccl.dir/hipify/src/collectives/device/msccl_kernel_SumPostDiv_uint32_t.cpp.o CMakeFiles/rccl.dir/hipify/src/collectives/device/msccl_kernel_SumPostDiv_int64_t.cpp.o CMakeFiles/rccl.dir/hipify/src/collectives/device/msccl_kernel_SumPostDiv_uint64_t.cpp.o CMakeFiles/rccl.dir/git_version.cpp.o -L/opt/rocm/lib64 -Wl,-rpath,/opt/rocm/lib64:  -fgpu-rdc  -ldl  /opt/rocm/lib64/librocm_smi64.so.1.0  /opt/rocm/lib64/libamdhip64.so.6.0.32831  --hip-link  --offload-arch=gfx803  --offload-arch=gfx900:xnack-  --offload-arch=gfx906:xnack-  --offload-arch=gfx908:xnack-  --offload-arch=gfx90a:xnack-  --offload-arch=gfx90a:xnack+  --offload-arch=gfx940  --offload-arch=gfx941  --offload-arch=gfx942  --offload-arch=gfx1030  --offload-arch=gfx1100  --offload-arch=gfx1101  --offload-arch=gfx1102  /opt/rocm/llvm/lib/clang/17.0.0/lib/linux/libclang_rt.builtins-x86_64.a  -lpthread  -lrt  -ldl && :
 clang: warning: argument unused during compilation: '-mllvm --amdgpu-kernarg-preload-count=16' [-Wunused-command-line-argument]
 clang: error: unable to execute command: Killed
@@ -83,12 +84,15 @@ clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is d
 clang: warning: treating 'c' input as 'c++' when in C++ mode, this behavior is deprecated [-Wdeprecated]
 clang: note: diagnostic msg: Error generating preprocessed source(s).
 Elapsed time (seconds): 8919.17
+```
 ninja: build stopped: subcommand failed.
 
 free -m
+```yaml
                total        used        free      shared  buff/cache   available
 Mem:           32013       31805         207           0          94         208
 Swap:          12072       12072           0
+```
 
 
 

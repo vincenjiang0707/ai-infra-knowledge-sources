@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/glm5next/common/mtp/
 lastmod: 2026-09-27
 
+```python
 class Glm5NextMultiTokenPredictor(nn.Module):
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
 super().__init__()
@@ -90,3 +91,4 @@ mtp_layer = self._mtp_layers[current_step_idx]
 return self.logits_processor.get_top_tokens(
 mtp_layer.shared_head.head, hidden_states
 )
+```

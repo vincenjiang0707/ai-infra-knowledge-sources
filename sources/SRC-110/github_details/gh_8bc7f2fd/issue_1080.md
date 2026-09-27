@@ -36,6 +36,7 @@ python cross_encoder.py
 2025-12-15 04:54:50 - evalscope - INFO: Args: Task config is provided with TaskConfig type.
 2025-12-15 04:54:57 - evalscope - INFO: Dump task config to outputs/20251215_045450/configs/task_config_d7aae6.yaml
 2025-12-15 04:54:57 - evalscope - INFO: {
+```json
     "model": "text_generation",
     "model_id": "text_generation",
     "model_args": {},
@@ -108,6 +109,7 @@ python cross_encoder.py
     "sandbox_type": "docker",
     "sandbox_manager_config": {},
     "sandbox_config": {}
+```
 }
 2025-12-15 04:54:57 - evalscope - INFO: Check `mteb` Installed
 2025-12-15 04:54:57 - evalscope - INFO: Loading model Qwen/Qwen3-Embedding-0.6B from modelscope
@@ -167,6 +169,7 @@ Retrieval
 2025-12-15 13:57:02 - evalscope - INFO: Using RAGEvalBackendManager
 2025-12-15 13:57:02 - evalscope - INFO: Dump task config to outputs/20251215_135657/configs/task_config_c01b5f.yaml
 2025-12-15 13:57:02 - evalscope - INFO: {
+```json
     "model": "text_generation",
     "model_id": "text_generation",
     "model_args": {},
@@ -240,6 +243,7 @@ Retrieval
     "sandbox_manager_config": {},
     "sandbox_config": {},
     "evalscope_version": "1.2.0"
+```
 }
 2025-12-15 13:57:02 - evalscope - INFO: Check `mteb` Installed
 2025-12-15 13:57:02 - evalscope - INFO: Loading model Qwen/Qwen3-Embedding-0.6B from modelscope

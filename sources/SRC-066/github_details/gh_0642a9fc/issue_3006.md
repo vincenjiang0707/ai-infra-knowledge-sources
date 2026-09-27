@@ -20,10 +20,12 @@ Cute example  "examples/cute/tutorial/blackwell/cute_tutorial_02_mma_tma_sm100" 
 
  ./cute_tutorial_02_mma_tma_sm100
 
+```yaml
 host_tensor_A:  ptr[16b](0x7894690ee010) o (512,256):(256,_1)
 host_tensor_B:  ptr[16b](0x789468d7f010) o (1024,256):(256,_1)
 host_tensor_C:  ptr[32b](0x789460d4a010) o (512,1024):(1024,_1)
 terminate called after throwing an instance of 'thrust::THRUST_300001_SM_900_NS::system::system_error'
+```
   what():  parallel_for failed: cudaErrorNoKernelImageForDevice: no kernel image is available for execution on the device
 Aborted (core dumped)
 

@@ -87,6 +87,7 @@ Configure through
 
 Sample code
 
+```python
 from openai import OpenAI
 client = OpenAI(api_key='YOUR_API_KEY', base_url='http://0.0.0.0:8000/v1')
 model_name = client.models.list().data[0].id
@@ -107,6 +108,7 @@ extra_body={
 }
 )
 print(response)
+```
 
 
 ## Using Tips[¶](https://docs.vllm.ai#using-tips)

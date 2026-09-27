@@ -15,6 +15,7 @@ import torch
 
 model_id  = "akjindal53244/Llama-3.1-Storm-8B" 
 
+```bash
 compute_dtype = torch.bfloat16
 device     = "cuda"
 cache_path = "."
@@ -32,6 +33,7 @@ AutoHQQHFModel.quantize_model(model, quant_config=quant_config, compute_dtype=co
 
 dir_s = 'output/Llama-3.1-Storm-8B_HQQ_4bit'
 AutoHQQHFModel.save_quantized(model, dir_s)
+```
 
 ## 评论 (4)
 

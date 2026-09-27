@@ -6,8 +6,10 @@ Fully qualified name: `CUPTI::PcSamplingUtil::CUptiUtil_MergePcSampDataParams`
 
 
 -
+```rust
 struct CUptiUtil_MergePcSampDataParams
 [#](https://docs.nvidia.com#_CPPv4N5CUPTI14PcSamplingUtil31CUptiUtil_MergePcSampDataParamsE) Params for
+```
 
 [CuptiUtilMergePcSampData](https://docs.nvidia.com/group__CUPTI__PCSAMPLING__UTILITY.html#group__cupti__pcsampling__utility_1ga4987e223c4132503d622f29ce5a9546e).Public Members
 

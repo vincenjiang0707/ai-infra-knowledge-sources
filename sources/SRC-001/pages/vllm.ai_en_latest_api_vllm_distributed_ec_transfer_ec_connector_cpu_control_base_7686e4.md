@@ -44,6 +44,7 @@ Attributes:
 ## Source code in `vllm/distributed/ec_transfer/ec_connector/cpu/control/base.py`
 
 
+```python
 | class ControlConnection(ABC):
 """Bidirectional message channel to a single remote peer.
 All I/O is non-blocking: send enqueues without blocking; recv drains
@@ -66,6 +67,7 @@ def mark_dead(self) -> None:
 def close(self) -> None:
 """Release all resources. Idempotent."""
 |
+```
 
 ###
 
@@ -91,9 +93,11 @@ Release all resources. Idempotent.
 
 
 | @abstractmethod
+```python
 def close(self) -> None:
 """Release all resources. Idempotent."""
 |
+```
 
 ###
 
@@ -108,9 +112,11 @@ Signal that the peer disconnected. Sets alive to False.
 
 
 | @abstractmethod
+```python
 def mark_dead(self) -> None:
 """Signal that the peer disconnected. Sets alive to False."""
 |
+```
 
 ###
 
@@ -125,9 +131,11 @@ Drain and return all buffered inbound messages.
 
 
 | @abstractmethod
+```python
 def recv(self) -> list[bytes]:
 """Drain and return all buffered inbound messages."""
 |
+```
 
 ###
 
@@ -142,6 +150,8 @@ Enqueue msg for delivery. Must not block.
 
 
 | @abstractmethod
+```python
 def send(self, msg: bytes) -> None:
 """Enqueue msg for delivery. Must not block."""
 |
+```

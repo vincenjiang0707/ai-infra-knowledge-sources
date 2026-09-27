@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/online/mxfp8/
 lastmod: 2026-09-27
 
+```python
 class Mxfp8OnlineMoEMethod(OnlineMoEMethodBase):
 """MoE method for online MXFP8 (block) quantization."""
 fp8_backend: "Fp8MoeBackend"
@@ -140,3 +141,4 @@ layer.w13_input_scale,
 layer.w2_input_scale,
 )
 layer._already_called_process_weights_after_loading = True
+```

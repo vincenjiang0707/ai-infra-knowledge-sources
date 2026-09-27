@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/device_allocator/xpumem/
 lastmod: 2026-09-27
 
+```python
 class XpuMemAllocator:
 """A singleton pluggable allocator helper for XPU.
 Note:
@@ -201,3 +202,4 @@ total = 0
 for data in self.pointer_to_data.values():
 total += data.handle[1]
 return total
+```

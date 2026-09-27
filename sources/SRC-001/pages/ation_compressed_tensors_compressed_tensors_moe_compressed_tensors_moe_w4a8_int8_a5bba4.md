@@ -1,8 +1,10 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/compressed_tensors_moe/compressed_tensors_moe_w4a8_int8/
 lastmod: 2026-09-27
 
+```python
 class CompressedTensorsW4A8Int8MoEMethod(CompressedTensorsMoEMethod):
 """CPU-only MoE method using dynamic 4-bit matmul kernels on Arm Platform
+```
 - Weights: int4 (stored as int8 values in [-8,7], packed to uint8 nibbles)
 - Scales: Fp32 for Channelwise , bf16 for groupwise quantization
 - Bias: Same data type as original weights

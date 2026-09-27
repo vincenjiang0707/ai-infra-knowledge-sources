@@ -9,10 +9,12 @@ lastmod: 2026-04-27
 
 ## Installing vLLM[¶](https://docs.vllm.ai#installing-vllm)
 
+```bash
 uv venv
 source .venv/bin/activate
 # Until v0.11.1 release, you need to install vLLM from nightly build
 uv pip install -U vllm --pre --extra-index-url https://wheels.vllm.ai/nightly --extra-index-url https://download.pytorch.org/whl/cu129 --index-strategy unsafe-best-match
+```
 
 
 ## Deploying PaddleOCR-VL[¶](https://docs.vllm.ai#deploying-paddleocr-vl)
@@ -28,6 +30,7 @@ vllm serve PaddlePaddle/PaddleOCR-VL \
 
 ## Querying with OpenAI API Client[¶](https://docs.vllm.ai#querying-with-openai-api-client)
 
+```python
 from openai import OpenAI
 client = OpenAI(
 api_key="EMPTY",
@@ -64,6 +67,7 @@ messages=messages,
 temperature=0.0,
 )
 print(f"Generated text: {response.choices[0].message.content}")
+```
 
 
 ## Offline inference using vLLM combined with PP-DocLayoutV2[¶](https://docs.vllm.ai#offline-inference-using-vllm-combined-with-pp-doclayoutv2)
@@ -84,13 +88,16 @@ to your vLLM launch command.
 
 ### Install [PaddlePaddle](https://www.paddlepaddle.org.cn/install/quick) and [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)[¶](https://docs.vllm.ai#install-paddlepaddle-and-paddleocr)
 
+```bash
 uv pip install paddlepaddle-gpu==3.2.1 --extra-index-url https://www.paddlepaddle.org.cn/packages/stable/cu126/
 uv pip install -U "paddleocr[doc-parser]"
 uv pip install safetensors
+```
 
 
 Using vLLM as the backend, combined with PP-DocLayoutV2 for offline inference.
 
+```python
 from paddleocr import PaddleOCRVL
 doclayout_model_path = "/path/to/your/PP-DocLayoutV2/"
 pipeline = PaddleOCRVL(vl_rec_backend="vllm-server",
@@ -101,6 +108,7 @@ output = pipeline.predict("https://paddle-model-ecology.bj.bcebos.com/paddlex/im
 for i, res in enumerate(output):
 res.save_to_json(save_path=f"output_{i}.json")
 res.save_to_markdown(save_path=f"output_{i}.md")
+```
 
 
 ## Configuration Tips[¶](https://docs.vllm.ai#configuration-tips)

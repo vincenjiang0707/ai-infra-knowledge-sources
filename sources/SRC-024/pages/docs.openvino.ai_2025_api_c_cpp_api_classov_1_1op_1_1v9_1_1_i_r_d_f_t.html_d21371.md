@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v9::IRDFT[#](https://docs.openvino.ai#class-ov-op-v9-irdft)
 
 -
+```python
 class IRDFT : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[FFTBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_f_f_t_base.html#_CPPv4N2ov2op4util7FFTBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v95IRDFTE) An operation
+```
 
 [IRDFT](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v9_1_1_i_r_d_f_t)that computes the discrete inverse complex-to-real Fourier transformation.Public Functions
 

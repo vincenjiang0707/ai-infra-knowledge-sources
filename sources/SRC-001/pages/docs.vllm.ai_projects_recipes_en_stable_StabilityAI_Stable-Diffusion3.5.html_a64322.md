@@ -11,10 +11,12 @@ This guide provides instructions for running Stable-Diffusion3.5 text-to-image g
 
 ## Installing vLLM-Omni[¶](https://docs.vllm.ai#installing-vllm-omni)
 
+```bash
 uv venv
 source .venv/bin/activate
 uv pip install vllm==0.12.0
 uv pip install git+https://github.com/vllm-project/vllm-omni.git
+```
 
 
 The CLI examples below are from the vLLM-Omni repo. If you want to run them directly, clone that repo and run the scripts from its `examples/offline_inference`
@@ -25,6 +27,7 @@ directory.
 
 ### Basic Usage[¶](https://docs.vllm.ai#basic-usage)
 
+```python
 from vllm_omni.entrypoints.omni import Omni
 omni = Omni(model="stabilityai/stable-diffusion-3.5-medium")
 images = omni.generate(
@@ -36,6 +39,7 @@ num_inference_steps=28,
 guidance_scale=7.5,
 num_outputs_per_prompt=2,
 )
+```
 
 
 ### CLI Usage[¶](https://docs.vllm.ai#cli-usage)
@@ -58,6 +62,7 @@ vLLM-Omni supports Cache-DiT acceleration for stable-diffusion-3.5 models, which
 
 ### Enabling Cache-DiT[¶](https://docs.vllm.ai#enabling-cache-dit)
 
+```python
 from vllm_omni.entrypoints.omni import Omni
 omni = Omni(
 model="stabilityai/stable-diffusion-3.5-medium",
@@ -69,12 +74,14 @@ height=1024,
 width=1024,
 num_inference_steps=28,
 )
+```
 
 
 ### Custom Cache-DiT Configuration[¶](https://docs.vllm.ai#custom-cache-dit-configuration)
 
 For fine-tuned control over the acceleration:
 
+```json
 omni = Omni(
 model="stabilityai/stable-diffusion-3.5-medium",
 cache_backend="cache_dit",
@@ -85,6 +92,7 @@ cache_config={
 "residual_diff_threshold": 0.12,
 },
 )
+```
 
 
 ## Key Parameters[¶](https://docs.vllm.ai#key-parameters)

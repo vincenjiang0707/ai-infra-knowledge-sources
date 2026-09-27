@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/transformers/moe/
 lastmod: 2026-09-27
 
+```python
 class MoEMixin(MixtureOfExperts, Base):
 mlp_layers: list[nn.Module]
 """MoE blocks whose experts were replaced, for the `MixtureOfExperts` methods."""
@@ -263,3 +264,4 @@ super().recursive_replace()
 # normally immediately reduces but we want FusedMoE to handle the reduction.
 for hf_shared, down_name in shared_down_projs:
 hf_shared.get_submodule(down_name).reduce_results = False
+```

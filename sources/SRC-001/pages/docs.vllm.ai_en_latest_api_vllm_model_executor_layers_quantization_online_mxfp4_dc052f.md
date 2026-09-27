@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/online/mxfp4/
 lastmod: 2026-09-27
 
+```python
 class Mxfp4OnlineMoEMethod(OnlineMoEMethodBase):
 """MoE method for online MXFP4 (block) quantization."""
 mxfp4_backend: Mxfp4MoeBackend
@@ -159,3 +160,4 @@ getattr(layer, "w13_bias", None),
 getattr(layer, "w2_bias", None),
 )
 layer._already_called_process_weights_after_loading = True
+```

@@ -19,6 +19,7 @@ org.apache.tvm.Base$TVMError: ValueError: Check failed: (f != nullptr) is false:
 Stack trace:
   File "/Users/moyu/myworkspace/mlcllm/mlc-llm/cpp/serve/function_table.cc", line 139
 
+```bash
 	at org.apache.tvm.Base.checkCall(Base.java:173)
 	at org.apache.tvm.Function.invoke(Function.java:130)
 	at ai.mlc.mlcllm.JSONFFIEngine.runBackgroundLoop(JSONFFIEngine.java:64)
@@ -27,6 +28,7 @@ Stack trace:
 	at ai.mlc.mlcllm.BackgroundWorker$start$1.invoke(MLCEngine.kt:19)
 	at ai.mlc.mlcllm.BackgroundWorker$start$1.invoke(MLCEngine.kt:18)
 	at kotlin.concurrent.ThreadsKt$thread$thread$1.run(Thread.kt:30)
+```
 
 ## To Reproduce
 

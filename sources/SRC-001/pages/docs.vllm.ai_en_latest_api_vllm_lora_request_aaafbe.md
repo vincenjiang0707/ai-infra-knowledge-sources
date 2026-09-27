@@ -30,6 +30,7 @@ Attributes:
 ## Source code in `vllm/lora/request.py`
 
 
+```python
 | class LoRARequest(
 msgspec.Struct,
 omit_defaults=True, # type: ignore[call-arg]
@@ -84,6 +85,7 @@ identified by their names across engines.
 """
 return hash(self.lora_name)
 |
+```
 
 ###
 

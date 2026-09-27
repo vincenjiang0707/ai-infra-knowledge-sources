@@ -203,6 +203,7 @@ with `stream: true`
 
 ## Code
 
+```yaml
 stream: Literal[True]
 model: str | None = None
 generate_chunk: GenerateStreamResponse
@@ -213,6 +214,7 @@ prompt_tokens: int | None = None
 """Prompt token count for usage."""
 completion_request: CompletionRequest | None = None
 """The original (post adjust_request) CompletionRequest from /render."""
+```
 
 
 Both return `{"chunk": ..., "stream_state": ...}`
@@ -437,6 +439,7 @@ round trip for a chat request against a GPU less render server (`/render`
 
 Launch the two servers first:
 
+```bash
 vllm launch render meta-llama/Llama-3.2-1B-Instruct --port 8100
 vllm serve meta-llama/Llama-3.2-1B-Instruct --tokens-only --port 8200
 
@@ -471,6 +474,7 @@ json={
 },
 ).json()
 print(response["choices"][0]["message"]["content"])
+```
 
 
 Passing `chat_request`
@@ -505,6 +509,7 @@ it returns, so the generate call streams too. Each generate chunk goes through d
 
 from the previous call (see [Streaming](https://docs.vllm.ai#streaming)).
 
+```python
 import json
 import httpx
 MODEL = "meta-llama/Llama-3.2-1B-Instruct"
@@ -550,6 +555,7 @@ for choice in chunk["choices"]:
 print(choice["delta"].get("content") or "", end="", flush=True)
 if chunk.get("usage"):
 print(f"\n{chunk['usage']}")
+```
 
 
 With a tool or reasoning parser configured, `delta`

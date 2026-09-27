@@ -28,24 +28,30 @@ I got access, but still I propose to clarify modelopt distillation tutorial(s)
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 8087c3e9c3428dc9997d55f25ca4ebf550d9c8dedf62c2dcc924b6130404ce1a
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: bdcaa2366f495219bab9b6c9f9233d2b249944f0e24518edcf5d4ccd298f4205
+```
 
 This open issue is in the ModelOpt release sweep. Owner: confirm release impact, linked fix/validation, or that it is non-blocking for this release.
 
 ### ChenhanYu · 2026-08-02
 
+```yaml
 Software Release Triage
 release: ModelOpt v0.46.0
 fingerprint: 22faa20606668a0706c1255038e08e1433f52ede260c972c9ae2ad0fce7eca13
+```
 
 Release follow-up: this open ModelOpt issue needs release relevance confirmed. Link its planned fix/validation, or confirm it is not a v0.46.0 blocker.

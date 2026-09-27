@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/benchmarks/sweep/param_sweep/
 lastmod: 2026-09-27
 
+```python
 class ParameterSweepItem(dict[str, object]):
 @classmethod
 def from_record(cls, record: dict[str, object]):
@@ -43,9 +44,11 @@ return any(k in self for k in self._iter_param_key_candidates(param_key))
 def _normalize_cmd_kv_pair(self, k: str, v: object) -> list[str]:
 """Normalize a key-value pair into command-line arguments.
 Returns a list containing either:
+```
 - A single element for boolean flags (e.g., ['--flag'] or ['--flag=true'])
 - Two elements for key-value pairs (e.g., ['--key', 'value'])
 """
+```python
 if isinstance(v, bool):
 # For nested params (containing "."), use =true/false syntax
 if "." in k:
@@ -84,3 +87,4 @@ cmd.extend(self._normalize_cmd_kv_pair(k, v))
 return cmd
 def as_text(self, sep: str = ", ") -> str:
 return sep.join(f"{k}={v}" for k, v in self.items() if k != "_benchmark_name")
+```

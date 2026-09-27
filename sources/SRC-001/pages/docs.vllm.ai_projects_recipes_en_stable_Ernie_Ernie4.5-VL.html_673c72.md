@@ -22,9 +22,11 @@ ERNIE-4.5-VL support was recently added to vLLM main branch and is not yet avail
 NOTE: torch.compile and cuda graph are not supported due to the heterogeneous expert architecture. (vision and text experts)
 
 # 424B model 140G*8 GPU with native BF16
+```bash
 vllm serve baidu/ERNIE-4.5-VL-424B-A47B-PT \
 --trust-remote-code \
 --tensor-parallel-size 8
+```
 
 
 If you only want to test the functionality and only have 8×80G GPU, you can use the `--cpu-offload-gb`
@@ -32,19 +34,23 @@ If you only want to test the functionality and only have 8×80G GPU, you can use
 parameter to offload part of the weights to CPU memory, and additionally use FP8 online quantization to further reduce GPU memory.
 
 # 424B model 80G*8 GPU with FP8 quantization and CPU offloading
+```bash
 vllm serve baidu/ERNIE-4.5-VL-424B-A47B-PT \
 --trust-remote-code \
 --tensor-parallel-size 8 \
 --quantization fp8 \
 --cpu-offload-gb 50
+```
 
 
 If your single node GPU memory is insufficient, native BF16 deployment may require multi nodes, multi node deployment reference [vLLM doc](https://docs.vllm.ai/en/latest/serving/parallelism_scaling.html#multi-node-deployment) to start ray cluster. Then run vllm on the master node
 
 # 424B model 80G*16 GPU with native BF16
+```bash
 vllm serve baidu/ERNIE-4.5-VL-424B-A47B-PT \
 --trust-remote-code \
 --tensor-parallel-size 16
+```
 
 
 ### Serving Ernie4.5-VL Model on MI300X/MI325X/MI355X GPUs[¶](https://docs.vllm.ai#serving-ernie45-vl-model-on-mi300xmi325xmi355x-gpus)

@@ -165,6 +165,7 @@ The row and column, and stride information of input matrices are also passed to 
 Functionality descriptions |
 Corresponding wrappers |
 |---|---|
+```bash
 \(E = α \times (A \times B) + β \times (D)\), where A, B, D, E are INT8 2-D tensors; |
 E = Linear_ABDE_I8(A, B, D, \(\alpha\), \(\beta\)) |
 \(E = RELU (α \times (A \times B) + β \times (D))\), where A, B, D, E are INT8 2-D tensors; |
@@ -175,6 +176,7 @@ E = Linear_AB_I8_DE_F32(A, B, D, \(\alpha\), \(\beta\)) |
 E = BMM_ABE_I8(A, B, \(\alpha\)) |
 \(E = α \times (A \times B)\), where A, B are INT8 3-D tensors, E is FP32 3-D tensor; |
 E = BMM_AB_I8_E_F32(A, B, \(\alpha\)) |
+```
 
 ### Operation flow analysis[#](https://rocm.docs.amd.com#operation-flow-analysis)
 

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/hy_v4/nvidia/attention/
 lastmod: 2026-09-27
 
+```python
 class HYV4MLAAttention(nn.Module):
 """Multi-head latent attention with optional sparse lightning indexer.
 Main reference: the DeepSeek-V2 paper and the FlashInfer implementation
@@ -263,6 +264,7 @@ self, kv_cache_dtype: str
 """Return an MLA backend that can apply this layer's learnable sink.
 The sink is part of the architecture, so a backend that cannot apply it
 changes the model's output. Resolution order:
+```
 1. If the backend the selector would pick already advertises
 `supports_sink`, keep it — this also honours an explicit
 ``--attention-backend`` choice.

@@ -4,8 +4,10 @@ lastmod:
 # Class ov::RemoteTensor[#](https://docs.openvino.ai#class-ov-remotetensor)
 
 -
+```python
 class RemoteTensor : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Tensor](https://docs.openvino.ai/classov_1_1_tensor.html#_CPPv4N2ov6TensorE)[#](https://docs.openvino.ai#_CPPv4N2ov12RemoteTensorE) Remote memory access and interoperability API.
+```
 
 Subclassed by
 
@@ -57,8 +59,10 @@ void copy_to(
 
 
 -
+```
 void copy_from(const
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[Tensor](https://docs.openvino.ai/classov_1_1_tensor.html#_CPPv4N2ov6TensorE)&src)[#](https://docs.openvino.ai#_CPPv4N2ov12RemoteTensor9copy_fromERKN2ov6TensorE) Copies data from the specified source tensor to this
+```
 
 [RemoteTensor](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_remote_tensor).- Parameters:
 **src**– The source tensor from which data will be copied.

@@ -140,11 +140,13 @@ when using `LLM.encode`
 
 for (sequence) (outcome) reward models:
 
+```python
 from vllm import LLM
 llm = LLM(model="Skywork/Skywork-Reward-V2-Qwen3-0.6B", runner="pooling")
 (output,) = llm.encode("Hello, my name is", pooling_task="classify")
 data = output.outputs.data
 print(f"Data: {data!r}")
+```
 
 
 - Token Reward Models
@@ -155,11 +157,13 @@ when using `LLM.encode`
 
 for token (outcome) reward models:
 
+```python
 from vllm import LLM
 llm = LLM(model="internlm/internlm2-1_8b-reward", runner="pooling", trust_remote_code=True)
 (output,) = llm.encode("Hello, my name is", pooling_task="token_classify")
 data = output.outputs.data
 print(f"Data: {data!r}")
+```
 
 
 - Process Reward Models
@@ -170,11 +174,13 @@ when using `LLM.encode`
 
 for token (outcome) reward models:
 
+```python
 from vllm import LLM
 llm = LLM(model="Qwen/Qwen2.5-Math-PRM-7B", runner="pooling")
 (output,) = llm.encode("Hello, my name is<extra_0><extra_0><extra_0>", pooling_task="token_classify")
 data = output.outputs.data
 print(f"Data: {data!r}")
+```
 
 
 ## Online Serving[¶](https://docs.vllm.ai#online-serving)

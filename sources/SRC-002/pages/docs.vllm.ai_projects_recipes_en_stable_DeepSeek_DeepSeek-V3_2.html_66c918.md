@@ -23,9 +23,11 @@ in the environment variable. Some users reported that the performance is better 
 
 ## Installing vLLM[¶](https://docs.vllm.ai#installing-vllm)
 
+```bash
 uv venv
 source .venv/bin/activate
 uv pip install vllm --extra-index-url https://wheels.vllm.ai/nightly
+```
 
 
 ## Launching DeepSeek-V3.2[¶](https://docs.vllm.ai#launching-deepseek-v32)
@@ -182,6 +184,7 @@ In vLLM, if there are no tool_calls, then tool_calls is an empty list (
 
 .
 
+```python
 import os
 import json
 from openai import OpenAI
@@ -289,11 +292,13 @@ messages.append({
 # We recommended to clear the reasoning_content in history messages so as to save network bandwidth
 clear_reasoning_content(messages)
 run_turn(turn, messages)
+```
 
 
 ### vLLM Server Print[¶](https://docs.vllm.ai#vllm-server-print)
 
 Turn 1.1
+```python
 reasoning_content="I need to help the user with weather in Hangzhou tomorrow. First, I need to get the current date to determine tomorrow's date. Then I can use the weather function. Let me start by getting the current date."
 content=None
 tool_calls=[ChatCompletionMessageFunctionToolCall(id='chatcmpl-tool-a2de4337498c482c', function=Function(arguments='{}', name='get_date'), type='function')]
@@ -311,6 +316,7 @@ Turn 2.1
 reasoning_content='The user is asking about the weather in Hangzhou tomorrow again. I already answered this question in the previous exchange, but I should check if "tomorrow" still refers to the same date or if there\'s a new context. The current date is December 1, 2025, so tomorrow would be December 2, 2025. I already provided that information. However, maybe the user is asking again because they want to confirm or maybe they didn\'t see the previous answer? Looking at the conversation, I provided the weather for tomorrow (December 2, 2025). The user\'s latest question is identical to the first one. I should probably respond with the same information, but perhaps acknowledge that I already provided this information. However, since the conversation continues, maybe they want additional details or something else? The weather tool only gives basic info: "Cloudy 7~13°C". I could present it again. But maybe the user expects a different format or more details? I could just repeat the answer. Let me respond politely with the same information.'
 content="The weather in Hangzhou **tomorrow, Tuesday, December 2, 2025**, will be **Cloudy** with temperatures ranging from **7°C to 13°C**. \n\nThis is the same forecast I provided earlier - it looks like tomorrow's weather will be consistently cloudy with cool temperatures."
 tool_calls=[]
+```
 
 
 ### DeepSeek Offical API Print[¶](https://docs.vllm.ai#deepseek-offical-api-print)

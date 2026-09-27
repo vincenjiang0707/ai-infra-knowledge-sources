@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_inspection/
 lastmod: 2026-09-27
 
+```python
 def _format_module_tree(
 module: nn.Module,
 name: str = "",
@@ -63,3 +64,4 @@ for child_name, child_module in non_numbered:
 lines.extend(_format_module_tree(child_module, child_name, indent + 1))
 lines.append(f"{prefix})")
 return lines
+```

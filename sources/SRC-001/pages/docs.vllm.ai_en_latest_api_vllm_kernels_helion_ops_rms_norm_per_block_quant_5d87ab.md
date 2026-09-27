@@ -1,14 +1,17 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/kernels/helion/ops/rms_norm_per_block_quant/
 lastmod: 2026-09-27
 
+```python
 def pick_config(args: tuple[Any, ...], config_keys: list[CaseKey]) -> CaseKey | None:
 """Pick the best pre-tuned config for the given input shape.
 Selection strategy:
+```
 1. Find the closest hidden_size among available configs
 (exact match preferred).
 2. Find the closest group_size among available configs
 (exact match preferred).
 2. Among the num_tokens values tuned for that hidden_size and group_size, pick
+```python
 the smallest num_tokens >= the input's num_tokens. If the input is
 larger than all available num_tokens, fall back to the largest.
 """
@@ -44,3 +47,4 @@ result = CaseKey(
 )
 _pick_cache[cache_key] = result
 return result
+```

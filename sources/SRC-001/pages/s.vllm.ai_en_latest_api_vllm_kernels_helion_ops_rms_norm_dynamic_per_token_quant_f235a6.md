@@ -17,6 +17,7 @@ Selection strategy:
 1. Find the closest hidden_size among available configs
 (exact match preferred).
 2. Among the num_tokens values tuned for that hidden_size, pick
+```python
 the smallest num_tokens >= the input's num_tokens. If the input is
 larger than all available num_tokens, fall back to the largest.
 """
@@ -44,3 +45,4 @@ result = CaseKey({"hidden_size": best_hidden_size, "num_tokens": best_num_tokens
 _pick_cache[cache_key] = result
 return result
 |
+```

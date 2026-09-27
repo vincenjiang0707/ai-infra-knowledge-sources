@@ -66,15 +66,19 @@ Untested:The functionality exists but has not been recently or thoroughly verifi
 🛠️ Correctness + Performance (C + P)
 
 - ❌
+```yaml
 Failing: If either check fails.- ✅
 Passing: IfBOTHchecks pass successfully.- ❓
+```
 Untested: If any check is untested (and neither fails).
 
 🌐 Hardware Rollups (v6e + v7x)
 
 - ❌
+```yaml
 Failing: If the feature fails oneitherv6e or v7x.- ✅
 Passing: If the feature passes onBOTHv6e and v7x.- ❓
+```
 Untested: If either generation is untested (and neither fails).
 
 **Click to expand support matrices**

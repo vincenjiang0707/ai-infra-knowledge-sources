@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__ActivityApiCbidOptions.ht
 # 7.3. CUpti_ActivityApiCbidOptions[#](https://docs.nvidia.com#cupti-activityapicbidoptions)
 
 -
+```rust
 struct CUpti_ActivityApiCbidOptions
 [#](https://docs.nvidia.com#_CPPv428CUpti_ActivityApiCbidOptions) Per-cbid enable/disable options for API activity kinds.
+```
 
 When enable = 1 (allowlist), records are generated only for the cbids listed in pCbids. When enable = 0 (denylist), records are generated for all cbids except those listed.
 

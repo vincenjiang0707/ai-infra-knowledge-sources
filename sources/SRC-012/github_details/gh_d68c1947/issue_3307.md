@@ -36,12 +36,14 @@ error main info: CMake Error: CMake was unable to find a build program correspon
 [2025-08-16 13:02:02] INFO package.py:154: Dump the app config below to "dist/bundle/mlc-app-config.json":
 {
   "model_list": [
+```json
     {
       "model_id": "llama2-q4f16_1",
       "model_lib": "llama2_q4f16_1",
       "model_url": "/home/llm/dist/Llama-2-7b-chat-hf-q4f16_1-MLC",
       "estimated_vram_bytes": 2960000000
     }
+```
   ]
 }
 [2025-08-16 13:02:03] INFO package.py:211: Creating lib from ['/home/llm/dist/libs/Llama-2-7b-chat-hf-q4f16_1-android.tar', '/home/llm/.cache/mlc_llm/model_lib/d7c5d287342a91cdfe409b2df4ba9d78.tar']

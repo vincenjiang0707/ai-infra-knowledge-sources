@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/longcat_flash_mtp/
 lastmod: 2026-09-27
 
+```python
 class LongCatFlashMTP(nn.Module):
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
 super().__init__()
@@ -223,3 +224,4 @@ self, config: PreTrainedConfig, weight_name: str
 if "model.mtp" in weight_name:
 return config.num_hidden_layers * 2
 return None
+```

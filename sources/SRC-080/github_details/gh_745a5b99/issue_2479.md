@@ -111,8 +111,10 @@ This commit adds output_mse_shrinkage: per-group shrinkage optimization using th
 X is collected from real calibration samples via a forward hook on the balance layer, so the error reflects actual token distributions rather than a proxy. Each group independently selects its optimal p, allowing aggressive clipping where activations are small and conservative clipping where they are large.
 
 New parameters:
+```yaml
   n_shrink_grid: int = 1    (1 = disabled, backward compatible)
   maxshrink: float = 0.20   (search range: p in [1-maxshrink, 1.0])
+```
 
 ## Results
 Benchmarked on Llama-3.1-8B-Instruct W4A16 ASYM group=128, open-platypus calibration, WikiText-2 eval:

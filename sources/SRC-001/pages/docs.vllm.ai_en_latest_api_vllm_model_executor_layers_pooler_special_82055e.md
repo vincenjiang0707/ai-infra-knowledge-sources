@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/pooler/special/
 lastmod: 2026-09-27
 
+```python
 class DispatchPooler(Pooler):
 """Dispatches calls to a sub-pooler based on the pooling task."""
 @classmethod
@@ -112,3 +113,4 @@ return outputs
 def extra_repr(self) -> str:
 s = f"supported_task={self.get_supported_tasks()}"
 return s
+```

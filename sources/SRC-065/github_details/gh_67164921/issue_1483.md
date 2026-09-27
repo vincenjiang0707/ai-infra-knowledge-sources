@@ -277,8 +277,10 @@ Thank you!
 
 import torch
 
+```python
 import triton
 import triton.language as tl
+```
 
 from matmul_perf_model import early_config_prune
 
@@ -288,6 +290,7 @@ def init_to_zero(nargs):
 
 
 def get_configs_io_bound():
+```python
     for num_stages in range(2, 7):
         for block_m in [16, 32]:
             for block_k in [32, 64]:
@@ -299,9 +302,11 @@ def get_configs_io_bound():
                     for split_k in [2, 4, 8, 16]:
                         yield triton.Config({'BLOCK_M': block_m, 'BLOCK_N': block_n, 'BLOCK_K': block_k, 'SPLIT_K': split_k},
                                              num_stages=num_stages, num_warps=num_warps, pre_hook=init_to_zero)
+```
 
 
 @triton.autotune(
+```
     configs=[
         # basic configs for compute-bound matmuls
         triton.Config({'BLOCK_M': 128, 'BLOCK_N': 256, 'BLOCK_K': 32, 'SPLIT_K': 1}, num_stages=3, num_warps=8),
@@ -310,6 +315,7 @@ def get_configs_io_bound():
         triton.Config({'BLOCK_M': 64, 'BLOCK_N': 256, 'BLOCK_K': 32, 'SPLIT_K': 1}, num_stages=4, num_warps=4),
         triton.Config({'BLOCK_M': 128, 'BLOCK_N': 128, 'BLOCK_K': 32, 'SPLIT_K': 1}, num_stages=4, num_warps=4),
         triton.Config({'BLOCK_M': 128, 'BLOCK
+```
 
 
 ### LeonxLJX · 2026-09-01

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/registry/
 lastmod: 2026-09-27
 
+```python
 @dataclass
 class _ModelRegistry:
 # Keyed by model_arch
@@ -14,8 +15,10 @@ model_cls: type[nn.Module] | str,
 ) -> None:
 """Register an external model to be used in vLLM.
 `model_cls` can be either:
+```
 - A [`torch.nn.Module`][] class directly referencing the model.
 - A string in the format `<module>:<class>` which can be used to
+```python
 lazily import the model. This is useful to avoid initializing CUDA
 when importing the model and thus the related error
 `RuntimeError: Cannot re-initialize CUDA in forked subprocess`.
@@ -340,3 +343,4 @@ model_config: ModelConfig,
 ) -> bool:
 model_info, _ = self.inspect_model_cls(architectures, model_config)
 return model_info.supports_transcription_only
+```

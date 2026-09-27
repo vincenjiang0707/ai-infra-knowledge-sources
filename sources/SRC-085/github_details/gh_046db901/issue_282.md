@@ -24,6 +24,7 @@ I further checked #278. Even pip install transformers==4.53 is not bug free (at 
 
 ### HaochenGu · 2025-08-16
 
+```bash
 `torch==2.6.0
 transformers==4.53.3
 accelerate==0.26.0
@@ -34,5 +35,6 @@ anthropic==0.5.0
 sentencepiece==0.1.99
 protobuf==3.19.0
 wandb`
+```
 
 I have done some attempts. I believe this set works.

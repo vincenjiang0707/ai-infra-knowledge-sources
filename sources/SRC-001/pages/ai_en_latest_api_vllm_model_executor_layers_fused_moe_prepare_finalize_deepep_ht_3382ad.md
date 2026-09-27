@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/prepare_finalize/deepep_ht/
 lastmod: 2026-09-27
 
+```python
 class DeepEPHTPrepareAndFinalize(mk.FusedMoEPrepareAndFinalizeModular):
 """Prepare/Finalize using DeepEP High-Throughput kernels."""
 @staticmethod
@@ -377,3 +378,4 @@ apply_router_weight_on_input,
 weight_and_reduce_impl,
 False,
 )
+```

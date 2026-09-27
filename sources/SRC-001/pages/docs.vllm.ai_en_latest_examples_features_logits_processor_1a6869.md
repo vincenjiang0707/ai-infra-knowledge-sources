@@ -70,20 +70,29 @@ expect the `target_token` to be decoded in each step, yielding an output
 similar to that shown below:
 Generated Outputs:
 ------------------------------------------------------------
+```yaml
 Prompt: 'Hello, my name is'
 Output: " ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '"
+```
 ------------------------------------------------------------
+```yaml
 Prompt: 'The president of the United States is'
 Output: " not a racist. He is a racist.\nHe's a racist because he"
+```
 ------------------------------------------------------------
+```yaml
 Prompt: 'The capital of France is'
 Output: ' also also also also also also also also also also also also also
 also also also'
+```
 ------------------------------------------------------------
+```yaml
 Prompt: 'The future of AI is'
 Output: ' in the hands of the people.\n\nThe future of AI is in the'
+```
 ------------------------------------------------------------
 """
+```python
 from typing import Any
 import torch
 from vllm import LLM, SamplingParams
@@ -172,6 +181,7 @@ print(f"Output: {generated_text!r}")
 print("-" * 60)
 if __name__ == "__main__":
 main()
+```
 
 
 ## custom_req.py
@@ -197,20 +207,29 @@ expect the `target_token` to be decoded in each step, yielding an output
 similar to that shown below:
 Generated Outputs:
 ------------------------------------------------------------
+```yaml
 Prompt: 'Hello, my name is'
 Output: " ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '"
+```
 ------------------------------------------------------------
+```yaml
 Prompt: 'The president of the United States is'
 Output: " not a racist. He is a racist.\nHe's a racist because he"
+```
 ------------------------------------------------------------
+```yaml
 Prompt: 'The capital of France is'
 Output: ' also also also also also also also also also also also also also
 also also also'
+```
 ------------------------------------------------------------
+```yaml
 Prompt: 'The future of AI is'
 Output: ' in the hands of the people.\n\nThe future of AI is in the'
+```
 ------------------------------------------------------------
 """
+```python
 from typing import Any
 import torch
 from vllm import LLM, SamplingParams
@@ -301,6 +320,7 @@ print(f"Output: {generated_text!r}")
 print("-" * 60)
 if __name__ == "__main__":
 main()
+```
 
 
 ## custom_req_init.py
@@ -325,19 +345,28 @@ A batch is constructed with `temperature=0.0` and 50% of requests specifying
 expect that on a "cuda" device the output will look something like:
 Generated Outputs:
 ------------------------------------------------------------
+```yaml
 Prompt: 'Hello, my name is'
 Output: " ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '"
+```
 ------------------------------------------------------------
+```yaml
 Prompt: 'The president of the United States is'
 Output: " not a racist. He is a racist.\nHe's a racist because he"
+```
 ------------------------------------------------------------
+```yaml
 Prompt: 'The capital of France is'
 Output: ' also also also also also also also also also also also also also
 also also also'
+```
 ------------------------------------------------------------
+```yaml
 Prompt: 'The future of AI is'
 Output: ' in the hands of the people.\n\nThe future of AI is in the'
+```
 ------------------------------------------------------------
+```python
 which indicates that the logits processor is running. However, on a non-"cuda"
 device, the first and third requests would not repeat the same token.
 """
@@ -441,3 +470,4 @@ print(f"Output: {generated_text!r}")
 print("-" * 60)
 if __name__ == "__main__":
 main()
+```

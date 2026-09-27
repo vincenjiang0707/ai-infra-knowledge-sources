@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/glm5next/common/kda/
 lastmod: 2026-09-27
 
+```python
 class Glm5NextLinearAttention(GatedDeltaNetAttention):
 head_dim: int
 num_heads: int
@@ -547,3 +548,4 @@ if ns_out is None:
 core_attn_out[0, :num_actual_tokens] = core_attn_out_non_spec[
 0, :num_actual_tokens
 ]
+```

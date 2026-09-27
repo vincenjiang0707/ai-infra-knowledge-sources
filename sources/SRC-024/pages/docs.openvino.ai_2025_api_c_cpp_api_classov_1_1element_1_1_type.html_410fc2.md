@@ -4,8 +4,10 @@ lastmod:
 # Class ov::element::Type[#](https://docs.openvino.ai#class-ov-element-type)
 
 -
+```python
 class Type
 [#](https://docs.openvino.ai#_CPPv4N2ov7element4TypeE) Base class to define element type.
+```
 
 Public Functions
 

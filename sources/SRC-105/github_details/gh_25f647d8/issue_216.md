@@ -11,8 +11,10 @@ labels:
 Hello, we are currently attempting to use the DCGM project to collect metrics from our GPU cluster in embedded mode. While running the provided C++ SDK samples located in `DCGM/sdk_samples/c_src/` under Valgrind, we observed memory leaks across all the samples. I have provided a few example outputs after running these binaries. We also noticed these memory leaks continue to exist when running in standalone mode.
 
 ## Versioning Information:
+```yaml
 DCGM: v3.3.9
 Valgrind: v3.18.1
+```
 
 ## Example 1 Field_Value_Sample
 

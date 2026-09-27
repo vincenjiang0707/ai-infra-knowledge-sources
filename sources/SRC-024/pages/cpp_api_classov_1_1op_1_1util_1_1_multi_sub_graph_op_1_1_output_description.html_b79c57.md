@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::MultiSubGraphOp::OutputDescription[#](https://docs.openvino.ai#class-ov-op-util-multisubgraphop-outputdescription)
 
 -
+```python
 class OutputDescription
 Abstract class describes how a
+```
 
 [MultiSubGraphOp](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multi_sub_graph_op)output is produced from the body.Subclassed by
 

@@ -17,6 +17,7 @@ Unable to run Magistral-Small-2509 benchmark
 ## Executed Code or Instructions
 
 evalscope perf \
+```bash
     --url "http://127.0.0.1:7999/v1/chat/completions" \
     --parallel 1 4 16 64 \
     --number 100 100 100 100 \
@@ -28,6 +29,7 @@ evalscope perf \
     --min-tokens 256 \
     --max-tokens 256 \
     --tokenizer-path mistralai/Magistral-Small-2509
+```
 
 
 ## Error Log

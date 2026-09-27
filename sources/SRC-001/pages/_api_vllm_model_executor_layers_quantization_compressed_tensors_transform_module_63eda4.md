@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/transform/module/
 lastmod: 2026-09-27
 
+```python
 class HadamardTransform(torch.nn.Module):
 """Class which handles weight loading, postprocessing, and application of
 transforms. Meant to be used with `CompressedTensorsLinearTransformMethod`
@@ -113,3 +114,4 @@ first_data = self.weight.partitions[0].data
 for partition in self.weight.partitions.values():
 if partition.data.data_ptr() != first_data.data_ptr():
 raise ValueError("")
+```

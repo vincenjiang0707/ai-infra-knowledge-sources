@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v1::LogicalAnd[#](https://docs.openvino.ai#class-ov-op-v1-logicaland)
 
 -
+```python
 class LogicalAnd : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[BinaryElementwiseLogical](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_binary_elementwise_logical.html#_CPPv4N2ov2op4util24BinaryElementwiseLogicalE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v110LogicalAndE) Elementwise logical-and operation.
+```
 
 Public Functions
 

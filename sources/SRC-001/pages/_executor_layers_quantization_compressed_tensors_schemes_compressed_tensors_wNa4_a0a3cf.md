@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_wNa4/
 lastmod: 2026-09-27
 
+```python
 class CompressedTensorsWNA4Int(CompressedTensorsScheme):
 _kernel_backends_being_used: set[str] = set()
 def __init__(
@@ -204,3 +205,4 @@ x: torch.Tensor,
 bias: torch.Tensor | None,
 ) -> torch.Tensor:
 return self.kernel.apply_weights(layer, x, bias)
+```

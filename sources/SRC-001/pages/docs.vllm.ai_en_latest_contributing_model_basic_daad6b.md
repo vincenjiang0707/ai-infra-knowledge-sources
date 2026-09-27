@@ -37,6 +37,7 @@ The initialization code should look like this:
 
 ## Code
 
+```python
 from torch import nn
 from vllm.config import VllmConfig
 from vllm.model_executor.layers.attention import Attention
@@ -58,6 +59,7 @@ class MyModelForCausalLM(nn.Module):
 def __init__(self, vllm_config: VllmConfig, prefix: str = ""):
 super().__init__()
 self.model = MyModel(vllm_config, prefix=f"{prefix}.model")
+```
 
 
 ### Computation Code[¶](https://docs.vllm.ai#computation-code)
@@ -73,9 +75,11 @@ module that returns the text embeddings given`input_ids`
 
 is used within a composite multimodal model.
 
+```python
 class MyModel(nn.Module):
 ...
 def embed_input_ids(self, input_ids: torch.Tensor) -> torch.Tensor:
+```
 ...
 
 
@@ -86,6 +90,7 @@ and`positions`
 
 as flattened tensors with a single batch size dimension, without a max-sequence length dimension.
 
+```python
 def forward(
 self,
 input_ids: torch.Tensor | None,
@@ -93,6 +98,7 @@ positions: torch.Tensor,
 intermediate_tensors: IntermediateTensors | None = None,
 inputs_embeds: torch.Tensor | None = None,
 ) -> torch.Tensor:
+```
 ...
 
 

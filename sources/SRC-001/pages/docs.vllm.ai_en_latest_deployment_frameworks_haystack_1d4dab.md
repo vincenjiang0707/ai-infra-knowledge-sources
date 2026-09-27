@@ -27,6 +27,7 @@ components in Haystack to query the vLLM server.
 
 ## Code
 
+```python
 from haystack.components.generators.chat import OpenAIChatGenerator
 from haystack.dataclasses import ChatMessage
 from haystack.utils import Secret
@@ -43,6 +44,7 @@ messages=[ChatMessage.from_user("Hi. Can you help me plan my next trip to Italy?
 print("-"*30)
 print(response)
 print("-"*30)
+```
 
 
 ------------------------------

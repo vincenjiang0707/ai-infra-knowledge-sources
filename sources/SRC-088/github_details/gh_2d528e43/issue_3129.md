@@ -144,10 +144,12 @@ I got these results:
 Here is my code 
 
 
+```python
 import json 
 from gptqmodel.utils.eval import EVAL
 import torch  # Import PyTorch for GPU memory management
 from lm_eval import evaluator
+```
 
 
 

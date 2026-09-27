@@ -32,11 +32,13 @@ The original intent of this rule was that results for a particular round cannot 
 
 (However, my understanding of the rules is that you can publish unverified versions of benchmarks from previous rounds – so if the benchmark is the same in 3.0 and 3.1, and you want to publish your results as “unverified 3.0” results, that’s OK.)
 
+```yaml
 From: Arjun Suresh ***@***.***>
 Sent: Thursday, June 1, 2023 4:02 PM
 To: mlcommons/inference ***@***.***>
 Cc: Subscribed ***@***.***>
 Subject: Re: [mlcommons/inference] Clarification on unverified MLPerf Inference Power results (Issue #1370)
+```
 
 
 The timing of result disclosures<https://github.com/mlcommons/policies/blob/master/MLPerf_Results_Messaging_Guidelines.adoc#7-timing-for-results-disclosures> mentions the following:

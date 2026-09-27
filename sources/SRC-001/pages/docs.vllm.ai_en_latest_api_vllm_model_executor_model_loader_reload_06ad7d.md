@@ -109,10 +109,12 @@ When all weights for a layer are loaded, the wrapped loaders will: 1. Materializ
 ## Source code in `vllm/model_executor/model_loader/reload/layerwise.py`
 
 
+```python
 | @torch.no_grad()
 def initialize_layerwise_reload(model: torch.nn.Module):
 """Set up layerwise weight loading with deferred processing.
 Must be called after `record_metadata_for_reloading`. This function:
+```
 1. Saves current kernel tensors for later copying
 2. Restores layer parameters/buffers from metadata (on meta device)
 3. Wraps weight loaders to defer processing until all weights are loaded
@@ -174,6 +176,7 @@ Only applies to torchao quantized models. Assumes that all model weights are loa
 ## Source code in `vllm/model_executor/model_loader/reload/torchao_decorator.py`
 
 
+```python
 | def support_quantized_model_reload_from_hp_weights(original_load_weights: FunctionType):
 """Decorator for `load_weights` method for AutoWeightsLoader.load_weights to support
 reloading high precision (bfloat16/float16/float32) weight for an already quantized
@@ -198,3 +201,4 @@ finalize_layerwise_reload(model, model._model_config)
 return loaded_weights
 return patched_model_load_weights
 |
+```

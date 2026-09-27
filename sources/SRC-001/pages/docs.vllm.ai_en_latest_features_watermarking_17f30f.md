@@ -127,9 +127,11 @@ is `"none"`
 
 For example, this checks prompt and completion history within the default 8,192-position window:
 
+```json
 vllm serve MODEL \
 --watermark-config \
 '{"algorithm":"gumbel","key":42,"deduplicate_contexts":"all"}'
+```
 
 
 ### Dual-key Gumbel-max[¶](https://docs.vllm.ai#dual-key-gumbel-max)
@@ -150,10 +152,12 @@ Select `dual_key_gumbel`
 
 together with probabilistic drafting:
 
+```json
 vllm serve MODEL \
 --speculative-config \
 '{"method":"mtp","num_speculative_tokens":3,"draft_sample_method":"probabilistic"}' \
 --watermark-config '{"algorithm":"dual_key_gumbel","key":42,"alpha":0.1}'
+```
 
 
 ### SynthID-Text[¶](https://docs.vllm.ai#synthid-text)
@@ -176,12 +180,14 @@ is based on the counter-based Philox4x32-10 generator from the[Random123 paper](
 
 The detector primitives operate on token IDs and do not require model weights:
 
+```python
 from transformers import AutoTokenizer
 from vllm.v1.watermarking import GumbelWatermarkDetector
 tokenizer = AutoTokenizer.from_pretrained(MODEL)
 token_ids = tokenizer.encode(text, add_special_tokens=False)
 result = GumbelWatermarkDetector(key=42, prf="philox").detect(token_ids)
 print(result.p_value, result.is_watermarked)
+```
 
 
 The detection configuration must match the generation configuration, including the tokenizer, PRF, watermarking algorithm, algorithm-specific watermarking configuration, and key. In practice, this information is often unavailable when checking a piece of text. Deployments should therefore retain the set of candidate configurations they have served, test the text against each candidate, and correct for multiple testing, for example with a Bonferroni correction to the resulting p-values.
@@ -198,6 +204,7 @@ A minimal HTTP detector is available in `examples/basic/online_serving/watermark
 
 :
 
+```json
 python examples/basic/online_serving/watermark_detection_server.py \
 --tokenizer MODEL --key 42 --prf philox
 
@@ -205,6 +212,7 @@ python examples/basic/online_serving/watermark_detection_server.py \
 curl http://localhost:8000/detect \
 -H 'Content-Type: application/json' \
 -d '{"text":"Text to inspect"}'
+```
 
 
 Scores and p-values expose information about the per-token watermark signal. Repeated queries can use this information to construct text that imitates watermarked output or to modify watermarked text so it is no longer detected.

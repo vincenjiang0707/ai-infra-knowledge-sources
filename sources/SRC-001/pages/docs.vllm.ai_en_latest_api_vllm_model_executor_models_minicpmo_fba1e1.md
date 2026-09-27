@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/minicpmo/
 lastmod: 2026-09-27
 
+```python
 class MiniCPMOBaseModel(_MiniCPMOBaseModelBase):
 """Base mixin class for MiniCPM-O models with audio support."""
 # Unlike the vision-only MiniCPM-V models, audio weights are loaded here.
@@ -231,3 +232,4 @@ audio_input,
 audio_embeddings = self._process_audio_input(audio_input)
 multimodal_embeddings += tuple(audio_embeddings)
 return multimodal_embeddings
+```

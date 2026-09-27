@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/laguna/
 lastmod: 2026-09-27
 
+```python
 class LagunaAttention(nn.Module):
 """Laguna attention with optional softplus output gating.
 Supports per-layer sliding window attention when ``config.layer_types``
@@ -190,9 +191,12 @@ if self.gate_per_head:
 attn_shape = attn_output.shape
 attn_output = (
 attn_output.view(*attn_shape[:-1], self.num_heads, self.head_dim)
+```
 * gate.unsqueeze(-1)
+```python
 ).view(attn_shape)
 else:
 attn_output = attn_output * gate
 output, _ = self.o_proj(attn_output)
 return output
+```

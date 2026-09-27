@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::BinaryElementwiseArithmetic[#](https://docs.openvino.ai#class-ov-op-util-binaryelementwisearithmetic)
 
 -
+```python
 class BinaryElementwiseArithmetic : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util27BinaryElementwiseArithmeticE) Abstract base class for elementwise binary arithmetic operations, i.e., operations where the same scalar binary arithmetic operation is applied to each corresponding pair of elements in the two input tensors. Implicit broadcast of input tensors is supported through one of the AutoBroadcast modes.
+```
 
 For example, if the underlying arithmetic operation (determined by the subclass) is \(\mathit{op}(x,y)\), the input tensors \([[x_0,y_0],[z_0,w_0]]\) and \([[x_1,y_1],[z_1,w_1]]\) will be mapped to \([[\mathit{op}(x_0,x_1),\mathit{op}(y_0,y_1)],[\mathit{op}(z_0,z_1),\mathit{op}(w_0,w_1)]]\).
 

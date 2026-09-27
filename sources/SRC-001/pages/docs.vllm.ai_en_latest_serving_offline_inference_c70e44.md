@@ -128,6 +128,7 @@ Ray Data LLM is an alternative offline inference API that uses vLLM as the under
 
 ## Code
 
+```python
 import ray # Requires ray>=2.44.1
 from ray.data.llm import vLLMEngineProcessorConfig, build_llm_processor
 config = vLLMEngineProcessorConfig(model_source="unsloth/Llama-3.2-1B-Instruct")
@@ -145,6 +146,7 @@ postprocess=lambda row: {"answer": row["generated_text"]},
 ds = ray.data.from_items(["An old silent pond..."])
 ds = processor(ds)
 ds.write_parquet("local:///tmp/data/")
+```
 
 
 For more information about the Ray Data LLM API, see the [Ray Data LLM documentation](https://docs.ray.io/en/latest/data/working-with-llms.html).

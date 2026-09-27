@@ -33,6 +33,7 @@ Quark uses [Transformers](https://huggingface.co/docs/transformers/en/index) to 
 
 ## Code
 
+```python
 from transformers import AutoTokenizer, AutoModelForCausalLM
 MODEL_ID = "meta-llama/Llama-2-70b-chat-hf"
 MAX_SEQ_LEN = 512
@@ -44,6 +45,7 @@ dtype="auto",
 model.eval()
 tokenizer = AutoTokenizer.from_pretrained(MODEL_ID, model_max_length=MAX_SEQ_LEN)
 tokenizer.pad_token = tokenizer.eos_token
+```
 
 
 ### 2. Prepare the Calibration Dataloader[¶](https://docs.vllm.ai#2-prepare-the-calibration-dataloader)
@@ -52,6 +54,7 @@ Quark uses the [PyTorch Dataloader](https://pytorch.org/tutorials/beginner/basic
 
 ## Code
 
+```python
 from datasets import load_dataset
 from torch.utils.data import DataLoader
 BATCH_SIZE = 1
@@ -71,6 +74,7 @@ tokenized_outputs['input_ids'],
 batch_size=BATCH_SIZE,
 drop_last=True,
 )
+```
 
 
 ### 3. Set the Quantization Configuration[¶](https://docs.vllm.ai#3-set-the-quantization-configuration)
@@ -87,6 +91,7 @@ Note the quantization algorithm needs a JSON config file and the config file is 
 
 ## Code
 
+```python
 from quark.torch.quantization import (Config, QuantizationConfig,
 FP8E4M3PerTensorSpec,
 load_quant_algo_config_from_file)
@@ -123,6 +128,7 @@ kv_cache_quant_config=kv_cache_quant_config,
 exclude=EXCLUDE_LAYERS,
 algo_config=algo_config,
 )
+```
 
 
 ### 4. Quantize the Model and Export[¶](https://docs.vllm.ai#4-quantize-the-model-and-export)
@@ -133,6 +139,7 @@ Then we can apply the quantization. After quantizing, we need to freeze the quan
 
 ## Code
 
+```python
 import torch
 from quark.torch import ModelQuantizer, ModelExporter
 from quark.torch.export import ExporterConfig, JsonExporterConfig
@@ -154,6 +161,7 @@ freezed_model,
 quant_config=quant_config,
 tokenizer=tokenizer,
 )
+```
 
 
 ### 5. Evaluation in vLLM[¶](https://docs.vllm.ai#5-evaluation-in-vllm)
@@ -162,6 +170,7 @@ Now, you can load and run the Quark quantized model directly through the LLM ent
 
 ## Code
 
+```python
 from vllm import LLM, SamplingParams
 # Sample prompts.
 prompts = [
@@ -189,21 +198,25 @@ generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}")
 print(f"Output: {generated_text!r}")
 print("-" * 60)
+```
 
 
 Or, you can use `lm_eval`
 
 to evaluate accuracy:
 
+```bash
 lm_eval --model vllm \
 --model_args pretrained=Llama-2-70b-chat-hf-w-fp8-a-fp8-kvcache-fp8-pertensor-autosmoothquant,kv_cache_dtype='fp8',quantization='quark' \
 --tasks gsm8k
+```
 
 
 ## Quark Quantization Script[¶](https://docs.vllm.ai#quark-quantization-script)
 
 In addition to the example of Python API above, Quark also offers a [quantization script](https://quark.docs.amd.com/latest/pytorch/example_quark_torch_llm_ptq.html) to quantize large language models more conveniently. It supports quantizing models with variety of different quantization schemes and optimization algorithms. It can export the quantized model and run evaluation tasks on the fly. With the script, the example above can be:
 
+```bash
 python3 quantize_quark.py --model_dir meta-llama/Llama-2-70b-chat-hf \
 --output_dir /path/to/output \
 --quant_scheme w_fp8_a_fp8 \
@@ -212,6 +225,7 @@ python3 quantize_quark.py --model_dir meta-llama/Llama-2-70b-chat-hf \
 --num_calib_data 512 \
 --model_export hf_format \
 --tasks gsm8k
+```
 
 
 ## Using OCP MX (MXFP4, MXFP6) models[¶](https://docs.vllm.ai#using-ocp-mx-mxfp4-mxfp6-models)
@@ -231,12 +245,14 @@ A simulation of the matrix multiplication execution in MXFP4/MXFP6 can be run on
 
 To generate offline models quantized using MXFP4 data type, the easiest approach is to use AMD Quark's [quantization script](https://quark.docs.amd.com/latest/pytorch/example_quark_torch_llm_ptq.html), as an example:
 
+```bash
 python quantize_quark.py --model_dir Qwen/Qwen1.5-MoE-A2.7B-Chat \
 --quant_scheme w_mxfp4_a_mxfp4 \
 --output_dir qwen_1.5-moe-a2.7b-mxfp4 \
 --skip_evaluation \
 --model_export hf_format \
 --group_size 32
+```
 
 
 The current integration supports [all combination of FP4, FP6_E3M2, FP6_E2M3](https://github.com/vllm-project/vllm/blob/main/vllm/model_executor/layers/quantization/utils/ocp_mx_utils.py) used for either weights or activations.
@@ -266,10 +282,12 @@ As examples, we provide some ready-to-use quantized mixed precision model to sho
 
 Models quantized with AMD Quark using mixed precision can natively be reload in vLLM, and e.g. evaluated using lm-evaluation-harness as follows:
 
+```bash
 lm_eval --model vllm \
 --model_args pretrained=amd/Llama-2-70b-chat-hf-WMXFP4FP8-AMXFP4FP8-AMP-KVFP8,tensor_parallel_size=4,dtype=auto,gpu_memory_utilization=0.8,trust_remote_code=False \
 --tasks mmlu \
 --batch_size auto
+```
 
 
 ## Online Quantization[¶](https://docs.vllm.ai#online-quantization)
@@ -316,6 +334,7 @@ The plugin ships in AMD Quark — no fork of vLLM, no patched checkpoint format;
 
 ### Python API[¶](https://docs.vllm.ai#python-api)
 
+```python
 from vllm import LLM, SamplingParams
 from quark.online_quantization.vllm import HF_QUANTIZATION_CONFIGS
 llm = LLM(
@@ -327,16 +346,19 @@ tensor_parallel_size=1,
 )
 out = llm.generate(["The capital of France is"], SamplingParams(temperature=0.0, max_tokens=100))
 print(out)
+```
 
 
 ### Native vLLM CLI[¶](https://docs.vllm.ai#native-vllm-cli)
 
+```json
 export VLLM_PLUGINS="${VLLM_PLUGINS:-quark_online_quant}"
 ONLINE_QUANT_CONFIG='{"online_quant_config": {"global_quant_config": "ptpc_fp8", "exclude_layer": ["lm_head"]}}'
 vllm serve Qwen/Qwen3-8B \
 --trust-remote-code \
 --tensor-parallel-size 1 \
 --additional-config "$ONLINE_QUANT_CONFIG"
+```
 
 
 ### Re-quantizing an offline checkpoint[¶](https://docs.vllm.ai#re-quantizing-an-offline-checkpoint)
@@ -345,12 +367,14 @@ No extra arguments — the same `hf_overrides`
 
 detects the checkpoint's existing config and merges it automatically:
 
+```bash
 llm = LLM(
 model="deepseek-ai/DeepSeek-R1", # ships quant_method: "fp8"
 quantization="quark_online",
 hf_overrides=HF_QUANTIZATION_CONFIGS["ptpc_fp8"],
 tensor_parallel_size=8,
 )
+```
 
 
 The plugin can be disabled with `QUARK_DISABLE_VLLM_PLUGIN=1`

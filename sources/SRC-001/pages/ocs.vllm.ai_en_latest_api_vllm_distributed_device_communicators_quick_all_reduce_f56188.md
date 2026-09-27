@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/device_communicators/quick_all_reduce/
 lastmod: 2026-09-27
 
+```python
 class QuickAllReduce:
 _SUPPORTED_WORLD_SIZES = [2, 4, 8]
 _SUPPORTED_DTYPES = [torch.float16, torch.bfloat16]
@@ -294,3 +295,4 @@ self._ptr = 0
 self.disabled = True
 def __del__(self):
 self.close()
+```

@@ -44,15 +44,18 @@ Additional recipes and formats will be supported in future releases.
 
 ### Quantize with CLI[¶](https://docs.vllm.ai#quantize-with-cli)
 
+```bash
 auto-round \
 --model Qwen/Qwen3-0.6B \
 --scheme W4A16 \
 --format auto_round \
 --output_dir ./tmp_autoround
+```
 
 
 ### Quantize with Python API[¶](https://docs.vllm.ai#quantize-with-python-api)
 
+```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from auto_round import AutoRound
 model_name = "Qwen/Qwen3-0.6B"
@@ -64,10 +67,13 @@ autoround = AutoRound(model_name, scheme="W4A16")
 output_dir = "./tmp_autoround"
 # format= 'auto_round'(default), 'auto_gptq', 'auto_awq'
 autoround.quantize_and_save(output_dir, format="auto_round")
+```
 
 
 ## Deploying AutoRound Quantized Models in vLLM[¶](https://docs.vllm.ai#deploying-autoround-quantized-models-in-vllm)
 
+```bash
 vllm serve Intel/DeepSeek-R1-0528-Qwen3-8B-int4-AutoRound \
 --gpu-memory-utilization 0.8 \
 --max-model-len 4096
+```

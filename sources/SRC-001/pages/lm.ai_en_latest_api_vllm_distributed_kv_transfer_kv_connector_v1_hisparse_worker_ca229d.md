@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/hisparse/worker/
 lastmod: 2026-09-27
 
+```python
 class HiSparseConnectorWorker:
 """Own HiSparse host/hot state and execute its worker-side transfers."""
 def __init__(self, vllm_config: VllmConfig, kv_cache_config: KVCacheConfig) -> None:
@@ -95,6 +96,7 @@ self._slot_mapping_staging = None
 if self.is_host_writer:
 max_mirror_rows = (
 self.vllm_config.scheduler_config.max_num_batched_tokens
+```
 + max_num_reqs * (self.vllm_config.num_lookahead_tokens + 1)
 )
 self._slot_mapping_staging = _SlotMappingStaging(
@@ -590,6 +592,7 @@ descriptors.src_np[descriptor_slice] = (
 source.data_ptr()
 + source_blocks * source.stride(0) * source.element_size()
 )
+```python
 descriptors.dst_np[descriptor_slice] = (
 destination.data_ptr() + destination_rows * row_bytes
 )
@@ -707,3 +710,4 @@ self.pinned_host_pools,
 self.shared_host_region,
 )
 self._initialized = False
+```

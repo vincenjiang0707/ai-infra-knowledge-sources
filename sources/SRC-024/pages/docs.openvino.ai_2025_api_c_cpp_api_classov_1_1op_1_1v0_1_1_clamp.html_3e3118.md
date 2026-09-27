@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v0::Clamp[#](https://docs.openvino.ai#class-ov-op-v0-clamp)
 
 -
+```python
 class Clamp : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v05ClampE) Performs a clipping operation on all elements of the input node.
+```
 
 All input values that are outside of the <min;max> range are set to ‘min’ or ‘max’ depending on which side of the <min;max> range they are. The values that fall into this range remain unchanged.
 

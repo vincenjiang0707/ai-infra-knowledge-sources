@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/ops/gdn_chunk_cutedsl/kernel_o/
 lastmod: 2026-09-27
 
+```python
 class Sm100ChunkOKernel:
 """Compute per-token output from recurrent and intra-chunk terms.
 Gamma[i,j] = exp(g_cu[i] - g_cu[j])
@@ -516,3 +517,4 @@ Int32(148),
 stream,
 options="--enable-tvm-ffi",
 )
+```

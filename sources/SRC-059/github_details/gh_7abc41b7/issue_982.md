@@ -119,12 +119,14 @@ FastDeploy只支持paddle格式的模型，检查下是否使用FastDeploy加载
 https://www.modelscope.cn/models/PaddlePaddle/ERNIE-4.5-VL-28B-A3B-Paddle/file/view/master/README.md?status=1
 模型在这个链接下载的，模型是paddle格式的
 
+```python
 test_fastdeploy.py 测试代码
 import os
 os.environ["OMP_NUM_THREADS"] = "1"  # 解决OpenBLAS警告
 
 import fastdeploy as fd
 import paddle
+```
 
 print("="*50)
 print("验证FastDeploy安装:")
@@ -138,11 +140,13 @@ except Exception as e:
     print(f"FastDeploy验证失败: {str(e)}")
 
 print("\n" + "="*50)
+```python
 print("验证PaddlePaddle安装:")
 try:
     print(f"Paddle版本: {paddle.__version__}")
     print(f"可用GPU数量: {paddle.device.cuda.device_count()}")
     print(f"当前设备: {paddle.device.get_device()}")
+```
 except Exception as e:
     print(f"Paddle验证失败: {str(e)}")
 
@@ -165,6 +169,7 @@ Version: 2.0.0
 Summary: FastDeploy: Large Language Model Serving.
 Home-page: https://github.com/PaddlePaddle/FastDeploy
 Author: PaddlePaddle
+```yaml
 Author-email: dltp@baidu.com
 License: Apache 2.0
 Location: /root/miniconda3/lib/python3.12/site-packages
@@ -173,14 +178,17 @@ Required-by:
 root@autodl-container-304c4b8481-d9846cb0:~/autodl-tmp# pip show fastdeploy-gpu
 Name: fastdeploy-gpu
 Version: 2.0.0
+```
 Summary: FastDeploy: Large Language Model Serving.
 Home-page: https://github.com/PaddlePaddle/FastDeploy
 Author: PaddlePaddle
+```yaml
 Author-email: dltp@baidu.com
 License: Apache 2.0
 Location: /root/miniconda3/lib/python3.12/site-packages
 Requires: aiozmq, crcmod, cupy-cuda12x, decord, etcd3, fastapi, flake8, gradio, httpx, moviepy, openai, paddleformers, pre-commit, prometheus-client, pybind11, pynvml, redis, ruamel.yaml, setuptools, setuptools-scm, tabulate, tool_helpers, tqdm, triton, use-triton-in-paddle, uvicorn, visualdl, xlwt, yapf, zmq
 Required-by: 
+```
 
 ### ming1753 · 2025-07-08
 

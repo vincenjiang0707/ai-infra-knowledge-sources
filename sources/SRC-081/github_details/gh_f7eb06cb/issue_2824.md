@@ -58,8 +58,10 @@ Sat Apr 25 00:21:28 2026
 ```
 **Software Info**
 
+```bash
 NAME="Red Hat Enterprise Linux"VERSION="8.10 (Ootpa)"
 python 3.10
+```
 
 Show output of:
 ```
@@ -143,6 +145,7 @@ Required-by: torch
   "pad_token_id": null,
   "pretraining_tp": 1,
   "quantization_config": {
+```json
     "act_group_aware": true,
     "backend": "auto",
     "batch_size": 1,
@@ -170,6 +173,7 @@ Required-by: torch
     "sym": true,
     "tokenizer": null,
     "true_sequential": true
+```
   },
   "rms_norm_eps": 1e-05,
   "rope_parameters": {

@@ -187,8 +187,10 @@ Status code of the operation: OK(0) for success.
 
 
 -
+```rust
 struct ov_compiled_model_t
 [#](https://docs.openvino.ai#_CPPv419ov_compiled_model_t) *#include <ov_compiled_model.h>*type define
+```
 
 [ov_compiled_model_t](https://docs.openvino.ai#structov__compiled__model__t)from ov_compiled_model
 

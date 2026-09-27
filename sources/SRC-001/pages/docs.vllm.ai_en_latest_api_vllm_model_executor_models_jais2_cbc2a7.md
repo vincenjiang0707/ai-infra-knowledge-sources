@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/jais2/
 lastmod: 2026-09-27
 
+```python
 class Jais2DecoderLayer(nn.Module):
 def __init__(
 self,
@@ -74,3 +75,4 @@ return hidden_states, residual
 def get_quant_config(self, vllm_config: VllmConfig) -> QuantizationConfig | None:
 """Get quantization config for this layer. Override in subclasses."""
 return vllm_config.quant_config
+```

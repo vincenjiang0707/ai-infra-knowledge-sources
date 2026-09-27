@@ -1,13 +1,16 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v41/quant_config/
 lastmod: 2026-09-27
 
+```python
 class DeepseekV4FP8Config(Fp8Config):
 """FP8 config for DeepSeek V4 with expert-dtype-aware MoE dispatch.
 DeepSeek V4 checkpoints always use FP8 block quantization for
 linear/attention layers. The MoE expert weights vary by checkpoint:
+```
 - ``expert_dtype="fp4"`` (e.g. DeepSeek-V4-Flash): MXFP4 experts
 with ue8m0 (e8m0fnu) FP8 linear scales.
 - ``expert_dtype="fp8"`` (e.g. DeepSeek-V4-Flash-Base): FP8 block
+```python
 experts with float32 FP8 linear scales.
 The dispatch and the linear scale dtype are both keyed off
 ``expert_dtype`` from the model's hf_config; missing values default
@@ -182,3 +185,4 @@ return Mxfp4MoEMethod(layer.moe_config)
 # expert_dtype == "fp8": fall through to Fp8Config which
 # returns Fp8MoEMethod with block-wise float32 scales.
 return super().get_quant_method(layer, prefix)
+```

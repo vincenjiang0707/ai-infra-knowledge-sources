@@ -7,6 +7,7 @@ labels:
 ## 正文
 
 python -m fastdeploy.entrypoints.openai.api_server \
+```bash
        --model baidu/ERNIE-4.5-VL-28B-A3B-Paddle \
        --port 8180 \
        --metrics-port 8181 \
@@ -15,6 +16,7 @@ python -m fastdeploy.entrypoints.openai.api_server \
        --enable-mm \
        --reasoning-parser ernie-45-vl \
        --max-num-seqs 32
+```
 设置了  --max-num-seqs 32， 多个大模型请求访问8180端口的时候大模型还是串行处理的，并没有实现并发处理。
 
 ## 评论 (2)

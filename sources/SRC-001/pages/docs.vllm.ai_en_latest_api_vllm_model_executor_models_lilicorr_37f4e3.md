@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/lilicorr/
 lastmod: 2026-09-27
 
+```python
 @support_torch_compile
 class LiLiCorrHead(nn.Module):
 num_candidate_features = 5
@@ -298,3 +299,4 @@ pairs = self.logit_scale * pairs.float()
 # The shared walk starts at predecessor index zero; all first rows agree.
 first = start[:, None, None, :].expand(-1, 1, self.candidate_topk, -1)
 return torch.cat((first, pairs), dim=1)
+```

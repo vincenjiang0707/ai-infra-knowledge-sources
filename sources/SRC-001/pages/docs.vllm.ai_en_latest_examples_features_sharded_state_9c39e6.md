@@ -83,6 +83,7 @@ main()
 ## Save Sharded State Offline[¶](https://docs.vllm.ai#save-sharded-state-offline)
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """Saves each worker's model state dict directly to a checkpoint, which enables a
 fast load path for large tensor-parallel models where each worker only needs to
@@ -151,3 +152,4 @@ shutil.copy(os.path.join(model_path, file), args.output)
 if __name__ == "__main__":
 args = parse_args()
 main(args)
+```

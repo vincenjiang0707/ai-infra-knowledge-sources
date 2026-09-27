@@ -108,6 +108,7 @@ main(args)
 ## Watermark Detection Server[¶](https://docs.vllm.ai#watermark-detection-server)
 
 # SPDX-License-Identifier: Apache-2.0
+```python
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 """Minimal reference server for watermark detection."""
 import argparse
@@ -160,3 +161,4 @@ prf=args.prf,
 uvicorn.run(app, host=args.host, port=args.port)
 if __name__ == "__main__":
 main(parse_args())
+```

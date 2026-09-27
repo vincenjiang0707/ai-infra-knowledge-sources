@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v4::SoftPlus[#](https://docs.openvino.ai#class-ov-op-v4-softplus)
 
 -
+```python
 class SoftPlus : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v48SoftPlusE) A Self Regularized Non-Monotonic Neural Activation Function f(x) = ln(exp(x) + 1.)
+```
 
 Public Functions
 

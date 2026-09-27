@@ -4,8 +4,10 @@ lastmod:
 # Class ov::FusedNames[#](https://docs.openvino.ai#class-ov-fusednames)
 
 -
+```python
 class FusedNames : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[RuntimeAttribute](https://docs.openvino.ai/classov_1_1_runtime_attribute.html#_CPPv4N2ov16RuntimeAttributeE)[#](https://docs.openvino.ai#_CPPv4N2ov10FusedNamesE) FusedName class represents runtime info attribute that stores all operation names that was fully or partially fused into node.
+```
 
 Public Functions
 

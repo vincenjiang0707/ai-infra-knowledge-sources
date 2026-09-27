@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/conformer_encoder/
 lastmod: 2026-09-27
 
+```python
 class ConformerEncoder(nn.Module):
 """Conformer encoder used by FireRedASR2."""
 def __init__(
@@ -52,3 +53,4 @@ N, T = padded_input.size()[:2]
 positions = torch.arange(T, device=padded_input.device).unsqueeze(0)
 mask = (positions < input_lengths.unsqueeze(1)).to(torch.uint8)
 return mask.unsqueeze(1)
+```

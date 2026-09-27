@@ -86,9 +86,11 @@ Use context-specific encoding libraries to help ensure secure rendering.
 
 *Code example: Secure output encoding in JavaScript *
 
+```js
 *const userInput = "<script>alert('XSS');</script>";
 const encodedInput = encodeURIComponent(userInput);
 console.log(encodedInput); // Outputs: %3Cscript%3Ealert('XSS')%3C%2Fscript%3E*
+```
 
 **Use of security libraries and frameworks with integrated protection:** Make sure your security libraries and frameworks offer pre-built protection against XSS attacks to automate input validation and output encoding, diminishing the risk of vulnerabilities.
 

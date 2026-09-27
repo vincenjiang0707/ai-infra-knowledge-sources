@@ -269,8 +269,10 @@ Follow-up fixes: ROCm intrinsic resolution ([#2779](https://github.com/tile-ai/t
 
 **Legacy DLPack execution backend removed**([#2816](https://github.com/tile-ai/tilelang/pull/2816)).**Intrinsic compatibility facade removed**([#2812](https://github.com/tile-ai/tilelang/pull/2812)).(`tilelang.common`
 
+```go
 package removed[#2810](https://github.com/tile-ai/tilelang/pull/2810)).**Carver shape-inference module removed**([#2813](https://github.com/tile-ai/tilelang/pull/2813)).- Example-only helpers moved out of the
 `tilelang`
+```
 
 package ([#2761](https://github.com/tile-ai/tilelang/pull/2761)).
 
@@ -351,8 +353,10 @@ with`BufferRegion`
 
 destinations ([#2753](https://github.com/tile-ai/tilelang/pull/2753)), and HIP vector atomic add ([#2712](https://github.com/tile-ai/tilelang/pull/2712)).`T.atomic_addx4`
 
+```python
 return type guarded for sliced destinations ([#2590](https://github.com/tile-ai/tilelang/pull/2590)).- Atomic load/store implemented for HIP (
 [#2711](https://github.com/tile-ai/tilelang/pull/2711)); invalid atomic memory orders rejected ([#2666](https://github.com/tile-ai/tilelang/pull/2666)); CUDA consume ordering mapped to acquire PTX ([#2713](https://github.com/tile-ai/tilelang/pull/2713)). - TMA atomic-add layout validation refactored (
+```
 ) and unsupported dtypes rejected (`e0f0ac9`[#2830](https://github.com/tile-ai/tilelang/pull/2830)).
 
 ### Numerics, vectors & dtypes

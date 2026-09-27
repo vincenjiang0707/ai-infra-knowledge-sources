@@ -177,8 +177,10 @@ Mark prompt processing complete:
 
 Returns `200`
 
+```python
 for an active request. Repeated completion is a no-op. Unknown requests
 return `404`
+```
 
 .
 

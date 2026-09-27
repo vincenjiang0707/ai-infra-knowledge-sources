@@ -35,6 +35,7 @@ Here is an example of how to quantize `meta-llama/Llama-3.2-1B-Instruct`
 
 ## Code
 
+```python
 from datasets import load_dataset
 from gptqmodel import GPTQModel, QuantizeConfig
 model_id = "meta-llama/Llama-3.2-1B-Instruct"
@@ -49,14 +50,17 @@ model = GPTQModel.load(model_id, quant_config)
 # increase `batch_size` to match gpu/vram specs to speed up quantization
 model.quantize(calibration_dataset, batch_size=2)
 model.save(quant_path)
+```
 
 
 ## Running a quantized model with vLLM[¶](https://docs.vllm.ai#running-a-quantized-model-with-vllm)
 
 To run a GPTQModel quantized model with vLLM, you can use [DeepSeek-R1-Distill-Qwen-7B-gptqmodel-4bit-vortex-v2](https://huggingface.co/ModelCloud/DeepSeek-R1-Distill-Qwen-7B-gptqmodel-4bit-vortex-v2) with the following command:
 
+```bash
 python examples/deployment/llm_engine_example.py \
 --model ModelCloud/DeepSeek-R1-Distill-Qwen-7B-gptqmodel-4bit-vortex-v2
+```
 
 
 ## Using GPTQModel with vLLM's Python API[¶](https://docs.vllm.ai#using-gptqmodel-with-vllms-python-api)
@@ -65,6 +69,7 @@ GPTQModel quantized models are also supported directly through the LLM entrypoin
 
 ## Code
 
+```python
 from vllm import LLM, SamplingParams
 # Sample prompts.
 prompts = [
@@ -87,3 +92,4 @@ prompt = output.prompt
 generated_text = output.outputs[0].text
 print(f"Prompt: {prompt!r}\nGenerated text: {generated_text!r}")
 print("-"*50)
+```

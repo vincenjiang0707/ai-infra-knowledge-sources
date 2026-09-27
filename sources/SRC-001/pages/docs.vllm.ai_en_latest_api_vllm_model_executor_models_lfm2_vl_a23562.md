@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/lfm2_vl/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 Lfm2VLMultiModalProcessor,
 info=Lfm2VLProcessingInfo,
@@ -48,6 +49,7 @@ Args:
 vllm_config: vLLM config
 Returns:
 Tuple containing:
+```
 - conv_state_shape: Shape for convolutional state cache
 """
 parallel_config = vllm_config.parallel_config

@@ -4,8 +4,10 @@ lastmod:
 # Class ov::ISyncInferRequest[#](https://docs.openvino.ai#class-ov-isyncinferrequest)
 
 -
+```python
 class ISyncInferRequest : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[IInferRequest](https://docs.openvino.ai/classov_1_1_i_infer_request.html#_CPPv4N2ov13IInferRequestE)[#](https://docs.openvino.ai#_CPPv4N2ov17ISyncInferRequestE) Interface for syncronous infer request.
+```
 
 Public Functions
 
@@ -89,8 +91,10 @@ vector of output ports
 
 
 -
+```
 virtual const std::shared_ptr<const
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[ICompiledModel](https://docs.openvino.ai/classov_1_1_i_compiled_model.html#_CPPv4N2ov14ICompiledModelE)> &get_compiled_model() const override[#](https://docs.openvino.ai#_CPPv4NK2ov17ISyncInferRequest18get_compiled_modelEv) Gets pointer to compiled model (usually synchronous request holds the compiled model)
+```
 
 - Returns:
 Pointer to the compiled model

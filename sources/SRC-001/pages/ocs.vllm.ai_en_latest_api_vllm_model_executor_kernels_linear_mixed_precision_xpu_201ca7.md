@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mixed_precision/xpu/
 lastmod: 2026-09-27
 
+```python
 class XPUW4A8IntLinearKernel(MPLinearKernel):
 """XPU kernel for W4A8 integer quantization using oneDNN int4_gemm_w4a8.
 Weights are symmetric group-quantized int4 packed as uint4.
@@ -92,3 +93,4 @@ None, # Retained by the external XPU op ABI.
 bias,
 )
 return out.to(x.dtype)
+```

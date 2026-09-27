@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp8/deep_gemm/
 lastmod: 2026-09-27
 
+```python
 class DeepGemmMxfp8BmmLinearKernel(Mxfp8LinearKernel):
 """Grouped MXFP8 einsum with per-row, 32-element weight scales."""
 def __init__(self, config: Mxfp8LinearLayerConfig):
@@ -63,3 +64,4 @@ q_input, input_scale, layer.weight, layer.weight_scale, list(self.recipe)
 if bias is not None:
 output = output + bias.view(output.shape[1:])
 return output
+```

@@ -434,6 +434,7 @@ Starting from KubeRay v1.7 and Ray 2.57.0, an embedded [ RocksDB](https://rocksd
 
 to keep the data after the cluster is deleted so that a new cluster can recover from it, or use `claimName`
 
+```yaml
 to bring your own PVC.```
 apiVersion: ray.io/v1
 kind: RayCluster
@@ -446,6 +447,7 @@ storage:
 size: 1Gi
 # deletionPolicy: Retain # keep the data after the cluster is deleted
 # claimName: my-gcs-pvc # or bring your own PVC
+```
 ```
 
 

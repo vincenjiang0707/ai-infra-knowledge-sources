@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/compute-sanitizer/api/struct_sanitizer___resourc
 # Sanitizer_ResourceMempoolData[#](https://docs.nvidia.com#sanitizer-resourcemempooldata)
 
 -
+```rust
 struct Sanitizer_ResourceMempoolData
 [#](https://docs.nvidia.com#_CPPv429Sanitizer_ResourceMempoolData) Data passed into a mempool resource callback function.
+```
 
 Data passed into a mempool resource callback function as the
 

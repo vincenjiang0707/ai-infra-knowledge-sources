@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/fallback/
 lastmod: 2026-09-27
 
+```python
 class FallbackExperts(mk.FusedMoEExpertsModular, ABC):
 """Base class for runtime dispatching of expert implementations."""
 def __init__(
@@ -142,3 +143,4 @@ workspace2,
 expert_tokens_meta,
 apply_router_weight_on_input,
 )
+```

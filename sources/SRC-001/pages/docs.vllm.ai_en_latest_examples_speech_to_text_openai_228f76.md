@@ -21,6 +21,7 @@ The script performs:
 1. Synchronous transcription using OpenAI-compatible API.
 2. Streaming transcription using raw HTTP request to the vLLM server.
 """
+```python
 import argparse
 import asyncio
 from openai import AsyncOpenAI, OpenAI
@@ -197,6 +198,7 @@ help=(
 )
 args = parser.parse_args()
 main(args)
+```
 
 
 ## OpenAI Translation Client[¶](https://docs.vllm.ai#openai-translation-client)

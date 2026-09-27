@@ -7,10 +7,12 @@ labels:
 ## 正文
 
 python llm-awq/tinychat/nvila_demo.py --model-path VILA/NVILA-8B       \
+```bash
     --quant_path quant_cache/NVILA-w4-g128-awq-v2.pt      \
     --media drowsy_video1.mp4    \
     --act_scale_path awq_cache/NVILA-VT-smooth-scale.pt \
     --quant_llm --chunk --model_type nvila
+```
 I'm facing this issue while running the inference for nvila model
 
 RuntimeError: The expanded size of the tensor (2048) must match the existing size (2080) at non-singleton dimension 2.  Target sizes: [1, 4, 2048, 128].  Tensor sizes: [4, 2080, 128]

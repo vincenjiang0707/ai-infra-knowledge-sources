@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v9::ROIAlign[#](https://docs.openvino.ai#class-ov-op-v9-roialign)
 
 -
+```python
 class ROIAlign : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ROIAlignBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_r_o_i_align_base.html#_CPPv4N2ov2op4util12ROIAlignBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v98ROIAlignE) Public Functions
+```
 
 -
 ROIAlign(const

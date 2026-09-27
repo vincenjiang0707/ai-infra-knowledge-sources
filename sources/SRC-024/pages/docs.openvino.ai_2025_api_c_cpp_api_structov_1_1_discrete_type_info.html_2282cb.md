@@ -4,8 +4,10 @@ lastmod:
 # Struct ov::DiscreteTypeInfo[#](https://docs.openvino.ai#struct-ov-discretetypeinfo)
 
 -
+```rust
 struct DiscreteTypeInfo
 [#](https://docs.openvino.ai#_CPPv4N2ov16DiscreteTypeInfoE) Type information for a type system without inheritance; instances have exactly one type not related to any other type.
+```
 
 Supports three functions,
 

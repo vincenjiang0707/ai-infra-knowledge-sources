@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/scale_out/render/serving/
 lastmod: 2026-09-27
 
+```python
 class ServingRender(BaseServing):
 def __init__(
 self,
@@ -235,3 +236,4 @@ return extract_mm_features(
 engine_input,
 metadata_fields_for=self._placeholder_metadata_fields,
 )
+```

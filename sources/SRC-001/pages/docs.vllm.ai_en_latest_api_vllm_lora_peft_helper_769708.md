@@ -15,6 +15,7 @@ Methods:
 
 
 | @dataclass
+```python
 class PEFTHelper:
 """A helper class for PEFT configurations, specifically designed for LoRA.
 This class handles configuration validation, compatibility checks for
@@ -118,6 +119,7 @@ error_msg.append("Adapter bias is not supported.")
 if error_msg:
 raise ValueError(f"{' '.join(error_msg)}")
 |
+```
 
 ###
 

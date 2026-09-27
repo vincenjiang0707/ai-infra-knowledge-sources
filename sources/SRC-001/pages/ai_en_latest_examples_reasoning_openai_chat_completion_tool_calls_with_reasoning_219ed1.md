@@ -14,6 +14,7 @@ vllm serve Qwen/QwQ-32B \
 --enable-auto-tool-choice --tool-call-parser hermes
 ```
 """
+```python
 from openai import OpenAI
 # Now, simulate a tool call
 def get_current_weather(city: str, state: str, unit: "str"):
@@ -139,3 +140,4 @@ print(f"function arguments: {arguments[0]}")
 print("\n\n")
 if __name__ == "__main__":
 main()
+```

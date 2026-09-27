@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/nemotron_h/
 lastmod: 2026-09-27
 
+```python
 class NemotronHForCausalLM(
 nn.Module,
 HasInnerState,
@@ -66,6 +67,7 @@ Args:
 vllm_config: vLLM config
 Returns:
 Tuple containing:
+```
 - conv_state_shape: Shape for convolutional state cache
 - temporal_state_shape: Shape for state space model cache
 - x_cache/dt_cache/B_cache ring-buffer shapes (use_replayssm only)

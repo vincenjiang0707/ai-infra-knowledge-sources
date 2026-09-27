@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/deepseek_v4/compressor/
 lastmod: 2026-09-27
 
+```python
 class DeepseekCompressor(nn.Module):
 """DeepSeek V4 KV/score compressor.
 Owns the linear / norm / state-cache / ape state and the shared forward
@@ -277,3 +278,4 @@ token_stride=self._token_stride,
 scale_dim=self._scale_dim,
 **extra_kwargs,
 )
+```

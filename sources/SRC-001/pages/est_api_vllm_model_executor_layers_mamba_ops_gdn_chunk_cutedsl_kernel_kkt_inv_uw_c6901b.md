@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/ops/gdn_chunk_cutedsl/kernel_kkt_inv_uw/
 lastmod: 2026-09-27
 
+```python
 class Sm100ChunkUWKernel:
 """Compute per-chunk KKT inverse preprocessing and U/W tiles.
 Gamma[i,j] = exp(g_cu[i] - g_cu[j])
@@ -762,3 +763,4 @@ Int32(148),
 stream,
 options="--enable-tvm-ffi",
 )
+```

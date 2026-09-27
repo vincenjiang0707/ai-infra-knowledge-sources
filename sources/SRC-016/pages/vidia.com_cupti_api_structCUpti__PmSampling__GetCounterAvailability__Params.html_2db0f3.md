@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__PmSampling__GetCounterAva
 # 7.160. CUpti_PmSampling_GetCounterAvailability_Params[#](https://docs.nvidia.com#cupti-pmsampling-getcounteravailability-params)
 
 -
+```rust
 struct CUpti_PmSampling_GetCounterAvailability_Params
 [#](https://docs.nvidia.com#_CPPv446CUpti_PmSampling_GetCounterAvailability_Params) Params for cuptiPmSamplingGetCounterData.
+```
 
 Public Members
 

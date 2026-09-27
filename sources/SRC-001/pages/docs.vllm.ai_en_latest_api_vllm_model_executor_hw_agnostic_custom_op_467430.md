@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/hw_agnostic/custom_op/
 lastmod: 2026-09-27
 
+```python
 class CustomOp(nn.Module):
 """Base class for custom ops.
 Dispatches the forward method to the appropriate backend.
@@ -185,3 +186,4 @@ return decorator(_decorated_op_cls)
 else:
 # Handle other unexpected cases if necessary
 raise TypeError("Decorator can only be applied to classes.")
+```

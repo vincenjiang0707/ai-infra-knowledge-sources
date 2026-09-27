@@ -4,8 +4,10 @@ lastmod:
 # Class ov::reference::GetOriginalCoordinate[#](https://docs.openvino.ai#class-ov-reference-getoriginalcoordinate)
 
 -
+```python
 class GetOriginalCoordinate
 [#](https://docs.openvino.ai#_CPPv4N2ov9reference21GetOriginalCoordinateE) Calculation of the source coordinate using the resized coordinate.
+```
 
 Public Functions
 

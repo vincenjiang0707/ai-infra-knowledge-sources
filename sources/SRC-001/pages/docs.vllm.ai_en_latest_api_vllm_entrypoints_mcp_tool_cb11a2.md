@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/mcp/tool/
 lastmod: 2026-09-27
 
+```python
 class HarmonyPythonTool(Tool):
 def __init__(self):
 self.enabled = True
@@ -76,3 +77,4 @@ return tool_output_msgs
 @property
 def tool_config(self) -> Any:
 return self.python_tool.tool_config
+```

@@ -5,10 +5,12 @@ lastmod: 2026-09-26T16:50:12.551Z
 
 Language-by-language public surface for Dynamo, discovered from the source tree
 
+```python
 The API Reference is a machine-generated view of Dynamo’s public surface, kept
 honest by static analysis of the source tree. Each module page lists every
 class and function, expands into per-symbol signatures and public methods,
 and deep-links to the exact file and line on `main`
+```
 
 .
 

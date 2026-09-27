@@ -13,9 +13,11 @@ Found this issue in FlashInfer CI.
 Test case: tests/attention/test_cute_dsl_hca_dsv4.py
 FlashInfer commit: https://github.com/flashinfer-ai/flashinfer/commit/f363ec4e06f0cb112a1815d86c25ef3d529a49ec
 Pipeline: [pipeline](https://nv/flashinfer-ci/-/pipelines/61492812)
+```yaml
 Job name(s): unit_test_b300: [cu130], [cu129]
 Branch: release-v0.6.18
 Environment: b300
+```
 
 ### Failed Jobs
 [unit_test_b300](https://nv/flashinfer-ci/-/jobs/388041914): b300 / cu129

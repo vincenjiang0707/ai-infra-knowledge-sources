@@ -32,6 +32,7 @@ Load your model and tokenizer using the standard `transformers`
 
 AutoModel classes:
 
+```python
 from transformers import AutoTokenizer, AutoModelForCausalLM
 MODEL_ID = "meta-llama/Meta-Llama-3-8B-Instruct"
 model = AutoModelForCausalLM.from_pretrained(
@@ -39,6 +40,7 @@ MODEL_ID,
 dtype="auto",
 )
 tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
+```
 
 
 ### 2. Preparing Calibration Data[¶](https://docs.vllm.ai#2-preparing-calibration-data)
@@ -47,6 +49,7 @@ When quantizing activations to INT8 and weights to INT4, you need sample data to
 
 :
 
+```python
 from datasets import load_dataset
 NUM_CALIBRATION_SAMPLES = 512
 MAX_SEQUENCE_LENGTH = 2048
@@ -59,6 +62,7 @@ ds = ds.map(preprocess)
 def tokenize(sample):
 return tokenizer(sample["text"], padding=False, max_length=MAX_SEQUENCE_LENGTH, truncation=True, add_special_tokens=False)
 ds = ds.map(tokenize, remove_columns=ds.column_names)
+```
 
 
 ### 3. Applying Quantization[¶](https://docs.vllm.ai#3-applying-quantization)
@@ -69,6 +73,7 @@ The following recipes create W4A8 models (int4 weights, int8 activations). On Ar
 
 Use groupwise for best accuracy, and channelwise for best inference performance.
 
+```python
 from llmcompressor import oneshot
 from llmcompressor.modifiers.quantization import GPTQModifier
 # Configure the quantization algorithms
@@ -136,6 +141,7 @@ num_calibration_samples=NUM_CALIBRATION_SAMPLES,
 SAVE_DIR = MODEL_ID.split("/")[1] + "-W4A8-Channelwise-Dynamic-Per-Token"
 model.save_pretrained(SAVE_DIR, save_compressed=True)
 tokenizer.save_pretrained(SAVE_DIR)
+```
 
 
 ### 4. Evaluating Accuracy[¶](https://docs.vllm.ai#4-evaluating-accuracy)

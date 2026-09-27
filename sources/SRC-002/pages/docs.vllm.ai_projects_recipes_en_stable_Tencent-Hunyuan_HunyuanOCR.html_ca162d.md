@@ -13,6 +13,7 @@ lastmod: 2026-04-27
 
 ## Querying with OpenAI API Client[¶](https://docs.vllm.ai#querying-with-openai-api-client)
 
+```python
 from openai import OpenAI
 client = OpenAI(
 api_key="EMPTY",
@@ -53,6 +54,7 @@ extra_body={
 },
 )
 print(f"Generated text: {response.choices[0].message.content}")
+```
 
 
 ## Configuration Tips[¶](https://docs.vllm.ai#configuration-tips)

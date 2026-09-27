@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/amd/latent_moe_runner/
 lastmod: 2026-09-27
 
+```python
 class ROCmLatentMoERunner(MoERunner):
 """MoE runner for latent MoE with a replicated routed up-projection.
 Mirrors CUDA's LatentMoERunner, but currently only the up projection
@@ -117,3 +118,4 @@ result = self._shard_up_proj_tail(
 fused_output, shared_output, og_hidden_dim_post_xform
 )
 return self._maybe_add_zero_expert_output(result)
+```

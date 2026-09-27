@@ -4,8 +4,10 @@ lastmod:
 # Class ov::Any[#](https://docs.openvino.ai#class-ov-any)
 
 -
+```python
 class Any
 [#](https://docs.openvino.ai#_CPPv4N2ov3AnyE) This class represents an object to work with different types.
+```
 
 Public Functions
 
@@ -62,8 +64,10 @@ Any(const std::nullptr_t)
 
 
 -
+```rust
 const std::type_info &type_info() const
 [#](https://docs.openvino.ai#_CPPv4NK2ov3Any9type_infoEv) Returns type info
+```
 
 - Returns:
 type info

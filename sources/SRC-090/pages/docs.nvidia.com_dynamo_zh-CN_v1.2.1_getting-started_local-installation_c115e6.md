@@ -24,8 +24,10 @@ To run frontend and worker in the same container, either:
 - Run processes in background with
 `&`
 
+```
 (see Run Dynamo section below), or - Open a second terminal and use
 `docker exec -it <container_id> bash`
+```
 
 
 See [Release Artifacts](https://docs.nvidia.com/dynamo/v1.2.1/resources/release-artifacts#container-images) for available

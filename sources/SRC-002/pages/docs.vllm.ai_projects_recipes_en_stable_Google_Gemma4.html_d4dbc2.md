@@ -47,18 +47,22 @@ uv pip install -U vllm --pre \
 
 **Note:** The vLLM nightly wheel for ROCm requires Python 3.12, ROCm 7.2.1, glibc ≥ 2.35 (Ubuntu 22.04+)
 
+```bash
 uv venv --python 3.12
 source .venv/bin/activate
 uv pip install vllm --pre \
 --extra-index-url https://wheels.vllm.ai/rocm/nightly/rocm721 --upgrade
+```
 
 
 ### Docker[¶](https://docs.vllm.ai#docker)
 
+```bash
 docker pull vllm/vllm-openai:gemma4 # For CUDA 12.9
 docker pull vllm/vllm-openai:gemma4-cu130 # For CUDA 13.0
 docker pull vllm/vllm-openai-rocm:gemma4 # For AMD GPUs
 docker pull vllm/vllm-tpu:gemma4 # For Cloud TPUs
+```
 
 
 ## Running Gemma 4[¶](https://docs.vllm.ai#running-gemma-4)
@@ -162,6 +166,7 @@ for better overall throughput by overlapping scheduling with decoding.
 
 ### Online Serving (OpenAI SDK)[¶](https://docs.vllm.ai#online-serving-openai-sdk)
 
+```python
 from openai import OpenAI
 client = OpenAI(
 base_url="http://localhost:8000/v1",
@@ -176,6 +181,7 @@ max_tokens=512,
 temperature=0.7
 )
 print(response.choices[0].message.content)
+```
 
 
 ### Online Serving (cURL)[¶](https://docs.vllm.ai#online-serving-curl)
@@ -196,6 +202,7 @@ curl http://localhost:8000/v1/chat/completions \
 
 ### Offline Inference[¶](https://docs.vllm.ai#offline-inference)
 
+```python
 from vllm import LLM, SamplingParams
 from transformers import AutoTokenizer
 model_path = "google/gemma-4-31B-it"
@@ -213,6 +220,7 @@ messages = [
 prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
 outputs = llm.generate(prompt, SamplingParams(temperature=0.0, max_tokens=1024))
 print(outputs[0].outputs[0].text)
+```
 
 
 ## Image Understanding[¶](https://docs.vllm.ai#image-understanding)
@@ -221,6 +229,7 @@ Gemma 4 natively understands images via its custom vision encoder with configura
 
 ### Single Image (OpenAI SDK)[¶](https://docs.vllm.ai#single-image-openai-sdk)
 
+```python
 from openai import OpenAI
 client = OpenAI(
 base_url="http://localhost:8000/v1",
@@ -246,10 +255,12 @@ messages=[
 max_tokens=1024
 )
 print(response.choices[0].message.content)
+```
 
 
 ### Multiple Images[¶](https://docs.vllm.ai#multiple-images)
 
+```
 response = client.chat.completions.create(
 model="google/gemma-4-31B-it",
 messages=[
@@ -273,6 +284,7 @@ messages=[
 ],
 max_tokens=1024
 )
+```
 
 
 ### Dynamic Vision Resolution[¶](https://docs.vllm.ai#dynamic-vision-resolution)
@@ -285,6 +297,7 @@ To configure the default at server launch:
 
 To override per-request (offline inference):
 
+```python
 from vllm import LLM, SamplingParams
 from PIL import Image
 from transformers import AutoProcessor
@@ -319,6 +332,7 @@ outputs = llm.generate(
 sampling_params=SamplingParams(temperature=0.0, max_tokens=512),
 )
 print(outputs[0].outputs[0].text)
+```
 
 
 ## Audio Understanding[¶](https://docs.vllm.ai#audio-understanding)
@@ -336,6 +350,7 @@ extras:`uv pip install "vllm[audio]"`
 
 ### Audio Transcription (OpenAI SDK)[¶](https://docs.vllm.ai#audio-transcription-openai-sdk)
 
+```python
 from openai import OpenAI
 client = OpenAI(
 base_url="http://localhost:8000/v1",
@@ -361,6 +376,7 @@ messages=[
 max_tokens=512
 )
 print(response.choices[0].message.content)
+```
 
 
 ### Audio Transcription (cURL)[¶](https://docs.vllm.ai#audio-transcription-curl)
@@ -392,6 +408,7 @@ Video understanding is supported via a custom processing pipeline (available in 
 
 ### Video Inference (OpenAI SDK Style)[¶](https://docs.vllm.ai#video-inference-openai-sdk-style)
 
+```python
 from openai import OpenAI
 client = OpenAI(
 base_url="http://localhost:8000/v1",
@@ -417,10 +434,12 @@ messages=[
 max_tokens=1024
 )
 print(response.choices[0].message.content)
+```
 
 
 ### Offline Inference (Video)[¶](https://docs.vllm.ai#offline-inference-video)
 
+```python
 from vllm import LLM, SamplingParams
 from vllm.multimodal.utils import fetch_video
 from transformers import AutoProcessor
@@ -447,6 +466,7 @@ outputs = llm.generate(
 sampling_params=SamplingParams(temperature=0.0, max_tokens=1024),
 )
 print(outputs[0].outputs[0].text)
+```
 
 
 ## Thinking / Reasoning Mode[¶](https://docs.vllm.ai#thinking-reasoning-mode)
@@ -477,6 +497,7 @@ to the above command.
 
 ### Thinking Mode (OpenAI SDK)[¶](https://docs.vllm.ai#thinking-mode-openai-sdk)
 
+```python
 from openai import OpenAI
 client = OpenAI(
 base_url="http://localhost:8000/v1",
@@ -499,6 +520,7 @@ print("=== Thinking ===")
 print(message.reasoning)
 print("\n=== Answer ===")
 print(message.content)
+```
 
 
 ### Thinking Mode (cURL)[¶](https://docs.vllm.ai#thinking-mode-curl)
@@ -553,6 +575,7 @@ vllm serve google/gemma-4-31B-it \
 
 ### Tool Calling (OpenAI SDK)[¶](https://docs.vllm.ai#tool-calling-openai-sdk)
 
+```python
 from openai import OpenAI
 import json
 client = OpenAI(
@@ -615,12 +638,14 @@ tools=tools,
 max_tokens=1024
 )
 print(f"\nFinal answer: {response.choices[0].message.content}")
+```
 
 
 ### Tool Calling with Thinking[¶](https://docs.vllm.ai#tool-calling-with-thinking)
 
 Gemma 4 can combine thinking mode with tool calling — the model reasons about which tool to use before making the call:
 
+```bash
 response = client.chat.completions.create(
 model="google/gemma-4-31B-it",
 messages=[
@@ -632,12 +657,14 @@ extra_body={
 "chat_template_kwargs": {"enable_thinking": True}
 }
 )
+```
 
 
 ## Multimodal + Tool Calling[¶](https://docs.vllm.ai#multimodal-tool-calling)
 
 Gemma 4 can combine vision understanding with tool calling — for example, identifying a city from an image and then looking up its weather:
 
+```bash
 response = client.chat.completions.create(
 model="google/gemma-4-31B-it",
 messages=[
@@ -658,6 +685,7 @@ messages=[
 tools=tools,
 max_tokens=1024
 )
+```
 
 
 ## Structured Outputs[¶](https://docs.vllm.ai#structured-outputs)
@@ -666,6 +694,7 @@ Gemma 4 supports structured output generation via vLLM's guided decoding engine,
 
 ### JSON Schema (OpenAI SDK)[¶](https://docs.vllm.ai#json-schema-openai-sdk)
 
+```python
 from openai import OpenAI
 client = OpenAI(
 base_url="http://localhost:8000/v1",
@@ -708,11 +737,13 @@ max_tokens=512
 import json
 data = json.loads(response.choices[0].message.content)
 print(data)
+```
 # {"city": "Paris", "country": "France", "population": 2161000, "landmarks": ["Eiffel Tower", "Louvre Museum", ...]}
 
 
 ### Pydantic Models (OpenAI SDK)[¶](https://docs.vllm.ai#pydantic-models-openai-sdk)
 
+```python
 from typing import Optional
 from pydantic import BaseModel, Field
 from openai import OpenAI
@@ -750,6 +781,7 @@ response_format={
 },
 max_tokens=256
 )
+```
 
 
 ⚠️
@@ -773,6 +805,7 @@ for structural enforcement.
 
 Structured outputs can be combined with thinking mode. The model reasons step-by-step before producing the constrained JSON output:
 
+```
 response = client.chat.completions.create(
 model="google/gemma-4-31B-it",
 messages=[
@@ -818,12 +851,14 @@ print("=== Thinking ===")
 print(message.reasoning)
 print("\n=== Structured Output ===")
 print(message.content)
+```
 
 
 ## Offline Inference (Multimodal)[¶](https://docs.vllm.ai#offline-inference-multimodal)
 
 For batch processing without a running server:
 
+```python
 from vllm import LLM, SamplingParams
 from PIL import Image
 from transformers import AutoProcessor
@@ -855,6 +890,7 @@ outputs = llm.generate(
 sampling_params=sampling_params,
 )
 print(outputs[0].outputs[0].text)
+```
 
 
 ## Benchmarking[¶](https://docs.vllm.ai#benchmarking)
@@ -876,6 +912,7 @@ vllm serve google/gemma-4-31B-it \
 ### Text Benchmark[¶](https://docs.vllm.ai#text-benchmark)
 
 # Prompt-heavy benchmark (8k input / 1k output)
+```bash
 vllm bench serve \
 --model google/gemma-4-31B-it \
 --dataset-name random \
@@ -884,6 +921,7 @@ vllm bench serve \
 --request-rate 10000 \
 --num-prompts 16 \
 --ignore-eos
+```
 
 
 ### Benchmark Configurations[¶](https://docs.vllm.ai#benchmark-configurations)

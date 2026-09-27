@@ -1,11 +1,14 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/fused_moe/experts/aiter_mxfp4_w4a8_moe/
 lastmod: 2026-09-27
 
+```python
 class AiterW4A8ExpertsMonolithic(mk.FusedMoEExpertsMonolithic):
 """Monolithic MXFP4 W4A8 expert using AITER triton kernels.
 This backend uses:
+```
 - aiter.ops.triton.moe_routing.routing for routing
 - aiter.ops.triton.moe_op_gemm_a8w4.moe_gemm_a8w4 for computation
+```python
 Weight format: MXFP4 weights with GFX950 swizzle
 Activation: Static FP8 quantization
 """
@@ -109,3 +112,4 @@ unpadded_K_w1=self.moe_config.hidden_dim_unpadded,
 unpadded_N_w2=self.moe_config.hidden_dim_unpadded,
 unpadded_K_w2=self.moe_config.intermediate_size_per_partition_unpadded,
 )
+```

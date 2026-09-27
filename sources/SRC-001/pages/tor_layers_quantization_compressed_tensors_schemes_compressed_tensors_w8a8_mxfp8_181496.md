@@ -1,15 +1,18 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/quantization/compressed_tensors/schemes/compressed_tensors_w8a8_mxfp8/
 lastmod: 2026-09-27
 
+```python
 class CompressedTensorsW8A8Mxfp8(CompressedTensorsScheme):
 """Compressed tensors scheme for MXFP8 quantization (W8A8).
 Loads pre-quantized MXFP8 weights from compressed-tensors checkpoints.
 Activations are dynamically quantized to MXFP8 at runtime.
 MXFP8 format:
+```
 - 8-bit float weights (E4M3) stored as float8_e4m3fn
 - Per-group E8M0 scales (uint8) with group_size=32
 - Activations dynamically quantized to MXFP8 during inference
 """
+```python
 @classmethod
 def get_min_capability(cls) -> int:
 return 75
@@ -59,3 +62,4 @@ x: torch.Tensor,
 bias: torch.Tensor | None = None,
 ) -> torch.Tensor:
 return self.kernel.apply_weights(layer, x, bias)
+```

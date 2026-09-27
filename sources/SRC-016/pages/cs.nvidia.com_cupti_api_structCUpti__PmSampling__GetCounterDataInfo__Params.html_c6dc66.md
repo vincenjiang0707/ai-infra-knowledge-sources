@@ -3,8 +3,10 @@ source: https://docs.nvidia.com/cupti/api/structCUpti__PmSampling__GetCounterDat
 # 7.161. CUpti_PmSampling_GetCounterDataInfo_Params[#](https://docs.nvidia.com#cupti-pmsampling-getcounterdatainfo-params)
 
 -
+```rust
 struct CUpti_PmSampling_GetCounterDataInfo_Params
 [#](https://docs.nvidia.com#_CPPv442CUpti_PmSampling_GetCounterDataInfo_Params) Params for cuptiPmSamplingGetCounterDataInfo.
+```
 
 Public Members
 

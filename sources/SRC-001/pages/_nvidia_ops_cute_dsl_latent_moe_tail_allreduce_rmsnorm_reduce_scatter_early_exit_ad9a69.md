@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/ops/cute_dsl/latent_moe_tail/allreduce_rmsnorm_reduce_scatter_early_exit/
 lastmod: 2026-09-24
 
+```python
 class AllReduceRMSNormWithReduceScatterEarlyExit:
 """One routed role plus one compact ReduceScatter role."""
 def __init__(
@@ -256,6 +257,7 @@ route_indices = cute.make_ptr(
 Int32,
 (
 expanded_idx_to_permuted_idx.iterator
+```
 + Int64(token) * self.top_k
 ).llvm_ptr,
 cute.AddressSpace.gmem,
@@ -432,6 +434,7 @@ cluster_sums.iterator
 + cluster_rank * self.warps
 + warp_idx
 )
+```python
 remote_slot = map_shared_to_peer(local_slot, lane)
 store_shared_cluster_f32(remote_slot, warp_sum)
 cute.arch.cluster_arrive()
@@ -449,6 +452,7 @@ else:
 for peer_warp in cutlass.range_constexpr(self.warps):
 full_sum = (
 full_sum
+```
 + cluster_sums[
 parity_offset + peer * self.warps + peer_warp
 ]

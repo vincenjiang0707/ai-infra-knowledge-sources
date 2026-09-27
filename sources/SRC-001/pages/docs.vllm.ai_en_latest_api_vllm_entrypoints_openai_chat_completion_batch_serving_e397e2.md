@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/entrypoints/openai/chat_completion/batch_serving/
 lastmod: 2026-09-27
 
+```python
 class OpenAIServingChatBatch(OpenAIServingChat):
 """Extends OpenAIServingChat with the /v1/chat/completions/batch endpoint.
 Processes N conversations from a single request concurrently and returns
@@ -266,3 +267,4 @@ choices=choices,
 usage=usage,
 system_fingerprint=self.system_fingerprint,
 )
+```

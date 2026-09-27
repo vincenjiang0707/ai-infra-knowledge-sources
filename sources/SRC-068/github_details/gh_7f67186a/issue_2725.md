@@ -18,11 +18,13 @@ Most of the difficulty encountered was not failure of the generated FlashAttenti
 After resolving these issues, FlashAttention-2 was operational on the RX 9060 XT.
 
 System
+```yaml
 GPU:          AMD Radeon RX 9060 XT 16 GB
 Architecture: gfx1200
 
 OS:           Linux / Docker
 Python:       3.13.14
+```
 
 PyTorch:      2.12.0+rocm7.14.0
 ROCm/HIP:     7.14.60850
@@ -48,11 +50,13 @@ Initial build
 
 FlashAttention was cloned from source and the CK backend built with:
 
+```
 git clone https://github.com/Dao-AILab/flash-attention.git
 cd flash-attention
 
 pip install ninja
 python setup.py install
+```
 
 The build correctly targeted:
 

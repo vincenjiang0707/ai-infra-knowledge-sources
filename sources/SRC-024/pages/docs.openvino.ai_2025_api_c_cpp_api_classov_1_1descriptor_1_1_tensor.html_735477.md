@@ -4,8 +4,10 @@ lastmod:
 # Class ov::descriptor::Tensor[#](https://docs.openvino.ai#class-ov-descriptor-tensor)
 
 -
+```python
 class Tensor
 [#](https://docs.openvino.ai#_CPPv4N2ov10descriptor6TensorE) Compile-time descriptor of a first-class value that is a tensor.
+```
 
 Public Functions
 
@@ -19,8 +21,10 @@ Tensor(const
 
 
 -
+```rust
 const std::string &get_any_name() const
 [#](https://docs.openvino.ai#_CPPv4NK2ov10descriptor6Tensor12get_any_nameEv) Gets any tensor name. Throws if tensor has no names.
+```
 
 
 -

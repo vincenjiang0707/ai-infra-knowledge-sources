@@ -8,9 +8,11 @@ labels:
 
 [PAPI ](https://github.com/icl-utk-edu/papi) will soon support rocprofiler-sdk as a component, and we will need a way to install rocprofiler-sdk via [spack](https://github.com/spack/spack).  To do this, I have been looking at using the release tar files for the installation, however the CMake configuration process does not work due to the reliance on git submodules for the external dependencies.  I think we need a way to turn off the use of submodules and provide the external dependencies explicitly.   Thoughts?
 
+```python
 @srekolam
 @renjithravindrankannath
 @afzpatel
+```
 
 ## 评论 (7)
 

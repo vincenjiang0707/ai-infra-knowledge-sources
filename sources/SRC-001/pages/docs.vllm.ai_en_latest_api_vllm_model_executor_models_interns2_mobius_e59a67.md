@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/interns2_mobius/
 lastmod: 2026-09-27
 
+```python
 class InternS2MobiusMetaMoeBlock(nn.Module):
 """A routed MoE bank shared by multiple decoder layers."""
 def __init__(self, *, vllm_config: VllmConfig, prefix: str = "") -> None:
@@ -63,3 +64,4 @@ final_hidden_states, 0
 )
 final_hidden_states = final_hidden_states[:num_tokens]
 return final_hidden_states.view(orig_shape)
+```

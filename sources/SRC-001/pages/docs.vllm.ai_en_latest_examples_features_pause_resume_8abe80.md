@@ -27,6 +27,7 @@ The test verifies pause works by:
 4. Resuming the server
 5. Verifying there was a gap in token generation matching the pause duration
 """
+```python
 import argparse
 import threading
 import time
@@ -111,6 +112,7 @@ else:
 print("Test failed! No tokens were generated after resuming.")
 if __name__ == "__main__":
 main()
+```
 
 
 ## Pause Resume Offline[¶](https://docs.vllm.ai#pause-resume-offline)

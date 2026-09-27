@@ -17,6 +17,7 @@ Set the key as an environment variable:
 
 Point the OpenAI client at the Crusoe endpoint:
 
+```python
 import os
 from openai import OpenAI
 client = OpenAI(
@@ -28,6 +29,7 @@ model="zai/GLM-5.2",
 messages=[{"role": "user", "content": "Hello, how are you?"}],
 )
 print(response.choices[0].message.content)
+```
 
 
 ## Verifying with curl[¶](https://docs.vllm.ai#verifying-with-curl)

@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/idefics3/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 Idefics3MultiModalProcessor,
 info=Idefics3ProcessingInfo,
@@ -280,3 +281,4 @@ del modality, mm_kwargs
 hf_config = self.config
 scale_factor = hf_config.scale_factor
 return num_mm_embeds * scale_factor**2, num_mm_embeds
+```

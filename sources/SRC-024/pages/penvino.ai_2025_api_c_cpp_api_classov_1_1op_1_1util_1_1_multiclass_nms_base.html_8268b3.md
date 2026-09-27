@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::MulticlassNmsBase[#](https://docs.openvino.ai#class-ov-op-util-multiclassnmsbase)
 
 -
+```python
 class MulticlassNmsBase : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util17MulticlassNmsBaseE) Base class for operations MulticlassNMS
+```
 
 [v8](https://docs.openvino.ai/group__ov__transformation__common__api.html#namespaceov_1_1op_1_1v8)and MulticlassNMS[v9](https://docs.openvino.ai/group__ov__transformation__common__api.html#namespaceov_1_1op_1_1v9).Subclassed by
 
@@ -32,8 +34,10 @@ inline const
 [MulticlassNmsBase](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1util_1_1_multiclass_nms_base).
 
 -
+```rust
 struct Attributes
 [#](https://docs.openvino.ai#_CPPv4N2ov2op4util17MulticlassNmsBase10AttributesE) Structure that specifies attributes of the operation.
+```
 
 
 -

@@ -12,12 +12,14 @@ Hello,
 
 Im trying to compile the rccl-6.1.0 and I receive this error. I configure with this line:
 cmake \
+```bash
     -Wno-dev \
     -D CMAKE_BUILD_TYPE=Release \
     -D CMAKE_CXX_COMPILER=/opt/rocm/bin/hipcc \
     -D CMAKE_INSTALL_PREFIX=/opt/rocm \
     -D BUILD_TESTS=OFF \
     -D HIP_CLANG_INCLUDE_PATH=/opt/rocm/llvm/include \
+```
 
 
 

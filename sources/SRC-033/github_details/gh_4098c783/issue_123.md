@@ -66,12 +66,14 @@ labels:
   ARG CONFIG_FOR_LCOV=0
 
   RUN if [ "$CONFIG_FOR_LCOV" = "1" ]; then \
+```bash
       mkdir -p /etc/yum.repos.d/backup && \
       mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup/ && \
       curl -o /etc/yum.repos.d/Centos7-aliyun.repo https://mirrors.wlnmp.com/centos/Centos7-aliyun-altarch.repo -k && \
       yum clean all && \
       yum makecache; \
       fi
+```
 
   位置：
 
@@ -106,12 +108,14 @@ labels:
   ARG CONFIG_FOR_LCOV=0
 
   RUN if [ "$CONFIG_FOR_LCOV" = "1" ]; then \
+```bash
       mkdir -p /etc/yum.repos.d/backup && \
       mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup/ && \
       curl -o /etc/yum.repos.d/Centos7-aliyun.repo https://mirrors.wlnmp.com/centos/Centos7-aliyun-altarch.repo -k && \
       yum clean all && \
       yum makecache; \
       fi
+```
 
   位置：
 

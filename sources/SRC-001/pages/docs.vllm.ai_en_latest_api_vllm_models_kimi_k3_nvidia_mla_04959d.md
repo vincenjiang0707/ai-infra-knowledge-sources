@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/models/kimi_k3/nvidia/mla/
 lastmod: 2026-09-27
 
+```python
 class MultiHeadLatentAttention(nn.Module, AttentionLayerBase):
 """Kimi-K3 Multi-head Latent Attention with optional RoPE and output gate."""
 def __init__(
@@ -796,6 +797,7 @@ fused kernel launch, dispatched by cache dtype. Chunked context runs
 through this layer's ``_compute_prefill_context``, except under DCP where
 it is delegated to the impl.
 Supported configs (K3 fp8 policy):
+```
 - bf16 cache -> bf16 prefill query
 - plain fp8 cache -> fp8 prefill query (unscaled q/k/v; cache _k_scale)
 - fp8_ds_mla cache -> bf16 prefill query (656B per-tile self-scaled)

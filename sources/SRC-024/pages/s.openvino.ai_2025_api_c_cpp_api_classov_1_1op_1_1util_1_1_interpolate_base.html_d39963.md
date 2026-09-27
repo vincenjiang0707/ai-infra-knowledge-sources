@@ -4,14 +4,18 @@ lastmod:
 # Class ov::op::util::InterpolateBase[#](https://docs.openvino.ai#class-ov-op-util-interpolatebase)
 
 -
+```python
 class InterpolateBase : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[Op](https://docs.openvino.ai/classov_1_1op_1_1_op.html#_CPPv4N2ov2op2OpE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util15InterpolateBaseE) Subclassed by
+```
 
 [ov::op::v11::Interpolate](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v11_1_1_interpolate),[ov::op::v4::Interpolate](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1op_1_1v4_1_1_interpolate)Public Types
 
 -
+```rust
 enum class ShapeCalcMode
 [#](https://docs.openvino.ai#_CPPv4N2ov2op4util15InterpolateBase13ShapeCalcModeE) [PartialShape](https://docs.openvino.ai/group__ov__transformation__common__api.html#classov_1_1_partial_shape)calculation mode.SIZES - output shape for interpolated axes is calculated using input
+```
 
 `sizes`
 
@@ -71,8 +75,10 @@ Throws if the node is invalid.
 
 
 -
+```rust
 struct InterpolateAttrs
 [#](https://docs.openvino.ai#_CPPv4N2ov2op4util15InterpolateBase16InterpolateAttrsE)
+```
 
 -
 enum class ShapeCalcMode

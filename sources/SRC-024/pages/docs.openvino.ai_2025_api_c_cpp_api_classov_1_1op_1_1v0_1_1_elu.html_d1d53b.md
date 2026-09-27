@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::v0::Elu[#](https://docs.openvino.ai#class-ov-op-v0-elu)
 
 -
+```python
 class Elu : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[UnaryElementwiseArithmetic](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_unary_elementwise_arithmetic.html#_CPPv4N2ov2op4util26UnaryElementwiseArithmeticE)[#](https://docs.openvino.ai#_CPPv4N2ov2op2v03EluE) Exponential Linear Unit x < 0 => f(x) = alpha * (exp(x) - 1.) x >= 0 => f(x) = x.
+```
 
 Public Functions
 

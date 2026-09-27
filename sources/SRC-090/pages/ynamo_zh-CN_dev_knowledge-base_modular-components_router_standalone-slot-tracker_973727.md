@@ -178,8 +178,10 @@ is required and may be empty. `new_isl_tokens`
 defaults
 to `0`
 
+```python
 ; positive values enable prefill-token accounting. Unknown trackers or worker ranks
 return `404`
+```
 
 .
 
@@ -195,8 +197,10 @@ Mark prompt processing complete:
 
 Returns `200`
 
+```python
 for an active request. Repeated completion is a no-op. Unknown requests
 return `404`
+```
 
 .
 

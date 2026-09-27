@@ -39,8 +39,10 @@ string that describes the layout content.
 
 
 -
+```rust
 struct ov_layout_t
 [#](https://docs.openvino.ai#_CPPv411ov_layout_t) *#include <ov_layout.h>*type define
+```
 
 [ov_layout_t](https://docs.openvino.ai#structov__layout__t)from ov_layout
 

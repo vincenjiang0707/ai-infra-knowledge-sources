@@ -8,9 +8,11 @@ labels:
 
 # 环境:
 910B8卡环境
+```yaml
 docker镜像: vllm-ascend:v0.11.0rc3
 torch: 2.7.1+cpu
 torch_npu: 2.7.1
+```
 
 # 部分代码如下：
 // memory.py
@@ -20,18 +22,22 @@ for i in range(self.num_experts):
             self.current_layer.append(expert)
 
 for i in range(self.num_experts * (self.num_layers - self.first_dense)):
+```python
             expert = copy.deepcopy(self.template_expert)
             self.offloaded_storages.append(expert)
         for expert in self.offloaded_storages:
             expert.share_memory()
+```
 
 // expert.py
 for dev_id in range(num_workers):
+```
             p = mp.Process(target=load_function, daemon=True, args=(
                 dev_id, self.config, self.current_layer, self.offloaded_storages, self.load_queue, self.flag_queue))
             p.daemon = True
             p.start()
             self.workers.append(p)
+```
 
 # 报错如下：
 [WARN]operator(),build/CMakeFiles/torch_npu.dir/compiler_depend.ts:3663:Feature is not supportted and the possible cause is that driver and firmware packages do not match.

@@ -4,8 +4,10 @@ lastmod:
 # Class ov::op::util::ArithmeticReduction[#](https://docs.openvino.ai#class-ov-op-util-arithmeticreduction)
 
 -
+```python
 class ArithmeticReduction : public
 [ov](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv42ov)::[op](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2opE)::[util](https://docs.openvino.ai/group__ov__dev__exec__model.html#_CPPv4N2ov2op4utilE)::[ReductionBase](https://docs.openvino.ai/classov_1_1op_1_1util_1_1_reduction_base.html#_CPPv4N2ov2op4util13ReductionBaseE)[#](https://docs.openvino.ai#_CPPv4N2ov2op4util19ArithmeticReductionE) Abstract base class for arithmetic reduction operations, i.e., operations where chosen axes of the input tensors are eliminated (reduced out) by repeated application of a particular binary arithmetic operation.
+```
 
 Subclassed by
 

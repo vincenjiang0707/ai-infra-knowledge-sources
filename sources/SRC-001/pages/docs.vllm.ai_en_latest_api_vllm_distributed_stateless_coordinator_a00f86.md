@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/stateless_coordinator/
 lastmod: 2026-09-27
 
+```python
 class StatelessGroupCoordinator(GroupCoordinator):
 """A stateless version of the GroupCoordinator class in parallel_state,
 It will create CPU, device and TCPStore based communication groups
@@ -279,3 +280,4 @@ return torch.cat(gathered_list, dim=dim)
 else:
 self.device_communicator.send(input_, dst)
 return None
+```

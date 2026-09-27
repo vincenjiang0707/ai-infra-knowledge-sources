@@ -10,9 +10,11 @@ labels:
 
 Environment
 
+```yaml
 GuideLLM: 0.6.0
 Backend: vLLM (OpenAI-compatible endpoint)
 Browser tested:
+```
 - Firefox
 - Google Chrome
 Report served through:
@@ -42,9 +44,11 @@ grep -oE '"requestsPerSecond"[[:space:]]*:[[:space:]]*[0-9.]+' benchmarks.html |
 
 Output:
 
+```json
 "requestsPerSecond": 0.2
 "requestsPerSecond": 0.13333333333333333
 "requestsPerSecond": 0.06666666666666667
+```
 ...
 
 The HTML also contains:

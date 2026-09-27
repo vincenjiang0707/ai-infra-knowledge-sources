@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/distributed/kv_transfer/kv_connector/v1/nixl/stats/
 lastmod: 2026-09-27
 
+```python
 @dataclass
 class NixlKVConnectorStats(KVConnectorStats):
 """Container for transfer performance metrics."""
@@ -67,8 +68,10 @@ def reduce(self) -> dict[str, int | float]:
 # issue.
 failure_counts = {
 "Num failed transfers": len(self.data["num_failed_transfers"])
+```
 + len(self.data["num_failed_handshakes"])
 + len(self.data["num_failed_notifications"]),
+```
 "Num KV expired reqs": len(self.data["num_kv_expired_reqs"]),
 }
 if self.num_successful_transfers == 0:
@@ -111,3 +114,4 @@ return {
 @property
 def num_successful_transfers(self) -> int:
 return len(self.data["transfer_duration"])
+```

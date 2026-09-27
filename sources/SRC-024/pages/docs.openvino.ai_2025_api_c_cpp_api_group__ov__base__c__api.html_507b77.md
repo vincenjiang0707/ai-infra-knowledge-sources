@@ -9,8 +9,10 @@ lastmod:
 Enums
 
 -
+```rust
 enum ov_status_e
 [#](https://docs.openvino.ai#_CPPv411ov_status_e) This enum contains codes for all possible return values of the interface functions.
+```
 
 *Values:*-
 enumerator OK
@@ -106,8 +108,10 @@ enumerator UNKNOW_EXCEPTION
 enumerator OK
 
 -
+```rust
 enum ov_element_type_e
 [#](https://docs.openvino.ai#_CPPv417ov_element_type_e) This enum contains codes for element type, which is aligned with
+```
 
 [ov::element::Type_t](https://docs.openvino.ai/group__ov__transformation__common__api.html#group__ov__element__cpp__api_1gac13a83fdcf171bd2c98577bfcd37f2f1)in src/core/include/openvino/core/type/element_type.hpp.*Values:*-
 enumerator UNDEFINED

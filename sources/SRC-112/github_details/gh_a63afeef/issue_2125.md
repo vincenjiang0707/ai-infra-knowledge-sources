@@ -135,8 +135,10 @@ Compared with the standard KV Cache layout:
 
 the optimized layout better matches the memory access pattern of PagedAttention on AMD GPUs:
 
+```yaml
 k_cache: [num_blocks, num_kv_heads, head_dim // x, block_size, x]
 v_cache: [num_blocks, num_kv_heads, block_size // X, head_dim, X]
+```
 
 This layout better aligns KV cache memory access with the AMD CDNA architecture, significantly improving PagedAttention memory access efficiency. During the decode stage, the system no longer needs additional device-to-device layout conversion, eliminating redundant D2D copy and related scheduling overhead.
 

@@ -15,11 +15,13 @@ Qwen-Image |
 ## Installation[¶](https://docs.vllm.ai#installation)
 
 # Clone and install vllm-omni
+```bash
 git clone https://github.com/vllm-project/vllm-omni.git
 cd vllm-omni
 uv venv
 source .venv/bin/activate
 uv pip install -e . vllm==0.18.0
+```
 
 
 ## Usage[¶](https://docs.vllm.ai#usage)
@@ -31,6 +33,7 @@ Qwen-Image and Qwen-Image-2512 are text-to-image models. Use the `text_to_image.
 script:
 
 # Qwen-Image (default)
+```bash
 python3 ./examples/offline_inference/text_to_image/text_to_image.py \
 --model Qwen/Qwen-Image \
 --prompt "a cup of coffee on the table" \
@@ -44,6 +47,7 @@ python3 ./examples/offline_inference/text_to_image/text_to_image.py \
 --output output_qwen_image_2512.png \
 --num-inference-steps 50 \
 --cfg-scale 4.0
+```
 
 
 Notes: 1. vLLM-Omni enables torch.compile by default. Try
@@ -61,6 +65,7 @@ or`--enable-layerwise-offload`
 Qwen-Image-Edit is the image editing version of Qwen-Image. It simultaneously feeds the input image into Qwen2.5-VL (for visual semantic control) and the VAE Encoder (for visual appearance control), achieving capabilities in both semantic and appearance editing.
 
 # Single image input (Qwen-Image-Edit)
+```bash
 python3 ./examples/offline_inference/image_to_image/image_edit.py \
 --model Qwen/Qwen-Image-Edit \
 --image qwen_bear.png \
@@ -68,6 +73,7 @@ python3 ./examples/offline_inference/image_to_image/image_edit.py \
 --output output_image_edit.png \
 --num-inference-steps 50 \
 --cfg-scale 4.0
+```
 
 
 For multiple image inputs, use `Qwen/Qwen-Image-Edit-2509`
@@ -77,6 +83,7 @@ or `Qwen/Qwen-Image-Edit-2511`
 :
 
 # Qwen-Image-Edit-2511 example (multiple images)
+```bash
 python3 ./examples/offline_inference/image_to_image/image_edit.py \
 --model Qwen/Qwen-Image-Edit-2511 \
 --image image1.png image2.png \
@@ -84,6 +91,7 @@ python3 ./examples/offline_inference/image_to_image/image_edit.py \
 --output output_image_edit.png \
 --num-inference-steps 50 \
 --cfg-scale 4.0
+```
 
 
 ### Image Layering (Qwen-Image-Layered)[¶](https://docs.vllm.ai#image-layering-qwen-image-layered)
@@ -143,10 +151,12 @@ vLLM-Omni supports **cache-dit** and **tea-cache** for Qwen-Image models.
 #### Cache-DiT[¶](https://docs.vllm.ai#cache-dit)
 
 # Text-to-Image with Cache-DiT
+```bash
 python3 ./examples/offline_inference/text_to_image/text_to_image.py \
 --model Qwen/Qwen-Image \
 --prompt "a cup of coffee on the table" \
 --cache-backend cache_dit
+```
 
 
 Advanced Cache-DiT options:
@@ -166,10 +176,12 @@ python3 ./examples/offline_inference/image_to_image/image_edit.py \
 #### TeaCache[¶](https://docs.vllm.ai#teacache)
 
 # Text-to-Image with TeaCache
+```bash
 python3 ./examples/offline_inference/text_to_image/text_to_image.py \
 --model Qwen/Qwen-Image \
 --prompt "a cup of coffee on the table" \
 --cache-backend tea_cache
+```
 
 
 ### Ulysses Sequence Parallelism[¶](https://docs.vllm.ai#ulysses-sequence-parallelism)
@@ -177,6 +189,7 @@ python3 ./examples/offline_inference/text_to_image/text_to_image.py \
 Distributes computation across GPUs without quality loss. Recommended for high-resolution images (>1536px) with 2–8 GPUs.
 
 # Text-to-Image with Ulysses SP
+```bash
 python3 ./examples/offline_inference/text_to_image/text_to_image.py \
 --model Qwen/Qwen-Image \
 --prompt "a cup of coffee on the table" \
@@ -190,6 +203,7 @@ python3 ./examples/offline_inference/image_to_image/image_edit.py \
 --num-inference-steps 50 \
 --cfg-scale 4.0 \
 --ulysses-degree 4
+```
 
 
 ### Ring-Attention Sequence Parallelism[¶](https://docs.vllm.ai#ring-attention-sequence-parallelism)
@@ -197,6 +211,7 @@ python3 ./examples/offline_inference/image_to_image/image_edit.py \
 Ring-based sequence parallelism, suitable for memory-constrained environments with very long sequences.
 
 # Text-to-Image with Ring-Attention
+```bash
 python3 ./examples/offline_inference/text_to_image/text_to_image.py \
 --model Qwen/Qwen-Image \
 --prompt "a cup of coffee on the table" \
@@ -207,6 +222,7 @@ python3 ./examples/offline_inference/image_to_image/image_edit.py \
 --image qwen_bear.png \
 --prompt "Edit description" \
 --ring-degree 4
+```
 
 
 ### CFG Parallelism[¶](https://docs.vllm.ai#cfg-parallelism)
@@ -216,6 +232,7 @@ Splits classifier-free guidance positive/negative branches across 2 GPUs. Partic
 .
 
 # Image Editing with CFG Parallel (2 GPUs)
+```bash
 python3 ./examples/offline_inference/image_to_image/image_edit.py \
 --model Qwen/Qwen-Image-Edit \
 --image qwen_bear.png \
@@ -223,6 +240,7 @@ python3 ./examples/offline_inference/image_to_image/image_edit.py \
 --cfg-parallel-size 2 \
 --num-inference-steps 50 \
 --cfg-scale 4.0
+```
 
 
 ### Tensor Parallelism[¶](https://docs.vllm.ai#tensor-parallelism)
@@ -230,6 +248,7 @@ python3 ./examples/offline_inference/image_to_image/image_edit.py \
 Shards model weights across multiple GPUs. Useful for running the 20B model across 2+ GPUs.
 
 # Text-to-Image with Tensor Parallelism (2 GPUs)
+```bash
 python3 ./examples/offline_inference/text_to_image/text_to_image.py \
 --model Qwen/Qwen-Image \
 --prompt "a cup of coffee on the table" \
@@ -240,6 +259,7 @@ python3 ./examples/offline_inference/image_to_image/image_edit.py \
 --image qwen_bear.png \
 --prompt "Edit description" \
 --tensor-parallel-size 2
+```
 
 
 ### CPU Offload[¶](https://docs.vllm.ai#cpu-offload)
@@ -247,6 +267,7 @@ python3 ./examples/offline_inference/image_to_image/image_edit.py \
 Offloads DiT layers to CPU memory between forward passes. Enables inference on limited VRAM.
 
 # Text-to-Image with CPU offload (module-wise)
+```bash
 python3 ./examples/offline_inference/text_to_image/text_to_image.py \
 --model Qwen/Qwen-Image \
 --prompt "a cup of coffee on the table" \
@@ -257,6 +278,7 @@ python3 ./examples/offline_inference/image_to_image/image_edit.py \
 --image qwen_bear.png \
 --prompt "Edit description" \
 --enable-layerwise-offload
+```
 
 
 ### VAE Patch Parallelism[¶](https://docs.vllm.ai#vae-patch-parallelism)
@@ -264,12 +286,14 @@ python3 ./examples/offline_inference/image_to_image/image_edit.py \
 Distributes VAE decode tiling across GPUs, reducing peak VAE memory usage at high resolutions.
 
 # Text-to-Image with VAE Patch Parallelism
+```bash
 python3 ./examples/offline_inference/text_to_image/text_to_image.py \
 --model Qwen/Qwen-Image \
 --prompt "a cup of coffee on the table" \
 --height 1536 --width 1536 \
 --ulysses-degree 2 \
 --vae-patch-parallel-size 2
+```
 
 
 VAE patch parallelism cannot be used alone. It must be used together with other parallelism methods.
@@ -282,6 +306,7 @@ Qwen-Image and Qwen-Image-2512 support FP8 and INT8 quantization. Qwen-Image-Edi
 #### FP8[¶](https://docs.vllm.ai#fp8)
 
 # Text-to-Image with FP8 quantization
+```bash
 python3 ./examples/offline_inference/text_to_image/text_to_image.py \
 --model Qwen/Qwen-Image \
 --prompt "a cup of coffee on the table" \
@@ -292,6 +317,7 @@ python3 ./examples/offline_inference/text_to_image/text_to_image.py \
 --prompt "a cup of coffee on the table" \
 --quantization fp8 \
 --ignored-layers "img_mlp"
+```
 
 
 #### INT8[¶](https://docs.vllm.ai#int8)

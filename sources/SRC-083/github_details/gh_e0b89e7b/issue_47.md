@@ -109,8 +109,10 @@ There are also other steps that I did as some errors appeared during the "make h
 3. ops.cuh line 17 "#include <hipsparse.h>"  to hipsparse/hipsparse.h
 
 
+```
 (All these steps only made the bnb-rocm "make hip" errors and Kohya bnb import/usage errors go away,
 but when actually using AdamW8bit, the 1st epoch are some weird color artifacts, and the epochs afterwards are all black, and the console saying loss=nan; whereas AdamW and Lion work normally with the same params)
+```
 
 
 ### arlo-phoenix · 2023-08-05

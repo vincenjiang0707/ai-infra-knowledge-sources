@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/config/model/
 lastmod: 2026-09-27
 
+```python
 @config(config=ConfigDict(arbitrary_types_allowed=True))
 class ModelConfig:
 """Configuration for the model."""
@@ -24,6 +25,7 @@ tokenizer: str = None # type: ignore[assignment]
 name or path will be used."""
 tokenizer_mode: TokenizerMode | str = "auto"
 """Tokenizer mode:
+```
 - "auto" will use the tokenizer from `mistral_common` for Mistral models
 if available, otherwise it will use the "hf" tokenizer.
 - "hf" will use the fast tokenizer if available.
@@ -1511,6 +1513,7 @@ The default sampling parameters are:
 - vLLM's neutral defaults if `self.generation_config="vllm"`
 - the model's defaults if `self.generation_config="auto"`
 - as defined in `generation_config.json` if
+```python
 `self.generation_config="path/to/generation_config/dir"`
 Returns:
 A dictionary containing the non-default sampling parameters.
@@ -1631,10 +1634,12 @@ return self._model_info.requires_raw_input_tokens
 @property
 def score_type(self) -> ScoreType:
 """Scoring API handles score/rerank for:
+```
 - "classify" task (score_type: cross-encoder models)
 - "embed" task (score_type: bi-encoder models)
 - "token_embed" task (score_type: late interaction models)
 """
+```python
 # fixme: self._model_info.score_type is the score type before
 # as_seq_cls_model, which is "bi-encoder", rather than the
 # score type after as_seq_cls_model, which is "cross-encoder".
@@ -1709,10 +1714,12 @@ return getattr(self.hf_config, "use_sep_token", True)
 def head_dtype(self) -> torch.dtype:
 """The "head" refers to the last Linear layer(s) of an LLM,
 such as the lm_head in a generation model,
+```
 or the score or classifier in a classification model.
 - Pooling models default to an fp32 head; use
 --hf-overrides '{"head_dtype": "model"}' to disable it.
 - Generation models default to the model dtype; set
+```python
 --hf-overrides '{"head_dtype": "float32"}' to run the lm_head in
 fp32, which is required for RL training-inference consistency
 (the trainer computes logits in fp32).
@@ -1893,3 +1900,4 @@ self.quantization == "compressed-tensors"
 and quant_config is not None
 and "nvfp4" in quant_config.get("format", "").lower()
 )
+```

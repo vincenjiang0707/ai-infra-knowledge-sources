@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/models/whisper/
 lastmod: 2026-09-27
 
+```python
 @MULTIMODAL_REGISTRY.register_processor(
 WhisperMultiModalProcessor,
 info=WhisperProcessingInfo,
@@ -213,3 +214,4 @@ loader = AutoWeightsLoader(self)
 # add fake zeros bias for k_proj to state_dict
 weights = _create_fake_bias_for_k_proj(weights, ".k_proj.weight")
 return loader.load_weights(weights, mapper=self.hf_to_vllm_mapper)
+```

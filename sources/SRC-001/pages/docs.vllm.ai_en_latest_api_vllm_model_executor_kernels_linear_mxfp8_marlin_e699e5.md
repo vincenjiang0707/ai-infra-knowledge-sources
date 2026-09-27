@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/kernels/linear/mxfp8/marlin/
 lastmod: 2026-09-27
 
+```python
 class MarlinMxfp8LinearKernel(Mxfp8LinearKernel):
 """MXFP8 W8A16 GEMM via Marlin (SM80+)."""
 @classmethod
@@ -49,3 +50,4 @@ size_n=layer.output_size_per_partition,
 size_k=layer.input_size_per_partition,
 bias=bias,
 )
+```

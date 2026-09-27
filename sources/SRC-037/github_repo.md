@@ -14,6 +14,7 @@
 # <p align="center"> <img src="docs/LOGO.png" height="172px" width="598px"> </p>
 
 <p align="center">
+```html
     <a> <img src="https://img.shields.io/badge/python-3.8%7C3.9%7C3.10-green"> </a>
     <a> <img src="https://img.shields.io/badge/build-passing-green"> </a>
     <a href="https://gitcode.com/Ascend/MindSpeed/blob/master/LICENSE">
@@ -25,6 +26,7 @@
     <a>
         <img src="https://app.codacy.com/project/badge/Grade/1710faac5e634acaabfc26b0a778cdde">
     </a>
+```
 </p>
 
 # 简介
@@ -150,32 +152,40 @@ MindSpeed Core 加速特性分为三个层级，用户可根据实际需求选�
 
 <table>
   <thead>
+```html
     <tr>
       <th width="50">层级</th>
       <th width="180">层级名称</th>
       <th width="600">介绍</th>
     </tr>
+```
   </thead>
   <tbody>
+```html
     <tr>
       <td style="text-align: center; vertical-align: middle">0</td>
       <td>基础功能兼容</td>
       <td>提供Megatron-LM框架对NPU的基本功能适配。</td>
     </tr>
+```
   </tbody>
   <tbody>
+```html
     <tr>
       <td style="text-align: center; vertical-align: middle">1</td>
       <td>亲和性增强🔥</td>
       <td>在L0基础上使能部分融合算子与昇腾亲和计算改写。</td>
     </tr>
+```
   </tbody>
   <tbody>
+```html
     <tr>
       <td style="text-align: center; vertical-align: middle">2</td>
       <td>加速特性使能🔥🔥</td>
       <td>默认值。在L0、L1基础上开启更丰富的加速特性，加速特性通常通过具体参数使能，可参考"特性介绍"章节。</td>
     </tr>
+```
   </tbody>
 </table>
 

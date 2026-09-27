@@ -1,6 +1,7 @@
 source: https://docs.vllm.ai/en/latest/api/vllm/model_executor/layers/mamba/linear/bailing_linear_attn/
 lastmod: 2026-09-27
 
+```python
 @PluggableLayer.register("bailing_moe_linear_attention")
 class BailingMoELinearAttention(LinearAttention):
 """Pluggable Bailing MoE Linear Attention layer which allows OOT backends
@@ -293,3 +294,4 @@ slot_end=attn_metadata.num_decodes,
 block_size=32,
 )
 return hidden
+```
