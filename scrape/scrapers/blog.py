@@ -330,7 +330,7 @@ def run(src, ch_key, ch, meta_channels, cursor):
                 time.sleep(_jit(2))
             try:
                 try:
-                    page.goto(url, wait_until='networkidle', timeout=15000)
+                    page.goto(url, wait_until=WAIT, timeout=15000)
                 except Exception:
                     # networkidle 过严 (挂起的评论 iframe/gtag 等永不 idle):
                     # 降级 domcontentloaded + 渲染等待, 静态站正文已完整
